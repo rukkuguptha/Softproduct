@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HomeViewController.h"
 @interface ViewController : UIViewController
+@property(strong,nonatomic)HomeViewController*hmeVCtrl;
+- (IBAction)loginbtn:(id)sender;
 
 @end

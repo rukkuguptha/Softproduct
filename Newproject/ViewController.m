@@ -26,4 +26,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)loginbtn:(id)sender {
+    if (!self.hmeVCtrl) {
+        self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
+    }
+    [self.navigationController pushViewController:_hmeVCtrl animated:YES];
+}
 @end
