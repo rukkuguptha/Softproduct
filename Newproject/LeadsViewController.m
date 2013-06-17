@@ -140,15 +140,15 @@
     popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
     
     //create a popover controller
-    self.popOverController = [[UIPopoverController alloc]
+          
+          self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
-    
+  
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
     [self.popOverController presentPopoverFromRect:rect inView:cell permittedArrowDirections:nil animated:YES];
-
-    
+  
 //    [self.popOverController presentPopoverFromRect:rect
 //                                            inView:self.leadTable
 //                          permittedArrowDirections:UIPopoverArrowDirectionLeft
@@ -177,6 +177,7 @@
 
          }
          
+         [self.popOverController dismissPopoverAnimated:YES];
 
          
          

@@ -30,6 +30,7 @@
 		D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */; };
 		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
 		D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */; };
+		D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFFC176F186200F4E196 /* FollowupCell.xib */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		D4A2AFF6176EEC7200F4E196 /* FollowupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowupViewController.h; sourceTree = "<group>"; };
 		D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowupViewController.m; sourceTree = "<group>"; };
 		D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupViewController.xib; sourceTree = "<group>"; };
+		D4A2AFFC176F186200F4E196 /* FollowupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupCell.xib; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 				D4A2AFF6176EEC7200F4E196 /* FollowupViewController.h */,
 				D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */,
 				D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */,
+				D4A2AFFC176F186200F4E196 /* FollowupCell.xib */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */,
 				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
+				D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
