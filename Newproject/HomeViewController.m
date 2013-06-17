@@ -36,6 +36,14 @@
     doubleTap.numberOfTapsRequired=1;
     doubleTap.delegate=(id)self;
     [self.customerview addGestureRecognizer:doubleTap];
+    
+    UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
+                                         initWithTarget:self
+                                         action:@selector(LeadPage)];
+    doubleTap1.numberOfTapsRequired=1;
+    doubleTap1.delegate=(id)self;
+    [self.leadView addGestureRecognizer:doubleTap1];
+    
 
 }
 -(void)customerpage{
@@ -44,6 +52,15 @@
     }
     [self.navigationController pushViewController:_custmrVCtrl animated:YES];
     
+}
+-(void)LeadPage
+{
+    if (!self.leadVCtrl) {
+        self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
+    }
+    [self.navigationController pushViewController:_leadVCtrl animated:YES];
+    
+
 }
 
 
