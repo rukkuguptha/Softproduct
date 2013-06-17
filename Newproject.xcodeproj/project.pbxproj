@@ -24,6 +24,8 @@
 		D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */; };
 		D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D1ED8176B27E200379DD5 /* LeadsViewController.m */; };
 		D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */; };
+		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
+		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		D40D1ED7176B27E200379DD5 /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		D40D1ED8176B27E200379DD5 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
+		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
+		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */,
 				D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */,
 				D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */,
 				D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */,
@@ -88,6 +93,7 @@
 		D40D1EA9176B086F00379DD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */,
 				D40D1EAA176B086F00379DD5 /* UIKit.framework */,
 				D40D1EAC176B086F00379DD5 /* Foundation.framework */,
 				D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */,
@@ -109,6 +115,7 @@
 				D40D1ED2176B0D4F00379DD5 /* CustomerViewController.h */,
 				D40D1ED3176B0D4F00379DD5 /* CustomerViewController.m */,
 				D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */,
+				D4CA2FD8176EC33E007EEF7D /* Customercell.xib */,
 				D40D1ED7176B27E200379DD5 /* LeadsViewController.h */,
 				D40D1ED8176B27E200379DD5 /* LeadsViewController.m */,
 				D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */,
@@ -190,6 +197,7 @@
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
+				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

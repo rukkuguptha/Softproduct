@@ -27,8 +27,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+   // _customertable.rowHeight=50;
     [_customertable reloadData];
+    _scrollview.frame=CGRectMake(0, 0, 768,1004);
+    [_scrollview setContentSize:CGSizeMake(768,1500)];
+    _view1.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    
+    
+    
+    _customertable.layer.borderWidth = 2.0;
+  _customertable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
+    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+   
+
 }
 
 
@@ -50,7 +61,7 @@
         
     // Return the number of rows in the section.
     
-    return 20;
+    return 10;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -59,11 +70,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-cell.textLabel.text=@"Customer Name";
+        [[NSBundle mainBundle]loadNibNamed:@"Customercell" owner:self options:nil];
+        cell=_customercell;
+
         
     }
-        
+        //cell.textLabel.text=@"Customer Name";
+    
+    
     
     return cell;
     
@@ -72,15 +86,16 @@ cell.textLabel.text=@"Customer Name";
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if (indexPath.row%2 == 0) {
-        
-        [cell setBackgroundColor:[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
+
+    
     }else
     {
         
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f]];
         
-        [cell setBackgroundColor:[UIColor whiteColor]];
-    }
+           }
 }
 
 @end
