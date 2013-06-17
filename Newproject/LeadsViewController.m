@@ -61,8 +61,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-         [[NSBundle mainBundle]loadNibNamed:@"LeadCustomCell" owner:self options:nil];
-        cell=_leadsCell;
+         [[NSBundle mainBundle]loadNibNamed:@"CustomLeadCell" owner:self options:nil];
+        cell=_leadsTablecell;
         
     }
      //cell.textLabel.text=@"Leads";

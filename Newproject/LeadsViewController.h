@@ -21,6 +21,6 @@
 @property(strong,nonatomic)IBOutlet UILabel *ProjectType;
 @property(strong,nonatomic)IBOutlet UILabel *ProjectExecution;
 
-@property(strong,nonatomic)IBOutlet UITableViewCell *leadsCell;
+@property(strong,nonatomic)IBOutlet UITableViewCell *leadsTablecell;
 
 @end
