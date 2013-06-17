@@ -32,8 +32,48 @@
     _leadTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MenuAction)];
+    [_leadName addGestureRecognizer:tap];
     // Do any additional setup after loading the view from its nib.
 }
+
+-(void)MenuAction
+{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 100, 100)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+//    _popOverTableView.delegate=(id)self;
+//    _popOverTableView.dataSource=(id)self;
+//    _popOverTableView.rowHeight= 32;
+//    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLineEtched;
+//  
+//    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_leadName.frame
+                                            inView:self.leadTable
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
+    
+    
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

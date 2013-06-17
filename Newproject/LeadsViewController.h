@@ -22,5 +22,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *ProjectExecution;
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *leadsTablecell;
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
 
 @end
