@@ -25,6 +25,10 @@
 		D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */; };
 		D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D1ED8176B27E200379DD5 /* LeadsViewController.m */; };
 		D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */; };
+		D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */; };
+		D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */; };
+		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
+		D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +61,12 @@
 		D40D1ED7176B27E200379DD5 /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		D40D1ED8176B27E200379DD5 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
+		D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
+		D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
+		D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
+		D4A2AFF6176EEC7200F4E196 /* FollowupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowupViewController.h; sourceTree = "<group>"; };
+		D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowupViewController.m; sourceTree = "<group>"; };
+		D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupViewController.xib; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -119,11 +129,7 @@
 				D40D1ED3176B0D4F00379DD5 /* CustomerViewController.m */,
 				D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */,
 				D4CA2FD8176EC33E007EEF7D /* Customercell.xib */,
-				D40D1ED7176B27E200379DD5 /* LeadsViewController.h */,
-				D40D1ED8176B27E200379DD5 /* LeadsViewController.m */,
-				D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */,
-				64816157176EC9920017F4CC /* LeadCustomCell.xib */,
-				64816159176EE7CF0017F4CC /* CustomLeadCell.xib */,
+				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
 			);
 			path = Newproject;
@@ -141,6 +147,24 @@
 				D40D1EC0176B086F00379DD5 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4A2AFF0176EEC1100F4E196 /* Leads */ = {
+			isa = PBXGroup;
+			children = (
+				D40D1ED7176B27E200379DD5 /* LeadsViewController.h */,
+				D40D1ED8176B27E200379DD5 /* LeadsViewController.m */,
+				D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */,
+				64816157176EC9920017F4CC /* LeadCustomCell.xib */,
+				64816159176EE7CF0017F4CC /* CustomLeadCell.xib */,
+				D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */,
+				D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */,
+				D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */,
+				D4A2AFF6176EEC7200F4E196 /* FollowupViewController.h */,
+				D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */,
+				D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */,
+			);
+			name = Leads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +228,8 @@
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */,
+				D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */,
+				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +246,8 @@
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
 				D40D1ED5176B0D4F00379DD5 /* CustomerViewController.m in Sources */,
 				D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */,
+				D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */,
+				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
