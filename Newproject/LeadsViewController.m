@@ -28,6 +28,9 @@
     [super viewDidLoad];
     _scroll.frame=CGRectMake(0, 0, 768,1004);
     [_scroll setContentSize:CGSizeMake(768,1500)];
+    _leadTable.layer.borderWidth = 2.0;
+    _leadTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
+    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
     // Do any additional setup after loading the view from its nib.
 }
