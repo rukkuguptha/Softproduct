@@ -125,10 +125,7 @@
 				D40D1ECD176B0A0800379DD5 /* HomeViewController.h */,
 				D40D1ECE176B0A0800379DD5 /* HomeViewController.m */,
 				D40D1ECF176B0A0800379DD5 /* HomeViewController.xib */,
-				D40D1ED2176B0D4F00379DD5 /* CustomerViewController.h */,
-				D40D1ED3176B0D4F00379DD5 /* CustomerViewController.m */,
-				D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */,
-				D4CA2FD8176EC33E007EEF7D /* Customercell.xib */,
+				D4A2AFFB176EED2A00F4E196 /* Customer */,
 				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
 			);
@@ -165,6 +162,17 @@
 				D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */,
 			);
 			name = Leads;
+			sourceTree = "<group>";
+		};
+		D4A2AFFB176EED2A00F4E196 /* Customer */ = {
+			isa = PBXGroup;
+			children = (
+				D40D1ED2176B0D4F00379DD5 /* CustomerViewController.h */,
+				D40D1ED3176B0D4F00379DD5 /* CustomerViewController.m */,
+				D4CA2FD8176EC33E007EEF7D /* Customercell.xib */,
+				D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */,
+			);
+			name = Customer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
