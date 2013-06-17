@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "ActivityViewController.h"
+#import "FollowupViewController.h"
 @interface LeadsViewController : UIViewController
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -22,5 +23,12 @@
 @property(strong,nonatomic)IBOutlet UILabel *ProjectExecution;
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *leadsTablecell;
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+@property (strong, nonatomic) IBOutlet UIImageView *imgview;
+@property(strong,nonatomic)NSMutableArray*popoverArray;
+@property(strong,nonatomic)ActivityViewController*activityVCtrl;
+
+@property(strong,nonatomic)FollowupViewController*followupVCtrl;
 
 @end
