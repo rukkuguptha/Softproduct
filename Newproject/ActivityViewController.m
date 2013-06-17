@@ -14,6 +14,8 @@
 
 @implementation ActivityViewController
 
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,13 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _scroll.frame=CGRectMake(0, 0, 768,1004);
-    [_scroll setContentSize:CGSizeMake(768,1500)];
+    _scroll.frame=CGRectMake(0, 0, 1024,708);
+    [_scroll setContentSize:CGSizeMake(1024,760)];
     _activityTable.layer.borderWidth = 2.0;
     _activityTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+    self.newviewactivity.hidden=YES;
+    _activityNav.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
 
-    // Do any additional setup after loading the view from its nib.
+       // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +80,15 @@
         
         [cell setBackgroundColor:[UIColor whiteColor]];
     }
+}
+
+-(IBAction)addNewActivity:(id)sender
+{
+    self.newviewactivity.hidden=NO;
+}
+-(IBAction)closetheView:(id)sender
+{
+    self.newviewactivity.hidden=YES;
 }
 
 
