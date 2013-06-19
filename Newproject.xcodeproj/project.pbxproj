@@ -27,6 +27,7 @@
 		D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */; };
 		D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D1ED8176B27E200379DD5 /* LeadsViewController.m */; };
 		D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */; };
+		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6481615D176F0B230017F4CC /* ActivityCustomCell.xib */; };
 		D443A33317716FE60011C5DB /* appbar.close.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FF17716E0E006BB41A /* appbar.close.png */; };
 		D443A33417717F890011C5DB /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13021771726E006BB41A /* CKCalendarView.m */; };
@@ -72,6 +73,7 @@
 		D40D1ED7176B27E200379DD5 /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		D40D1ED8176B27E200379DD5 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
+		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */,
 				D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */,
 				D4A2AFFC176F186200F4E196 /* FollowupCell.xib */,
+				D4149F27177186C100738AAC /* squareimage1.png */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
+				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

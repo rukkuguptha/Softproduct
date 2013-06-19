@@ -35,7 +35,14 @@
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Follow Up" ,nil];
     // Do any additional setup after loading the view from its nib.
     
-    _btnArray=[[NSMutableArray alloc]initWithObjects:@"Create LeadInfo",@"Edit Leads" ,nil];
+    _btnArray=[[NSMutableArray alloc]initWithObjects:@"Create LeadInfo",@"Edit Leads",@"Delete Leads" ,nil];
+    
+    
+    _leadtypeArray=[[NSMutableArray alloc]initWithObjects:@"Referral",@"Database",@"Repeat Customer",@"Phone Request", nil];
+    _projecttypeArray=[[NSMutableArray alloc]initWithObjects:@"TurnAround",@"Maintenance",@"Capital Work",@"New Construction",@"Unknown", nil];
+    _industrytypeArray=[[NSMutableArray alloc]initWithObjects:@"Chemical",@"Refining",@"Pulp",@"Paper",@"Power" ,nil];
+    _prjctexcutnArray=[[NSMutableArray alloc]initWithObjects:@"Immediate",@"First Quarter", @"Second Quarter",@"Third Quarter",@"Fourth Quarter of that calender year", nil];
+    
     
     
      
@@ -86,7 +93,28 @@
     
     // Return the number of rows in the section.
     if (tableView==_popOverTableView) {
-        return [_popoverArray count];
+        
+        switch (poptype) {
+            case 1:
+                return [_leadtypeArray count];
+                break;
+            case 2:
+                return [_projecttypeArray count];
+                break;
+            case 3:
+                return [_industrytypeArray count];
+                break;
+            case 4:
+                return [_prjctexcutnArray count];
+                break;
+            case 5:
+              return [_popoverArray count];
+                break;
+
+            default:
+                break;
+        }
+        
     }
     if (tableView==_leadTable) {
          return 20;
@@ -118,7 +146,37 @@
     }
     
     if (tableView==_popOverTableView) {
-        cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
+        
+        switch (poptype) {
+            case 1:
+                cell.textLabel.text=[_leadtypeArray objectAtIndex:indexPath.row];
+             
+                break;
+            case 2:
+                cell.textLabel.text=[_projecttypeArray objectAtIndex:indexPath.row];
+
+                
+                break;
+            case 3:
+                cell.textLabel.text=[_industrytypeArray objectAtIndex:indexPath.row];
+
+                               break;
+            case 4:
+                cell.textLabel.text=[_prjctexcutnArray objectAtIndex:indexPath.row];
+
+              
+                break;
+            case 5:
+                cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
+
+                              break;
+                
+            default:
+                break;
+        }
+
+        
+        
     }
     return cell;
     
@@ -141,7 +199,7 @@
 {
       if (tableView==_leadTable) {
     // CGRect frame = [_popOverTableView cellForRowAtIndexPath:indexPath].frame;
-    
+          poptype=5;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
           
@@ -224,14 +282,152 @@
     }
     if ([buttonTitle isEqualToString:@"Create LeadInfo"]) {
           _view2.hidden=NO;
-    }
+       // self.leadTable.userInteractionEnabled=NO;
+            }
    
 }
+
+
+
+
 - (IBAction)Addbtn:(id)sender {
  
     
 }
 - (IBAction)clsebtn:(id)sender {
     _view2.hidden=YES;
+}
+- (IBAction)leadtypebtn:(id)sender {
+    poptype=1;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    self.popOverTableView.allowsMultipleSelection=YES;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_leadtypebtnlbl.frame
+                                            inView:self.view2
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+
+}
+
+- (IBAction)prjcttypebtn:(id)sender {
+     poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    self.popOverTableView.allowsMultipleSelection=YES;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_projecttype.frame
+                                            inView:self.view2
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+
+}
+
+- (IBAction)industrytypetxtfld:(id)sender {
+     poptype=3;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    self.popOverTableView.allowsMultipleSelection=YES;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_industrytypetxtfld.frame
+                                            inView:self.view2
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+
+}
+
+- (IBAction)prjctexcnbtn:(id)sender {
+     poptype=4;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    self.popOverTableView.allowsMultipleSelection=YES;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_prjctexcutntxtfld.frame
+                                            inView:self.view2
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+
+}
+
+- (IBAction)updatebtn:(id)sender {
+}
+
+- (IBAction)cancelbtn:(id)sender {
 }
 @end
