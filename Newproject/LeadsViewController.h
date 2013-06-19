@@ -30,5 +30,6 @@
 @property(strong,nonatomic)ActivityViewController*activityVCtrl;
 
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
+- (IBAction)Addbtn:(id)sender;
 
 @end
