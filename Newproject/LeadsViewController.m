@@ -31,7 +31,7 @@
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
-
+    self.navbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Follow Up" ,nil];
 //    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MenuAction)];
 //    [_leadName addGestureRecognizer:tap];
@@ -191,7 +191,10 @@
 
 
 - (IBAction)Addbtn:(id)sender {
+    _view2.hidden=NO;
     
-    
+}
+- (IBAction)clsebtn:(id)sender {
+    _view2.hidden=YES;
 }
 @end

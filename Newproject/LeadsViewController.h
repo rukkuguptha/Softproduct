@@ -31,5 +31,8 @@
 
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
 - (IBAction)Addbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *view2;
+- (IBAction)clsebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 
 @end
