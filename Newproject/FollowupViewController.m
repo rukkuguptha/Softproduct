@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _view2.hidden=YES;
     // Do any additional setup after loading the view from its nib.
     
     _view1.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
@@ -38,7 +39,47 @@
     _followuptable.layer.borderWidth = 2.0;
     _followuptable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
       _navigationbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+     _btnArray=[[NSMutableArray alloc]initWithObjects:@"New FollowUP",@"Edit FollowUP",@"Delete FollowUP" ,nil];
+    _communctiontypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+    
+    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
+    
+    
+}
+
+-(void)butnaction{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    for (NSString *actionString in self.btnArray) {
+        [actionSheet addButtonWithTitle:actionString];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    [actionSheet showInView:self.view];
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if  ([buttonTitle isEqualToString:@"Edit Leads"]) {
+        NSLog(@"Destructive pressed --> Delete Something");
+    }
+    if ([buttonTitle isEqualToString:@"New FollowUP"]) {
+       _view2 .hidden=NO;
+        // self.leadTable.userInteractionEnabled=NO;
+    }
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -57,8 +98,13 @@
 {
     
     // Return the number of rows in the section.
-    
-    return 10;
+    if(tableView==_popOverTableView) {
+        return [_communctiontypeArray count];
+    }
+    else
+    {
+    return 20;
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,19 +113,30 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        [[NSBundle mainBundle]loadNibNamed:@"Customercell" owner:self options:nil];
-//        cell=_customercell;
-//        
+        [[NSBundle mainBundle]loadNibNamed:@"FollowupCell" owner:self options:nil];
+        cell=_followcell;
+        
         
     }
     //cell.textLabel.text=@"Customer Name";
-    
+    if(tableView==_popOverTableView)
+    {
+        cell.textLabel.text=[_communctiontypeArray objectAtIndex:indexPath.row];
+    }
     
     
     return cell;
     
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+    {
+        [_communictntypeBtn setTitle:[_communctiontypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+    }
+}
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView==_followuptable)
     {
@@ -99,7 +156,7 @@
 }
 
 
-- (IBAction)addbtn:(id)sender {
+-(void)addaction {
     _view2.hidden=NO;
 }
 - (IBAction)closebtn:(id)sender {
