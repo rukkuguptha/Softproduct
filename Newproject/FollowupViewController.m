@@ -81,6 +81,8 @@
     
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(tableView==_followuptable)
+    {
     //alternating cell back ground color
     if (indexPath.row%2 == 0) {
         [cell setBackgroundColor:[UIColor whiteColor]];
@@ -92,6 +94,7 @@
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
         [cell setBackgroundColor:[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f]];
         
+    }
     }
 }
 
@@ -196,6 +199,41 @@
     [self createCalenderPopover];
 }
 
+-(void)createPopover
+{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+            [self.popOverController presentPopoverFromRect:_communictntypeBtn.frame
+                                                inView:self.view2
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+        
+ 
+}
+-(IBAction)selectCommunicationType:(id)sender
+{
+    [self createPopover];
+}
 
 
 

@@ -21,5 +21,8 @@
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
 @property(nonatomic, weak) CKCalendarView *calendar;
+@property(strong,nonatomic)IBOutlet UIButton *communictntypeBtn;
+-(IBAction)selectCommunicationType:(id)sender;
+@property(strong,nonatomic)UITableView *popOverTableView;
 
 @end
