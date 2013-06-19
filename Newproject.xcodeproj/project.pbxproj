@@ -29,6 +29,7 @@
 		D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */; };
 		D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6481615D176F0B230017F4CC /* ActivityCustomCell.xib */; };
 		D443A33317716FE60011C5DB /* appbar.close.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FF17716E0E006BB41A /* appbar.close.png */; };
+		D443A33417717F890011C5DB /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13021771726E006BB41A /* CKCalendarView.m */; };
 		D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */; };
 		D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */; };
 		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
@@ -278,7 +279,7 @@
 				D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */,
 				D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
-				648D13031771726E006BB41A /* CKCalendarView.m in Sources */,
+				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
