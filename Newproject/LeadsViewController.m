@@ -30,6 +30,7 @@
     [_scroll setContentSize:CGSizeMake(768,1500)];
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
+    
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.navbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
     
@@ -56,24 +57,28 @@
   //  UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithImage:nil style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
     
     
-    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"edit" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
     [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
 
     
 }
 
 -(void)butnaction{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:nil];
-    for (NSString *fruit in self.btnArray) {
-        [actionSheet addButtonWithTitle:fruit];
-    }
-    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
-    [actionSheet showInView:self.view];
     
+      _view2.hidden=NO;
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
+//                                                             delegate:self
+//                                                    cancelButtonTitle:nil
+//                                               destructiveButtonTitle:nil
+//                                                    otherButtonTitles:nil];
+//    for (NSString *btn in self.btnArray) {
+//        [actionSheet addButtonWithTitle:btn];
+//    }
+//    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+//    [actionSheet showFromRect:CGRectMake(1004,0, 10, 10) inView:self.view animated:YES];
+//    [actionSheet showInView:self.scroll];
+//    actionSheet.layer.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
+   // actionSheet.actionSheetStyle=UIActionSheetStyleDefault;
 }
 
 
@@ -285,7 +290,7 @@
         NSLog(@"Destructive pressed --> Delete Something");
     }
     if ([buttonTitle isEqualToString:@"Create LeadInfo"]) {
-          _view2.hidden=NO;
+        
        // self.leadTable.userInteractionEnabled=NO;
             }
    
