@@ -23,5 +23,5 @@
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
 -(IBAction)selectDate:(id)sender;
-
+@property(strong,nonatomic)NSMutableArray*btnArray;
 @end

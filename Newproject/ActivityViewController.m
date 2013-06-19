@@ -35,9 +35,47 @@
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.newviewactivity.hidden=YES;
     _activityNav.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
-
+   _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
+    self.navigationController.navigationBar.tintColor=[UIColor grayColor];
        // Do any additional setup after loading the view from its nib.
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+   
+    
+    
+    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
+    
+    
+}
+
+-(void)butnaction{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    for (NSString *fruit in self.btnArray) {
+        [actionSheet addButtonWithTitle:fruit];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    [actionSheet showInView:self.view];
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if  ([buttonTitle isEqualToString:@"Edit Leads"]) {
+        NSLog(@"Destructive pressed --> Delete Something");
+    }
+    if ([buttonTitle isEqualToString:@"New Activity"]) {
+        _newviewactivity.hidden=NO;
+        // self.leadTable.userInteractionEnabled=NO;
+    }
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {

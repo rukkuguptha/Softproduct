@@ -10,6 +10,8 @@
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
+		648D13071771A093006BB41A /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13051771A093006BB41A /* CompanyViewController.m */; };
+		648D13081771A093006BB41A /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648D13061771A093006BB41A /* CompanyViewController.xib */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
 		D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAC176B086F00379DD5 /* Foundation.framework */; };
 		D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */; };
@@ -48,6 +50,9 @@
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
 		648D13011771726E006BB41A /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
 		648D13021771726E006BB41A /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		648D13041771A093006BB41A /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompanyViewController.h; path = ../CompanyViewController.h; sourceTree = "<group>"; };
+		648D13051771A093006BB41A /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyViewController.m; path = ../CompanyViewController.m; sourceTree = "<group>"; };
+		648D13061771A093006BB41A /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CompanyViewController.xib; path = ../CompanyViewController.xib; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -100,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		648D130A1771A29B006BB41A /* Company */ = {
+			isa = PBXGroup;
+			children = (
+				648D13041771A093006BB41A /* CompanyViewController.h */,
+				648D13051771A093006BB41A /* CompanyViewController.m */,
+				648D13061771A093006BB41A /* CompanyViewController.xib */,
+			);
+			name = Company;
+			sourceTree = "<group>";
+		};
 		D40D1E9E176B086E00379DD5 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +154,7 @@
 				D40D1ECD176B0A0800379DD5 /* HomeViewController.h */,
 				D40D1ECE176B0A0800379DD5 /* HomeViewController.m */,
 				D40D1ECF176B0A0800379DD5 /* HomeViewController.xib */,
+				648D130A1771A29B006BB41A /* Company */,
 				D4A2AFFB176EED2A00F4E196 /* Customer */,
 				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
@@ -265,6 +281,7 @@
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
+				648D13081771A093006BB41A /* CompanyViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +301,7 @@
 				D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
+				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
