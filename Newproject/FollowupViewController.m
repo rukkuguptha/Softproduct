@@ -103,7 +103,7 @@
     }
     else
     {
-    return 10;
+    return 20;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
