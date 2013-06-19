@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "CKCalendarView.h"
 @interface FollowupViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (strong, nonatomic) IBOutlet UIView *view1;
@@ -16,5 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIView *view2;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationbar;
 - (IBAction)closebtn:(id)sender;
+@property(nonatomic, strong) NSDateFormatter *dateFormatter;
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)IBOutlet UIButton *dateBtn;
+@property(nonatomic, weak) CKCalendarView *calendar;
 
 @end

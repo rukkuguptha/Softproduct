@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "CKCalendarView.h"
 
 @interface ActivityViewController : UIViewController
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
@@ -17,5 +18,10 @@
 @property(strong,nonatomic)IBOutlet UIView *newviewactivity;
 -(IBAction)closetheView:(id)sender;
 @property(strong,nonatomic)IBOutlet UINavigationBar *activityNav;
+@property(nonatomic, weak) CKCalendarView *calendar;
+@property(nonatomic, strong) NSDateFormatter *dateFormatter;
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)IBOutlet UIButton *dateBtn;
+-(IBAction)selectDate:(id)sender;
 
 @end
