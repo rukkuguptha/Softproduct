@@ -37,6 +37,7 @@
     
     _followuptable.layer.borderWidth = 2.0;
     _followuptable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
+      _navigationbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
 }
 
 - (void)didReceiveMemoryWarning
