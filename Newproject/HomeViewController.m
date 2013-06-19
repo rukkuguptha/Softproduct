@@ -43,6 +43,13 @@
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.leadView addGestureRecognizer:doubleTap1];
+    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(companyPage)];
+    doubleTap2.numberOfTapsRequired=1;
+    doubleTap2.delegate=(id)self;
+    [self.companyView addGestureRecognizer:doubleTap2];
+
     
 
 }
@@ -62,6 +69,16 @@
     
 
 }
+-(void)companyPage
+{
+    if (!self.cmpanyctrl) {
+        self.cmpanyctrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
+    }
+    [self.navigationController pushViewController:_cmpanyctrl animated:YES];
+    
+    
+}
+
 
 
 - (void)didReceiveMemoryWarning
