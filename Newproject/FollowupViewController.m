@@ -98,4 +98,10 @@
 - (IBAction)addbtn:(id)sender {
     _view2.hidden=NO;
 }
+- (IBAction)closebtn:(id)sender {
+    _view2.hidden=YES;
+
+    
+    
+}
 @end

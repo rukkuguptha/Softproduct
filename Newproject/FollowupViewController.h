@@ -15,5 +15,6 @@
 - (IBAction)addbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *view2;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationbar;
+- (IBAction)closebtn:(id)sender;
 
 @end
