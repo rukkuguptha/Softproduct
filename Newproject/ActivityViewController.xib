@@ -506,7 +506,6 @@
 										<string key="NSFrame">{{355, 398}, {122, 39}}</string>
 										<reference key="NSSuperview" ref="1024717060"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -527,13 +526,13 @@
 										<reference key="NSNextResponder" ref="1024717060"/>
 										<int key="NSvFlags">290</int>
 										<array class="NSMutableArray" key="NSSubviews"/>
-										<string key="NSFrame">{{-1, 0}, {664, 44}}</string>
+										<string key="NSFrame">{{0, -2}, {664, 44}}</string>
 										<reference key="NSSuperview" ref="1024717060"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="524074489"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<array class="NSMutableArray" key="IBUIItems"/>
+										<array key="IBUIItems" id="0"/>
 									</object>
 									<object class="IBUILabel" id="524074489">
 										<reference key="NSNextResponder" ref="1024717060"/>
@@ -712,7 +711,7 @@
 				<array key="orderedObjects">
 					<object class="IBObjectRecord">
 						<int key="objectID">0</int>
-						<array key="object" id="0"/>
+						<reference key="object" ref="0"/>
 						<reference key="children" ref="1000"/>
 						<nil key="parent"/>
 					</object>
