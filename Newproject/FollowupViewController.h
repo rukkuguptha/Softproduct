@@ -24,5 +24,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *communictntypeBtn;
 -(IBAction)selectCommunicationType:(id)sender;
 @property(strong,nonatomic)UITableView *popOverTableView;
-
+@property(strong,nonatomic)NSMutableArray*btnArray;
+@property(strong,nonatomic)NSMutableArray *communctiontypeArray;
+@property(strong,nonatomic)IBOutlet UITableViewCell *followcell;
 @end
