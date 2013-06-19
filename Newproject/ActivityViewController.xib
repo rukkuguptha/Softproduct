@@ -156,7 +156,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-								<string key="IBUIText">Employee</string>
+								<string key="IBUIText">Activity</string>
 								<reference key="IBUITextColor" ref="88097202"/>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -328,7 +328,6 @@
 										<int key="IBUIContentHorizontalAlignment">0</int>
 										<int key="IBUIContentVerticalAlignment">0</int>
 										<int key="IBUIButtonType">1</int>
-										<string key="IBUINormalTitle">Button</string>
 										<reference key="IBUIHighlightedTitleColor" ref="596972912"/>
 										<object class="NSColor" key="IBUINormalTitleColor">
 											<int key="NSColorSpace">1</int>
@@ -506,6 +505,7 @@
 										<string key="NSFrame">{{355, 398}, {122, 39}}</string>
 										<reference key="NSSuperview" ref="1024717060"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -558,7 +558,7 @@
 									<object class="IBUIButton" id="287970854">
 										<reference key="NSNextResponder" ref="1024717060"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{620, 4}, {37, 37}}</string>
+										<string key="NSFrame">{{620, 5}, {37, 37}}</string>
 										<reference key="NSSuperview" ref="1024717060"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="56774975"/>
@@ -675,6 +675,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dateBtn</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="563351071"/>
+					</object>
+					<int key="connectionID">62</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="401384539"/>
 						<reference key="destination" ref="841351856"/>
@@ -696,6 +704,15 @@
 						<reference key="destination" ref="841351856"/>
 					</object>
 					<int key="connectionID">33</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">selectDate:</string>
+						<reference key="source" ref="563351071"/>
+						<reference key="destination" ref="841351856"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">63</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -805,8 +822,8 @@
 							<reference ref="728190032"/>
 							<reference ref="347069439"/>
 							<reference ref="524074489"/>
-							<reference ref="287970854"/>
 							<reference ref="575950660"/>
+							<reference ref="287970854"/>
 						</array>
 						<reference key="parent" ref="835276203"/>
 					</object>
@@ -935,7 +952,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">61</int>
+			<int key="maxID">63</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -945,6 +962,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="addNewActivity:">id</string>
 						<string key="closetheView:">id</string>
+						<string key="selectDate:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="addNewActivity:">
@@ -955,11 +973,16 @@
 							<string key="name">closetheView:</string>
 							<string key="candidateClassName">id</string>
 						</object>
+						<object class="IBActionInfo" key="selectDate:">
+							<string key="name">selectDate:</string>
+							<string key="candidateClassName">id</string>
+						</object>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="activityNav">UINavigationBar</string>
 						<string key="activityTable">UITableView</string>
 						<string key="actvityCell">UITableViewCell</string>
+						<string key="dateBtn">UIButton</string>
 						<string key="newviewactivity">UIView</string>
 						<string key="scroll">UIScrollView</string>
 					</dictionary>
@@ -975,6 +998,10 @@
 						<object class="IBToOneOutletInfo" key="actvityCell">
 							<string key="name">actvityCell</string>
 							<string key="candidateClassName">UITableViewCell</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="dateBtn">
+							<string key="name">dateBtn</string>
+							<string key="candidateClassName">UIButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="newviewactivity">
 							<string key="name">newviewactivity</string>

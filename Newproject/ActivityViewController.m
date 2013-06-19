@@ -90,6 +90,100 @@
 {
     self.newviewactivity.hidden=YES;
 }
+-(void)createCalenderPopover
+{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 315, 330)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(315, 330);
+    
+    CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
+    self.calendar = calendar;
+    calendar.delegate = self;
+    
+    
+    NSDate *date = [NSDate date];
+    
+    // format it
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"dd/MM/YYYY"];
+    
+    // convert it to a string
+    NSString *dateString = [dateFormat stringFromDate:date];
+    //NSLog(@"datestring%@",dateString);
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
+    calendar.selectedDate = [self.dateFormatter dateFromString:dateString];
+    
+    calendar.minimumDate = [self.dateFormatter dateFromString:@"09/07/2011"];
+    calendar.maximumDate = [self.dateFormatter dateFromString:@"1/07/2013"];
+    calendar.shouldFillCalendar = YES;
+    calendar.adaptHeightToNumberOfWeeksInMonth = NO;
+    
+    calendar.frame = CGRectMake(10, 10, 300, 320);
+    [popoverView addSubview:calendar];
+    
+    //    self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(calendar.frame) + 4, self.view.bounds.size.width, 24)];
+    //    [self.view addSubview:self.dateLabel];
+    
+    //  self.view.backgroundColor = [UIColor whiteColor];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(localeDidChange) name:NSCurrentLocaleDidChangeNotification object:nil];
+    
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_dateBtn.frame
+                                            inView:self.newviewactivity
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+}
+//     if([_datecheckstring isEqualToString:@"iphone"])
+//     {
+//         [self.popOverController presentPopoverFromRect:_dateiphonebtn.frame
+//                                                 inView:self.view
+//                               permittedArrowDirections:UIPopoverArrowDirectionUp
+//                                               animated:YES];
+
+
+
+
+- (void)localeDidChange {
+    [self.calendar setLocale:[NSLocale currentLocale]];
+}
+
+
+
+#pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    
+    NSString *dateString = [dateFormat stringFromDate:date];
+    [_dateBtn setTitle:dateString forState:UIControlStateNormal];
+    
+}
+-(IBAction)selectDate:(id)sender
+{
+    [self createCalenderPopover];
+}
+
+
+
+
 
 
 
