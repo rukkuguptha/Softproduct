@@ -47,7 +47,7 @@
     
     
     
-    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
     [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
     
     
@@ -129,6 +129,14 @@
     
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView==_popOverTableView)
+    {
+        [_communictntypeBtn setTitle:[_communctiontypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+    }
+}
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     if(tableView==_followuptable)
     {
@@ -148,7 +156,7 @@
 }
 
 
-- (IBAction)addbtn:(id)sender {
+-(void)addaction {
     _view2.hidden=NO;
 }
 - (IBAction)closebtn:(id)sender {

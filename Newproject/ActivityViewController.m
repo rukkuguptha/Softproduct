@@ -44,7 +44,7 @@
    
     
     
-    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
     [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
     
     
@@ -220,6 +220,9 @@
 }
 
 
+-(void)addaction {
+    _newviewactivity.hidden=NO;
+}
 
 
 
