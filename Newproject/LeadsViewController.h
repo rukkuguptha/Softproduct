@@ -12,7 +12,12 @@
 #import "FollowupViewController.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
+    BOOL recordResults;
 }
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 // for LeadCustomCell
@@ -39,6 +44,7 @@
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 
+@property (strong, nonatomic) IBOutlet UIView *view3;
 
 
 
