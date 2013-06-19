@@ -10,7 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ActivityViewController.h"
 #import "FollowupViewController.h"
-@interface LeadsViewController : UIViewController
+@interface LeadsViewController : UIViewController<UIActionSheetDelegate>
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 // for LeadCustomCell
@@ -27,6 +27,8 @@
 @property(strong,nonatomic)UITableView *popOverTableView;
 @property (strong, nonatomic) IBOutlet UIImageView *imgview;
 @property(strong,nonatomic)NSMutableArray*popoverArray;
+@property(strong,nonatomic)NSMutableArray*btnArray;
+
 @property(strong,nonatomic)ActivityViewController*activityVCtrl;
 
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;

@@ -33,12 +33,38 @@
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.navbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Follow Up" ,nil];
-//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(MenuAction)];
-//    [_leadName addGestureRecognizer:tap];
     // Do any additional setup after loading the view from its nib.
+    
+    _btnArray=[[NSMutableArray alloc]initWithObjects:@"Create LeadInfo",@"Edit Leads" ,nil];
+    
+    
+     
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+  //  UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithImage:nil style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    
+    
+    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"edit" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
 
+    
+}
+
+-(void)butnaction{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
+                                                             delegate:self
+                                                    cancelButtonTitle:nil
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:nil];
+    for (NSString *fruit in self.btnArray) {
+        [actionSheet addButtonWithTitle:fruit];
+    }
+    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
+    [actionSheet showInView:self.view];
+    
+}
 
 
 
@@ -190,8 +216,19 @@
 }
 
 
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if  ([buttonTitle isEqualToString:@"Edit Leads"]) {
+        NSLog(@"Destructive pressed --> Delete Something");
+    }
+    if ([buttonTitle isEqualToString:@"Create LeadInfo"]) {
+          _view2.hidden=NO;
+    }
+   
+}
 - (IBAction)Addbtn:(id)sender {
-    _view2.hidden=NO;
+ 
     
 }
 - (IBAction)clsebtn:(id)sender {
