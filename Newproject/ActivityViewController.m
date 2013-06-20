@@ -34,6 +34,7 @@
     _activityTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.newviewactivity.hidden=YES;
+     _view2.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
     _activityNav.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
@@ -119,6 +120,13 @@
         [cell setBackgroundColor:[UIColor whiteColor]];
     }
 }
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//   if(tableView==_activityTable)
+//   {
+//       
+//   }
+//}
 
 -(IBAction)addNewActivity:(id)sender
 {

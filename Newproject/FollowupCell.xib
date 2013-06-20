@@ -63,13 +63,15 @@
 									<bytes key="NSWhite">MQA</bytes>
 								</object>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="879619101">
-									<int key="type">1</int>
-									<double key="pointSize">17</double>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="422904932">
+									<string key="name">HelveticaNeue-Light</string>
+									<string key="family">Helvetica Neue</string>
+									<int key="traits">0</int>
+									<double key="pointSize">12</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="493651553">
-									<string key="NSName">Helvetica</string>
-									<double key="NSSize">17</double>
+								<object class="NSFont" key="IBUIFont" id="507803753">
+									<string key="NSName">HelveticaNeue-Medium</string>
+									<double key="NSSize">12</double>
 									<int key="NSfFlags">16</int>
 								</object>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
@@ -91,8 +93,8 @@
 								<reference key="IBUITextColor" ref="613728320"/>
 								<reference key="IBUIHighlightedColor" ref="860020603"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<reference key="IBUIFontDescription" ref="879619101"/>
-								<reference key="IBUIFont" ref="493651553"/>
+								<reference key="IBUIFontDescription" ref="422904932"/>
+								<reference key="IBUIFont" ref="507803753"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 							<object class="IBUILabel" id="1070433600">
@@ -112,8 +114,8 @@
 								<reference key="IBUITextColor" ref="613728320"/>
 								<reference key="IBUIHighlightedColor" ref="860020603"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<reference key="IBUIFontDescription" ref="879619101"/>
-								<reference key="IBUIFont" ref="493651553"/>
+								<reference key="IBUIFontDescription" ref="422904932"/>
+								<reference key="IBUIFont" ref="507803753"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 							<object class="IBUILabel" id="283691591">
@@ -132,8 +134,8 @@
 								<reference key="IBUITextColor" ref="613728320"/>
 								<reference key="IBUIHighlightedColor" ref="860020603"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<reference key="IBUIFontDescription" ref="879619101"/>
-								<reference key="IBUIFont" ref="493651553"/>
+								<reference key="IBUIFontDescription" ref="422904932"/>
+								<reference key="IBUIFont" ref="507803753"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 						</array>
@@ -252,7 +254,6 @@
 						<string key="addbtn:">id</string>
 						<string key="closebtn:">id</string>
 						<string key="selectCommunicationType:">id</string>
-						<string key="selectDate:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="addbtn:">
@@ -265,10 +266,6 @@
 						</object>
 						<object class="IBActionInfo" key="selectCommunicationType:">
 							<string key="name">selectCommunicationType:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectDate:">
-							<string key="name">selectDate:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 					</dictionary>

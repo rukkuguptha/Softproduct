@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "ContactInfoViewController.h"
+#import "SalesRepInfoViewController.h"
 
 @interface CustomerViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
@@ -17,4 +18,11 @@
 
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic)NSMutableArray*custmrarray;
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+@property (strong, nonatomic)NSMutableArray*popoverArry;
+@property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
+@property(strong,nonatomic)SalesRepInfoViewController *salesVCtrl;
+
+
 @end

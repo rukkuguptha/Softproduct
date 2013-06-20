@@ -24,4 +24,5 @@
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
 -(IBAction)selectDate:(id)sender;
 @property(strong,nonatomic)NSMutableArray*btnArray;
+@property(strong,nonatomic)IBOutlet UIView *view2;
 @end
