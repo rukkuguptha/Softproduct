@@ -12,11 +12,9 @@
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
 		648D13071771A093006BB41A /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13051771A093006BB41A /* CompanyViewController.m */; };
 		648D13081771A093006BB41A /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648D13061771A093006BB41A /* CompanyViewController.xib */; };
-		649AE8721772C91900CAECE7 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8701772C91900CAECE7 /* ContactInfoViewController.xib */; };
-		649AE8771772C93500CAECE7 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8751772C93500CAECE7 /* SalesRepInfoViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
-		D40720851772DEA30070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE86F1772C91900CAECE7 /* ContactInfoViewController.m */; };
-		D40720861772DEAA0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8741772C93500CAECE7 /* SalesRepInfoViewController.m */; };
+		D40720851772DEA30070629A /* (null) in Sources */ = {isa = PBXBuildFile; };
+		D40720861772DEAA0070629A /* (null) in Sources */ = {isa = PBXBuildFile; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
 		D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAC176B086F00379DD5 /* Foundation.framework */; };
 		D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */; };
@@ -192,8 +190,6 @@
 			children = (
 				648D13011771726E006BB41A /* CKCalendarView.h */,
 				648D13021771726E006BB41A /* CKCalendarView.m */,
-				6481615B176EF0C50017F4CC /* rightarowblack.png */,
-				649AE8781772DB8C00CAECE7 /* appbar.edit.png */,
 				D40D1ED7176B27E200379DD5 /* LeadsViewController.h */,
 				D40D1ED8176B27E200379DD5 /* LeadsViewController.m */,
 				D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */,
@@ -228,6 +224,8 @@
 				648D12FF17716E0E006BB41A /* appbar.close.png */,
 				648D12FD17716C7F006BB41A /* rectangle3.png */,
 				D4149F27177186C100738AAC /* squareimage1.png */,
+				649AE8781772DB8C00CAECE7 /* appbar.edit.png */,
+				6481615B176EF0C50017F4CC /* rightarowblack.png */,
 			);
 			name = images;
 			path = Newproject;
@@ -326,8 +324,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D40720861772DEAA0070629A /* SalesRepInfoViewController.m in Sources */,
-				D40720851772DEA30070629A /* ContactInfoViewController.m in Sources */,
+				D40720861772DEAA0070629A /* (null) in Sources */,
+				D40720851772DEA30070629A /* (null) in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
