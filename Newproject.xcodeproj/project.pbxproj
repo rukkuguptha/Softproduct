@@ -350,8 +350,7 @@
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
-				649AE8711772C91900CAECE7 /* ContactInfoViewController.m in Sources */,
-				649AE8761772C93500CAECE7 /* SalesRepInfoViewController.m in Sources */,
+				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
