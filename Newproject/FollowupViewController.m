@@ -47,11 +47,31 @@
     
     
     
-    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
-    
+    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"EDIT" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
+    [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
     
 }
+-(void)editaction{
+    
+    if ([self.followuptable isEditing]) {
+        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+        
+        [self.followuptable setEditing:NO animated:YES];
+        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
+    }
+    else {
+        // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
+        
+        // Turn on edit mode
+        
+        [self.followuptable setEditing:YES animated:YES];
+    }
+}
+
+
+
 
 -(void)butnaction{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
@@ -121,7 +141,9 @@
     //cell.textLabel.text=@"Customer Name";
     if(tableView==_popOverTableView)
     {
-        cell.textLabel.text=[_communctiontypeArray objectAtIndex:indexPath.row];
+     cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+    cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+     cell.textLabel.text=[_communctiontypeArray objectAtIndex:indexPath.row];
     }
     
     

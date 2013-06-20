@@ -45,11 +45,33 @@
    
     
     
-    UIBarButtonItem*actionbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    [self.navigationItem setRightBarButtonItem:actionbtn animated:YES];
+    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"EDIT" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
+    [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
+
     
     
 }
+-(void)editaction{
+    
+    if ([self.activityTable isEditing]) {
+        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+        
+        [self.activityTable setEditing:NO animated:YES];
+        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
+    }
+    else {
+        // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
+        
+        // Turn on edit mode
+        
+        [self.activityTable setEditing:YES animated:YES];
+    }
+}
+
+
+
 
 -(void)butnaction{
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
