@@ -173,6 +173,9 @@ if (tableView==_leadTable) {
     _ProjectType.text=info.projecttype;
     _ProjectExecution=(UILabel*)[cell viewWithTag:7];
     _ProjectExecution.text=info.projectexecution;
+    _editbtncelllbl=(UIButton *)[cell viewWithTag:8];
+    [cell.contentView addSubview:_editbtncelllbl];
+    
     }
     
     if (tableView==_popOverTableView) {
@@ -317,6 +320,73 @@ if (tableView==_leadTable) {
 
 #pragma mark - Buttons
 
+- (IBAction)editcellbtn:(id)sender {
+     _view2.hidden=NO;
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+   
+     NSLog(@"indexpath%d",IndexPath.row);
+    
+    
+    Infoleads*info1=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
+    
+    _cmpnynametxtfld.text=info1.companyname;
+    _contactnametxtfld.text=info1.contactName;
+    
+    _phonetxtfld.text=info1.phone;
+    
+    _citytxtfld.text=info1.city;
+    [_leadtypebtnlbl setTitle:info1.Typeoflead forState:UIControlStateNormal];
+    [_projecttype setTitle:info1.projecttype forState:UIControlStateNormal];
+
+
+    _prjctyeartxtfld.text=info1.projectexecutionyear;
+    
+    _prjctdscptntxtfld.text=info1.projectexecutionyear;
+    
+    _locationtxtfld.text=info1.location;
+    _contacttiletxtfld.text=info1.contacttitle;
+    _emailidtxtfld.text=info1.emailid;
+    _statetxtfld.text=info1.state;
+    
+    [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
+    [_prjctexcutntxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
+
+
+   
+}
+- (IBAction)cancelbtn:(id)sender {
+    _cmpnynametxtfld.text=@"";
+    _contactnametxtfld.text=@"";    
+    _phonetxtfld.text=@"";
+    
+    _citytxtfld.text=@"";
+    [_leadtypebtnlbl setTitle:@"" forState:UIControlStateNormal];
+    [_projecttype setTitle:@"" forState:UIControlStateNormal];
+    
+    
+    _prjctyeartxtfld.text=@"";
+    
+    _prjctdscptntxtfld.text=@"";
+    
+    _locationtxtfld.text=@"";
+    _contacttiletxtfld.text=@"";
+    _emailidtxtfld.text=@"";
+    _statetxtfld.text=@"";
+    
+    [_industrytypetxtfld setTitle:@"" forState:UIControlStateNormal];
+    [_prjctexcutntxtfld setTitle:@"" forState:UIControlStateNormal];
+
+    
+    
+    
+    
+}
+
+
 - (IBAction)Addbtn:(id)sender {
  
     
@@ -458,8 +528,6 @@ if (tableView==_leadTable) {
 - (IBAction)updatebtn:(id)sender {
 }
 
-- (IBAction)cancelbtn:(id)sender {
-}
 
 #pragma mark - Webservice
 /*webservices*/
@@ -858,6 +926,7 @@ if (tableView==_leadTable) {
 
     
 }
+
 
 
 @end

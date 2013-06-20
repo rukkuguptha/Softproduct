@@ -44,6 +44,8 @@
 
 @property (strong, nonatomic) IBOutlet UIView *view3;
 
+- (IBAction)editcellbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *editbtncelllbl;
 
 
 /*connections in EDIT VIEW*/
