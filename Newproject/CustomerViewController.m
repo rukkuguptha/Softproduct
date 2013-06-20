@@ -170,25 +170,25 @@
         //  [self MenuAction];
     }
     
-//    if (tableView==_popOverTableView) {
-//        if (indexPath.row==0) {
-//            if (!self.cntctVctrl) {
-//                self.cntctVctrl=[[ContactInfoViewController alloc]initWithNibName:@"ContactInfoViewController" bundle:nil];
-//            }
-//            [self.navigationController pushViewController:self.cntctVctrl animated:YES];
-//            
-//        }
-//        
-//        if (indexPath.row==1) {
-//            
-//            if (!self.salesVCtrl) {
-//                self.salesVCtrl=[[SalesRepInfoViewController alloc]initWithNibName:@"SalesRepInfoViewController" bundle:nil];
-//            }
-//            [self.navigationController pushViewController:self.salesVCtrl animated:YES];
-//            
-//            
-//            
-//        }
+    if (tableView==_popOverTableView) {
+        if (indexPath.row==0) {
+            if (!self.cntctVctrl) {
+                self.cntctVctrl=[[ContactInfoViewController alloc]initWithNibName:@"ContactInfoViewController" bundle:nil];
+            }
+            [self.navigationController pushViewController:self.cntctVctrl animated:YES];
+            
+        }
+        
+        if (indexPath.row==1) {
+            
+            if (!self.salesVCtrl) {
+                self.salesVCtrl=[[SalesRepInfoViewController alloc]initWithNibName:@"SalesRepInfoViewController" bundle:nil];
+            }
+            [self.navigationController pushViewController:self.salesVCtrl animated:YES];
+            
+            
+            
+        }
     
         [self.popOverController dismissPopoverAnimated:YES];
         
@@ -196,6 +196,6 @@
         
     }
     
-//}
+}
 
 @end
