@@ -48,7 +48,7 @@
 							<object class="IBUITableView" id="210287450">
 								<reference key="NSNextResponder" ref="165593290"/>
 								<int key="NSvFlags">274</int>
-								<string key="NSFrame">{{20, 75}, {755, 870}}</string>
+								<string key="NSFrame">{{20, 60}, {755, 870}}</string>
 								<reference key="NSSuperview" ref="165593290"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="94031786"/>
@@ -60,6 +60,7 @@
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<bool key="IBUIAlwaysBounceVertical">YES</bool>
+								<bool key="IBUIPagingEnabled">YES</bool>
 								<int key="IBUISeparatorStyle">1</int>
 								<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 								<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
@@ -118,13 +119,13 @@
 										</object>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<object class="IBUIFontDescription" key="IBUIFontDescription" id="605165669">
+										<object class="IBUIFontDescription" key="IBUIFontDescription" id="383618137">
 											<string key="name">HelveticaNeue-Bold</string>
 											<string key="family">Helvetica Neue</string>
 											<int key="traits">2</int>
 											<double key="pointSize">12</double>
 										</object>
-										<object class="NSFont" key="IBUIFont" id="999337452">
+										<object class="NSFont" key="IBUIFont" id="333550296">
 											<string key="NSName">HelveticaNeue-Bold</string>
 											<double key="NSSize">12</double>
 											<int key="NSfFlags">16</int>
@@ -157,13 +158,13 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<object class="IBUIFontDescription" key="IBUIFontDescription" id="650296382">
+										<object class="IBUIFontDescription" key="IBUIFontDescription" id="59130433">
 											<string key="name">HelveticaNeue-Light</string>
 											<string key="family">Helvetica Neue</string>
 											<int key="traits">0</int>
 											<double key="pointSize">12</double>
 										</object>
-										<object class="NSFont" key="IBUIFont" id="580275050">
+										<object class="NSFont" key="IBUIFont" id="1031672693">
 											<string key="NSName">HelveticaNeue-Medium</string>
 											<double key="NSSize">12</double>
 											<int key="NSfFlags">16</int>
@@ -186,8 +187,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="948041007">
@@ -214,8 +215,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="507387583">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -234,8 +235,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="958807895">
@@ -262,8 +263,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="892917241">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -282,8 +283,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="775645019">
@@ -337,8 +338,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="483417877">
@@ -365,8 +366,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUIButton" id="25151752">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -391,8 +392,8 @@
 											<int key="NSColorSpace">3</int>
 											<bytes key="NSWhite">MC41AA</bytes>
 										</object>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 									</object>
 									<object class="IBUIButton" id="676718680">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -414,8 +415,8 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="708828320"/>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 									</object>
 									<object class="IBUILabel" id="11365406">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -434,8 +435,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="848465891">
@@ -455,8 +456,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="641901137">
@@ -483,8 +484,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="574003040">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -503,8 +504,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="939709763">
@@ -530,8 +531,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="16022183">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -550,8 +551,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="952783761">
@@ -567,12 +568,12 @@
 										<int key="IBUIContentMode">7</int>
 										<bool key="IBUIUserInteractionEnabled">NO</bool>
 										<string key="targetRuntimeIdentifier">IBIPadFramework</string>
-										<string key="IBUIText">Contact Tile:</string>
+										<string key="IBUIText">Contact Title:</string>
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="673969617">
@@ -599,8 +600,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="510553641">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -619,8 +620,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="980104512">
@@ -640,8 +641,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="524626035">
@@ -668,8 +669,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="418423298">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -688,8 +689,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUITextField" id="651853513">
@@ -716,8 +717,8 @@
 										<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 											<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 										</object>
-										<reference key="IBUIFontDescription" ref="650296382"/>
-										<reference key="IBUIFont" ref="580275050"/>
+										<reference key="IBUIFontDescription" ref="59130433"/>
+										<reference key="IBUIFont" ref="1031672693"/>
 									</object>
 									<object class="IBUILabel" id="661719553">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -736,8 +737,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUIButton" id="854950247">
@@ -760,8 +761,8 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="708828320"/>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 									</object>
 									<object class="IBUIButton" id="965294824">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -783,13 +784,13 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="708828320"/>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 									</object>
 									<object class="IBUIButton" id="813135182">
 										<reference key="NSNextResponder" ref="94031786"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{625, 11}, {47, 34}}</string>
+										<string key="NSFrame">{{651, 0}, {40, 40}}</string>
 										<reference key="NSSuperview" ref="94031786"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="814836422"/>
@@ -821,7 +822,7 @@
 									<object class="IBUILabel" id="364839733">
 										<reference key="NSNextResponder" ref="94031786"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{269, 11}, {60, 21}}</string>
+										<string key="NSFrame">{{6, 6}, {60, 21}}</string>
 										<reference key="NSSuperview" ref="94031786"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="813135182"/>
@@ -835,8 +836,8 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUIButton" id="814836422">
@@ -859,8 +860,8 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="708828320"/>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 									</object>
 									<object class="IBUIButton" id="37676898">
 										<reference key="NSNextResponder" ref="94031786"/>
@@ -882,8 +883,8 @@
 											<bytes key="NSRGB">MC4xOTYwNzg0MzQ2IDAuMzA5ODAzOTMyOSAwLjUyMTU2ODY1NgA</bytes>
 										</object>
 										<reference key="IBUINormalTitleShadowColor" ref="708828320"/>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 									</object>
 								</array>
 								<string key="NSFrame">{{149, 82}, {685, 805}}</string>
@@ -901,7 +902,7 @@
 									<object class="IBUILabel" id="538911797">
 										<reference key="NSNextResponder" ref="1051566969"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{179, 13}, {86, 21}}</string>
+										<string key="NSFrame">{{179, 8}, {86, 21}}</string>
 										<reference key="NSSuperview" ref="1051566969"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="1028365195"/>
@@ -915,14 +916,14 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="1028365195">
 										<reference key="NSNextResponder" ref="1051566969"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{294, 13}, {86, 21}}</string>
+										<string key="NSFrame">{{294, 8}, {86, 21}}</string>
 										<reference key="NSSuperview" ref="1051566969"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="101195172"/>
@@ -936,14 +937,14 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="101195172">
 										<reference key="NSNextResponder" ref="1051566969"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{417, 13}, {86, 21}}</string>
+										<string key="NSFrame">{{417, 8}, {86, 21}}</string>
 										<reference key="NSSuperview" ref="1051566969"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="520386074"/>
@@ -957,14 +958,14 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="520386074">
 										<reference key="NSNextResponder" ref="1051566969"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{568, 13}, {103, 21}}</string>
+										<string key="NSFrame">{{568, 8}, {103, 21}}</string>
 										<reference key="NSSuperview" ref="1051566969"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="154933815"/>
@@ -978,14 +979,14 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="154933815">
 										<reference key="NSNextResponder" ref="1051566969"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{734, 13}, {96, 21}}</string>
+										<string key="NSFrame">{{734, 8}, {96, 21}}</string>
 										<reference key="NSSuperview" ref="1051566969"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="985323200"/>
@@ -999,14 +1000,14 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 									<object class="IBUILabel" id="985323200">
 										<reference key="NSNextResponder" ref="1051566969"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{869, 13}, {133, 21}}</string>
+										<string key="NSFrame">{{869, 8}, {133, 21}}</string>
 										<reference key="NSSuperview" ref="1051566969"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="210287450"/>
@@ -1020,12 +1021,12 @@
 										<reference key="IBUITextColor" ref="838631946"/>
 										<nil key="IBUIHighlightedColor"/>
 										<int key="IBUIBaselineAdjustment">0</int>
-										<reference key="IBUIFontDescription" ref="605165669"/>
-										<reference key="IBUIFont" ref="999337452"/>
+										<reference key="IBUIFontDescription" ref="383618137"/>
+										<reference key="IBUIFont" ref="333550296"/>
 										<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 									</object>
 								</array>
-								<string key="NSFrame">{{20, 20}, {1011, 54}}</string>
+								<string key="NSFrame">{{20, 25}, {1011, 35}}</string>
 								<reference key="NSSuperview" ref="165593290"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="538911797"/>
@@ -1338,14 +1339,15 @@
 						<reference key="object" ref="165593290"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="94031786"/>
-							<reference ref="210287450"/>
 							<reference ref="1051566969"/>
+							<reference ref="210287450"/>
 						</array>
 						<reference key="parent" ref="766721923"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">32</int>
 						<reference key="object" ref="210287450"/>
+						<array class="NSMutableArray" key="children"/>
 						<reference key="parent" ref="165593290"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1383,17 +1385,11 @@
 							<reference ref="965294824"/>
 							<reference ref="651853513"/>
 							<reference ref="821027353"/>
+							<reference ref="177131872"/>
 							<reference ref="364839733"/>
 							<reference ref="813135182"/>
-							<reference ref="177131872"/>
 						</array>
 						<reference key="parent" ref="165593290"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">38</int>
-						<reference key="object" ref="177131872"/>
-						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="94031786"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">40</int>
@@ -1602,6 +1598,11 @@
 						<int key="objectID">117</int>
 						<reference key="object" ref="985323200"/>
 						<reference key="parent" ref="1051566969"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">38</int>
+						<reference key="object" ref="177131872"/>
+						<reference key="parent" ref="94031786"/>
 					</object>
 				</array>
 			</object>
