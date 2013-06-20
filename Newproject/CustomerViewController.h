@@ -23,6 +23,7 @@
 @property (strong, nonatomic)NSMutableArray*popoverArry;
 @property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
 @property(strong,nonatomic)SalesRepInfoViewController *salesVCtrl;
-
-
+@property(strong,nonatomic)IBOutlet UIView *newcustmrview;
+- (IBAction)editcellbtn:(id)sender;
+-(IBAction)closetheView:(id)sender;
 @end
