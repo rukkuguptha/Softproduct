@@ -28,16 +28,17 @@
     [super viewDidLoad];
     _scroll.frame=CGRectMake(0, 0, 768,1004);
     [_scroll setContentSize:CGSizeMake(768,1500)];
+    //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _leadTable.layer.borderWidth = 2.0;
-    _leadTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
-    _leadTable.separatorColor= [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    _leadTable.layer.borderColor = [UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f].CGColor;
+    _leadTable.separatorColor= [UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     
    // self.navigationController.navigationBar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
-    self.navbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    self.navbar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     
     
-    self.view3.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
-    _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Follow Up" ,nil];
+    self.view3.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+         _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Follow Up" ,nil];
     // Do any additional setup after loading the view from its nib.
     
     _btnArray=[[NSMutableArray alloc]initWithObjects:@"Create LeadInfo",@"Edit Leads",@"Delete Leads" ,nil];
@@ -60,7 +61,8 @@
     
     UIBarButtonItem*Addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
    
-    _Editbtn=[[UIBarButtonItem alloc]initWithTitle:@"EDIT" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    _Editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+   // _Editbtn.tintColor=[UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:235.0/255.0f alpha:1.0f];
       NSArray*barbutns=[[NSArray alloc]initWithObjects:Addbtn,_Editbtn, nil];
     [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
 
@@ -179,6 +181,9 @@ if (tableView==_leadTable) {
     }
     
     if (tableView==_popOverTableView) {
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+
         
         switch (poptype) {
             case 1:
@@ -238,15 +243,6 @@ if (tableView==_leadTable) {
       if (tableView==_leadTable) {
           
           
-//          UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//          if ([cell isEditing] == YES) {
-//              self.view2.hidden=YES;
-//          }
-//          else {
-//              // Do Something else.
-//          }
-          
-    // CGRect frame = [_popOverTableView cellForRowAtIndexPath:indexPath].frame;
           poptype=5;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
@@ -284,25 +280,68 @@ if (tableView==_leadTable) {
       }
     
      if (tableView==_popOverTableView) {
-         if (indexPath.row==0) {
-             if (!self.activityVCtrl) {
-                 self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
-             }
-             [self.navigationController pushViewController:self.activityVCtrl animated:YES];
-             
-         }
          
-         if (indexPath.row==1) {
-             
-             if (!self.followupVCtrl) {
-                 self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
-             }
-             [self.navigationController pushViewController:self.followupVCtrl animated:YES];
-             
+         
+         
+         switch (poptype) {
+             case 1:
+                 
+                 [_leadtypebtnlbl setTitle:[_leadtypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 
+                              
+                 break;
+             case 2:
+                 
+                 [_projecttype setTitle:[_projecttypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+
+                                
+                 
+                 break;
+             case 3:
+                 [_projecttype setTitle:[_industrytypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+
+                
+                 
+                 break;
+             case 4:
+                 
+                 [_prjctexcutntxtfld setTitle:[_prjctexcutnArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+                 
+                 
+                 break;
+             case 5:
+          
+                 if (indexPath.row==0) {
+                     
+                     if (!self.activityVCtrl) {
+                         self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
+                     }
+                     [self.navigationController pushViewController:self.activityVCtrl animated:YES];
+                     
+                 }
+                 
+                 if (indexPath.row==1) {
+                     
+                     if (!self.followupVCtrl) {
+                         self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
+                     }
+                     [self.navigationController pushViewController:self.followupVCtrl animated:YES];
+                     
+                     
+                     
+                 }
+
+                 break;
+                 
+             default:
+                 break;
+         }
          
 
-         }
          
+         
+                
          [self.popOverController dismissPopoverAnimated:YES];
 
          
@@ -310,7 +349,10 @@ if (tableView==_leadTable) {
      }
     
     
-   
+                
+        
+    
+
     
     
 }
