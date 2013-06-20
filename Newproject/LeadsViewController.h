@@ -10,13 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "ActivityViewController.h"
 #import "FollowupViewController.h"
+#import "Infoleads.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
 }
-@property(strong,nonatomic)NSXMLParser *xmlParser;
-@property(strong,nonatomic)NSMutableString *soapResults;
-@property(strong,nonatomic)NSMutableData *webData;
 
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -68,6 +66,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *statetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *industrytypetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *prjctexcutntxtfld;
+
+@property (strong, nonatomic) UIBarButtonItem*Editbtn;
 - (IBAction)leadtypebtn:(id)sender;
 - (IBAction)prjcttypebtn:(id)sender;
 - (IBAction)industrytypetxtfld:(id)sender;
@@ -79,12 +79,20 @@
 
 /*Arrays*/
 
+@property(strong,nonatomic)NSMutableArray*leadinfoArray;
 @property (strong, nonatomic)NSMutableArray*leadtypeArray;
 @property (strong, nonatomic)NSMutableArray*projecttypeArray;
 @property (strong, nonatomic)NSMutableArray*industrytypeArray;
 @property (strong, nonatomic)NSMutableArray*prjctexcutnArray;
 
+/*models */
+@property(strong,nonatomic)Infoleads*infoleads;
 
+
+/*Xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 
 @end
