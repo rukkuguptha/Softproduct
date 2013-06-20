@@ -48,7 +48,7 @@
     
     
     UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"EDIT" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"DELETE" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
     NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
     [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
     
@@ -314,6 +314,9 @@
     [self createPopover];
 }
 
-
+- (IBAction)editcellbtn:(id)sender
+{
+    _view2.hidden=NO;
+}
 
 @end

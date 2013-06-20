@@ -27,4 +27,5 @@
 @property(strong,nonatomic)NSMutableArray*btnArray;
 @property(strong,nonatomic)NSMutableArray *communctiontypeArray;
 @property(strong,nonatomic)IBOutlet UITableViewCell *followcell;
+- (IBAction)editcellbtn:(id)sender;
 @end

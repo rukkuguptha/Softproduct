@@ -39,11 +39,45 @@
     _customertable.layer.borderWidth = 2.0;
   _customertable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
-   
+    _newcustmrview.hidden=YES;
+
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    
+    
+    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"DELETE" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
+    [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
+    _newcustmrview.hidden=YES;
+    
+    
+}
+-(void)addaction
+{
+    _newcustmrview.hidden=NO;
+}
+-(void)editaction
+{
+    if ([self.customertable isEditing]) {
+        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+        
+        [self.customertable setEditing:NO animated:YES];
+        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
+    }
+    else {
+        // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
+        
+        // Turn on edit mode
+        
+        [self.customertable setEditing:YES animated:YES];
+    }
 
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -90,7 +124,8 @@
     }
         //cell.textLabel.text=@"Customer Name";
     if(tableView==_popOverTableView)
-    {
+    {  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
         cell.textLabel.text=[_popoverArry objectAtIndex:indexPath.row];
     }
     if(tableView==_customertable)
@@ -197,5 +232,14 @@
     }
     
 }
+- (IBAction)editcellbtn:(id)sender
+{
+    _newcustmrview.hidden=NO;
+}
+-(IBAction)closetheView:(id)sender
+{
+    self.newcustmrview.hidden=YES;
+}
+
 
 @end

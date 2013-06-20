@@ -25,4 +25,5 @@
 -(IBAction)selectDate:(id)sender;
 @property(strong,nonatomic)NSMutableArray*btnArray;
 @property(strong,nonatomic)IBOutlet UIView *view2;
+- (IBAction)editcellbtn:(id)sender;
 @end
