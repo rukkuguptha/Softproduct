@@ -59,9 +59,10 @@
 
     
     
-    UIBarButtonItem*Addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
+    UIBarButtonItem*Addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
    
     _Editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    
    // _Editbtn.tintColor=[UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:235.0/255.0f alpha:1.0f];
       NSArray*barbutns=[[NSArray alloc]initWithObjects:Addbtn,_Editbtn, nil];
     [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
