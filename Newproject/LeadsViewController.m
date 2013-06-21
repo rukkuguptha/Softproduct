@@ -38,7 +38,7 @@
     
     
     self.view3.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
-         _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Follow Up" ,nil];
+         _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Activity",@"Comments" ,nil];
     // Do any additional setup after loading the view from its nib.
     
     _btnArray=[[NSMutableArray alloc]initWithObjects:@"Create LeadInfo",@"Edit Leads",@"Delete Leads" ,nil];
@@ -325,10 +325,10 @@ if (tableView==_leadTable) {
                  
                  if (indexPath.row==1) {
                      
-                     if (!self.followupVCtrl) {
-                         self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
+                     if (!self.cmtsVCtrl) {
+                         self.cmtsVCtrl=[[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
                      }
-                     [self.navigationController pushViewController:self.followupVCtrl animated:YES];
+                     [self.navigationController pushViewController:self.cmtsVCtrl animated:YES];
                      
                      
                      

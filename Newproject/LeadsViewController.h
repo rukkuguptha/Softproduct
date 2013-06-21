@@ -11,6 +11,7 @@
 #import "ActivityViewController.h"
 #import "FollowupViewController.h"
 #import "Infoleads.h"
+#import "CommentsViewController.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
@@ -38,6 +39,8 @@
 @property(strong,nonatomic)ActivityViewController*activityVCtrl;
 
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
+
+@property(strong,nonatomic)CommentsViewController*cmtsVCtrl;
 - (IBAction)Addbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *view2;
 - (IBAction)clsebtn:(id)sender;
