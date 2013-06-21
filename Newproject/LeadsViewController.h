@@ -14,6 +14,7 @@
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
+    NSInteger butnidtfr;
 }
 
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
@@ -49,7 +50,7 @@
 - (IBAction)disclosurebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *disclsurelbl;
 
-
+@property (strong, nonatomic)NSIndexPath *Path;
 /*connections in EDIT VIEW*/
 
 @property (strong, nonatomic) IBOutlet UITextField *cmpnynametxtfld;

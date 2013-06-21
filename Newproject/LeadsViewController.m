@@ -73,13 +73,16 @@
 
 -(void)butnaction{
     
+    
+    butnidtfr=1;
+    
          _cmpnynametxtfld.text=@"";
     _contactnametxtfld.text=@"";
     _phonetxtfld.text=@"";
     
     _citytxtfld.text=@"";
-    [_leadtypebtnlbl setTitle:@"" forState:UIControlStateNormal];
-    [_projecttype setTitle:@"" forState:UIControlStateNormal];
+    [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
     
     
     _prjctyeartxtfld.text=@"";
@@ -91,14 +94,18 @@
     _emailidtxtfld.text=@"";
     _statetxtfld.text=@"";
     
-    [_industrytypetxtfld setTitle:@"" forState:UIControlStateNormal];
-    [_prjctexcutntxtfld setTitle:@"" forState:UIControlStateNormal];
+    [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+    [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
     
     _view2.hidden=NO;
+    
+    
+    
 
 
 }
 -(void)editaction{
+    
     
     if ([self.leadTable isEditing]) {
         // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
@@ -293,7 +300,7 @@ if (tableView==_leadTable) {
                  
                  break;
              case 3:
-                 [_projecttype setTitle:[_industrytypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 [_industrytypetxtfld setTitle:[_industrytypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
 
                 
                  
@@ -363,12 +370,12 @@ if (tableView==_leadTable) {
     
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     UITableView *table = (UITableView *)[cell superview];
-    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    _Path = [table indexPathForCell:cell];
    
-     NSLog(@"indexpath%d",IndexPath.row);
+     NSLog(@"indexpath%d",_Path.row);
     
     
-    Infoleads*info1=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
+    Infoleads*info1=(Infoleads*)[_leadinfoArray objectAtIndex:_Path.row];
     
     _cmpnynametxtfld.text=info1.companyname;
     _contactnametxtfld.text=info1.contactName;
@@ -382,7 +389,7 @@ if (tableView==_leadTable) {
 
     _prjctyeartxtfld.text=info1.projectexecutionyear;
     
-    _prjctdscptntxtfld.text=info1.projectexecutionyear;
+    _prjctdscptntxtfld.text=info1.projectdescription;
     
     _locationtxtfld.text=info1.location;
     _contacttiletxtfld.text=info1.contacttitle;
@@ -424,12 +431,11 @@ if (tableView==_leadTable) {
 }
 
 
-- (IBAction)Addbtn:(id)sender {
- 
-    
-}
+
 - (IBAction)clsebtn:(id)sender {
+    butnidtfr=0;
     _view2.hidden=YES;
+    
 }
 - (IBAction)leadtypebtn:(id)sender {
     poptype=1;
@@ -560,9 +566,72 @@ if (tableView==_leadTable) {
 }
 
 
+- (IBAction)disclosurebtn:(id)sender {
+    poptype=5;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 120, 70)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_disclsurelbl.frame
+                                            inView:cell
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
+    
+    
+    
+}
 
 
 - (IBAction)updatebtn:(id)sender {
+    if (butnidtfr==1) {
+        [self Addlead];
+
+    }
+    else{
+        [self updatelead];
+        
+    }
+    
+    [self getLeads];
 }
 
 
@@ -619,6 +688,148 @@ if (tableView==_leadTable) {
     
     
 }
+-(void)updatelead{
+    
+    Infoleads*info2=(Infoleads*)[_leadinfoArray objectAtIndex:_Path.row];
+
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SaveLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   
+                   "<leadid>%d</leadid>\n"
+                   "<Companyname>%@</Companyname>\n"
+                   "<Location>%@</Location>\n"
+                   "<Contactname>%@</Contactname>\n"
+                   "<Contacttitle>%@</Contacttitle>\n"
+                   "<Phone>%@</Phone>\n"
+                   "<MailId>%@</MailId>\n"
+                   "<City>%@</City>\n"
+                   "<State>%@</State>\n"
+                   "<LeadType>%@</LeadType>\n"
+                   "<IndustryType>%@</IndustryType>\n"
+                   "<ProjectType>%@</ProjectType>\n"
+                   "<PrjectDescription>%@</PrjectDescription>\n"
+                   "<ProjectExecution>%@</ProjectExecution>\n"
+                   "<ProjectExeYear>%d</ProjectExeYear>\n"
+                   
+                   "</SaveLead>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",info2.leadid,_cmpnynametxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,_statetxtfld.text,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue] ];
+                                                                                                                                                                                                                                    
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+    
+    
+    
+}
+-(void)Addlead{
+       
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSInteger Leadid=0;
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SaveLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   
+                   "<leadid>%d</leadid>\n"
+                   "<Companyname>%@</Companyname>\n"
+                   "<Location>%@</Location>\n"
+                   "<Contactname>%@</Contactname>\n"
+                   "<Contacttitle>%@</Contacttitle>\n"
+                   "<Phone>%@</Phone>\n"
+                   "<MailId>%@</MailId>\n"
+                   "<City>%@</City>\n"
+                   "<State>%@</State>\n"
+                   "<LeadType>%@</LeadType>\n"
+                   "<IndustryType>%@</IndustryType>\n"
+                   "<ProjectType>%@</ProjectType>\n"
+                   "<PrjectDescription>%@</PrjectDescription>\n"
+                   "<ProjectExecution>%@</ProjectExecution>\n"
+                   "<ProjectExeYear>%d</ProjectExeYear>\n"
+                   
+                   "</SaveLead>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",Leadid,_cmpnynametxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,_statetxtfld.text,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue] ];
+    
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+
+    
+}
+
+
+
 
 
 
@@ -805,7 +1016,25 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
-  
+    if([elementName isEqualToString:@"SaveLeadResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+    if([elementName isEqualToString:@"Column1"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
 
     
 }
@@ -957,66 +1186,30 @@ if (tableView==_leadTable) {
         [_leadinfoArray addObject:_infoleads];
         _soapResults = nil;
     }
-    
+    if([elementName isEqualToString:@"SaveLeadResult"])
+    {
+        
+        recordResults = FALSE;
+              _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults = nil;
+    }
 
 
 
-    
-}
-
-
-
-- (IBAction)disclosurebtn:(id)sender {
-    poptype=5;
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
-    
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 70)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
-    
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    
-    
-    // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
-    
-    //create a popover controller
-    
-    self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    
-//    
-//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-//    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
-//    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
-    
-    
-    UIButton *button = (UIButton *)sender;
-    
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    UITableView *table = (UITableView *)[cell superview];
-    NSIndexPath *IndexPath = [table indexPathForCell:cell];
-
-    
-    
-    
-    [self.popOverController presentPopoverFromRect:_disclsurelbl.frame
-                                            inView:cell
-                          permittedArrowDirections:UIPopoverArrowDirectionLeft
-                                          animated:YES];
-    
 
     
 }
+
+
+
+
+
+
 @end
