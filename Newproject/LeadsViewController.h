@@ -62,7 +62,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *projecttype;
 @property (strong, nonatomic) IBOutlet UITextField *prjctyeartxtfld;
 
-@property (strong, nonatomic) IBOutlet UITextField *prjctdscptntxtfld;
+@property (strong, nonatomic) IBOutlet UITextView *prjctdscptntxtfld;
 
 @property (strong, nonatomic) IBOutlet UITextField *locationtxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *contacttiletxtfld;
