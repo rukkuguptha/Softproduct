@@ -319,4 +319,8 @@
     _view2.hidden=NO;
 }
 
+- (IBAction)namebtn:(id)sender {
+    NSLog(@"Name.......");
+}
+
 @end

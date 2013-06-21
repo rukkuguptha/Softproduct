@@ -28,4 +28,6 @@
 @property(strong,nonatomic)NSMutableArray *communctiontypeArray;
 @property(strong,nonatomic)IBOutlet UITableViewCell *followcell;
 - (IBAction)editcellbtn:(id)sender;
+- (IBAction)namebtn:(id)sender;
+
 @end
