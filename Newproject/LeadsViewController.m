@@ -73,7 +73,30 @@
 
 -(void)butnaction{
     
-      _view2.hidden=NO;
+         _cmpnynametxtfld.text=@"";
+    _contactnametxtfld.text=@"";
+    _phonetxtfld.text=@"";
+    
+    _citytxtfld.text=@"";
+    [_leadtypebtnlbl setTitle:@"" forState:UIControlStateNormal];
+    [_projecttype setTitle:@"" forState:UIControlStateNormal];
+    
+    
+    _prjctyeartxtfld.text=@"";
+    
+    _prjctdscptntxtfld.text=@"";
+    
+    _locationtxtfld.text=@"";
+    _contacttiletxtfld.text=@"";
+    _emailidtxtfld.text=@"";
+    _statetxtfld.text=@"";
+    
+    [_industrytypetxtfld setTitle:@"" forState:UIControlStateNormal];
+    [_prjctexcutntxtfld setTitle:@"" forState:UIControlStateNormal];
+    
+    _view2.hidden=NO;
+
+
 }
 -(void)editaction{
     
@@ -226,6 +249,8 @@ if (tableView==_leadTable) {
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
+    if(tableView==_leadTable)
+    {
     if (indexPath.row%2 == 0) {
         [cell setBackgroundColor:[UIColor whiteColor]];
         
@@ -236,6 +261,7 @@ if (tableView==_leadTable) {
         [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
 
         
+    }
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -257,7 +283,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLineEtched;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
    
 
    // CGRect rect = frame;
