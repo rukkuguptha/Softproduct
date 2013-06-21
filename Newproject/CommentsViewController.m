@@ -29,6 +29,9 @@
     _scrollview.frame=CGRectMake(0, 0,1004, 768);
     [_scrollview setContentSize:CGSizeMake(1004,850)];
     _commentArray=[[NSMutableArray alloc]init];
+    _commentTable.layer.borderWidth = 2.0;
+    _commentTable.layer.borderColor = [UIColor blackColor].CGColor;
+
 
     // Do any additional setup after loading the view from its nib.
 }
