@@ -26,4 +26,5 @@
 @property(strong,nonatomic)IBOutlet UIView *newcustmrview;
 - (IBAction)editcellbtn:(id)sender;
 -(IBAction)closetheView:(id)sender;
+@property(strong,nonatomic)IBOutlet UINavigationBar *navbar;
 @end

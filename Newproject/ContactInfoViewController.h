@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactInfoViewController : UIViewController
+@property(strong,nonatomic)IBOutlet UITableView *contactinfoTable;
+//@property(strong,nonatomic)IBOutlet UIView *newInfoview;
 
 @end
