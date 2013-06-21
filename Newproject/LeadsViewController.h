@@ -46,6 +46,8 @@
 
 - (IBAction)editcellbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *editbtncelllbl;
+- (IBAction)disclosurebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *disclsurelbl;
 
 
 /*connections in EDIT VIEW*/

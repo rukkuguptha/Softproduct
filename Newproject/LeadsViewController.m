@@ -270,39 +270,7 @@ if (tableView==_leadTable) {
       if (tableView==_leadTable) {
           
           
-          poptype=5;
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
-          
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 70)];
     
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
-    
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-   
-
-   // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
-    
-    //create a popover controller
-          
-          self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    
-  
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
-    [self.popOverController presentPopoverFromRect:rect inView:cell permittedArrowDirections:nil animated:YES];
   
       }
     
@@ -998,4 +966,57 @@ if (tableView==_leadTable) {
 
 
 
+- (IBAction)disclosurebtn:(id)sender {
+    poptype=5;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 120, 70)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+//    
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+//    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_disclsurelbl.frame
+                                            inView:cell
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
+    
+
+    
+}
 @end
