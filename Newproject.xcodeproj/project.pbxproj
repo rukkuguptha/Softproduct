@@ -45,6 +45,8 @@
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 		D4D570141772B58200671A35 /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D570131772B58200671A35 /* Infoleads.m */; };
 		D4E15794177416D9002764AB /* icon-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E15793177416D9002764AB /* icon-disclosure.png */; };
+		D4E1579817744013002764AB /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1579617744013002764AB /* CommentsViewController.m */; };
+		D4E1579917744013002764AB /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E1579717744013002764AB /* CommentsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +105,9 @@
 		D4D570121772B58200671A35 /* Infoleads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Infoleads.h; path = ../Infoleads.h; sourceTree = "<group>"; };
 		D4D570131772B58200671A35 /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Infoleads.m; path = ../Infoleads.m; sourceTree = "<group>"; };
 		D4E15793177416D9002764AB /* icon-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-disclosure.png"; sourceTree = "<group>"; };
+		D4E1579517744013002764AB /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
+		D4E1579617744013002764AB /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
+		D4E1579717744013002764AB /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +215,9 @@
 				D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */,
 				D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */,
 				D4A2AFFC176F186200F4E196 /* FollowupCell.xib */,
+				D4E1579517744013002764AB /* CommentsViewController.h */,
+				D4E1579617744013002764AB /* CommentsViewController.m */,
+				D4E1579717744013002764AB /* CommentsViewController.xib */,
 			);
 			name = Leads;
 			sourceTree = "<group>";
@@ -330,6 +338,7 @@
 				648D13081771A093006BB41A /* CompanyViewController.xib in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
 				D4E15794177416D9002764AB /* icon-disclosure.png in Resources */,
+				D4E1579917744013002764AB /* CommentsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,6 +362,7 @@
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
+				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
