@@ -34,9 +34,10 @@
     _activityTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     self.newviewactivity.hidden=YES;
-     _view2.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
-    _activityNav.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+     _view2.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    _activityNav.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
+    _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up", nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
        // Do any additional setup after loading the view from its nib.
 }
@@ -105,12 +106,27 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Table View
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
     // Return the number of rows in the section.
-    
-    return 20;
+    if (tableView==_popOverTableView) {
+        return [_popoverArray count];
+        
+    }
+    else{
+    return 3;
+    }
+    return YES;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -119,45 +135,66 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        if (tableView==_activityTable) {
+
         [[NSBundle mainBundle]loadNibNamed:@"ActivityCustomCell" owner:self options:nil];
         cell=_actvityCell;
+        }
         
     }
     //cell.textLabel.text=@"Leads";
-    
+      if (tableView==_popOverTableView) {
+          cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+          cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+
+          cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
+      }
     return cell;
     
     
 }
+
+#pragma mark - Table View delegate
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if (indexPath.row%2 == 0) {
-        
-        [cell setBackgroundColor:[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:[UIColor whiteColor]];
     }else
     {
         
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
         
-        [cell setBackgroundColor:[UIColor whiteColor]];
-    }
-}
-//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//   if(tableView==_activityTable)
-//   {
-//       
-//   }
-//}
+        [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
 
--(IBAction)addNewActivity:(id)sender
-{
-    self.newviewactivity.hidden=NO;
+            }
 }
--(IBAction)closetheView:(id)sender
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.newviewactivity.hidden=YES;
+    if (tableView==_popOverTableView) {
+        
+        if (indexPath.row==0) {
+            
+            if (!self.followupVCtrl) {
+                self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
+            }
+            [self.navigationController pushViewController:self.followupVCtrl animated:YES];
+            
+        }
+
+        
+
+    }
+    
+       [self.popOverController dismissPopoverAnimated:YES];
+    
 }
+
+
+
+
+#pragma mark - Calendar
 -(void)createCalenderPopover
 {
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -200,11 +237,7 @@
     calendar.frame = CGRectMake(10, 10, 300, 320);
     [popoverView addSubview:calendar];
     
-    //    self.dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(calendar.frame) + 4, self.view.bounds.size.width, 24)];
-    //    [self.view addSubview:self.dateLabel];
-    
-    //  self.view.backgroundColor = [UIColor whiteColor];
-    
+       
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(localeDidChange) name:NSCurrentLocaleDidChangeNotification object:nil];
     
     
@@ -217,14 +250,7 @@
                                           animated:YES];
     
 }
-//     if([_datecheckstring isEqualToString:@"iphone"])
-//     {
-//         [self.popOverController presentPopoverFromRect:_dateiphonebtn.frame
-//                                                 inView:self.view
-//                               permittedArrowDirections:UIPopoverArrowDirectionUp
-//                                               animated:YES];
-
-
+  
 
 
 - (void)localeDidChange {
@@ -244,6 +270,22 @@
     [_dateBtn setTitle:dateString forState:UIControlStateNormal];
     
 }
+
+
+
+#pragma mark - Buttons
+
+-(IBAction)addNewActivity:(id)sender
+{
+    self.newviewactivity.hidden=NO;
+}
+-(IBAction)closetheView:(id)sender
+{
+    self.newviewactivity.hidden=YES;
+}
+
+
+
 -(IBAction)selectDate:(id)sender
 {
     [self createCalenderPopover];
@@ -257,6 +299,54 @@
 - (IBAction)editcellbtn:(id)sender
 {
     _newviewactivity.hidden=NO;
+}
+
+- (IBAction)disbtn:(id)sender {
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 120, 70)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+       [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+       
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_disbtnlbl.frame
+                                            inView:cell
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
+    
+
+    
+    
 }
 
 
