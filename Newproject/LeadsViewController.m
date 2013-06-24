@@ -26,6 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _SearchingBar.delegate = (id)self;
+    _SearchingBar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    //searchBar.tintColor=[UIColor cyanColor];
+    self.leadTable.tableHeaderView =_SearchingBar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
+    
+    
     _scroll.frame=CGRectMake(0, 0, 768,1004);
     [_scroll setContentSize:CGSizeMake(768,1500)];
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
@@ -1206,6 +1220,41 @@ if (tableView==_leadTable) {
 
     
 }
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+//    searchstring=_SearchingBar.text;
+//    //NSLog(@"search%@",searchstring);
+//    [self searchdata];
+//    [searchBar resignFirstResponder];
+//    
+//    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([_SearchingBar.text length]==0) {
+        
+        [self getLeads];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    else{
+        
+        _searchstring=_SearchingBar.text;
+        //NSLog(@"search%@",searchstring);
+       // [self searchdata];
+        [searchBar resignFirstResponder];
+
+        
+    }
+    //[searchBar resignFirstResponder];
+    
+    
+}
+
 
 
 
