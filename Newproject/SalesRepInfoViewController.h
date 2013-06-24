@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface SalesRepInfoViewController : UIViewController
-
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
+@property(strong,nonatomic)IBOutlet UITableView *salesRepTable;
+@property(strong,nonatomic)IBOutlet UIView *addView;
+@property(strong,nonatomic)IBOutlet UINavigationBar *navbar;
+@property(strong,nonatomic)IBOutlet UIView *infoview;
 @end
