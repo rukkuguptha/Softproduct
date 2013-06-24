@@ -10,6 +10,11 @@
 
 @interface ContactInfoViewController : UIViewController
 @property(strong,nonatomic)IBOutlet UITableView *contactinfoTable;
-//@property(strong,nonatomic)IBOutlet UIView *newInfoview;
+@property(strong,nonatomic)IBOutlet UIView *infoview;
+@property(strong,nonatomic)IBOutlet UINavigationBar *navbar;
+@property(strong,nonatomic)IBOutlet UIView *addview;
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
+- (IBAction)editcellbtn:(id)sender;
+-(IBAction)closetheView:(id)sender;
 
 @end
