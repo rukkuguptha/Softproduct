@@ -946,7 +946,7 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchLeadResultn"])
+    if([elementName isEqualToString:@"SearchLeadResult"])
     {
         _leadinfoArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1286,12 +1286,6 @@ if (tableView==_leadTable) {
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-//    searchstring=_SearchingBar.text;
-//    //NSLog(@"search%@",searchstring);
-//    [self searchdata];
-//    [searchBar resignFirstResponder];
-//    
-//    
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     
@@ -1299,28 +1293,28 @@ if (tableView==_leadTable) {
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([_SearchingBar.text length]==0) {
         
-       // [self getLeads];
-        // [searchBar resignFirstResponder];
+       [self getLeads];
+         [searchBar resignFirstResponder];
         
         
     }
-    else{
-        
+    else  if ([_SearchingBar.text length]>0) {
+    
+    
+    
+    
         _searchstring=_SearchingBar.text;
-        //NSLog(@"search%@",searchstring);
-        [self SearchLead];
-        [searchBar resignFirstResponder];
-
+              [self SearchLead];
+      
         
-    }
-    //[searchBar resignFirstResponder];
+  
     
     
 }
 
 
 
-
+}
 
 
 
