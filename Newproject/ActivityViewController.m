@@ -46,8 +46,8 @@
    
     
     
-    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"DELETE" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
     NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
     [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
 

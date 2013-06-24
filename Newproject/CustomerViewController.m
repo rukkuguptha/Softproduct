@@ -32,7 +32,7 @@
     _scrollview.frame=CGRectMake(0, 0, 1024,708);
     [_scrollview setContentSize:CGSizeMake(1024,760)];
      _popoverArry=[[NSMutableArray alloc]initWithObjects:@"Contact Info",@"Sales Rep Info",nil];
-    _view1.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    _view1.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     
     self.navbar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     
@@ -49,8 +49,8 @@
     
     
     
-    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"DELETE" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
     NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
     [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
     _newcustmrview.hidden=YES;
@@ -147,6 +147,8 @@
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
+    if(tableView==_customertable)
+    {
     if (indexPath.row%2 == 0) {
         [cell setBackgroundColor:[UIColor whiteColor]];
 
@@ -157,6 +159,11 @@
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
             [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];        
            }
+}
+else
+{
+    
+}
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -175,7 +182,7 @@
         _popOverTableView.delegate=(id)self;
         _popOverTableView.dataSource=(id)self;
         _popOverTableView.rowHeight= 32;
-        _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLineEtched;
+        _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
         
         
         // CGRect rect = frame;

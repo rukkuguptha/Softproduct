@@ -28,7 +28,7 @@
     [super viewDidLoad];
     _scroll.frame=CGRectMake(0, 0, 1024,708);
     [_scroll setContentSize:CGSizeMake(1024,760)];
-    _infoview.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    _infoview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
      self.navbar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
 }
@@ -43,8 +43,8 @@
     
     
     
-    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"ADD" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"DELETE" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
+    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
+    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
     NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
     [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
     _addview.hidden=YES;
