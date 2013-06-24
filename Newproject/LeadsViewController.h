@@ -102,5 +102,7 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
-
+/*searchbar*/
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
+@property (strong, nonatomic) NSString *searchstring;
 @end

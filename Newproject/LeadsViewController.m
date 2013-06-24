@@ -26,6 +26,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _SearchingBar.delegate = (id)self;
+    _SearchingBar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    //searchBar.tintColor=[UIColor cyanColor];
+    self.leadTable.tableHeaderView =_SearchingBar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
+    
+    
     _scroll.frame=CGRectMake(0, 0, 768,1004);
     [_scroll setContentSize:CGSizeMake(768,1500)];
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
@@ -828,7 +842,57 @@ if (tableView==_leadTable) {
     
 }
 
+-(void)SearchLead{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SearchLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                    "<lead>%@</lead>\n"
+                   "</SearchLead>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SearchLead" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
 
+    
+}
 
 
 
@@ -882,6 +946,16 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SearchLeadResultn"])
+    {
+        _leadinfoArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
     
     if([elementName isEqualToString:@"LeadId"])
@@ -1206,6 +1280,44 @@ if (tableView==_leadTable) {
 
     
 }
+
+
+#pragma mark - SearchBar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+//    searchstring=_SearchingBar.text;
+//    //NSLog(@"search%@",searchstring);
+//    [self searchdata];
+//    [searchBar resignFirstResponder];
+//    
+//    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([_SearchingBar.text length]==0) {
+        
+       // [self getLeads];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    else{
+        
+        _searchstring=_SearchingBar.text;
+        //NSLog(@"search%@",searchstring);
+        [self SearchLead];
+        [searchBar resignFirstResponder];
+
+        
+    }
+    //[searchBar resignFirstResponder];
+    
+    
+}
+
 
 
 
