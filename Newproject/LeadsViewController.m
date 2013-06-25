@@ -343,7 +343,9 @@ if (tableView==_leadTable) {
                      if (!self.activityVCtrl) {
                          self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
                      }
+        
                      
+                    
                      [self.navigationController pushViewController:self.activityVCtrl animated:YES];
                      
                  }
