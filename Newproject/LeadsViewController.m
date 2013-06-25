@@ -342,7 +342,8 @@ if (tableView==_leadTable) {
                          self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
                      }
         
-                     _activityVCtrl.leadid=&(_leadID);
+                     _activityVCtrl.leadid=_leadID;
+                     NSLog(@"leadid%d",_activityVCtrl.leadid);
                     
                      [self.navigationController pushViewController:self.activityVCtrl animated:YES];
                      
@@ -374,7 +375,7 @@ if (tableView==_leadTable) {
          
          
                 
-         //[self.popOverController dismissPopoverAnimated:YES];
+         [self.popOverController dismissPopoverAnimated:YES];
 
          
          
@@ -656,7 +657,9 @@ if (tableView==_leadTable) {
     NSIndexPath *IndexPath = [table indexPathForCell:cell];
     
     
-    
+    Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
+    _leadID=info.leadid;
+
     
     [self.popOverController presentPopoverFromRect:_disclsurelbl.frame
                                             inView:cell
@@ -664,13 +667,27 @@ if (tableView==_leadTable) {
                                           animated:YES];
     
     
-    Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
-    _leadID=info.leadid;
-    
+      
 
     
     
 }
+
+
+- (IBAction)Addcmtbtn:(id)sender {
+    _composecmtview.hidden=NO;
+}
+
+- (IBAction)savecmtbtn:(id)sender {
+    
+}
+
+- (IBAction)cancelcmtbtn:(id)sender {
+    _cmttxtbox.text=@"";
+    _composecmtview.hidden=YES;
+
+}
+
 
 
 - (IBAction)updatebtn:(id)sender {
@@ -1406,12 +1423,4 @@ if (tableView==_leadTable) {
 
 
 
-- (IBAction)Addcmtbtn:(id)sender {
-}
-
-- (IBAction)savecmtbtn:(id)sender {
-}
-
-- (IBAction)cancelcmtbtn:(id)sender {
-}
 @end
