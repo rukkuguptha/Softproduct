@@ -201,8 +201,8 @@
             if (!self.followupVCtrl) {
                 self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
             }
-           // _activityVCtrl.leadid=_activityid;
-           
+            _followupVCtrl.ActivityId=_activityid;
+            NSLog(@"%d", _followupVCtrl.ActivityId);
             [self.navigationController pushViewController:self.followupVCtrl animated:YES];
             
         }
