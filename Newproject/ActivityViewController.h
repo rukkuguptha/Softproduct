@@ -11,6 +11,9 @@
 #import "CKCalendarView.h"
 #import "FollowupViewController.h"
 @interface ActivityViewController : UIViewController
+{
+    NSInteger leadId;
+}
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
