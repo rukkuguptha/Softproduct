@@ -33,7 +33,7 @@
     //searchBar.tintColor=[UIColor cyanColor];
     self.leadTable.tableHeaderView =_SearchingBar;
     
-    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+        UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
@@ -299,7 +299,9 @@ if (tableView==_leadTable) {
       if (tableView==_leadTable) {
           
           
-    
+          Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:indexPath.row];
+          leadID=info.leadid;
+
   
       }
     
@@ -341,6 +343,7 @@ if (tableView==_leadTable) {
                      if (!self.activityVCtrl) {
                          self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
                      }
+                     
                      [self.navigationController pushViewController:self.activityVCtrl animated:YES];
                      
                  }
@@ -1353,18 +1356,19 @@ if (tableView==_leadTable) {
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 500, 500)];
+                           initWithFrame:CGRectMake(0, 0, 531, 544)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
    
     
-    
+    [popoverView addSubview:self.commentview];
+    self.commentview.hidden=NO;
     // CGRect rect = frame;
       popoverContent.view = popoverView;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(500, 500);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(531, 544);
     
     //create a popover controller
     
@@ -1397,4 +1401,12 @@ if (tableView==_leadTable) {
 
 
 
+- (IBAction)Addcmtbtn:(id)sender {
+}
+
+- (IBAction)savecmtbtn:(id)sender {
+}
+
+- (IBAction)cancelcmtbtn:(id)sender {
+}
 @end
