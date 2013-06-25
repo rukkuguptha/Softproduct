@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6407291817744A900085CB7B /* newCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6407291717744A900085CB7B /* newCommentCell.xib */; };
+		642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B77AE17799D1000EECCC0 /* activityInfo.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
@@ -54,6 +55,8 @@
 
 /* Begin PBXFileReference section */
 		6407291717744A900085CB7B /* newCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newCommentCell.xib; sourceTree = "<group>"; };
+		642B77AD17799D1000EECCC0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
+		642B77AE17799D1000EECCC0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		6481615D176F0B230017F4CC /* ActivityCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCustomCell.xib; sourceTree = "<group>"; };
@@ -266,6 +269,8 @@
 				D4D570131772B58200671A35 /* Infoleads.m */,
 				648D13011771726E006BB41A /* CKCalendarView.h */,
 				648D13021771726E006BB41A /* CKCalendarView.m */,
+				642B77AD17799D1000EECCC0 /* activityInfo.h */,
+				642B77AE17799D1000EECCC0 /* activityInfo.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -371,6 +376,7 @@
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
+				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

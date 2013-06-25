@@ -10,6 +10,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CKCalendarView.h"
 #import "FollowupViewController.h"
+#import "activityInfo.h"
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
@@ -43,6 +44,16 @@
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSMutableArray *activityArray;
+@property(strong,nonatomic)activityInfo *act;
 
+
+
+@property(strong,nonatomic)IBOutlet UILabel *activityname;
+@property(strong,nonatomic)IBOutlet UILabel *datetext;
+@property(strong,nonatomic)IBOutlet UILabel *employee;
+@property(strong,nonatomic)IBOutlet UILabel *description;
+@property(strong,nonatomic)IBOutlet UILabel *status;
+@property(readwrite)  NSInteger activityid;
 
 @end

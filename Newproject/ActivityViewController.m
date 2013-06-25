@@ -125,8 +125,9 @@
         return [_popoverArray count];
         
     }
-    else{
-    return 3;
+    if (tableView==_activityTable)
+    {
+    return [_activityArray count];
     }
     return YES;
 }
@@ -151,6 +152,25 @@
 
           cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
       }
+    if(tableView==_activityTable)
+    {
+        activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:indexPath.row];
+        _activityname=(UILabel*)[cell viewWithTag:1];
+        _activityname.text=info.activity;
+        
+        _datetext=(UILabel*)[cell viewWithTag:2];
+        _datetext.text=info.datest;
+        
+        _employee=(UILabel*)[cell viewWithTag:3];
+        _employee.text=info.employer;
+        
+        _description=(UILabel*)[cell viewWithTag:4];
+        _description.text=info.description;
+        
+        _status=(UILabel*)[cell viewWithTag:5];
+        _status.text=info.status;
+
+    }
     return cell;
     
     
@@ -181,6 +201,8 @@
             if (!self.followupVCtrl) {
                 self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
             }
+           // _activityVCtrl.leadid=_activityid;
+           
             [self.navigationController pushViewController:self.followupVCtrl animated:YES];
             
         }
@@ -364,7 +386,8 @@
     UITableView *table = (UITableView *)[cell superview];
     NSIndexPath *IndexPath = [table indexPathForCell:cell];
     
-    
+    activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:IndexPath.row];
+    _activityid=info.activityId;
     
     
     [self.popOverController presentPopoverFromRect:_disbtnlbl.frame
@@ -453,13 +476,83 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-  
+    [_activityTable reloadData];
     
 }
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
+    if([elementName isEqualToString:@"GetLeadActivityResult"])
+    {
+        _activityArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LeadId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Date"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Activity"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Employer"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    
+    
+    
+ 
 }
 
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -477,7 +570,75 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+  
+    if([elementName isEqualToString:@"GetLeadsResult"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Id"])
+    {
+        _act=[[activityInfo alloc]init];
+        recordResults = FALSE;
+        _act.activityId=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LeadId"])
+    {
+        
+        recordResults = FALSE;
+        _act.LeadId=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Date"])
+    {
+        
+        recordResults = FALSE;
+        _act.datest=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Activity"])
+    {
+        
+        recordResults = FALSE;
+        _act.activity=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Employer"])
+    {
+        
+        recordResults = FALSE;
+        _act.employer=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        recordResults = FALSE;
+        _act.description=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Status"])
+    {
+        
+        recordResults = FALSE;
+        _act.status=_soapResults;
+          [_activityArray addObject:_act];
+        _soapResults = nil;
+    }
 
+
+
+    
+
+
+    
+
+
+
+    
 
 }
 
