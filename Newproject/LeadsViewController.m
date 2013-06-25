@@ -111,8 +111,16 @@
     [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
     
-    _view2.hidden=NO;
-    
+    //_view2.hidden=NO;
+    _view2.frame = CGRectMake(512, 384, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(195, 60, 692, 816);
+        //        _hidenview.center = origin;
+        _view2.alpha = 1.0;
+        
+    }];
+
     
     
 
@@ -384,7 +392,15 @@ if (tableView==_leadTable) {
 #pragma mark - Buttons
 
 - (IBAction)editcellbtn:(id)sender {
-     _view2.hidden=NO;
+    _view2.frame = CGRectMake(512, 384, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(195, 60, 692, 816);
+        //        _hidenview.center = origin;
+        _view2.alpha = 1.0;
+        
+    }];
+
     UIButton *button = (UIButton *)sender;
     
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
@@ -453,7 +469,16 @@ if (tableView==_leadTable) {
 
 - (IBAction)clsebtn:(id)sender {
     butnidtfr=0;
-    _view2.hidden=YES;
+    //_view2.hidden=YES;
+    _view2.frame = CGRectMake(250, 250, 384, 356);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(512, 384, 0, 0);
+        //        _hidenview.center = origin;
+        _view2.alpha = 0;
+        
+    }];
+
     
 }
 - (IBAction)leadtypebtn:(id)sender {
