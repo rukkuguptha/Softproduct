@@ -346,7 +346,8 @@ if (tableView==_leadTable) {
                      NSLog(@"leadid%d",_activityVCtrl.leadid);
                     
                      [self.navigationController pushViewController:self.activityVCtrl animated:YES];
-                     
+                     [self.popOverController dismissPopoverAnimated:YES];
+
                  }
                  
                  if (indexPath.row==1) {
@@ -375,8 +376,7 @@ if (tableView==_leadTable) {
          
          
                 
-         [self.popOverController dismissPopoverAnimated:YES];
-
+         
          
          
      }
@@ -675,7 +675,19 @@ if (tableView==_leadTable) {
 
 
 - (IBAction)Addcmtbtn:(id)sender {
+    _composecmtview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+
     _composecmtview.hidden=NO;
+    
+//   _composecmtview.frame = CGRectMake(512, 384, 0, 0);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//      _composecmtview.frame = CGRectMake(195, 60, 431, 233);
+//        //        _hidenview.center = origin;
+//      _composecmtview.alpha = 1.0;
+//        
+//    }];
+
 }
 
 - (IBAction)savecmtbtn:(id)sender {
