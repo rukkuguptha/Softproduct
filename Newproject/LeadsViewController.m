@@ -392,7 +392,15 @@ if (tableView==_leadTable) {
 #pragma mark - Buttons
 
 - (IBAction)editcellbtn:(id)sender {
-     _view2.hidden=NO;
+    _view2.frame = CGRectMake(512, 384, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(195, 60, 692, 816);
+        //        _hidenview.center = origin;
+        _view2.alpha = 1.0;
+        
+    }];
+
     UIButton *button = (UIButton *)sender;
     
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
