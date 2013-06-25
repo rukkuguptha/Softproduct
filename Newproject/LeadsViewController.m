@@ -299,9 +299,7 @@ if (tableView==_leadTable) {
       if (tableView==_leadTable) {
           
           
-          Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:indexPath.row];
-          leadID=info.leadid;
-
+     
   
       }
     
@@ -344,7 +342,7 @@ if (tableView==_leadTable) {
                          self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
                      }
         
-                     
+                     _activityVCtrl.leadid=&(_leadID);
                     
                      [self.navigationController pushViewController:self.activityVCtrl animated:YES];
                      
@@ -665,6 +663,11 @@ if (tableView==_leadTable) {
                           permittedArrowDirections:UIPopoverArrowDirectionLeft
                                           animated:YES];
     
+    
+    Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
+    _leadID=info.leadid;
+    
+
     
     
 }

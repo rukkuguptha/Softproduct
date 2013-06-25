@@ -16,8 +16,9 @@
     NSInteger poptype;
     BOOL recordResults;
     NSInteger butnidtfr;
-    NSInteger leadID;
-}
+  }
+@property(readwrite)  NSInteger leadID;
+
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 // for LeadCustomCell
