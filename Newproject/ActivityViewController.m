@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%d",_leadid);
     _scroll.frame=CGRectMake(0, 0, 1024,708);
     [_scroll setContentSize:CGSizeMake(1024,760)];
     _activityTable.layer.borderWidth = 2.0;
@@ -40,6 +41,7 @@
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up", nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
        // Do any additional setup after loading the view from its nib.
+    [self getLeadActivity];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -123,8 +125,9 @@
         return [_popoverArray count];
         
     }
-    else{
-    return 3;
+    if (tableView==_activityTable)
+    {
+    return [_activityArray count];
     }
     return YES;
 }
@@ -149,6 +152,25 @@
 
           cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
       }
+    if(tableView==_activityTable)
+    {
+        activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:indexPath.row];
+        _activityname=(UILabel*)[cell viewWithTag:1];
+        _activityname.text=info.activity;
+        
+        _datetext=(UILabel*)[cell viewWithTag:2];
+        _datetext.text=info.datest;
+        
+        _employee=(UILabel*)[cell viewWithTag:3];
+        _employee.text=info.employer;
+        
+        _description=(UILabel*)[cell viewWithTag:4];
+        _description.text=info.description;
+        
+        _status=(UILabel*)[cell viewWithTag:5];
+        _status.text=info.status;
+
+    }
     return cell;
     
     
@@ -179,6 +201,8 @@
             if (!self.followupVCtrl) {
                 self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
             }
+            _followupVCtrl.ActivityId=_activityid;
+            NSLog(@"%d", _followupVCtrl.ActivityId);
             [self.navigationController pushViewController:self.followupVCtrl animated:YES];
             
         }
@@ -362,7 +386,8 @@
     UITableView *table = (UITableView *)[cell superview];
     NSIndexPath *IndexPath = [table indexPathForCell:cell];
     
-    
+    activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:IndexPath.row];
+    _activityid=info.activityId;
     
     
     [self.popOverController presentPopoverFromRect:_disbtnlbl.frame
@@ -374,8 +399,248 @@
     
     
 }
+-(void)getLeadActivity
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSLog(@"%d",_leadid);
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<GetLeadActivity xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<leadid>%d</leadid>\n"
+                   "</GetLeadActivity>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_leadid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+ 
+}
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	[_webData setLength: 0];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+   	[_webData appendData:data];
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConenction" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [Alert show];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"DONE. Received Bytes: %d", [_webData length]);
+	NSString *theXML = [[NSString alloc] initWithBytes: [_webData mutableBytes] length:[_webData length] encoding:NSUTF8StringEncoding];
+	NSLog(@"xml===== %@",theXML);
+	
+	
+	if( _xmlParser )
+	{
+		
+	}
+	
+	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
+	[_xmlParser setDelegate:(id)self];
+	[_xmlParser setShouldResolveExternalEntities: YES];
+	[_xmlParser parse];
+    [_activityTable reloadData];
+    
+}
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict
+{
+    if([elementName isEqualToString:@"GetLeadActivityResult"])
+    {
+        _activityArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LeadId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Date"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Activity"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Employer"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    
+    
+ 
+}
+
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        
+        
+		[_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+  
+    if([elementName isEqualToString:@"GetLeadsResult"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Id"])
+    {
+        _act=[[activityInfo alloc]init];
+        recordResults = FALSE;
+        _act.activityId=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LeadId"])
+    {
+        
+        recordResults = FALSE;
+        _act.LeadId=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Date"])
+    {
+        
+        recordResults = FALSE;
+        _act.datest=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Activity"])
+    {
+        
+        recordResults = FALSE;
+        _act.activity=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Employer"])
+    {
+        
+        recordResults = FALSE;
+        _act.employer=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        recordResults = FALSE;
+        _act.description=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Status"])
+    {
+        
+        recordResults = FALSE;
+        _act.status=_soapResults;
+          [_activityArray addObject:_act];
+        _soapResults = nil;
+    }
 
 
+
+    
+
+
+    
+
+
+
+    
+
+}
 
 
 @end

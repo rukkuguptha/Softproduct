@@ -10,7 +10,11 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CKCalendarView.h"
 #import "FollowupViewController.h"
+#import "activityInfo.h"
 @interface ActivityViewController : UIViewController
+{
+       BOOL recordResults;
+}
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -21,7 +25,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
 @property(strong,nonatomic)IBOutlet UIView *view2;
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
-@property(readwrite)NSInteger *leadid;
+@property(readwrite)NSInteger leadid;
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*btnArray;
 
@@ -36,5 +40,20 @@
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
 @property(strong,nonatomic)NSMutableArray*popoverArray;
+/*Xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSMutableArray *activityArray;
+@property(strong,nonatomic)activityInfo *act;
+
+
+
+@property(strong,nonatomic)IBOutlet UILabel *activityname;
+@property(strong,nonatomic)IBOutlet UILabel *datetext;
+@property(strong,nonatomic)IBOutlet UILabel *employee;
+@property(strong,nonatomic)IBOutlet UILabel *description;
+@property(strong,nonatomic)IBOutlet UILabel *status;
+@property(readwrite)  NSInteger activityid;
 
 @end
