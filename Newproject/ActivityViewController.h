@@ -11,9 +11,6 @@
 #import "CKCalendarView.h"
 #import "FollowupViewController.h"
 @interface ActivityViewController : UIViewController
-{
-    NSInteger leadId;
-}
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -24,7 +21,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
 @property(strong,nonatomic)IBOutlet UIView *view2;
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
-
+@property(readwrite)NSInteger *leadid;
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*btnArray;
 
