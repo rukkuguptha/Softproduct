@@ -16,7 +16,8 @@
     NSInteger poptype;
     BOOL recordResults;
     NSInteger butnidtfr;
-}
+  }
+@property(readwrite)  NSInteger leadID;
 
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -107,4 +108,18 @@
 /*searchbar*/
 @property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
 @property (strong, nonatomic) NSString *searchstring;
+
+/*Commentsview*/
+@property (strong, nonatomic) IBOutlet UIView *commentview;
+@property (strong, nonatomic) IBOutlet UINavigationBar *cmtnav;
+@property (strong, nonatomic) IBOutlet UITableView *cmttable;
+@property (strong, nonatomic) IBOutlet UITextView *cmttxtbox;
+@property (strong, nonatomic) IBOutlet UIView *composecmtview;
+
+- (IBAction)Addcmtbtn:(id)sender;
+
+- (IBAction)savecmtbtn:(id)sender;
+- (IBAction)cancelcmtbtn:(id)sender;
+
+
 @end
