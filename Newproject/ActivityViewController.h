@@ -24,7 +24,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
 @property(strong,nonatomic)IBOutlet UIView *view2;
 @property(strong,nonatomic)FollowupViewController*followupVCtrl;
-@property(readwrite)NSInteger *leadid;
+@property(readwrite)NSInteger leadid;
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*btnArray;
 
