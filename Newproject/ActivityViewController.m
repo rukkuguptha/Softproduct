@@ -33,7 +33,7 @@
     _activityTable.layer.borderWidth = 2.0;
     _activityTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
-    self.newviewactivity.hidden=YES;
+   // self.newviewactivity.hidden=YES;
      _view2.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     _activityNav.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
@@ -281,7 +281,16 @@
 }
 -(IBAction)closetheView:(id)sender
 {
-    self.newviewactivity.hidden=YES;
+   // self.newviewactivity.hidden=YES;
+    _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+        //        _hidenview.center = origin;
+        _newviewactivity.alpha = 0;
+        
+    }];
+
 }
 
 
@@ -293,12 +302,29 @@
 
 
 -(void)addaction {
-    _newviewactivity.hidden=NO;
+    //_newviewactivity.hidden=NO;
+    //_view2.hidden=NO;
+    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
+        //        _hidenview.center = origin;
+        _newviewactivity.alpha = 1.0;
+        
+    }];
+
 }
 
 - (IBAction)editcellbtn:(id)sender
 {
-    _newviewactivity.hidden=NO;
+    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
+        //        _hidenview.center = origin;
+        _newviewactivity.alpha = 1.0;
+        
+    }];
 }
 
 - (IBAction)disbtn:(id)sender {
