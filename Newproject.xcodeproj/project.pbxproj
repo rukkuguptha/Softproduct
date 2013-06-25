@@ -17,6 +17,7 @@
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
+		D4041F161779ACB500247373 /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4041F151779ACB400247373 /* followupmodel.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
@@ -74,6 +75,8 @@
 		649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesRepInfoViewController.h; sourceTree = "<group>"; };
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
+		D4041F141779ACB400247373 /* followupmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = followupmodel.h; sourceTree = "<group>"; };
+		D4041F151779ACB400247373 /* followupmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = followupmodel.m; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -271,6 +274,8 @@
 				648D13021771726E006BB41A /* CKCalendarView.m */,
 				642B77AD17799D1000EECCC0 /* activityInfo.h */,
 				642B77AE17799D1000EECCC0 /* activityInfo.m */,
+				D4041F141779ACB400247373 /* followupmodel.h */,
+				D4041F151779ACB400247373 /* followupmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -377,6 +382,7 @@
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
+				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

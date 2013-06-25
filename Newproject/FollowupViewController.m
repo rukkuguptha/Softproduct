@@ -41,6 +41,8 @@
       _navigationbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
      _btnArray=[[NSMutableArray alloc]initWithObjects:@"New FollowUP",@"Edit FollowUP",@"Delete FollowUP" ,nil];
     _communctiontypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
+    
+    [self getActivityFollowup];
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -383,70 +385,72 @@
     
 }
 
-//-(void)Addfollowup{
-//    NSString*datestring=_dateBtn.titleLabel.text;
-//
-//    
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    NSString *leadlink;
-//
-//    NSInteger followupID=0;
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<SaveFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
-//                   "<HeadLine>%@</HeadLine>\n"
-//                   "<LeadLink>%d</LeadLink>\n"
-//                   "<OrgContact>%@</OrgContact>\n"
-//                   "<CommunicationType>%@</CommunicationType>\n"
-//                   "<DateContact>%@</DateContact>\n"
-//                   "<TimeContact>%@</TimeContact>\n"
-//                   "<Summary>%@</Summary>\n"
-//                   "<activityId>%d</activityId>\n"
-//                   "<followupid>%d</followupid>\n"
-//                   "</SaveFollowup>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",_summarytxtfld.text,,_contacttxtfld.text,_communictntypeBtn.titleLabel.text,_detailtxtview.text
-//                   ,_ActivityId,followupID];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//
-//    
-//}
-//
+-(void)Addfollowup{
+    NSString*datestring=_dateBtn.titleLabel.text;
+
+     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSString *leadlink=@"";
+
+    NSInteger followupID=0;
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SaveFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<HeadLine>%@</HeadLine>\n"
+                   "<LeadLink>%d</LeadLink>\n"
+                   "<OrgContact>%@</OrgContact>\n"
+                   "<CommunicationType>%@</CommunicationType>\n"
+                   "<DateContact>%@</DateContact>\n"
+                   "<TimeContact>%@</TimeContact>\n"
+                   "<Summary>%@</Summary>\n"
+                   "<activityId>%d</activityId>\n"
+                   "<followupid>%d</followupid>\n"
+                   "</SaveFollowup>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_summarytxtfld.text,leadlink,_contacttxtfld.text,_communictntypeBtn.titleLabel.text,_detailtxtview.text
+                   ,_ActivityId,followupID];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+    
+}
+
 
 //-(void)Editfollowup{
 //    recordResults = FALSE;
@@ -505,7 +509,7 @@
 //    
 //    
 //}
-
+//
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -546,6 +550,16 @@
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"GetActivityFollowupResult"])
+    {
+        _FollowupArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
 
 }

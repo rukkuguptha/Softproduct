@@ -25,14 +25,18 @@
 @property(nonatomic, weak) CKCalendarView *calendar;
 
 @property(strong,nonatomic)UITableView *popOverTableView;
-@property(strong,nonatomic)NSMutableArray*btnArray;
-@property(strong,nonatomic)NSMutableArray *communctiontypeArray;
+
+
 @property(strong,nonatomic)IBOutlet UITableViewCell *followcell;
 
 
 @property(readwrite)NSInteger ActivityId;
 
+/*Arrays*/
 
+@property(strong,nonatomic)NSMutableArray*btnArray;
+@property(strong,nonatomic)NSMutableArray *communctiontypeArray;
+@property(strong,nonatomic)NSMutableArray *FollowupArray;
 
 /*Xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
