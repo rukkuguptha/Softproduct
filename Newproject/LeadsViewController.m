@@ -1025,7 +1025,7 @@ if (tableView==_leadTable) {
     
 
     
-    if([elementName isEqualToString:@"LeadId"])
+    if([elementName isEqualToString:@"LeadID"])
     {
         if(!_soapResults)
         {
@@ -1201,7 +1201,7 @@ if (tableView==_leadTable) {
               _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"LeadId"])
+    if([elementName isEqualToString:@"LeadID"])
     {
         _infoleads=[[Infoleads alloc]init];
         recordResults = FALSE;
