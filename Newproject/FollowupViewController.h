@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "CKCalendarView.h"
+
+#import "followupmodel.h"
 @interface FollowupViewController : UIViewController{
     BOOL recordResults;
 }
@@ -29,7 +31,7 @@
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *followcell;
 
-
+@property(strong,nonatomic)followupmodel*followupmdl;
 @property(readwrite)NSInteger ActivityId;
 
 /*Arrays*/
@@ -57,5 +59,11 @@
 -(IBAction)selectCommunicationType:(id)sender;
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
+/*cell Outlets*/
+
+@property (strong, nonatomic) IBOutlet UILabel *summarylbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *OrgContact;
+@property (strong, nonatomic) IBOutlet UILabel *cmtunictntype;
 
 @end
