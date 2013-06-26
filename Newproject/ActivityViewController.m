@@ -810,6 +810,19 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
+    NSDate*curntdate=[NSDate date];
+    NSLog(@"%@",curntdate);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"HH:mm:ss a"];
+    NSLog(@"curntdate%@",[dateFormat stringFromDate:curntdate]);
+    NSString*time=[dateFormat stringFromDate:curntdate];
+    [dateFormat setDateFormat:@"MM/dd/ yyyy"];
+    NSString*date1=[dateFormat stringFromDate:curntdate];
+    NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+      
+    NSInteger userid=100;
+    activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+
     
        soapMessage = [NSString stringWithFormat:
                    
@@ -823,7 +836,7 @@
                    "<CommentDate>%@</CommentDate>\n"
                    "</SaveActivityComment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",info.activityId,_cmttxtbox.text,userid,today];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -888,6 +901,11 @@
 	[_xmlParser parse];
     [_activityTable reloadData];
     [_cmttable reloadData];
+    if (butnidtfr==3) {
+        [self getcomments];
+        
+    }
+
     
 }
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1068,6 +1086,7 @@
         recordResults = TRUE;
         
     }
+   
 
     
 
@@ -1295,7 +1314,8 @@ else
     
 }
 -(IBAction)savecomment:(id)sender
-{
+{    butnidtfr=3;
+
     [self saveComment];
 }
 -(IBAction)cancelcomment:(id)sender
