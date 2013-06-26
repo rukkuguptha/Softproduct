@@ -18,6 +18,8 @@
 @property(strong,nonatomic)NSString*DateContact;
 @property(strong,nonatomic)NSString*TimeContact;
 @property(strong,nonatomic)NSString*Summary;
+@property(strong,nonatomic)NSString*Communicationtype;
+
 @property(readwrite)NSInteger activityId;
 
 

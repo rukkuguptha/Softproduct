@@ -961,7 +961,9 @@ if (tableView==_leadTable) {
     
 }
 
-
+-(void)deleteLeads{
+    
+}
 
 
 #pragma mark - Connection
