@@ -180,7 +180,7 @@
 										<int key="IBUISeparatorStyle">1</int>
 										<int key="IBUISectionIndexMinimumDisplayRowCount">0</int>
 										<bool key="IBUIShowsSelectionImmediatelyOnTouchBegin">YES</bool>
-										<float key="IBUIRowHeight">60</float>
+										<float key="IBUIRowHeight">65</float>
 										<float key="IBUISectionHeaderHeight">22</float>
 										<float key="IBUISectionFooterHeight">22</float>
 									</object>
@@ -1606,6 +1606,22 @@
 					<int key="connectionID">133</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="490981631"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">145</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="490981631"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">146</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">savecmtbtn:</string>
 						<reference key="source" ref="1057483885"/>
@@ -2080,7 +2096,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">144</int>
+			<int key="maxID">146</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2166,9 +2182,11 @@
 						<string key="SearchingBar">UISearchBar</string>
 						<string key="citytxtfld">UITextField</string>
 						<string key="cmpnynametxtfld">UITextField</string>
+						<string key="cmtcell">UITableViewCell</string>
 						<string key="cmtnav">UINavigationBar</string>
 						<string key="cmttable">UITableView</string>
 						<string key="cmttxtbox">UITextView</string>
+						<string key="commentlbl">UILabel</string>
 						<string key="commentview">UIView</string>
 						<string key="composecmtview">UIView</string>
 						<string key="contactnametxtfld">UITextField</string>
@@ -2191,6 +2209,7 @@
 						<string key="projecttype">UIButton</string>
 						<string key="scroll">UIScrollView</string>
 						<string key="statetxtfld">UITextField</string>
+						<string key="titilelbl">UILabel</string>
 						<string key="view2">UIView</string>
 						<string key="view3">UIView</string>
 					</dictionary>
@@ -2231,6 +2250,10 @@
 							<string key="name">cmpnynametxtfld</string>
 							<string key="candidateClassName">UITextField</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="cmtcell">
+							<string key="name">cmtcell</string>
+							<string key="candidateClassName">UITableViewCell</string>
+						</object>
 						<object class="IBToOneOutletInfo" key="cmtnav">
 							<string key="name">cmtnav</string>
 							<string key="candidateClassName">UINavigationBar</string>
@@ -2242,6 +2265,10 @@
 						<object class="IBToOneOutletInfo" key="cmttxtbox">
 							<string key="name">cmttxtbox</string>
 							<string key="candidateClassName">UITextView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="commentlbl">
+							<string key="name">commentlbl</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="commentview">
 							<string key="name">commentview</string>
@@ -2330,6 +2357,10 @@
 						<object class="IBToOneOutletInfo" key="statetxtfld">
 							<string key="name">statetxtfld</string>
 							<string key="candidateClassName">UITextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titilelbl">
+							<string key="name">titilelbl</string>
+							<string key="candidateClassName">UILabel</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="view2">
 							<string key="name">view2</string>

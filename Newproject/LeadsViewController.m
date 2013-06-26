@@ -26,7 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
     
+    NSDate*today=[NSDate date];
+    NSLog(@"%@",today);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM/dd/yyyy  HH:mm a"];
+    
+
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
     _SearchingBar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
@@ -199,6 +206,9 @@ else{
     if (tableView==_leadTable) {
          return [_leadinfoArray count];
     }
+    if (tableView==_cmttable) {
+        return [_CommentsArray count];
+    }
     return YES;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -213,6 +223,12 @@ else{
         
         cell=_leadsTablecell;
         }
+         if (tableView==_cmttable) {
+             [[NSBundle mainBundle]loadNibNamed:@"CommentsCells" owner:self options:nil];
+             
+             cell=_cmtcell;
+             
+         }
         
     }
 if (tableView==_leadTable) {
@@ -237,6 +253,7 @@ if (tableView==_leadTable) {
     
     }
     
+        
     if (tableView==_popOverTableView) {
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
         cell.textLabel.font = [UIFont systemFontOfSize:12.0];
@@ -273,6 +290,23 @@ if (tableView==_leadTable) {
         
         
     }
+    
+    
+    if (tableView==_cmttable) {
+    commentmdl*cmtmdl=(commentmdl *)[_CommentsArray  objectAtIndex:indexPath.row];
+        
+      _commentlbl=(UILabel*)[cell viewWithTag:1];
+       _commentlbl.text=cmtmdl.comments;
+        _titilelbl=(UILabel*)[cell viewWithTag:2];
+        _titilelbl.text=cmtmdl.commentdate;
+
+    }
+
+    
+    
+    
+    
+    
     return cell;
     
     
@@ -711,6 +745,8 @@ if (tableView==_leadTable) {
 }
 
 - (IBAction)savecmtbtn:(id)sender {
+    [self Saveleadcomment];
+    
     
 }
 
@@ -1084,6 +1120,69 @@ if (tableView==_leadTable) {
     
 }
 
+-(void)Saveleadcomment{
+    
+    NSDate*today=[NSDate date];
+    NSLog(@"%@",today);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM/dd/yyyy  HH:mm a"];
+    
+    
+    
+  
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSInteger userid=100;
+    Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:_Path.row];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SaveLeadComment xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Comments>%@</Comments>\n"
+                   "<UserId>%d</UserId>\n"
+                    "<CommentDate>%@</CommentDate>\n"
+                   "</SaveLeadComment>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",info.leadid,_cmttxtbox.text,userid,today];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -1118,6 +1217,7 @@ if (tableView==_leadTable) {
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_leadTable reloadData];
+    [_cmttable reloadData];
       
 }
 
@@ -1337,6 +1437,7 @@ if (tableView==_leadTable) {
     }
     if([elementName isEqualToString:@"LeadCommentsListResult"])
     {
+        _CommentsArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1574,39 +1675,35 @@ if (tableView==_leadTable) {
 
     if([elementName isEqualToString:@"Comments"])
     {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+     recordResults = FALSE;
+        _cmtmdl.comments=_soapResults;
+        
+         _soapResults = nil;
     }
     
     if([elementName isEqualToString:@"CommentDate"])
     {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
+        recordResults = FALSE;
+        _cmtmdl.commentdate=_soapResults;
+        [_CommentsArray addObject:_cmtmdl];
+        
+        _soapResults = nil;    }
     
     
     if([elementName isEqualToString:@"UserId"])
     {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+        recordResults = FALSE;
+        _cmtmdl.userid=[_soapResults integerValue];
+        _soapResults = nil;
     }
     
     if([elementName isEqualToString:@"Id"])
     {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+        _cmtmdl=[[commentmdl alloc]init];
+        recordResults = FALSE;
+        _cmtmdl.Id=[_soapResults integerValue];
+
+        _soapResults = nil;
     }
     
 
