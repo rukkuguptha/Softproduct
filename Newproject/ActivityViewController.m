@@ -38,7 +38,7 @@
      _view2.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     _activityNav.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
-    _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up", nil];
+    _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up",@"Comments" ,nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
        // Do any additional setup after loading the view from its nib.
     [self getLeadActivity];
@@ -239,6 +239,7 @@
             [self.navigationController pushViewController:self.followupVCtrl animated:YES];
             
         }
+        
 
         
 
