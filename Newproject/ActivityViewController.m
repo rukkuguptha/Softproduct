@@ -292,7 +292,10 @@
     
     NSString *dateString = [dateFormat stringFromDate:date];
     [_dateBtn setTitle:dateString forState:UIControlStateNormal];
-    
+    NSDateFormatter *dateFormats = [[NSDateFormatter alloc]init];
+    [dateFormats setDateFormat:@"yyyy-MM-dd"];
+    datetext=[dateFormats stringFromDate:date];
+    NSLog(@"%@",datetext);
 }
 
 
@@ -452,6 +455,8 @@
     NSString *soapMessage;
     NSLog(@"%d",_leadid);
     NSInteger activityId=0;
+   
+   
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -467,7 +472,7 @@
                    "<activityid>%d</activityid>\n"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,_dateBtn.titleLabel.text,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
+                   "</soap:Envelope>\n",_leadid,datetext,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -602,6 +607,31 @@
         }
         recordResults = TRUE;
     }
+    if ([elementName isEqualToString:@"SaveActivityResult"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if ([elementName isEqualToString:@"result"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+
     
     
     
@@ -682,6 +712,23 @@
           [_activityArray addObject:_act];
         _soapResults = nil;
     }
+    if ([elementName isEqualToString:@"SaveActivityResult"])
+    {
+        
+       
+        recordResults = FALSE;
+        _soapResults = nil;
+        
+
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults = nil;
+    }
+    
 
 
 

@@ -14,6 +14,7 @@
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
+    NSString *datetext;
 }
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
