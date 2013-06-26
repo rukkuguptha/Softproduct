@@ -1265,6 +1265,14 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"LeadId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
     
 
@@ -1440,6 +1448,16 @@ if (tableView==_leadTable) {
         recordResults = FALSE;
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alert show];
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"LeadId"])
+    {
+      
+        _infoleads=[[Infoleads alloc]init];
+        recordResults = FALSE;
+        _infoleads.leadid=[_soapResults integerValue];
+       
         _soapResults = nil;
     }
     

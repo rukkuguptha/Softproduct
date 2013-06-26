@@ -848,10 +848,31 @@
     
     
     
-    
+    if([elementName isEqualToString:@"DeleteFollowupResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
 
     
+
+    if([elementName isEqualToString:@"msg"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+
     
 
 }
@@ -958,6 +979,16 @@ if([elementName isEqualToString:@"result"]){
 }
 
 
+    
+    if([elementName isEqualToString:@"msg"])
+    {
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults = nil;
+
+        
+    }
 
 }
 
