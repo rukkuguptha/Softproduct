@@ -159,7 +159,16 @@
         _activityname.text=info.activity;
         
         _datetext=(UILabel*)[cell viewWithTag:2];
-        _datetext.text=info.datest;
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[info.datest componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        
+        _datetext.text=myFormattedDate;
         
         _employee=(UILabel*)[cell viewWithTag:3];
         _employee.text=info.employer;
@@ -308,6 +317,7 @@
 }
 -(IBAction)closetheView:(id)sender
 {
+    butnidtfr=0;
    // self.newviewactivity.hidden=YES;
     _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
     //    CGPoint origin = _hidenview.frame.origin;
@@ -361,7 +371,20 @@
     
     NSLog(@"indexpath%d",_Path.row);
     activityInfo*info1=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
-   [_dateBtn setTitle:info1.datest forState:UIControlStateNormal];
+    
+    NSArray *dateArray=[[NSArray alloc]init];
+    dateArray=[info1.datest componentsSeparatedByString:@"T"];
+    NSString *date1 =[dateArray objectAtIndex:0];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates = [dateFormat dateFromString:date1];
+    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+    
+    
+    
+
+   [_dateBtn setTitle:myFormattedDate forState:UIControlStateNormal];
     _employerTxtfld.text=info1.employer;
     _statusTxtFld.text=info1.status;
     _activityTxtFld.text=info1.activity;
@@ -540,7 +563,15 @@
     NSLog(@"%d",_leadid);
     activityInfo*info2=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
     NSLog(@"%@",info2.LeadId);
-    NSLog(@"%@",datetext);
+    NSString*datestring=_dateBtn.titleLabel.text;
+NSLog(@"%@",datestring);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dt2=[dateFormat dateFromString:_dateBtn.titleLabel.text];
+     NSDateFormatter *dateFormats = [[NSDateFormatter alloc] init];
+    [dateFormats setDateFormat:@"yyyy-MM-dd"];
+    NSString *dt3=[dateFormats stringFromDate:dt2];
+    NSLog(@"%@",dt3);
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -556,7 +587,7 @@
                    "<activityid>%d</activityid>\n"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,datetext,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,info2.activityId];
+                   "</soap:Envelope>\n",_leadid,dt3,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,info2.activityId];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -833,7 +864,7 @@
 {
     [self saveActivity];
 }
-    else
+else
     {
          [self updateActivity];
     }
