@@ -28,6 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSDate*date1=[NSDate date];
+    NSLog(@"%@",date1);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString*curntdate = [dateFormat stringFromDate:date1];
+ NSLog(@"%@",curntdate);
     NSLog(@"%d",_leadid);
     _scroll.frame=CGRectMake(0, 0, 1024,708);
     [_scroll setContentSize:CGSizeMake(1024,760)];
@@ -129,6 +135,10 @@
     {
     return [_activityArray count];
     }
+    if(tableView==_cmttable)
+    {
+        return [_cmntarray count];
+    }
     return YES;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -179,6 +189,10 @@
         _status=(UILabel*)[cell viewWithTag:5];
         _status.text=info.status;
 
+    }
+    if(tableView==_cmttable)
+    {
+        
     }
     return cell;
     
@@ -247,7 +261,7 @@
             
             
             [self commentpopover];
-            
+            [self getcomments];
             
             //                     if (!self.cmtsVCtrl) {
             //                         self.cmtsVCtrl=[[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
@@ -546,6 +560,58 @@
     
  
 }
+-(void)getcomments
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ActivityCommentsList xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<activityid>%d</activityid>\n"
+                   
+                   "</ActivityCommentsList>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",info.activityId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+
+}
 -(void)saveActivity
 {
     recordResults = FALSE;
@@ -729,6 +795,53 @@
 -(void)saveComment
 {
     
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+       soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<SaveActivityComment xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<ActivityId>%d</ActivityId>\n"
+                   "<Comments>%@</Comments>\n"
+                   "<UserId>%d</UserId>\n"
+                   "<CommentDate>%@</CommentDate>\n"
+                   "</SaveActivityComment>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+ 
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -878,6 +991,73 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"ActivityCommentsListResult"])
+    {
+        _cmntarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"ActivityId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"Comments"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"UserId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"CommentDate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    
+
+
 
     
     
@@ -982,6 +1162,52 @@
         [alert show];
         _soapResults = nil;
     }
+   
+    if([elementName isEqualToString:@"ActivityCommentsListResult"])
+    {
+     recordResults = FALSE;
+    _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        _cmtmdl=[[commentmdl alloc]init];
+        recordResults=FALSE;
+        _cmtmdl.Id=[_soapResults integerValue];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"ActivityId"])
+    {
+      recordResults=FALSE;
+        //_cmtmdl.Id=[_soapResults integerValue];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"Comments"])
+    {
+        recordResults=FALSE;
+        _cmtmdl.comments=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"UserId"])
+    {
+        recordResults=FALSE;
+        _cmtmdl.userid=[_soapResults integerValue];
+        _soapResults = nil;
+        
+    }
+
+    
+    if([elementName isEqualToString:@"CommentDate"])
+    {
+        recordResults=FALSE;
+        _cmtmdl.commentdate=_soapResults;
+        [_cmntarray addObject:_cmtmdl];
+        _soapResults = nil;
+        
+    }
 
 
     
@@ -1056,7 +1282,7 @@ else
 }
 -(IBAction)savecomment:(id)sender
 {
-    
+    [self saveComment];
 }
 -(IBAction)cancelcomment:(id)sender
 {

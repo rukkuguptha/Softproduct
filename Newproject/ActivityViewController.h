@@ -11,6 +11,7 @@
 #import "CKCalendarView.h"
 #import "FollowupViewController.h"
 #import "activityInfo.h"
+#import "commentmdl.h"
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
@@ -78,8 +79,13 @@
 @property (strong, nonatomic) IBOutlet UITextView *cmttxtbox;
 @property (strong, nonatomic) IBOutlet UIView *composecmtview;
 
+@property(strong,nonatomic)commentmdl *cmtmdl;
+@property(strong,nonatomic)NSMutableArray *cmntarray;
+
 - (IBAction)Addcmtbtn:(id)sender;
 -(IBAction)savecomment:(id)sender;
 -(IBAction)cancelcomment:(id)sender;
+
+
 
 @end
