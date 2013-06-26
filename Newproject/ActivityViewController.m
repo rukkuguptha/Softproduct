@@ -292,7 +292,10 @@
     
     NSString *dateString = [dateFormat stringFromDate:date];
     [_dateBtn setTitle:dateString forState:UIControlStateNormal];
-    
+    NSDateFormatter *dateFormats = [[NSDateFormatter alloc]init];
+    [dateFormats setDateFormat:@"yyyy-MM-dd"];
+    datetext=[dateFormats stringFromDate:date];
+    NSLog(@"%@",datetext);
 }
 
 
@@ -446,6 +449,62 @@
     
  
 }
+-(void)saveActivity
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSLog(@"%d",_leadid);
+    NSInteger activityId=0;
+   
+   
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<SaveActivity xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Date>%@</Date>\n"
+                   "<Activity>%@</Activity>\n"
+                   "<Employer>%@</Employer>\n"
+                   "<Description>%@</Description>\n"
+                   "<Status>%@</Status>\n"
+                   "<activityid>%d</activityid>\n"
+                   "</SaveActivity>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_leadid,datetext,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+
+}
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
 	[_webData setLength: 0];
@@ -548,6 +607,31 @@
         }
         recordResults = TRUE;
     }
+    if ([elementName isEqualToString:@"SaveActivityResult"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+    if ([elementName isEqualToString:@"result"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+
     
     
     
@@ -628,6 +712,23 @@
           [_activityArray addObject:_act];
         _soapResults = nil;
     }
+    if ([elementName isEqualToString:@"SaveActivityResult"])
+    {
+        
+       
+        recordResults = FALSE;
+        _soapResults = nil;
+        
+
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults = nil;
+    }
+    
 
 
 
@@ -640,6 +741,10 @@
 
     
 
+}
+-(IBAction)saveActivity:(id)sender
+{
+    [self saveActivity];
 }
 
 

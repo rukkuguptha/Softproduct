@@ -14,6 +14,7 @@
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
+    NSString *datetext;
 }
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
@@ -55,5 +56,13 @@
 @property(strong,nonatomic)IBOutlet UILabel *description;
 @property(strong,nonatomic)IBOutlet UILabel *status;
 @property(readwrite)  NSInteger activityid;
+
+//*txtfld
+@property(strong,nonatomic)IBOutlet UITextField *employerTxtfld;
+@property(strong,nonatomic)IBOutlet UITextField *statusTxtFld;
+@property(strong,nonatomic)IBOutlet UITextField *activityTxtFld;
+@property(strong,nonatomic)IBOutlet UITextView *descptionTextview;
+
+-(IBAction)saveActivity:(id)sender;
 
 @end
