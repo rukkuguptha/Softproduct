@@ -159,7 +159,16 @@
         _activityname.text=info.activity;
         
         _datetext=(UILabel*)[cell viewWithTag:2];
-        _datetext.text=info.datest;
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[info.datest componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        
+        _datetext.text=myFormattedDate;
         
         _employee=(UILabel*)[cell viewWithTag:3];
         _employee.text=info.employer;
@@ -291,12 +300,7 @@
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
     
     NSString *dateString = [dateFormat stringFromDate:date];
-    [_dateBtn setTitle:dateString forState:UIControlStateNormal];
-    NSDateFormatter *dateFormats = [[NSDateFormatter alloc]init];
-    [dateFormats setDateFormat:@"yyyy-MM-dd"];
-    datetext=[dateFormats stringFromDate:date];
-    NSLog(@"%@",datetext);
-}
+    [_dateBtn setTitle:dateString forState:UIControlStateNormal];}
 
 
 
@@ -308,6 +312,7 @@
 }
 -(IBAction)closetheView:(id)sender
 {
+    butnidtfr=0;
    // self.newviewactivity.hidden=YES;
     _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
     //    CGPoint origin = _hidenview.frame.origin;
@@ -329,6 +334,7 @@
 
 
 -(void)addaction {
+    butnidtfr=1;
     //_newviewactivity.hidden=NO;
     //_view2.hidden=NO;
     _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
@@ -352,6 +358,46 @@
         _newviewactivity.alpha = 1.0;
         
     }];
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    _Path = [table indexPathForCell:cell];
+    
+    NSLog(@"indexpath%d",_Path.row);
+    activityInfo*info1=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+    
+    NSArray *dateArray=[[NSArray alloc]init];
+    dateArray=[info1.datest componentsSeparatedByString:@"T"];
+    NSString *date1 =[dateArray objectAtIndex:0];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates = [dateFormat dateFromString:date1];
+    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+    
+    
+    
+
+   [_dateBtn setTitle:myFormattedDate forState:UIControlStateNormal];
+    _employerTxtfld.text=info1.employer;
+    _statusTxtFld.text=info1.status;
+    _activityTxtFld.text=info1.activity;
+    _descptionTextview.text=info1.description;
+
+}
+-(IBAction)cancelaction:(id)sender
+{
+    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    
+    
+    _employerTxtfld.text=@"";
+    
+    _statusTxtFld.text=@"";
+    
+    _descptionTextview.text=@"";
+    _activityTxtFld.text=@"";
+ 
 }
 
 - (IBAction)disbtn:(id)sender {
@@ -455,7 +501,14 @@
     NSString *soapMessage;
     NSLog(@"%d",_leadid);
     NSInteger activityId=0;
-   
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM/dd/yyyy"];
+    
+    NSDate *dateString = [dateFormat dateFromString:_dateBtn.titleLabel.text];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSString* sqldate=[dateFormat1 stringFromDate:dateString];
+
    
     soapMessage = [NSString stringWithFormat:
                    
@@ -472,7 +525,7 @@
                    "<activityid>%d</activityid>\n"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,datetext,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
+                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -504,6 +557,73 @@
     }
     
 
+}
+-(void)updateActivity
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSLog(@"%d",_leadid);
+    activityInfo*info2=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+    NSLog(@"%@",info2.LeadId);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM-dd-yyyy"];
+      NSLog(@"%@",_dateBtn.titleLabel.text);
+    
+    NSDate *dateString = [dateFormat dateFromString:_dateBtn.titleLabel.text];
+      NSLog(@"%@",dateString);
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSString* sqldate=[dateFormat1 stringFromDate:dateString];
+    
+
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<SaveActivity xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Date>%@</Date>\n"
+                   "<Activity>%@</Activity>\n"
+                   "<Employer>%@</Employer>\n"
+                   "<Description>%@</Description>\n"
+                   "<Status>%@</Status>\n"
+                   "<activityid>%d</activityid>\n"
+                   "</SaveActivity>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,info2.activityId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+ 
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -551,7 +671,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"Id"])
+    if([elementName isEqualToString:@"ID"])
     {
         if(!_soapResults)
         {
@@ -662,7 +782,7 @@
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"Id"])
+    if([elementName isEqualToString:@"ID"])
     {
         _act=[[activityInfo alloc]init];
         recordResults = FALSE;
@@ -709,7 +829,7 @@
         
         recordResults = FALSE;
         _act.status=_soapResults;
-          [_activityArray addObject:_act];
+        [_activityArray addObject:_act];
         _soapResults = nil;
     }
     if ([elementName isEqualToString:@"SaveActivityResult"])
@@ -744,7 +864,15 @@
 }
 -(IBAction)saveActivity:(id)sender
 {
+    if(butnidtfr==1)
+{
     [self saveActivity];
+}
+else
+    {
+         [self updateActivity];
+    }
+    [self getLeadActivity];
 }
 
 
