@@ -70,5 +70,16 @@
 @property (strong, nonatomic)NSIndexPath *Path;
 
 @property(readwrite)NSInteger selectedpath;
+//*commentview
+
+@property (strong, nonatomic) IBOutlet UIView *commentview;
+@property (strong, nonatomic) IBOutlet UINavigationBar *cmtnav;
+@property (strong, nonatomic) IBOutlet UITableView *cmttable;
+@property (strong, nonatomic) IBOutlet UITextView *cmttxtbox;
+@property (strong, nonatomic) IBOutlet UIView *composecmtview;
+
+- (IBAction)Addcmtbtn:(id)sender;
+-(IBAction)savecomment:(id)sender;
+-(IBAction)cancelcomment:(id)sender;
 
 @end

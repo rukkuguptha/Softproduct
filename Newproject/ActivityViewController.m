@@ -242,11 +242,36 @@
         
 
         
-
+        if (indexPath.row==1) {
+            [self.popOverController dismissPopoverAnimated:YES];
+            
+            
+            [self commentpopover];
+            
+            
+            //                     if (!self.cmtsVCtrl) {
+            //                         self.cmtsVCtrl=[[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
+            //                     }
+            //                     [self.navigationController pushViewController:self.cmtsVCtrl animated:YES];
+            //
+            
+            
+        }
+        
+              
+    
     }
     
-       [self.popOverController dismissPopoverAnimated:YES];
     
+    
+    }
+
+- (IBAction)Addcmtbtn:(id)sender {
+    _composecmtview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    
+    _composecmtview.hidden=NO;
+    
+        
 }
 
 
@@ -473,6 +498,7 @@
     
     
 }
+//*wbservices
 -(void)getLeadActivity
 {
     recordResults = FALSE;
@@ -699,6 +725,10 @@
     
     
 
+}
+-(void)saveComment
+{
+    
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -976,6 +1006,65 @@ else
     }
     [self getLeadActivity];
 }
+
+-(void)commentpopover{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 531, 544)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    
+    
+    [popoverView addSubview:self.commentview];
+    self.commentview.hidden=NO;
+    // CGRect rect = frame;
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(531, 544);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    //    UIButton *button=(UIButton *)nil;
+    //
+    //    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    //    UITableView *table = (UITableView *)[cell superview];
+    //    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    //
+    
+    
+    
+    [self.popOverController presentPopoverFromRect: CGRectMake(380, 120, 300, 500)                                        inView:self.view
+                          permittedArrowDirections:nil
+                                          animated:YES];
+    
+    
+    
+}
+-(IBAction)savecomment:(id)sender
+{
+    
+}
+-(IBAction)cancelcomment:(id)sender
+{
+    _cmttxtbox.text=@"";
+    _composecmtview.hidden=YES;
+
+}
+
 
 
 @end
