@@ -300,12 +300,7 @@
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
     
     NSString *dateString = [dateFormat stringFromDate:date];
-    [_dateBtn setTitle:dateString forState:UIControlStateNormal];
-    NSDateFormatter *dateFormats = [[NSDateFormatter alloc]init];
-    [dateFormats setDateFormat:@"yyyy-MM-dd"];
-    datetext=[dateFormats stringFromDate:date];
-    NSLog(@"%@",datetext);
-}
+    [_dateBtn setTitle:dateString forState:UIControlStateNormal];}
 
 
 
@@ -506,7 +501,14 @@
     NSString *soapMessage;
     NSLog(@"%d",_leadid);
     NSInteger activityId=0;
-   
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM/dd/yyyy"];
+    
+    NSDate *dateString = [dateFormat dateFromString:_dateBtn.titleLabel.text];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSString* sqldate=[dateFormat1 stringFromDate:dateString];
+
    
     soapMessage = [NSString stringWithFormat:
                    
@@ -523,7 +525,7 @@
                    "<activityid>%d</activityid>\n"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,datetext,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
+                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,activityId];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -563,15 +565,17 @@
     NSLog(@"%d",_leadid);
     activityInfo*info2=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
     NSLog(@"%@",info2.LeadId);
-    NSString*datestring=_dateBtn.titleLabel.text;
-NSLog(@"%@",datestring);
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"MM/dd/yyyy"];
-    NSDate *dt2=[dateFormat dateFromString:_dateBtn.titleLabel.text];
-     NSDateFormatter *dateFormats = [[NSDateFormatter alloc] init];
-    [dateFormats setDateFormat:@"yyyy-MM-dd"];
-    NSString *dt3=[dateFormats stringFromDate:dt2];
-    NSLog(@"%@",dt3);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM-dd-yyyy"];
+      NSLog(@"%@",_dateBtn.titleLabel.text);
+    
+    NSDate *dateString = [dateFormat dateFromString:_dateBtn.titleLabel.text];
+      NSLog(@"%@",dateString);
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSString* sqldate=[dateFormat1 stringFromDate:dateString];
+    
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -587,7 +591,7 @@ NSLog(@"%@",datestring);
                    "<activityid>%d</activityid>\n"
                    "</SaveActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_leadid,dt3,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,info2.activityId];
+                   "</soap:Envelope>\n",_leadid,sqldate,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,info2.activityId];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -667,7 +671,7 @@ NSLog(@"%@",datestring);
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"Id"])
+    if([elementName isEqualToString:@"ID"])
     {
         if(!_soapResults)
         {
@@ -778,7 +782,7 @@ NSLog(@"%@",datestring);
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"Id"])
+    if([elementName isEqualToString:@"ID"])
     {
         _act=[[activityInfo alloc]init];
         recordResults = FALSE;
@@ -825,7 +829,7 @@ NSLog(@"%@",datestring);
         
         recordResults = FALSE;
         _act.status=_soapResults;
-          [_activityArray addObject:_act];
+        [_activityArray addObject:_act];
         _soapResults = nil;
     }
     if ([elementName isEqualToString:@"SaveActivityResult"])
