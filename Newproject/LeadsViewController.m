@@ -28,11 +28,7 @@
     [super viewDidLoad];
   
     
-    NSDate*today=[NSDate date];
-    NSLog(@"%@",today);
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat: @"MM/dd/yyyy  HH:mm a"];
-    
+  
 
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
@@ -394,6 +390,7 @@ if (tableView==_leadTable) {
                      
                      [self commentpopover];
                      [self LeadCommentsList];
+                
 
 //                     if (!self.cmtsVCtrl) {
 //                         self.cmtsVCtrl=[[CommentsViewController alloc]initWithNibName:@"CommentsViewController" bundle:nil];
@@ -710,7 +707,7 @@ if (tableView==_leadTable) {
     UITableView *table = (UITableView *)[cell superview];
     NSIndexPath *IndexPath = [table indexPathForCell:cell];
     
-    
+    _Path=IndexPath;
     Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
     _leadID=info.leadid;
 
@@ -745,6 +742,7 @@ if (tableView==_leadTable) {
 }
 
 - (IBAction)savecmtbtn:(id)sender {
+         butnidtfr=3;
     [self Saveleadcomment];
     
     
@@ -752,6 +750,7 @@ if (tableView==_leadTable) {
 
 - (IBAction)cancelcmtbtn:(id)sender {
     _cmttxtbox.text=@"";
+     butnidtfr=0;
     _composecmtview.hidden=YES;
 
 }
@@ -1122,14 +1121,16 @@ if (tableView==_leadTable) {
 
 -(void)Saveleadcomment{
     
-    NSDate*today=[NSDate date];
-    NSLog(@"%@",today);
+        
+    NSDate*curntdate=[NSDate date];
+    NSLog(@"%@",curntdate);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
-    [dateFormat setDateFormat: @"MM/dd/yyyy  HH:mm a"];
-    
-    
-    
-  
+    [dateFormat setDateFormat:@"HH:mm:ss a"];
+    NSLog(@"curntdate%@",[dateFormat stringFromDate:curntdate]);
+    NSString*time=[dateFormat stringFromDate:curntdate];
+    [dateFormat setDateFormat:@"MM/dd/ yyyy"];
+    NSString*date1=[dateFormat stringFromDate:curntdate];
+    NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
     recordResults = FALSE;
     NSString *soapMessage;
     NSInteger userid=100;
@@ -1218,6 +1219,12 @@ if (tableView==_leadTable) {
 	[_xmlParser parse];
     [_leadTable reloadData];
     [_cmttable reloadData];
+
+    if (butnidtfr==3) {
+        [self LeadCommentsList];
+               
+    }
+   
       
 }
 
