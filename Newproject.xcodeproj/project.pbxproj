@@ -48,6 +48,7 @@
 		D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFFC176F186200F4E196 /* FollowupCell.xib */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
+		D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39CD3177ACE4B00C1E87D /* commentmdl.m */; };
 		D4D570141772B58200671A35 /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D570131772B58200671A35 /* Infoleads.m */; };
 		D4E15794177416D9002764AB /* icon-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E15793177416D9002764AB /* icon-disclosure.png */; };
 		D4E1579817744013002764AB /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1579617744013002764AB /* CommentsViewController.m */; };
@@ -112,6 +113,8 @@
 		D4A2AFFC176F186200F4E196 /* FollowupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupCell.xib; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		D4D39CD2177ACE4B00C1E87D /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
+		D4D39CD3177ACE4B00C1E87D /* commentmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentmdl.m; sourceTree = "<group>"; };
 		D4D570121772B58200671A35 /* Infoleads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Infoleads.h; path = ../Infoleads.h; sourceTree = "<group>"; };
 		D4D570131772B58200671A35 /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Infoleads.m; path = ../Infoleads.m; sourceTree = "<group>"; };
 		D4E15793177416D9002764AB /* icon-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-disclosure.png"; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				642B77AE17799D1000EECCC0 /* activityInfo.m */,
 				D4041F141779ACB400247373 /* followupmodel.h */,
 				D4041F151779ACB400247373 /* followupmodel.m */,
+				D4D39CD2177ACE4B00C1E87D /* commentmdl.h */,
+				D4D39CD3177ACE4B00C1E87D /* commentmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -383,6 +388,7 @@
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
 				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
+				D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,6 +16,19 @@
          landmarkName = "-Updatefollowup"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "Newproject/LeadsViewController.m"
+         timestampString = "393923498.694006"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1038"
+         endingLineNumber = "1038"
+         landmarkName = "-LeadCommentsList"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
    <ExceptionBreakpoints>
       <ExceptionBreakpoint
