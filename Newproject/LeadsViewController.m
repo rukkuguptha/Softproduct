@@ -129,25 +129,29 @@
 -(void)editaction{
     
     
-    if ([self.leadTable isEditing]) {
-        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
-        
-        [self.leadTable setEditing:NO animated:YES];
-        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
-    }
-    else {
-       // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
-        
-        // Turn on edit mode
-        
-        [self.leadTable setEditing:YES animated:YES];
-    }
+   if (self.editing) {
+    [super setEditing:NO animated:NO];
+    [_leadTable setEditing:NO animated:NO];
+    [_leadTable reloadData];
+    
+ 
+       
+}
+
+else{
+    [super setEditing:YES animated:YES];
+    [_leadTable setEditing:YES animated:YES];
+    [_leadTable reloadData];
+   
+    
+    
+    
 }
 
 
-    
-    
-   
+}
+
+
 
 
 
@@ -391,6 +395,22 @@ if (tableView==_leadTable) {
 }
 
 
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        _Path=indexPath;
+      
+        [self DeleteLead];
+        [_leadinfoArray removeObject:indexPath];
+        
+        
+        
+        [self getLeads];
+        
+        
+    }
+    
+}
 
 
 #pragma mark - Buttons
@@ -961,7 +981,55 @@ if (tableView==_leadTable) {
     
 }
 
--(void)deleteLeads{
+-(void)DeleteLead{
+    recordResults = FALSE;
+    NSString *soapMessage;
+      Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:_Path.row];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DeleteLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<leadid>%d</leadid>\n"
+                  
+                   "</DeleteLead>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",info.leadid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+
     
 }
 
@@ -1180,6 +1248,34 @@ if (tableView==_leadTable) {
     }
 
     
+    
+    if([elementName isEqualToString:@"DeleteLeadResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+          }
+    if([elementName isEqualToString:@"msg"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LeadId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -1344,6 +1440,27 @@ if (tableView==_leadTable) {
         _soapResults = nil;
     }
 
+
+      if([elementName isEqualToString:@"msg"])
+    {
+        
+        recordResults = FALSE;
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"LeadId"])
+    {
+      
+        _infoleads=[[Infoleads alloc]init];
+        recordResults = FALSE;
+        _infoleads.leadid=[_soapResults integerValue];
+       
+        _soapResults = nil;
+    }
+    
 
 
 
