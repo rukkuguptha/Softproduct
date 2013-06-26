@@ -57,18 +57,23 @@
 }
 -(void)editaction{
     
-    if ([self.followuptable isEditing]) {
-        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_followuptable setEditing:NO animated:NO];
+        [_followuptable reloadData];
         
-        [self.followuptable setEditing:NO animated:YES];
-        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
+        
+        
     }
-    else {
-        // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_followuptable setEditing:YES animated:YES];
+        [_followuptable reloadData];
         
-        // Turn on edit mode
         
-        [self.followuptable setEditing:YES animated:YES];
+        
+        
     }
 }
 
@@ -207,6 +212,23 @@
     }
     }
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        _Path=indexPath;
+        
+        [self DeleteFollowup];
+        [_FollowupArray removeObject:indexPath];
+        
+        
+        
+        [self getActivityFollowup];
+        
+        
+    }
+    
+}
+
 
 #pragma mark -Button
 -(void)addaction {
@@ -216,6 +238,7 @@
 }
 - (IBAction)closebtn:(id)sender {
     _view2.hidden=YES;
+       butnidtfr=0;
 
     
     
@@ -608,6 +631,58 @@
     
 }
 
+
+-(void)DeleteFollowup{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+      followupmodel*follwmdl1=(followupmodel *)[_FollowupArray objectAtIndex:_Path.row];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DeleteFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<followupid>%d</followupid>\n"
+                   "</DeleteFollowup>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",follwmdl1.ComId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/DeleteFollowup" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
