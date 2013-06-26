@@ -108,6 +108,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 #pragma mark - Table View
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -123,10 +125,12 @@
     if(tableView==_popOverTableView) {
         return [_communctiontypeArray count];
     }
-    else
-    {
-    return 20;
+    else if(tableView==_followuptable) {
+    
+        return [_FollowupArray count];
     }
+        return YES;
+
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -147,12 +151,37 @@
     cell.textLabel.font = [UIFont systemFontOfSize:12.0];
      cell.textLabel.text=[_communctiontypeArray objectAtIndex:indexPath.row];
     }
-    
+    if(tableView==_followuptable){
+        followupmodel*follwmdl1=(followupmodel *)[_FollowupArray objectAtIndex:indexPath.row];
+        _summarylbl=(UILabel*)[cell viewWithTag:1];
+        _summarylbl.text=follwmdl1.headline;
+        _OrgContact=(UILabel*)[cell viewWithTag:2];
+        _OrgContact.text=_followupmdl.OrgContact;
+        _cmtunictntype=(UILabel*)[cell viewWithTag:3];
+        //_cmtunictntype.text=follwmdl1.
+        _datecontact=(UILabel*)[cell viewWithTag:4];
+        
+        
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[follwmdl1.DateContact componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _datecontact.text=myFormattedDate;
+        
+    }
     
     return cell;
     
     
 }
+
+
+#pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView==_popOverTableView)
@@ -559,7 +588,93 @@
         }
         recordResults = TRUE;
     }
+    
+    if([elementName isEqualToString:@"ComId"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"HeadLine"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LeadLink"])
+    {
+               if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"OrgContact"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"DateContact"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+
+    if([elementName isEqualToString:@"TimeContact"])
+    {
+               if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+
+    
+    if([elementName isEqualToString:@"Summary"])
+    {
+      
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"activityId"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+
+
+    
     
 
 }
@@ -578,6 +693,77 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    
+    
+    if([elementName isEqualToString:@"ComId"])
+    {
+        _followupmdl=[[followupmodel alloc]init];
+        recordResults = FALSE;
+        _followupmdl.ComId=[_soapResults integerValue];
+        _soapResults = nil;
+
+    }
+    
+    if([elementName isEqualToString:@"HeadLine"])
+    {
+        recordResults = FALSE;
+        _followupmdl.headline=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"LeadLink"])
+    {
+        recordResults = FALSE;
+        _followupmdl.LeadLink=_soapResults;
+        _soapResults = nil;
+        
+    }
+    
+    if([elementName isEqualToString:@"OrgContact"])
+    {
+        recordResults = FALSE;
+        _followupmdl.OrgContact=_soapResults;
+        _soapResults = nil;
+        
+    }
+    
+    if([elementName isEqualToString:@"DateContact"])
+    {
+        recordResults = FALSE;
+        _followupmdl.DateContact=_soapResults;
+        _soapResults = nil;
+
+    }
+    
+    
+    
+    if([elementName isEqualToString:@"TimeContact"])
+    {
+        recordResults = FALSE;
+        _followupmdl.TimeContact=_soapResults;
+        _soapResults = nil;
+    }
+    
+    
+    
+    
+    if([elementName isEqualToString:@"Summary"])
+    {
+        recordResults = FALSE;
+        _followupmdl.Summary=_soapResults;
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"activityId"])
+    {
+        recordResults = FALSE;
+        _followupmdl.activityId=[_soapResults integerValue] ;
+        [_FollowupArray addObject:_followupmdl];
+        _soapResults = nil;
+    }
+    
+    
+
 }
 
 

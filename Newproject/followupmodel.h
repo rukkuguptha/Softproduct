@@ -11,10 +11,16 @@
 @interface followupmodel : NSObject{
   }
 
-@property(readwrite)NSInteger followupID;
+@property(readwrite)NSInteger ComId;
 @property(strong,nonatomic)NSString*headline;
 @property(strong,nonatomic)NSString*LeadLink;
 @property(strong,nonatomic)NSString*OrgContact;
+@property(strong,nonatomic)NSString*DateContact;
+@property(strong,nonatomic)NSString*TimeContact;
+@property(strong,nonatomic)NSString*Summary;
+@property(readwrite)NSInteger activityId;
+
+
 
 
 
