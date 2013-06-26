@@ -65,5 +65,6 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *OrgContact;
 @property (strong, nonatomic) IBOutlet UILabel *cmtunictntype;
+@property (strong, nonatomic) IBOutlet UILabel *datecontact;
 
 @end

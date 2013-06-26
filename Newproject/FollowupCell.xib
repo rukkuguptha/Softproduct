@@ -43,14 +43,14 @@
 							<object class="IBUILabel" id="47067924">
 								<reference key="NSNextResponder" ref="112505920"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{31, 11}, {42, 21}}</string>
+								<string key="NSFrame">{{20, 11}, {129, 21}}</string>
 								<reference key="NSSuperview" ref="112505920"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="953721728"/>
+								<reference key="NSNextKeyView" ref="1014889583"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">1</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
@@ -80,14 +80,14 @@
 							<object class="IBUILabel" id="953721728">
 								<reference key="NSNextResponder" ref="112505920"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{271, 11}, {42, 21}}</string>
+								<string key="NSFrame">{{271, 11}, {156, 21}}</string>
 								<reference key="NSSuperview" ref="112505920"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1070433600"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">2</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
@@ -101,14 +101,14 @@
 							<object class="IBUILabel" id="1070433600">
 								<reference key="NSNextResponder" ref="112505920"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{556, 11}, {42, 21}}</string>
+								<string key="NSFrame">{{556, 11}, {139, 21}}</string>
 								<reference key="NSSuperview" ref="112505920"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="283691591"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">3</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
@@ -122,14 +122,14 @@
 							<object class="IBUILabel" id="283691591">
 								<reference key="NSNextResponder" ref="112505920"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{837, 11}, {42, 21}}</string>
+								<string key="NSFrame">{{803, 11}, {110, 21}}</string>
 								<reference key="NSSuperview" ref="112505920"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="474116900"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
+								<int key="IBUITag">4</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<string key="IBUIText">Label</string>
@@ -145,7 +145,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{929, 6}, {30, 30}}</string>
 								<reference key="NSSuperview" ref="112505920"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -180,7 +179,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{170, 18}, {18, 14}}</string>
 								<reference key="NSSuperview" ref="112505920"/>
-								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="953721728"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -211,7 +210,6 @@
 						</array>
 						<string key="NSFrameSize">{978, 43}</string>
 						<reference key="NSSuperview" ref="770320900"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="47067924"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
@@ -227,7 +225,6 @@
 				</array>
 				<string key="NSFrameSize">{978, 44}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="112505920"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
@@ -268,6 +265,14 @@
 						<reference key="destination" ref="1070433600"/>
 					</object>
 					<int key="connectionID">24</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">datecontact</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="283691591"/>
+					</object>
+					<int key="connectionID">25</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -370,138 +375,9 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">24</int>
+			<int key="maxID">25</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">FollowupViewController</string>
-					<string key="superclassName">UIViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addbtn:">id</string>
-						<string key="cancelbtn:">id</string>
-						<string key="closebtn:">id</string>
-						<string key="editcellbtn:">id</string>
-						<string key="namebtn:">id</string>
-						<string key="selectCommunicationType:">id</string>
-						<string key="selectDate:">id</string>
-						<string key="updatebtn:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="addbtn:">
-							<string key="name">addbtn:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="cancelbtn:">
-							<string key="name">cancelbtn:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="closebtn:">
-							<string key="name">closebtn:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="editcellbtn:">
-							<string key="name">editcellbtn:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="namebtn:">
-							<string key="name">namebtn:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectCommunicationType:">
-							<string key="name">selectCommunicationType:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="selectDate:">
-							<string key="name">selectDate:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="updatebtn:">
-							<string key="name">updatebtn:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="OrgContact">UILabel</string>
-						<string key="cmtunictntype">UILabel</string>
-						<string key="communictntypeBtn">UIButton</string>
-						<string key="contacttxtfld">UITextField</string>
-						<string key="dateBtn">UIButton</string>
-						<string key="detailtxtview">UITextView</string>
-						<string key="followcell">UITableViewCell</string>
-						<string key="followuptable">UITableView</string>
-						<string key="navigationbar">UINavigationBar</string>
-						<string key="scrollview">UIScrollView</string>
-						<string key="summarylbl">UILabel</string>
-						<string key="summarytxtfld">UITextField</string>
-						<string key="view1">UIView</string>
-						<string key="view2">UIView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="OrgContact">
-							<string key="name">OrgContact</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="cmtunictntype">
-							<string key="name">cmtunictntype</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="communictntypeBtn">
-							<string key="name">communictntypeBtn</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="contacttxtfld">
-							<string key="name">contacttxtfld</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="dateBtn">
-							<string key="name">dateBtn</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="detailtxtview">
-							<string key="name">detailtxtview</string>
-							<string key="candidateClassName">UITextView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="followcell">
-							<string key="name">followcell</string>
-							<string key="candidateClassName">UITableViewCell</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="followuptable">
-							<string key="name">followuptable</string>
-							<string key="candidateClassName">UITableView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="navigationbar">
-							<string key="name">navigationbar</string>
-							<string key="candidateClassName">UINavigationBar</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="scrollview">
-							<string key="name">scrollview</string>
-							<string key="candidateClassName">UIScrollView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="summarylbl">
-							<string key="name">summarylbl</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="summarytxtfld">
-							<string key="name">summarytxtfld</string>
-							<string key="candidateClassName">UITextField</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="view1">
-							<string key="name">view1</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="view2">
-							<string key="name">view2</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/FollowupViewController.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

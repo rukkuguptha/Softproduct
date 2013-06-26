@@ -152,9 +152,26 @@
      cell.textLabel.text=[_communctiontypeArray objectAtIndex:indexPath.row];
     }
     if(tableView==_followuptable){
+        followupmodel*follwmdl1=(followupmodel *)[_FollowupArray objectAtIndex:indexPath.row];
+        _summarylbl=(UILabel*)[cell viewWithTag:1];
+        _summarylbl.text=follwmdl1.headline;
+        _OrgContact=(UILabel*)[cell viewWithTag:2];
+        _OrgContact.text=_followupmdl.OrgContact;
+        _cmtunictntype=(UILabel*)[cell viewWithTag:3];
+        //_cmtunictntype.text=follwmdl1.
+        _datecontact=(UILabel*)[cell viewWithTag:4];
         
         
-        
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[follwmdl1.DateContact componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _datecontact.text=myFormattedDate;
         
     }
     
