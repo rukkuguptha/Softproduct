@@ -49,6 +49,7 @@
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 		D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39CD3177ACE4B00C1E87D /* commentmdl.m */; };
+		D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D39CD5177AD7C200C1E87D /* CommentsCells.xib */; };
 		D4D570141772B58200671A35 /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D570131772B58200671A35 /* Infoleads.m */; };
 		D4E15794177416D9002764AB /* icon-disclosure.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E15793177416D9002764AB /* icon-disclosure.png */; };
 		D4E1579817744013002764AB /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E1579617744013002764AB /* CommentsViewController.m */; };
@@ -115,6 +116,7 @@
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4D39CD2177ACE4B00C1E87D /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
 		D4D39CD3177ACE4B00C1E87D /* commentmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentmdl.m; sourceTree = "<group>"; };
+		D4D39CD5177AD7C200C1E87D /* CommentsCells.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsCells.xib; sourceTree = "<group>"; };
 		D4D570121772B58200671A35 /* Infoleads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Infoleads.h; path = ../Infoleads.h; sourceTree = "<group>"; };
 		D4D570131772B58200671A35 /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Infoleads.m; path = ../Infoleads.m; sourceTree = "<group>"; };
 		D4E15793177416D9002764AB /* icon-disclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-disclosure.png"; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				D40D1ED8176B27E200379DD5 /* LeadsViewController.m */,
 				D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */,
 				64816159176EE7CF0017F4CC /* CustomLeadCell.xib */,
+				D4D39CD5177AD7C200C1E87D /* CommentsCells.xib */,
 				D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */,
 				D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */,
 				D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */,
@@ -362,6 +365,7 @@
 				6407291817744A900085CB7B /* newCommentCell.xib in Resources */,
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
+				D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,7 @@
 #import "FollowupViewController.h"
 #import "Infoleads.h"
 #import "CommentsViewController.h"
+#import "commentmdl.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
@@ -77,7 +78,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *statetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *industrytypetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *prjctexcutntxtfld;
-
+@property (strong, nonatomic)commentmdl*cmtmdl;
 @property (strong, nonatomic) UIBarButtonItem*Editbtn;
 - (IBAction)leadtypebtn:(id)sender;
 - (IBAction)prjcttypebtn:(id)sender;
@@ -89,7 +90,7 @@
 - (IBAction)cancelbtn:(id)sender;
 
 /*Arrays*/
-
+@property(strong,nonatomic)NSMutableArray*CommentsArray;
 @property(strong,nonatomic)NSMutableArray*leadinfoArray;
 @property (strong, nonatomic)NSMutableArray*leadtypeArray;
 @property (strong, nonatomic)NSMutableArray*projecttypeArray;
@@ -115,7 +116,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *cmttable;
 @property (strong, nonatomic) IBOutlet UITextView *cmttxtbox;
 @property (strong, nonatomic) IBOutlet UIView *composecmtview;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cmtcell;
+@property (strong, nonatomic) IBOutlet UILabel *titilelbl;
 
+@property (strong, nonatomic) IBOutlet UILabel *commentlbl;
 - (IBAction)Addcmtbtn:(id)sender;
 
 - (IBAction)savecmtbtn:(id)sender;
