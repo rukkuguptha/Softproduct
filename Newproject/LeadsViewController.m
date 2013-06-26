@@ -1434,15 +1434,7 @@ if (tableView==_leadTable) {
     }
     
     
-    if([elementName isEqualToString:@"LeadCommentsListResult"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"LeadCommentsListResult"])
+        if([elementName isEqualToString:@"LeadCommentsListResult"])
     {
         _CommentsArray=[[NSMutableArray alloc]init];
         if(!_soapResults)

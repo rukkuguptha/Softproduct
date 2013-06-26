@@ -128,12 +128,20 @@
     
     // Return the number of rows in the section.
     if(tableView==_popOverTableView) {
-        return [_communctiontypeArray count];
+       
+                return [_communctiontypeArray count];
+             
+        
+        
     }
     else if(tableView==_followuptable) {
     
         return [_FollowupArray count];
     }
+    if (tableView==_cmttable) {
+        return [_CommentsArray count];
+    }
+
         return YES;
 
 }
@@ -147,7 +155,14 @@
         [[NSBundle mainBundle]loadNibNamed:@"FollowupCell" owner:self options:nil];
         cell=_followcell;
         
+        if (tableView==_cmttable) {
+            [[NSBundle mainBundle]loadNibNamed:@"FollowCommentcell" owner:self options:nil];
+            
+            cell=_cmtcell;
+            
+        }
         
+
     }
     //cell.textLabel.text=@"Customer Name";
     if(tableView==_popOverTableView)
@@ -180,6 +195,17 @@
         
     }
     
+    
+    
+      if (tableView==_cmttable) {
+          commentmdl*cmtmdl=(commentmdl *)[_CommentsArray  objectAtIndex:indexPath.row];
+          
+          _commentlbl=(UILabel*)[cell viewWithTag:1];
+          _commentlbl.text=cmtmdl.comments;
+          _titilelbl=(UILabel*)[cell viewWithTag:2];
+          _titilelbl.text=cmtmdl.commentdate;
+
+      }
     return cell;
     
     
@@ -265,6 +291,58 @@
 }
 
 - (IBAction)cancelbtn:(id)sender {
+}
+
+- (IBAction)disclurebtn:(id)sender {
+    poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 531, 544)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    
+    
+    [popoverView addSubview:self.commentview];
+    self.commentview.hidden=NO;
+    // CGRect rect = frame;
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(531, 544);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+      UIButton *button=(UIButton *)nil;
+        UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+        UITableView *table = (UITableView *)[cell superview];
+       NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    _Path=IndexPath;
+    
+    
+    
+    [self.popOverController presentPopoverFromRect: CGRectMake(380, 120, 300, 500)                                        inView:self.view
+                          permittedArrowDirections:nil
+                                          animated:YES];
+    
+    
+    
+    [self FollowupCommentsList];
+    
+
+    
+    
 }
 
 - (IBAction)editcellbtn:(id)sender
@@ -373,6 +451,40 @@
 //                               permittedArrowDirections:UIPopoverArrowDirectionUp
 //                                               animated:YES];
 
+
+
+
+
+
+- (IBAction)Addcmtbtn:(id)sender {
+    _composecmtview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    
+    _composecmtview.hidden=NO;
+    
+    //   _composecmtview.frame = CGRectMake(512, 384, 0, 0);
+    //    //    CGPoint origin = _hidenview.frame.origin;
+    //    [UIView animateWithDuration: 1.0f animations:^{
+    //      _composecmtview.frame = CGRectMake(195, 60, 431, 233);
+    //        //        _hidenview.center = origin;
+    //      _composecmtview.alpha = 1.0;
+    //
+    //    }];
+    
+}
+
+- (IBAction)savecmtbtn:(id)sender {
+    butnidtfr=3;
+   [self SaveFollowUpComment];
+    
+    
+}
+
+- (IBAction)cancelcmtbtn:(id)sender {
+    _cmttxtbox.text=@"";
+    butnidtfr=0;
+    _composecmtview.hidden=YES;
+    
+}
 
 
 
@@ -684,6 +796,128 @@
     
 }
 
+
+
+-(void)FollowupCommentsList{
+    recordResults = FALSE;
+    NSString *soapMessage;
+      followupmodel*follwmdl1=(followupmodel *)[_FollowupArray objectAtIndex:_Path.row];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FollowupCommentsList xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<followupid>%d</followupid>\n"
+                   
+                   "</FollowupCommentsList>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",follwmdl1.ComId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/FollowupCommentsList" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+    
+}
+-(void)SaveFollowUpComment{
+    
+    
+    NSDate*curntdate=[NSDate date];
+    NSLog(@"%@",curntdate);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"HH:mm:ss a"];
+    NSLog(@"curntdate%@",[dateFormat stringFromDate:curntdate]);
+    NSString*time=[dateFormat stringFromDate:curntdate];
+    [dateFormat setDateFormat:@"MM/dd/ yyyy"];
+    NSString*date1=[dateFormat stringFromDate:curntdate];
+    NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSInteger userid=100;
+    followupmodel*follwmdl1=(followupmodel *)[_FollowupArray objectAtIndex:_Path.row];
+
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SaveFollowUpComment xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<FollowUpId>%d</FollowUpId>\n"
+                   "<Comments>%@</Comments>\n"
+                   "<UserId>%d</UserId>\n"
+                   "<CommentDate>%@</CommentDate>\n"
+                   "</SaveFollowUpComment>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",follwmdl1.ComId,_cmttxtbox.text,userid,today];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowUpComment" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+    
+}
+
+
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -716,6 +950,10 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_followuptable reloadData];
+    [_cmttable reloadData];
+    if (butnidtfr==3) {
+        [self FollowupCommentsList];
+    }
     
 }
 
@@ -873,7 +1111,53 @@
     
     
 
+    if([elementName isEqualToString:@"FollowupCommentsListResult"])
+    {
+        _CommentsArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Comments"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    if([elementName isEqualToString:@"CommentDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"UserId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -989,6 +1273,41 @@ if([elementName isEqualToString:@"result"]){
 
         
     }
+    if([elementName isEqualToString:@"Comments"])
+    {
+        recordResults = FALSE;
+        _cmtmdl.comments=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"CommentDate"])
+    {
+        recordResults = FALSE;
+        _cmtmdl.commentdate=_soapResults;
+        [_CommentsArray addObject:_cmtmdl];
+        
+        _soapResults = nil;    }
+    
+    
+    if([elementName isEqualToString:@"UserId"])
+    {
+        recordResults = FALSE;
+        _cmtmdl.userid=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Id"])
+    {
+        _cmtmdl=[[commentmdl alloc]init];
+        recordResults = FALSE;
+        _cmtmdl.Id=[_soapResults integerValue];
+        
+        _soapResults = nil;
+    }
+    
+    
+
 
 }
 
