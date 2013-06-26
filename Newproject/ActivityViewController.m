@@ -329,6 +329,7 @@
 
 
 -(void)addaction {
+    butnidtfr=1;
     //_newviewactivity.hidden=NO;
     //_view2.hidden=NO;
     _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
@@ -352,6 +353,33 @@
         _newviewactivity.alpha = 1.0;
         
     }];
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    _Path = [table indexPathForCell:cell];
+    
+    NSLog(@"indexpath%d",_Path.row);
+    activityInfo*info1=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+   [_dateBtn setTitle:info1.datest forState:UIControlStateNormal];
+    _employerTxtfld.text=info1.employer;
+    _statusTxtFld.text=info1.status;
+    _activityTxtFld.text=info1.activity;
+    _descptionTextview.text=info1.description;
+
+}
+-(IBAction)cancelaction:(id)sender
+{
+    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    
+    
+    _employerTxtfld.text=@"";
+    
+    _statusTxtFld.text=@"";
+    
+    _descptionTextview.text=@"";
+    _activityTxtFld.text=@"";
+ 
 }
 
 - (IBAction)disbtn:(id)sender {
@@ -504,6 +532,63 @@
     }
     
 
+}
+-(void)updateActivity
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSLog(@"%d",_leadid);
+    activityInfo*info2=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+    NSLog(@"%@",info2.LeadId);
+    NSLog(@"%@",datetext);
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<SaveActivity xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Date>%@</Date>\n"
+                   "<Activity>%@</Activity>\n"
+                   "<Employer>%@</Employer>\n"
+                   "<Description>%@</Description>\n"
+                   "<Status>%@</Status>\n"
+                   "<activityid>%d</activityid>\n"
+                   "</SaveActivity>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_leadid,datetext,_activityTxtFld.text,_employerTxtfld.text,_descptionTextview.text,_statusTxtFld.text,info2.activityId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+ 
 }
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -744,7 +829,15 @@
 }
 -(IBAction)saveActivity:(id)sender
 {
+    if(butnidtfr==1)
+{
     [self saveActivity];
+}
+    else
+    {
+         [self updateActivity];
+    }
+    [self getLeadActivity];
 }
 
 

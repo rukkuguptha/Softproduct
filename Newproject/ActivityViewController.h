@@ -15,6 +15,7 @@
 {
        BOOL recordResults;
     NSString *datetext;
+      NSInteger butnidtfr;
 }
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
@@ -64,5 +65,10 @@
 @property(strong,nonatomic)IBOutlet UITextView *descptionTextview;
 
 -(IBAction)saveActivity:(id)sender;
+-(IBAction)cancelaction:(id)sender;
+
+@property (strong, nonatomic)NSIndexPath *Path;
+
+
 
 @end
