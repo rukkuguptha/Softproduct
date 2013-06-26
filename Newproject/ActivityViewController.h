@@ -78,6 +78,11 @@
 @property (strong, nonatomic) IBOutlet UITableView *cmttable;
 @property (strong, nonatomic) IBOutlet UITextView *cmttxtbox;
 @property (strong, nonatomic) IBOutlet UIView *composecmtview;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cmtcell;
+@property (strong, nonatomic) IBOutlet UILabel *titilelbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *commentlbl;
+
 
 @property(strong,nonatomic)commentmdl *cmtmdl;
 @property(strong,nonatomic)NSMutableArray *cmntarray;

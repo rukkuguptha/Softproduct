@@ -153,6 +153,13 @@
         [[NSBundle mainBundle]loadNibNamed:@"ActivityCustomCell" owner:self options:nil];
         cell=_actvityCell;
         }
+        if (tableView==_cmttable) {
+            [[NSBundle mainBundle]loadNibNamed:@"customcommentforactivitycell" owner:self options:nil];
+            
+            cell=_cmtcell;
+            
+        }
+
         
     }
     //cell.textLabel.text=@"Leads";
@@ -190,8 +197,13 @@
         _status.text=info.status;
 
     }
-    if(tableView==_cmttable)
-    {
+    if (tableView==_cmttable) {
+        commentmdl*cmtmdl=(commentmdl *)[_cmntarray  objectAtIndex:indexPath.row];
+        
+        _commentlbl=(UILabel*)[cell viewWithTag:1];
+        _commentlbl.text=cmtmdl.comments;
+        _titilelbl=(UILabel*)[cell viewWithTag:2];
+        _titilelbl.text=cmtmdl.commentdate;
         
     }
     return cell;
@@ -259,7 +271,7 @@
         if (indexPath.row==1) {
             [self.popOverController dismissPopoverAnimated:YES];
             
-            
+                       
             [self commentpopover];
             [self getcomments];
             
@@ -498,7 +510,7 @@
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     UITableView *table = (UITableView *)[cell superview];
     NSIndexPath *IndexPath = [table indexPathForCell:cell];
-    
+    _Path=IndexPath;
     activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:IndexPath.row];
     _activityid=info.activityId;
     
@@ -565,6 +577,7 @@
     recordResults = FALSE;
     NSString *soapMessage;
     activityInfo*info=(activityInfo*)[_activityArray objectAtIndex:_Path.row];
+    NSLog(@"%d",info.activityId);
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -874,6 +887,7 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_activityTable reloadData];
+    [_cmttable reloadData];
     
 }
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
