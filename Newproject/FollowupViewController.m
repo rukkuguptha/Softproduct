@@ -29,16 +29,16 @@
     _view2.hidden=YES;
     // Do any additional setup after loading the view from its nib.
     
-    _view1.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    _view1.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     _scrollview.frame=CGRectMake(0, 0,1004, 768);
     [_scrollview setContentSize:CGSizeMake(1004,850)];
-    _view1.backgroundColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    _view1.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     
     
     
     _followuptable.layer.borderWidth = 2.0;
-    _followuptable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
-      _navigationbar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
+    _followuptable.layer.borderColor = [UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f].CGColor;
+      _navigationbar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
      _btnArray=[[NSMutableArray alloc]initWithObjects:@"New FollowUP",@"Edit FollowUP",@"Delete FollowUP" ,nil];
     _communctiontypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
     
@@ -158,7 +158,7 @@
         _OrgContact=(UILabel*)[cell viewWithTag:2];
         _OrgContact.text=_followupmdl.OrgContact;
         _cmtunictntype=(UILabel*)[cell viewWithTag:3];
-        //_cmtunictntype.text=follwmdl1.
+        _cmtunictntype.text=follwmdl1.Communicationtype;
         _datecontact=(UILabel*)[cell viewWithTag:4];
         
         
@@ -202,14 +202,16 @@
     {
         
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
-        [cell setBackgroundColor:[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
         
     }
     }
 }
 
-
+#pragma mark -Button
 -(void)addaction {
+    
+    butnidtfr=1;
     _view2.hidden=NO;
 }
 - (IBAction)closebtn:(id)sender {
@@ -218,6 +220,70 @@
     
     
 }
+
+-(IBAction)selectCommunicationType:(id)sender
+{
+    [self createPopover];
+}
+
+- (IBAction)updatebtn:(id)sender {
+    if (butnidtfr==1) {
+        [self Addfollowup];
+        
+    }
+    else{
+       // [self updatelead];
+        
+    }
+    
+    [self getActivityFollowup];
+
+    
+}
+
+- (IBAction)cancelbtn:(id)sender {
+}
+
+- (IBAction)editcellbtn:(id)sender
+{
+    _view2.hidden=NO;
+    UIButton *button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    UITableView *table = (UITableView *)[cell superview];
+    _Path = [table indexPathForCell:cell];
+    
+    NSLog(@"indexpath%d",_Path.row);
+    
+    followupmodel*follwmdl2=(followupmodel*)[_FollowupArray objectAtIndex:_Path.row];
+    _summarytxtfld.text=follwmdl2.headline;
+    _contacttxtfld.text=follwmdl2.OrgContact;
+    [_communictntypeBtn setTitle:follwmdl2.Communicationtype forState:UIControlStateNormal];
+    
+    NSArray *dateArray=[[NSArray alloc]init];
+    dateArray=[follwmdl2.DateContact componentsSeparatedByString:@"T"];
+    NSString *date1 =[dateArray objectAtIndex:0];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dates = [dateFormat dateFromString:date1];
+    [dateFormat setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+    
+    [_dateBtn setTitle:myFormattedDate forState:UIControlStateNormal];
+    _cmuntntimetxtfld.text=follwmdl2.TimeContact;
+    _detailtxtview.text=follwmdl2.Summary;
+    
+
+    
+    
+    
+}
+
+- (IBAction)namebtn:(id)sender {
+    NSLog(@"Name.......");
+}
+
+
 -(void)createCalenderPopover
 {
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -340,25 +406,6 @@
         
  
 }
--(IBAction)selectCommunicationType:(id)sender
-{
-    [self createPopover];
-}
-
-- (IBAction)updatebtn:(id)sender {
-}
-
-- (IBAction)cancelbtn:(id)sender {
-}
-
-- (IBAction)editcellbtn:(id)sender
-{
-    _view2.hidden=NO;
-}
-
-- (IBAction)namebtn:(id)sender {
-    NSLog(@"Name.......");
-}
 
 #pragma mark - Webservice
 /*webservices*/
@@ -415,15 +462,24 @@
 }
 
 -(void)Addfollowup{
-    NSString*datestring=_dateBtn.titleLabel.text;
+   
 
-     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd"];
 
+    
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM/dd/yyyy"];
+    
+    NSDate *dateString = [dateFormat dateFromString:_dateBtn.titleLabel.text];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSString* sqldate=[dateFormat1 stringFromDate:dateString];
+
+    
     recordResults = FALSE;
     NSString *soapMessage;
-    NSString *leadlink=@"";
-
+  
+    NSInteger leadlink=0;
     NSInteger followupID=0;
     soapMessage = [NSString stringWithFormat:
                    
@@ -445,7 +501,7 @@
                    "<followupid>%d</followupid>\n"
                    "</SaveFollowup>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_summarytxtfld.text,leadlink,_contacttxtfld.text,_communictntypeBtn.titleLabel.text,_detailtxtview.text
+                   "</soap:Envelope>\n",_summarytxtfld.text,leadlink,_contacttxtfld.text,_communictntypeBtn.titleLabel.text,sqldate,_cmuntntimetxtfld.text,_detailtxtview.text
                    ,_ActivityId,followupID];
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -481,64 +537,77 @@
 }
 
 
-//-(void)Editfollowup{
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//  //  NSInteger followupID=0;
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<SaveFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
-//                   "<HeadLine>%@</HeadLine>\n"
-//                   "<LeadLink>%d</LeadLink>\n"
-//                   "<OrgContact>%@</OrgContact>\n"
-//                   "<CommunicationType>%@</CommunicationType>\n"
-//                   "<DateContact>%@</DateContact>\n"
-//                   "<TimeContact>%@</TimeContact>\n"
-//                   "<Summary>%@</Summary>\n"
-//                   "<activityId>%d</activityId>\n"
-//                   "<followupid>%d</followupid>\n"
-//                   "</SaveFollowup>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",,_ActivityId,followupID];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//    
-//}
-//
+-(void)Updatefollowup{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+     NSInteger leadlink=0;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat: @"MM/dd/yyyy"];
+    
+    NSDate *dateString = [dateFormat dateFromString:_dateBtn.titleLabel.text];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat:@"yyyy-MM-dd"];
+    NSString* sqldate=[dateFormat1 stringFromDate:dateString];
+    
+
+
+ followupmodel*follwmdl2=(followupmodel*)[_FollowupArray objectAtIndex:_Path.row];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SaveFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<HeadLine>%@</HeadLine>\n"
+                   "<LeadLink>%d</LeadLink>\n"
+                   "<OrgContact>%@</OrgContact>\n"
+                   "<CommunicationType>%@</CommunicationType>\n"
+                   "<DateContact>%@</DateContact>\n"
+                   "<TimeContact>%@</TimeContact>\n"
+                   "<Summary>%@</Summary>\n"
+                   "<activityId>%d</activityId>\n"
+                   "<followupid>%d</followupid>\n"
+                   "</SaveFollowup>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_summarytxtfld.text,leadlink,_contacttxtfld.text,_communictntypeBtn.titleLabel.text,sqldate,_cmuntntimetxtfld.text,_detailtxtview.text
+                   ,_ActivityId,follwmdl2.ComId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -670,9 +739,42 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CommunicationType"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
     
+    if([elementName isEqualToString:@"SaveFollowupResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
 
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    
+    
+    
 
     
     
@@ -745,7 +847,13 @@
     }
     
     
-    
+    if([elementName isEqualToString:@"CommunicationType"])
+    {
+        recordResults = FALSE;
+        _followupmdl.Communicationtype=_soapResults;
+              _soapResults = nil;
+    }
+
     
     if([elementName isEqualToString:@"Summary"])
     {
@@ -762,14 +870,21 @@
         _soapResults = nil;
     }
     
+  
     
 
+
+if([elementName isEqualToString:@"result"]){
+
+     recordResults = FALSE;
+    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+    [alert show];
+         _soapResults = nil;
 }
 
 
 
-
-
+}
 
 
 

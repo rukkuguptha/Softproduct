@@ -13,6 +13,7 @@
 #import "followupmodel.h"
 @interface FollowupViewController : UIViewController{
     BOOL recordResults;
+      NSInteger butnidtfr;
 }
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 @property (strong, nonatomic) IBOutlet UIView *view1;
@@ -33,7 +34,7 @@
 
 @property(strong,nonatomic)followupmodel*followupmdl;
 @property(readwrite)NSInteger ActivityId;
-
+@property (strong, nonatomic)NSIndexPath *Path;
 /*Arrays*/
 
 @property(strong,nonatomic)NSMutableArray*btnArray;
@@ -51,6 +52,7 @@
 @property (strong, nonatomic) IBOutlet UITextView *detailtxtview;
 @property(strong,nonatomic)IBOutlet UIButton *communictntypeBtn;
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
+@property (strong, nonatomic) IBOutlet UITextField *cmuntntimetxtfld;
 /*buttons*/
 - (IBAction)editcellbtn:(id)sender;
 - (IBAction)namebtn:(id)sender;
