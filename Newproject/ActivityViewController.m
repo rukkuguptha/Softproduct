@@ -199,6 +199,30 @@
 
             }
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete)
+    {
+       _selectedpath =indexPath.row;
+//        UIButton *button = (UIButton *)sender;
+//        UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//        UITableView *table = (UITableView *)[cell superview];
+//        _Path = [table indexPathForCell:cell];
+        
+       
+        
+        [self deleteActivity];
+        
+        [_activityArray removeObject:indexPath];
+        
+        [self getLeadActivity];
+        
+        
+        
+    }
+    
+}
+
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -625,6 +649,56 @@
     
  
 }
+-(void)deleteActivity
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+     activityInfo*info2=(activityInfo*)[_activityArray objectAtIndex:_selectedpath];
+    NSLog(@"%d",info2.activityId);
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<DeleteActivity xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<activityid>%d</activityid>\n"
+                   "</DeleteActivity>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",info2.activityId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://webserv.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+
+}
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
 	[_webData setLength: 0];
@@ -751,9 +825,29 @@
         
         
     }
+    if([elementName isEqualToString:@"DeleteActivityResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
 
     
-    
+    if([elementName isEqualToString:@"msg"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     
     
  
@@ -850,6 +944,13 @@
     }
     
 
+    if([elementName isEqualToString:@"msg"])
+    {
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults = nil;
+    }
 
 
     

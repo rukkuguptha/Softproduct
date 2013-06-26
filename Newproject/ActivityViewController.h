@@ -69,6 +69,6 @@
 
 @property (strong, nonatomic)NSIndexPath *Path;
 
-
+@property(readwrite)NSInteger selectedpath;
 
 @end
