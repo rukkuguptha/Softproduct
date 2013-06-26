@@ -11,6 +11,7 @@
 #import "CKCalendarView.h"
 #import "FollowupViewController.h"
 #import "activityInfo.h"
+#import "commentmdl.h"
 @interface ActivityViewController : UIViewController
 {
        BOOL recordResults;
@@ -70,5 +71,26 @@
 @property (strong, nonatomic)NSIndexPath *Path;
 
 @property(readwrite)NSInteger selectedpath;
+//*commentview
+
+@property (strong, nonatomic) IBOutlet UIView *commentview;
+@property (strong, nonatomic) IBOutlet UINavigationBar *cmtnav;
+@property (strong, nonatomic) IBOutlet UITableView *cmttable;
+@property (strong, nonatomic) IBOutlet UITextView *cmttxtbox;
+@property (strong, nonatomic) IBOutlet UIView *composecmtview;
+@property (strong, nonatomic) IBOutlet UITableViewCell *cmtcell;
+@property (strong, nonatomic) IBOutlet UILabel *titilelbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *commentlbl;
+
+
+@property(strong,nonatomic)commentmdl *cmtmdl;
+@property(strong,nonatomic)NSMutableArray *cmntarray;
+
+- (IBAction)Addcmtbtn:(id)sender;
+-(IBAction)savecomment:(id)sender;
+-(IBAction)cancelcomment:(id)sender;
+
+
 
 @end

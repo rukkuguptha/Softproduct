@@ -15,6 +15,7 @@
 		648D13071771A093006BB41A /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13051771A093006BB41A /* CompanyViewController.m */; };
 		648D13081771A093006BB41A /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648D13061771A093006BB41A /* CompanyViewController.xib */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
+		6498468B177AE56100C67E8A /* customcommentforactivitycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6498468A177AE56100C67E8A /* customcommentforactivitycell.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		D4041F161779ACB500247373 /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4041F151779ACB400247373 /* followupmodel.m */; };
@@ -71,6 +72,7 @@
 		648D13041771A093006BB41A /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompanyViewController.h; path = ../CompanyViewController.h; sourceTree = "<group>"; };
 		648D13051771A093006BB41A /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyViewController.m; path = ../CompanyViewController.m; sourceTree = "<group>"; };
 		648D13061771A093006BB41A /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CompanyViewController.xib; path = ../CompanyViewController.xib; sourceTree = "<group>"; };
+		6498468A177AE56100C67E8A /* customcommentforactivitycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customcommentforactivitycell.xib; sourceTree = "<group>"; };
 		649AE8781772DB8C00CAECE7 /* appbar.edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.edit.png; sourceTree = "<group>"; };
 		649AE87F1772DFDA00CAECE7 /* ContactInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfoViewController.h; sourceTree = "<group>"; };
 		649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactInfoViewController.m; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */,
 				D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */,
 				6481615D176F0B230017F4CC /* ActivityCustomCell.xib */,
+				6498468A177AE56100C67E8A /* customcommentforactivitycell.xib */,
 				D4A2AFF6176EEC7200F4E196 /* FollowupViewController.h */,
 				D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */,
 				D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */,
