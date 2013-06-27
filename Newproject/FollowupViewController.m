@@ -961,7 +961,7 @@
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"GetActivityFollowupResult"])
+    if([elementName isEqualToString:@"GetActivityFollowupResponse"])
     {
         _FollowupArray=[[NSMutableArray alloc]init];
         if(!_soapResults)

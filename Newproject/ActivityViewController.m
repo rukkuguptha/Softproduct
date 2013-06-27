@@ -47,12 +47,12 @@
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up",@"Comments" ,nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
        // Do any additional setup after loading the view from its nib.
-    [self getLeadActivity];
+   
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
    
-    
+     [self getLeadActivity];
     
     UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
     UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
@@ -911,7 +911,7 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
-    if([elementName isEqualToString:@"GetLeadActivityResult"])
+    if([elementName isEqualToString:@"GetLeadActivityResponse"])
     {
         _activityArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
