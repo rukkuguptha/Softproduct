@@ -29,6 +29,18 @@
     _view2.hidden=YES;
     // Do any additional setup after loading the view from its nib.
     
+    
+    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _SearchingBar.delegate = (id)self;
+    _SearchingBar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    //searchBar.tintColor=[UIColor cyanColor];
+    self.followuptable.tableHeaderView =_SearchingBar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
     _view1.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     _scrollview.frame=CGRectMake(0, 0,1004, 768);
     [_scrollview setContentSize:CGSizeMake(1004,850)];
