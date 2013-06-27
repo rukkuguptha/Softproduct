@@ -49,14 +49,14 @@
     _scroll.frame=CGRectMake(0, 0, 1024,708);
     [_scroll setContentSize:CGSizeMake(1024,760)];
     _activityTable.layer.borderWidth = 2.0;
-    _activityTable.layer.borderColor = [UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f].CGColor;
-    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+    _activityTable.layer.borderColor = [UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f].CGColor;    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    // self.newviewactivity.hidden=YES;
      _view2.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     _activityNav.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up",@"Comments" ,nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
+    _activitytypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
        // Do any additional setup after loading the view from its nib.
    
 }
@@ -139,7 +139,20 @@
     
     // Return the number of rows in the section.
     if (tableView==_popOverTableView) {
-        return [_popoverArray count];
+        
+        switch (poptype) {
+            case 1:
+                return [_popoverArray count];
+                break;
+            case 2:
+                return [_activitytypeArray count];
+                break;
+                           
+            default:
+                break;
+        }
+
+       
         
     }
     if (tableView==_activityTable)
@@ -177,8 +190,23 @@
       if (tableView==_popOverTableView) {
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
           cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+          
+          switch (poptype) {
+              case 1:
+                 cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
+                  
+                  break;
+              case 2:
+                  cell.textLabel.text=[_activitytypeArray objectAtIndex:indexPath.row];
+                  
+                  
+                  break;
+                            default:
+                  break;
+          }
 
-          cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
+
+          
       }
     if(tableView==_activityTable)
     {
@@ -268,21 +296,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==_popOverTableView) {
-        
-        if (indexPath.row==0) {
-            
-            if (!self.followupVCtrl) {
-                self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
-            }
-            _followupVCtrl.ActivityId=_activityid;
-            NSLog(@"%d", _followupVCtrl.ActivityId);
-            [self.navigationController pushViewController:self.followupVCtrl animated:YES];
-            
-        }
-        
+        switch (poptype) {
+            case 1:
 
+                if (indexPath.row==0)
+                {
+                    if (!self.followupVCtrl)
+                    {
+                        self.followupVCtrl=[[FollowupViewController alloc]initWithNibName:@"FollowupViewController" bundle:nil];
+                    }
+                    _followupVCtrl.ActivityId=_activityid;
+                    NSLog(@"%d", _followupVCtrl.ActivityId);
+                    [self.navigationController pushViewController:self.followupVCtrl animated:YES];
+                    [self.popOverController dismissPopoverAnimated:YES];
+            
+                }
         
-        if (indexPath.row==1) {
+            if (indexPath.row==1) {
             [self.popOverController dismissPopoverAnimated:YES];
             
                        
@@ -295,10 +325,20 @@
             //                     [self.navigationController pushViewController:self.cmtsVCtrl animated:YES];
             //
             
-            
         }
         
-              
+        break;
+        
+    case 2:
+        
+        [_activityTypeBtn setTitle:[_activitytypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+        
+        
+        
+        break;
+
+        
+        }
     
     }
     
@@ -313,7 +353,43 @@
     
         
 }
+-(IBAction)selectActivityType:(id)sender
+{    
+    [self createPopover];
+}
 
+-(void)createPopover
+{
+    poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_activityTypeBtn.frame
+                                            inView:_newviewactivity
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+    
+    
+}
 
 
 
@@ -491,6 +567,7 @@
 }
 
 - (IBAction)disbtn:(id)sender {
+    poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
