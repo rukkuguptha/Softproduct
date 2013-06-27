@@ -83,6 +83,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *titilelbl;
 
 @property (strong, nonatomic) IBOutlet UILabel *commentlbl;
+
+/*searchbar*/
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
+@property (strong, nonatomic) NSString *searchstring;
 - (IBAction)Addcmtbtn:(id)sender;
 
 - (IBAction)savecmtbtn:(id)sender;
