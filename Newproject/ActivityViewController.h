@@ -91,6 +91,8 @@
 -(IBAction)savecomment:(id)sender;
 -(IBAction)cancelcomment:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
+@property (strong, nonatomic) NSString *searchstring;
 
 
 @end

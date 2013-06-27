@@ -28,6 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _SearchingBar.delegate = (id)self;
+    _SearchingBar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    //searchBar.tintColor=[UIColor cyanColor];
+    self.activityTable.tableHeaderView =_SearchingBar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_SearchingBar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
     NSDate*date1=[NSDate date];
     NSLog(@"%@",date1);
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
@@ -214,6 +225,8 @@
 #pragma mark - Table View delegate
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
+    if(tableView==_activityTable)
+    {
     if (indexPath.row%2 == 0) {
         [cell setBackgroundColor:[UIColor whiteColor]];
     }else
@@ -224,6 +237,7 @@
         [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
 
             }
+    }
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -1323,6 +1337,37 @@ else
     _cmttxtbox.text=@"";
     _composecmtview.hidden=YES;
 
+}
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([_SearchingBar.text length]==0) {
+        
+        //[self getLeads];
+        [searchBar resignFirstResponder];
+        
+        
+    }
+    else  if ([_SearchingBar.text length]>0) {
+        
+        
+        
+        
+        _searchstring=_SearchingBar.text;
+      //  [self SearchLead];
+        
+        
+        
+        
+        
+    }
+    
+    
+    
 }
 
 
