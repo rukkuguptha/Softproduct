@@ -17,6 +17,7 @@
        BOOL recordResults;
     NSString *datetext;
       NSInteger butnidtfr;
+    NSInteger poptype;
 }
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
@@ -64,7 +65,9 @@
 @property(strong,nonatomic)IBOutlet UITextField *statusTxtFld;
 @property(strong,nonatomic)IBOutlet UITextField *activityTxtFld;
 @property(strong,nonatomic)IBOutlet UITextView *descptionTextview;
-
+@property(strong,nonatomic)IBOutlet UIButton *activityTypeBtn;
+@property(strong,nonatomic)NSMutableArray *activitytypeArray;
+-(IBAction)selectActivityType:(id)sender;
 -(IBAction)saveActivity:(id)sender;
 -(IBAction)cancelaction:(id)sender;
 
