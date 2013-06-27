@@ -501,6 +501,17 @@
 
 -(void)addaction {
     butnidtfr=1;
+    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    
+    
+    _employerTxtfld.text=@"";
+    
+    _statusTxtFld.text=@"";
+    
+    _descptionTextview.text=@"";
+    _activityTxtFld.text=@"";
+    
+
     //_newviewactivity.hidden=NO;
     //_view2.hidden=NO;
     _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
