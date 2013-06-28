@@ -30,7 +30,7 @@
     [super viewDidLoad];
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
-    _SearchingBar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     //searchBar.tintColor=[UIColor cyanColor];
     self.activityTable.tableHeaderView =_SearchingBar;
     
@@ -49,10 +49,12 @@
     _scroll.frame=CGRectMake(0, 0, 1024,708);
     [_scroll setContentSize:CGSizeMake(1024,760)];
     _activityTable.layer.borderWidth = 2.0;
-    _activityTable.layer.borderColor = [UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f].CGColor;    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+    _activityTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _activityTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
+self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    // self.newviewactivity.hidden=YES;
-     _view2.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
-    _activityNav.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+     _view2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _activityNav.tintColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Follow Up",@"Comments" ,nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
@@ -262,7 +264,7 @@
         
         //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
         
-        [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor: [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
 
             }
     }
@@ -347,7 +349,7 @@
     }
 
 - (IBAction)Addcmtbtn:(id)sender {
-    _composecmtview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+    _composecmtview.backgroundColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
     _composecmtview.hidden=NO;
     
@@ -501,6 +503,17 @@
 
 -(void)addaction {
     butnidtfr=1;
+    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    
+    
+    _employerTxtfld.text=@"";
+    
+    _statusTxtFld.text=@"";
+    
+    _descptionTextview.text=@"";
+    _activityTxtFld.text=@"";
+    
+
     //_newviewactivity.hidden=NO;
     //_view2.hidden=NO;
     _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
