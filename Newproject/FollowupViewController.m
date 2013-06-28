@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _view2.hidden=YES;
+    
     // Do any additional setup after loading the view from its nib.
     
     
@@ -274,10 +274,26 @@
 -(void)addaction {
     
     butnidtfr=1;
-    _view2.hidden=NO;
+    //_view2.hidden=NO;
+    _view2.frame = CGRectMake(510, 346, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(195, 60, 744, 486);
+        //        _hidenview.center = origin;
+        _view2.alpha = 1.0;
+        
+    }];
+
 }
 - (IBAction)closebtn:(id)sender {
-    _view2.hidden=YES;
+    _view2.frame = CGRectMake(195, 60, 744, 486);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(510, 346, 0, 0);
+        //        _hidenview.center = origin;
+        _view2.alpha = 0;
+        
+    }];
        butnidtfr=0;
 
     
@@ -361,7 +377,15 @@
 
 - (IBAction)editcellbtn:(id)sender
 {
-    _view2.hidden=NO;
+    _view2.frame = CGRectMake(510, 346, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _view2.frame = CGRectMake(195, 60, 744, 486);
+        //        _hidenview.center = origin;
+        _view2.alpha = 1.0;
+        
+    }];
+
     UIButton *button = (UIButton *)sender;
     
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
