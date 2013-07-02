@@ -192,9 +192,290 @@
       
     
 }
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"GetBasicInfoResult"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"CompanyName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Address"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"City"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"State"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Zip"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Country"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Phone"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    
+    if([elementName isEqualToString:@"Fax"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    
+    if([elementName isEqualToString:@"email"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Website"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"FederalEmployerId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StateUnemploymentId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 
+    if([elementName isEqualToString:@"StateEmployerId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"LetterHead"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    
+
+
+    
+
+
+
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        
+        
+		[_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"GetBasicInfoResult"])
+    {
+        
+        recordResults = FALSE;
+                
+        _soapResults = nil;
+    }
+
+
+    if([elementName isEqualToString:@"CompanyName"])
+    {
+        
+        recordResults = FALSE;
+        _companynametxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Address"])
+    {
+        
+        recordResults = FALSE;
+        _addresstxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"City"])
+    {
+        
+        recordResults = FALSE;
+        _citytxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"State"])
+    {
+        
+        recordResults = FALSE;
+        _statetextfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Zip"])
+    {
+        
+        recordResults = FALSE;
+        _ziptextfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Country"])
+    {
+        
+        recordResults = FALSE;
+        _countrytxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Phone"])
+    {
+        
+        recordResults = FALSE;
+        _phonetxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Fax"])
+    {
+        
+        recordResults = FALSE;
+        _faxtxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"email"])
+    {
+        
+        recordResults = FALSE;
+        _mailtxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Website"])
+    {
+        
+        recordResults = FALSE;
+        _webtxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"FederalEmployerId"])
+    {
+        
+        recordResults = FALSE;
+        _fedraltxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"StateEmployerId"])
+    {
+        
+        recordResults = FALSE;
+        _stateempIdtxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"StateUnemploymentId"])
+    {
+        
+        recordResults = FALSE;
+        _stateunempidtxtfld.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LetterHead"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        _soapResults = nil;
+    }
+
+
+
+
+}
 
 
 #pragma mark - Buttons
