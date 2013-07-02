@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CompanyViewController : UIViewController
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 
 @end
