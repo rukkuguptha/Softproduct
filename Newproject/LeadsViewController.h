@@ -78,12 +78,13 @@
 @property (strong, nonatomic) IBOutlet UITextField *statetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *industrytypetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *prjctexcutntxtfld;
+@property(strong,nonatomic)IBOutlet UIButton *leadstatusBtn;
 @property (strong, nonatomic)commentmdl*cmtmdl;
 @property (strong, nonatomic) UIBarButtonItem*Editbtn;
 - (IBAction)leadtypebtn:(id)sender;
 - (IBAction)prjcttypebtn:(id)sender;
 - (IBAction)industrytypetxtfld:(id)sender;
-
+-(IBAction)selectLeadStatus:(id)sender;
 - (IBAction)prjctexcnbtn:(id)sender;
 
 - (IBAction)updatebtn:(id)sender;
@@ -96,6 +97,7 @@
 @property (strong, nonatomic)NSMutableArray*projecttypeArray;
 @property (strong, nonatomic)NSMutableArray*industrytypeArray;
 @property (strong, nonatomic)NSMutableArray*prjctexcutnArray;
+@property(strong,nonatomic)NSMutableArray *leadStatusArray;
 
 /*models */
 @property(strong,nonatomic)Infoleads*infoleads;
@@ -124,6 +126,7 @@
 
 - (IBAction)savecmtbtn:(id)sender;
 - (IBAction)cancelcmtbtn:(id)sender;
+
 
 
 @end
