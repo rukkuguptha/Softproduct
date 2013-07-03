@@ -66,7 +66,7 @@
     _projecttypeArray=[[NSMutableArray alloc]initWithObjects:@"TurnAround",@"Maintenance",@"Capital Work",@"New Construction",@"Unknown", nil];
     _industrytypeArray=[[NSMutableArray alloc]initWithObjects:@"Chemical",@"Refining",@"Pulp",@"Paper",@"Power" ,nil];
     _prjctexcutnArray=[[NSMutableArray alloc]initWithObjects:@"Immediate",@"First Quarter", @"Second Quarter",@"Third Quarter",@"Fourth Quarter of that calender year", nil];
-     
+    _leadStatusArray=[[NSMutableArray alloc]initWithObjects:@"Open",@"Close",@"Active",@"Hot",@"Cold", nil];
     
      
 }
@@ -193,6 +193,8 @@ else{
                 break;
             case 5:
               return [_popoverArray count];
+             case 6:
+                return [_leadStatusArray count];
                 break;
 
             default:
@@ -279,6 +281,11 @@ if (tableView==_leadTable) {
                 cell.textLabel.text=[_popoverArray objectAtIndex:indexPath.row];
 
                               break;
+            case 6:
+                cell.textLabel.text=[_leadStatusArray objectAtIndex:indexPath.row];
+                
+                break;
+
                 
             default:
                 break;
@@ -403,6 +410,14 @@ if (tableView==_leadTable) {
                  }
 
                  break;
+             case 6:
+                 
+                 [_leadstatusBtn setTitle:[_leadStatusArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 
+                 
+                 
+                 break;
+
                  
              default:
                  break;
@@ -550,7 +565,7 @@ if (tableView==_leadTable) {
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
     _popOverTableView.separatorColor=[UIColor cyanColor];
-    self.popOverTableView.allowsMultipleSelection=YES;
+   
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
@@ -582,7 +597,7 @@ if (tableView==_leadTable) {
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
     _popOverTableView.separatorColor=[UIColor cyanColor];
-    self.popOverTableView.allowsMultipleSelection=YES;
+  
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
@@ -594,6 +609,37 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_projecttype.frame
+                                            inView:self.view2
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+
+}
+-(IBAction)selectLeadStatus:(id)sender
+{   poptype=6;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_leadstatusBtn.frame
                                             inView:self.view2
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
@@ -614,7 +660,7 @@ if (tableView==_leadTable) {
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
     _popOverTableView.separatorColor=[UIColor cyanColor];
-    self.popOverTableView.allowsMultipleSelection=YES;
+   
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
@@ -646,7 +692,7 @@ if (tableView==_leadTable) {
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
     _popOverTableView.separatorColor=[UIColor cyanColor];
-    self.popOverTableView.allowsMultipleSelection=YES;
+
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
