@@ -28,7 +28,7 @@
     [super viewDidLoad];
     _scroll.frame=CGRectMake(0, 0,1024, 768);
     [_scroll setContentSize:CGSizeMake(1024,850)];
-    
+    self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
     // Do any additional setup after loading the view from its nib.
 }
