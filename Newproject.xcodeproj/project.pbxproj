@@ -240,12 +240,6 @@
 		D40D1EB0176B086F00379DD5 /* Newproject */ = {
 			isa = PBXGroup;
 			children = (
-				D4E658C917F2DDFA00202B14 /* rightdisclosure.png */,
-				D4E658D317F2EF5B00202B14 /* wrong.png */,
-				D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */,
-				D4E658CB17F2DED100202B14 /* detailDisclosureButton.png */,
-				D4FED41517F1A046004BE242 /* 1.png */,
-				D4FED41717F1A04D004BE242 /* 2.png */,
 				D40D1EB9176B086F00379DD5 /* AppDelegate.h */,
 				D40D1EBA176B086F00379DD5 /* AppDelegate.m */,
 				D40D1EC2176B086F00379DD5 /* ViewController.h */,
@@ -327,6 +321,12 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4E658C917F2DDFA00202B14 /* rightdisclosure.png */,
+				D4E658D317F2EF5B00202B14 /* wrong.png */,
+				D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */,
+				D4E658CB17F2DED100202B14 /* detailDisclosureButton.png */,
+				D4FED41517F1A046004BE242 /* 1.png */,
+				D4FED41717F1A04D004BE242 /* 2.png */,
 				D4E15793177416D9002764AB /* icon-disclosure.png */,
 				6481615B176EF0C50017F4CC /* rightarowblack.png */,
 				648D12FF17716E0E006BB41A /* appbar.close.png */,
