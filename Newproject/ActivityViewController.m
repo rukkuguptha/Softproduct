@@ -173,7 +173,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     static NSString *CellIdentifier = @"mycell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
+      if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         if (tableView==_activityTable) {
 

@@ -18,6 +18,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    NSString*newstring=@"newname";
+      NSString*astring=@"kontract360.com/service.asmx";
+
+
+   NSString*one=[NSString stringWithFormat:@"%@.%@", newstring , astring];
+    NSLog(@"%@",one);
 }
 
 - (void)didReceiveMemoryWarning

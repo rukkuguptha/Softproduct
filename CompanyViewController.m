@@ -49,6 +49,7 @@
 -(void)Getbasicinfo{
     recordResults = FALSE;
     NSString *soapMessage;
+   
     
     soapMessage = [NSString stringWithFormat:
                    

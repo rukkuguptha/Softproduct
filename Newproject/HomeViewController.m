@@ -51,8 +51,17 @@
     [self.companyView addGestureRecognizer:doubleTap2];
 
     
+    UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(hrpage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.hrview addGestureRecognizer:doubleTap3];
 
 }
+
+
+
 -(void)customerpage{
     if (!self.custmrVCtrl) {
         self.custmrVCtrl=[[CustomerViewController alloc]initWithNibName:@"CustomerViewController" bundle:nil];
@@ -78,7 +87,13 @@
     
     
 }
-
+-(void)hrpage{
+    if (!self.hrVCtrl) {
+        self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
+    }
+    [self.navigationController pushViewController:_hrVCtrl animated:YES];
+    
+}
 
 
 - (void)didReceiveMemoryWarning
