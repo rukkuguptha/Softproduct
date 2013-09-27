@@ -38,6 +38,7 @@
     
     _scroll.frame=CGRectMake(0, 0, 1004,768);
     [_scroll setContentSize:CGSizeMake(1004,1000)];
+    NSLog(@"Applicnt %d",_applicantid);
 
     }
 

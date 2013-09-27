@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title=NSLocalizedString(@"Upload Documents", @"Upload Documents");
     }
     return self;
 }
@@ -28,10 +29,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self action:@selector(handlePinch:)];
-    pgr.delegate = (id)self;
-    [_imageview addGestureRecognizer:pgr];
+//    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+//                                   initWithTarget:self action:@selector(handlePinch:)];
+//    pgr.delegate = (id)self;
+//    [_imageview addGestureRecognizer:pgr];
 
 }
 
@@ -42,7 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
+- (void)handlePinch
 {
     //handle pinch...
     if ([UIImagePickerController isSourceTypeAvailable:
@@ -124,4 +125,8 @@ finishedSavingWithError:(NSError *)error
     
 }
 
+- (IBAction)prevewbtn:(id)sender {
+    [self handlePinch];
+    
+   }
 @end

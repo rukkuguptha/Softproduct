@@ -14,4 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageview;
 @property (nonatomic) BOOL newMedia;
 
+- (IBAction)prevewbtn:(id)sender;
+
+
 @end

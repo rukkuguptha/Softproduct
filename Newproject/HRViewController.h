@@ -10,10 +10,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "VerificationViewController.h"
 #import "UploadDocViewController.h"
+#import "Empdetails.h"
 @interface HRViewController : UIViewController{
     BOOL recordResults;
 }
-
+@property(readwrite)NSInteger *applicantid;
+@property(strong,nonatomic)NSString*teststrng;
+@property(strong,nonatomic)Empdetails*empdetl;
 @property(strong,nonatomic)VerificationViewController*verifctnVCtrl;
 @property(strong,nonatomic)UploadDocViewController*uploadVCtrl;
 /*Tables*/
@@ -30,15 +33,19 @@
 @property (strong, nonatomic) IBOutlet UIButton *_disclyrebtnlbl;
 @property (strong, nonatomic) IBOutlet UILabel *empolyeename;
 - (IBAction)disclurebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *ssnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *phonelbl;
 
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
 
-/*Arrays*/
+/*Arrays & Dictionaries*/
 
 @property(strong,nonatomic)NSMutableArray*listarray;
+@property(strong,nonatomic)NSMutableArray*empnameArray;
+
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;

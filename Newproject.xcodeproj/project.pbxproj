@@ -52,6 +52,9 @@
 		D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D39CD5177AD7C200C1E87D /* CommentsCells.xib */; };
 		D4D39CD8177AF1CA00C1E87D /* FollowCommentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D39CD7177AF1C900C1E87D /* FollowCommentcell.xib */; };
 		D4D570141772B58200671A35 /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D570131772B58200671A35 /* Infoleads.m */; };
+		D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A28C17F5401000880E38 /* profilepicture.png */; };
+		D4D7A29117F5422000880E38 /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A29017F5422000880E38 /* Untitled.png */; };
+		D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7A29317F55B2400880E38 /* Empdetails.m */; };
 		D4DC425B178568BB0035A873 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC425A178568BB0035A873 /* Base64.m */; };
 		D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */; };
 		D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */; };
@@ -142,6 +145,10 @@
 		D4D39CD7177AF1C900C1E87D /* FollowCommentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowCommentcell.xib; sourceTree = "<group>"; };
 		D4D570121772B58200671A35 /* Infoleads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Infoleads.h; path = ../Infoleads.h; sourceTree = "<group>"; };
 		D4D570131772B58200671A35 /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Infoleads.m; path = ../Infoleads.m; sourceTree = "<group>"; };
+		D4D7A28C17F5401000880E38 /* profilepicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilepicture.png; sourceTree = "<group>"; };
+		D4D7A29017F5422000880E38 /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitled.png; sourceTree = "<group>"; };
+		D4D7A29217F55B2400880E38 /* Empdetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empdetails.h; sourceTree = "<group>"; };
+		D4D7A29317F55B2400880E38 /* Empdetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empdetails.m; sourceTree = "<group>"; };
 		D4DC4259178568B40035A873 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		D4DC425A178568BB0035A873 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDocViewController.h; sourceTree = "<group>"; };
@@ -321,6 +328,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4D7A29017F5422000880E38 /* Untitled.png */,
+				D4D7A28C17F5401000880E38 /* profilepicture.png */,
 				D4E658C917F2DDFA00202B14 /* rightdisclosure.png */,
 				D4E658D317F2EF5B00202B14 /* wrong.png */,
 				D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */,
@@ -352,6 +361,8 @@
 				D4041F151779ACB400247373 /* followupmodel.m */,
 				D4D39CD2177ACE4B00C1E87D /* commentmdl.h */,
 				D4D39CD3177ACE4B00C1E87D /* commentmdl.m */,
+				D4D7A29217F55B2400880E38 /* Empdetails.h */,
+				D4D7A29317F55B2400880E38 /* Empdetails.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -467,6 +478,8 @@
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
+				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
+				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +512,7 @@
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
+				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

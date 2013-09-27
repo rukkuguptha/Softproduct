@@ -30,6 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    _employeestable.rowHeight=100;
+    
     /*tablewidth*/
     
     _employeestable.layer.borderWidth = 2.0;
@@ -140,7 +142,7 @@
         return [_listarray count];
     }
     else{
-         return 3;
+        return [_empnameArray count];
     }
     // Return the number of rows in the section.
     return YES;
@@ -160,6 +162,16 @@
         [[NSBundle mainBundle]loadNibNamed:@"HRcellview" owner:self options:nil];
         cell=_employeecell;
         }
+    }
+    if (tableView==_employeestable) {
+        Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:indexPath.row];
+        _empolyeename=(UILabel *)[cell viewWithTag:1];
+        _empolyeename.text=[NSString stringWithFormat:@"%@ %@",empdetls1.firstname,empdetls1.lastname];
+        _ssnlbl=(UILabel *)[cell viewWithTag:2];
+        _ssnlbl.text=empdetls1.ssn;
+        _phonelbl=(UILabel *)[cell viewWithTag:3];
+        _phonelbl.text=empdetls1.Phonenumber;
+        
     }
 
     if (tableView==_popOverTableView) {
@@ -182,6 +194,7 @@
                 _verifctnVCtrl=[[VerificationViewController alloc]initWithNibName:@"VerificationViewController" bundle:nil];
             }
             [self.popOverController dismissPopoverAnimated:YES];
+            _verifctnVCtrl.applicantid=_applicantid;
             [self.navigationController pushViewController:_verifctnVCtrl animated:YES];
             
         }
@@ -328,6 +341,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
+    [_employeestable reloadData];
     
     
 }
@@ -336,6 +350,7 @@
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"FetchApplicantResult"])
     {
+        _empnameArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -351,6 +366,44 @@
         recordResults = TRUE;
 
     }
+    if([elementName isEqualToString:@"applicant_FirstName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_LastName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_SSN"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"applicant_CellPhone"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -370,10 +423,38 @@
 {
     if([elementName isEqualToString:@"applicant_Id"])
     {
-        
+        _empdetl=[[Empdetails alloc]init];
         recordResults = FALSE;
-        
+        _empdetl.applicantid=[_soapResults integerValue];;
+        _applicantid=[_soapResults integerValue];
         _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"applicant_FirstName"])
+    {
+        recordResults = FALSE;
+        _teststrng=_soapResults;
+        _empdetl.firstname=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"applicant_LastName"])
+    {
+        recordResults = FALSE;
+      //  [_empnameArray addObject:[NSString stringWithFormat:@"%@ %@",_teststrng,_soapResults]];
+        _empdetl.lastname=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"applicant_SSN"])
+    {
+         recordResults = FALSE;
+        _empdetl.ssn=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"applicant_CellPhone"])
+    { recordResults = FALSE;
+        _empdetl.Phonenumber=_soapResults;
+        [_empnameArray addObject:_empdetl];
+         _soapResults = nil;
     }
 }
 @end

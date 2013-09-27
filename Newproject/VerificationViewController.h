@@ -12,6 +12,10 @@
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
 }
+
+
+
+@property(readwrite)NSInteger *applicantid;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic) IBOutlet UIView *ssnview;
