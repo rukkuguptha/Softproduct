@@ -11,7 +11,7 @@
 #import "VerificationViewController.h"
 #import "UploadDocViewController.h"
 @interface HRViewController : UIViewController{
-    
+    BOOL recordResults;
 }
 
 @property(strong,nonatomic)VerificationViewController*verifctnVCtrl;
@@ -39,4 +39,9 @@
 /*Arrays*/
 
 @property(strong,nonatomic)NSMutableArray*listarray;
+/*xmlparse*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 @end
