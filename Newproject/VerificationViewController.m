@@ -1,4 +1,4 @@
-//
+    //
 //  VerificationViewController.m
 //  Newproject
 //
@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      [self FetchApplicant];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //_view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -39,11 +40,22 @@
     _scroll.frame=CGRectMake(0, 0, 1004,768);
     [_scroll setContentSize:CGSizeMake(1004,1000)];
     NSLog(@"Applicnt %d",_applicantid);
-    
-    [self FetchApplicant];
+    _monthArray=[[NSMutableArray alloc]initWithObjects:@"JAN",@"FEB",@"MAR",@"APR",@"MAY",@"JUN",@"JUL",@"AUG",@"SEP",@"OCT",@"NOV",@"DEC",nil];
+    _monthdictArray=[[NSMutableArray alloc]initWithObjects:@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
+    _monthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthdictArray forKeys:_monthArray];
+    _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
+    _yearArray=[[NSMutableArray alloc]initWithObjects:@"2013",@"2014",@"2015",@"2016",@"2017",@"2018",@"2019",@"2020",@"2021",@"2022",@"2023", nil];
+
+   _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
 
     }
 
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -144,7 +156,7 @@
 {
   
         // Return the number of rows in the section.
-    return 1;
+    return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -160,7 +172,23 @@
             
                  
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
+        
+        
+        [[NSBundle mainBundle]loadNibNamed:@"VerificationCell" owner:self options:nil];
+        cell=_verifctncell;
     }
+    
+    
+    Coursemdl*coursemdl1=(Coursemdl *)[_requirementArray objectAtIndex:indexPath.row];
+    _reqiuremntnamelbl=(UILabel *)[cell viewWithTag:1];
+   _reqiuremntnamelbl.text=coursemdl1.itemname;
+    //NSLog(@"lbl%@",)
+    button=(UIButton*)[cell viewWithTag:2];
+    [button setTitle:coursemdl1.month forState:UIControlStateNormal];
+    yearbutton=(UIButton *)[cell viewWithTag:3];
+    
+    [yearbutton setTitle:coursemdl1.year forState:UIControlStateNormal];
+  
             return cell;
 }
 
@@ -193,6 +221,9 @@
 }
 - (void)viewDidUnload {
     [self setReqiuremntnamelbl:nil];
+    [self setMonthbtnlbl:nil];
+    [self setYearbtnlbl:nil];
+    [self setVerifctncell:nil];
     [super viewDidUnload];
 }
 
@@ -200,7 +231,7 @@
 /*webservices*/
 
 -(void)FetchApplicant{
-    
+    testint=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -251,53 +282,53 @@
 }
 
 -(void)selectrequirements{
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<InsertApplicantRequirements xmlns=\"http://arvin.kontract360.com/\">\n"
-//                   "<JobId>%d</JobId>\n"
-//                   "<CraftId>%d</CraftId>\n"
-//                   "<AppId>%d</AppId>\n"
-//                   "</InsertApplicantRequirements>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",[fetchVariable integerValue],[fetchVariable1 integerValue] ,_Applicantid];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://arvin.kontract360.com/InsertApplicantRequirements" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertApplicantRequirements xmlns=\"http://arvin.kontract360.com/\">\n"
+                   "<JobId>%d</JobId>\n"
+                   "<CraftId>%d</CraftId>\n"
+                   "<AppId>%d</AppId>\n"
+                   "</InsertApplicantRequirements>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_verfymdl.jobsiteid integerValue],[_verfymdl.craftid integerValue] ,_verfymdl.applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://arvin.kontract360.com/InsertApplicantRequirements" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
 
 }
 #pragma mark - Connection
@@ -332,6 +363,13 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     
+    if (testint==1) {
+        [self selectrequirements];
+        testint=3;
+    }
+    
+    
+    [_requirementtable reloadData];
     }
 
 
@@ -449,6 +487,98 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"applicant_OtherCrafts"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"InsertApplicantRequirementsResult"])
+    {
+        _requirementArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Requirement_Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"ItemName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Code"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Type"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"ApplyToAllCraft"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"HaveExpiryDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"expir_date"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"course_status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+    
 
 
 
@@ -554,7 +684,7 @@
         _verfymdl.suffix=_soapResults;
         _suffixtxtfld.text=_verfymdl.suffix;
         
-        [_Fetchdetailsarray addObject:_verfymdl];
+    
         _soapResults = nil;
         
         
@@ -566,8 +696,108 @@
         _soapResults = nil;
              
     }
+    if([elementName isEqualToString:@"applicant_OtherCrafts"])
+    {
+       recordResults = FALSE;
+        _verfymdl.craftid=_soapResults;
+        if (_verfymdl!=nil) {
+              [_Fetchdetailsarray addObject:_verfymdl];
+            
+        }
+          
+        _soapResults = nil;
 
+    }
     
+
+    if([elementName isEqualToString:@"Requirement_Id"])
+    {
+        _coursemdl=[[Coursemdl alloc]init];
+        recordResults = FALSE;
+        _coursemdl.reqid=[_soapResults integerValue];
+        
+        _soapResults=nil;
+    }
+    
+    
+    if([elementName isEqualToString:@"ItemName"])
+    {
+        recordResults = FALSE;
+        _coursemdl.itemname=_soapResults;
+        _soapResults=nil;
+    }
+    
+    if([elementName isEqualToString:@"Code"])
+    {
+        recordResults = FALSE;
+        _coursemdl.Code=_soapResults;
+        
+        _soapResults=nil;
+    }
+    
+    if([elementName isEqualToString:@"Type"])
+    {
+        recordResults = FALSE;
+        _coursemdl.Type=_soapResults;
+        
+        _soapResults=nil;    }
+    
+    if([elementName isEqualToString:@"ApplyToAllCraft"])
+    {
+        recordResults = FALSE;
+        
+        _coursemdl.ApplyToAllCraft=_soapResults;
+        _soapResults=nil;    }
+    
+    if([elementName isEqualToString:@"HaveExpiryDate"])
+    {
+        recordResults = FALSE;
+        _coursemdl.HaveExpiryDate=_soapResults;
+        
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"expir_date"])
+    {
+        recordResults = FALSE;
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        // _drugmdl.drugdate=
+        
+        
+        _coursemdl.expdate=myFormattedDate;
+        NSArray*newarray=[myFormattedDate componentsSeparatedByString:@"-"];
+        //        _coursemdl.month=[newarray objectAtIndex:0];
+        //        _coursemdl.year=[newarray objectAtIndex:2];
+        _coursemdl.month=[_remonthDictionary objectForKey:[newarray objectAtIndex:0]];
+        _coursemdl.year=[newarray objectAtIndex:2];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"course_status"])
+    {
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"true"]) {
+            _coursemdl.course_status=1;
+            
+        }
+        
+        else if ([_soapResults isEqualToString:@"false"]){
+            _coursemdl.course_status=0;
+            
+        }
+        [_requirementArray addObject:_coursemdl];
+        NSLog(@"mdl%@",_requirementArray);
+        _soapResults=nil;
+    }
+
 
 }
 

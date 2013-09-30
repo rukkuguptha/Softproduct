@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Verfymdl.h"
+#import "Coursemdl.h"
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
-}
+    NSInteger testint;
+    UIButton *button;
+    UIButton *yearbutton;
 
+}
+@property (strong, nonatomic)Coursemdl*coursemdl;
 
 @property (strong, nonatomic)Verfymdl*verfymdl;
 @property(readwrite)NSInteger *applicantid;
@@ -29,10 +34,14 @@
 - (IBAction)bgaction:(id)sender;
 - (IBAction)ssnaction:(id)sender;
 
+@property(strong,nonatomic)NSMutableArray *monthArray;
+@property(strong,nonatomic)NSMutableArray *monthdictArray;
 
+@property(strong,nonatomic)NSMutableArray *requirementArray;
+@property(strong,nonatomic)NSMutableDictionary *monthDictionary;
 
-
-
+@property(strong,nonatomic)NSMutableDictionary *remonthDictionary;
+@property(strong,nonatomic)NSMutableArray *yearArray;
 @property(strong,nonatomic)NSMutableArray*Fetchdetailsarray;
 @property (strong, nonatomic) IBOutlet UITabBarItem *I9item;
 /*popover*/
@@ -69,10 +78,17 @@
 
 /*RequirementView cell*/
 @property (strong, nonatomic) IBOutlet UILabel *reqiuremntnamelbl;
+@property (strong, nonatomic) IBOutlet UIButton *monthbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *yearbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *verifctncell;
+
 @property (strong, nonatomic) IBOutlet UIButton *uploadbtnlbl;
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+
+
 
 @end

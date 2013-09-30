@@ -21,5 +21,6 @@
 @property(strong,nonatomic)NSString*state;
 @property(strong,nonatomic)NSString*zip;
 @property(strong,nonatomic)NSString*jobsiteid;
+@property(strong,nonatomic)NSString*craftid;
 
 @end

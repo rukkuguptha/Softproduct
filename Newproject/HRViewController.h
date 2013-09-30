@@ -16,6 +16,7 @@
     NSString *imgString;
 }
 @property(readwrite)NSInteger *applicantid;
+@property(strong,nonatomic)NSString*newid;
 @property(strong,nonatomic)NSString*teststrng;
 @property(strong,nonatomic)Empdetails*empdetl;
 @property(strong,nonatomic)VerificationViewController*verifctnVCtrl;
@@ -44,7 +45,7 @@
 @property(strong,nonatomic)UITableView *popOverTableView;
 
 /*Arrays & Dictionaries*/
-
+@property(strong,nonatomic)NSMutableDictionary*imageArraydict;
 @property(strong,nonatomic)NSMutableArray*listarray;
 @property(strong,nonatomic)NSMutableArray*empnameArray;
 @property(strong,nonatomic)NSMutableArray *imageArray;

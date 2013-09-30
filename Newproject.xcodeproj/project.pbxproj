@@ -44,6 +44,7 @@
 		D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D484359917F595CD00098AA1 /* Verfymdl.m */; };
 		D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */; };
 		D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */; };
+		D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D48B608317F98CFC001A53C8 /* Coursemdl.m */; };
 		D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */; };
 		D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */; };
 		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
@@ -137,6 +138,8 @@
 		D484359917F595CD00098AA1 /* Verfymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verfymdl.m; sourceTree = "<group>"; };
 		D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Selected.png"; sourceTree = "<group>"; };
 		D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
+		D48B608217F98CEC001A53C8 /* Coursemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coursemdl.h; sourceTree = "<group>"; };
+		D48B608317F98CFC001A53C8 /* Coursemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coursemdl.m; sourceTree = "<group>"; };
 		D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
@@ -374,6 +377,8 @@
 				D4D7A29317F55B2400880E38 /* Empdetails.m */,
 				D484359817F595CD00098AA1 /* Verfymdl.h */,
 				D484359917F595CD00098AA1 /* Verfymdl.m */,
+				D48B608217F98CEC001A53C8 /* Coursemdl.h */,
+				D48B608317F98CFC001A53C8 /* Coursemdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -527,6 +532,7 @@
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
+				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

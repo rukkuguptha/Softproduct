@@ -172,14 +172,23 @@
         _ssnlbl.text=empdetls1.ssn;
         _phonelbl=(UILabel *)[cell viewWithTag:3];
         _phonelbl.text=empdetls1.Phonenumber;
-        if([imgString isEqualToString:@"img"])
-        {
-            NSData *data1=[[_imageArray objectAtIndex:indexPath.row]base64DecodedData];
-            
-            UIImage *image1=[[UIImage alloc]initWithData:data1];
-            _empImgview=(UIImageView *)[cell viewWithTag:5];
-            _empImgview.image=image1;
-    }
+        
+//        if([imgString isEqualToString:@"img"])
+//        {
+//            
+//                Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:indexPath.row];
+//            
+//                        
+//           
+//            
+//            
+//           
+//            NSData *data1=[[_imageArraydict objectForKey:[NSString stringWithFormat:@"%d",empdetls1.applicantid]]base64DecodedData];
+//            
+//            UIImage *image1=[[UIImage alloc]initWithData:data1];
+//            _empImgview=(UIImageView *)[cell viewWithTag:5];
+//            _empImgview.image=image1;
+//    }
     
     }
 
@@ -320,11 +329,14 @@
     
 }
 -(void)FetchImage{
-    imgString=@"img";
-    recordResults = FALSE;
+        recordResults = FALSE;
     NSString *soapMessage;
-    
-    
+    _imageArraydict=[[NSMutableDictionary alloc]init];
+
+       _imageArray=[[NSMutableArray alloc]init];
+    for (int i=0; i<[_empnameArray count]; i++) {
+  Empdetails*empdtls1=(Empdetails *)[_empnameArray objectAtIndex:i];
+       
     
     //  NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_ssntxtfld.text];
     
@@ -344,7 +356,7 @@
                    "<appid>%d</appid>\n"
                    "</FetchImage>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_empdetl.applicantid];
+                   "</soap:Envelope>\n",empdtls1.applicantid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -374,7 +386,7 @@
     {
         ////NSLog(@"theConnection is NULL");
     }
-    
+    }
 }
 
 #pragma mark - Connection
@@ -408,12 +420,23 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    [_employeestable reloadData];
+   
     if([imgString isEqualToString:@"Fetchapp"])
     {
+    [_employeestable reloadData];
     [self FetchImage];
+        imgString=@"";
     
     }
+    if([imgString isEqualToString:@"img"])
+    {
+       
+        [_employeestable reloadData];
+
+       // imgString=@"";
+        
+    }
+
     
 
 }
@@ -475,9 +498,22 @@
         recordResults = TRUE;
         
     }
+    
+    if([elementName isEqualToString:@"FetchImageResult"])
+    {
+        imgString=@"img";
+               if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+
     if([elementName isEqualToString:@"url"])
     {
-       _imageArray=[[NSMutableArray alloc]init];
+    
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -543,7 +579,14 @@
     {
         
         recordResults = FALSE;
-        [_imageArray addObject:_soapResults];
+        // _newid=[NSString stringWithFormat:@"%d", empdtls1.applicantid];
+      //  [_imageArraydict setObject:_soapResults forKey:_newid];
+        //[_imageArray addObject:_soapResults];
+        NSLog(@"Array%@",_imageArraydict);
+        // [_employeestable reloadData];
+        
+        
+        
 //        for (int i=0; i<[_imageArray count]; i++) {
 //              NSData *data1=[[_imageArray objectAtIndex:i]base64DecodedData];
 //        
