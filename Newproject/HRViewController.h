@@ -13,6 +13,7 @@
 #import "Empdetails.h"
 @interface HRViewController : UIViewController{
     BOOL recordResults;
+    NSString *imgString;
 }
 @property(readwrite)NSInteger *applicantid;
 @property(strong,nonatomic)NSString*teststrng;
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *employeecell;
 @property (strong, nonatomic) IBOutlet UIButton *_disclyrebtnlbl;
 @property (strong, nonatomic) IBOutlet UILabel *empolyeename;
+@property(strong,nonatomic)IBOutlet UIImageView *empImgview;
 - (IBAction)disclurebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *ssnlbl;
 @property (strong, nonatomic) IBOutlet UILabel *phonelbl;
@@ -45,6 +47,7 @@
 
 @property(strong,nonatomic)NSMutableArray*listarray;
 @property(strong,nonatomic)NSMutableArray*empnameArray;
+@property(strong,nonatomic)NSMutableArray *imageArray;
 
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
