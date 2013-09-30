@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "Verfymdl.h"
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
 }
 
 
-
+@property (strong, nonatomic)Verfymdl*verfymdl;
 @property(readwrite)NSInteger *applicantid;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIView *view1;
@@ -33,7 +33,7 @@
 
 
 
-
+@property(strong,nonatomic)NSMutableArray*Fetchdetailsarray;
 @property (strong, nonatomic) IBOutlet UITabBarItem *I9item;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

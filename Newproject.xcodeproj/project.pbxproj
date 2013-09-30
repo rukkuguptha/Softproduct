@@ -41,6 +41,7 @@
 		D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6481615D176F0B230017F4CC /* ActivityCustomCell.xib */; };
 		D443A33317716FE60011C5DB /* appbar.close.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FF17716E0E006BB41A /* appbar.close.png */; };
 		D443A33417717F890011C5DB /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13021771726E006BB41A /* CKCalendarView.m */; };
+		D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D484359917F595CD00098AA1 /* Verfymdl.m */; };
 		D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */; };
 		D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */; };
 		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
@@ -130,6 +131,8 @@
 		D40D1ED8176B27E200379DD5 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
+		D484359817F595CD00098AA1 /* Verfymdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verfymdl.h; sourceTree = "<group>"; };
+		D484359917F595CD00098AA1 /* Verfymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verfymdl.m; sourceTree = "<group>"; };
 		D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
 		D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityViewController.m; sourceTree = "<group>"; };
 		D4A2AFF3176EEC4F00F4E196 /* ActivityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityViewController.xib; sourceTree = "<group>"; };
@@ -363,6 +366,8 @@
 				D4D39CD3177ACE4B00C1E87D /* commentmdl.m */,
 				D4D7A29217F55B2400880E38 /* Empdetails.h */,
 				D4D7A29317F55B2400880E38 /* Empdetails.m */,
+				D484359817F595CD00098AA1 /* Verfymdl.h */,
+				D484359917F595CD00098AA1 /* Verfymdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -513,6 +518,7 @@
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
+				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
