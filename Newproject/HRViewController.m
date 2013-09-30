@@ -7,6 +7,7 @@
 //
 
 #import "HRViewController.h"
+#import "Base64.h"
 
 @interface HRViewController ()
 
@@ -36,7 +37,6 @@
     
     _employeestable.layer.borderWidth = 2.0;
     _employeestable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-    
     
     
     /*searchbar*/
@@ -69,6 +69,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self FetchApplicant];
+    
 }
 
 
@@ -171,7 +172,15 @@
         _ssnlbl.text=empdetls1.ssn;
         _phonelbl=(UILabel *)[cell viewWithTag:3];
         _phonelbl.text=empdetls1.Phonenumber;
-        
+        if([imgString isEqualToString:@"img"])
+        {
+            NSData *data1=[[_imageArray objectAtIndex:indexPath.row]base64DecodedData];
+            
+            UIImage *image1=[[UIImage alloc]initWithData:data1];
+            _empImgview=(UIImageView *)[cell viewWithTag:5];
+            _empImgview.image=image1;
+    }
+    
     }
 
     if (tableView==_popOverTableView) {
@@ -261,7 +270,7 @@
 /*webservices*/
 
 -(void)FetchApplicant{
-    
+    imgString=@"Fetchapp";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -310,6 +319,64 @@
     
     
 }
+-(void)FetchImage{
+    imgString=@"img";
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    //  NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_ssntxtfld.text];
+    
+    
+    // NSString *cmpnyname=@"arvin";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchImage xmlns=\"http://arvin.kontract360.com/\">\n"
+                   
+                   "<appid>%d</appid>\n"
+                   "</FetchImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_empdetl.applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://arvin.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -342,8 +409,13 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_employeestable reloadData];
+    if([imgString isEqualToString:@"Fetchapp"])
+    {
+    [self FetchImage];
     
+    }
     
+
 }
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -403,6 +475,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"url"])
+    {
+       _imageArray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -425,8 +507,9 @@
     {
         _empdetl=[[Empdetails alloc]init];
         recordResults = FALSE;
-        _empdetl.applicantid=[_soapResults integerValue];;
+        _empdetl.applicantid=[_soapResults integerValue];
         _applicantid=[_soapResults integerValue];
+        //[self FetchImage];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_FirstName"])
@@ -456,5 +539,22 @@
         [_empnameArray addObject:_empdetl];
          _soapResults = nil;
     }
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        recordResults = FALSE;
+        [_imageArray addObject:_soapResults];
+//        for (int i=0; i<[_imageArray count]; i++) {
+//              NSData *data1=[[_imageArray objectAtIndex:i]base64DecodedData];
+//        
+//        UIImage *image1=[[UIImage alloc]initWithData:data1];
+//        
+//        _empImgview.image=image1;
+//
+//        }
+        
+        _soapResults = nil;
+    }
+
 }
 @end
