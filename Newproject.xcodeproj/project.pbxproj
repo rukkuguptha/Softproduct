@@ -264,10 +264,10 @@
 				D40D1ECF176B0A0800379DD5 /* HomeViewController.xib */,
 				D4FED41117F18CB6004BE242 /* btn.png */,
 				D4FED41317F18E28004BE242 /* tabbtn.png */,
+				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				648D130A1771A29B006BB41A /* Company */,
 				D4A2AFFB176EED2A00F4E196 /* Customer */,
 				D4FED40417F15AC5004BE242 /* hr */,
-				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
 			);
 			path = Newproject;

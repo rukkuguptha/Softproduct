@@ -249,6 +249,57 @@
     
     
 }
+
+-(void)selectrequirements{
+//    recordResults = FALSE;
+//    NSString *soapMessage;
+//    
+//    soapMessage = [NSString stringWithFormat:
+//                   
+//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+//                   
+//                   
+//                   "<soap:Body>\n"
+//                   
+//                   "<InsertApplicantRequirements xmlns=\"http://arvin.kontract360.com/\">\n"
+//                   "<JobId>%d</JobId>\n"
+//                   "<CraftId>%d</CraftId>\n"
+//                   "<AppId>%d</AppId>\n"
+//                   "</InsertApplicantRequirements>\n"
+//                   "</soap:Body>\n"
+//                   "</soap:Envelope>\n",[fetchVariable integerValue],[fetchVariable1 integerValue] ,_Applicantid];
+//    NSLog(@"soapmsg%@",soapMessage);
+//    
+//    
+//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+//    
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+//    
+//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+//    
+//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    
+//    [theRequest addValue: @"http://arvin.kontract360.com/InsertApplicantRequirements" forHTTPHeaderField:@"Soapaction"];
+//    
+//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    
+//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    
+//    if( theConnection )
+//    {
+//        _webData = [NSMutableData data];
+//    }
+//    else
+//    {
+//        ////NSLog(@"theConnection is NULL");
+//    }
+
+}
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -388,6 +439,17 @@
         recordResults = TRUE;
         
     }
+    
+    if([elementName isEqualToString:@"jobSite_Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
 
 }
@@ -408,30 +470,35 @@
 {
     if([elementName isEqualToString:@"applicant_Id"])
     {
-        _verfymdl=[[Verfymdl alloc]init];
+        
+        if (_applicantid==[_soapResults integerValue]) {
+              _verfymdl=[[Verfymdl alloc]init];
+            
+        }
+      
         recordResults = FALSE;
-        _verfymdl.applicantid=[_soapResults integerValue];;
+        _verfymdl.applicantid=[_soapResults integerValue];
         _soapResults = nil;
     }
        if([elementName isEqualToString:@"applicant_FirstName"])
     {
         recordResults = FALSE;
         _verfymdl.firstname=_soapResults;
-        _firstnametxtfld.text=_soapResults;
+        _firstnametxtfld.text=_verfymdl.firstname;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_LastName"])
     {
         recordResults = FALSE;
         _verfymdl.lastname=_soapResults;
-        _lastnametxtfld.text=_soapResults;
+        _lastnametxtfld.text= _verfymdl.lastname;
                 _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_SSN"])
     {
         recordResults = FALSE;
         _verfymdl.ssn=_soapResults;
-        _ssntxtfld.text=_soapResults;
+        _ssntxtfld.text=  _verfymdl.ssn;
       
         _soapResults = nil;
         
@@ -446,7 +513,7 @@
     {
         recordResults = FALSE;
         _verfymdl.address=_soapResults;
-        _Addresstxtfld.text=_soapResults;
+        _Addresstxtfld.text=  _verfymdl.address;
         
         _soapResults = nil;
         
@@ -456,7 +523,7 @@
     {
         recordResults = FALSE;
         _verfymdl.city=_soapResults;
-        _citytxtfld.text=_soapResults;
+        _citytxtfld.text=_verfymdl.city;
         _soapResults = nil;
         
         
@@ -465,7 +532,7 @@
     {
         recordResults = FALSE;
         _verfymdl.state=_soapResults;
-        _statetxtfld.text=_soapResults;
+        _statetxtfld.text= _verfymdl.state;
         _soapResults = nil;
         
 
@@ -475,7 +542,7 @@
     {
         recordResults = FALSE;
         _verfymdl.zip=_soapResults;
-        _ziptextfld.text=_soapResults;
+        _ziptextfld.text=_verfymdl.zip;
         _soapResults = nil;
         
 
@@ -485,13 +552,22 @@
     {
         recordResults = FALSE;
         _verfymdl.suffix=_soapResults;
-        _suffixtxtfld.text=_soapResults;
+        _suffixtxtfld.text=_verfymdl.suffix;
         
         [_Fetchdetailsarray addObject:_verfymdl];
         _soapResults = nil;
         
         
     }
+    if([elementName isEqualToString:@"jobSite_Id"])
+    {
+        recordResults = FALSE;
+        _verfymdl.jobsiteid=_soapResults;
+        _soapResults = nil;
+             
+    }
+
+    
 
 }
 
