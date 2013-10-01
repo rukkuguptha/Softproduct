@@ -154,10 +154,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-  
+    if (tableView==_requirementtable) {
+        return [_requirementArray count];
+
+        
+    }
+    
+    
+    if (tableView==_popOverTableView) {
+        switch (poptype) {
+            case 1:
+                return [_monthArray count];
+                break;
+            case 2:
+                return [_yearArray count];
+                break;
+
+            default:
+                break;
+        }
+    }
         // Return the number of rows in the section.
-    return 5;
-}
+    }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"mycell";
@@ -173,12 +191,13 @@
                  
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
         
-        
-        [[NSBundle mainBundle]loadNibNamed:@"VerificationCell" owner:self options:nil];
+        if (tableView==_requirementtable){
+        [[NSBundle mainBundle]loadNibNamed:@"requirmentcell" owner:self options:nil];
         cell=_verifctncell;
+        }
     }
     
-    
+    if (tableView==_requirementtable){
     Coursemdl*coursemdl1=(Coursemdl *)[_requirementArray objectAtIndex:indexPath.row];
     _reqiuremntnamelbl=(UILabel *)[cell viewWithTag:1];
    _reqiuremntnamelbl.text=coursemdl1.itemname;
@@ -189,12 +208,62 @@
     
     [yearbutton setTitle:coursemdl1.year forState:UIControlStateNormal];
   
+    }
+    
+    if (tableView==_popOverTableView) {
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+        
+        switch (poptype) {
+            case 1:
+                cell.textLabel.text=[_monthArray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                cell.textLabel.text=[_yearArray objectAtIndex:indexPath.row];
+                break;
+        }
+    }
+
             return cell;
 }
 
 #pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    if (tableView==_popOverTableView) {
+        
+        //Coursemdl*coursemdl2=(Coursemdl *)[_requirementArray objectAtIndex:textFieldIndexPath.row];
+        
+        switch (poptype) {
+                
+            case 1:
+                
+                //path=indexPath.row;
+                [button setTitle:[_monthArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+               // coursemdl2.month=button.titleLabel.text;
+                
+               // NSLog(@"_monthbtn.tag%@",coursemdl2.month);
+                
+                
+                
+                break;
+            case 2:
+                
+                [yearbutton setTitle:[_yearArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+                //coursemdl3.year=yearbutton.titleLabel.text;
+                
+                
+                break;
+            default:
+                break;
+        }
+        
+        
+    }
+
     
        
 }
@@ -806,4 +875,85 @@
 
 
 
+- (IBAction)monthbtn:(id)sender {
+    poptype=1;
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 60, 250)];
+    //200,250
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 60, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(60, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                               initWithContentViewController:popoverContent];
+    
+    
+    button = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_monthbtnlbl.frame
+                                             inView:cell
+                           permittedArrowDirections:UIPopoverArrowDirectionUp
+                                           animated:YES];
+
+    
+}
+
+- (IBAction)yearbtn:(id)sender {
+    poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 60, 250)];
+    //200,250
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 60, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(60, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                               initWithContentViewController:popoverContent];
+    
+    
+    yearbutton = (UIButton *)sender;
+    
+    UITableViewCell *cell = (UITableViewCell *)[[yearbutton superview] superview];
+    
+    
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_yearbtnlbl.frame
+                                             inView:cell
+                           permittedArrowDirections:UIPopoverArrowDirectionUp
+                                           animated:YES];
+
+}
 @end

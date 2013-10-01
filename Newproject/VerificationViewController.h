@@ -15,6 +15,7 @@
     NSInteger testint;
     UIButton *button;
     UIButton *yearbutton;
+    NSInteger poptype;
 
 }
 @property (strong, nonatomic)Coursemdl*coursemdl;
@@ -84,6 +85,11 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *verifctncell;
 
 @property (strong, nonatomic) IBOutlet UIButton *uploadbtnlbl;
+- (IBAction)monthbtn:(id)sender;
+
+- (IBAction)yearbtn:(id)sender;
+
+
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;

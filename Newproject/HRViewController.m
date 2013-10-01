@@ -582,7 +582,7 @@
         // _newid=[NSString stringWithFormat:@"%d", empdtls1.applicantid];
       //  [_imageArraydict setObject:_soapResults forKey:_newid];
         //[_imageArray addObject:_soapResults];
-        NSLog(@"Array%@",_imageArraydict);
+        //NSLog(@"Array%@",_imageArraydict);
         // [_employeestable reloadData];
         
         

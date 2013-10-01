@@ -59,6 +59,7 @@
 		D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A28C17F5401000880E38 /* profilepicture.png */; };
 		D4D7A29117F5422000880E38 /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A29017F5422000880E38 /* Untitled.png */; };
 		D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7A29317F55B2400880E38 /* Empdetails.m */; };
+		D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */; };
 		D4DC425B178568BB0035A873 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC425A178568BB0035A873 /* Base64.m */; };
 		D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */; };
 		D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */; };
@@ -159,6 +160,7 @@
 		D4D7A29017F5422000880E38 /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitled.png; sourceTree = "<group>"; };
 		D4D7A29217F55B2400880E38 /* Empdetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empdetails.h; sourceTree = "<group>"; };
 		D4D7A29317F55B2400880E38 /* Empdetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empdetails.m; sourceTree = "<group>"; };
+		D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = requirmentcell.xib; sourceTree = "<group>"; };
 		D4DC4259178568B40035A873 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		D4DC425A178568BB0035A873 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDocViewController.h; sourceTree = "<group>"; };
@@ -171,7 +173,6 @@
 		D4E1579617744013002764AB /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		D4E1579717744013002764AB /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		D4E658BF17F2A54F00202B14 /* I9view.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = I9view.xib; sourceTree = "<group>"; };
-		D4E658C117F2BB3200202B14 /* VerificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerificationCell.xib; sourceTree = "<group>"; };
 		D4E658C917F2DDFA00202B14 /* rightdisclosure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightdisclosure.png; sourceTree = "<group>"; };
 		D4E658CB17F2DED100202B14 /* detailDisclosureButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailDisclosureButton.png; sourceTree = "<group>"; };
 		D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-checkmark4-1.png"; sourceTree = "<group>"; };
@@ -394,7 +395,7 @@
 				D4FED40C17F16EED004BE242 /* VerificationViewController.h */,
 				D4FED40D17F16EED004BE242 /* VerificationViewController.m */,
 				D4FED40E17F16EEE004BE242 /* VerificationViewController.xib */,
-				D4E658C117F2BB3200202B14 /* VerificationCell.xib */,
+				D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */,
 				D4E658BF17F2A54F00202B14 /* I9view.xib */,
 				D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */,
 				D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */,
@@ -498,6 +499,7 @@
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
+				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
