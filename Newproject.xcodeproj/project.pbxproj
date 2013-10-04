@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6407291817744A900085CB7B /* newCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6407291717744A900085CB7B /* newCommentCell.xib */; };
+		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
 		642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B77AE17799D1000EECCC0 /* activityInfo.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
@@ -87,6 +88,7 @@
 
 /* Begin PBXFileReference section */
 		6407291717744A900085CB7B /* newCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newCommentCell.xib; sourceTree = "<group>"; };
+		64161C0C17FEB511007D4D89 /* squre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squre.png; sourceTree = "<group>"; };
 		642B77AD17799D1000EECCC0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
 		642B77AE17799D1000EECCC0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				648D12FD17716C7F006BB41A /* rectangle3.png */,
 				D4149F27177186C100738AAC /* squareimage1.png */,
 				649AE8781772DB8C00CAECE7 /* appbar.edit.png */,
+				64161C0C17FEB511007D4D89 /* squre.png */,
 				6481615B176EF0C50017F4CC /* rightarowblack.png */,
 			);
 			name = images;
@@ -500,6 +503,7 @@
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
+				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
