@@ -53,6 +53,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
+    __requirmentview.hidden=NO;
+
     [self FetchApplicant];
     NSLog(@"Applicnt %d",_applicantid);
 
@@ -72,6 +75,7 @@
         
     }
     if (item.tag==2) {
+        [self FetchImage];
         _I9view.hidden=NO;
         
         __requirmentview.hidden=YES;
@@ -494,7 +498,7 @@
     
     if (testint==1) {
         
-        [self FetchImage];
+        //[self FetchImage];
         [self selectrequirements];
         testint=3;
     }
@@ -764,7 +768,7 @@
     {
         
         if (_applicantid==[_soapResults integerValue]) {
-              _verfymdl=[[Verfymdl alloc]init];
+                          _verfymdl=[[Verfymdl alloc]init];
             _verfymdl.applicantid=[_soapResults integerValue];
 
             
