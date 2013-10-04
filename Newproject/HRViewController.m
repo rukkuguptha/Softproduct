@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title=NSLocalizedString(@"Registered Employees", @"Registered Employees");
+        self.title=NSLocalizedString(@"Registered Applicants", @"Registered Applicants");
         
     }
     return self;
@@ -62,7 +62,7 @@
     
     
     /*Arrays*/
-    _listarray=[[NSMutableArray alloc]initWithObjects:@"vaification details",@"Upload Documents", nil];
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"verification details",@"Upload Documents", nil];
     
 
 }
