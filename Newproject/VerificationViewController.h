@@ -10,13 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 #import "Verfymdl.h"
 #import "Coursemdl.h"
+#import "Base64.h"
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
     NSInteger testint;
     UIButton *button;
     UIButton *yearbutton;
     NSInteger poptype;
-
+     NSInteger cmpreid;
 }
 @property (strong, nonatomic)Coursemdl*coursemdl;
 
@@ -63,6 +64,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *ziptextfld;
 @property (strong, nonatomic) IBOutlet UITextField *datetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *verifiedbytxtfld;
+@property (strong, nonatomic) IBOutlet UIImageView *profileimg;
 
 
 - (IBAction)savebtn:(id)sender;

@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-      [self FetchApplicant];
+      
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //_view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -39,8 +39,7 @@
     
     _scroll.frame=CGRectMake(0, 0, 1004,768);
     [_scroll setContentSize:CGSizeMake(1004,1000)];
-    NSLog(@"Applicnt %d",_applicantid);
-    _monthArray=[[NSMutableArray alloc]initWithObjects:@"JAN",@"FEB",@"MAR",@"APR",@"MAY",@"JUN",@"JUL",@"AUG",@"SEP",@"OCT",@"NOV",@"DEC",nil];
+       _monthArray=[[NSMutableArray alloc]initWithObjects:@"JAN",@"FEB",@"MAR",@"APR",@"MAY",@"JUN",@"JUL",@"AUG",@"SEP",@"OCT",@"NOV",@"DEC",nil];
     _monthdictArray=[[NSMutableArray alloc]initWithObjects:@"01",@"02",@"03",@"04",@"05",@"06",@"07",@"08",@"09",@"10",@"11",@"12", nil];
     _monthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthdictArray forKeys:_monthArray];
     _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
@@ -54,6 +53,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self FetchApplicant];
+    NSLog(@"Applicnt %d",_applicantid);
+
     
 }
 - (void)didReceiveMemoryWarning
@@ -400,6 +402,64 @@
     }
 
 }
+-(void)FetchImage{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+              
+        //  NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_ssntxtfld.text];
+        
+        
+        // NSString *cmpnyname=@"arvin";
+        
+        soapMessage = [NSString stringWithFormat:
+                       
+                       @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                       "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                       
+                       
+                       "<soap:Body>\n"
+                       
+                       "<FetchImage xmlns=\"http://arvin.kontract360.com/\">\n"
+                       
+                       "<appid>%d</appid>\n"
+                       "</FetchImage>\n"
+                       "</soap:Body>\n"
+                       "</soap:Envelope>\n",_applicantid];
+        NSLog(@"soapmsg%@",soapMessage);
+        
+        
+        // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+        
+        NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+        
+        NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+        
+        [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        
+        [theRequest addValue: @"http://arvin.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
+        
+        [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+        [theRequest setHTTPMethod:@"POST"];
+        [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+        
+        if( theConnection )
+        {
+            _webData = [NSMutableData data];
+        }
+        else
+        {
+            ////NSLog(@"theConnection is NULL");
+        }
+        
+    }
+
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -433,6 +493,8 @@
 	[_xmlParser parse];
     
     if (testint==1) {
+        
+        [self FetchImage];
         [self selectrequirements];
         testint=3;
     }
@@ -648,6 +710,37 @@
     
 
     
+    if([elementName isEqualToString:@"FetchImageResult"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ApplicantID"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 
@@ -672,48 +765,57 @@
         
         if (_applicantid==[_soapResults integerValue]) {
               _verfymdl=[[Verfymdl alloc]init];
+            _verfymdl.applicantid=[_soapResults integerValue];
+
             
         }
       
         recordResults = FALSE;
-        _verfymdl.applicantid=[_soapResults integerValue];
-        _soapResults = nil;
+                _soapResults = nil;
     }
        if([elementName isEqualToString:@"applicant_FirstName"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.firstname=_soapResults;
         _firstnametxtfld.text=_verfymdl.firstname;
+        }
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_LastName"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.lastname=_soapResults;
         _lastnametxtfld.text= _verfymdl.lastname;
+        }
                 _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_SSN"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.ssn=_soapResults;
         _ssntxtfld.text=  _verfymdl.ssn;
+        }
       
         _soapResults = nil;
         
     }
     if([elementName isEqualToString:@"applicant_CellPhone"])
     { recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.Phonenumber=_soapResults;
-        
+        }
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_Address"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.address=_soapResults;
         _Addresstxtfld.text=  _verfymdl.address;
-        
+        }
         _soapResults = nil;
         
         
@@ -721,8 +823,10 @@
     if([elementName isEqualToString:@"applicant_City"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.city=_soapResults;
         _citytxtfld.text=_verfymdl.city;
+        }
         _soapResults = nil;
         
         
@@ -730,8 +834,10 @@
     if([elementName isEqualToString:@"applicant_State"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.state=_soapResults;
         _statetxtfld.text= _verfymdl.state;
+        }
         _soapResults = nil;
         
 
@@ -740,8 +846,10 @@
     if([elementName isEqualToString:@"applicant_Zip"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.zip=_soapResults;
         _ziptextfld.text=_verfymdl.zip;
+        }
         _soapResults = nil;
         
 
@@ -750,10 +858,11 @@
         if([elementName isEqualToString:@"NameSuffix"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.suffix=_soapResults;
         _suffixtxtfld.text=_verfymdl.suffix;
         
-    
+        }
         _soapResults = nil;
         
         
@@ -761,16 +870,20 @@
     if([elementName isEqualToString:@"jobSite_Id"])
     {
         recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.jobsiteid=_soapResults;
+        }
         _soapResults = nil;
              
     }
     if([elementName isEqualToString:@"applicant_OtherCrafts"])
     {
        recordResults = FALSE;
+        if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.craftid=_soapResults;
-        if (_verfymdl!=nil) {
+       
               [_Fetchdetailsarray addObject:_verfymdl];
+            _verfymdl.applicantid=0;
             
         }
           
@@ -862,9 +975,36 @@
             _coursemdl.course_status=0;
             
         }
+        
         [_requirementArray addObject:_coursemdl];
         NSLog(@"mdl%@",_requirementArray);
         _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"ApplicantID"])
+    {
+        recordResults = FALSE;
+        
+      //  [_imageArraydict setObject:_newid forKey:_soapResults];
+        
+        
+        _soapResults = nil;
+    }
+    
+    
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        recordResults = FALSE;
+      //  _newid=_soapResults;
+        
+        
+          NSData *data1=[_soapResults base64DecodedData];
+        
+      
+        UIImage *image1=[[UIImage alloc]initWithData:data1];
+                _profileimg.image=image1;
+
+        _soapResults = nil;
     }
 
 

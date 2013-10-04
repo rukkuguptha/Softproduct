@@ -13,7 +13,6 @@
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
 			<string>IBUIButton</string>
-			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
 		</array>
@@ -44,7 +43,7 @@
 							<object class="IBUILabel" id="500867528">
 								<reference key="NSNextResponder" ref="116887952"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{138, 20}, {162, 21}}</string>
+								<string key="NSFrame">{{60, 31}, {162, 21}}</string>
 								<reference key="NSSuperview" ref="116887952"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -80,7 +79,7 @@
 							<object class="IBUIButton" id="1013431">
 								<reference key="NSNextResponder" ref="116887952"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{456, 31}, {16, 10}}</string>
+								<string key="NSFrame">{{378, 42}, {16, 10}}</string>
 								<reference key="NSSuperview" ref="116887952"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -115,7 +114,7 @@
 							<object class="IBUILabel" id="801444264">
 								<reference key="NSNextResponder" ref="116887952"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{236, 46}, {42, 21}}</string>
+								<string key="NSFrame">{{158, 57}, {42, 21}}</string>
 								<reference key="NSSuperview" ref="116887952"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -134,7 +133,7 @@
 							<object class="IBUILabel" id="910681047">
 								<reference key="NSNextResponder" ref="116887952"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{346, 46}, {132, 21}}</string>
+								<string key="NSFrame">{{268, 57}, {132, 21}}</string>
 								<reference key="NSSuperview" ref="116887952"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -154,7 +153,7 @@
 							<object class="IBUILabel" id="100455594">
 								<reference key="NSNextResponder" ref="116887952"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{236, 68}, {82, 21}}</string>
+								<string key="NSFrame">{{158, 79}, {82, 21}}</string>
 								<reference key="NSSuperview" ref="116887952"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -173,7 +172,7 @@
 							<object class="IBUILabel" id="674561410">
 								<reference key="NSNextResponder" ref="116887952"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{347, 69}, {138, 20}}</string>
+								<string key="NSFrame">{{269, 80}, {138, 20}}</string>
 								<reference key="NSSuperview" ref="116887952"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -189,16 +188,6 @@
 								<reference key="IBUIFontDescription" ref="377834036"/>
 								<reference key="IBUIFont" ref="612720931"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
-							</object>
-							<object class="IBUIImageView" id="875859343">
-								<reference key="NSNextResponder" ref="116887952"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{20, 20}, {95, 82}}</string>
-								<reference key="NSSuperview" ref="116887952"/>
-								<string key="NSReuseIdentifierKey">_NS:9</string>
-								<int key="IBUITag">5</int>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
 						</array>
 						<string key="NSFrameSize">{594, 131}</string>
@@ -268,14 +257,6 @@
 					<int key="connectionID">23</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">empImgview</string>
-						<reference key="source" ref="841351856"/>
-						<reference key="destination" ref="875859343"/>
-					</object>
-					<int key="connectionID">25</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">disclurebtn:</string>
 						<reference key="source" ref="1013431"/>
@@ -314,7 +295,6 @@
 							<reference ref="910681047"/>
 							<reference ref="100455594"/>
 							<reference ref="674561410"/>
-							<reference ref="875859343"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -348,11 +328,6 @@
 						<reference key="object" ref="674561410"/>
 						<reference key="parent" ref="837413785"/>
 					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">24</int>
-						<reference key="object" ref="875859343"/>
-						<reference key="parent" ref="837413785"/>
-					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -365,7 +340,6 @@
 				<string key="2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="20.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="21.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="24.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="3.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>

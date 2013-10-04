@@ -14,6 +14,9 @@
 @interface HRViewController : UIViewController{
     BOOL recordResults;
     NSString *imgString;
+   
+    int x;
+
 }
 @property(readwrite)NSInteger *applicantid;
 @property(strong,nonatomic)NSString*newid;

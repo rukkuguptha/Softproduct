@@ -30,8 +30,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    _employeestable.rowHeight=100;
+       _imageArraydict=[[NSMutableDictionary alloc]init];
+    _employeestable.rowHeight=130;
     
     /*tablewidth*/
     
@@ -117,7 +117,10 @@
     NSIndexPath *IndexPath = [table indexPathForCell:cell];
     
    
+    Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
+    _applicantid=empdetls1.applicantid;
     
+
     
     [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
                                             inView:cell
@@ -173,6 +176,14 @@
         _phonelbl=(UILabel *)[cell viewWithTag:3];
         _phonelbl.text=empdetls1.Phonenumber;
         
+//        NSLog(@"%d",empdetls1.applicantid);
+//        NSData *data1=[[_imageArraydict objectForKey:[NSString stringWithFormat:@"%d",empdetls1.applicantid]]base64DecodedData];
+//        
+//        //NSData *data1=[_imageArray objectAtIndex:indexPath.row];
+//        UIImage *image1=[[UIImage alloc]initWithData:data1];
+//        _empImgview=(UIImageView *)[cell viewWithTag:5];
+//        _empImgview.image=image1;
+
 //        if([imgString isEqualToString:@"img"])
 //        {
 //            
@@ -184,7 +195,7 @@
 //            
 //           
 //            NSData *data1=[[_imageArraydict objectForKey:[NSString stringWithFormat:@"%d",empdetls1.applicantid]]base64DecodedData];
-//            
+//            //NSData *data1=[_imageArray objectAtIndex:indexPath.row];
 //            UIImage *image1=[[UIImage alloc]initWithData:data1];
 //            _empImgview=(UIImageView *)[cell viewWithTag:5];
 //            _empImgview.image=image1;
@@ -205,15 +216,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
+    
     if (tableView==_popOverTableView) {
         
+       
         if (indexPath.row==0) {
             if (!self.verifctnVCtrl) {
                 _verifctnVCtrl=[[VerificationViewController alloc]initWithNibName:@"VerificationViewController" bundle:nil];
             }
             [self.popOverController dismissPopoverAnimated:YES];
             _verifctnVCtrl.applicantid=_applicantid;
-            [self.navigationController pushViewController:_verifctnVCtrl animated:YES];
+                        [self.navigationController pushViewController:_verifctnVCtrl animated:YES];
             
         }
         if (indexPath.row==1) {
@@ -328,66 +341,6 @@
     
     
 }
--(void)FetchImage{
-        recordResults = FALSE;
-    NSString *soapMessage;
-    _imageArraydict=[[NSMutableDictionary alloc]init];
-
-       _imageArray=[[NSMutableArray alloc]init];
-    for (int i=0; i<[_empnameArray count]; i++) {
-  Empdetails*empdtls1=(Empdetails *)[_empnameArray objectAtIndex:i];
-       
-    
-    //  NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_ssntxtfld.text];
-    
-    
-    // NSString *cmpnyname=@"arvin";
-    
-    soapMessage = [NSString stringWithFormat:
-                   
-                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-                   
-                   
-                   "<soap:Body>\n"
-                   
-                   "<FetchImage xmlns=\"http://arvin.kontract360.com/\">\n"
-                   
-                   "<appid>%d</appid>\n"
-                   "</FetchImage>\n"
-                   "</soap:Body>\n"
-                   "</soap:Envelope>\n",empdtls1.applicantid];
-    NSLog(@"soapmsg%@",soapMessage);
-    
-    
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
-    
-    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-    
-    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-    
-    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    
-    [theRequest addValue: @"http://arvin.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
-    
-    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-    [theRequest setHTTPMethod:@"POST"];
-    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    
-    if( theConnection )
-    {
-        _webData = [NSMutableData data];
-    }
-    else
-    {
-        ////NSLog(@"theConnection is NULL");
-    }
-    }
-}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -412,6 +365,7 @@
 	
 	
 	if( _xmlParser )
+        
 	{
 		
 	}
@@ -424,18 +378,19 @@
     if([imgString isEqualToString:@"Fetchapp"])
     {
     [_employeestable reloadData];
-    [self FetchImage];
-        imgString=@"";
+           imgString=@"";
     
     }
-    if([imgString isEqualToString:@"img"])
-    {
-       
-        [_employeestable reloadData];
-
-       // imgString=@"";
-        
-    }
+//    if([imgString isEqualToString:@"img"])
+//    {
+//        if (x==[_empnameArray count]) {
+//             [_employeestable reloadData];
+//        }
+//       
+//
+//       // imgString=@"";
+//        
+//    }
 
     
 
@@ -499,27 +454,7 @@
         
     }
     
-    if([elementName isEqualToString:@"FetchImageResult"])
-    {
-        imgString=@"img";
-               if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-        
-    }
-
-
-    if([elementName isEqualToString:@"url"])
-    {
-    
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
+       
 
 
 
@@ -544,7 +479,7 @@
         _empdetl=[[Empdetails alloc]init];
         recordResults = FALSE;
         _empdetl.applicantid=[_soapResults integerValue];
-        _applicantid=[_soapResults integerValue];
+       
         //[self FetchImage];
         _soapResults = nil;
     }
@@ -575,29 +510,13 @@
         [_empnameArray addObject:_empdetl];
          _soapResults = nil;
     }
-    if([elementName isEqualToString:@"url"])
-    {
         
-        recordResults = FALSE;
-        // _newid=[NSString stringWithFormat:@"%d", empdtls1.applicantid];
-      //  [_imageArraydict setObject:_soapResults forKey:_newid];
-        //[_imageArray addObject:_soapResults];
-        //NSLog(@"Array%@",_imageArraydict);
-        // [_employeestable reloadData];
-        
-        
-        
-//        for (int i=0; i<[_imageArray count]; i++) {
-//              NSData *data1=[[_imageArray objectAtIndex:i]base64DecodedData];
-//        
-//        UIImage *image1=[[UIImage alloc]initWithData:data1];
-//        
-//        _empImgview.image=image1;
-//
-//        }
-        
-        _soapResults = nil;
-    }
+//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(480, 320),NO,0.0);
+//    [image drawInRect:CGRectMake(0, 0, 480, 320)];
+//    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+
 
 }
 @end
