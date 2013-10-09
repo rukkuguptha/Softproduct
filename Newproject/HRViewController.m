@@ -55,8 +55,8 @@
     
    /*scroll*/
     
-    _scroll.frame=CGRectMake(0, 0, 1004,768);
-    [_scroll setContentSize:CGSizeMake(1500,768)];
+    //_scroll.frame=CGRectMake(0, 0, 1004,768);
+   // [_scroll setContentSize:CGSizeMake(1500,768)];
     
     
     
@@ -226,6 +226,7 @@
             }
             [self.popOverController dismissPopoverAnimated:YES];
             _verifctnVCtrl.applicantid=_applicantid;
+            NSLog(@" _verifctnVCtrl.applicantid%d", _verifctnVCtrl.applicantid);
                         [self.navigationController pushViewController:_verifctnVCtrl animated:YES];
             
         }

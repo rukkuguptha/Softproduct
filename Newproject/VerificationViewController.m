@@ -359,7 +359,13 @@
 -(void)selectrequirements{
     recordResults = FALSE;
     NSString *soapMessage;
-    
+    NSLog(@"Array%@",_Fetchdetailsarray);
+   
+    Verfymdl*verfy=(Verfymdl *)[_Fetchdetailsarray objectAtIndex:0];
+    NSLog(@"%d",verfy.Selectedapplicantid);
+    NSLog(@"%@",verfy.jobsiteid);
+    NSLog(@"%@",verfy.craftid);
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -374,7 +380,7 @@
                    "<AppId>%d</AppId>\n"
                    "</InsertApplicantRequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_verfymdl.jobsiteid integerValue],[_verfymdl.craftid integerValue] ,_verfymdl.applicantid];
+                   "</soap:Envelope>\n",[verfy.jobsiteid integerValue],[verfy.craftid integerValue] ,verfy.Selectedapplicantid ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -766,16 +772,18 @@
 {
     if([elementName isEqualToString:@"applicant_Id"])
     {
-        
+        recordResults = FALSE;
         if (_applicantid==[_soapResults integerValue]) {
                           _verfymdl=[[Verfymdl alloc]init];
-            _verfymdl.applicantid=[_soapResults integerValue];
-
+            _verfymdl.Selectedapplicantid=[_soapResults integerValue];
+            
+_verfymdl.applicantid=[_soapResults integerValue];
             
         }
-      
-        recordResults = FALSE;
-                _soapResults = nil;
+        else{
+        _verfymdl.applicantid=[_soapResults integerValue];
+        }
+                        _soapResults = nil;
     }
        if([elementName isEqualToString:@"applicant_FirstName"])
     {
@@ -883,11 +891,20 @@
     if([elementName isEqualToString:@"applicant_OtherCrafts"])
     {
        recordResults = FALSE;
+           NSLog(@"Appid%d",_verfymdl.applicantid);
+        NSLog(@"Appid%d",_applicantid);
+
+        
         if (_applicantid==  _verfymdl.applicantid) {
         _verfymdl.craftid=_soapResults;
        
               [_Fetchdetailsarray addObject:_verfymdl];
-            _verfymdl.applicantid=0;
+              NSLog(@"%d",_verfymdl.applicantid);
+              NSLog(@"%d",_verfymdl.Selectedapplicantid);
+              NSLog(@"%@",_verfymdl.jobsiteid);
+             NSLog(@"%@",_verfymdl.craftid);
+            
+            NSLog(@"%@",_Fetchdetailsarray);
             
         }
           

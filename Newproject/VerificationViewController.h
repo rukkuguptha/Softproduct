@@ -22,7 +22,7 @@
 @property (strong, nonatomic)Coursemdl*coursemdl;
 
 @property (strong, nonatomic)Verfymdl*verfymdl;
-@property(readwrite)NSInteger *applicantid;
+@property(readwrite)NSInteger applicantid;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic) IBOutlet UIView *ssnview;

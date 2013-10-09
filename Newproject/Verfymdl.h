@@ -13,7 +13,10 @@
 @property(strong,nonatomic)NSString*lastname;
 @property(strong,nonatomic)NSString*ssn;
 @property(strong,nonatomic)NSString*Phonenumber;
-@property(readwrite)NSInteger *applicantid;
+@property(readwrite)NSInteger applicantid;
+
+@property(readwrite)NSInteger Selectedapplicantid;
+
 @property(strong,nonatomic)NSString*middlename;
 @property(strong,nonatomic)NSString*suffix;
 @property(strong,nonatomic)NSString*address;
