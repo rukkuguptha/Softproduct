@@ -119,6 +119,7 @@
    
     Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
     _applicantid=empdetls1.applicantid;
+    _ssnstring=empdetls1.ssn;
     
 
     
@@ -235,6 +236,8 @@
                 _uploadVCtrl=[[UploadDocViewController alloc]initWithNibName:@"UploadDocViewController" bundle:nil];
             }
             [self.popOverController dismissPopoverAnimated:YES];
+              _uploadVCtrl.applicantid=_applicantid;
+            _uploadVCtrl.ssnstring=_ssnstring;
             [self.navigationController pushViewController:_uploadVCtrl animated:YES];
             
         }

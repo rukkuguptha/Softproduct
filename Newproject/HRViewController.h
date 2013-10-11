@@ -18,10 +18,11 @@
     int x;
 
 }
-@property(readwrite)NSInteger *applicantid;
+@property(readwrite)NSInteger applicantid;
 @property(strong,nonatomic)NSString*newid;
 @property(strong,nonatomic)NSString*teststrng;
 @property(strong,nonatomic)Empdetails*empdetl;
+@property(strong,nonatomic)NSString*ssnstring;
 @property(strong,nonatomic)VerificationViewController*verifctnVCtrl;
 @property(strong,nonatomic)UploadDocViewController*uploadVCtrl;
 /*Tables*/
