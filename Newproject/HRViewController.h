@@ -16,6 +16,7 @@
     NSString *imgString;
    
     int x;
+    
 
 }
 @property(readwrite)NSInteger applicantid;

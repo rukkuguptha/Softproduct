@@ -62,7 +62,7 @@
     
     
     /*Arrays*/
-    _listarray=[[NSMutableArray alloc]initWithObjects:@"verification details",@"Upload Documents", nil];
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"verification details",@"Upload Documents",@"Convert as an Employee", nil];
     
 
 }
@@ -86,10 +86,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 70)];
+                           initWithFrame:CGRectMake(0, 0, 160, 90)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -102,7 +102,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
     
     //create a popover controller
     
@@ -169,8 +169,16 @@
         }
     }
     if (tableView==_employeestable) {
+        
+        
         Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:indexPath.row];
         _empolyeename=(UILabel *)[cell viewWithTag:1];
+        
+        if (empdetls1.emp==1) {
+            
+            _empolyeename.textColor=[UIColor redColor];
+            
+        }
         _empolyeename.text=[NSString stringWithFormat:@"%@ %@",empdetls1.firstname,empdetls1.lastname];
         _ssnlbl=(UILabel *)[cell viewWithTag:2];
         _ssnlbl.text=empdetls1.ssn;
@@ -242,6 +250,13 @@
             
         }
 
+        
+        if (indexPath.row==2) {
+            /*Webservice*/
+            
+            [_employeestable reloadData];
+            
+        }
     }
     
 }
@@ -482,9 +497,17 @@
     {
         _empdetl=[[Empdetails alloc]init];
         recordResults = FALSE;
-        _empdetl.applicantid=[_soapResults integerValue];
+               _empdetl.applicantid=[_soapResults integerValue];
        
         //[self FetchImage];
+        if (_empdetl.applicantid==16) {
+            _empdetl.emp=1;
+        }
+        else{
+            _empdetl.emp=0;
+
+        }
+
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_FirstName"])
@@ -515,11 +538,6 @@
          _soapResults = nil;
     }
         
-//    UIGraphicsBeginImageContextWithOptions(CGSizeMake(480, 320),NO,0.0);
-//    [image drawInRect:CGRectMake(0, 0, 480, 320)];
-//    UIImage *scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    
 
 
 }

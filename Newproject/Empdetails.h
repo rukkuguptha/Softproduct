@@ -14,6 +14,8 @@
 @property(strong,nonatomic)NSString*ssn;
 @property(strong,nonatomic)NSString*Phonenumber;
 @property(readwrite)NSInteger applicantid;
+@property(readwrite)NSInteger emp;
+
 
 
 @end
