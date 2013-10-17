@@ -16,6 +16,8 @@
 		648D13071771A093006BB41A /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13051771A093006BB41A /* CompanyViewController.m */; };
 		648D13081771A093006BB41A /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648D13061771A093006BB41A /* CompanyViewController.xib */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
+		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
+		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		D4041F161779ACB500247373 /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4041F151779ACB400247373 /* followupmodel.m */; };
@@ -101,6 +103,9 @@
 		648D13041771A093006BB41A /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompanyViewController.h; path = ../CompanyViewController.h; sourceTree = "<group>"; };
 		648D13051771A093006BB41A /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyViewController.m; path = ../CompanyViewController.m; sourceTree = "<group>"; };
 		648D13061771A093006BB41A /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CompanyViewController.xib; path = ../CompanyViewController.xib; sourceTree = "<group>"; };
+		64955C98180E52D5000A86A1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		64955C99180E52D5000A86A1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		64955C9A180E52D5000A86A1 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		6498468A177AE56100C67E8A /* customcommentforactivitycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customcommentforactivitycell.xib; sourceTree = "<group>"; };
 		649AE8781772DB8C00CAECE7 /* appbar.edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.edit.png; sourceTree = "<group>"; };
 		649AE87F1772DFDA00CAECE7 /* ContactInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactInfoViewController.h; sourceTree = "<group>"; };
@@ -398,6 +403,9 @@
 				D4FED40C17F16EED004BE242 /* VerificationViewController.h */,
 				D4FED40D17F16EED004BE242 /* VerificationViewController.m */,
 				D4FED40E17F16EEE004BE242 /* VerificationViewController.xib */,
+				64955C98180E52D5000A86A1 /* WebViewController.h */,
+				64955C99180E52D5000A86A1 /* WebViewController.m */,
+				64955C9A180E52D5000A86A1 /* WebViewController.xib */,
 				D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */,
 				D4E658BF17F2A54F00202B14 /* I9view.xib */,
 				D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */,
@@ -504,6 +512,7 @@
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
+				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +548,7 @@
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
+				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
