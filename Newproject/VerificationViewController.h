@@ -11,6 +11,7 @@
 #import "Verfymdl.h"
 #import "Coursemdl.h"
 #import "Base64.h"
+#import "WebViewController.h"
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
     NSInteger testint;
@@ -18,7 +19,9 @@
     UIButton *yearbutton;
     NSInteger poptype;
      NSInteger cmpreid;
+    NSString *docsstring;
 }
+@property(strong,nonatomic)WebViewController *webctrl;
 @property (strong, nonatomic)Coursemdl*coursemdl;
 
 @property (strong, nonatomic)Verfymdl*verfymdl;
@@ -98,5 +101,9 @@
 @property(strong,nonatomic)NSMutableData *webData;
 
 
+@property(strong,nonatomic)NSMutableArray *docsarray;
+@property(strong,nonatomic)NSMutableDictionary *docspathDict;
+
+@property(strong,nonatomic)NSString *doc;
 
 @end

@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     // Do any additional setup after loading the view from its nib.
     
 //    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
@@ -154,7 +155,7 @@ finishedSavingWithError:(NSError *)error
     NSString *soapMessage;
     
     
-    NSString *imagename=[NSString stringWithFormat:@"Photo_%@",_ssnstring];
+    NSString *imagename=[NSString stringWithFormat:@"%@_%@",_docnametxt.text,_ssnstring];
     
     
     // NSString *cmpnyname=@"arvin";
@@ -244,10 +245,56 @@ finishedSavingWithError:(NSError *)error
     
     }
 
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+       if([elementName isEqualToString:@"UploadDocsResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+        
+    
+    if([elementName isEqualToString:@"RESULT"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+}
 
-
-
-
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        
+        
+		[_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"RESULT"])
+    {
+        recordResults = FALSE;
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        _soapResults=nil;
+        
+    }
+   }
 
 
 @end

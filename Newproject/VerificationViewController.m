@@ -76,6 +76,7 @@
     }
     if (item.tag==2) {
         [self FetchImage];
+//        [self selectdocs];
         _I9view.hidden=NO;
         
         __requirmentview.hidden=YES;
@@ -104,7 +105,15 @@
 }
 
 - (IBAction)uploadbtn:(id)sender {
-    
+    poptype=3;
+    [self selectdocs];
+    [self createpop];
+   
+}
+-(void)createpop
+{
+     poptype=3;
+        
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
@@ -175,7 +184,9 @@
             case 2:
                 return [_yearArray count];
                 break;
-
+            case 3:
+                return [_docsarray count];
+                break;
             default:
                 break;
         }
@@ -227,6 +238,9 @@
             case 2:
                 cell.textLabel.text=[_yearArray objectAtIndex:indexPath.row];
                 break;
+            case 3:
+                cell.textLabel.text=[_docsarray objectAtIndex:indexPath.row];
+                break;
         }
     }
 
@@ -263,7 +277,19 @@
                 
                 
                 break;
-            default:
+                case 3:
+                _doc=[_docspathDict objectForKey:[_docsarray objectAtIndex:indexPath.row]];
+                NSLog(@"%@",_doc);
+                if (!self.webctrl) {
+                    _webctrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
+                }
+                _webctrl.docpdf=_doc;
+                [self.navigationController pushViewController:_webctrl animated:YES];
+                [self.popOverController dismissPopoverAnimated:YES];
+
+
+                break;
+                default:
                 break;
         }
         
@@ -468,6 +494,56 @@
         }
         
     }
+-(void)selectdocs
+{
+    poptype=3;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   "<soap:Body>\n"
+                   "<SelectDocs xmlns=\"http://arvin.kontract360.com/\">\n"
+                   "<AppId>%d</AppId>\n"
+                   "</SelectDocs>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+    
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://arvin.kontract360.com/SelectDocs" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 
 #pragma mark - Connection
@@ -501,7 +577,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    
+    [_popOverTableView reloadData];
     if (testint==1) {
         
         //[self FetchImage];
@@ -751,6 +827,35 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectDocsResult"])
+    {
+        _docsarray=[[NSMutableArray alloc]init];
+        _docspathDict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FolderName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    
+
 
 
 
@@ -1027,6 +1132,27 @@ _verfymdl.applicantid=[_soapResults integerValue];
 
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        recordResults=FALSE;
+        NSLog(@"key%@",_soapResults);
+        docsstring=_soapResults;
+
+       
+        _soapResults=nil;
+    }
+
+    if([elementName isEqualToString:@"FolderName"])
+    {
+        recordResults=FALSE;
+        [_docsarray addObject:_soapResults];
+         [_docspathDict setObject:docsstring forKey:_soapResults];
+        NSLog(@"soap%@",_soapResults);
+        _soapResults=nil;
+    }
+
+    
+   
 
 
 }
