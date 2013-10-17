@@ -53,6 +53,7 @@
 		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
 		D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */; };
 		D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFFC176F186200F4E196 /* FollowupCell.xib */; };
+		D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C33EB9180FB43500C90728 /* PDFImageConverter.m */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 		D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39CD3177ACE4B00C1E87D /* commentmdl.m */; };
@@ -155,6 +156,8 @@
 		D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowupViewController.m; sourceTree = "<group>"; };
 		D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupViewController.xib; sourceTree = "<group>"; };
 		D4A2AFFC176F186200F4E196 /* FollowupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupCell.xib; sourceTree = "<group>"; };
+		D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageConverter.h; sourceTree = "<group>"; };
+		D4C33EB9180FB43500C90728 /* PDFImageConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageConverter.m; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4D39CD2177ACE4B00C1E87D /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 		D40D1E9E176B086E00379DD5 = {
 			isa = PBXGroup;
 			children = (
+				D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */,
+				D4C33EB9180FB43500C90728 /* PDFImageConverter.m */,
 				D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */,
 				D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */,
 				D4F7E2DF17856D4400F9545D /* NSData+Base64.h */,
@@ -549,6 +554,7 @@
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
+				D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

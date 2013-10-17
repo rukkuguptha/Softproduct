@@ -51,6 +51,16 @@
     NSURL *targetURL = [NSURL URLWithString:urlstring];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
     [_webview loadRequest:request];
+
+    
+      [self.view addSubview:_webview];
+//    //_webview= [[UIWebView alloc] initWithFrame:CGRectMake(10, 10, 200, 200)];
+//    NSString *path = [[NSBundle mainBundle] pathForResource:urlstring ofType:nil];
+//    NSURL *targetURL = [NSURL fileURLWithPath:path];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
+//    [_webview loadRequest:request];
+    
+  
        
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{

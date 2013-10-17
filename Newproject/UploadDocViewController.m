@@ -7,7 +7,7 @@
 //
 
 #import "UploadDocViewController.h"
-
+#import "PDFImageConverter.h"
 @interface UploadDocViewController ()
 
 @end
@@ -134,18 +134,38 @@ finishedSavingWithError:(NSError *)error
 - (IBAction)uploadbtn:(id)sender {
     
     UIImage *imagename =_imageview.image;
-    NSData *data = UIImagePNGRepresentation(imagename);
+  //  NSData *data = UIImagePNGRepresentation(imagename);
     
     // NSData *data = UIImageJPEGRepresentation(image, 1.0);
     
     
-    _encodedstring = [data base64EncodedString];
+  
     
-    NSLog(@"result%@",_encodedstring);
+   // NSLog(@"result%@",_encodedstring);
     
     
+    
+    CGSize pageSize = CGSizeMake(700, 1004);
+    CGRect imageBoundsRect =CGRectMake(200, 200, 700, 700);
+    
+    
+    NSData *pdfData = [PDFImageConverter convertImageToPDF:imagename
+                                            withResolution:50 maxBoundsRect: imageBoundsRect pageSize: pageSize];
+    
+    
+    NSString*filename=[NSString stringWithFormat:@"%@_%@.pdf",_docnametxt.text,_ssnstring];
+    NSString *path = [NSHomeDirectory() stringByAppendingPathComponent:filename];
+    NSLog(@"path%@",path);
+    [pdfData writeToFile:path atomically:NO];
 
+    NSLog(@"data%@",pdfData);
+    NSData*data= [NSData dataWithContentsOfFile:path];
+    
+    
+  _encodedstring = [data base64EncodedString];
     [self UploadDocs];
+    
+    
 }
 /*webservice*/
 
@@ -155,7 +175,7 @@ finishedSavingWithError:(NSError *)error
     NSString *soapMessage;
     
     
-    NSString *imagename=[NSString stringWithFormat:@"%@_%@",_docnametxt.text,_ssnstring];
+    NSString *imagename=[NSString stringWithFormat:@"%@_%@.pdf",_docnametxt.text,_ssnstring];
     
     
     // NSString *cmpnyname=@"arvin";
