@@ -255,7 +255,7 @@
 
         
         if (indexPath.row==2) {
-            /*Webservice*/
+            /*arvinice*/
             [self UpdateApplicantEmployeeStatus];
            // [self FetchApplicant];
             //[_employeestable reloadData];
@@ -311,8 +311,8 @@
     }
 
 
-#pragma mark - Webservice
-/*webservices*/
+#pragma mark - arvinice
+/*arvinices*/
 -(void)UpdateApplicantEmployeeStatus{
     
     recordResults = FALSE;
@@ -326,7 +326,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateApplicantEmployeeStatus xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<UpdateApplicantEmployeeStatus xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<AppId>%d</AppId>\n"
                    "</UpdateApplicantEmployeeStatus>\n"
                    "</soap:Body>\n"
@@ -377,7 +377,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FetchApplicant xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<FetchApplicant xmlns=\"http://arvin.kontract360.com/\">\n"
                    
                    "</FetchApplicant>\n"
                    "</soap:Body>\n"

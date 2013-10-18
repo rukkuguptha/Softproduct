@@ -43,7 +43,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - WebService
+#pragma mark - arvinice
 
 
 -(void)Getbasicinfo{
@@ -59,7 +59,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GetBasicInfo xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<GetBasicInfo xmlns=\"http://arvin.kontract360.com/\">\n"
                    
                    "</GetBasicInfo>\n"
                    "</soap:Body>\n"
@@ -68,7 +68,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -76,7 +76,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/GetBasicInfo" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/GetBasicInfo" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -109,7 +109,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SaveBasicInfo xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveBasicInfo xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<CompanyName>%@</CompanyName>\n"
                    "<Address>%@</Address>\n"
                    "<City>%@</City>\n"
@@ -131,7 +131,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -139,7 +139,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveBasicInfo" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveBasicInfo" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

@@ -818,8 +818,8 @@ if (tableView==_leadTable) {
 }
 
 
-#pragma mark - Webservice
-/*webservices*/
+#pragma mark - arvinice
+/*arvinices*/
 
 -(void)getLeads{
     
@@ -834,7 +834,7 @@ if (tableView==_leadTable) {
                                  
                    "<soap:Body>\n"
                    
-                   "<GetLeads xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<GetLeads xmlns=\"http://arvin.kontract360.com/\">\n"
                   
                    "</GetLeads>\n"
                    "</soap:Body>\n"
@@ -843,7 +843,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -851,7 +851,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/GetLeads" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/GetLeads" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -886,7 +886,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveLead xmlns=\"http://arvin.kontract360.com/\">\n"
                    
                    "<leadid>%d</leadid>\n"
                    "<Companyname>%@</Companyname>\n"
@@ -912,7 +912,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -920,7 +920,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -955,7 +955,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveLead xmlns=\"http://arvin.kontract360.com/\">\n"
                    
                    "<leadid>%d</leadid>\n"
                    "<Companyname>%@</Companyname>\n"
@@ -981,7 +981,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -989,7 +989,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1024,7 +1024,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SearchLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SearchLead xmlns=\"http://arvin.kontract360.com/\">\n"
                     "<lead>%@</lead>\n"
                    "</SearchLead>\n"
                    "</soap:Body>\n"
@@ -1033,7 +1033,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1041,7 +1041,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SearchLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SearchLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1075,7 +1075,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteLead xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<DeleteLead xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<leadid>%d</leadid>\n"
                   
                    "</DeleteLead>\n"
@@ -1085,7 +1085,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1093,7 +1093,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1126,7 +1126,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<LeadCommentsList xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<LeadCommentsList xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<leadid>%d</leadid>\n"
                    
                    "</LeadCommentsList>\n"
@@ -1136,7 +1136,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1144,7 +1144,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/LeadCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/LeadCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1190,7 +1190,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLeadComment xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveLeadComment xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Comments>%@</Comments>\n"
                    "<UserId>%d</UserId>\n"
@@ -1202,7 +1202,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1210,7 +1210,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

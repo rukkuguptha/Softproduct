@@ -581,8 +581,8 @@
  
 }
 
-#pragma mark - Webservice
-/*webservices*/
+#pragma mark - arvinice
+/*arvinices*/
 
 -(void)getActivityFollowup{
     
@@ -597,7 +597,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GetActivityFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<GetActivityFollowup xmlns=\"http://arvin.kontract360.com/\">\n"
                      "<activityid>%d</activityid>\n"
                    "</GetActivityFollowup>\n"
                    "</soap:Body>\n"
@@ -606,7 +606,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -614,7 +614,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/GetActivityFollowup" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/GetActivityFollowup" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -663,7 +663,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SaveFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveFollowup xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<HeadLine>%@</HeadLine>\n"
                    "<LeadLink>%d</LeadLink>\n"
                    "<OrgContact>%@</OrgContact>\n"
@@ -681,7 +681,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -689,7 +689,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -735,7 +735,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SaveFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveFollowup xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<HeadLine>%@</HeadLine>\n"
                    "<LeadLink>%d</LeadLink>\n"
                    "<OrgContact>%@</OrgContact>\n"
@@ -753,7 +753,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -761,7 +761,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveFollowup" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -796,7 +796,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteFollowup xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<DeleteFollowup xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<followupid>%d</followupid>\n"
                    "</DeleteFollowup>\n"
                    "</soap:Body>\n"
@@ -805,7 +805,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -813,7 +813,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/DeleteFollowup" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/DeleteFollowup" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -849,7 +849,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FollowupCommentsList xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<FollowupCommentsList xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<followupid>%d</followupid>\n"
                    
                    "</FollowupCommentsList>\n"
@@ -859,7 +859,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -867,7 +867,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/FollowupCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/FollowupCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -913,7 +913,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SaveFollowUpComment xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<SaveFollowUpComment xmlns=\"http://arvin.kontract360.com/\">\n"
                    "<FollowUpId>%d</FollowUpId>\n"
                    "<Comments>%@</Comments>\n"
                    "<UserId>%d</UserId>\n"
@@ -925,7 +925,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://webserv.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -933,7 +933,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://webserv.kontract360.com/SaveFollowUpComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://arvin.kontract360.com/SaveFollowUpComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

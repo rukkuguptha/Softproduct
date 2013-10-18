@@ -328,8 +328,8 @@
     [super viewDidUnload];
 }
 
-#pragma mark - Webservice
-/*webservices*/
+#pragma mark - arvinice
+/*arvinices*/
 
 
 
@@ -346,7 +346,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<FetchApplicant xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<FetchApplicant xmlns=\"http://arvin.kontract360.com/\">\n"
                    
                    "</FetchApplicant>\n"
                    "</soap:Body>\n"
