@@ -257,8 +257,8 @@
         if (indexPath.row==2) {
             /*Webservice*/
             [self UpdateApplicantEmployeeStatus];
-            
-            [_employeestable reloadData];
+           // [self FetchApplicant];
+            //[_employeestable reloadData];
             
         }
     }
