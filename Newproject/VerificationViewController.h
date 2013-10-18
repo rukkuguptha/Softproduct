@@ -21,7 +21,6 @@
      NSInteger cmpreid;
     NSString *docsstring;
 }
-@property(strong,nonatomic)WebViewController *webctrl;
 @property (strong, nonatomic)Coursemdl*coursemdl;
 
 @property (strong, nonatomic)Verfymdl*verfymdl;
@@ -105,5 +104,6 @@
 @property(strong,nonatomic)NSMutableDictionary *docspathDict;
 
 @property(strong,nonatomic)NSString *doc;
+@property(strong,nonatomic)WebViewController *webctrl;
 
 @end
