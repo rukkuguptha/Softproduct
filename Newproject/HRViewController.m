@@ -174,15 +174,18 @@
         Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:indexPath.row];
         _empolyeename=(UILabel *)[cell viewWithTag:1];
         
-        if (empdetls1.emp==1) {
-            
-            _empolyeename.textColor=[UIColor redColor];
-            
-        }
-        _empolyeename.text=[NSString stringWithFormat:@"%@ %@",empdetls1.firstname,empdetls1.lastname];
+               _empolyeename.text=[NSString stringWithFormat:@"%@ %@",empdetls1.firstname,empdetls1.lastname];
         _ssnlbl=(UILabel *)[cell viewWithTag:2];
         _ssnlbl.text=empdetls1.ssn;
         _phonelbl=(UILabel *)[cell viewWithTag:3];
+        if (empdetls1.emp==1) {
+            
+            _empolyeename.textColor=[UIColor greenColor];
+            _ssnlbl.textColor=[UIColor greenColor];
+            _phonelbl.textColor=[UIColor greenColor];
+            
+        }
+
         _phonelbl.text=empdetls1.Phonenumber;
         
 //        NSLog(@"%d",empdetls1.applicantid);
@@ -253,6 +256,7 @@
         
         if (indexPath.row==2) {
             /*Webservice*/
+            [self UpdateApplicantEmployeeStatus];
             
             [_employeestable reloadData];
             
@@ -309,6 +313,56 @@
 
 #pragma mark - Webservice
 /*webservices*/
+-(void)UpdateApplicantEmployeeStatus{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdateApplicantEmployeeStatus xmlns=\"http://webserv.kontract360.com/\">\n"
+                   "<AppId>%d</AppId>\n"
+                   "</UpdateApplicantEmployeeStatus>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://arvin.kontract360.com/UpdateApplicantEmployeeStatus" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 -(void)FetchApplicant{
     imgString=@"Fetchapp";
@@ -474,6 +528,16 @@
     }
     
        
+    if([elementName isEqualToString:@"EmployeeStatus"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
 
 
 
@@ -500,14 +564,7 @@
                _empdetl.applicantid=[_soapResults integerValue];
        
         //[self FetchImage];
-        if (_empdetl.applicantid==16) {
-            _empdetl.emp=1;
-        }
-        else{
-            _empdetl.emp=0;
-
-        }
-
+        
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_FirstName"])
@@ -537,7 +594,21 @@
         [_empnameArray addObject:_empdetl];
          _soapResults = nil;
     }
+    if([elementName isEqualToString:@"EmployeeStatus"])
+    {
+         recordResults = FALSE;
+        _empdetl.empstatus=_soapResults;
+        if ([_empdetl.empstatus isEqualToString:@"true"]) {
+            _empdetl.emp=1;
+            
+        }
+        else{
+            _empdetl.emp=0;
+        }
+        _soapResults = nil;
         
+    }
+
 
 
 }
