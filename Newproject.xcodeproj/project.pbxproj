@@ -87,6 +87,10 @@
 		D4FED41417F18E28004BE242 /* tabbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41317F18E28004BE242 /* tabbtn.png */; };
 		D4FED41617F1A047004BE242 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41517F1A046004BE242 /* 1.png */; };
 		D4FED41817F1A04E004BE242 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41717F1A04D004BE242 /* 2.png */; };
+		D4FFBD181855A01F0007851D /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFBD171855A01F0007851D /* Section.m */; };
+		D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */; };
+		D4FFBD201855B7830007851D /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FFBD1F1855B7830007851D /* carat.png */; };
+		D4FFBD221855B7880007851D /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FFBD211855B7880007851D /* carat-open.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -200,6 +204,12 @@
 		D4FED41317F18E28004BE242 /* tabbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbtn.png; sourceTree = "<group>"; };
 		D4FED41517F1A046004BE242 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		D4FED41717F1A04D004BE242 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		D4FFBD161855A00C0007851D /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		D4FFBD171855A01F0007851D /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		D4FFBD191855A0280007851D /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		D4FFBD1F1855B7830007851D /* carat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carat.png; sourceTree = "<group>"; };
+		D4FFBD211855B7880007851D /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +361,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4FFBD1F1855B7830007851D /* carat.png */,
+				D4FFBD211855B7880007851D /* carat-open.png */,
 				D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */,
 				D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */,
 				D4D7A29017F5422000880E38 /* Untitled.png */,
@@ -377,6 +389,10 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D4FFBD161855A00C0007851D /* Section.h */,
+				D4FFBD171855A01F0007851D /* Section.m */,
+				D4FFBD191855A0280007851D /* SectionHeaderView.h */,
+				D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */,
 				D4D570121772B58200671A35 /* Infoleads.h */,
 				D4D570131772B58200671A35 /* Infoleads.m */,
 				648D13011771726E006BB41A /* CKCalendarView.h */,
@@ -478,6 +494,7 @@
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
+				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */,
@@ -517,6 +534,7 @@
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
+				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +548,7 @@
 			files = (
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
+				D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
@@ -553,6 +572,7 @@
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
+				D4FFBD181855A01F0007851D /* Section.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
 				D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */,
 			);

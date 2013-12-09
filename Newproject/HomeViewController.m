@@ -91,6 +91,7 @@
     if (!self.hrVCtrl) {
         self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
     }
+  
     [self.navigationController pushViewController:_hrVCtrl animated:YES];
     
 }

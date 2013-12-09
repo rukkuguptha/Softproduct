@@ -215,6 +215,7 @@
     }
     
     if (tableView==_requirementtable){
+           NSLog(@"indexPath row: %d",indexPath.row);
     Coursemdl*coursemdl1=(Coursemdl *)[_requirementArray objectAtIndex:indexPath.row];
     _reqiuremntnamelbl=(UILabel *)[cell viewWithTag:1];
    _reqiuremntnamelbl.text=coursemdl1.itemname;

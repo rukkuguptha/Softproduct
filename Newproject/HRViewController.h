@@ -11,7 +11,10 @@
 #import "VerificationViewController.h"
 #import "UploadDocViewController.h"
 #import "Empdetails.h"
-@interface HRViewController : UIViewController{
+#import "SectionHeaderView.h"
+
+
+@interface HRViewController : UIViewController<SectionHeaderViewDelegate>{
     BOOL recordResults;
     NSString *imgString;
    
@@ -20,6 +23,7 @@
 
 }
 @property(readwrite)NSInteger applicantid;
+
 @property(strong,nonatomic)NSString*newid;
 @property(strong,nonatomic)NSString*teststrng;
 @property(strong,nonatomic)Empdetails*empdetl;
@@ -54,6 +58,8 @@
 @property(strong,nonatomic)NSMutableArray*listarray;
 @property(strong,nonatomic)NSMutableArray*empnameArray;
 @property(strong,nonatomic)NSMutableArray *imageArray;
+@property (nonatomic, strong) NSMutableArray *sectionArray;
+@property (nonatomic, assign) NSInteger openSectionIndex;
 
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
