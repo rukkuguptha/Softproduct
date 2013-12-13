@@ -91,7 +91,7 @@
     if (!self.tileVCtrl) {
         self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
     }
-    _tileVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _tileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:_tileVCtrl
                        animated:YES completion:NULL];
     
@@ -109,7 +109,7 @@
     if (!self.ReVCtrl) {
         self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
     }
-    _ReVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _ReVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:_ReVCtrl
                        animated:YES completion:NULL];
 
