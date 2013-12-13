@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "CustomerViewController.h"
 #import "LeadsViewController.h"
-#import "CompanyViewController.h"
+//#import "CompanyViewController.h"
 #import "HRViewController.h"
+#import "TileViewController.h"
+#import "ResViewController.h"
 @interface HomeViewController : UIViewController
 /*Views*/
 @property (strong, nonatomic) IBOutlet UIView *customerview;
@@ -21,8 +23,14 @@
 
 @property (strong, nonatomic)CustomerViewController*custmrVCtrl;
 @property(strong,nonatomic)LeadsViewController *leadVCtrl;
-@property(strong,nonatomic)CompanyViewController *cmpanyctrl;
+//@property(strong,nonatomic)CompanyViewController *cmpanyctrl;
 @property(strong,nonatomic)HRViewController*hrVCtrl;
+@property(strong,nonatomic)TileViewController*tileVCtrl;
+@property(strong,nonatomic)ResViewController*ReVCtrl;
+
+
 //newcomment.
+@property (strong, nonatomic) IBOutlet UIView *reurceview;
+
 
 @end

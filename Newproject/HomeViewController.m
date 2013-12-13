@@ -57,6 +57,14 @@
     doubleTap3.numberOfTapsRequired=1;
     doubleTap3.delegate=(id)self;
     [self.hrview addGestureRecognizer:doubleTap3];
+    
+    UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(repage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.reurceview addGestureRecognizer:doubleTap4];
+
 
 }
 
@@ -80,11 +88,11 @@
 }
 -(void)companyPage
 {
-    if (!self.cmpanyctrl) {
-        self.cmpanyctrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
+    if (!self.tileVCtrl) {
+        self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
     }
-    _cmpanyctrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_cmpanyctrl
+    _tileVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_tileVCtrl
                        animated:YES completion:NULL];
     
     
@@ -97,7 +105,16 @@
     [self.navigationController pushViewController:_hrVCtrl animated:YES];
     
 }
+-(void)repage{
+    if (!self.ReVCtrl) {
+        self.ReVCtrl=[[ResViewController alloc]initWithNibName:@"ResViewController" bundle:nil];
+    }
+    _ReVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_ReVCtrl
+                       animated:YES completion:NULL];
 
+    
+}
 
 - (void)didReceiveMemoryWarning
 {
