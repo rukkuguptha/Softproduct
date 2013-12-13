@@ -83,7 +83,9 @@
     if (!self.cmpanyctrl) {
         self.cmpanyctrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
     }
-    [self.navigationController pushViewController:_cmpanyctrl animated:YES];
+    _cmpanyctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_cmpanyctrl
+                       animated:YES completion:NULL];
     
     
 }
