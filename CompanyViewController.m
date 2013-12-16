@@ -483,4 +483,8 @@
 - (IBAction)savebtn:(id)sender {
     [self SaveBasicInfo];
 }
+-(IBAction)closethecompany:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

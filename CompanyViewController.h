@@ -40,6 +40,6 @@
 
 
 - (IBAction)savebtn:(id)sender;
-
+-(IBAction)closethecompany:(id)sender;
 
 @end
