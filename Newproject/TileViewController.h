@@ -10,6 +10,11 @@
 #import "CompanyViewController.h"
 #import "DocmntViewController.h"
 #import "ServiceViewController.h"
+#import "FoldersViewController.h"
+#import "UsersViewController.h"
+#import "jobsitereqViewController.h"
+#import "BasicReqViewController.h"
+
 
 @interface TileViewController : UIViewController
 
@@ -22,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UIView *usersview;
 @property (strong, nonatomic) IBOutlet UIView *workprocedureview;
 @property (strong, nonatomic) IBOutlet UIView *employeebenefitview;
+@property(strong,nonatomic)IBOutlet UIView *jobsitereqview;
+@property(strong,nonatomic)IBOutlet UIView *basicreqview;
 
 //close Actions
 -(IBAction)closethetile:(id)sender;
@@ -32,6 +39,11 @@
 @property(strong,nonatomic)CompanyViewController *compVCtrl;
 @property(strong,nonatomic)DocmntViewController *docVCtrl;
 @property(strong,nonatomic)ServiceViewController *serviceVCtrl;
+@property(strong,nonatomic)FoldersViewController *folderVCtrl;
+@property(strong,nonatomic)UsersViewController *usersVctrl;
+@property(strong,nonatomic)jobsitereqViewController *jobsitereqVctrl;
+@property(strong,nonatomic)BasicReqViewController *basicreqVctrl;
+
 
 
 

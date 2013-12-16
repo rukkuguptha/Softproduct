@@ -10,4 +10,10 @@
 
 @interface ServiceViewController : UIViewController
 
+
+
+-(IBAction)closetheservicesview:(id)sender;
+@property(strong,nonatomic)IBOutlet UITableView *servicesTable;
+@property(strong,nonatomic)IBOutlet UIView *titleview;
+-(IBAction)Addservices:(id)sender;
 @end

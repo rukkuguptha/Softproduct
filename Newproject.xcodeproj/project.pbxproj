@@ -20,6 +20,18 @@
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
+		64F9797F185ECAD800E7722B /* blacksqure.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F9797E185ECAD800E7722B /* blacksqure.png */; };
+		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
+		64F97987185EDB4200E7722B /* FoldersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F97985185EDB4200E7722B /* FoldersViewController.m */; };
+		64F97988185EDB4200E7722B /* FoldersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F97986185EDB4200E7722B /* FoldersViewController.xib */; };
+		64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798A185EDB5400E7722B /* UsersViewController.m */; };
+		64F9798D185EDB5400E7722B /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F9798B185EDB5400E7722B /* UsersViewController.xib */; };
+		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
+		64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F97990185EF8B000E7722B /* jobsitereqViewController.xib */; };
+		64F97996185EFBB600E7722B /* BasicReqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F97994185EFBB600E7722B /* BasicReqViewController.m */; };
+		64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F97995185EFBB600E7722B /* BasicReqViewController.xib */; };
+		64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9799B185F038700E7722B /* ValuesPhilosophyDocViewController.m */; };
+		64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F9799C185F038700E7722B /* ValuesPhilosophyDocViewController.xib */; };
 		D4004056185B174A00C38E12 /* TileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004054185B174A00C38E12 /* TileViewController.m */; };
 		D4004057185B174A00C38E12 /* TileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004055185B174A00C38E12 /* TileViewController.xib */; };
 		D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004059185B178F00C38E12 /* DocmntViewController.m */; };
@@ -133,6 +145,23 @@
 		649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesRepInfoViewController.h; sourceTree = "<group>"; };
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
+		64F9797E185ECAD800E7722B /* blacksqure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blacksqure.png; path = ../blacksqure.png; sourceTree = "<group>"; };
+		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
+		64F97984185EDB4200E7722B /* FoldersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersViewController.h; sourceTree = "<group>"; };
+		64F97985185EDB4200E7722B /* FoldersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoldersViewController.m; sourceTree = "<group>"; };
+		64F97986185EDB4200E7722B /* FoldersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FoldersViewController.xib; sourceTree = "<group>"; };
+		64F97989185EDB5400E7722B /* UsersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UsersViewController.h; sourceTree = "<group>"; };
+		64F9798A185EDB5400E7722B /* UsersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UsersViewController.m; sourceTree = "<group>"; };
+		64F9798B185EDB5400E7722B /* UsersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
+		64F9798E185EF8B000E7722B /* jobsitereqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitereqViewController.h; sourceTree = "<group>"; };
+		64F9798F185EF8B000E7722B /* jobsitereqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitereqViewController.m; sourceTree = "<group>"; };
+		64F97990185EF8B000E7722B /* jobsitereqViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobsitereqViewController.xib; sourceTree = "<group>"; };
+		64F97993185EFBB600E7722B /* BasicReqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicReqViewController.h; sourceTree = "<group>"; };
+		64F97994185EFBB600E7722B /* BasicReqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicReqViewController.m; sourceTree = "<group>"; };
+		64F97995185EFBB600E7722B /* BasicReqViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BasicReqViewController.xib; sourceTree = "<group>"; };
+		64F9799A185F038700E7722B /* ValuesPhilosophyDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValuesPhilosophyDocViewController.h; sourceTree = "<group>"; };
+		64F9799B185F038700E7722B /* ValuesPhilosophyDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValuesPhilosophyDocViewController.m; sourceTree = "<group>"; };
+		64F9799C185F038700E7722B /* ValuesPhilosophyDocViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ValuesPhilosophyDocViewController.xib; sourceTree = "<group>"; };
 		D4004053185B174A00C38E12 /* TileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileViewController.h; sourceTree = "<group>"; };
 		D4004054185B174A00C38E12 /* TileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileViewController.m; sourceTree = "<group>"; };
 		D4004055185B174A00C38E12 /* TileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileViewController.xib; sourceTree = "<group>"; };
@@ -266,20 +295,51 @@
 		648D130A1771A29B006BB41A /* Company */ = {
 			isa = PBXGroup;
 			children = (
-				648D13041771A093006BB41A /* CompanyViewController.h */,
-				648D13051771A093006BB41A /* CompanyViewController.m */,
-				648D13061771A093006BB41A /* CompanyViewController.xib */,
-				D4004058185B178F00C38E12 /* DocmntViewController.h */,
-				D4004059185B178F00C38E12 /* DocmntViewController.m */,
-				D400405A185B178F00C38E12 /* DocmntViewController.xib */,
-				D400405D185B17A700C38E12 /* ServiceViewController.h */,
-				D400405E185B17A700C38E12 /* ServiceViewController.m */,
-				D400405F185B17A700C38E12 /* ServiceViewController.xib */,
 				D4004053185B174A00C38E12 /* TileViewController.h */,
 				D4004054185B174A00C38E12 /* TileViewController.m */,
 				D4004055185B174A00C38E12 /* TileViewController.xib */,
+				64F97999185F031E00E7722B /* Documents */,
+				64F97998185F030000E7722B /* companyinfo */,
+				D400405D185B17A700C38E12 /* ServiceViewController.h */,
+				D400405E185B17A700C38E12 /* ServiceViewController.m */,
+				D400405F185B17A700C38E12 /* ServiceViewController.xib */,
+				64F97984185EDB4200E7722B /* FoldersViewController.h */,
+				64F97985185EDB4200E7722B /* FoldersViewController.m */,
+				64F97986185EDB4200E7722B /* FoldersViewController.xib */,
+				64F97989185EDB5400E7722B /* UsersViewController.h */,
+				64F9798A185EDB5400E7722B /* UsersViewController.m */,
+				64F9798B185EDB5400E7722B /* UsersViewController.xib */,
+				64F9798E185EF8B000E7722B /* jobsitereqViewController.h */,
+				64F9798F185EF8B000E7722B /* jobsitereqViewController.m */,
+				64F97990185EF8B000E7722B /* jobsitereqViewController.xib */,
+				64F97993185EFBB600E7722B /* BasicReqViewController.h */,
+				64F97994185EFBB600E7722B /* BasicReqViewController.m */,
+				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
 			);
 			name = Company;
+			sourceTree = "<group>";
+		};
+		64F97998185F030000E7722B /* companyinfo */ = {
+			isa = PBXGroup;
+			children = (
+				648D13041771A093006BB41A /* CompanyViewController.h */,
+				648D13051771A093006BB41A /* CompanyViewController.m */,
+				648D13061771A093006BB41A /* CompanyViewController.xib */,
+			);
+			name = companyinfo;
+			sourceTree = "<group>";
+		};
+		64F97999185F031E00E7722B /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				D4004058185B178F00C38E12 /* DocmntViewController.h */,
+				D4004059185B178F00C38E12 /* DocmntViewController.m */,
+				D400405A185B178F00C38E12 /* DocmntViewController.xib */,
+				64F9799A185F038700E7722B /* ValuesPhilosophyDocViewController.h */,
+				64F9799B185F038700E7722B /* ValuesPhilosophyDocViewController.m */,
+				64F9799C185F038700E7722B /* ValuesPhilosophyDocViewController.xib */,
+			);
+			name = Documents;
 			sourceTree = "<group>";
 		};
 		D400402F185B12A600C38E12 /* Resources */ = {
@@ -421,8 +481,10 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				64F9797E185ECAD800E7722B /* blacksqure.png */,
 				D49DE836185EB391006F1CDA /* closebutton.png */,
 				D49DE837185EB391006F1CDA /* closebutton@2x.png */,
+				64F97982185ED60000E7722B /* appbar.addblack.png */,
 				D4FFBD1F1855B7830007851D /* carat.png */,
 				D4FFBD211855B7880007851D /* carat-open.png */,
 				D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */,
@@ -559,16 +621,19 @@
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
+				64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */,
 				D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */,
 				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
+				64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */,
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
+				64F9797F185ECAD800E7722B /* blacksqure.png in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 				648D13081771A093006BB41A /* CompanyViewController.xib in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
@@ -583,10 +648,12 @@
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				D4FED41017F16EEE004BE242 /* VerificationViewController.xib in Resources */,
+				64F97983185ED60000E7722B /* appbar.addblack.png in Resources */,
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				D4004061185B17A700C38E12 /* ServiceViewController.xib in Resources */,
 				D4FED41617F1A047004BE242 /* 1.png in Resources */,
+				64F97988185EDB4200E7722B /* FoldersViewController.xib in Resources */,
 				D4FED41817F1A04E004BE242 /* 2.png in Resources */,
 				D4E658C017F2A54F00202B14 /* I9view.xib in Resources */,
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
@@ -598,11 +665,13 @@
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
+				64F9798D185EDB5400E7722B /* UsersViewController.xib in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
+				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
@@ -635,9 +704,14 @@
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				D400406F185B181500C38E12 /* ManViewController.m in Sources */,
+				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
+				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
+				64F97996185EFBB600E7722B /* BasicReqViewController.m in Sources */,
 				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
+				64F97987185EDB4200E7722B /* FoldersViewController.m in Sources */,
 				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
 				D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */,
+				64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,
 				D4004060185B17A700C38E12 /* ServiceViewController.m in Sources */,

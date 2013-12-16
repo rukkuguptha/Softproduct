@@ -79,6 +79,19 @@
     doubleTap6.delegate=(id)self;
     [self.employeebenefitview addGestureRecognizer:doubleTap6];
     
+    UITapGestureRecognizer *doubleTap7= [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(jobsitereqPage)];
+    doubleTap7.numberOfTapsRequired=1;
+    doubleTap7.delegate=(id)self;
+    [self.jobsitereqview addGestureRecognizer:doubleTap7];
+    UITapGestureRecognizer *doubleTap8 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(basicReqPage)];
+    doubleTap8.numberOfTapsRequired=1;
+    doubleTap8.delegate=(id)self;
+    [self.basicreqview addGestureRecognizer:doubleTap8];
+
 
 }
 
@@ -96,7 +109,7 @@
     if (!self.docVCtrl) {
         self.docVCtrl=[[DocmntViewController alloc]initWithNibName:@"DocmntViewController" bundle:nil];
     }
-    _docVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _docVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:_docVCtrl
                        animated:YES completion:NULL];
 }
@@ -111,11 +124,21 @@
 }
 -(void)foldersPage
 {
-    
+    if (!self.folderVCtrl) {
+        self.folderVCtrl=[[FoldersViewController alloc]initWithNibName:@"FoldersViewController" bundle:nil];
+    }
+    _folderVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:_folderVCtrl
+                       animated:YES completion:NULL];
 }
 -(void)usersPage
 {
-    
+    if (!self.usersVctrl) {
+        self.usersVctrl=[[UsersViewController alloc]initWithNibName:@"UsersViewController" bundle:nil];
+    }
+    _usersVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_usersVctrl
+                       animated:YES completion:NULL];
 }
 -(void)workProcedurePage
 {
@@ -125,7 +148,24 @@
 {
     
 }
-
+-(void)jobsitereqPage
+{
+    if (!self.jobsitereqVctrl) {
+        self.jobsitereqVctrl=[[jobsitereqViewController alloc]initWithNibName:@"jobsitereqViewController" bundle:nil];
+    }
+    _jobsitereqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_jobsitereqVctrl
+                       animated:YES completion:NULL];
+}
+-(void)basicReqPage
+{
+    if (!self.basicreqVctrl) {
+        self.basicreqVctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
+    }
+    _basicreqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_basicreqVctrl
+                       animated:YES completion:NULL];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

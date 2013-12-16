@@ -8,9 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TileViewController">
             <connections>
                 <outlet property="Documentsview" destination="OKo-UP-vGu" id="WdM-U7-qHb"/>
+                <outlet property="basicreqview" destination="IC4-7O-ptU" id="x4n-46-aHe"/>
                 <outlet property="companyinfoview" destination="ePK-YM-E9k" id="Reb-1W-cYy"/>
                 <outlet property="employeebenefitview" destination="rRt-ON-Z5b" id="y56-cL-zi7"/>
-                <outlet property="foldersview" destination="Pye-b3-Mex" id="iMn-F0-kCH"/>
+                <outlet property="foldersview" destination="pQg-uw-7aJ" id="z6l-OS-B6G"/>
+                <outlet property="jobsitereqview" destination="gRy-U0-QsY" id="ef4-1o-WJC"/>
                 <outlet property="servicesview" destination="yYv-UH-Zb5" id="y0s-fb-pem"/>
                 <outlet property="usersview" destination="Pye-b3-Mex" id="wZr-td-iHh"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -115,7 +117,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employee Benefits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSN-Y0-eyP">
-                            <rect key="frame" x="6" y="119" width="144" height="21"/>
+                            <rect key="frame" x="8" y="128" width="144" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -125,14 +127,14 @@
                     <color key="backgroundColor" red="0.0" green="0.28803604014598538" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <navigationBar contentMode="scaleToFill" id="565-f1-C1B">
-                    <rect key="frame" x="20" y="10" width="506" height="44"/>
+                    <rect key="frame" x="10" y="8" width="522" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Company" id="CdX-EY-sOS">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="JXZ-uV-xY3">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h7V-ys-kpZ">
-                                    <rect key="frame" x="451" y="2" width="39" height="40"/>
+                                    <rect key="frame" x="467" y="2" width="39" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.close.png">
@@ -146,6 +148,34 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <view contentMode="scaleToFill" id="gRy-U0-QsY">
+                    <rect key="frame" x="193" y="427" width="160" height="160"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobsites for Recrutements" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VSX-Vv-loI">
+                            <rect key="frame" x="8" y="128" width="144" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.40000000000000002" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="scaleToFill" id="IC4-7O-ptU">
+                    <rect key="frame" x="366" y="427" width="160" height="160"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basic Requirements" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ooS-AE-vtp">
+                            <rect key="frame" x="8" y="130" width="144" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
