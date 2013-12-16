@@ -10,4 +10,6 @@
 
 @interface ManViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
+
 @end

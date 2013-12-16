@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ManViewController.h"
 
 @interface ResViewController : UIViewController
+
+@property (strong, nonatomic) IBOutlet UIView *manpwrview;
+@property(strong,nonatomic)ManViewController *manVCtrl;
+
+- (IBAction)closebtnActn:(id)sender;
 
 @end
