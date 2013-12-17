@@ -42,20 +42,20 @@
     [super viewWillAppear:animated];
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
                                          initWithTarget:self
-                                         action:@selector(companyPage)];
+                                         action:@selector(valuePhilosophyPage)];
     doubleTap.numberOfTapsRequired=1;
     doubleTap.delegate=(id)self;
     [self.valuesphilosophyview addGestureRecognizer:doubleTap];
     
     UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(documentPage)];
+                                          action:@selector(qualityassurancepage)];
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.qualityAssuranceview addGestureRecognizer:doubleTap1];
     UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(servicesPage)];
+                                          action:@selector(safetymanualpage)];
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.saftymanualview addGestureRecognizer:doubleTap2];
@@ -63,21 +63,21 @@
     
     UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(foldersPage)];
+                                          action:@selector(emphandbookpage)];
     doubleTap3.numberOfTapsRequired=1;
     doubleTap3.delegate=(id)self;
     [self.EmpHandbkview addGestureRecognizer:doubleTap3];
     
     UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(usersPage)];
+                                          action:@selector(fleetmgmtpage)];
     doubleTap4.numberOfTapsRequired=1;
     doubleTap4.delegate=(id)self;
     [self.fleetmgmtpgmview addGestureRecognizer:doubleTap4];
     
     UITapGestureRecognizer *doubleTap5 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(workProcedurePage)];
+                                          action:@selector(msdsDBpage)];
     doubleTap5.numberOfTapsRequired=1;
     doubleTap5.delegate=(id)self;
     [self.msdsdbview addGestureRecognizer:doubleTap5];
@@ -96,7 +96,26 @@
                        animated:YES completion:NULL];
  
 }
-
+-(void)qualityassurancepage
+{
+    
+}
+-(void)safetymanualpage
+{
+    
+}
+-(void)emphandbookpage
+{
+    
+}
+-(void)fleetmgmtpage
+{
+    
+}
+-(void)msdsDBpage
+{
+    
+}
 
 
 @end

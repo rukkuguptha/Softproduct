@@ -60,6 +60,8 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [[NSBundle mainBundle]loadNibNamed:@"customservicescell" owner:self options:nil];
+        cell=_servicecell;
            }
     
        return cell;
@@ -73,8 +75,19 @@
     
 }
 -(IBAction)Addservices:(id)sender
-{
+{   optionidentifier=1;
+    self.navabar.title = @"ADD";
     
+    _addserview.hidden=NO;
+}
+-(IBAction)editservices:(id)sender
+{   optionidentifier=2;
+     self.navabar.title = @"Edit";
+    _addserview.hidden=NO;
+}
+-(IBAction)closeaddview:(id)sender
+{
+    _addserview.hidden=YES;
 }
 
 

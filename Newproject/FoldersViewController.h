@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllfolderViewController.h"
+#import "folderrightsViewController.h"
 
 @interface FoldersViewController : UIViewController
 
 
 -(IBAction)closefolderview:(id)sender;
+@property(strong,nonatomic)AllfolderViewController *allfolderVctrl;
+@property(strong,nonatomic)folderrightsViewController *folderrightVCtrl;
+@property(strong,nonatomic)IBOutlet UIView *allfolderview;
+@property(strong,nonatomic)IBOutlet UIView *folderrightsview;
 @end

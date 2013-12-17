@@ -114,14 +114,14 @@
                             <color key="backgroundColor" red="0.67781409439999996" green="0.3643638904" blue="0.030034646759999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <navigationBar contentMode="scaleToFill" id="x2g-n0-LYW">
-                            <rect key="frame" x="26" y="25" width="980" height="44"/>
+                            <rect key="frame" x="24" y="23" width="984" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Company Documents" id="9dy-8m-bVX">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="HVn-XJ-s40">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G5w-n3-g2u">
-                                            <rect key="frame" x="907" y="-3" width="57" height="49"/>
+                                            <rect key="frame" x="911" y="-3" width="57" height="49"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">

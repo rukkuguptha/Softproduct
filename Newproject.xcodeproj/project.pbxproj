@@ -19,6 +19,11 @@
 		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
+		64A09D9D186008E6001F74E2 /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09D9C186008E6001F74E2 /* customservicescell.xib */; };
+		64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA0186023D2001F74E2 /* AllfolderViewController.m */; };
+		64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */; };
+		64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA518602A1B001F74E2 /* folderrightsViewController.m */; };
+		64A09DA818602A1B001F74E2 /* folderrightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA618602A1B001F74E2 /* folderrightsViewController.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64F9797F185ECAD800E7722B /* blacksqure.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F9797E185ECAD800E7722B /* blacksqure.png */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -145,6 +150,13 @@
 		649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesRepInfoViewController.h; sourceTree = "<group>"; };
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
+		64A09D9C186008E6001F74E2 /* customservicescell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customservicescell.xib; sourceTree = "<group>"; };
+		64A09D9F186023D2001F74E2 /* AllfolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllfolderViewController.h; sourceTree = "<group>"; };
+		64A09DA0186023D2001F74E2 /* AllfolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllfolderViewController.m; sourceTree = "<group>"; };
+		64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllfolderViewController.xib; sourceTree = "<group>"; };
+		64A09DA418602A1B001F74E2 /* folderrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folderrightsViewController.h; sourceTree = "<group>"; };
+		64A09DA518602A1B001F74E2 /* folderrightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = folderrightsViewController.m; sourceTree = "<group>"; };
+		64A09DA618602A1B001F74E2 /* folderrightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = folderrightsViewController.xib; sourceTree = "<group>"; };
 		64F9797E185ECAD800E7722B /* blacksqure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blacksqure.png; path = ../blacksqure.png; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
 		64F97984185EDB4200E7722B /* FoldersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersViewController.h; sourceTree = "<group>"; };
@@ -298,14 +310,28 @@
 				D4004053185B174A00C38E12 /* TileViewController.h */,
 				D4004054185B174A00C38E12 /* TileViewController.m */,
 				D4004055185B174A00C38E12 /* TileViewController.xib */,
-				64F97999185F031E00E7722B /* Documents */,
-				64F97998185F030000E7722B /* companyinfo */,
 				D400405D185B17A700C38E12 /* ServiceViewController.h */,
 				D400405E185B17A700C38E12 /* ServiceViewController.m */,
 				D400405F185B17A700C38E12 /* ServiceViewController.xib */,
+				64A09D9C186008E6001F74E2 /* customservicescell.xib */,
 				64F97984185EDB4200E7722B /* FoldersViewController.h */,
 				64F97985185EDB4200E7722B /* FoldersViewController.m */,
 				64F97986185EDB4200E7722B /* FoldersViewController.xib */,
+				64A09D9F186023D2001F74E2 /* AllfolderViewController.h */,
+				64A09DA0186023D2001F74E2 /* AllfolderViewController.m */,
+				64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */,
+				64A09DA418602A1B001F74E2 /* folderrightsViewController.h */,
+				64A09DA518602A1B001F74E2 /* folderrightsViewController.m */,
+				64A09DA618602A1B001F74E2 /* folderrightsViewController.xib */,
+				D4004058185B178F00C38E12 /* DocmntViewController.h */,
+				D4004059185B178F00C38E12 /* DocmntViewController.m */,
+				D400405A185B178F00C38E12 /* DocmntViewController.xib */,
+				64F9799A185F038700E7722B /* ValuesPhilosophyDocViewController.h */,
+				64F9799B185F038700E7722B /* ValuesPhilosophyDocViewController.m */,
+				64F9799C185F038700E7722B /* ValuesPhilosophyDocViewController.xib */,
+				648D13041771A093006BB41A /* CompanyViewController.h */,
+				648D13051771A093006BB41A /* CompanyViewController.m */,
+				648D13061771A093006BB41A /* CompanyViewController.xib */,
 				64F97989185EDB5400E7722B /* UsersViewController.h */,
 				64F9798A185EDB5400E7722B /* UsersViewController.m */,
 				64F9798B185EDB5400E7722B /* UsersViewController.xib */,
@@ -317,29 +343,6 @@
 				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
 			);
 			name = Company;
-			sourceTree = "<group>";
-		};
-		64F97998185F030000E7722B /* companyinfo */ = {
-			isa = PBXGroup;
-			children = (
-				648D13041771A093006BB41A /* CompanyViewController.h */,
-				648D13051771A093006BB41A /* CompanyViewController.m */,
-				648D13061771A093006BB41A /* CompanyViewController.xib */,
-			);
-			name = companyinfo;
-			sourceTree = "<group>";
-		};
-		64F97999185F031E00E7722B /* Documents */ = {
-			isa = PBXGroup;
-			children = (
-				D4004058185B178F00C38E12 /* DocmntViewController.h */,
-				D4004059185B178F00C38E12 /* DocmntViewController.m */,
-				D400405A185B178F00C38E12 /* DocmntViewController.xib */,
-				64F9799A185F038700E7722B /* ValuesPhilosophyDocViewController.h */,
-				64F9799B185F038700E7722B /* ValuesPhilosophyDocViewController.m */,
-				64F9799C185F038700E7722B /* ValuesPhilosophyDocViewController.xib */,
-			);
-			name = Documents;
 			sourceTree = "<group>";
 		};
 		D400402F185B12A600C38E12 /* Resources */ = {
@@ -629,6 +632,7 @@
 				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
 				64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
+				64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */,
 				D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */,
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
@@ -667,9 +671,11 @@
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				64F9798D185EDB5400E7722B /* UsersViewController.xib in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
+				64A09DA818602A1B001F74E2 /* folderrightsViewController.xib in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
+				64A09D9D186008E6001F74E2 /* customservicescell.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
@@ -702,9 +708,11 @@
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
+				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				D400406F185B181500C38E12 /* ManViewController.m in Sources */,
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
+				64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				64F97996185EFBB600E7722B /* BasicReqViewController.m in Sources */,
 				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
