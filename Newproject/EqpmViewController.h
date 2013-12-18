@@ -10,4 +10,20 @@
 
 @interface EqpmViewController : UIViewController
 
+
+
+//outlets
+@property(strong,nonatomic)IBOutlet UITableView *equipmenttbl;
+@property(strong,nonatomic)IBOutlet UITableViewCell *equipcell;
+@property(strong,nonatomic)IBOutlet UIView *titleview;
+@property(strong,nonatomic)IBOutlet UIView *addequipmentview;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll_addview;
+
+@property(strong,nonatomic)UISearchBar *searchbar;
+
+-(IBAction)closeEqupment:(id)sender;
+-(IBAction)addEquipment:(id)sender;
+-(IBAction)editequipview:(id)sender;
+-(IBAction)closeaddview:(id)sender;
 @end
