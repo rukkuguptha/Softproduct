@@ -127,14 +127,14 @@
                     <color key="backgroundColor" red="1" green="0.43529412150382996" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <navigationBar contentMode="scaleToFill" id="yOl-cq-Ui6">
-                    <rect key="frame" x="4" y="3" width="533" height="44"/>
+                    <rect key="frame" x="3" y="3" width="533" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="Title" id="Gl2-LG-g16">
+                        <navigationItem title="Resources" id="Gl2-LG-g16">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="1br-OI-l5M">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2h-I9-Qyb">
                                     <rect key="frame" x="487" y="7" width="30" height="30"/>

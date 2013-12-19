@@ -99,8 +99,7 @@
 -(void)SaveBasicInfo{
     recordResults = FALSE;
     NSString *soapMessage;
-    
-   NSString * letter=@"";
+     NSString * letter=@"";
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -126,7 +125,7 @@
                    "<LetterHead>%@</LetterHead>\n"
                    "</SaveBasicInfo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,_statetextfld.text,_ziptextfld.text,_countrytxtfld.text,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,_statetextfld.text,_ziptextfld.text,_coutryBtn.titleLabel.text,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -204,6 +203,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"CompanyName"])
     {
         if(!_soapResults)
@@ -280,7 +289,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Website"])
+    if([elementName isEqualToString:@"WebSite"])
     {
         if(!_soapResults)
         {
@@ -357,6 +366,14 @@
                 
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+
 
 
     if([elementName isEqualToString:@"CompanyName"])
@@ -403,7 +420,7 @@
     {
         
         recordResults = FALSE;
-        _countrytxtfld.text=_soapResults;
+       [_coutryBtn setTitle:_soapResults forState:UIControlStateNormal];
         
         _soapResults = nil;
     }
@@ -431,7 +448,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"Website"])
+    if([elementName isEqualToString:@"WebSite"])
     {
         
         recordResults = FALSE;
@@ -482,6 +499,11 @@
 #pragma mark - Buttons
 - (IBAction)savebtn:(id)sender {
     [self SaveBasicInfo];
+}
+
+-(IBAction)cancel:(id)sender
+{
+    
 }
 -(IBAction)closethecompany:(id)sender
 {

@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CompanyViewController : UIViewController{
+@interface CompanyViewController : UIViewController
+{
       BOOL recordResults;
 }
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -16,7 +17,6 @@
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
-
 
 
 
@@ -37,9 +37,10 @@
 @property (strong, nonatomic) IBOutlet UITextField *mailtxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *webtxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *stateunempidtxtfld;
-
+@property(strong,nonatomic)IBOutlet UIButton *coutryBtn;
 
 - (IBAction)savebtn:(id)sender;
 -(IBAction)closethecompany:(id)sender;
+-(IBAction)cancel:(id)sender;
 
 @end
