@@ -10,12 +10,12 @@
                 <outlet property="Documentsview" destination="OKo-UP-vGu" id="WdM-U7-qHb"/>
                 <outlet property="basicreqview" destination="IC4-7O-ptU" id="x4n-46-aHe"/>
                 <outlet property="companyinfoview" destination="ePK-YM-E9k" id="Reb-1W-cYy"/>
-                <outlet property="employeebenefitview" destination="rRt-ON-Z5b" id="y56-cL-zi7"/>
                 <outlet property="foldersview" destination="pQg-uw-7aJ" id="z6l-OS-B6G"/>
                 <outlet property="jobsitereqview" destination="gRy-U0-QsY" id="ef4-1o-WJC"/>
                 <outlet property="servicesview" destination="yYv-UH-Zb5" id="y0s-fb-pem"/>
                 <outlet property="usersview" destination="Pye-b3-Mex" id="wZr-td-iHh"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="workphaseview" destination="rRt-ON-Z5b" id="plj-hR-ARU"/>
                 <outlet property="workprocedureview" destination="xxu-Ja-RuY" id="789-4h-6l8"/>
             </connections>
         </placeholder>
@@ -116,7 +116,7 @@
                     <rect key="frame" x="20" y="427" width="160" height="160"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Employee Benefits" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSN-Y0-eyP">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work Phases" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HSN-Y0-eyP">
                             <rect key="frame" x="8" y="128" width="144" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>

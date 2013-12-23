@@ -19,6 +19,7 @@
 		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
+		649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E0BF31862D5D500A71030 /* custonfldrrigtscell.xib */; };
 		649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7B18615A240010CBD8 /* customequipcell.xib */; };
 		649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */; };
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
@@ -32,6 +33,11 @@
 		64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DAC1860549E001F74E2 /* appbar.checkmark.thick.png */; };
 		64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DAD1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png */; };
 		64A09DB118605711001F74E2 /* appbar.delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DB018605711001F74E2 /* appbar.delete.png */; };
+		64A11EE01867F968008D20CC /* custombasicreqcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EDF1867F968008D20CC /* custombasicreqcell.xib */; };
+		64A11EE218681AAF008D20CC /* usercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE118681AAF008D20CC /* usercell.xib */; };
+		64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A11EE418683792008D20CC /* workPhasesViewController.m */; };
+		64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE518683792008D20CC /* workPhasesViewController.xib */; };
+		64A11EE918683BE6008D20CC /* customphase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE818683BE6008D20CC /* customphase.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64F9797F185ECAD800E7722B /* blacksqure.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F9797E185ECAD800E7722B /* blacksqure.png */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -158,6 +164,7 @@
 		649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesRepInfoViewController.h; sourceTree = "<group>"; };
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
+		649E0BF31862D5D500A71030 /* custonfldrrigtscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custonfldrrigtscell.xib; sourceTree = "<group>"; };
 		649E1F7B18615A240010CBD8 /* customequipcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = customequipcell.xib; path = ../customequipcell.xib; sourceTree = "<group>"; };
 		649E1F7D18617ECD0010CBD8 /* MaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsViewController.h; sourceTree = "<group>"; };
 		649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsViewController.m; sourceTree = "<group>"; };
@@ -174,6 +181,12 @@
 		64A09DAC1860549E001F74E2 /* appbar.checkmark.thick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.checkmark.thick.png; sourceTree = "<group>"; };
 		64A09DAD1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.checkmark.thick.unchecked.png; sourceTree = "<group>"; };
 		64A09DB018605711001F74E2 /* appbar.delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.delete.png; sourceTree = "<group>"; };
+		64A11EDF1867F968008D20CC /* custombasicreqcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custombasicreqcell.xib; sourceTree = "<group>"; };
+		64A11EE118681AAF008D20CC /* usercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = usercell.xib; sourceTree = "<group>"; };
+		64A11EE318683792008D20CC /* workPhasesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = workPhasesViewController.h; sourceTree = "<group>"; };
+		64A11EE418683792008D20CC /* workPhasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = workPhasesViewController.m; sourceTree = "<group>"; };
+		64A11EE518683792008D20CC /* workPhasesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workPhasesViewController.xib; sourceTree = "<group>"; };
+		64A11EE818683BE6008D20CC /* customphase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customphase.xib; sourceTree = "<group>"; };
 		64F9797E185ECAD800E7722B /* blacksqure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blacksqure.png; path = ../blacksqure.png; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
 		64F97984185EDB4200E7722B /* FoldersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersViewController.h; sourceTree = "<group>"; };
@@ -340,6 +353,7 @@
 				64A09DA418602A1B001F74E2 /* folderrightsViewController.h */,
 				64A09DA518602A1B001F74E2 /* folderrightsViewController.m */,
 				64A09DA618602A1B001F74E2 /* folderrightsViewController.xib */,
+				649E0BF31862D5D500A71030 /* custonfldrrigtscell.xib */,
 				D4004058185B178F00C38E12 /* DocmntViewController.h */,
 				D4004059185B178F00C38E12 /* DocmntViewController.m */,
 				D400405A185B178F00C38E12 /* DocmntViewController.xib */,
@@ -352,12 +366,18 @@
 				64F97989185EDB5400E7722B /* UsersViewController.h */,
 				64F9798A185EDB5400E7722B /* UsersViewController.m */,
 				64F9798B185EDB5400E7722B /* UsersViewController.xib */,
+				64A11EE118681AAF008D20CC /* usercell.xib */,
+				64A11EE318683792008D20CC /* workPhasesViewController.h */,
+				64A11EE418683792008D20CC /* workPhasesViewController.m */,
+				64A11EE518683792008D20CC /* workPhasesViewController.xib */,
+				64A11EE818683BE6008D20CC /* customphase.xib */,
 				64F9798E185EF8B000E7722B /* jobsitereqViewController.h */,
 				64F9798F185EF8B000E7722B /* jobsitereqViewController.m */,
 				64F97990185EF8B000E7722B /* jobsitereqViewController.xib */,
 				64F97993185EFBB600E7722B /* BasicReqViewController.h */,
 				64F97994185EFBB600E7722B /* BasicReqViewController.m */,
 				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
+				64A11EDF1867F968008D20CC /* custombasicreqcell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -649,6 +669,7 @@
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
+				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
@@ -667,11 +688,13 @@
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
 				64F9797F185ECAD800E7722B /* blacksqure.png in Resources */,
+				649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 				64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */,
 				648D13081771A093006BB41A /* CompanyViewController.xib in Resources */,
 				64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
+				64A11EE218681AAF008D20CC /* usercell.xib in Resources */,
 				D4E15794177416D9002764AB /* icon-disclosure.png in Resources */,
 				D4E1579917744013002764AB /* CommentsViewController.xib in Resources */,
 				6407291817744A900085CB7B /* newCommentCell.xib in Resources */,
@@ -687,6 +710,7 @@
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				64A09DAB186050A3001F74E2 /* custommanapowercell.xib in Resources */,
+				64A11EE01867F968008D20CC /* custombasicreqcell.xib in Resources */,
 				D4004061185B17A700C38E12 /* ServiceViewController.xib in Resources */,
 				D4FED41617F1A047004BE242 /* 1.png in Resources */,
 				64F97988185EDB4200E7722B /* FoldersViewController.xib in Resources */,
@@ -697,6 +721,7 @@
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
+				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4004070185B181500C38E12 /* ManViewController.xib in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
@@ -759,6 +784,7 @@
 				D4004060185B17A700C38E12 /* ServiceViewController.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
+				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,

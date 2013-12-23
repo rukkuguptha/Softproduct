@@ -14,6 +14,7 @@
 #import "UsersViewController.h"
 #import "jobsitereqViewController.h"
 #import "BasicReqViewController.h"
+#import "workPhasesViewController.h"
 
 
 @interface TileViewController : UIViewController
@@ -26,7 +27,7 @@
 @property (strong, nonatomic) IBOutlet UIView *foldersview;
 @property (strong, nonatomic) IBOutlet UIView *usersview;
 @property (strong, nonatomic) IBOutlet UIView *workprocedureview;
-@property (strong, nonatomic) IBOutlet UIView *employeebenefitview;
+@property (strong, nonatomic) IBOutlet UIView *workphaseview;
 @property(strong,nonatomic)IBOutlet UIView *jobsitereqview;
 @property(strong,nonatomic)IBOutlet UIView *basicreqview;
 
@@ -43,6 +44,7 @@
 @property(strong,nonatomic)UsersViewController *usersVctrl;
 @property(strong,nonatomic)jobsitereqViewController *jobsitereqVctrl;
 @property(strong,nonatomic)BasicReqViewController *basicreqVctrl;
+@property(strong,nonatomic)workPhasesViewController *workVCtrl;
 
 
 

@@ -10,6 +10,18 @@
 
 @interface BasicReqViewController : UIViewController
 
--(IBAction)closetheBASicreqview:(id)sender;
 
+@property(strong,nonatomic)IBOutlet UITableView *basicreqtable;
+@property(strong,nonatomic)IBOutlet UIView *titleview;
+@property(strong,nonatomic)IBOutlet UIView *addreqview;
+@property(strong,nonatomic)IBOutlet UITableViewCell *reqcell;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
+
+@property(strong,nonatomic)UISearchBar *searchbar;
+
+//IBActions
+-(IBAction)closetheBASicreqview:(id)sender;
+-(IBAction)addbasicreq:(id)sender;
+-(IBAction)editBasicreq:(id)sender;
+-(IBAction)closeBasicreqview:(id)sender;
 @end

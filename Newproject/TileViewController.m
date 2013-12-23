@@ -74,10 +74,10 @@
 
     UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(employeebenefitPage)];
+                                          action:@selector(workphasePage)];
     doubleTap6.numberOfTapsRequired=1;
     doubleTap6.delegate=(id)self;
-    [self.employeebenefitview addGestureRecognizer:doubleTap6];
+    [self.workphaseview addGestureRecognizer:doubleTap6];
     
     UITapGestureRecognizer *doubleTap7= [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
@@ -144,9 +144,15 @@
 {
     
 }
--(void)employeebenefitPage
+-(void)workphasePage
 {
-    
+    if (!self.workVCtrl) {
+        self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
+    }
+    _workVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_workVCtrl
+                       animated:YES completion:NULL];
+
 }
 -(void)jobsitereqPage
 {
@@ -162,7 +168,7 @@
     if (!self.basicreqVctrl) {
         self.basicreqVctrl=[[BasicReqViewController alloc]initWithNibName:@"BasicReqViewController" bundle:nil];
     }
-    _basicreqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+   // _basicreqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_basicreqVctrl
                        animated:YES completion:NULL];
 }

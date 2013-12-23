@@ -1,18 +1,18 @@
 //
-//  BasicReqViewController.m
+//  workPhasesViewController.m
 //  Newproject
 //
-//  Created by GMSIndia 2 on 16/12/13.
+//  Created by GMSIndia 2 on 23/12/13.
 //  Copyright (c) 2013 GMSIndia1. All rights reserved.
 //
 
-#import "BasicReqViewController.h"
+#import "workPhasesViewController.h"
 
-@interface BasicReqViewController ()
+@interface workPhasesViewController ()
 
 @end
 
-@implementation BasicReqViewController
+@implementation workPhasesViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,21 +26,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _basicreqtable.layer.borderWidth = 2.0;
-    _basicreqtable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _phasetable.layer.borderWidth = 2.0;
+    _phasetable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    /*searchbar*/
     _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate = (id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
-    self.basicreqtable.tableHeaderView =_searchbar;
+    self.phasetable.tableHeaderView =_searchbar;
     
     UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -68,8 +66,8 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [[NSBundle mainBundle]loadNibNamed:@"custombasicreqcell" owner:self options:nil];
-        cell=_reqcell;
+        [[NSBundle mainBundle]loadNibNamed:@"customphase" owner:self options:nil];
+        cell=_phasecell;
     }
     
     return cell;
@@ -83,24 +81,22 @@
     
 }
 
--(IBAction)closetheBASicreqview:(id)sender
+-(IBAction)closePhases:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
--(IBAction)addbasicreq:(id)sender
+-(IBAction)addworkPhasesview:(id)sender
 {
-    _addreqview.hidden=NO;
+    _workphasesview.hidden=NO;
     _navItem.title=@"ADD";
 }
--(IBAction)editBasicreq:(id)sender
+-(IBAction)editWorkPhasesview:(id)sender
 {
-    _addreqview.hidden=NO;
+    _workphasesview.hidden=NO;
     _navItem.title=@"EDIT";
 }
--(IBAction)closeBasicreqview:(id)sender
+-(IBAction)closeworkphasesview:(id)sender
 {
-    _addreqview.hidden=YES;
+    _workphasesview.hidden=YES;
 }
-
-
 @end
