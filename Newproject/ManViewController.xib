@@ -8,10 +8,16 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManViewController">
             <connections>
                 <outlet property="addview" destination="doX-z8-Lxc" id="lIa-yK-EAo"/>
+                <outlet property="checkbtnlbl" destination="Rxt-0O-sSo" id="RKF-xU-h8T"/>
+                <outlet property="itemcodetxtfld" destination="whA-nj-3pI" id="0Wj-9g-eW0"/>
+                <outlet property="itemdestxtfld" destination="XVB-N4-pI0" id="vxy-pP-3vX"/>
                 <outlet property="manpowerTable" destination="Ngn-Th-HuI" id="5ro-k6-Kpq"/>
                 <outlet property="navitem" destination="OJw-41-uE8" id="SG6-Qi-KR1"/>
                 <outlet property="scrollview" destination="ZIU-HP-3R2" id="uFX-Uf-9F3"/>
+                <outlet property="searchbtnlbl" destination="kCe-W2-qfa" id="bGO-bO-nYf"/>
+                <outlet property="subtypetxtfld" destination="LsQ-ad-LZd" id="st2-cD-SZS"/>
                 <outlet property="titleview" destination="Kpb-PR-Psi" id="3B0-Go-RXm"/>
+                <outlet property="unitcosttxtfld" destination="cPY-Mk-QzU" id="es7-tt-0cb"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -50,7 +56,7 @@
                             </items>
                         </navigationBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ngn-Th-HuI">
-                            <rect key="frame" x="12" y="109" width="736" height="805"/>
+                            <rect key="frame" x="12" y="109" width="736" height="888"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -109,6 +115,9 @@
                                     <state key="normal" title="Button" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deletebtn:" destination="-1" eventType="touchUpInside" id="RCi-0W-y4X"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -176,11 +185,14 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rxt-0O-sSo">
-                                    <rect key="frame" x="65" y="309" width="50" height="50"/>
+                                    <rect key="frame" x="65" y="309" width="55" height="48"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="appbar.checkmark.thick.unchecked.png">
+                                    <state key="normal" title="Button" image="cb_mono_on.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="overhdcheck:" destination="-1" eventType="touchUpInside" id="Is1-BN-c7e"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SU7-1g-zJY">
                                     <rect key="frame" x="123" y="378" width="133" height="30"/>
@@ -191,6 +203,9 @@ VXBkYXRlIE1hbhBwb3dlcg
 </string>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="update:" destination="-1" eventType="touchUpInside" id="AEG-R3-Nec"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="mIg-lH-7q4">
                                     <rect key="frame" x="370" y="378" width="92" height="30"/>
@@ -198,6 +213,9 @@ VXBkYXRlIE1hbhBwb3dlcg
                                     <state key="normal" title="Cancel">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="ifv-Kb-rS1"/>
+                                    </connections>
                                 </button>
                                 <navigationBar contentMode="scaleToFill" id="NuC-5I-ZtP">
                                     <rect key="frame" x="2" y="2" width="580" height="44"/>
@@ -219,6 +237,16 @@ VXBkYXRlIE1hbhBwb3dlcg
                                         </navigationItem>
                                     </items>
                                 </navigationBar>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kCe-W2-qfa">
+                                    <rect key="frame" x="241" y="238" width="30" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="search-button.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="searchbtn:" destination="-1" eventType="touchUpInside" id="mHg-Tw-Yj7"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
@@ -231,9 +259,10 @@ VXBkYXRlIE1hbhBwb3dlcg
     </objects>
     <resources>
         <image name="appbar.addblack.png" width="76" height="76"/>
-        <image name="appbar.checkmark.thick.unchecked.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
+        <image name="cb_mono_on.png" width="22" height="21"/>
+        <image name="search-button.png" width="30" height="30"/>
         <image name="squareimage1.png" width="300" height="400"/>
     </resources>
 </document>
