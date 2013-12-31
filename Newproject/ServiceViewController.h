@@ -28,8 +28,8 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *servicecell;
 @property(strong,nonatomic)IBOutlet UIView *addserview;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
-/*cell outlets*/
 
+/*cell outlets*/
 @property (strong, nonatomic) IBOutlet UILabel *servicelabel;
 @property (strong, nonatomic) IBOutlet UIButton *editbtn;
 
@@ -46,5 +46,8 @@
 
 /*outlets in addview*/
 @property(strong,nonatomic)IBOutlet UITextField *servicetextfld;
+
+/*arrays*/
+@property(strong,nonatomic)NSMutableArray *servicelistarray;
 
 @end
