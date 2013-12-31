@@ -1,5 +1,5 @@
 //
-//  eqmnt.h
+//  MdlEqmt.h
 //  Newproject
 //
 //  Created by GMSIndia1 on 12/31/13.
@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface eqmnt : NSObject
-
+@interface MdlEqmt : NSObject
 @property(readwrite)NSInteger entryid;
 @property(strong,nonatomic)NSString*itemcode;
 @property(strong,nonatomic)NSString*itemdescptn;
@@ -30,4 +29,6 @@
 @property(strong,nonatomic)NSString*MonthlyRate;
 @property(strong,nonatomic)NSString*YearlyRate;
 @property(readwrite)NSInteger overhead;
+
+
 @end

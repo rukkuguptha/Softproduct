@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Eqmnt.h"
+#import "MdlEqmt.h"
 @interface EqpmViewController : UIViewController{
       BOOL recordResults;
     
 }
-@property(strong,nonatomic)Eqmnt *eqmdl;
+@property(strong,nonatomic)MdlEqmt *eqmdl;
 @property(strong,nonatomic)NSMutableArray *Equpntarray;
 @property(strong,nonatomic)NSMutableArray *Subtypearray;
 
