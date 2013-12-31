@@ -29,6 +29,18 @@
     _servicesTable.layer.borderWidth = 2.0;
     _servicesTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    /*searchbar*/
+    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate = (id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    self.servicesTable.tableHeaderView =_searchbar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -54,7 +66,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_servicelistarray count];
     }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -68,6 +80,10 @@
         [[NSBundle mainBundle]loadNibNamed:@"customservicescell" owner:self options:nil];
         cell=_servicecell;
            }
+    Servicemdl*semdl=(Servicemdl *)[_servicelistarray objectAtIndex:indexPath.row];
+    _servicelabel=(UILabel *)[cell viewWithTag:1];
+    _servicelabel.text=semdl.servname;
+
     
        return cell;
 }
@@ -84,8 +100,8 @@
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
         
-//        [self DeleteManpower];
-//        [_Allmanpwrarry removeObject:indexPath];
+        [self DeleteServices];
+        [_servicelistarray removeObject:indexPath];
         
         
         
@@ -118,19 +134,36 @@
     self.navabar.title = @"ADD";
     
     _addserview.hidden=NO;
+    
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
      self.navabar.title = @"Edit";
     _addserview.hidden=NO;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicesTable];
+    NSIndexPath *textFieldIndexPath = [self.servicesTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    Servicemdl*servmdl=(Servicemdl *)[_servicelistarray objectAtIndex:textFieldIndexPath.row];
+    
+    _servicetextfld.text=servmdl.servname;
+
 }
 -(IBAction)closeaddview:(id)sender
 {
     _addserview.hidden=YES;
 }
 -(IBAction)updateservice:(id)sender
+{if(optionidentifier==1)
 {
-    
+    [self InsertServices];
+}
+    else if(optionidentifier==2)
+    {
+        [self UpdateServices];
+    }
 }
 -(IBAction)cancelservice:(id)sender
 {
@@ -207,6 +240,7 @@
     
 }
 -(void)InsertServices{
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -237,6 +271,162 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/InsertServices" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)DeleteServices{
+    webtype=1;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+     Servicemdl*servmdl=(Servicemdl *)[_servicelistarray objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   "<soap:Body>\n"
+                   "<DeleteServices xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<skillid>%d</skillid>\n"
+                   "</DeleteServices>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",servmdl.servid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteServices" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)UpdateServices{
+    webtype=1;
+    
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Servicemdl*sermdl=(Servicemdl *)[_servicelistarray objectAtIndex:btnindex];
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdateServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SkillId>%d</SkillId>\n"
+                   "<servname>%@</servname>\n"
+                   "</UpdateServices>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",sermdl.servid,_servicetextfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateServices" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)SearchServices{
+    
+    
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+   
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SearchServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "</SearchServices>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SearchServices" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -289,6 +479,12 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
+    if (webtype==1) {
+        [self SelectAllServices];
+        webtype=0;
+    }
+
+    [_servicesTable reloadData];
     
 }
 #pragma mark-xml parser
@@ -319,6 +515,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SearchServicesResult"])
+    {
+        _servicelistarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -339,23 +546,51 @@
 {
     if([elementName isEqualToString:@"SkillId"])
     {
-       // _manpwrmdl=[[Manpwr alloc]init];
+        _servmdl=[[Servicemdl alloc]init];
         
         recordResults = FALSE;
         
-        //_manpwrmdl.entryid=[_soapResults integerValue];
+        _servmdl.servid=[_soapResults integerValue];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"SkillName"])
     {
-        // _manpwrmdl=[[Manpwr alloc]init];
+        
         
         recordResults = FALSE;
         
-        //_manpwrmdl.entryid=[_soapResults integerValue];
+        _servmdl.servname=_soapResults;
+        [_servicelistarray addObject:_servmdl];
         _soapResults = nil;
     }
 
+}
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self SearchServices];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self servicelistarray];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self servicelistarray];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    [searchBar resignFirstResponder];
+    
+    
 }
 
 @end

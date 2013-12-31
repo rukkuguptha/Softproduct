@@ -26,11 +26,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _folderrighttable.layer.borderWidth = 2.0;
     _folderrighttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
 
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self SelectAllFolderRights];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +51,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_allfolderrightsarray count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -60,7 +65,40 @@
         [[NSBundle mainBundle]loadNibNamed:@"custonfldrrigtscell" owner:self options:nil];
         cell=_folderrightscell;
     }
-    
+    allfolderrights*fldrrghtsmdl=(allfolderrights *)[_allfolderrightsarray objectAtIndex:indexPath.row];
+    _namelabel=(UILabel *)[cell viewWithTag:0];
+    _namelabel.text=fldrrghtsmdl.username;
+    _createcheckbtn=(UIButton*)[cell viewWithTag:1];
+    _upldcheckbtn=(UIButton*)[cell viewWithTag:2];
+    _dwnldcheckbtn=(UIButton*)[cell viewWithTag:3];
+
+    if (fldrrghtsmdl.create==0) {
+        [_createcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(fldrrghtsmdl.create==1){
+        [_createcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    if (fldrrghtsmdl.upload==0) {
+        [_upldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(fldrrghtsmdl.upload==1){
+        [_upldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    if (fldrrghtsmdl.dwnld==0) {
+        [_dwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(fldrrghtsmdl.dwnld==1){
+        [_dwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+
+
+
     return cell;
 }
 
@@ -78,9 +116,457 @@
 }
 -(IBAction)editfolderrights:(id)sender
 {
-    _createcheckbtn.enabled=YES;
-    _upldcheckbtn.enabled=YES;
-    _dwnldcheckbtn.enabled=YES;
+    _editview.hidden=NO;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.folderrighttable];
+    NSIndexPath *textFieldIndexPath = [self.folderrighttable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    allfolderrights*mdl=(allfolderrights *)[_allfolderrightsarray objectAtIndex:textFieldIndexPath.row];
+    _editnamelabel.text=mdl.username;
+    if (mdl.create==0) {
+        [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(mdl.create==1){
+        [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    if (mdl.upload==0) {
+        [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(mdl.upload==1){
+        [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    if (mdl.dwnld==0) {
+        [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(mdl.dwnld==1){
+        [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+
+
 }
+-(IBAction)closeeditview:(id)sender
+{
+    _editview.hidden=YES;
+}
+-(IBAction)createaction:(id)sender
+{
+    if (createcheck==0) {
+        [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        createcheck=1;
+        
+    }
+    
+    else{
+        [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        createcheck=0;
+        
+    }
+
+}
+-(IBAction)upldaction:(id)sender
+{
+    if (uploadcheck==0) {
+        [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        uploadcheck=1;
+        
+    }
+    
+    else{
+        [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        uploadcheck=0;
+        
+    }
+
+}
+-(IBAction)dwnldaction:(id)sender
+{
+    if (dwnlodcheck==0) {
+        [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        dwnlodcheck=1;
+        
+    }
+    
+    else{
+        [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        dwnlodcheck=0;
+        
+    }
+
+}
+-(IBAction)updatefolderrights:(id)sender
+{
+    [self UpdateFolderRights];
+}
+
+#pragma mark- WebService
+-(void)SelectAllFolderRights{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllFolderRights xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllFolderRights>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllFolderRights" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UpdateFolderRights
+{
+    webtype=1;
+     allfolderrights*mdl=(allfolderrights *)[_allfolderrightsarray objectAtIndex:btnindex];
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSInteger create;
+    NSInteger upld;
+    NSInteger dwnld;
+    
+    if (createcheck==0) {
+        create=0;
+    }
+    else{
+        create=1;
+        
+    }
+    if (uploadcheck==0) {
+        upld=0;
+    }
+    else{
+        upld=1;
+        
+    }
+    if (dwnlodcheck==0) {
+        dwnld=0;
+    }
+    else{
+        dwnld=1;
+        
+    }
+
+
+
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdateFolderRights xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<userid>%d</userid>\n"
+                   "<create>%d</create>\n"
+                   "<delete>%d</delete>\n"
+                   "<upload>%d</upload>\n"
+                   "<download>%d</download>\n"
+                   "</UpdateFolderRights>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",mdl.userid,create,mdl.del,upld,dwnld];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateFolderRights" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+#pragma mark - Connection
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	[_webData setLength: 0];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+   	[_webData appendData:data];
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConenction" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [Alert show];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"DONE. Received Bytes: %d", [_webData length]);
+	NSString *theXML = [[NSString alloc] initWithBytes: [_webData mutableBytes] length:[_webData length] encoding:NSUTF8StringEncoding];
+	NSLog(@"xml===== %@",theXML);
+	
+	
+	if( _xmlParser )
+	{
+		
+	}
+	
+	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
+	[_xmlParser setDelegate:(id)self];
+	[_xmlParser setShouldResolveExternalEntities: YES];
+	[_xmlParser parse];
+    if(webtype==1)
+    {
+        [self SelectAllFolderRights];
+        webtype=0;
+    }
+    [_folderrighttable reloadData];
+
+
+}
+#pragma mark-xml parser
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"SelectAllFolderRightsResult"])
+    {
+        _allfolderrightsarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"userid"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"username"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"create"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"delete"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"upload"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"download"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    
+    
+    
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        
+        
+		[_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"userid"])
+    {
+        _fldrrights=[[allfolderrights alloc]init];
+        
+        recordResults = FALSE;
+        
+        _fldrrights.userid=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"username"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _fldrrights.username=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"create"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _fldrrights.create=0;
+            createcheck=0;
+            
+        }
+        else{
+            _fldrrights.create=1;
+            createcheck=1;
+        }
+        
+                _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"delete"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _fldrrights.del=0;
+             //checkbtnclick=0;
+            
+        }
+        else{
+            _fldrrights.del=1;
+            //checkbtnclick=1;
+        }
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"upload"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _fldrrights.upload=0;
+             uploadcheck=0;
+            
+        }
+        else{
+            _fldrrights.upload=1;
+             uploadcheck=1;
+        }
+        
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"download"])
+    {
+        
+        
+        
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _fldrrights.dwnld=0;
+             dwnlodcheck=0;
+            
+        }
+        else{
+            _fldrrights.dwnld=1;
+             dwnlodcheck=1;
+        }
+        [_allfolderrightsarray addObject:_fldrrights];
+        _soapResults = nil;
+        
+    }
+
+    
+
+
+
+    
+}
+
 
 @end

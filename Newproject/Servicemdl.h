@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Servicemdl : NSObject
+@property(readwrite)NSInteger servid;
+@property(strong,nonatomic)NSString *servname;
 
 @end
