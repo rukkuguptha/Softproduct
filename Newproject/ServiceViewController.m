@@ -555,6 +555,7 @@
     }
     if([elementName isEqualToString:@"SkillName"])
     {
+        // _manpwrmdl=[[Manpwr alloc]init];
         
         
         recordResults = FALSE;
