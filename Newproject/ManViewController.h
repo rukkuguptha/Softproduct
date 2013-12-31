@@ -62,16 +62,16 @@
 
 
 - (IBAction)deletebtn:(id)sender;
+@property (strong, nonatomic)NSString*searchstring;
 
-
-
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 @property(strong,nonatomic)IBOutlet UITableView *manpowerTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *manpowecell;
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 -(IBAction)closemanpower:(id)sender;
-@property (strong, nonatomic)UISearchBar * SearchingBar;
+
 @property(strong,nonatomic)IBOutlet UIView *addview;
 - (IBAction)addmanpwer:(id)sender;
 -(IBAction)editmanpower:(id)sender;
