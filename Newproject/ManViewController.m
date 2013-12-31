@@ -87,6 +87,7 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+          cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
         if(tableView==_manpowerTable){
         [[NSBundle mainBundle]loadNibNamed:@"custommanapowercell" owner:self options:nil];
         cell=_manpowecell;
