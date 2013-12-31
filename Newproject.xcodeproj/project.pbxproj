@@ -14,6 +14,7 @@
 		642F9306187299400059101A /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F9303187299400059101A /* ServiceViewController.m */; };
 		642F9307187299400059101A /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F9304187299400059101A /* ServiceViewController.xib */; };
 		642F9308187299400059101A /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F9305187299400059101A /* customservicescell.xib */; };
+		642F930B1872B6A80059101A /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F930A1872B6A80059101A /* allfolderrights.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
@@ -156,6 +157,8 @@
 		642F9303187299400059101A /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		642F9304187299400059101A /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
 		642F9305187299400059101A /* customservicescell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customservicescell.xib; sourceTree = "<group>"; };
+		642F93091872B6A80059101A /* allfolderrights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfolderrights.h; sourceTree = "<group>"; };
+		642F930A1872B6A80059101A /* allfolderrights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allfolderrights.m; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		6481615D176F0B230017F4CC /* ActivityCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCustomCell.xib; sourceTree = "<group>"; };
@@ -612,6 +615,8 @@
 				D41404CF187296660067F71A /* MdlEqmt.m */,
 				D41404C8187294700067F71A /* Servicemdl.h */,
 				D41404C9187294700067F71A /* Servicemdl.m */,
+				642F93091872B6A80059101A /* allfolderrights.h */,
+				642F930A1872B6A80059101A /* allfolderrights.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -818,6 +823,7 @@
 				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
 				D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */,
 				64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */,
+				642F930B1872B6A80059101A /* allfolderrights.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,

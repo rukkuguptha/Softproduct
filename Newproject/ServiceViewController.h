@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Servicemdl.h"
 
 @interface ServiceViewController : UIViewController
 
@@ -14,7 +15,11 @@
     NSInteger optionidentifier;
     BOOL recordResults;
     NSInteger path;
+    NSInteger webtype;
+    UIButton *button;
+     NSInteger btnindex;
 }
+@property(strong,nonatomic)Servicemdl *servmdl;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -28,7 +33,8 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *servicecell;
 @property(strong,nonatomic)IBOutlet UIView *addserview;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
-
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic)NSString*searchstring;
 /*cell outlets*/
 @property (strong, nonatomic) IBOutlet UILabel *servicelabel;
 @property (strong, nonatomic) IBOutlet UIButton *editbtn;
