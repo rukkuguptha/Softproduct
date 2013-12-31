@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Eqmnt.h"
 @interface EqpmViewController : UIViewController{
       BOOL recordResults;
     
 }
-
+@property(strong,nonatomic)Eqmnt *eqmdl;
+@property(strong,nonatomic)NSMutableArray *Equpntarray;
+@property(strong,nonatomic)NSMutableArray *Subtypearray;
 
 
 /* xmlparser*/
@@ -28,7 +30,7 @@
 @property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll_addview;
 
-@property(strong,nonatomic)NSMutableArray *Equpntarray;
+
 
 @property(strong,nonatomic)UISearchBar *searchbar;
 

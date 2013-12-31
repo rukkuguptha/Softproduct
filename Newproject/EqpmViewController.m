@@ -229,9 +229,11 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
+    
+   
     if([elementName isEqualToString:@"SelectAllSubtypeEquipmentResult"])
     {
-        //_Equpntarray=[[NSMutableArray alloc]init];
+        _Subtypearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -247,6 +249,26 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectAllEquipmentResult"])
+    {
+        _Equpntarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string

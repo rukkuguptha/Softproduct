@@ -86,6 +86,8 @@
 		D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */; };
 		D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D1ED8176B27E200379DD5 /* LeadsViewController.m */; };
 		D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */; };
+		D41404C71872916D0067F71A /* Eqmnt.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C61872916D0067F71A /* Eqmnt.m */; };
+		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = D4399EB9186D74BB00A693F7 /* Manpwr.m */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
@@ -258,6 +260,10 @@
 		D40D1ED7176B27E200379DD5 /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		D40D1ED8176B27E200379DD5 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
+		D41404C51872916D0067F71A /* Eqmnt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eqmnt.h; sourceTree = "<group>"; };
+		D41404C61872916D0067F71A /* Eqmnt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eqmnt.m; sourceTree = "<group>"; };
+		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
+		D41404C9187294700067F71A /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D4399EB8186D74BB00A693F7 /* Manpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manpwr.h; sourceTree = "<group>"; };
 		D4399EB9186D74BB00A693F7 /* Manpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manpwr.m; sourceTree = "<group>"; };
@@ -602,6 +608,10 @@
 				D48B608317F98CFC001A53C8 /* Coursemdl.m */,
 				D4399EB8186D74BB00A693F7 /* Manpwr.h */,
 				D4399EB9186D74BB00A693F7 /* Manpwr.m */,
+				D41404C51872916D0067F71A /* Eqmnt.h */,
+				D41404C61872916D0067F71A /* Eqmnt.m */,
+				D41404C8187294700067F71A /* Servicemdl.h */,
+				D41404C9187294700067F71A /* Servicemdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -777,6 +787,7 @@
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
+				D41404CA187294700067F71A /* Servicemdl.m in Sources */,
 				D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
@@ -807,6 +818,7 @@
 				64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,
+				D41404C71872916D0067F71A /* Eqmnt.m in Sources */,
 				D4004060185B17A700C38E12 /* ServiceViewController.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
