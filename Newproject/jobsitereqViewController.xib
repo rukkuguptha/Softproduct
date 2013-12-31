@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="jobsitereqViewController">
             <connections>
+                <outlet property="jobsitetable" destination="MbE-Ix-RZA" id="dO2-AC-X0W"/>
+                <outlet property="titleview" destination="A1s-MY-pyW" id="nFX-6z-Zya"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -45,6 +47,40 @@
                                 </navigationItem>
                             </items>
                         </navigationBar>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="MbE-Ix-RZA">
+                            <rect key="frame" x="36" y="152" width="693" height="754"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="DYA-le-Szk"/>
+                                <outlet property="delegate" destination="-1" id="kG9-7W-5uu"/>
+                            </connections>
+                        </tableView>
+                        <view contentMode="scaleToFill" id="A1s-MY-pyW">
+                            <rect key="frame" x="36" y="102" width="693" height="48"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LFp-Rr-XG3">
+                                    <rect key="frame" x="33" y="-1" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button" image="appbar.addblack.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" id="TRN-0s-w4D">
+                            <rect key="frame" x="164" y="253" width="467" height="358"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle3.png" id="kva-L2-90i">
+                                    <rect key="frame" x="0.0" y="0.0" width="467" height="358"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                 </scrollView>
             </subviews>
@@ -53,7 +89,9 @@
         </view>
     </objects>
     <resources>
+        <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
+        <image name="rectangle3.png" width="551" height="327"/>
         <image name="squareimage1.png" width="300" height="400"/>
     </resources>
 </document>

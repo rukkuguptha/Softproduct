@@ -10,6 +10,7 @@
                 <outlet property="addserview" destination="7Tk-Wh-cWs" id="Ze5-qb-voc"/>
                 <outlet property="navabar" destination="Rus-kJ-85g" id="Rdl-Vx-yO1"/>
                 <outlet property="servicesTable" destination="LTX-1G-6o2" id="GU4-Xj-aZt"/>
+                <outlet property="servicetextfld" destination="FL8-EB-abT" id="mda-c5-aYn"/>
                 <outlet property="titleview" destination="sXb-kP-SIL" id="m6W-5M-Nol"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -86,10 +87,13 @@
                                     <state key="normal" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deleteservices:" destination="-1" eventType="touchUpInside" id="ZnP-KO-0FL"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="7Tk-Wh-cWs">
+                        <view contentMode="scaleToFill" id="7Tk-Wh-cWs">
                             <rect key="frame" x="247" y="277" width="384" height="247"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -116,6 +120,9 @@
                                     <state key="normal" title="Update">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="updateservice:" destination="-1" eventType="touchUpInside" id="9se-rU-hD0"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="weP-ua-uSQ">
                                     <rect key="frame" x="214" y="167" width="46" height="30"/>
@@ -124,6 +131,9 @@
                                     <state key="normal" title="Cancel">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancelservice:" destination="-1" eventType="touchUpInside" id="zTZ-Le-SJi"/>
+                                    </connections>
                                 </button>
                                 <navigationBar contentMode="scaleToFill" id="FL3-JQ-QNh">
                                     <rect key="frame" x="3" y="2" width="379" height="44"/>

@@ -10,6 +10,7 @@
 		6407291817744A900085CB7B /* newCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6407291717744A900085CB7B /* newCommentCell.xib */; };
 		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
 		642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B77AE17799D1000EECCC0 /* activityInfo.m */; };
+		642F93011872870E0059101A /* customjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F93001872870E0059101A /* customjobcell.xib */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
@@ -148,6 +149,7 @@
 		64161C0C17FEB511007D4D89 /* squre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squre.png; sourceTree = "<group>"; };
 		642B77AD17799D1000EECCC0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
 		642B77AE17799D1000EECCC0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
+		642F93001872870E0059101A /* customjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customjobcell.xib; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		6481615D176F0B230017F4CC /* ActivityCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCustomCell.xib; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				64F9798E185EF8B000E7722B /* jobsitereqViewController.h */,
 				64F9798F185EF8B000E7722B /* jobsitereqViewController.m */,
 				64F97990185EF8B000E7722B /* jobsitereqViewController.xib */,
+				642F93001872870E0059101A /* customjobcell.xib */,
 				64F97993185EFBB600E7722B /* BasicReqViewController.h */,
 				64F97994185EFBB600E7722B /* BasicReqViewController.m */,
 				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
@@ -721,6 +724,7 @@
 				D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */,
 				D4D39CD8177AF1CA00C1E87D /* FollowCommentcell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
+				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				D4FED41017F16EEE004BE242 /* VerificationViewController.xib in Resources */,
