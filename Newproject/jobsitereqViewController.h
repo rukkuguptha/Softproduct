@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface jobsitereqViewController : UIViewController
+{
+    NSInteger path;
+}
 
 
 //IBOutlets
@@ -16,11 +19,18 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *jobcell;
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 @property(strong,nonatomic)IBOutlet UIView *addjobview;
-
+@property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
 @property(strong,nonatomic)UISearchBar *searchbar;
 
-//IBActions
+/*IBActions*/
 -(IBAction)closejobreqview:(id)sender;
 -(IBAction)addjobview:(id)sender;
+-(IBAction)deletejobs:(id)sender;
+
+/*IBActions in addview*/
 -(IBAction)closeaddjbview:(id)sender;
+
+/*in cell*/
+-(IBAction)editjobs:(id)sender;
+
 @end

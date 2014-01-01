@@ -7,7 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="workPhasesViewController">
             <connections>
+                <outlet property="navItem" destination="irM-BC-LkF" id="kap-Zc-1ov"/>
+                <outlet property="parentbtn" destination="xzh-oU-Zl3" id="afh-GT-ds2"/>
+                <outlet property="phasebtn" destination="3zd-SW-kzH" id="Bhj-mD-pYP"/>
                 <outlet property="phasetable" destination="sq6-VC-318" id="lCW-Wu-jnB"/>
+                <outlet property="servicebtn" destination="euS-BG-ipE" id="maO-Dl-sof"/>
                 <outlet property="titleview" destination="yul-tI-rwa" id="zaK-zv-R9C"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="workphasesview" destination="Scm-ya-eRC" id="uJV-lT-118"/>
@@ -49,7 +53,7 @@
                             </items>
                         </navigationBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sq6-VC-318">
-                            <rect key="frame" x="29" y="120" width="710" height="723"/>
+                            <rect key="frame" x="20" y="120" width="733" height="723"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -58,35 +62,35 @@
                             </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="yul-tI-rwa">
-                            <rect key="frame" x="29" y="70" width="710" height="48"/>
+                            <rect key="frame" x="20" y="70" width="733" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phase Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kv8-hz-YJc">
-                                    <rect key="frame" x="149" y="12" width="114" height="21"/>
+                                    <rect key="frame" x="140" y="13" width="114" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HY2-qV-b3d">
-                                    <rect key="frame" x="303" y="12" width="76" height="21"/>
+                                    <rect key="frame" x="304" y="13" width="76" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Under of" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tl2-vp-Upc">
-                                    <rect key="frame" x="435" y="13" width="89" height="21"/>
+                                    <rect key="frame" x="435" y="12" width="89" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Parent" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mND-9B-063">
-                                    <rect key="frame" x="568" y="13" width="68" height="21"/>
+                                    <rect key="frame" x="575" y="13" width="68" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gfM-Hw-nJs">
-                                    <rect key="frame" x="6" y="-1" width="50" height="50"/>
+                                    <rect key="frame" x="5" y="-1" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.addblack.png">
@@ -97,18 +101,21 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="M4Z-jI-BGq">
-                                    <rect key="frame" x="75" y="-2" width="50" height="50"/>
+                                    <rect key="frame" x="74" y="-1" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deletephases:" destination="-1" eventType="touchUpInside" id="pig-aN-n2u"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="Scm-ya-eRC">
-                            <rect key="frame" x="50" y="139" width="668" height="478"/>
+                            <rect key="frame" x="63" y="113" width="668" height="478"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="eFU-ZQ-jPQ">
@@ -151,6 +158,9 @@
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="update_phases:" destination="-1" eventType="touchUpInside" id="qHm-dC-khN"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zbu-YZ-sZx">
                                     <rect key="frame" x="173" y="74" width="46" height="30"/>
@@ -160,6 +170,9 @@
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancel_phases:" destination="-1" eventType="touchUpInside" id="lQv-dD-HKW"/>
+                                    </connections>
                                 </button>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="f5U-q5-jUx">
                                     <rect key="frame" x="25" y="183" width="194" height="30"/>
@@ -180,6 +193,9 @@
                                     <state key="normal" image="appbar.checkmark.thick.unchecked.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="parentbtn:" destination="-1" eventType="touchUpInside" id="L63-Hm-H43"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Services" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PQk-RE-5eW">
                                     <rect key="frame" x="416" y="164" width="92" height="21"/>
@@ -190,9 +206,12 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="euS-BG-ipE">
                                     <rect key="frame" x="398" y="183" width="195" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button">
+                                    <state key="normal" title="Select">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="selectservice:" destination="-1" eventType="touchUpInside" id="lHo-gL-sPu"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Under of Phase" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3Ve-Mm-aMX">
                                     <rect key="frame" x="416" y="229" width="100" height="21"/>
@@ -203,9 +222,12 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3zd-SW-kzH">
                                     <rect key="frame" x="416" y="258" width="159" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button">
+                                    <state key="normal" title="Select">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="selectphases:" destination="-1" eventType="touchUpInside" id="p1T-xd-WBd"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

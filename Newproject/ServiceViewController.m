@@ -134,7 +134,8 @@
     self.navabar.title = @"ADD";
     
     _addserview.hidden=NO;
-    
+    _servicetextfld.text=@"";
+
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;

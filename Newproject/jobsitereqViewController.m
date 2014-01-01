@@ -48,6 +48,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -69,6 +70,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [[NSBundle mainBundle]loadNibNamed:@"customjobcell" owner:self options:nil];
         cell=_jobcell;
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     
     return cell;
@@ -81,6 +83,22 @@
     
     
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+        //        [self DeleteServices];
+        //        [_servicelistarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if(tableView==_jobsitetable)
@@ -98,10 +116,18 @@
         }
     }
 }
+#pragma mark-actions
 -(IBAction)addjobview:(id)sender
 {
     _addjobview.hidden=NO;
+    _navItem.title=@"ADD";
 }
+-(IBAction)editjobs:(id)sender
+{
+    _addjobview.hidden=NO;
+    _navItem.title=@"EDIT";
+}
+
 -(IBAction)closeaddjbview:(id)sender
 {
     _addjobview.hidden=YES;
@@ -111,5 +137,24 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+-(IBAction)deletejobs:(id)sender
+{
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [_jobsitetable setEditing:NO animated:NO];
+        [_jobsitetable reloadData];
+        
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [_jobsitetable setEditing:YES animated:YES];
+        [_jobsitetable reloadData];
+
+    }
+}
+
+
 
 @end
