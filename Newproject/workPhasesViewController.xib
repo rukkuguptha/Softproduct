@@ -11,6 +11,7 @@
                 <outlet property="parentbtn" destination="xzh-oU-Zl3" id="afh-GT-ds2"/>
                 <outlet property="phasebtn" destination="3zd-SW-kzH" id="Bhj-mD-pYP"/>
                 <outlet property="phasetable" destination="sq6-VC-318" id="lCW-Wu-jnB"/>
+                <outlet property="phasetextfld" destination="f5U-q5-jUx" id="sM4-5Z-VWU"/>
                 <outlet property="servicebtn" destination="euS-BG-ipE" id="maO-Dl-sof"/>
                 <outlet property="titleview" destination="yul-tI-rwa" id="zaK-zv-R9C"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -52,8 +53,8 @@
                                 </navigationItem>
                             </items>
                         </navigationBar>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="sq6-VC-318">
-                            <rect key="frame" x="20" y="120" width="733" height="723"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="sq6-VC-318">
+                            <rect key="frame" x="20" y="120" width="733" height="868"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>

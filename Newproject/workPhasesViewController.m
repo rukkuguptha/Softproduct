@@ -63,16 +63,16 @@
 {
     if(tableView==_phasetable)
 {
-    return 5;
+    return [_workphasesarray count];
 }
     if (tableView==_popOverTableView) {
         
         switch (poptype) {
             case 1:
-                return 5;
+                return [_phasesbasedonservicearray count];
                 break;
             case 2:
-                return 5;
+               return [_servicesarray count];
                 break;
             default:
                 break;
@@ -104,17 +104,40 @@
         
         switch (poptype) {
             case 1:
-                cell.textLabel.text=@"";
+                cell.textLabel.text=[_phasesbasedonservicearray objectAtIndex:indexPath.row];
+
                 
                 break;
             case 2:
-                cell.textLabel.text=@"";
+                 cell.textLabel.text=[_servicesarray objectAtIndex:indexPath.row];
                 
                 
                 break;
             default:
                 break;
         }
+        
+    }
+    if (tableView==_phasetable)
+    {
+        phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:indexPath.row];
+        _namelabel=(UILabel *)[cell viewWithTag:1];
+        _namelabel.text=phmdl.phasename;
+        _servicelabel=(UILabel *)[cell viewWithTag:2];
+        _servicelabel.text=phmdl.servicename;
+        _underoflabel=(UILabel *)[cell viewWithTag:3];
+        _underoflabel.text=phmdl.underof;
+        _parentbtncell=(UIButton *)[cell viewWithTag:4];
+        if (phmdl.parent==0) {
+            [_parentbtncell setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            
+        }
+        else if(phmdl.parent==1){
+            [_parentbtncell setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            
+        }
+        
+
         
     }
 
@@ -126,7 +149,25 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    if (tableView==_popOverTableView) {
+        switch (poptype) {
+            case 1:
+                [_phasebtn setTitle:[_phasesbasedonservicearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+                
+                break;
+            case 2:
+               [_servicebtn setTitle:[_servicesarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+                
+                break;
+            default:
+                break;
+        }
+
+        
+    }
+
     
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -134,8 +175,8 @@
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
         
-//        [self DeleteServices];
-//        [_servicelistarray removeObject:indexPath];
+        [self DeletePhases];
+        [_workphasesarray removeObject:indexPath];
         
         
         
@@ -172,6 +213,10 @@
 {   optionIdentifier=1;
     _workphasesview.hidden=NO;
     _navItem.title=@"ADD";
+    _phasetextfld.text=@"";
+    [_servicebtn setTitle:@"" forState:UIControlStateNormal];
+    [_phasebtn setTitle:@"" forState:UIControlStateNormal];
+    
 }
 -(IBAction)editWorkPhasesview:(id)sender
 {    optionIdentifier=2;
@@ -183,10 +228,19 @@
     NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
-//    Servicemdl*servmdl=(Servicemdl *)[_servicelistarray objectAtIndex:textFieldIndexPath.row];
-//    
-//    _servicetextfld.text=servmdl.servname;
-
+    phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:textFieldIndexPath.row];
+    
+    _phasetextfld.text=phmdl.phasename;
+    [_servicebtn setTitle:phmdl.servicename forState:UIControlStateNormal];
+    [_phasebtn setTitle:phmdl.underof forState:UIControlStateNormal];
+    if (phmdl.parent==0) {
+        [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(phmdl.parent==1){
+        [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
 }
 -(IBAction)closeworkphasesview:(id)sender
 {
@@ -194,7 +248,14 @@
 }
 -(IBAction)update_phases:(id)sender
 {
-    
+    if(optionIdentifier==1)
+    {
+    [self InsertPhases];
+    }
+    else if(optionIdentifier==2)
+    {
+        [self UpdatePhases];
+    }
 }
 -(IBAction)cancel_phases:(id)sender
 {
@@ -205,12 +266,14 @@
 {
     if (parentcheck==0) {
         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        _phasebtn.enabled=NO;
         parentcheck=1;
         
     }
     
     else{
         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _phasebtn.enabled=YES;
         parentcheck=0;
         
     }
@@ -238,7 +301,7 @@
 
 #pragma mark-popover
 -(IBAction)selectphases:(id)sender
-{
+{  [self SelectPhasesbasedonService];
     poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
@@ -272,6 +335,7 @@
 
 -(IBAction)selectservice:(id)sender
 {
+    [self SelectAllServices];
     poptype=2;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
@@ -353,6 +417,347 @@
     }
     
 }
+-(void)SelectAllServices{
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllServices xmlns=\"http://ios.kontract360.com/\">\n"
+                  
+                   "</SelectAllServices>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllServices" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)SelectPhasesbasedonService{
+    
+    NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
+    
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectPhasesbasedonService xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<serviceid>%d</serviceid>\n"
+                   "</SelectPhasesbasedonService>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[serid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectPhasesbasedonService" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)InsertPhases
+
+{
+    webtype=1;
+    NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
+    NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+    NSInteger parnt;
+    
+    if (parentcheck==0) {
+        parnt=0;
+    }
+    else{
+        parnt=1;
+        phid=0;
+        
+    }
+
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertPhases xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<phasename>%@</phasename>\n"
+                   "<serviceid>%d</serviceid>\n"
+                   "<parent>%d</parent>\n"
+                   "<phaseid>%d</phaseid>\n"
+                   "</InsertPhases>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_phasetextfld.text,[serid integerValue],parnt,[phid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertPhases" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UpdatePhases
+{
+    webtype=1;
+    NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
+    NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+    NSInteger parnt;
+    
+    if (parentcheck==0) {
+        parnt=0;
+    }
+    else{
+        parnt=1;
+        phid=0;
+        
+        
+    }
+    phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:btnindex];
+    
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdatePhases xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<id>%d</id>\n"
+                   "<phasename>%@</phasename>\n"
+                   "<serviceid>%d</serviceid>\n"
+                   "<parent>%d</parent>\n"
+                   "<phaseid>%d</phaseid>\n"
+                   "</UpdatePhases>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",phmdl.idvalue,_phasetextfld.text,[serid integerValue],parnt,[phid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UpdatePhases" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)DeletePhases{
+    webtype=1;
+    recordresults = FALSE;
+    NSString *soapMessage;
+     phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:path];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DeletePhases xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<id>%d</id>\n"
+                   "</DeletePhases>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",phmdl.idvalue];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/DeletePhases" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SearchPhases
+{
+    
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SearchPhases xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<searchtext>%@</searchtext>\n"
+                   "</SearchPhases>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SearchPhases" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -385,7 +790,14 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
+    if(webtype==1)
+    {
+        [self SelectAllPhases];
+        webtype=0;
+    }
     [_phasetable reloadData];
+    [_popOverTableView reloadData];
+    
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -417,6 +829,130 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"ServicesId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+   
+    if([elementName isEqualToString:@"servicename"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"Parent"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"PhaseId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"PhaseId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"underof"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    {
+        _servicesarray=[[NSMutableArray alloc]init];
+        _servicedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+                if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"SelectPhasesbasedonServiceResponse"])
+    {
+        _phasesbasedonservicearray=[[NSMutableArray alloc]init];
+        _phasedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"SearchPhasesResult"])
+    {
+        _workphasesarray=[[NSMutableArray alloc]init];
+
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    
+
+
+
+    
+
+
+    
+
+
+
+
 
 
 }
@@ -436,40 +972,143 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"SkillId"])
+    if([elementName isEqualToString:@"Id"])
     {
-        //_servmdl=[[Servicemdl alloc]init];
+        _phasemdl=[[phasesmodel alloc]init];
         
         recordresults = FALSE;
         
-        //_servmdl.servid=[_soapResults integerValue];
+        _phasemdl.idvalue=[_soapResults integerValue];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        
+        recordresults = FALSE;
+        [_phasesbasedonservicearray addObject:_soapResults];
+        [_phasedict setObject:_phasestring forKey:_soapResults];
+        _phasemdl.phasename=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"ServicesId"])
+    {
+        
+        recordresults = FALSE;
+        
+        _phasemdl.servideid=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"servicename"])
+    {
+        
+        recordresults = FALSE;
+        
+        _phasemdl.servicename=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"Parent"])
+    {
+        
+        recordresults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _phasemdl.parent=0;
+            parentcheck=0;
+            
+        }
+        else{
+            _phasemdl.parent=1;
+            parentcheck=1;
+        }
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"PhaseId"])
+    {
+        
+        recordresults = FALSE;
+        
+        _phasemdl.phaseid=[_soapResults integerValue];
+        //[_workphasesarray addObject:_phasemdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"underof"])
+    {
+        
+        recordresults = FALSE;
+        
+        _phasemdl.underof=_soapResults;
+        [_workphasesarray addObject:_phasemdl];
+        _soapResults = nil;
+    }
+        if([elementName isEqualToString:@"SkillId"])
+    {
+        
+        
+        recordresults = FALSE;
+        _unitstring=_soapResults;
+        //_phasemdl.idvalue=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        
+        
+        recordresults = FALSE;
+        [_servicedict setObject:_unitstring forKey:_soapResults];
+        [_servicesarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"id"])
+    {
+        _phasestring=_soapResults;
+        
+        recordresults = FALSE;
+        
+        _soapResults = nil;
+    }
+//    if([elementName isEqualToString:@"PhaseName"])
+//    {
+//        
+//        
+//        recordresults = FALSE;
+//        [_phasesbasedonservicearray addObject:_soapResults];
+//        _soapResults = nil;
+//    }
+
+
+
+
+
+
+
+
+
 }
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
     _searchstring=_searchbar.text;
     //NSLog(@"search%@",searchstring);
-    //[self SearchServices];
+    [self SearchPhases];
     [searchBar resignFirstResponder];
     
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [self workphasesarray];
+    [self SelectAllPhases];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if ([_searchbar.text length]==0) {
         
-        //[self servicelistarray];
+        [self SelectAllPhases];
         // [searchBar resignFirstResponder];
         
         
     }
-    [searchBar resignFirstResponder];
+         [searchBar resignFirstResponder];
     
     
 }

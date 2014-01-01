@@ -578,14 +578,14 @@
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [self servicelistarray];
+    [self SelectAllServices];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if ([_searchbar.text length]==0) {
         
-        [self servicelistarray];
+        [self SelectAllServices];
         // [searchBar resignFirstResponder];
         
         
