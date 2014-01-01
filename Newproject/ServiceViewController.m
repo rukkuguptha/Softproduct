@@ -134,7 +134,8 @@
     self.navabar.title = @"ADD";
     
     _addserview.hidden=NO;
-    
+    _servicetextfld.text=@"";
+
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
@@ -555,6 +556,7 @@
     }
     if([elementName isEqualToString:@"SkillName"])
     {
+        // _manpwrmdl=[[Manpwr alloc]init];
         
         
         recordResults = FALSE;
