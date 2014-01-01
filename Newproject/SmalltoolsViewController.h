@@ -7,8 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Manpwr.h"
 
-@interface SmalltoolsViewController : UIViewController
+@interface SmalltoolsViewController : UIViewController{
+     BOOL recordResults;
+    NSInteger butnpath;
+    NSInteger path;
+    NSInteger butntype;
+    UIButton *button;
+}
+@property (strong, nonatomic)Manpwr *Toolmdl;
+
+
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+@property (strong, nonatomic)NSMutableArray *toolarray;
+@property (strong, nonatomic)NSMutableArray*subtypearray;
+
+
+
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic) IBOutlet UITableView *Tooltable;

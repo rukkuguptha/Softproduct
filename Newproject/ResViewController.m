@@ -61,7 +61,27 @@
     doubleTap4.delegate=(id)self;
     [self.smalltoolview addGestureRecognizer:doubleTap4];
     
+    UITapGestureRecognizer *doubleTap5 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(ThirdPage)];
+    doubleTap5.numberOfTapsRequired=1;
+    doubleTap5.delegate=(id)self;
+    [self.thirdpartyview addGestureRecognizer:doubleTap5];
+    
+    UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(ConsumPage)];
+    doubleTap6.numberOfTapsRequired=1;
+    doubleTap6.delegate=(id)self;
+    [self.consumbleview addGestureRecognizer:doubleTap6];
 
+
+    UITapGestureRecognizer *doubleTap7 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(AssetPage)];
+    doubleTap7.numberOfTapsRequired=1;
+    doubleTap7.delegate=(id)self;
+    [self.cmpanyassetview addGestureRecognizer:doubleTap7];
 
 
 }
@@ -115,6 +135,33 @@
     [self presentViewController: _smalltoolVCtrl animated:YES completion:nil];
 
     
+}
+-(void)ThirdPage{
+    if (!self.ThirdVCtrl) {
+        _ThirdVCtrl=[[ThirdPartyViewController alloc]initWithNibName:@"ThirdPartyViewController" bundle:nil];
+    }
+    
+    _ThirdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController: _ThirdVCtrl animated:YES completion:nil];
+
+}
+-(void)ConsumPage{
+    if (!self.ConsuVCtrl) {
+        _ConsuVCtrl=[[ConsumbleViewController alloc]initWithNibName:@"ConsumbleViewController" bundle:nil];
+    }
+    
+    _ConsuVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController: _ConsuVCtrl animated:YES completion:nil];
+    
+}
+-(void)AssetPage{
+    
+    if (!self.AssetVCtrl) {
+        _AssetVCtrl=[[AssetsViewController alloc]initWithNibName:@"AssetsViewController" bundle:nil];
+    }
+    
+    _AssetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController: _AssetVCtrl animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning
 {

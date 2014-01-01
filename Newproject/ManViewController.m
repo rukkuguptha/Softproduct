@@ -768,14 +768,14 @@
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-     [self Allmanpwrarry];
+     [self Selectallmanpower];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if ([_SearchingBar.text length]==0) {
         
-        [self Allmanpwrarry];
+        [self Selectallmanpower];
         // [searchBar resignFirstResponder];
         
         

@@ -7,11 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResViewController">
             <connections>
+                <outlet property="cmpanyassetview" destination="OaN-jw-sga" id="Z60-Ps-JZF"/>
+                <outlet property="consumbleview" destination="cey-lC-NVG" id="y1N-de-3eH"/>
                 <outlet property="eqpView" destination="flj-tH-FYZ" id="3yp-KV-8fT"/>
                 <outlet property="fleetview" destination="yKf-d8-Ry2" id="An9-eI-glt"/>
                 <outlet property="manpwrview" destination="kx6-sO-Rmf" id="6wj-Qb-uHJ"/>
                 <outlet property="materialView" destination="x37-9A-cDc" id="aUg-dc-TvM"/>
                 <outlet property="smalltoolview" destination="MK9-xc-jmE" id="GSf-Xy-hGh"/>
+                <outlet property="thirdpartyview" destination="IOP-uK-izv" id="S8E-UY-PHb"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
