@@ -47,6 +47,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self SelectAllPhases];
+}
 #pragma mark-tableview datasources
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -297,7 +302,57 @@
     
 
 }
-#pragma mark-webservices
+
+#pragma mark- WebService
+-(void)SelectAllPhases{
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllPhases xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllPhases>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllPhases" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -335,7 +390,7 @@
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    if([elementName isEqualToString:@"SelectAllPhasesResult"])
     {
         _workphasesarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -344,7 +399,28 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+
 }
+
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     
