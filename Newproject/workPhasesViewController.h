@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "phasesmodel.h"
 
 @interface workPhasesViewController : UIViewController
 {
+    NSInteger webtype;
     NSInteger poptype;
     NSInteger parentcheck;
     NSInteger path;
@@ -17,9 +19,11 @@
     NSInteger optionIdentifier;
     UIButton *button;
     NSInteger btnindex;
-
     
 }
+@property(strong,nonatomic)NSString *unitstring;
+@property(strong,nonatomic)NSString *phasestring;
+@property(strong,nonatomic)phasesmodel *phasemdl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UIPopoverController *popOverController1;
@@ -32,7 +36,7 @@
 @property(strong,nonatomic)IBOutlet UIView *workphasesview;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
 
-@property(strong,nonatomic)UISearchBar *searchbar;
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 @property(strong,nonatomic)NSString *searchstring;
 
 /*IBActions*/
@@ -53,13 +57,24 @@
 @property(strong,nonatomic)IBOutlet UIButton *servicebtn;
 @property(strong,nonatomic)IBOutlet UIButton *phasebtn;
 @property(strong,nonatomic)IBOutlet UIButton *parentbtn;
+@property(strong,nonatomic)IBOutlet UITextField *phasetextfld;
+
+/*outlets in cell*/
+@property(strong,nonatomic)IBOutlet UILabel *namelabel;
+@property(strong,nonatomic)IBOutlet UILabel *servicelabel;
+@property(strong,nonatomic)IBOutlet UILabel *underoflabel;
+@property(strong,nonatomic)IBOutlet UIButton *parentbtncell;
+
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
-/*arrays*/
+/*arrays &arrays*/
 @property(strong,nonatomic)NSMutableArray *workphasesarray;
-
+@property(strong,nonatomic)NSMutableArray *servicesarray;
+@property(strong,nonatomic)NSMutableDictionary *servicedict;
+@property(strong,nonatomic)NSMutableArray *phasesbasedonservicearray;
+@property(strong,nonatomic)NSMutableDictionary *phasedict;
 @end
