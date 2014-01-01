@@ -15,6 +15,7 @@
 		642F9307187299400059101A /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F9304187299400059101A /* ServiceViewController.xib */; };
 		642F9308187299400059101A /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F9305187299400059101A /* customservicescell.xib */; };
 		642F930B1872B6A80059101A /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F930A1872B6A80059101A /* allfolderrights.m */; };
+		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
@@ -163,6 +164,8 @@
 		642F9305187299400059101A /* customservicescell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customservicescell.xib; sourceTree = "<group>"; };
 		642F93091872B6A80059101A /* allfolderrights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfolderrights.h; sourceTree = "<group>"; };
 		642F930A1872B6A80059101A /* allfolderrights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allfolderrights.m; sourceTree = "<group>"; };
+		64481EC71873EBFD007D66E7 /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
+		64481EC81873EBFD007D66E7 /* phasesmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phasesmodel.m; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		6481615D176F0B230017F4CC /* ActivityCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCustomCell.xib; sourceTree = "<group>"; };
@@ -633,6 +636,8 @@
 				D41404C9187294700067F71A /* Servicemdl.m */,
 				642F93091872B6A80059101A /* allfolderrights.h */,
 				642F930A1872B6A80059101A /* allfolderrights.m */,
+				64481EC71873EBFD007D66E7 /* phasesmodel.h */,
+				64481EC81873EBFD007D66E7 /* phasesmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -826,6 +831,7 @@
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
+				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
 				D41404D0187296660067F71A /* MdlEqmt.m in Sources */,
