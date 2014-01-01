@@ -25,6 +25,17 @@
 @property (strong, nonatomic)NSString*searchstring;
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
 
+
+/*cell outlets*/
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *toolcell;
+
+@property (strong, nonatomic) IBOutlet UILabel *codelbl;
+@property (strong, nonatomic) IBOutlet UILabel *deslbl;
+@property (strong, nonatomic) IBOutlet UILabel *typelbl;
+@property (strong, nonatomic) IBOutlet UILabel *costlbl;
+
+
 - (IBAction)addtoolbtn:(id)sender;
 - (IBAction)deletetoolbtn:(id)sender;
 - (IBAction)closebtn:(id)sender;
@@ -33,6 +44,8 @@
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)subsearchbtn:(id)sender;
 - (IBAction)closeaddbtn:(id)sender;
+
+- (IBAction)editbtn:(id)sender;
 
 
 @end

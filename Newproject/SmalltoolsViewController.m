@@ -49,6 +49,85 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark - Table View datasource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+//    if (tableView==_materialTable) {
+//        return [_materialarray count];
+//        
+//    }
+//    if (tableView==_popOverTableView) {
+//        return [_subtypearray count];
+//    }
+    return 5;
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        
+        //if (tableView==_materialTable) {
+            [[NSBundle mainBundle]loadNibNamed:@"Smalltoolcell" owner:self options:nil];
+            cell=_toolcell;
+        //}
+    }
+//    if (tableView==_popOverTableView) {
+//        cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
+//    }
+//    if (tableView==_materialTable) {
+//        Manpwr*materaialmdl=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+//        _codelbl=(UILabel *)[cell viewWithTag:1];
+//        _codelbl.text=materaialmdl.itemcode;
+//        _deslbl=(UILabel *)[cell viewWithTag:2];
+//        _deslbl.text=materaialmdl.itemdescptn;
+//        _typelbl=(UILabel *)[cell viewWithTag:3];
+//        _typelbl.text=materaialmdl.subtype;
+//        _costlbl=(UILabel *)[cell viewWithTag:4];
+//        _costlbl.text=materaialmdl.unitcost;
+//        
+//    }
+    return cell;
+}
+
+#pragma mark - Table View delegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+//    if(tableView==_popOverTableView){
+//        
+//        _//subtyptxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+//    }
+    
+    
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        //path=indexPath.row;
+     //   [self DeleteMaterials];
+       // [_materialarray removeObject:indexPath];
+        
+        
+    }
+    
+    
+}
+
 
 - (IBAction)addtoolbtn:(id)sender {
     _addview.hidden=NO;
@@ -76,5 +155,10 @@
 - (IBAction)closeaddbtn:(id)sender {
     _addview.hidden=YES;
     
+}
+
+- (IBAction)editbtn:(id)sender {
+    _addview.hidden=NO;
+    _navtitle.title=@"EDIT";
 }
 @end
