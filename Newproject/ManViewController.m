@@ -787,6 +787,12 @@
 
 #pragma mark-Action
 - (IBAction)addmanpwer:(id)sender {
+    _itemcodetxtfld.text=@"";
+    
+    _itemdestxtfld.text=@"";
+    _subtypetxtfld.text=@"";
+    _unitcosttxtfld.text=@"";
+
     btnidtfr=22;
     _navitem.title=@"ADD";
     _addview.hidden=NO;
