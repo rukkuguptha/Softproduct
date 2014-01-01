@@ -11,12 +11,18 @@
 
 @interface MaterialsViewController : UIViewController{
      BOOL recordResults;
+    NSInteger butntype;
+    UIButton *button;
+    NSInteger butnpath;
+    NSInteger path;
     
 }
 
 @property(strong,nonatomic)Manpwr *materialmdl;
 
 @property(strong,nonatomic)NSMutableArray *materialarray;
+@property(strong,nonatomic)NSMutableArray *subtypearray;
+
 /*cell outlets*/
 
 @property (strong, nonatomic) IBOutlet UILabel *codelbl;
@@ -24,6 +30,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
 
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -35,8 +44,22 @@
 @property(strong,nonatomic)IBOutlet UIView *titleView;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
 @property(strong,nonatomic)IBOutlet UIView *addmatView;
+@property (strong, nonatomic)NSString*searchstring;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic) IBOutlet UITextField *codetxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *destxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *subtyptxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *unitcosttxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *subsearchbtnlbl;
+
+- (IBAction)subsearchbtn:(id)sender;
+
+- (IBAction)updatebtn:(id)sender;
+- (IBAction)cancelbtn:(id)sender;
+- (IBAction)deletebtn:(id)sender;
+
 
 -(IBAction)closeMaterials:(id)sender;
 -(IBAction)addmaterial:(id)sender;

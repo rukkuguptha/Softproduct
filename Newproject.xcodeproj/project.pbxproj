@@ -87,6 +87,10 @@
 		D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED4176B0D4F00379DD5 /* CustomerViewController.xib */; };
 		D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40D1ED8176B27E200379DD5 /* LeadsViewController.m */; };
 		D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */; };
+		D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25A1873D26100E7BC2C /* FleetsViewController.m */; };
+		D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD25B1873D26100E7BC2C /* FleetsViewController.xib */; };
+		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
+		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D41404D0187296660067F71A /* MdlEqmt.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404CF187296660067F71A /* MdlEqmt.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
@@ -263,6 +267,12 @@
 		D40D1ED7176B27E200379DD5 /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		D40D1ED8176B27E200379DD5 /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		D40D1ED9176B27E300379DD5 /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
+		D40DD2591873D26100E7BC2C /* FleetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FleetsViewController.h; sourceTree = "<group>"; };
+		D40DD25A1873D26100E7BC2C /* FleetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FleetsViewController.m; sourceTree = "<group>"; };
+		D40DD25B1873D26100E7BC2C /* FleetsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetsViewController.xib; sourceTree = "<group>"; };
+		D40DD25E1873D29B00E7BC2C /* SmalltoolsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmalltoolsViewController.h; sourceTree = "<group>"; };
+		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
+		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
 		D41404C9187294700067F71A /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
 		D41404CE187296660067F71A /* MdlEqmt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdlEqmt.h; sourceTree = "<group>"; };
@@ -423,6 +433,12 @@
 				649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */,
 				649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */,
 				649E1F82186193790010CBD8 /* custommaterialcell.xib */,
+				D40DD2591873D26100E7BC2C /* FleetsViewController.h */,
+				D40DD25A1873D26100E7BC2C /* FleetsViewController.m */,
+				D40DD25B1873D26100E7BC2C /* FleetsViewController.xib */,
+				D40DD25E1873D29B00E7BC2C /* SmalltoolsViewController.h */,
+				D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */,
+				D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -708,6 +724,7 @@
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
+				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */,
@@ -758,6 +775,7 @@
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
+				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4004070185B181500C38E12 /* ManViewController.xib in Resources */,
@@ -797,6 +815,7 @@
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
+				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */,
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
 				D40D1ED5176B0D4F00379DD5 /* CustomerViewController.m in Sources */,
@@ -808,6 +827,7 @@
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
+				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
 				D41404D0187296660067F71A /* MdlEqmt.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,

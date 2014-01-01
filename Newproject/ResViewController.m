@@ -47,7 +47,21 @@
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.materialView addGestureRecognizer:doubleTap2];
+    UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(fleetPage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.fleetview addGestureRecognizer:doubleTap3];
+
+    UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(toolPage)];
+    doubleTap4.numberOfTapsRequired=1;
+    doubleTap4.delegate=(id)self;
+    [self.smalltoolview addGestureRecognizer:doubleTap4];
     
+
 
 
 }
@@ -80,6 +94,27 @@
     
     [self presentViewController:_materialVCtrl
                        animated:YES completion:NULL];
+}
+
+
+-(void)fleetPage{
+    if (!self.fleetVCtrl) {
+        _fleetVCtrl=[[FleetsViewController alloc]initWithNibName:@"FleetsViewController" bundle:nil];
+    }
+    
+    _fleetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_fleetVCtrl animated:YES completion:nil];
+    
+}
+-(void)toolPage{
+    if (!self.smalltoolVCtrl) {
+        _smalltoolVCtrl=[[SmalltoolsViewController alloc]initWithNibName:@"SmalltoolsViewController" bundle:nil];
+    }
+    
+    _smalltoolVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController: _smalltoolVCtrl animated:YES completion:nil];
+
+    
 }
 - (void)didReceiveMemoryWarning
 {
