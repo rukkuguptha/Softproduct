@@ -15,6 +15,7 @@
 @property(strong,nonatomic)NSString*subtype;
 @property(strong,nonatomic)NSString*PurchaseValue;
 @property(strong,nonatomic)NSString*SerialNo;
+@property(strong,nonatomic)NSString*unitcost;
 
 @property(strong,nonatomic)NSString*ManufacturedYear;
 @property(strong,nonatomic)NSString*PictureLocation;
@@ -28,6 +29,7 @@
 @property(strong,nonatomic)NSString*WeeklyRate;
 @property(strong,nonatomic)NSString*MonthlyRate;
 @property(strong,nonatomic)NSString*YearlyRate;
+@property(strong,nonatomic)NSString*type;
 @property(readwrite)NSInteger overhead;
 
 

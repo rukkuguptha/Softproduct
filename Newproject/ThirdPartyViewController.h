@@ -7,8 +7,33 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MdlEqmt.h"
 
-@interface ThirdPartyViewController : UIViewController
+@interface ThirdPartyViewController : UIViewController{
+    BOOL recordResults ;
+    NSInteger btntype;
+    UIButton *button;
+    NSInteger path;
+    NSInteger deltepath;
+    NSInteger webtype;
+    NSInteger btnpath;
+    NSInteger popvr;
+
+    
+}
+
+@property (strong, nonatomic)MdlEqmt *thirdpartymdl;
+
+
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic) IBOutlet UIView *addview;
@@ -16,6 +41,7 @@
 
 @property (strong, nonatomic) NSMutableArray *thirdprtyarray;
 @property (strong, nonatomic)NSMutableArray *subtypearray;
+@property (strong, nonatomic)NSMutableArray *Typearray;
 
 /*OUTLETS*/
 @property (strong, nonatomic) IBOutlet UITableView *thirdprtyTable;
@@ -42,11 +68,24 @@
 @property (strong, nonatomic) IBOutlet UITextField *weeklytxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *monthlytxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *yearlytxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *typetxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *unitcsttxtfld;
 
 @property (strong, nonatomic)NSString*searchstring;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic) IBOutlet UITableViewCell *thirdpartycell;
+
+@property (strong, nonatomic) IBOutlet UIButton *typesearchlbl;
+
+/*cell outlets*/
+
+@property (strong, nonatomic) IBOutlet UILabel *codelbl;
+@property (strong, nonatomic) IBOutlet UILabel *deslbl;
+@property (strong, nonatomic) IBOutlet UILabel *typelbl;
+@property (strong, nonatomic) IBOutlet UILabel *costlbl;
 - (IBAction)deletebtn:(id)sender;
+- (IBAction)typesearchbtn:(id)sender;
 
 - (IBAction)closebtn:(id)sender;
 - (IBAction)Addclosebtn:(id)sender;
@@ -54,6 +93,7 @@
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)subsearchbtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
+- (IBAction)editbtn:(id)sender;
 
 
 @end
