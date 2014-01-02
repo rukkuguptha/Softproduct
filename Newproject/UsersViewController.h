@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface UsersViewController : UIViewController
+{
+    NSInteger path;
+    BOOL recordresults;
+    NSInteger optionIdentifier;
+    UIButton *button;
+    NSInteger btnindex;
+}
 
 
 //Outlets
@@ -23,4 +30,11 @@
 -(IBAction)adduserview:(id)sender;
 -(IBAction)edituserview:(id)sender;
 -(IBAction)closeuserview:(id)sender;
+-(IBAction)deleteusers:(id)sender;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 @end

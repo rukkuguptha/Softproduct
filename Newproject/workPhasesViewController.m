@@ -267,6 +267,7 @@
     if (parentcheck==0) {
         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         _phasebtn.enabled=NO;
+        [_phasebtn setTitle:@"" forState:UIControlStateNormal];
         parentcheck=1;
         
     }
@@ -931,6 +932,15 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"phasename"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SearchPhasesResult"])
     {
         _workphasesarray=[[NSMutableArray alloc]init];
@@ -985,8 +995,8 @@
     {
         
         recordresults = FALSE;
-        [_phasesbasedonservicearray addObject:_soapResults];
-        [_phasedict setObject:_phasestring forKey:_soapResults];
+        //[_phasesbasedonservicearray addObject:_soapResults];
+        
         _phasemdl.phasename=_soapResults;
         _soapResults = nil;
     }
@@ -1067,14 +1077,15 @@
         
         _soapResults = nil;
     }
-//    if([elementName isEqualToString:@"PhaseName"])
-//    {
-//        
-//        
-//        recordresults = FALSE;
-//        [_phasesbasedonservicearray addObject:_soapResults];
-//        _soapResults = nil;
-//    }
+    if([elementName isEqualToString:@"phasename"])
+    {
+        
+        
+        recordresults = FALSE;
+        [_phasesbasedonservicearray addObject:_soapResults];
+        [_phasedict setObject:_phasestring forKey:_soapResults];
+        _soapResults = nil;
+    }
 
 
 
