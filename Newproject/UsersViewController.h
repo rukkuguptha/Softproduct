@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "listusermdl.h"
 
 @interface UsersViewController : UIViewController
 {
@@ -16,7 +17,7 @@
     UIButton *button;
     NSInteger btnindex;
 }
-
+@property(strong,nonatomic)listusermdl *usrmdl;
 
 //Outlets
 @property(strong,nonatomic)IBOutlet UITableView *usertable;

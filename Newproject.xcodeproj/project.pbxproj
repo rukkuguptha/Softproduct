@@ -43,6 +43,7 @@
 		64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A11EE418683792008D20CC /* workPhasesViewController.m */; };
 		64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE518683792008D20CC /* workPhasesViewController.xib */; };
 		64A11EE918683BE6008D20CC /* customphase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE818683BE6008D20CC /* customphase.xib */; };
+		64A14D7818752E3F0028B43A /* listusermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7718752E3F0028B43A /* listusermdl.m */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64F9797F185ECAD800E7722B /* blacksqure.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F9797E185ECAD800E7722B /* blacksqure.png */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -220,6 +221,8 @@
 		64A11EE418683792008D20CC /* workPhasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = workPhasesViewController.m; sourceTree = "<group>"; };
 		64A11EE518683792008D20CC /* workPhasesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workPhasesViewController.xib; sourceTree = "<group>"; };
 		64A11EE818683BE6008D20CC /* customphase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customphase.xib; sourceTree = "<group>"; };
+		64A14D7618752E3F0028B43A /* listusermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listusermdl.h; sourceTree = "<group>"; };
+		64A14D7718752E3F0028B43A /* listusermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listusermdl.m; sourceTree = "<group>"; };
 		64F9797E185ECAD800E7722B /* blacksqure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blacksqure.png; path = ../blacksqure.png; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
 		64F97984185EDB4200E7722B /* FoldersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersViewController.h; sourceTree = "<group>"; };
@@ -677,6 +680,8 @@
 				642F930A1872B6A80059101A /* allfolderrights.m */,
 				64481EC71873EBFD007D66E7 /* phasesmodel.h */,
 				64481EC81873EBFD007D66E7 /* phasesmodel.m */,
+				64A14D7618752E3F0028B43A /* listusermdl.h */,
+				64A14D7718752E3F0028B43A /* listusermdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -875,6 +880,7 @@
 				D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
+				64A14D7818752E3F0028B43A /* listusermdl.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
