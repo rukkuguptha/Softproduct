@@ -70,25 +70,69 @@
     
     
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+//        [self DeletePhases];
+//        [_workphasesarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+
 
 -(IBAction)closeuser:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)adduserview:(id)sender
-{
+{    optionIdentifier=1;
     _addview.hidden=NO;
     _navitem.title=@"ADD";
 }
 -(IBAction)edituserview:(id)sender
 {
+    optionIdentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"EDIT";
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
+    NSIndexPath *textFieldIndexPath = [self.usertable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+
 }
 -(IBAction)closeuserview:(id)sender
 {
     _addview.hidden=YES;
 }
+-(IBAction)deleteusers:(id)sender
+{
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_usertable setEditing:NO animated:NO];
+        [_usertable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_usertable setEditing:YES animated:YES];
+        [_usertable reloadData];
+        
+    }
+    
+}
+
 
 
 
