@@ -80,7 +80,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
+    if (!self.jbdetailVCtrl) {
+        self.jbdetailVCtrl=[[jobdetailsViewController alloc]initWithNibName:@"jobdetailsViewController" bundle:nil];
+    }
+    _jbdetailVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_jbdetailVCtrl
+                       animated:YES completion:NULL];
     
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

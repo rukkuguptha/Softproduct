@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface listusermdl : NSObject
+@property(readwrite)NSInteger userid;
 @property(strong,nonatomic)NSString *username;
 @property(strong,nonatomic)NSString *pwd;
 

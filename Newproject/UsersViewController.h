@@ -16,8 +16,10 @@
     NSInteger optionIdentifier;
     UIButton *button;
     NSInteger btnindex;
+    NSInteger webtype;
 }
 @property(strong,nonatomic)listusermdl *usrmdl;
+@property(strong,nonatomic)NSString *searchstring;
 
 //Outlets
 @property(strong,nonatomic)IBOutlet UITableView *usertable;
@@ -25,6 +27,18 @@
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 @property(strong,nonatomic)IBOutlet UIView *addview;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
+
+/*outlets in cell*/
+@property(strong,nonatomic)IBOutlet UILabel *usernamelabel;
+
+/*outlets in view*/
+@property(strong,nonatomic)IBOutlet UITextField *usrnametextfld;
+@property(strong,nonatomic)IBOutlet UITextField *pswdtextfld;
+
+/*IBAction in view*/
+-(IBAction)insertuser:(id)sender;
+-(IBAction)cancel:(id)sender;
 
 //IBActions
 -(IBAction)closeuser:(id)sender;
@@ -37,5 +51,8 @@
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+
+/*array*/
+@property(strong,nonatomic)NSMutableArray *userlistarray;
 
 @end

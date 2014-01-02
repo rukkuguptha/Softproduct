@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "jobdetailsViewController.h"
 
 @interface jobsitereqViewController : UIViewController
 {
     NSInteger path;
 }
 
-
+@property(strong,nonatomic)jobdetailsViewController *jbdetailVCtrl;
 //IBOutlets
 @property(strong,nonatomic)IBOutlet UITableView *jobsitetable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *jobcell;

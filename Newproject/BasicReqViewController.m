@@ -56,8 +56,25 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{ if(tableView==_basicreqtable)
 {
     return 5;
+}
+    if(tableView==_popOverTableView)
+    {
+        switch (poptype) {
+            case 1:
+                return 5;
+                break;
+            case 2:
+                return 5;
+                break;
+            default:
+                break;
+        }
+        return 5;
+    }
+    return YES;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -68,9 +85,28 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [[NSBundle mainBundle]loadNibNamed:@"custombasicreqcell" owner:self options:nil];
-        cell=_reqcell;
+        if(tableView==_basicreqtable)
+        {
+            [[NSBundle mainBundle]loadNibNamed:@"custombasicreqcell" owner:self options:nil];
+            cell=_reqcell;
+        }
     }
+        if(tableView==_popOverTableView)
+        {
+            switch (poptype) {
+                case 1:
+                    cell.textLabel.text=@"";
+                    break;
+                case 2:
+                    cell.textLabel.text=@"";
+                    break;
+                default:
+                    break;
+            }
+           
+        }
+        
+    
     
     return cell;
 }
@@ -97,10 +133,136 @@
     _addreqview.hidden=NO;
     _navItem.title=@"EDIT";
 }
--(IBAction)closeBasicreqview:(id)sender
+-(IBAction)closeeditBasicreqview:(id)sender
 {
     _addreqview.hidden=YES;
 }
+-(IBAction)expirycheckaction:(id)sender
+{
+    if (expiry==0) {
+        [_expirycheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        expiry=1;
+        
+    }
+    
+    else{
+        [_expirycheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        expiry=0;
+        
+    }
+
+}
+-(IBAction)defaultcheckaction:(id)sender
+{
+    if (defaultcheck==0) {
+        [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        defaultcheck=1;
+        
+    }
+    
+    else{
+        [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        defaultcheck=0;
+        
+    }
+
+}
+-(IBAction)inhousecheckaction:(id)sender
+{
+    if (inhouse==0) {
+        [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        inhouse=1;
+        
+    }
+    
+    else{
+        [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        inhouse=0;
+        
+    }
+
+}
+-(IBAction)craftcheckaction:(id)sender
+{
+    
+    if (craft==0) {
+        [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        craft=1;
+        
+    }
+    
+    else{
+        [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        craft=0;
+        
+    }
+
+}
+#pragma mark-popover
+-(IBAction)selectjobs:(id)sender
+{   poptype=1;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_jobbtn.frame
+                                            inView:self.addreqview
+                          permittedArrowDirections:UIPopoverArrowDirectionDown
+                                          animated:YES];
+    
+    
+}
+-(IBAction)selectcraft:(id)sender
+{   poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_craftbtn.frame
+                                            inView:self.addreqview
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+    
+}
+
+
 
 
 @end
