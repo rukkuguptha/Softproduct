@@ -54,4 +54,28 @@
 - (IBAction)closebtn:(id)sender {
      [self dismissViewControllerAnimated:YES completion:NULL];
 }
+- (IBAction)subsearch:(id)sender{
+    
+}
+- (IBAction)deletebtn:(id)sender{
+    
+}
+
+-(IBAction)closeEqupment:(id)sender{
+    
+}
+-(IBAction)addEquipment:(id)sender{
+    
+}
+-(IBAction)editequipview:(id)sender{
+    
+}
+-(IBAction)closeaddview:(id)sender{
+    
+}
+
+
+
+
+
 @end

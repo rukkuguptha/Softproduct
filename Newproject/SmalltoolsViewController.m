@@ -154,6 +154,7 @@
     
 }
 -(void)InsertSmallTools{
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -206,6 +207,7 @@
     
 }
 -(void)UpdateSmallTools{
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -259,6 +261,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
     
 }
 -(void)DeleteSmallTools{
+    webtype=3;
+    
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -438,9 +442,9 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if (butntype==1||butntype==2||butntype==3) {
+    if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllSmallTools];
-        butntype=0;
+        webtype=0;
     }
     [_Tooltable reloadData];
     [_popOverTableView reloadData];
@@ -711,12 +715,13 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
 
 - (IBAction)addtoolbtn:(id)sender {
+     butntype=1;
     _codetxtfld.text=@"";
     
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
-    butntype=1;
+    
     _addview.hidden=NO;
     _navtitle.title=@"ADD";
 
@@ -767,6 +772,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 }
 
 - (IBAction)subsearchbtn:(id)sender {
+    butntype=1;
     [self createpopover];
     [self SelectAllSubtypeSmallTools];
 }

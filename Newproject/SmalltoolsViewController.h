@@ -15,6 +15,7 @@
     NSInteger path;
     NSInteger butntype;
     UIButton *button;
+    NSInteger webtype;
 }
 @property (strong, nonatomic)Manpwr *Toolmdl;
 
