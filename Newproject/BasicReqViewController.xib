@@ -9,6 +9,12 @@
             <connections>
                 <outlet property="addreqview" destination="Cqm-3c-T8e" id="Nq4-O9-SyM"/>
                 <outlet property="basicreqtable" destination="3yV-UT-gaN" id="ID6-tN-vD5"/>
+                <outlet property="craftbtn" destination="gm0-GG-6F6" id="xhP-jt-OBt"/>
+                <outlet property="craftcheckbtn" destination="yNe-NQ-TeC" id="mg9-8q-wl0"/>
+                <outlet property="defaultcheckbtn" destination="T2G-V8-Q2K" id="N6J-U8-x09"/>
+                <outlet property="expirycheckbtn" destination="8FO-Gk-wxY" id="8xd-uB-aLU"/>
+                <outlet property="inhousecheckbtn" destination="Xf9-qB-Fcd" id="835-HD-0g1"/>
+                <outlet property="jobbtn" destination="qEl-A7-hKi" id="tVJ-TH-CI0"/>
                 <outlet property="navItem" destination="u1m-4q-wag" id="fNF-OJ-AUE"/>
                 <outlet property="titleview" destination="kOk-rM-g7N" id="Y6h-hA-MIe"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -164,7 +170,7 @@
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="closeBasicreqview:" destination="-1" eventType="touchUpInside" id="Map-PA-oeq"/>
+                                                        <action selector="closeeditBasicreqview:" destination="-1" eventType="touchUpInside" id="tLv-cD-YDV"/>
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
@@ -231,6 +237,9 @@
                                     <state key="normal" image="appbar.checkmark.thick.unchecked.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="expirycheckaction:" destination="-1" eventType="touchUpInside" id="ehp-CZ-X28"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZMd-9n-OrY">
                                     <rect key="frame" x="527" y="210" width="42" height="21"/>
@@ -244,6 +253,9 @@
                                     <state key="normal" image="appbar.checkmark.thick.unchecked.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="defaultcheckaction:" destination="-1" eventType="touchUpInside" id="fAk-Pl-KzT"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In-House" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0eZ-j5-PmI">
                                     <rect key="frame" x="615" y="210" width="64" height="21"/>
@@ -257,6 +269,9 @@
                                     <state key="normal" image="appbar.checkmark.thick.unchecked.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="inhousecheckaction:" destination="-1" eventType="touchUpInside" id="xA7-LD-ERv"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craft" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cuI-8S-NUy">
                                     <rect key="frame" x="395" y="271" width="42" height="21"/>
@@ -265,12 +280,15 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gm0-GG-6F6">
-                                    <rect key="frame" x="445" y="267" width="180" height="30"/>
+                                    <rect key="frame" x="475" y="264" width="217" height="36"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Button">
+                                    <state key="normal" title="Button" backgroundImage="textbox.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="selectcraft:" destination="-1" eventType="touchUpInside" id="aMg-Qn-eGb"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apply To All Crafts" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8QV-Uq-saS">
                                     <rect key="frame" x="395" y="315" width="76" height="33"/>
@@ -284,6 +302,9 @@
                                     <state key="normal" image="appbar.checkmark.thick.unchecked.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="craftcheckaction:" destination="-1" eventType="touchUpInside" id="sGP-nJ-7a8"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nCj-ZG-2pz">
                                     <rect key="frame" x="20" y="361" width="42" height="21"/>
@@ -323,9 +344,12 @@
                                     <rect key="frame" x="95" y="413" width="211" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="job">
+                                    <state key="normal" title="job" backgroundImage="textbox.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="selectjobs:" destination="-1" eventType="touchUpInside" id="8El-6E-Vqn"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -344,5 +368,6 @@
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="squareimage1.png" width="300" height="400"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

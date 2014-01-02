@@ -44,6 +44,10 @@
 		64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE518683792008D20CC /* workPhasesViewController.xib */; };
 		64A11EE918683BE6008D20CC /* customphase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE818683BE6008D20CC /* customphase.xib */; };
 		64A14D7818752E3F0028B43A /* listusermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7718752E3F0028B43A /* listusermdl.m */; };
+		64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7A187546D20028B43A /* jobdetailsViewController.m */; };
+		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
+		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
+		64A14D82187573B50028B43A /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D81187573B50028B43A /* basicreqmdl.m */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64F9797F185ECAD800E7722B /* blacksqure.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F9797E185ECAD800E7722B /* blacksqure.png */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -223,6 +227,12 @@
 		64A11EE818683BE6008D20CC /* customphase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customphase.xib; sourceTree = "<group>"; };
 		64A14D7618752E3F0028B43A /* listusermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listusermdl.h; sourceTree = "<group>"; };
 		64A14D7718752E3F0028B43A /* listusermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listusermdl.m; sourceTree = "<group>"; };
+		64A14D79187546D20028B43A /* jobdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobdetailsViewController.h; sourceTree = "<group>"; };
+		64A14D7A187546D20028B43A /* jobdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobdetailsViewController.m; sourceTree = "<group>"; };
+		64A14D7B187546D20028B43A /* jobdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobdetailsViewController.xib; sourceTree = "<group>"; };
+		64A14D7E18755B910028B43A /* customdetlcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdetlcell.xib; sourceTree = "<group>"; };
+		64A14D80187573B50028B43A /* basicreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basicreqmdl.h; sourceTree = "<group>"; };
+		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
 		64F9797E185ECAD800E7722B /* blacksqure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blacksqure.png; path = ../blacksqure.png; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
 		64F97984185EDB4200E7722B /* FoldersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoldersViewController.h; sourceTree = "<group>"; };
@@ -438,6 +448,10 @@
 				64F9798F185EF8B000E7722B /* jobsitereqViewController.m */,
 				64F97990185EF8B000E7722B /* jobsitereqViewController.xib */,
 				642F93001872870E0059101A /* customjobcell.xib */,
+				64A14D79187546D20028B43A /* jobdetailsViewController.h */,
+				64A14D7A187546D20028B43A /* jobdetailsViewController.m */,
+				64A14D7B187546D20028B43A /* jobdetailsViewController.xib */,
+				64A14D7E18755B910028B43A /* customdetlcell.xib */,
 				64F97993185EFBB600E7722B /* BasicReqViewController.h */,
 				64F97994185EFBB600E7722B /* BasicReqViewController.m */,
 				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
@@ -682,6 +696,8 @@
 				64481EC81873EBFD007D66E7 /* phasesmodel.m */,
 				64A14D7618752E3F0028B43A /* listusermdl.h */,
 				64A14D7718752E3F0028B43A /* listusermdl.m */,
+				64A14D80187573B50028B43A /* basicreqmdl.h */,
+				64A14D81187573B50028B43A /* basicreqmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -774,6 +790,7 @@
 				64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
 				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
+				64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */,
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
 				D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */,
@@ -830,6 +847,7 @@
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
+				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
@@ -879,6 +897,7 @@
 				D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */,
 				D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
+				64A14D82187573B50028B43A /* basicreqmdl.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				64A14D7818752E3F0028B43A /* listusermdl.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
@@ -893,6 +912,7 @@
 				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				D400406F185B181500C38E12 /* ManViewController.m in Sources */,
+				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				642F9306187299400059101A /* ServiceViewController.m in Sources */,

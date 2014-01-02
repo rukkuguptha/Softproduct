@@ -9,8 +9,10 @@
             <connections>
                 <outlet property="addview" destination="lbl-gW-TtC" id="fYD-mR-uTw"/>
                 <outlet property="navitem" destination="xnW-6t-5D1" id="Unm-jg-PZK"/>
+                <outlet property="pswdtextfld" destination="Kmu-O8-MNh" id="mou-MJ-5bX"/>
                 <outlet property="titleview" destination="Yz6-Dz-zHJ" id="gAG-L0-tDG"/>
                 <outlet property="usertable" destination="nqJ-ud-EOE" id="kbV-Zr-rO1"/>
+                <outlet property="usrnametextfld" destination="1K7-L4-u4g" id="oaP-fz-UrB"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -93,8 +95,8 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" id="lbl-gW-TtC">
-                            <rect key="frame" x="151" y="239" width="412" height="297"/>
+                        <view hidden="YES" contentMode="scaleToFill" id="lbl-gW-TtC">
+                            <rect key="frame" x="151" y="197" width="412" height="297"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="maV-mR-xwf">
@@ -145,7 +147,7 @@
                                     <rect key="frame" x="222" y="145" width="183" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uYF-GG-iZH">
                                     <rect key="frame" x="12" y="56" width="46" height="30"/>
@@ -154,6 +156,9 @@
                                     <state key="normal" title="Update">
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="insertuser:" destination="-1" eventType="touchUpInside" id="oHU-GC-Tz0"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2sN-my-AhA">
                                     <rect key="frame" x="116" y="56" width="46" height="30"/>
@@ -163,6 +168,9 @@
                                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="lXD-yQ-Isc"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
