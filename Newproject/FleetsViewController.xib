@@ -7,10 +7,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FleetsViewController">
             <connections>
-                <outlet property="fleettable" destination="o31-ys-482" id="vcf-aS-hWr"/>
+                <outlet property="addview" destination="O7G-oF-xvt" id="BbP-Jw-4zW"/>
+                <outlet property="codetxtfld" destination="AS8-Qh-Qqm" id="sn8-ry-LdZ"/>
+                <outlet property="condtntxtfld" destination="hkI-kJ-F6W" id="mSL-3Y-frr"/>
+                <outlet property="dailytxtfld" destination="vUn-gB-dJF" id="A37-Ym-HfS"/>
+                <outlet property="destxtfld" destination="dzL-fG-AMi" id="QJI-O3-kgI"/>
+                <outlet property="fleetTable" destination="o31-ys-482" id="3ai-pa-yeR"/>
+                <outlet property="fueltxtfld" destination="kWh-4t-la7" id="kiP-ch-R1O"/>
+                <outlet property="hurlytxtfld" destination="rh3-Bo-ljv" id="H7F-1J-6Fp"/>
+                <outlet property="hurstxtfld" destination="0OL-uv-mhz" id="x0K-WT-FZ7"/>
+                <outlet property="insuredtxtfld" destination="ING-55-9S7" id="Y10-WR-RKL"/>
+                <outlet property="manufattxtfld" destination="acY-8Z-UKy" id="s6H-xT-oey"/>
+                <outlet property="monthlytxtfld" destination="Lbo-eC-hDh" id="Y2P-s5-6B3"/>
                 <outlet property="navbar" destination="I6j-T7-5Yh" id="Hxb-WM-nJE"/>
+                <outlet property="navitem" destination="Qmy-ZO-PgD" id="W0I-i3-AzE"/>
+                <outlet property="purchasetxtfld" destination="9Rb-V5-Fvj" id="t8q-JG-SXE"/>
+                <outlet property="serialtxtfld" destination="aaH-K5-TUU" id="bZv-P9-k0e"/>
+                <outlet property="shiftwisetxtfld" destination="cFd-a1-8Je" id="fds-85-uld"/>
+                <outlet property="subtypetxtfld" destination="bzI-c3-wGM" id="C3U-Q3-vtf"/>
+                <outlet property="suserachbtnlbl" destination="Wie-Se-tBq" id="Rsc-fY-fmo"/>
                 <outlet property="view" destination="UXZ-C0-zGD" id="crV-wU-K0K"/>
                 <outlet property="view1" destination="Jlz-Nf-paW" id="YAT-hU-o54"/>
+                <outlet property="weeklytxtfld" destination="DXg-3Q-oHT" id="uUp-m0-gEf"/>
+                <outlet property="yearlytxtfld" destination="jxK-Xe-dqr" id="DxT-Ft-bNU"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -52,6 +71,10 @@
                             <rect key="frame" x="42" y="381" width="663" height="596"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="BDW-bK-9hV"/>
+                                <outlet property="delegate" destination="-1" id="dnA-PI-OnV"/>
+                            </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="Jlz-Nf-paW">
                             <rect key="frame" x="42" y="334" width="663" height="47"/>
@@ -64,6 +87,9 @@
                                     <state key="normal" image="appbar.addblack.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="addbtn:" destination="-1" eventType="touchUpInside" id="9eN-Tx-SmZ"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lyg-0G-9Hy">
                                     <rect key="frame" x="66" y="4" width="40" height="40"/>
@@ -72,6 +98,9 @@
                                     <state key="normal" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deletebtn:" destination="-1" eventType="touchUpInside" id="5pt-UV-02O"/>
+                                    </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VUV-8v-WZD">
                                     <rect key="frame" x="152" y="13" width="80" height="21"/>
@@ -120,6 +149,9 @@
                                                             <state key="normal" image="appbar.close.png">
                                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="Addclosebtn:" destination="-1" eventType="touchUpInside" id="qJb-8E-0yQ"/>
+                                                            </connections>
                                                         </button>
                                                     </barButtonItem>
                                                 </navigationItem>
@@ -347,6 +379,9 @@
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="cancelbtn:" destination="-1" eventType="touchUpInside" id="r5y-Cc-7Ce"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yJg-A9-aZc">
                                             <rect key="frame" x="249" y="649" width="130" height="30"/>
@@ -356,6 +391,9 @@
                                                 <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="vPe-IN-k5c"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Wie-Se-tBq">
                                             <rect key="frame" x="197" y="134" width="19" height="22"/>
@@ -363,6 +401,9 @@
                                             <state key="normal" backgroundImage="search-button.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="subsearchbtn:" destination="-1" eventType="touchUpInside" id="9qn-3B-o3r"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </scrollView>

@@ -117,6 +117,7 @@
 		D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA2F1873F206007EE3DC /* Consumblecell.xib */; };
 		D453DA321873F215007EE3DC /* Assetcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA311873F215007EE3DC /* Assetcell.xib */; };
 		D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D484359917F595CD00098AA1 /* Verfymdl.m */; };
+		D48A34701876901B00898913 /* FleetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A346F1876901B00898913 /* FleetCell.xib */; };
 		D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */; };
 		D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */; };
 		D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D48B608317F98CFC001A53C8 /* Coursemdl.m */; };
@@ -324,6 +325,7 @@
 		D453DA311873F215007EE3DC /* Assetcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Assetcell.xib; sourceTree = "<group>"; };
 		D484359817F595CD00098AA1 /* Verfymdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verfymdl.h; sourceTree = "<group>"; };
 		D484359917F595CD00098AA1 /* Verfymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verfymdl.m; sourceTree = "<group>"; };
+		D48A346F1876901B00898913 /* FleetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetCell.xib; sourceTree = "<group>"; };
 		D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Selected.png"; sourceTree = "<group>"; };
 		D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
 		D48B608217F98CEC001A53C8 /* Coursemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coursemdl.h; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 				D40DD2591873D26100E7BC2C /* FleetsViewController.h */,
 				D40DD25A1873D26100E7BC2C /* FleetsViewController.m */,
 				D40DD25B1873D26100E7BC2C /* FleetsViewController.xib */,
+				D48A346F1876901B00898913 /* FleetCell.xib */,
 				D40DD25E1873D29B00E7BC2C /* SmalltoolsViewController.h */,
 				D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */,
 				D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */,
@@ -850,6 +853,7 @@
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
+				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4004070185B181500C38E12 /* ManViewController.xib in Resources */,
