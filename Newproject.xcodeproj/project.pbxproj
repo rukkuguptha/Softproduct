@@ -30,6 +30,7 @@
 		649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */; };
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
 		649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F82186193790010CBD8 /* custommaterialcell.xib */; };
+		649EA38618769D96006651E6 /* jobsitemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EA38518769D96006651E6 /* jobsitemodel.m */; };
 		64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA0186023D2001F74E2 /* AllfolderViewController.m */; };
 		64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */; };
 		64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA518602A1B001F74E2 /* folderrightsViewController.m */; };
@@ -210,6 +211,8 @@
 		649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsViewController.m; sourceTree = "<group>"; };
 		649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaterialsViewController.xib; sourceTree = "<group>"; };
 		649E1F82186193790010CBD8 /* custommaterialcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custommaterialcell.xib; sourceTree = "<group>"; };
+		649EA38418769D96006651E6 /* jobsitemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitemodel.h; sourceTree = "<group>"; };
+		649EA38518769D96006651E6 /* jobsitemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitemodel.m; sourceTree = "<group>"; };
 		64A09D9F186023D2001F74E2 /* AllfolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllfolderViewController.h; sourceTree = "<group>"; };
 		64A09DA0186023D2001F74E2 /* AllfolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllfolderViewController.m; sourceTree = "<group>"; };
 		64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllfolderViewController.xib; sourceTree = "<group>"; };
@@ -701,6 +704,8 @@
 				64A14D7718752E3F0028B43A /* listusermdl.m */,
 				64A14D80187573B50028B43A /* basicreqmdl.h */,
 				64A14D81187573B50028B43A /* basicreqmdl.m */,
+				649EA38418769D96006651E6 /* jobsitemodel.h */,
+				649EA38518769D96006651E6 /* jobsitemodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -942,6 +947,7 @@
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
 				D4FFBD181855A01F0007851D /* Section.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
+				649EA38618769D96006651E6 /* jobsitemodel.m in Sources */,
 				D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
