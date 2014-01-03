@@ -12,6 +12,7 @@
 @interface jobsitereqViewController : UIViewController
 {
     NSInteger path;
+    BOOL recordresults;
 }
 
 @property(strong,nonatomic)jobdetailsViewController *jbdetailVCtrl;
@@ -32,6 +33,17 @@
 -(IBAction)closeaddjbview:(id)sender;
 
 /*in cell*/
+@property(strong,nonatomic)IBOutlet UILabel *jobsitelabel;
 -(IBAction)editjobs:(id)sender;
+
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+/*arrays*/
+@property(strong,nonatomic)NSMutableArray *jobsitelistarray;
+
 
 @end

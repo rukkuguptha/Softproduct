@@ -29,16 +29,6 @@
     _jobdetailstable.layer.borderWidth = 2.0;
     _jobdetailstable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _searchbar.delegate = (id)self;
-    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    
-    self.jobdetailstable.tableHeaderView =_searchbar;
-    
-    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
-    searchController.searchResultsDataSource = (id)self;
-    searchController.searchResultsDelegate =(id)self;
-    searchController.delegate = (id)self;
     
 
     // Do any additional setup after loading the view from its nib.
@@ -79,20 +69,48 @@
 -(IBAction)craftcheckaction:(id)sender
 {
     if (craft==0) {
-        [_craftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_checkcraftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         craft=1;
         
     }
     
     else{
-        [_craftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_checkcraftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
          craft=0;
         
     }
 }
+-(IBAction)selectcraft:(id)sender
+{
 
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 150, 200)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_craftbtn.frame
+                                            inView:self.editview
+                          permittedArrowDirections:UIPopoverArrowDirectionDown
+                                          animated:YES];
 
-
+}
 
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -153,6 +171,8 @@
         }
     }
 }
+
+
 
 
 
