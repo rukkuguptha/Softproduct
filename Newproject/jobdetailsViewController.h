@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface jobdetailsViewController : UIViewController
+{
+    NSInteger path;
+    NSInteger craft;
+}
 
 
 
@@ -23,5 +27,13 @@
 -(IBAction)closejobdetails:(id)sender;
 -(IBAction)editjobdetails:(id)sender;
 -(IBAction)closeeditview:(id)sender;
+-(IBAction)deletejobdetails:(id)sender;
+
+/*IBAction in view*/
+-(IBAction)craftcheckaction:(id)sender;
+
+/*IBOutlet in view*/
+@property(strong,nonatomic)IBOutlet UIButton *craftbtn;
+
 
 @end

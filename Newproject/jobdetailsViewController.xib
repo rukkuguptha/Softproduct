@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="jobdetailsViewController">
             <connections>
+                <outlet property="craftbtn" destination="ZCZ-Le-11g" id="U6M-6G-jLF"/>
                 <outlet property="editview" destination="okP-Jv-Uc9" id="alo-pg-xhy"/>
                 <outlet property="jobdetailstable" destination="RmB-8d-bFu" id="PZo-ql-G57"/>
                 <outlet property="titleview" destination="fy3-Qp-eHt" id="2kL-oa-igo"/>
@@ -111,6 +112,9 @@
                                     <state key="normal" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deletejobdetails:" destination="-1" eventType="touchUpInside" id="6iw-jW-KJ7"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -191,6 +195,9 @@
                                     <state key="normal" title="Button" image="appbar.checkmark.thick.unchecked.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="craftcheckaction:" destination="-1" eventType="touchUpInside" id="25e-Sd-SZD"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ybh-UJ-tuX">
                                     <rect key="frame" x="374" y="171" width="216" height="30"/>

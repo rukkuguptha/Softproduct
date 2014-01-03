@@ -61,6 +61,37 @@
 {
     _editview.hidden=YES;
 }
+-(IBAction)deletejobdetails:(id)sender
+{
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        [_jobdetailstable setEditing:NO animated:NO];
+        [_jobdetailstable reloadData];
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        [_jobdetailstable setEditing:YES animated:YES];
+        [_jobdetailstable reloadData];
+    }
+}
+-(IBAction)craftcheckaction:(id)sender
+{
+    if (craft==0) {
+        [_craftbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        craft=1;
+        
+    }
+    
+    else{
+        [_craftbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         craft=0;
+        
+    }
+}
+
+
 
 
 #pragma mark-tableview datasource
@@ -90,6 +121,41 @@
     
     return cell;
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+        //        [self DeleteServices];
+        //        [_servicelistarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_jobdetailstable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
+
+
 
 
 
