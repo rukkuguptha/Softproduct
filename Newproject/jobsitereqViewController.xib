@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="addjobview" destination="TRN-0s-w4D" id="MXo-Vx-wcR"/>
                 <outlet property="jobsitetable" destination="MbE-Ix-RZA" id="dO2-AC-X0W"/>
+                <outlet property="jobtextfld" destination="e0n-25-Erb" id="Whx-7J-RBy"/>
                 <outlet property="navItem" destination="RN1-8n-Fem" id="2ya-y2-knn"/>
                 <outlet property="titleview" destination="A1s-MY-pyW" id="nFX-6z-Zya"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -142,6 +143,9 @@
                                     <state key="normal" title="Update">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="updatejobs:" destination="-1" eventType="touchUpInside" id="3fS-bP-x6M"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="drv-Pk-bHj">
                                     <rect key="frame" x="304" y="220" width="46" height="30"/>

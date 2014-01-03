@@ -62,7 +62,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return [_jobsitelistarray count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -77,6 +77,9 @@
         cell=_jobcell;
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
+    jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:indexPath.row];
+    _jobsitelabel=(UILabel *)[cell viewWithTag:1];
+    _jobsitelabel.text=jbmdl.jobname;
     
     return cell;
 }
@@ -98,8 +101,8 @@
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
         
-        //        [self DeleteServices];
-        //        [_servicelistarray removeObject:indexPath];
+                [self DeleteJobSites];
+                [_jobsitelistarray removeObject:indexPath];
         
         
         
@@ -131,11 +134,23 @@
 {
     _addjobview.hidden=NO;
     _navItem.title=@"ADD";
+    optionidentifier=1;
 }
 -(IBAction)editjobs:(id)sender
 {
     _addjobview.hidden=NO;
     _navItem.title=@"EDIT";
+    optionidentifier=2;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.jobsitetable];
+    NSIndexPath *textFieldIndexPath = [self.jobsitetable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:textFieldIndexPath.row];
+    
+    _jobtextfld.text=jbmdl.jobname;
+
 }
 
 -(IBAction)closeaddjbview:(id)sender
@@ -164,6 +179,19 @@
 
     }
 }
+-(IBAction)updatejobs:(id)sender
+{
+    if(optionidentifier==1)
+    {
+         [self InsertJobSites];
+    }
+    else if(optionidentifier==2)
+    {
+        [self UpdateJobSites];
+    }
+   
+}
+
 #pragma mark- WebService
 -(void)SelectAllJobSites{
     recordresults = FALSE;
@@ -196,6 +224,211 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)DeleteJobSites
+{webtype=1;
+    recordresults = FALSE;
+    NSString *soapMessage;
+    jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:path];
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DeleteJobSites xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<id>%d</id>\n"
+                   "</DeleteJobSites>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jbmdl.jobid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteJobSites" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)InsertJobSites
+{
+    webtype=1;
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertJobSites xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<jobsitename>%@</jobsitename>\n"
+                   "</InsertJobSites>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_jobtextfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertJobSites" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UpdateJobSites
+{   webtype=1;
+    recordresults = FALSE;
+    NSString *soapMessage;
+    jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:btnindex];
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdateJobSites xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<id>%d</id>\n"
+                  "<jobsitename>%@</jobsitename>\n"
+                   "</UpdateJobSites>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jbmdl.jobid,_jobtextfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateJobSites" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SearchJobSite
+{
+    recordresults = FALSE;
+    NSString *soapMessage;
+   
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SearchJobSite xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<searchtext>%@</searchtext>\n"
+                   "</SearchJobSite>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SearchJobSite" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -247,13 +480,18 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_jobsitetable reloadData];
+    if(webtype==1)
+    {
+        [self SelectAllJobSites];
+        webtype=2;
+    }
     
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
-    if([elementName isEqualToString:@"SelectAllPhasesResult"])
+    if([elementName isEqualToString:@"SelectAllJobSitesResponse"])
     {
         _jobsitelistarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -264,7 +502,6 @@
     }
     if([elementName isEqualToString:@"Id"])
     {
-        _jobsitelistarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -273,6 +510,15 @@
     }
     if([elementName isEqualToString:@"JobSiteName"])
     {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"SearchJobSiteResult"])
+    {
         _jobsitelistarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
@@ -280,6 +526,8 @@
         }
         recordresults = TRUE;
     }
+
+    
    
 
 
@@ -302,24 +550,52 @@
 {
     if([elementName isEqualToString:@"Id"])
     {
-        //_phasemdl=[[phasesmodel alloc]init];
+        _jbmdl=[[jobsitemodel alloc]init];
         
         recordresults = FALSE;
         
-        //_phasemdl.idvalue=[_soapResults integerValue];
+        _jbmdl.jobid=[_soapResults integerValue];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"JobSiteName"])
     {
-        //_phasemdl=[[phasesmodel alloc]init];
         
         recordresults = FALSE;
         
-        //_phasemdl.idvalue=[_soapResults integerValue];
+        _jbmdl.jobname=_soapResults;
+        [_jobsitelistarray addObject:_jbmdl];
         _soapResults = nil;
     }
 
 }
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self SearchJobSite];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self SelectAllJobSites];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self SelectAllJobSites];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    [searchBar resignFirstResponder];
+    
+    
+}
+
 
 
 
