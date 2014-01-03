@@ -7,8 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Manpwr.h"
 
-@interface ConsumbleViewController : UIViewController
+@interface ConsumbleViewController : UIViewController{
+    BOOL   recordResults;
+    NSInteger butnpath;
+    NSInteger path;
+    NSInteger butntype;
+    UIButton *button;
+    NSInteger webtype;
+}
+
+
+@property (strong, nonatomic)Manpwr *Consublemdl;
+
+@property (strong, nonatomic)NSMutableArray *cnsumblearray;
+@property (strong, nonatomic)NSMutableArray *subtypearray;
+
 /*cell outlets*/
 
 @property (strong, nonatomic) IBOutlet UILabel *codelbl;
