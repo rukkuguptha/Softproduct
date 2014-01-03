@@ -93,7 +93,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" id="TRN-0s-w4D">
+                        <view hidden="YES" contentMode="scaleToFill" id="TRN-0s-w4D">
                             <rect key="frame" x="164" y="253" width="467" height="358"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
