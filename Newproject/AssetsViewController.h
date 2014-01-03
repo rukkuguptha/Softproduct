@@ -73,7 +73,7 @@ NSInteger popvr;
 
 @property (strong, nonatomic)NSString*searchstring;
 
-@property (strong, nonatomic) IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic) IBOutlet UISearchBar *SearchingBar;
 @property (strong, nonatomic) IBOutlet UITableViewCell *Assetcell;
 
 @property (strong, nonatomic) IBOutlet UIButton *typesearchlbl;
@@ -85,7 +85,7 @@ NSInteger popvr;
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
 - (IBAction)deletebtn:(id)sender;
-- (IBAction)typesearchbtn:(id)sender;
+//- (IBAction)typesearchbtn:(id)sender;
 
 - (IBAction)closebtn:(id)sender;
 - (IBAction)Addclosebtn:(id)sender;
