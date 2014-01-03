@@ -12,6 +12,7 @@
 {
     NSInteger path;
     NSInteger craft;
+    
 }
 
 
@@ -31,9 +32,17 @@
 
 /*IBAction in view*/
 -(IBAction)craftcheckaction:(id)sender;
+-(IBAction)selectcraft:(id)sender;
 
 /*IBOutlet in view*/
+@property(strong,nonatomic)IBOutlet UIButton *checkcraftbtn;
 @property(strong,nonatomic)IBOutlet UIButton *craftbtn;
+
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UIPopoverController *popOverController1;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
 
 
 @end
