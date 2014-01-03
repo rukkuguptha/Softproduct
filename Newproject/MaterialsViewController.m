@@ -233,6 +233,7 @@
     
 }
 -(void)InserteMaterials{
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -286,6 +287,7 @@
     
 }
 -(void)UpdateMaterials{
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -340,6 +342,7 @@
     
 }
 -(void)DeleteMaterials{
+    webtype=3;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -519,9 +522,9 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if (butntype==1||butntype==2||butntype==3) {
+    if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllMaterials];
-        butntype=0;
+        webtype=0;
     }
     [_materialTable reloadData];
   

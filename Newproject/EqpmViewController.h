@@ -14,6 +14,7 @@
     UIButton *button;
     NSInteger path;
     NSInteger deltepath;
+    NSInteger   webtype;
     
 }
 @property(strong,nonatomic)MdlEqmt *eqmdl;

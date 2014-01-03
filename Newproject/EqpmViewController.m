@@ -309,6 +309,7 @@
     
 }
 -(void)InsertEquipment{
+    webtype=1;
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
@@ -375,6 +376,7 @@
     
 }
 -(void)UpdateEquipment{
+    webtype=2;
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
@@ -442,6 +444,7 @@
     
 }
 -(void)DeleteEquipment{
+    webtype=3;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -573,9 +576,9 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if (btntype==1||btntype==2||btntype==3) {
+    if (webtype==1||webtype==2||webtype==3) {
         [self SelectAllEquipment];
-        btntype=0;
+      webtype=0;
     }
     [_equipmenttbl reloadData];
     [_popOverTableView reloadData];

@@ -15,6 +15,7 @@
     UIButton *button;
     NSInteger butnpath;
     NSInteger path;
+    NSInteger webtype;
     
 }
 
