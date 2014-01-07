@@ -23,6 +23,7 @@
 @property(strong,nonatomic)NSMutableArray *Searcharray;
 
 
+@property (strong, nonatomic) IBOutlet UITextField *stockinhndtxtfld;
 
 @property (strong, nonatomic)NSString*searchstring;
 

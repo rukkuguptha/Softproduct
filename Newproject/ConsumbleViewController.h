@@ -18,6 +18,7 @@
     NSInteger webtype;
 }
 
+@property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
 
 @property (strong, nonatomic)Manpwr *Consublemdl;
 

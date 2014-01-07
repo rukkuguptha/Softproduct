@@ -20,6 +20,9 @@
 @property (strong, nonatomic)Manpwr *Toolmdl;
 
 
+@property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
+
+
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;

@@ -11,6 +11,7 @@
                 <outlet property="codetxtfld" destination="dtT-Fq-5jh" id="xDN-Xa-NZp"/>
                 <outlet property="consumbleTable" destination="P72-P5-GSP" id="kV2-Es-ifg"/>
                 <outlet property="destxtfld" destination="eos-fc-019" id="2Vp-jo-Rzd"/>
+                <outlet property="stckinhandtxtfld" destination="VXI-BE-d84" id="Y49-TA-Xwt"/>
                 <outlet property="subsearchbtnlbl" destination="Ss7-wJ-SfJ" id="JTy-En-bcH"/>
                 <outlet property="subtyptxtfld" destination="6pB-EK-j6k" id="YoB-Sx-rCm"/>
                 <outlet property="titleView" destination="4y6-yL-p0C" id="hx5-hu-egI"/>
@@ -194,7 +195,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAf-kV-lVc">
-                                    <rect key="frame" x="346" y="306" width="67" height="30"/>
+                                    <rect key="frame" x="351" y="353" width="67" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -205,7 +206,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Apz-Cr-tJq">
-                                    <rect key="frame" x="190" y="306" width="126" height="30"/>
+                                    <rect key="frame" x="195" y="353" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update Materials">
@@ -226,6 +227,18 @@
                                         <action selector="subsearchbtn:" destination="-1" eventType="touchUpInside" id="MRF-Pe-me2"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stock In Hand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMa-UQ-c91">
+                                    <rect key="frame" x="20" y="260" width="103" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VXI-BE-d84">
+                                    <rect key="frame" x="17" y="281" width="203" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>

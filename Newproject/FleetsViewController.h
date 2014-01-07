@@ -26,6 +26,9 @@ NSInteger popvr;
 
 @property (strong, nonatomic)MdlEqmt *Fleetmdl;
 
+@property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
+
+
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

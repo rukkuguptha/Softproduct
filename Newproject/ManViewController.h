@@ -35,6 +35,7 @@
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
+@property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
 
 /*cell outlets*/

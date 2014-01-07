@@ -23,6 +23,9 @@
 
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *subtypearray;
+@property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
+
+
 
 /*cell outlets*/
 

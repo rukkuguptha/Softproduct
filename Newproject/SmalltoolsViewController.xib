@@ -14,6 +14,7 @@
                 <outlet property="destxtfld" destination="LfS-2o-ba2" id="LJC-3d-nbT"/>
                 <outlet property="navbar" destination="qXt-r3-Qxm" id="iko-vf-OAV"/>
                 <outlet property="navtitle" destination="TlW-Bk-oFh" id="B2U-OF-1tY"/>
+                <outlet property="stockinhandtxtfld" destination="0l4-wj-wMA" id="Zfv-ib-eKw"/>
                 <outlet property="subsearchbtnlbl" destination="p51-kM-tTJ" id="XGz-2R-8if"/>
                 <outlet property="subtypetxtfld" destination="Quj-to-UEC" id="5ax-Ow-lNK"/>
                 <outlet property="view" destination="9N2-uw-8vf" id="kgk-1I-Tsb"/>
@@ -194,7 +195,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ruw-Qs-grE">
-                                    <rect key="frame" x="337" y="310" width="67" height="30"/>
+                                    <rect key="frame" x="337" y="348" width="67" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -205,7 +206,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TP2-y0-BI6">
-                                    <rect key="frame" x="181" y="310" width="126" height="30"/>
+                                    <rect key="frame" x="181" y="348" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update Materials">
@@ -225,6 +226,18 @@
                                         <action selector="subsearchbtn:" destination="-1" eventType="touchUpInside" id="ODL-rv-Uej"/>
                                     </connections>
                                 </button>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Stock In Hand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qky-Xs-JfH">
+                                    <rect key="frame" x="20" y="242" width="99" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0l4-wj-wMA">
+                                    <rect key="frame" x="17" y="264" width="203" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>

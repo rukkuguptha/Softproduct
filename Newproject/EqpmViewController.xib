@@ -24,6 +24,7 @@
                 <outlet property="scroll_addview" destination="DWG-dw-H0K" id="K77-tr-ddr"/>
                 <outlet property="serialtxtfld" destination="7hL-xp-ohM" id="Eze-ql-HDc"/>
                 <outlet property="shiftwisetxtfld" destination="TVH-kP-s7b" id="kvY-oy-D2f"/>
+                <outlet property="stockinhndtxtfld" destination="8vF-9N-vYn" id="gaz-eI-Tzo"/>
                 <outlet property="subsearchlbl" destination="s1H-J5-kMU" id="N6Y-Rp-ZWk"/>
                 <outlet property="subtypetxtfld" destination="e1N-Vi-7qm" id="UR1-J5-z5x"/>
                 <outlet property="titleview" destination="3Du-ib-4yv" id="hoP-HQ-C1A"/>
@@ -338,7 +339,7 @@
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yearly Rate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yoR-Pa-gcA">
-                                            <rect key="frame" x="360" y="447" width="97" height="21"/>
+                                            <rect key="frame" x="367" y="447" width="97" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
@@ -405,6 +406,18 @@
                                                 <action selector="subsearch:" destination="-1" eventType="touchUpInside" id="b9l-n1-soJ"/>
                                             </connections>
                                         </button>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="8vF-9N-vYn">
+                                            <rect key="frame" x="367" y="519" width="194" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock In Hand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wNn-I2-Al7">
+                                            <rect key="frame" x="367" y="501" width="110" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </scrollView>
                             </subviews>

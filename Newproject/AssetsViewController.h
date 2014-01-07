@@ -23,6 +23,7 @@ NSInteger popvr;
 }
 
 @property (strong, nonatomic)MdlEqmt *Assetmdl;
+@property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
 
 
 /*popover*/

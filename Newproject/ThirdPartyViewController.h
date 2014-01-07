@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic)MdlEqmt *thirdpartymdl;
 
+@property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtdfld;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
