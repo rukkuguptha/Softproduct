@@ -101,8 +101,8 @@
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
         
-                [self DeleteJobSites];
-                [_jobsitelistarray removeObject:indexPath];
+        [self DeleteJobSites];
+        [_jobsitelistarray removeObject:indexPath];
         
         
         
@@ -164,19 +164,21 @@
 }
 -(IBAction)deletejobs:(id)sender
 {
-    if(self.editing)
-    {
+    
+    if (self.editing) {
         [super setEditing:NO animated:NO];
         [_jobsitetable setEditing:NO animated:NO];
         [_jobsitetable reloadData];
         
+        
+        
     }
-    else
-    {
+    
+    else{
         [super setEditing:YES animated:YES];
         [_jobsitetable setEditing:YES animated:YES];
         [_jobsitetable reloadData];
-
+        
     }
 }
 -(IBAction)updatejobs:(id)sender
@@ -184,10 +186,12 @@
     if(optionidentifier==1)
     {
          [self InsertJobSites];
+        _jobtextfld.text=@"";
     }
     else if(optionidentifier==2)
     {
         [self UpdateJobSites];
+        _jobtextfld.text=@"";
     }
    
 }
@@ -243,11 +247,12 @@
     
 }
 -(void)DeleteJobSites
-{   webtype=1;
+{
+    webtype=1;
     recordresults = FALSE;
     NSString *soapMessage;
     jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:path];
-
+    NSLog(@"%d",jbmdl.jobid);
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -483,7 +488,7 @@
     if(webtype==1)
     {
         [self SelectAllJobSites];
-        webtype=2;
+        webtype=0;
     }
     
 }
@@ -526,12 +531,7 @@
         }
         recordresults = TRUE;
     }
-
-    
-   
-
-
-
+        
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -566,6 +566,7 @@
         [_jobsitelistarray addObject:_jbmdl];
         _soapResults = nil;
     }
+    
 
 }
 #pragma mark-Searchbar

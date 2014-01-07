@@ -65,7 +65,7 @@
     if (!self.folderrightVCtrl) {
         self.folderrightVCtrl=[[folderrightsViewController alloc]initWithNibName:@"folderrightsViewController" bundle:nil];
     }
-    _folderrightVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    _folderrightVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_folderrightVCtrl
                        animated:YES completion:NULL];
 }

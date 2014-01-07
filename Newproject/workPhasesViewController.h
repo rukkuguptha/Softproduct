@@ -19,6 +19,7 @@
     NSInteger optionIdentifier;
     UIButton *button;
     NSInteger btnindex;
+    NSString *checkstring;
     
 }
 @property(strong,nonatomic)NSString *unitstring;

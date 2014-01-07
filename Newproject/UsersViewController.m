@@ -570,15 +570,20 @@
     if(optionIdentifier==1)
     {
         [self InsertUsers];
+        _usrnametextfld.text=@"";
+        _pswdtextfld.text=@"";
     }
     else if(optionIdentifier==2)
     {
         [self UpdateUsers];
+        _usrnametextfld.text=@"";
+        _pswdtextfld.text=@"";
     }
 }
 -(IBAction)cancel:(id)sender
 {
-    
+    _usrnametextfld.text=@"";
+    _pswdtextfld.text=@"";
 }
 
 #pragma mark-Searchbar
@@ -604,7 +609,7 @@
         
         
     }
-    [searchBar resignFirstResponder];
+    //[searchBar resignFirstResponder];
     
     
 }
