@@ -75,7 +75,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [[NSBundle mainBundle]loadNibNamed:@"customjobcell" owner:self options:nil];
         cell=_jobcell;
-        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+//        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:indexPath.row];
     _jobsitelabel=(UILabel *)[cell viewWithTag:1];
@@ -88,12 +88,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (!self.jbdetailVCtrl) {
-        self.jbdetailVCtrl=[[jobdetailsViewController alloc]initWithNibName:@"jobdetailsViewController" bundle:nil];
-    }
-    _jbdetailVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_jbdetailVCtrl
-                       animated:YES completion:NULL];
+//    if (!self.jbdetailVCtrl) {
+//        self.jbdetailVCtrl=[[jobdetailsViewController alloc]initWithNibName:@"jobdetailsViewController" bundle:nil];
+//    }
+//    _jbdetailVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+//    [self presentViewController:_jbdetailVCtrl
+//                       animated:YES completion:NULL];
     
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -243,7 +243,7 @@
     
 }
 -(void)DeleteJobSites
-{webtype=1;
+{   webtype=1;
     recordresults = FALSE;
     NSString *soapMessage;
     jobsitemodel*jbmdl=(jobsitemodel *)[_jobsitelistarray objectAtIndex:path];
