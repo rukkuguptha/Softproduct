@@ -708,7 +708,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
         
     }
-    [searchBar resignFirstResponder];
+   // [searchBar resignFirstResponder];
     
     
 }
