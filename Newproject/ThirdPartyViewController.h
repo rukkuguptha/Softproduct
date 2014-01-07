@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MdlEqmt.h"
+#import "Equpmntmdl.h"
 
 @interface ThirdPartyViewController : UIViewController{
     BOOL recordResults ;
@@ -22,7 +22,7 @@
     
 }
 
-@property (strong, nonatomic)MdlEqmt *thirdpartymdl;
+@property (strong, nonatomic)Equpmntmdl *thirdpartymdl;
 
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtdfld;
 

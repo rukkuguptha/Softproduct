@@ -99,8 +99,8 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
+		D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41377C6187BD59200156A92 /* Equpmntmdl.m */; };
 		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
-		D41404D0187296660067F71A /* MdlEqmt.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404CF187296660067F71A /* MdlEqmt.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = D4399EB9186D74BB00A693F7 /* Manpwr.m */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
@@ -305,10 +305,10 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
+		D41377C5187BD59200156A92 /* Equpmntmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equpmntmdl.h; sourceTree = "<group>"; };
+		D41377C6187BD59200156A92 /* Equpmntmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equpmntmdl.m; sourceTree = "<group>"; };
 		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
 		D41404C9187294700067F71A /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
-		D41404CE187296660067F71A /* MdlEqmt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MdlEqmt.h; sourceTree = "<group>"; };
-		D41404CF187296660067F71A /* MdlEqmt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MdlEqmt.m; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D4399EB8186D74BB00A693F7 /* Manpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manpwr.h; sourceTree = "<group>"; };
 		D4399EB9186D74BB00A693F7 /* Manpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manpwr.m; sourceTree = "<group>"; };
@@ -692,8 +692,6 @@
 				D48B608317F98CFC001A53C8 /* Coursemdl.m */,
 				D4399EB8186D74BB00A693F7 /* Manpwr.h */,
 				D4399EB9186D74BB00A693F7 /* Manpwr.m */,
-				D41404CE187296660067F71A /* MdlEqmt.h */,
-				D41404CF187296660067F71A /* MdlEqmt.m */,
 				D41404C8187294700067F71A /* Servicemdl.h */,
 				D41404C9187294700067F71A /* Servicemdl.m */,
 				642F93091872B6A80059101A /* allfolderrights.h */,
@@ -706,6 +704,8 @@
 				64A14D81187573B50028B43A /* basicreqmdl.m */,
 				649EA38418769D96006651E6 /* jobsitemodel.h */,
 				649EA38518769D96006651E6 /* jobsitemodel.m */,
+				D41377C5187BD59200156A92 /* Equpmntmdl.h */,
+				D41377C6187BD59200156A92 /* Equpmntmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -915,7 +915,6 @@
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
-				D41404D0187296660067F71A /* MdlEqmt.m in Sources */,
 				D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,
@@ -924,6 +923,7 @@
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
+				D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */,
 				642F9306187299400059101A /* ServiceViewController.m in Sources */,
 				64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,

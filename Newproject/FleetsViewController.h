@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MdlEqmt.h"
+#import "Equpmntmdl.h"
 
 @interface FleetsViewController : UIViewController{
 
@@ -24,7 +24,7 @@ NSInteger popvr;
 
 }
 
-@property (strong, nonatomic)MdlEqmt *Fleetmdl;
+@property (strong, nonatomic)Equpmntmdl *Fleetmdl;
 
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 

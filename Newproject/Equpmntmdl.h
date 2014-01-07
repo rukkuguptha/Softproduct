@@ -1,14 +1,14 @@
 //
-//  MdlEqmt.h
+//  Equpmntmdl.h
 //  Newproject
 //
-//  Created by GMSIndia1 on 12/31/13.
-//  Copyright (c) 2013 GMSIndia1. All rights reserved.
+//  Created by GMSIndia1 on 1/7/14.
+//  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface MdlEqmt : NSObject
+@interface Equpmntmdl : NSObject
 @property(readwrite)NSInteger entryid;
 @property(strong,nonatomic)NSString*itemcode;
 @property(strong,nonatomic)NSString*itemdescptn;

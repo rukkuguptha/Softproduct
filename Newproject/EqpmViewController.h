@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MdlEqmt.h"
+#import "Equpmntmdl.h"
 @interface EqpmViewController : UIViewController{
       BOOL recordResults;
     NSInteger btntype;
@@ -17,7 +17,7 @@
     NSInteger   webtype;
     
 }
-@property(strong,nonatomic)MdlEqmt *eqmdl;
+@property(strong,nonatomic)Equpmntmdl *eqmdl;
 @property(strong,nonatomic)NSMutableArray *Equpntarray;
 @property(strong,nonatomic)NSMutableArray *Subtypearray;
 @property(strong,nonatomic)NSMutableArray *Searcharray;

@@ -169,7 +169,7 @@
         cell.textLabel.text=[_Subtypearray objectAtIndex:indexPath.row];
     }
     if(tableView==_equipmenttbl){
-    MdlEqmt*eqmdl=(MdlEqmt *)[_Equpntarray objectAtIndex:indexPath.row];
+  Equpmntmdl *eqmdl=(Equpmntmdl*)[_Equpntarray objectAtIndex:indexPath.row];
     _codelbl=(UILabel *)[cell viewWithTag:1];
     _codelbl.text=eqmdl.itemcode;
     _desclbl=(UILabel *)[cell viewWithTag:2];
@@ -380,7 +380,7 @@
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
-      MdlEqmt*eqmdl=(MdlEqmt *)[_Equpntarray objectAtIndex:path];
+    Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -448,7 +448,7 @@
     recordResults = FALSE;
     NSString *soapMessage;
     
-    MdlEqmt*eqmdl=(MdlEqmt *)[_Equpntarray objectAtIndex:deltepath];
+  Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:deltepath];
 
     soapMessage = [NSString stringWithFormat:
                    
@@ -834,7 +834,7 @@
     if([elementName isEqualToString:@"EntryId"])
     {
         
-        _eqmdl=[[MdlEqmt alloc]init];
+        _eqmdl=[[Equpmntmdl alloc]init];
         recordResults = FALSE;
         
         _eqmdl.entryid=[_soapResults integerValue];
@@ -1043,7 +1043,7 @@
     NSIndexPath *textFieldIndexPath = [self.equipmenttbl indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
    path=textFieldIndexPath.row;
-   MdlEqmt*eqmdl=(MdlEqmt *)[_Equpntarray objectAtIndex:textFieldIndexPath.row];
+ Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:textFieldIndexPath.row];
     _codetxfld.text=eqmdl.itemcode;
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;

@@ -287,7 +287,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
-    MdlEqmt*Thrdprty=(MdlEqmt *)[_thirdprtyarray objectAtIndex:path];
+   Equpmntmdl*Thrdprty=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -357,7 +357,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     recordResults = FALSE;
     NSString *soapMessage;
     
-    MdlEqmt*eqmdl=(MdlEqmt *)[_thirdprtyarray objectAtIndex:deltepath];
+   Equpmntmdl*eqmdl=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:deltepath];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -762,7 +762,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     if([elementName isEqualToString:@"EntryId"])
     {
         
-        _thirdpartymdl=[[MdlEqmt alloc]init];
+        _thirdpartymdl=[[Equpmntmdl alloc]init];
         recordResults = FALSE;
         
     _thirdpartymdl.entryid=[_soapResults integerValue];
@@ -966,7 +966,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
          }
     }
     if(tableView==_thirdprtyTable){
-        MdlEqmt*eqmdl=(MdlEqmt *)[_thirdprtyarray objectAtIndex:indexPath.row];
+      Equpmntmdl*eqmdl=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:indexPath.row];
         _codelbl=(UILabel *)[cell viewWithTag:1];
         _codelbl.text=eqmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
@@ -1138,7 +1138,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnpath=textFieldIndexPath.row;
   
-    MdlEqmt*eqmdl=(MdlEqmt *)[_thirdprtyarray objectAtIndex:textFieldIndexPath.row];
+  Equpmntmdl*eqmdl=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:textFieldIndexPath.row];
     
     _codetxtfld.text=eqmdl.itemcode;
     NSLog(@"%@",eqmdl.itemcode);

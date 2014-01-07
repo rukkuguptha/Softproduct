@@ -168,7 +168,7 @@
         cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
     }
     if(tableView==_AssetTable){
-        MdlEqmt*eqmdl=(MdlEqmt *)[_Assetarray objectAtIndex:indexPath.row];
+      Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:indexPath.row];
         _codelbl=(UILabel *)[cell viewWithTag:1];
         _codelbl.text=eqmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
@@ -379,7 +379,7 @@
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
-    MdlEqmt*eqmdl=(MdlEqmt *)[_Assetarray objectAtIndex:path];
+  Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -447,7 +447,7 @@
     recordResults = FALSE;
     NSString *soapMessage;
     
-    MdlEqmt*eqmdl=(MdlEqmt *)[_Assetarray objectAtIndex:deltepath];
+  Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:deltepath];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -835,7 +835,7 @@
     if([elementName isEqualToString:@"EntryId"])
     {
         
-        _Assetmdl=[[MdlEqmt alloc]init];
+        _Assetmdl=[[Equpmntmdl alloc]init];
         recordResults = FALSE;
         
         _Assetmdl.entryid=[_soapResults integerValue];
@@ -1056,7 +1056,7 @@
     NSIndexPath *textFieldIndexPath = [self.AssetTable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     path=textFieldIndexPath.row;
-    MdlEqmt*eqmdl=(MdlEqmt *)[_Assetarray objectAtIndex:textFieldIndexPath.row];
+   Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:textFieldIndexPath.row];
     _codetxtfld.text=eqmdl.itemcode;
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;

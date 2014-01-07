@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MdlEqmt.h"
+#import "Equpmntmdl.h"
 
 @interface AssetsViewController : UIViewController{
 BOOL recordResults ;
@@ -22,7 +22,7 @@ NSInteger popvr;
 
 }
 
-@property (strong, nonatomic)MdlEqmt *Assetmdl;
+@property (strong, nonatomic)Equpmntmdl *Assetmdl;
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
 
 
