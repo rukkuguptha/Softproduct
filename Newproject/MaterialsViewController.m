@@ -588,7 +588,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchMaterialsResult"])
+    if([elementName isEqualToString:@"SearchMaterialsResponse"])
     {
          _materialarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

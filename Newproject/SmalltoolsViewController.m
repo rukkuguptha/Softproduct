@@ -509,7 +509,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchSmallToolsResult"])
+    if([elementName isEqualToString:@"SearchSmallToolsResponse"])
     {
         _toolarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

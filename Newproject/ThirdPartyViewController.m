@@ -719,7 +719,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"SearchThirdPartyResult"])
+    if([elementName isEqualToString:@"SearchThirdPartyResponse"])
     {
         _thirdprtyarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

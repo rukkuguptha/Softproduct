@@ -323,7 +323,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertEquipment xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<InsertEquipment xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ItemCode>%@</ItemCode>\n"
                    "<Description>%@</Description>\n"
                    "<SubType>%@</SubType>\n"
@@ -791,7 +791,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchEquipmentResult"])
+    if([elementName isEqualToString:@"SearchEquipmentResponse"])
     {
         _Equpntarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

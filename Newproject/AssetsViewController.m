@@ -792,7 +792,7 @@
         recordResults = TRUE;
     }
   
-    if([elementName isEqualToString:@"SearchOtherResult"])
+    if([elementName isEqualToString:@"SearchOtherResponse"])
     {
         _Assetarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

@@ -660,7 +660,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchManpowerResult"])
+    if([elementName isEqualToString:@"SearchManpowerResponse"])
     {
           _Allmanpwrarry=[[NSMutableArray alloc]init];
        
@@ -671,7 +671,25 @@
         recordResults = TRUE;
     }
 
-    
+    if([elementName isEqualToString:@"UpdateManpowerResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"InsertManpowerResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -753,6 +771,13 @@
         recordResults = FALSE;
         [_subtypearray addObject:_soapResults];
          _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+       
+        _soapResults = nil;
     }
 
 
@@ -862,6 +887,12 @@
 }
 
 - (IBAction)cancel:(id)sender {
+    _itemcodetxtfld.text=@"";
+    
+    _itemdestxtfld.text=@"";
+    _subtypetxtfld.text=@"";
+    _unitcosttxtfld.text=@"";
+
 }
 
 - (IBAction)deletebtn:(id)sender {

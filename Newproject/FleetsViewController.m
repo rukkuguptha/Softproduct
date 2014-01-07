@@ -793,7 +793,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SearchfleetResult"])
+    if([elementName isEqualToString:@"SearchfleetResponse"])
     {
         _fleetarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

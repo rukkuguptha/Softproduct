@@ -508,7 +508,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchConsumablesResult"])
+    if([elementName isEqualToString:@"SearchConsumablesResponse"])
     {
            _cnsumblearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
