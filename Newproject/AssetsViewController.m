@@ -1033,7 +1033,7 @@
     
     btntype=1;
     _addview.hidden=NO;
-    _navitem.title=@"ADD";
+    _navItem.title=@"ADD";
 }
 
 
@@ -1075,7 +1075,7 @@
     _yearlytxtfld.text=eqmdl.YearlyRate;
     
     _addview.hidden=NO;
-    _navitem.title=@"EDIT";
+    _navItem.title=@"EDIT";
     
 }
 

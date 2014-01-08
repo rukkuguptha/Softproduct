@@ -776,6 +776,15 @@
     {
         
         recordResults = FALSE;
+        _itemcodetxtfld.text=@"";
+        
+        _itemdestxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _unitcosttxtfld.text=@"";
+        _stockinhandtxtfld.text=@"";
+        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        checkbtnclick=0;
+
        
         _soapResults = nil;
     }
@@ -892,6 +901,10 @@
     _itemdestxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _unitcosttxtfld.text=@"";
+    _stockinhandtxtfld.text=@"";
+    [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    checkbtnclick=0;
+
 
 }
 

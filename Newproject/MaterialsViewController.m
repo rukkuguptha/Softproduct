@@ -527,6 +527,7 @@
         webtype=0;
     }
     [_materialTable reloadData];
+    [_popOverTableView reloadData];
   
     
     
@@ -719,6 +720,8 @@
 - (IBAction)subsearchbtn:(id)sender {
     [self createpopover];
     [self SelectAllSubtypeMaterial];
+    
+    
 }
 
 - (IBAction)updatebtn:(id)sender {
