@@ -20,7 +20,7 @@
                 <outlet property="manufattxtfld" destination="acY-8Z-UKy" id="s6H-xT-oey"/>
                 <outlet property="monthlytxtfld" destination="Lbo-eC-hDh" id="Y2P-s5-6B3"/>
                 <outlet property="navbar" destination="I6j-T7-5Yh" id="Hxb-WM-nJE"/>
-                <outlet property="navitem" destination="Qmy-ZO-PgD" id="W0I-i3-AzE"/>
+                <outlet property="navitem" destination="qI5-MM-Mmh" id="hzH-nq-Q7k"/>
                 <outlet property="purchasetxtfld" destination="9Rb-V5-Fvj" id="t8q-JG-SXE"/>
                 <outlet property="serialtxtfld" destination="aaH-K5-TUU" id="bZv-P9-k0e"/>
                 <outlet property="shiftwisetxtfld" destination="cFd-a1-8Je" id="fds-85-uld"/>
@@ -373,11 +373,10 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BL7-x6-gLH">
-                                            <rect key="frame" x="421" y="649" width="88" height="30"/>
+                                            <rect key="frame" x="320" y="649" width="88" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <state key="normal" title="Cancel">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -385,11 +384,10 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yJg-A9-aZc">
-                                            <rect key="frame" x="249" y="649" width="130" height="30"/>
+                                            <rect key="frame" x="155" y="649" width="130" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Update Equipment">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Update Fleets">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>

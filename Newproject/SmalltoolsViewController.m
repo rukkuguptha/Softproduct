@@ -770,6 +770,12 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 }
 
 - (IBAction)cancelbtn:(id)sender {
+    _codetxtfld.text=@"";
+    
+    _destxtfld.text=@"";
+    _subtypetxtfld.text=@"";
+    _costtxtfld.text=@"";
+
 }
 
 - (IBAction)subsearchbtn:(id)sender {

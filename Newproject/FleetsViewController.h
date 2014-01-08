@@ -42,7 +42,8 @@ NSInteger popvr;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UIView *view1;
 @property (strong, nonatomic) IBOutlet UIView *addview;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *navitem;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navitem;
+
 
 @property (strong, nonatomic) NSMutableArray *fleetarray;
 @property (strong, nonatomic)NSMutableArray *subtypearray;

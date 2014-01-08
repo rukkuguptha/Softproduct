@@ -11,6 +11,7 @@
                 <outlet property="codetxtfld" destination="dtT-Fq-5jh" id="xDN-Xa-NZp"/>
                 <outlet property="consumbleTable" destination="P72-P5-GSP" id="kV2-Es-ifg"/>
                 <outlet property="destxtfld" destination="eos-fc-019" id="2Vp-jo-Rzd"/>
+                <outlet property="navItem" destination="MLX-w7-g9T" id="9eA-rU-DXB"/>
                 <outlet property="stckinhandtxtfld" destination="VXI-BE-d84" id="Y49-TA-Xwt"/>
                 <outlet property="subsearchbtnlbl" destination="Ss7-wJ-SfJ" id="JTy-En-bcH"/>
                 <outlet property="subtyptxtfld" destination="6pB-EK-j6k" id="YoB-Sx-rCm"/>
@@ -209,7 +210,7 @@
                                     <rect key="frame" x="195" y="353" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Update Materials">
+                                    <state key="normal" title="Update Consumbles">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>

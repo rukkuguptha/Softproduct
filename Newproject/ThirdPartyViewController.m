@@ -1095,6 +1095,25 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
 }
 
 - (IBAction)cancelbtn:(id)sender {
+    _codetxtfld.text=@"";
+    _destxtfld.text=@"";
+    _subtypetxtfld.text=@"";
+    _purchasetxtfld.text=@"";
+    _serialtxtfld.text=@"";
+    _manufattxtfld.text =@"";
+    _insuredtxtfld.text=@"";
+    _hurstxtfld.text=@"";
+    _fueltxtfld.text=@"";
+    _condtntxtfld.text=@"";
+    _hurlytxtfld.text=@"";
+    _dailytxtfld.text=@"";
+    _shiftwisetxtfld.text=@"";
+    _weeklytxtfld.text=@"";
+    _monthlytxtfld.text=@"";
+    _yearlytxtfld.text=@"";
+    _typetxtfld.text=@"";
+    _unitcsttxtfld.text=@"";
+
     
 }
 

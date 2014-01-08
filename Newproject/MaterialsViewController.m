@@ -736,6 +736,11 @@
    }
 
 - (IBAction)cancelbtn:(id)sender {
+    _codetxtfld.text=@"";
+    
+    _destxtfld.text=@"";
+    _subtyptxtfld.text=@"";
+    _unitcosttxtfld.text=@"";
 }
 
 - (IBAction)deletebtn:(id)sender {

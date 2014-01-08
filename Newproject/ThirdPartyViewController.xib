@@ -19,7 +19,7 @@
                 <outlet property="manufattxtfld" destination="NWu-E7-HTq" id="Afa-Aa-3A0"/>
                 <outlet property="monthlytxtfld" destination="UyH-k8-VGW" id="be0-bg-3XM"/>
                 <outlet property="navbar" destination="4Ct-jO-JUx" id="7vc-Ha-FdI"/>
-                <outlet property="navitem" destination="n89-Dw-7qL" id="1Wn-TB-GWr"/>
+                <outlet property="navitem" destination="aoK-Me-RXu" id="3x3-ZO-3Dw"/>
                 <outlet property="purchasetxtfld" destination="h8g-Hd-0Gq" id="JTo-DI-kE8"/>
                 <outlet property="serialtxtfld" destination="Kh9-f8-cK5" id="cB8-2h-Ekz"/>
                 <outlet property="shiftwisetxtfld" destination="hcs-Je-QBb" id="4fd-6A-SjG"/>
@@ -386,7 +386,6 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <state key="normal" title="Cancel">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -397,8 +396,7 @@
                                             <rect key="frame" x="123" y="657" width="130" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Update Equipment">
-                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Update ThirdParty">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>

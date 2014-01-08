@@ -1093,6 +1093,23 @@
 }
 
 - (IBAction)cancelbtn:(id)sender {
+    _codetxtfld.text=@"";
+    _destxtfld.text=@"";
+    _subtypetxtfld.text=@"";
+    _purchasetxtfld.text=@"";
+    _serialtxtfld.text=@"";
+    _manufattxtfld.text =@"";
+    _insuredtxtfld.text=@"";
+    _hurstxtfld.text=@"";
+    _fueltxtfld.text=@"";
+    _condtntxtfld.text=@"";
+    _hurlytxtfld.text=@"";
+    _dailytxtfld.text=@"";
+    _shiftwisetxtfld.text=@"";
+    _weeklytxtfld.text=@"";
+    _monthlytxtfld.text=@"";
+    _yearlytxtfld.text=@"";
+
 }
 
 @end
