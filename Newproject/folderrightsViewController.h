@@ -57,5 +57,6 @@
 -(IBAction)upldaction:(id)sender;
 -(IBAction)dwnldaction:(id)sender;
 -(IBAction)updatefolderrights:(id)sender;
+-(IBAction)cancel:(id)sender;
 
 @end

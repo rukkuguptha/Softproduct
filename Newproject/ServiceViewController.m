@@ -157,18 +157,21 @@
     _addserview.hidden=YES;
 }
 -(IBAction)updateservice:(id)sender
-{if(optionidentifier==1)
+{
+    if(optionidentifier==1)
 {
     [self InsertServices];
+    _servicetextfld.text=@"";
 }
     else if(optionidentifier==2)
     {
         [self UpdateServices];
+        _servicetextfld.text=@"";
     }
 }
 -(IBAction)cancelservice:(id)sender
 {
-    
+    _servicetextfld.text=@"";
 }
 -(IBAction)deleteservices:(id)sender
 {
@@ -590,7 +593,7 @@
         
         
     }
-    [searchBar resignFirstResponder];
+    //[searchBar resignFirstResponder];
     
     
 }

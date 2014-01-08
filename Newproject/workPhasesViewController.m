@@ -251,19 +251,32 @@
     if(optionIdentifier==1)
     {
     [self InsertPhases];
+        _phasetextfld.text=@"";
+         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_servicebtn setTitle:@"" forState:UIControlStateNormal];
+        [_phasebtn setTitle:@"" forState:UIControlStateNormal];
+        
     }
     else if(optionIdentifier==2)
     {
         [self UpdatePhases];
+        _phasetextfld.text=@"";
+         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_servicebtn setTitle:@"" forState:UIControlStateNormal];
+         [_phasebtn setTitle:@"" forState:UIControlStateNormal];
     }
 }
 -(IBAction)cancel_phases:(id)sender
 {
+    _phasetextfld.text=@"";
+    [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_servicebtn setTitle:@"" forState:UIControlStateNormal];
+     [_phasebtn setTitle:@"" forState:UIControlStateNormal];
     
 }
 
 -(IBAction)parentbtn:(id)sender
-{
+{ checkstring=@"clicked";
     if (parentcheck==0) {
         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         _phasebtn.enabled=NO;
@@ -594,17 +607,24 @@
     NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
     NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
     NSInteger parnt;
-    
-    if (parentcheck==0) {
-        parnt=0;
-    }
-    else{
-        parnt=1;
-        phid=0;
-        
-        
-    }
     phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:btnindex];
+    if([checkstring isEqualToString:@"clicked"])
+    {
+        if (parentcheck==0) {
+            parnt=0;
+        }
+        else{
+            parnt=1;
+            phid=0;
+        }
+        checkstring=@"";
+        
+    }
+    
+    else
+    {
+        parnt=phmdl.parent;
+    }
     
     recordresults = FALSE;
     NSString *soapMessage;
@@ -1119,7 +1139,7 @@
         
         
     }
-         [searchBar resignFirstResponder];
+         //[searchBar resignFirstResponder];
     
     
 }
