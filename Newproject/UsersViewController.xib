@@ -26,18 +26,18 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="cQK-V5-3nm">
-                            <rect key="frame" x="27" y="25" width="702" height="959"/>
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="1004"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <navigationBar contentMode="scaleToFill" id="nHP-OB-ga8">
-                            <rect key="frame" x="31" y="28" width="693" height="44"/>
+                            <rect key="frame" x="2" y="2" width="763" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Users" id="cM1-bE-MWt">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="QIs-0K-YbK">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sCu-ow-ruD">
-                                            <rect key="frame" x="637" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="707" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -65,7 +65,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xdz-Ah-4Mu">
-                                    <rect key="frame" x="8" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="13" y="5" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.addblack.png">
@@ -82,7 +82,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1cs-AC-uR8">
-                                    <rect key="frame" x="80" y="-1" width="50" height="50"/>
+                                    <rect key="frame" x="73" y="5" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.delete.png">
