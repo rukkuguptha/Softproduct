@@ -30,7 +30,7 @@
     [super viewDidLoad];
     [self SelectAllEquipment];
     _scroll_addview.frame=CGRectMake(0, 0, 619,713);
-    [_scroll_addview setContentSize:CGSizeMake(619,820)];
+    [_scroll_addview setContentSize:CGSizeMake(619,1000)];
     _equipmenttbl.layer.borderWidth = 2.0;
     _equipmenttbl.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
