@@ -519,7 +519,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchServicesResult"])
+    if([elementName isEqualToString:@"SearchServicesResponse"])
     {
         _servicelistarray=[[NSMutableArray alloc]init];
         

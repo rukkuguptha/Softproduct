@@ -51,7 +51,7 @@
                             </items>
                         </navigationBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="MbE-Ix-RZA">
-                            <rect key="frame" x="88" y="152" width="598" height="798"/>
+                            <rect key="frame" x="84" y="121" width="598" height="798"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -60,7 +60,7 @@
                             </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="A1s-MY-pyW">
-                            <rect key="frame" x="88" y="103" width="598" height="48"/>
+                            <rect key="frame" x="84" y="72" width="598" height="48"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LFp-Rr-XG3">
@@ -154,6 +154,9 @@
                                     <state key="normal" title="Cancel">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="YH0-86-vtd"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

@@ -18,6 +18,9 @@
     UIButton *button;
     NSInteger btnindex;
     NSInteger webtype;
+    NSString *createstring;
+    NSString *upldstring;
+    NSString *dwnldstring;
 
 }
 
