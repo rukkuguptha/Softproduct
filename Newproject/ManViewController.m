@@ -88,6 +88,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
           cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+           cell.textLabel.font=[UIFont systemFontOfSize:12];
         if(tableView==_manpowerTable){
         [[NSBundle mainBundle]loadNibNamed:@"custommanapowercell" owner:self options:nil];
         cell=_manpowecell;
@@ -901,8 +902,7 @@
     _itemdestxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _unitcosttxtfld.text=@"";
-    _stockinhandtxtfld.text=@"";
-    [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+       [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     checkbtnclick=0;
 
 

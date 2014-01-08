@@ -160,6 +160,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+           cell.textLabel.font=[UIFont systemFontOfSize:12];
         if(tableView==_fleetTable){
             [[NSBundle mainBundle]loadNibNamed:@"FleetCell" owner:self options:nil];
             cell=_fleetcell;

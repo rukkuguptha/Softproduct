@@ -636,6 +636,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+           cell.textLabel.font=[UIFont systemFontOfSize:12];
         
         if (tableView==_Tooltable) {
             [[NSBundle mainBundle]loadNibNamed:@"Smalltoolcell" owner:self options:nil];

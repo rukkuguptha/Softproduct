@@ -131,6 +131,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font=[UIFont systemFontOfSize:12];
 
           if (tableView==_materialTable) {
         [[NSBundle mainBundle]loadNibNamed:@"custommaterialcell" owner:self options:nil];
