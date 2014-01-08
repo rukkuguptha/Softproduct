@@ -457,7 +457,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchUsersResult"])
+    if([elementName isEqualToString:@"SearchUsersResponse"])
     {
         _userlistarray=[[NSMutableArray alloc]init];
         if(!_soapResults)

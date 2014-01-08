@@ -181,6 +181,11 @@
         
     }
 }
+-(IBAction)cancel:(id)sender
+{
+    _jobtextfld.text=@"";
+}
+
 -(IBAction)updatejobs:(id)sender
 {
     if(optionidentifier==1)
@@ -522,7 +527,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"SearchJobSiteResult"])
+    if([elementName isEqualToString:@"SearchJobSiteResponse"])
     {
         _jobsitelistarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -592,7 +597,7 @@
         
         
     }
-    [searchBar resignFirstResponder];
+    //[searchBar resignFirstResponder];
     
     
 }

@@ -41,6 +41,7 @@
 /*IBActions in addview*/
 -(IBAction)closeaddjbview:(id)sender;
 -(IBAction)updatejobs:(id)sender;
+-(IBAction)cancel:(id)sender;
 /*IBOutlets in view*/
 @property(strong,nonatomic)IBOutlet UITextField *jobtextfld;
 

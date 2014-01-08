@@ -270,7 +270,7 @@
 {
     _phasetextfld.text=@"";
     [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-    [_servicebtn setTitle:@"" forState:UIControlStateNormal];
+     [_servicebtn setTitle:@"" forState:UIControlStateNormal];
      [_phasebtn setTitle:@"" forState:UIControlStateNormal];
     
 }
@@ -619,6 +619,7 @@
         }
         checkstring=@"";
         
+        
     }
     
     else
@@ -961,7 +962,7 @@
         recordresults = TRUE;
     }
 
-    if([elementName isEqualToString:@"SearchPhasesResult"])
+    if([elementName isEqualToString:@"SearchPhasesResponse"])
     {
         _workphasesarray=[[NSMutableArray alloc]init];
 

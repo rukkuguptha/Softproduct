@@ -175,7 +175,7 @@
     _editview.hidden=YES;
 }
 -(IBAction)createaction:(id)sender
-{
+{ createstring=@"create";
     if (createcheck==0) {
         [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         createcheck=1;
@@ -191,6 +191,7 @@
 }
 -(IBAction)upldaction:(id)sender
 {
+    upldstring=@"upld";
     if (uploadcheck==0) {
         [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         uploadcheck=1;
@@ -206,6 +207,7 @@
 }
 -(IBAction)dwnldaction:(id)sender
 {
+    dwnldstring=@"dwld";
     if (dwnlodcheck==0) {
         [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         dwnlodcheck=1;
@@ -292,7 +294,8 @@
     NSInteger create;
     NSInteger upld;
     NSInteger dwnld;
-    
+    if([createstring isEqualToString:@"create"])
+    {
     if (createcheck==0) {
         create=0;
     }
@@ -300,6 +303,14 @@
         create=1;
         
     }
+      createstring=@"";
+    }
+    else
+    {
+        create=mdl.create;
+    }
+     if([upldstring isEqualToString:@"upld"])
+     {
     if (uploadcheck==0) {
         upld=0;
     }
@@ -307,12 +318,26 @@
         upld=1;
         
     }
+         upldstring=@"";
+     }
+    else
+    {
+        upld=mdl.upload;
+    }
+    if([dwnldstring isEqualToString:@"dwld"])
+    {
     if (dwnlodcheck==0) {
         dwnld=0;
     }
     else{
         dwnld=1;
         
+    }
+        dwnldstring=@"";
+    }
+    else
+    {
+        dwnld=mdl.dwnld;
     }
 
 
