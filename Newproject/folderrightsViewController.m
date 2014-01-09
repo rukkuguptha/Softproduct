@@ -66,7 +66,7 @@
         cell=_folderrightscell;
     }
     allfolderrights*fldrrghtsmdl=(allfolderrights *)[_allfolderrightsarray objectAtIndex:indexPath.row];
-    _namelabel=(UILabel *)[cell viewWithTag:0];
+    _namelabel=(UILabel *)[cell viewWithTag:5];
     _namelabel.text=fldrrghtsmdl.username;
     _createcheckbtn=(UIButton*)[cell viewWithTag:1];
     _upldcheckbtn=(UIButton*)[cell viewWithTag:2];

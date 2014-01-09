@@ -135,6 +135,8 @@
     _addjobview.hidden=NO;
     _navItem.title=@"ADD";
     optionidentifier=1;
+    _jobtextfld.text=@"";
+
 }
 -(IBAction)editjobs:(id)sender
 {
