@@ -14,6 +14,7 @@
 @property(strong,nonatomic)NSString*itemdescptn;
 @property(strong,nonatomic)NSString*subtype;
 @property(strong,nonatomic)NSString*unitcost;
+@property(strong,nonatomic)NSString*stckinhand;
  @property(readwrite)NSInteger overhead;
 
 @end

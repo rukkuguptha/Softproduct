@@ -30,6 +30,8 @@
 @property(strong,nonatomic)NSString*MonthlyRate;
 @property(strong,nonatomic)NSString*YearlyRate;
 @property(strong,nonatomic)NSString*type;
+@property(strong,nonatomic)NSString*stockinhand;
+
 @property(readwrite)NSInteger overhead;
 
 

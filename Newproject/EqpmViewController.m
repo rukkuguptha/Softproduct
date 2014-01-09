@@ -342,9 +342,10 @@
                    "<WeeklyRate>%f</WeeklyRate>\n"
                    "<MonthlyRate>%f</MonthlyRate>\n"
                    "<YearlyRate>%f</YearlyRate>\n"
+                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhndtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -410,9 +411,10 @@
                    "<MonthlyRate>%f</MonthlyRate>\n"
                    "<YearlyRate>%f</YearlyRate>\n"
                       "<entryid>%d</entryid>\n"
+                     "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -801,9 +803,28 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+
+    if([elementName isEqualToString:@"InsertEquipmentResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
-
-
 
 
 
@@ -966,8 +987,42 @@
         
         recordResults = FALSE;
         _eqmdl.YearlyRate=_soapResults;
+              _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        recordResults = FALSE;
+        _eqmdl.stockinhand=_soapResults;
         [_Equpntarray addObject:_eqmdl];
+
         _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        
+        _codetxfld.text=@"";
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _purchasetxtfld.text=@"";
+        _serialtxtfld.text=@"";
+        _manufattxtfld.text =@"";
+        _insuredtxtfld.text=@"";
+        _hurstxtfld.text=@"";
+        _fueltxtfld.text=@"";
+        _condtntxtfld.text=@"";
+        _hurlytxtfld.text=@"";
+        _dailytxtfld.text=@"";
+        _shiftwisetxtfld.text=@"";
+        _weeklytxtfld.text=@"";
+        _monthlytxtfld.text=@"";
+        _yearlytxtfld.text=@"";
+        _stockinhndtxtfld.text=@"";
+
+        
+      _soapResults = nil;
+        
     }
 
     }
@@ -1025,6 +1080,7 @@
     _weeklytxtfld.text=@"";
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
+    _stockinhndtxtfld.text=@"";
 
     btntype=1;
     _addequipmentview.hidden=NO;
@@ -1061,6 +1117,7 @@
     _weeklytxtfld.text=eqmdl.WeeklyRate;
     _monthlytxtfld.text=eqmdl.MonthlyRate;
     _yearlytxtfld.text=eqmdl.YearlyRate;
+    _stockinhndtxtfld.text=eqmdl.stockinhand;
     
 _addequipmentview.hidden=NO;
     _navItem.title=@"EDIT";
@@ -1095,6 +1152,97 @@ _addequipmentview.hidden=NO;
     _weeklytxtfld.text=@"";
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
+    _stockinhndtxtfld.text=@"";
 
 }
+
+#pragma mark-Textfield Delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+       if(textField==_codetxfld)
+    {
+        NSUInteger newLength = [_codetxfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_destxtfld)
+    {
+        NSUInteger newLength = [_destxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_serialtxtfld)
+    {
+        NSUInteger newLength = [_serialtxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    
+    if(textField==_manufattxtfld)
+    {
+        NSUInteger newLength = [_manufattxtfld.text length] + [string length] - range.length;
+        return (newLength > 4) ? NO : YES;
+    }
+    if(textField==_insuredtxtfld)
+    {
+        NSUInteger newLength = [_insuredtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_hurstxtfld)
+    {
+        NSUInteger newLength = [_hurstxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_fueltxtfld)
+    {
+        NSUInteger newLength = [_fueltxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_condtntxtfld)
+    {
+        NSUInteger newLength = [_condtntxtfld.text length] + [string length] - range.length;
+        return (newLength > 200) ? NO : YES;
+    }
+    if(textField==_hurlytxtfld)
+    {
+        NSUInteger newLength = [_hurlytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_dailytxtfld)
+    {
+        NSUInteger newLength = [_dailytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_shiftwisetxtfld)
+    {
+        NSUInteger newLength = [_shiftwisetxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_weeklytxtfld)
+    {
+        NSUInteger newLength = [_weeklytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_monthlytxtfld)
+    {
+        NSUInteger newLength = [_monthlytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+       if(textField==_yearlytxtfld)
+    {
+        NSUInteger newLength = [_yearlytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_stockinhndtxtfld)
+    {
+        NSUInteger newLength = [_stockinhndtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+       
+    
+    
+    
+    //_picker.hidden=YES;
+    return YES;
+}
+
 @end
