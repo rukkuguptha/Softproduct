@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
+#import "Validation.h"
 @interface EqpmViewController : UIViewController{
       BOOL recordResults;
     NSInteger btntype;
@@ -17,6 +18,7 @@
     NSInteger   webtype;
     
 }
+@property(strong,nonatomic)Validation *vald;
 @property(strong,nonatomic)Equpmntmdl *eqmdl;
 @property(strong,nonatomic)NSMutableArray *Equpntarray;
 @property(strong,nonatomic)NSMutableArray *Subtypearray;

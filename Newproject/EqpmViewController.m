@@ -1126,11 +1126,37 @@ _addequipmentview.hidden=NO;
 
 
 - (IBAction)updatebtn:(id)sender {
+    
+    Validation*val=[[Validation alloc]init];
+    int value1=[val isNumeric:_purchasetxtfld.text];
+    int value2=[val isNumeric:_manufattxtfld.text];
+    int value3=[val isNumeric:_insuredtxtfld.text];
+    int value4=[val isNumeric:_hurstxtfld.text];
+    int value5=[val isNumeric:_fueltxtfld.text];
+    int value6=[val isNumeric:_hurlytxtfld.text];
+    int value7=[val isNumeric:_dailytxtfld.text];
+    int value8=[val isNumeric:_shiftwisetxtfld.text];
+    int value9=[val isNumeric:_weeklytxtfld.text];
+    int value10=[val isNumeric:_monthlytxtfld.text];
+    int value11=[val isNumeric:_yearlytxtfld.text];
+    int value12=[val isNumeric:_stockinhndtxtfld.text];
+    
+    if(value1==0||value2==0||value3==0||value4==0||value5==0||value6==0||value7==0||value8==0||value9==0||value10==0||value11==0||value12==0)
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"please Enter Valid data" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert1 show];
+        
+        
+    }
+    else{
+    
     if (btntype==1) {
         [self InsertEquipment];
     }
     if (btntype==2) {
         [self UpdateEquipment];
+    }
+        
     }
 }
 
