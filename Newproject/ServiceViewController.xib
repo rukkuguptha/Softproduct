@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceViewController">
             <connections>
+                <outlet property="abbreviatintextfld" destination="dly-FU-zUw" id="TlL-93-bTs"/>
                 <outlet property="addserview" destination="7Tk-Wh-cWs" id="Ze5-qb-voc"/>
                 <outlet property="navabar" destination="Rus-kJ-85g" id="Rdl-Vx-yO1"/>
                 <outlet property="servicesTable" destination="LTX-1G-6o2" id="GU4-Xj-aZt"/>
@@ -94,27 +95,27 @@
                             </subviews>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="7Tk-Wh-cWs">
-                            <rect key="frame" x="180" y="222" width="384" height="247"/>
+                            <rect key="frame" x="152" y="222" width="443" height="267"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="zHb-ua-2mx">
-                                    <rect key="frame" x="0.0" y="0.0" width="384" height="247"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="443" height="267"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kvZ-gz-0mS">
-                                    <rect key="frame" x="46" y="82" width="70" height="21"/>
+                                    <rect key="frame" x="74" y="82" width="70" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="FL8-EB-abT">
-                                    <rect key="frame" x="154" y="82" width="195" height="30"/>
+                                    <rect key="frame" x="182" y="82" width="195" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IST-cD-lKF">
-                                    <rect key="frame" x="87" y="167" width="53" height="30"/>
+                                    <rect key="frame" x="144" y="204" width="53" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update">
@@ -125,7 +126,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="weP-ua-uSQ">
-                                    <rect key="frame" x="214" y="167" width="46" height="30"/>
+                                    <rect key="frame" x="243" y="204" width="46" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -136,14 +137,14 @@
                                     </connections>
                                 </button>
                                 <navigationBar contentMode="scaleToFill" id="FL3-JQ-QNh">
-                                    <rect key="frame" x="3" y="2" width="379" height="44"/>
+                                    <rect key="frame" x="1" y="1" width="441" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="Rus-kJ-85g">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="Gd0-gY-p8J">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ERW-ES-g2Z">
-                                                    <rect key="frame" x="318" y="2" width="45" height="40"/>
+                                                    <rect key="frame" x="380" y="2" width="45" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.close.png">
@@ -157,6 +158,19 @@
                                         </navigationItem>
                                     </items>
                                 </navigationBar>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Abbrevation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jYm-js-45h">
+                                    <rect key="frame" x="74" y="153" width="109" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="dly-FU-zUw">
+                                    <rect key="frame" x="182" y="149" width="195" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </view>

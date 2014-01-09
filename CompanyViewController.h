@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Validation.h"
 
-@interface CompanyViewController : UIViewController
+@interface CompanyViewController : UIViewController<UITextFieldDelegate>
 {
       BOOL recordResults;
+    //fax format
+     NSString *faxnoString;
+     NSInteger fmt;
+    //phoneno format
+    NSString *phnnostring;
+  
+    
 }
+
+@property(strong,nonatomic)Validation*validate;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -42,5 +52,7 @@
 - (IBAction)savebtn:(id)sender;
 -(IBAction)closethecompany:(id)sender;
 -(IBAction)cancel:(id)sender;
-
+/*faxfmt*/
+@property(strong,nonatomic)NSString *faxfmtstring;
+@property(strong,nonatomic)NSString *phnnofmtstring;
 @end

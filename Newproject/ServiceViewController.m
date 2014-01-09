@@ -135,6 +135,7 @@
     
     _addserview.hidden=NO;
     _servicetextfld.text=@"";
+    _abbreviatintextfld.text=@"";
 
 }
 -(IBAction)editservices:(id)sender
@@ -150,6 +151,8 @@
     Servicemdl*servmdl=(Servicemdl *)[_servicelistarray objectAtIndex:textFieldIndexPath.row];
     
     _servicetextfld.text=servmdl.servname;
+    _abbreviatintextfld.text=servmdl.abbrevtn;
+    NSLog(@"%@",servmdl.abbrevtn);
 
 }
 -(IBAction)closeaddview:(id)sender
@@ -163,16 +166,19 @@
    
     [self InsertServices];
     _servicetextfld.text=@"";
+    _abbreviatintextfld.text=@"";
 }
     else if(optionidentifier==2)
     {
         [self UpdateServices];
         _servicetextfld.text=@"";
+        _abbreviatintextfld.text=@"";
     }
 }
 -(IBAction)cancelservice:(id)sender
 {
     _servicetextfld.text=@"";
+    _abbreviatintextfld.text=@"";
 }
 -(IBAction)deleteservices:(id)sender
 {
@@ -260,9 +266,10 @@
                    
                    "<InsertServices xmlns=\"http://ios.kontract360.com/\">\n"
                    "<servname>%@</servname>\n"
+                   "<Abbrevation>%@</Abbrevation>\n"
                    "</InsertServices>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_servicetextfld.text];
+                   "</soap:Envelope>\n",_servicetextfld.text,_abbreviatintextfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -362,9 +369,10 @@
                    "<UpdateServices xmlns=\"http://ios.kontract360.com/\">\n"
                    "<SkillId>%d</SkillId>\n"
                    "<servname>%@</servname>\n"
+                   "<Abbrevation>%@</Abbrevation>\n"
                    "</UpdateServices>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",sermdl.servid,_servicetextfld.text];
+                   "</soap:Envelope>\n",sermdl.servid,_servicetextfld.text,_abbreviatintextfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -520,6 +528,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Abbrevation"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SearchServicesResponse"])
     {
         _servicelistarray=[[NSMutableArray alloc]init];
@@ -560,15 +577,24 @@
     }
     if([elementName isEqualToString:@"SkillName"])
     {
-        // _manpwrmdl=[[Manpwr alloc]init];
         
         
         recordResults = FALSE;
         
         _servmdl.servname=_soapResults;
+      
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Abbrevation"])
+    {
+        
+        recordResults = FALSE;
+        
+        _servmdl.abbrevtn=_soapResults;
         [_servicelistarray addObject:_servmdl];
         _soapResults = nil;
     }
+
 
 }
 #pragma mark-Searchbar

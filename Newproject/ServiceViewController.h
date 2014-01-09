@@ -52,6 +52,7 @@
 
 /*outlets in addview*/
 @property(strong,nonatomic)IBOutlet UITextField *servicetextfld;
+@property(strong,nonatomic)IBOutlet UITextField *abbreviatintextfld;
 
 /*arrays*/
 @property(strong,nonatomic)NSMutableArray *servicelistarray;
