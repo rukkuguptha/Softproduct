@@ -1545,10 +1545,24 @@ _addequipmentview.hidden=NO;
     if ([alertView.message isEqualToString:@"Invalid purchase value"]) {
         
         
+        _purchasetxtfld.text=@"";
         
     }
     
-    
+    if ([alertView.message isEqualToString:@"Invalid year"]) {
+        
+        
+        _manufattxtfld.text=@"";
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid insured value"]) {
+        
+        
+        _insuredtxtfld.text=@"";
+        
+    }
+
+
     
 }
 
