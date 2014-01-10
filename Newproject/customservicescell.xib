@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ServiceViewController">
             <connections>
+                <outlet property="abbrvtnlabel" destination="k32-Dv-x0b" id="ayS-Z5-PAi"/>
                 <outlet property="servicecell" destination="oUM-NJ-QTA" id="o2o-ew-tnd"/>
                 <outlet property="servicelabel" destination="RKL-U1-R9M" id="9M5-zX-BtV"/>
             </connections>
@@ -20,7 +21,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RKL-U1-R9M">
-                        <rect key="frame" x="160" y="18" width="167" height="21"/>
+                        <rect key="frame" x="140" y="18" width="167" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -38,6 +39,12 @@
                             <action selector="editservices:" destination="-1" eventType="touchUpInside" id="T3X-de-8fn"/>
                         </connections>
                     </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k32-Dv-x0b">
+                        <rect key="frame" x="364" y="18" width="147" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>

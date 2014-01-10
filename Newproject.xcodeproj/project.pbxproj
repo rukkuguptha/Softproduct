@@ -11,16 +11,11 @@
 		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
 		642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B77AE17799D1000EECCC0 /* activityInfo.m */; };
 		642F93011872870E0059101A /* customjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F93001872870E0059101A /* customjobcell.xib */; };
-		642F9306187299400059101A /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F9303187299400059101A /* ServiceViewController.m */; };
-		642F9307187299400059101A /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F9304187299400059101A /* ServiceViewController.xib */; };
-		642F9308187299400059101A /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F9305187299400059101A /* customservicescell.xib */; };
 		642F930B1872B6A80059101A /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F930A1872B6A80059101A /* allfolderrights.m */; };
 		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
-		648D13071771A093006BB41A /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 648D13051771A093006BB41A /* CompanyViewController.m */; };
-		648D13081771A093006BB41A /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 648D13061771A093006BB41A /* CompanyViewController.xib */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
 		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
@@ -31,6 +26,11 @@
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
 		649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F82186193790010CBD8 /* custommaterialcell.xib */; };
 		649EA38618769D96006651E6 /* jobsitemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EA38518769D96006651E6 /* jobsitemodel.m */; };
+		649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649ED79C187FB8260086CDDE /* CompanyViewController.m */; };
+		649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED79D187FB8260086CDDE /* CompanyViewController.xib */; };
+		649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED7A7187FBD710086CDDE /* customservicescell.xib */; };
+		649ED7AC187FBD710086CDDE /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649ED7A9187FBD710086CDDE /* ServiceViewController.m */; };
+		649ED7AD187FBD710086CDDE /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED7AA187FBD710086CDDE /* ServiceViewController.xib */; };
 		64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA0186023D2001F74E2 /* AllfolderViewController.m */; };
 		64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */; };
 		64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA518602A1B001F74E2 /* folderrightsViewController.m */; };
@@ -177,10 +177,6 @@
 		642B77AD17799D1000EECCC0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
 		642B77AE17799D1000EECCC0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
 		642F93001872870E0059101A /* customjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customjobcell.xib; sourceTree = "<group>"; };
-		642F9302187299400059101A /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
-		642F9303187299400059101A /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
-		642F9304187299400059101A /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
-		642F9305187299400059101A /* customservicescell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customservicescell.xib; sourceTree = "<group>"; };
 		642F93091872B6A80059101A /* allfolderrights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfolderrights.h; sourceTree = "<group>"; };
 		642F930A1872B6A80059101A /* allfolderrights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allfolderrights.m; sourceTree = "<group>"; };
 		64481EC71873EBFD007D66E7 /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
@@ -192,9 +188,6 @@
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
 		648D13011771726E006BB41A /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
 		648D13021771726E006BB41A /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
-		648D13041771A093006BB41A /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CompanyViewController.h; path = ../CompanyViewController.h; sourceTree = "<group>"; };
-		648D13051771A093006BB41A /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompanyViewController.m; path = ../CompanyViewController.m; sourceTree = "<group>"; };
-		648D13061771A093006BB41A /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CompanyViewController.xib; path = ../CompanyViewController.xib; sourceTree = "<group>"; };
 		64955C98180E52D5000A86A1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		64955C99180E52D5000A86A1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		64955C9A180E52D5000A86A1 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -214,6 +207,13 @@
 		649E1F82186193790010CBD8 /* custommaterialcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custommaterialcell.xib; sourceTree = "<group>"; };
 		649EA38418769D96006651E6 /* jobsitemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitemodel.h; sourceTree = "<group>"; };
 		649EA38518769D96006651E6 /* jobsitemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitemodel.m; sourceTree = "<group>"; };
+		649ED79B187FB8260086CDDE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
+		649ED79C187FB8260086CDDE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
+		649ED79D187FB8260086CDDE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
+		649ED7A7187FBD710086CDDE /* customservicescell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customservicescell.xib; sourceTree = "<group>"; };
+		649ED7A8187FBD710086CDDE /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
+		649ED7A9187FBD710086CDDE /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
+		649ED7AA187FBD710086CDDE /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
 		64A09D9F186023D2001F74E2 /* AllfolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllfolderViewController.h; sourceTree = "<group>"; };
 		64A09DA0186023D2001F74E2 /* AllfolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllfolderViewController.m; sourceTree = "<group>"; };
 		64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllfolderViewController.xib; sourceTree = "<group>"; };
@@ -421,10 +421,10 @@
 				D4004053185B174A00C38E12 /* TileViewController.h */,
 				D4004054185B174A00C38E12 /* TileViewController.m */,
 				D4004055185B174A00C38E12 /* TileViewController.xib */,
-				642F9302187299400059101A /* ServiceViewController.h */,
-				642F9303187299400059101A /* ServiceViewController.m */,
-				642F9304187299400059101A /* ServiceViewController.xib */,
-				642F9305187299400059101A /* customservicescell.xib */,
+				649ED7A7187FBD710086CDDE /* customservicescell.xib */,
+				649ED7A8187FBD710086CDDE /* ServiceViewController.h */,
+				649ED7A9187FBD710086CDDE /* ServiceViewController.m */,
+				649ED7AA187FBD710086CDDE /* ServiceViewController.xib */,
 				64F97984185EDB4200E7722B /* FoldersViewController.h */,
 				64F97985185EDB4200E7722B /* FoldersViewController.m */,
 				64F97986185EDB4200E7722B /* FoldersViewController.xib */,
@@ -441,9 +441,9 @@
 				64F9799A185F038700E7722B /* ValuesPhilosophyDocViewController.h */,
 				64F9799B185F038700E7722B /* ValuesPhilosophyDocViewController.m */,
 				64F9799C185F038700E7722B /* ValuesPhilosophyDocViewController.xib */,
-				648D13041771A093006BB41A /* CompanyViewController.h */,
-				648D13051771A093006BB41A /* CompanyViewController.m */,
-				648D13061771A093006BB41A /* CompanyViewController.xib */,
+				649ED79B187FB8260086CDDE /* CompanyViewController.h */,
+				649ED79C187FB8260086CDDE /* CompanyViewController.m */,
+				649ED79D187FB8260086CDDE /* CompanyViewController.xib */,
 				64F97989185EDB5400E7722B /* UsersViewController.h */,
 				64F9798A185EDB5400E7722B /* UsersViewController.m */,
 				64F9798B185EDB5400E7722B /* UsersViewController.xib */,
@@ -795,6 +795,7 @@
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
 				D49DE838185EB391006F1CDA /* closebutton.png in Resources */,
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
+				649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */,
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
@@ -818,6 +819,7 @@
 				64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */,
 				D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */,
 				D453DA2C1873F1D0007EE3DC /* AssetsViewController.xib in Resources */,
+				649ED7AD187FBD710086CDDE /* ServiceViewController.xib in Resources */,
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
@@ -826,7 +828,6 @@
 				649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 				64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */,
-				648D13081771A093006BB41A /* CompanyViewController.xib in Resources */,
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
@@ -835,6 +836,7 @@
 				D4E1579917744013002764AB /* CommentsViewController.xib in Resources */,
 				6407291817744A900085CB7B /* newCommentCell.xib in Resources */,
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
+				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */,
 				D4D39CD8177AF1CA00C1E87D /* FollowCommentcell.xib in Resources */,
@@ -851,8 +853,6 @@
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				64A09DAB186050A3001F74E2 /* custommanapowercell.xib in Resources */,
 				64A11EE01867F968008D20CC /* custombasicreqcell.xib in Resources */,
-				642F9307187299400059101A /* ServiceViewController.xib in Resources */,
-				642F9308187299400059101A /* customservicescell.xib in Resources */,
 				D4FED41617F1A047004BE242 /* 1.png in Resources */,
 				64F97988185EDB4200E7722B /* FoldersViewController.xib in Resources */,
 				D4FED41817F1A04E004BE242 /* 2.png in Resources */,
@@ -912,11 +912,11 @@
 				D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
 				64A14D82187573B50028B43A /* basicreqmdl.m in Sources */,
+				649ED7AC187FBD710086CDDE /* ServiceViewController.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				64A14D7818752E3F0028B43A /* listusermdl.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
-				648D13071771A093006BB41A /* CompanyViewController.m in Sources */,
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
@@ -929,7 +929,6 @@
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */,
-				642F9306187299400059101A /* ServiceViewController.m in Sources */,
 				64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				64F97996185EFBB600E7722B /* BasicReqViewController.m in Sources */,
@@ -946,6 +945,7 @@
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
+				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,

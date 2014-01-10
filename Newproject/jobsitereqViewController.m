@@ -603,8 +603,16 @@
     
     
 }
+#pragma mark-textfld delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+if(textField==_jobtextfld)
+{
+    NSUInteger newLength = [_jobtextfld.text length] + [string length] - range.length;
+    return (newLength > 100) ? NO : YES;
+}
+    return YES;
 
-
+}
 
 
 @end

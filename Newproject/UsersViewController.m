@@ -613,6 +613,23 @@
     
     
 }
+#pragma mark-textfld delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_usrnametextfld)
+    {
+        NSUInteger newLength = [_usrnametextfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_pswdtextfld)
+    {
+        NSUInteger newLength = [_pswdtextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+
+    return YES;
+    
+}
+
 
 
 

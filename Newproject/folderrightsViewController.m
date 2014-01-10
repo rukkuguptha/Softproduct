@@ -43,6 +43,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-tableview datasources
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -127,7 +128,7 @@
     }
 }
 
-
+#pragma mark-IBActions
 -(IBAction)closefolderrightsview:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];

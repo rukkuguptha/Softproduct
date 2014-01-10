@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "listusermdl.h"
 
-@interface UsersViewController : UIViewController
+@interface UsersViewController : UIViewController<UITextFieldDelegate>
 {
     NSInteger path;
     BOOL recordresults;
