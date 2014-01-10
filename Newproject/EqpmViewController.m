@@ -46,8 +46,101 @@
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
 
+    
+_picimageview.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(handlePinch:)];
+    pgr.delegate = (id)self;
+    [_picimageview addGestureRecognizer:pgr];
+
     // Do any additional setup after loading the view from its nib.
 }
+
+
+- (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
+    //handle pinch...
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate =(id) self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.showsCameraControls=YES;
+        
+        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+                                  (NSString *) kUTTypeImage,
+                                  nil];
+        imagePicker.allowsEditing = NO;
+        // imagePicker.cameraCaptureMode=YES;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        _newMedia = YES;
+    }
+}
+#pragma mark-ImagePicker
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // [self.popoverController dismissPopoverAnimated:true];
+    NSString *mediaType = [info
+                           objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = [info
+                          objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"dict%@",info);
+        _picimageview.image=nil;
+        
+        
+        
+        _picimageview.image =image;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    
+    
+    
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+//camera in lanscapemode
 
 - (void)didReceiveMemoryWarning
 {
@@ -547,6 +640,112 @@
     }
     
 }
+-(void)UploadAnyImage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
+    NSString *type=@"Equipments";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)FetchAnyImage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
+    NSString *type=@"Equipments";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "</FetchAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",imagename,type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FetchAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -824,6 +1023,26 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UploadAnyImageResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
     
 
 
@@ -1025,8 +1244,17 @@
         
     }
 
-    }
+    
+    if([elementName isEqualToString:@"url"])
+    {
+            recordResults = FALSE;
+        _picturelocation=_soapResults;
+        
+        _soapResults = nil;
 
+      
+    }
+}
 #pragma mark-IBActions
 
 - (IBAction)subsearch:(id)sender {
@@ -1082,6 +1310,8 @@
     _yearlytxtfld.text=@"";
     _stockinhndtxtfld.text=@"";
 
+    
+  
     btntype=1;
     _addequipmentview.hidden=NO;
     _navItem.title=@"ADD";
@@ -1094,6 +1324,8 @@
 -(IBAction)editequipview:(id)sender
 {
     btntype=2;
+    [self FetchAnyImage];
+
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.equipmenttbl];
@@ -1127,37 +1359,33 @@ _addequipmentview.hidden=NO;
 
 - (IBAction)updatebtn:(id)sender {
     
-    Validation*val=[[Validation alloc]init];
-    int value1=[val isNumeric:_purchasetxtfld.text];
-    int value2=[val isNumeric:_manufattxtfld.text];
-    int value3=[val isNumeric:_insuredtxtfld.text];
-    int value4=[val isNumeric:_hurstxtfld.text];
-    int value5=[val isNumeric:_fueltxtfld.text];
-    int value6=[val isNumeric:_hurlytxtfld.text];
-    int value7=[val isNumeric:_dailytxtfld.text];
-    int value8=[val isNumeric:_shiftwisetxtfld.text];
-    int value9=[val isNumeric:_weeklytxtfld.text];
-    int value10=[val isNumeric:_monthlytxtfld.text];
-    int value11=[val isNumeric:_yearlytxtfld.text];
-    int value12=[val isNumeric:_stockinhndtxtfld.text];
     
-    if(value1==0||value2==0||value3==0||value4==0||value5==0||value6==0||value7==0||value8==0||value9==0||value10==0||value11==0||value12==0)
-    {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"please Enter Valid data" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert1 show];
-        
-        
-    }
-    else{
     
-    if (btntype==1) {
-        [self InsertEquipment];
-    }
-    if (btntype==2) {
-        [self UpdateEquipment];
-    }
+    
+
+        UIImage *imagename =_picimageview.image;
+        NSData *data = UIImagePNGRepresentation(imagename);
         
-    }
+        // NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        
+        
+        _encodedString = [data base64EncodedString];
+        
+        NSLog(@"result%@",_encodedString);
+
+        
+          [self UploadAnyImage];
+    
+//    if (btntype==1) {
+//        [self InsertEquipment];
+//        [self UploadAnyImage];
+//    }
+//    if (btntype==2) {
+//        [self UpdateEquipment];
+//        [self UploadAnyImage];
+//    }
+        
+    
 }
 
 - (IBAction)cancelbtn:(id)sender {
@@ -1183,6 +1411,150 @@ _addequipmentview.hidden=NO;
 }
 
 #pragma mark-Textfield Delegate
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_purchasetxtfld) {
+          int value1=[val isNumeric:_purchasetxtfld.text];
+        if (value1==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid purchase value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+
+        }
+        
+    }
+    if (textField==_manufattxtfld) {
+          int value2=[val isIntegerValue:_manufattxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid year" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+    }
+    if (textField==_insuredtxtfld) {
+          int value3=[val isNumeric:_insuredtxtfld.text];
+        if (value3==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid insured value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+    }
+    
+    if (textField==_hurstxtfld) {
+         int value4=[val isNumeric:_hurstxtfld.text];
+        if (value4==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid used hours value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+    }
+  
+    if (textField==_fueltxtfld) {
+        int value5=[val isNumeric:_fueltxtfld.text];
+        if (value5==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid fuel consumption" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+        
+    }
+    if (textField==_hurlytxtfld) {
+          int value6=[val isNumeric:_hurlytxtfld.text];
+        if (value6==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hurly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+        
+    }
+    if (textField==_dailytxtfld) {
+      int value7=[val isNumeric:_dailytxtfld.text];
+        if (value7==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid daily rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+        
+    }
+    if (textField==_shiftwisetxtfld) {
+        int value8=[val isNumeric:_shiftwisetxtfld.text];
+        if (value8==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid shiftwise rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+
+    }
+    if (textField==_weeklytxtfld) {
+       int value9=[val isNumeric:_weeklytxtfld.text];
+        if (value9==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid shiftwise rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+        
+    }
+
+      if (textField==_monthlytxtfld) {
+        int value10=[val isNumeric:_monthlytxtfld.text];
+          if (value10==0) {
+              UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid monthly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+              [alert1 show];
+              
+          }
+
+        
+    }
+
+    if (textField==_yearlytxtfld) {
+         int value11=[val isNumeric:_yearlytxtfld.text];
+        if (value11==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid yearly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+        
+    }
+    
+    if (textField==_stockinhndtxtfld) {
+        int value12=[val isNumeric:_stockinhndtxtfld.text];
+        if (value12==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid yearly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+
+    
+        
+    }
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Invalid purchase value"]) {
+        
+        
+        
+    }
+    
+    
+    
+}
+
+
+
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
        if(textField==_codetxfld)
     {
@@ -1270,5 +1642,7 @@ _addequipmentview.hidden=NO;
     //_picker.hidden=YES;
     return YES;
 }
+
+
 
 @end

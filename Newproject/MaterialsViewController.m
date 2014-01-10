@@ -253,9 +253,10 @@
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<picture>%@</picture>\n"
+                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],@""];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],@"",[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -308,9 +309,10 @@
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<picture>%@</picture>\n"
+                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],@""];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],@"",[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -619,6 +621,36 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"InserteMaterialsResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -675,8 +707,19 @@
         recordResults = FALSE;
         
          _materialmdl.unitcost=_soapResults;
+    
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        recordResults = FALSE;
+        
+        _materialmdl.stckinhand=_soapResults;
         [_materialarray addObject:_materialmdl];
         _soapResults = nil;
+
+
     }
     if([elementName isEqualToString:@"subtype"])
     {
@@ -686,6 +729,20 @@
     
     
 }
+    
+    if([elementName isEqualToString:@"result"])
+    {
+
+        recordResults = FALSE;
+        
+        _codetxtfld.text=@"";
+        
+        _destxtfld.text=@"";
+        _subtyptxtfld.text=@"";
+        _unitcosttxtfld.text=@"";
+        _stockinhandtxtfld.text=@"";
+        _soapResults = nil;
+    }
 }
 
 #pragma mark-Searchbar
@@ -741,6 +798,7 @@
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
+    _stockinhandtxtfld.text=@"";
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -779,6 +837,7 @@
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
+    _stockinhandtxtfld.text=@"";
     butntype=1;
     _addmatView.hidden=NO;
     _navItem.title=@"ADD";
@@ -800,6 +859,7 @@
     _destxtfld.text=pwrmdl.itemdescptn;
     _subtyptxtfld.text=pwrmdl.subtype;
     _unitcosttxtfld.text=pwrmdl.unitcost;
+    _stockinhandtxtfld.text=pwrmdl.stckinhand;
 
     _addmatView.hidden=NO;
     _navItem.title=@"EDIT";

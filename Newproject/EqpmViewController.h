@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
 #import "Validation.h"
-@interface EqpmViewController : UIViewController{
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "Base64.h"
+
+@interface EqpmViewController : UIViewController<UIImagePickerControllerDelegate>{
       BOOL recordResults;
     NSInteger btntype;
     UIButton *button;
@@ -18,6 +22,14 @@
     NSInteger   webtype;
     
 }
+
+/*cameraAction*/
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
+@property(strong,nonatomic)NSString*picturelocation;
+
+@property (strong, nonatomic) IBOutlet UIImageView *picimageview;
 @property(strong,nonatomic)Validation *vald;
 @property(strong,nonatomic)Equpmntmdl *eqmdl;
 @property(strong,nonatomic)NSMutableArray *Equpntarray;

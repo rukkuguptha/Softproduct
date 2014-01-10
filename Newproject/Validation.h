@@ -11,4 +11,5 @@
 @interface Validation : NSObject
 -(BOOL)isBlank:(NSString *)string;
 -(BOOL)isNumeric:(NSString *)input;
+-(BOOL)isIntegerValue:(NSString *)input;
 @end
