@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
+#import "Validation.h"
 
 @interface FleetsViewController : UIViewController{
 
@@ -25,7 +26,7 @@ NSInteger popvr;
 }
 
 @property (strong, nonatomic)Equpmntmdl *Fleetmdl;
-
+@property(strong,nonatomic)Validation *val;
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
 

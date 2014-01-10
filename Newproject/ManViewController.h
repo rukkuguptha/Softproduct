@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
+#import"Validation.h"
 @interface ManViewController : UIViewController{
     
     BOOL recordResults;
@@ -20,6 +21,7 @@
 }
 
 @property(strong,nonatomic)Manpwr *manpwrmdl;
+@property(strong,nonatomic)Validation *vald;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -60,7 +62,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *checkbtnlbl;
 
-
+- (IBAction)clsebtn:(id)sender;
 
 - (IBAction)deletebtn:(id)sender;
 @property (strong, nonatomic)NSString*searchstring;

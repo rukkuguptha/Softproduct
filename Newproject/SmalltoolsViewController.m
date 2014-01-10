@@ -511,6 +511,19 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         }
         recordResults = TRUE;
     }
+    
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+   
     if([elementName isEqualToString:@"SearchSmallToolsResponse"])
     {
         _toolarray=[[NSMutableArray alloc]init];
@@ -540,7 +553,36 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"UpdateSmallToolsResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"InsertSmallToolsResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+   
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -587,8 +629,18 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
         recordResults = FALSE;
       _Toolmdl.subtype=_soapResults;
-           [_toolarray addObject:_Toolmdl];
-        _soapResults = nil;
+                  _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+         recordResults = FALSE;
+        
+        _Toolmdl.stckinhand=_soapResults;
+        
+        [_toolarray addObject:_Toolmdl];
+
+         _soapResults = nil;
     }
     if([elementName isEqualToString:@"UnitCost"])
     {
@@ -602,9 +654,25 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if([elementName isEqualToString:@"subtype"])
     {
         recordResults = FALSE;
-        [_subtypearray addObject:_soapResults];
+               [_subtypearray addObject:_soapResults];
         _soapResults = nil;
         
+        
+    }
+   
+    
+    if([elementName isEqualToString:@"result"])
+    {
+          recordResults = FALSE;
+        
+        _codetxtfld.text=@"";
+        
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _costtxtfld.text=@"";
+        _stockinhandtxtfld.text=@"";
+
+         _soapResults = nil;
         
     }
 }
@@ -724,6 +792,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
+    _stockinhandtxtfld.text=@"";
     
     _addview.hidden=NO;
     _navtitle.title=@"ADD";
@@ -777,6 +846,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
+    _stockinhandtxtfld.text=@"";
 
 }
 
@@ -805,9 +875,80 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _destxtfld.text=toolmdl.itemdescptn;
     _subtypetxtfld.text=toolmdl.subtype;
     _costtxtfld.text=toolmdl.unitcost;
-
+    _stockinhandtxtfld.text=toolmdl.stckinhand;
 
     _addview.hidden=NO;
     _navtitle.title=@"EDIT";
 }
+
+#pragma mark-Textfield Delegate
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_costtxtfld) {
+        int value2=[val isIntegerValue:_costtxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid unit cost" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    
+    if (textField==_stockinhandtxtfld) {
+        int value12=[val isNumeric:_stockinhandtxtfld.text];
+        if (value12==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }}
+    
+    return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
+        
+        
+        _costtxtfld.text=@"";
+        
+    }
+    
+    
+    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+        
+        
+        _stockinhandtxtfld.text=@"";
+        
+    }}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_codetxtfld)
+    {
+        NSUInteger newLength = [_codetxtfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_destxtfld)
+    {
+        NSUInteger newLength = [_destxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_costtxtfld)
+    {
+        NSUInteger newLength = [_costtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_stockinhandtxtfld)
+    {
+        NSUInteger newLength = [_stockinhandtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    
+    return YES;
+}
+
+
 @end

@@ -141,6 +141,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="w57-aC-qdG"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lNg-xd-Lmt">
                                     <rect key="frame" x="334" y="112" width="98" height="21"/>
@@ -153,6 +156,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="Oq8-t9-5FL"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n1P-Yx-ZbJ">
                                     <rect key="frame" x="65" y="217" width="95" height="21"/>
@@ -171,6 +177,9 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="5Bl-st-dtL"/>
+                                    </connections>
                                 </textField>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unit Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ovk-TB-2Xv">
                                     <rect key="frame" x="334" y="217" width="82" height="21"/>
@@ -185,9 +194,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rxt-0O-sSo">
-                                    <rect key="frame" x="65" y="309" width="55" height="48"/>
+                                    <rect key="frame" x="145" y="282" width="62" height="46"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Button" image="cb_mono_on.png">
+                                    <state key="normal" image="cb_mono_off.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -232,7 +241,7 @@ VXBkYXRlIE1hbhBwb3dlcg
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="clsebtn:" destination="-1" eventType="touchUpInside" id="bLJ-IW-RZZ"/>
+                                                        <action selector="clsebtn:" destination="-1" eventType="touchUpInside" id="r8s-YF-uzK"/>
                                                     </connections>
                                                 </button>
                                             </barButtonItem>
@@ -263,7 +272,7 @@ VXBkYXRlIE1hbhBwb3dlcg
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
-        <image name="cb_mono_on.png" width="22" height="21"/>
+        <image name="cb_mono_off.png" width="22" height="21"/>
         <image name="search-button.png" width="30" height="30"/>
         <image name="squareimage1.png" width="300" height="400"/>
     </resources>

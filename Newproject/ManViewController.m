@@ -782,8 +782,7 @@
         _itemdestxtfld.text=@"";
         _subtypetxtfld.text=@"";
         _unitcosttxtfld.text=@"";
-        _stockinhandtxtfld.text=@"";
-        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         checkbtnclick=0;
 
        
@@ -854,6 +853,15 @@
     _subtypetxtfld.text=pwrmdl.subtype;
     _unitcosttxtfld.text=pwrmdl.unitcost;
 
+    if (pwrmdl.overhead==0) {
+        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else if(pwrmdl.overhead==1){
+        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    
 
     //webtype=2;
     _addview.hidden=NO;
@@ -929,6 +937,73 @@
     }
 
     
+}
+#pragma mark-Textfield Delegate
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_unitcosttxtfld) {
+        int value2=[val isIntegerValue:_unitcosttxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid unit cost" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    
+    if (textField==_stockinhandtxtfld) {
+        int value12=[val isNumeric:_stockinhandtxtfld.text];
+        if (value12==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }}
+    return YES;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
+        
+        
+        _unitcosttxtfld.text=@"";
+        
+    }
+    
+    
+    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+        
+        
+        _stockinhandtxtfld.text=@"";
+        
+    }}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_itemcodetxtfld)
+    {
+        NSUInteger newLength = [_itemcodetxtfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_itemdestxtfld)
+    {
+        NSUInteger newLength = [_itemdestxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_unitcosttxtfld)
+    {
+        NSUInteger newLength = [_unitcosttxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_stockinhandtxtfld)
+    {
+        NSUInteger newLength = [_stockinhandtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    
+    return YES;
 }
 
 

@@ -644,8 +644,8 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString *soapMessage;
     
-    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
-    
+    //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+    NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
     NSString *type=@"Equipments";
     
     soapMessage = [NSString stringWithFormat:
@@ -702,6 +702,7 @@ finishedSavingWithError:(NSError *)error
     
    // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     NSString *type=@"Equipments";
+   //NSString*filename=@"818191.jpg";
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -1544,7 +1545,7 @@ _addequipmentview.hidden=NO;
     
         
     }
-
+    return YES;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

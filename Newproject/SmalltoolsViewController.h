@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
+#import "Validation.h"
 
 @interface SmalltoolsViewController : UIViewController{
      BOOL recordResults;
@@ -19,7 +20,7 @@
 }
 @property (strong, nonatomic)Manpwr *Toolmdl;
 
-
+@property(strong,nonatomic)Validation *val;
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
 
