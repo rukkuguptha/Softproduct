@@ -1324,8 +1324,7 @@ finishedSavingWithError:(NSError *)error
 -(IBAction)editequipview:(id)sender
 {
     btntype=2;
-    [self FetchAnyImage];
-
+  
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.equipmenttbl];
@@ -1350,7 +1349,8 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=eqmdl.MonthlyRate;
     _yearlytxtfld.text=eqmdl.YearlyRate;
     _stockinhndtxtfld.text=eqmdl.stockinhand;
-    
+    [self FetchAnyImage];
+
 _addequipmentview.hidden=NO;
     _navItem.title=@"EDIT";
 
