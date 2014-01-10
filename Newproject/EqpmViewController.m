@@ -1499,7 +1499,7 @@ _addequipmentview.hidden=NO;
     if (textField==_weeklytxtfld) {
        int value9=[val isNumeric:_weeklytxtfld.text];
         if (value9==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid shiftwise rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid weekly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1532,7 +1532,7 @@ _addequipmentview.hidden=NO;
     if (textField==_stockinhndtxtfld) {
         int value12=[val isNumeric:_stockinhndtxtfld.text];
         if (value12==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid yearly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1576,6 +1576,47 @@ _addequipmentview.hidden=NO;
         
     }
 
+    if ([alertView.message isEqualToString:@"Invalid daily rate"]) {
+        
+        
+        _dailytxtfld.text=@"";
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid shiftwise rate"]) {
+        
+        
+_shiftwisetxtfld.text=@"";
+        
+    }
+
+    if ([alertView.message isEqualToString:@"Invalid weekly rate"]) {
+        
+        
+        _weeklytxtfld.text=@"";
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid monthly rate"]) {
+        
+        
+        _monthlytxtfld.text=@"";
+        
+    }
+    
+
+    if ([alertView.message isEqualToString:@"Invalid yearly rate"]) {
+        
+        
+        _yearlytxtfld.text=@"";
+        
+    }
+    
+    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
+        
+        
+        _stockinhndtxtfld.text=@"";
+        
+    }
+    
 
 
     
