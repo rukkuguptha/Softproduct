@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
+#import "Validation.h"
 
-@interface ThirdPartyViewController : UIViewController{
+@interface ThirdPartyViewController : UIViewController<UITextFieldDelegate>
+{
     BOOL recordResults ;
     NSInteger btntype;
     UIButton *button;
@@ -23,7 +25,7 @@
 }
 
 @property (strong, nonatomic)Equpmntmdl *thirdpartymdl;
-
+@property(strong,nonatomic)Validation *vald;
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtdfld;
 
 /*popover*/

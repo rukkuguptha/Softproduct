@@ -172,9 +172,10 @@
                    "<description>%@</description>\n"
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
+                   "<qtyinstock>%f</qtyinstock>\n"
                     "</InsertConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -226,9 +227,10 @@
                    "<description>%@</description>\n"
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
+                   "<qtyinstock>%f</qtyinstock>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -508,6 +510,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SearchConsumablesResponse"])
     {
            _cnsumblearray=[[NSMutableArray alloc]init];
@@ -594,10 +606,20 @@
         
         recordResults = FALSE;
           _Consublemdl.subtype=_soapResults;
-          [_cnsumblearray addObject:  _Consublemdl];
+        
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        recordResults = FALSE;
+        _Consublemdl.stckinhand=_soapResults;
+        [_cnsumblearray addObject:  _Consublemdl];
+        
+        _soapResults = nil;
+    }
+
        if([elementName isEqualToString:@"subtype"])
     {
         recordResults = FALSE;
@@ -801,7 +823,7 @@
     _subtyptxtfld.text=toolmdl.subtype;
     _unitcosttxtfld.text=toolmdl.unitcost;
     
-    
+    _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
     _navItem.title=@"EDIT";
 
@@ -810,6 +832,75 @@
 -(IBAction)closeaddview:(id)sender{
     _addView.hidden=YES;
     
+}
+#pragma mark-textfield delegate
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_unitcosttxtfld) {
+        int value2=[val isIntegerValue:_unitcosttxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid unit cost" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    
+    if (textField==_stckinhandtxtfld) {
+        int value12=[val isNumeric:_stckinhandtxtfld.text];
+        if (value12==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+    }
+    return YES;
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
+        
+        
+        _unitcosttxtfld.text=@"";
+        
+    }
+    
+    
+    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+        
+        
+        _stckinhandtxtfld.text=@"";
+        
+    }}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_codetxtfld)
+    {
+        NSUInteger newLength = [_codetxtfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_destxtfld)
+    {
+        NSUInteger newLength = [_destxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_unitcosttxtfld)
+    {
+        NSUInteger newLength = [_unitcosttxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_stckinhandtxtfld)
+    {
+        NSUInteger newLength = [_stckinhandtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    
+    return YES;
 }
 
 @end

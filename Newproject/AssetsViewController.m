@@ -341,9 +341,10 @@
                    "<WeeklyRate>%f</WeeklyRate>\n"
                    "<MonthlyRate>%f</MonthlyRate>\n"
                    "<YearlyRate>%f</YearlyRate>\n"
+                   "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -409,9 +410,10 @@
                    "<MonthlyRate>%f</MonthlyRate>\n"
                    "<YearlyRate>%f</YearlyRate>\n"
                    "<entryid>%d</entryid>\n"
+                   "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -792,6 +794,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
   
     if([elementName isEqualToString:@"SearchOtherResponse"])
     {
@@ -967,9 +979,18 @@
         
         recordResults = FALSE;
           _Assetmdl.YearlyRate=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"qtyinstock"])
+    {
+        
+        recordResults = FALSE;
+        _Assetmdl.stockinhand=_soapResults;
         [_Assetarray addObject:_Assetmdl];
         _soapResults = nil;
     }
+
     
 }
 
@@ -1074,7 +1095,7 @@
     _weeklytxtfld.text=eqmdl.WeeklyRate;
     _monthlytxtfld.text=eqmdl.MonthlyRate;
     _yearlytxtfld.text=eqmdl.YearlyRate;
-    
+    _stckinhandtxtfld.text=eqmdl.stockinhand;
     _addview.hidden=NO;
     _navItem.title=@"EDIT";
     
@@ -1111,5 +1132,306 @@
     _yearlytxtfld.text=@"";
 
 }
+#pragma mark-textfield delegate
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_purchasetxtfld) {
+        int value1=[val isNumeric:_purchasetxtfld.text];
+        if (value1==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid purchase value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    if (textField==_manufattxtfld) {
+        int value2=[val isIntegerValue:_manufattxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid year" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    if (textField==_insuredtxtfld) {
+        int value3=[val isNumeric:_insuredtxtfld.text];
+        if (value3==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid insured value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    
+    if (textField==_hurstxtfld) {
+        int value4=[val isNumeric:_hurstxtfld.text];
+        if (value4==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid used hours value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    
+    if (textField==_fueltxtfld) {
+        int value5=[val isNumeric:_fueltxtfld.text];
+        if (value5==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid fuel consumption" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    if (textField==_hurlytxtfld) {
+        int value6=[val isNumeric:_hurlytxtfld.text];
+        if (value6==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hurly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    if (textField==_dailytxtfld) {
+        int value7=[val isNumeric:_dailytxtfld.text];
+        if (value7==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid daily rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    if (textField==_shiftwisetxtfld) {
+        int value8=[val isNumeric:_shiftwisetxtfld.text];
+        if (value8==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid shiftwise rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    if (textField==_weeklytxtfld) {
+        int value9=[val isNumeric:_weeklytxtfld.text];
+        if (value9==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid weekly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    
+    if (textField==_monthlytxtfld) {
+        int value10=[val isNumeric:_monthlytxtfld.text];
+        if (value10==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid monthly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    
+    if (textField==_yearlytxtfld) {
+        int value11=[val isNumeric:_yearlytxtfld.text];
+        if (value11==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid yearly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+    }
+    
+    if (textField==_stckinhandtxtfld) {
+        int value12=[val isNumeric:_stckinhandtxtfld.text];
+        if (value12==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        
+        
+    }
+    return YES;
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
+        
+        
+        _purchasetxtfld.text=@"";
+        
+    }
+    
+    if ([alertView.title isEqualToString:@"Invalid year"]) {
+        
+        
+        _manufattxtfld.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid insured value"]) {
+        
+        
+        _insuredtxtfld.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
+        
+        
+        _hurstxtfld.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
+        
+        
+        _hurstxtfld.text=@"";
+        
+    }
+    
+    if ([alertView.title isEqualToString:@"Invalid daily rate"]) {
+        
+        
+        _dailytxtfld.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid shiftwise rate"]) {
+        
+        
+        _shiftwisetxtfld.text=@"";
+        
+    }
+    
+    if ([alertView.title isEqualToString:@"Invalid weekly rate"]) {
+        
+        
+        _weeklytxtfld.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid monthly rate"]) {
+        
+        
+        _monthlytxtfld.text=@"";
+        
+    }
+    
+    
+    if ([alertView.title isEqualToString:@"Invalid yearly rate"]) {
+        
+        
+        _yearlytxtfld.text=@"";
+        
+    }
+    
+    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+        
+        
+        _stckinhandtxtfld.text=@"";
+        
+    }
+    
+    
+    
+    
+}
+
+
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_codetxtfld)
+    {
+        NSUInteger newLength = [_codetxtfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_destxtfld)
+    {
+        NSUInteger newLength = [_destxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_serialtxtfld)
+    {
+        NSUInteger newLength = [_serialtxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    
+    if(textField==_manufattxtfld)
+    {
+        NSUInteger newLength = [_manufattxtfld.text length] + [string length] - range.length;
+        return (newLength > 4) ? NO : YES;
+    }
+    if(textField==_insuredtxtfld)
+    {
+        NSUInteger newLength = [_insuredtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_hurstxtfld)
+    {
+        NSUInteger newLength = [_hurstxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_fueltxtfld)
+    {
+        NSUInteger newLength = [_fueltxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_condtntxtfld)
+    {
+        NSUInteger newLength = [_condtntxtfld.text length] + [string length] - range.length;
+        return (newLength > 200) ? NO : YES;
+    }
+    if(textField==_hurlytxtfld)
+    {
+        NSUInteger newLength = [_hurlytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_dailytxtfld)
+    {
+        NSUInteger newLength = [_dailytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_shiftwisetxtfld)
+    {
+        NSUInteger newLength = [_shiftwisetxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_weeklytxtfld)
+    {
+        NSUInteger newLength = [_weeklytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_monthlytxtfld)
+    {
+        NSUInteger newLength = [_monthlytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_yearlytxtfld)
+    {
+        NSUInteger newLength = [_yearlytxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_stckinhandtxtfld)
+    {
+        NSUInteger newLength = [_stckinhandtxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    
+    
+    
+    //_picker.hidden=YES;
+    return YES;
+}
+
+
 
 @end
