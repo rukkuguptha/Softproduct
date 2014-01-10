@@ -1250,15 +1250,7 @@ finishedSavingWithError:(NSError *)error
             recordResults = FALSE;
         _picturelocation=_soapResults;
         
-        if (btntype==1) {
-            [self InsertEquipment];
-            
-        }
-        else if (btntype==2){
-            [self UpdateEquipment];
-        }
-        
-        _soapResults = nil;
+               _soapResults = nil;
 
       
     }
@@ -1386,15 +1378,15 @@ _addequipmentview.hidden=NO;
         
           [self UploadAnyImage];
     
-//    if (btntype==1) {
-//        [self InsertEquipment];
-//        [self UploadAnyImage];
-//    }
-//    if (btntype==2) {
-//        [self UpdateEquipment];
-//        [self UploadAnyImage];
-//    }
-        
+    if (btntype==1) {
+        [self InsertEquipment];
+        [self UploadAnyImage];
+    }
+    if (btntype==2) {
+        [self UpdateEquipment];
+        [self UploadAnyImage];
+    }
+    
     
 }
 
@@ -1577,7 +1569,13 @@ _addequipmentview.hidden=NO;
         _hurstxtfld.text=@"";
         
     }
-    
+    if ([alertView.message isEqualToString:@"Invalid used hours value"]) {
+        
+        
+        _hurstxtfld.text=@"";
+        
+    }
+
 
 
     
