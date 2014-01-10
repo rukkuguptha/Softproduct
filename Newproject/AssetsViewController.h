@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
+#import "Validation.h"
 
-@interface AssetsViewController : UIViewController{
+@interface AssetsViewController : UIViewController<UITextFieldDelegate>
+{
 BOOL recordResults ;
 NSInteger btntype;
 UIButton *button;
@@ -21,7 +23,7 @@ NSInteger popvr;
 
 
 }
-
+@property(strong,nonatomic)Validation *vald;
 @property (strong, nonatomic)Equpmntmdl *Assetmdl;
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
 

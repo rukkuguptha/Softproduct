@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
+#import "Validation.h"
 
-@interface ConsumbleViewController : UIViewController{
+@interface ConsumbleViewController : UIViewController<UITextFieldDelegate>
+{
     BOOL   recordResults;
     NSInteger butnpath;
     NSInteger path;
@@ -19,7 +21,7 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
-
+@property(strong,nonatomic)Validation *vald;
 @property (strong, nonatomic)Manpwr *Consublemdl;
 
 @property (strong, nonatomic)NSMutableArray *cnsumblearray;
