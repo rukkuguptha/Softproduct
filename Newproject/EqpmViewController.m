@@ -1561,6 +1561,13 @@ _addequipmentview.hidden=NO;
         _insuredtxtfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:@"Invalid used hours value"]) {
+        
+        
+        _hurstxtfld.text=@"";
+        
+    }
+    
 
 
     
