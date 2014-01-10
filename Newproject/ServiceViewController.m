@@ -58,6 +58,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+#pragma mark-tableview datasources
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -129,7 +130,7 @@
         }
     }
 }
-
+#pragma mark-IBActions
 
 -(IBAction)Addservices:(id)sender
 {   optionidentifier=1;
@@ -626,6 +627,7 @@
     
     
 }
+#pragma mark-textfld delegate
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if(textField==_servicetextfld)

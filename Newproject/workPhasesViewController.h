@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "phasesmodel.h"
 
-@interface workPhasesViewController : UIViewController
+@interface workPhasesViewController : UIViewController<UITextFieldDelegate>
 {
     NSInteger webtype;
     NSInteger poptype;

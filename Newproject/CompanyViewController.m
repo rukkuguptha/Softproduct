@@ -192,6 +192,7 @@
       
     
 }
+#pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"GetBasicInfoResult"])
@@ -522,6 +523,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+#pragma mark-textfld delegates
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     
     if(textField==_companynametxtfld)

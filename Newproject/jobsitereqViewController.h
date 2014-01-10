@@ -10,7 +10,7 @@
 #import "jobdetailsViewController.h"
 #import "jobsitemodel.h"
 
-@interface jobsitereqViewController : UIViewController
+@interface jobsitereqViewController : UIViewController<UITextFieldDelegate>
 {
     NSInteger path;
     BOOL recordresults;

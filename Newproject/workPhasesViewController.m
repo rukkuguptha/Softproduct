@@ -1144,6 +1144,17 @@
     
     
 }
+#pragma mark-textfld delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_phasetextfld)
+    {
+        NSUInteger newLength = [_phasetextfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    return YES;
+    
+}
+
 
 
 @end
