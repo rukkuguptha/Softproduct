@@ -644,7 +644,8 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString *soapMessage;
     
-    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+    
     NSString *type=@"Equipments";
     
     soapMessage = [NSString stringWithFormat:
@@ -659,9 +660,10 @@ finishedSavingWithError:(NSError *)error
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
                    "</UploadAnyImage>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_encodedString,imagename,type];
+                   "</soap:Envelope>\n",_encodedString,imagename,type,_codetxfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -711,7 +713,7 @@ finishedSavingWithError:(NSError *)error
                    
                    "<FetchAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
                    "<fileName>%@</fileName>\n"
-                   "<type>%@</type>\n"
+                   "<type1>%@</type1>\n"
                    "</FetchAnyImage>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_uplodpiclctn,type];
@@ -1220,6 +1222,7 @@ finishedSavingWithError:(NSError *)error
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
+         [self UploadAnyImage];
         
         _codetxfld.text=@"";
         _destxtfld.text=@"";
@@ -1333,6 +1336,7 @@ finishedSavingWithError:(NSError *)error
    path=textFieldIndexPath.row;
  Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:textFieldIndexPath.row];
     _codetxfld.text=eqmdl.itemcode;
+    
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;
     _purchasetxtfld.text=eqmdl.PurchaseValue;
@@ -1366,25 +1370,25 @@ _addequipmentview.hidden=NO;
     
 
         UIImage *imagename =_picimageview.image;
-        NSData *data = UIImagePNGRepresentation(imagename);
+       // NSData *data = UIImagePNGRepresentation(imagename);
         
-        // NSData *data = UIImageJPEGRepresentation(image, 1.0);
+        NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
         
         
         _encodedString = [data base64EncodedString];
         
-        NSLog(@"result%@",_encodedString);
+        //NSLog(@"result%@",_encodedString);
 
         
-          [self UploadAnyImage];
+         // [self UploadAnyImage];
     
     if (btntype==1) {
         [self InsertEquipment];
-        [self UploadAnyImage];
+        //[self UploadAnyImage];
     }
     if (btntype==2) {
         [self UpdateEquipment];
-        [self UploadAnyImage];
+       // [self UploadAnyImage];
     }
     
     
@@ -1544,58 +1548,58 @@ _addequipmentview.hidden=NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if ([alertView.message isEqualToString:@"Invalid purchase value"]) {
+    if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
         
         
         _purchasetxtfld.text=@"";
         
     }
     
-    if ([alertView.message isEqualToString:@"Invalid year"]) {
+    if ([alertView.title isEqualToString:@"Invalid year"]) {
         
         
         _manufattxtfld.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid insured value"]) {
+    if ([alertView.title isEqualToString:@"Invalid insured value"]) {
         
         
         _insuredtxtfld.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid used hours value"]) {
+    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
         
         
         _hurstxtfld.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid used hours value"]) {
+    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
         
         
         _hurstxtfld.text=@"";
         
     }
 
-    if ([alertView.message isEqualToString:@"Invalid daily rate"]) {
+    if ([alertView.title isEqualToString:@"Invalid daily rate"]) {
         
         
         _dailytxtfld.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid shiftwise rate"]) {
+    if ([alertView.title isEqualToString:@"Invalid shiftwise rate"]) {
         
         
 _shiftwisetxtfld.text=@"";
         
     }
 
-    if ([alertView.message isEqualToString:@"Invalid weekly rate"]) {
+    if ([alertView.title isEqualToString:@"Invalid weekly rate"]) {
         
         
         _weeklytxtfld.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid monthly rate"]) {
+    if ([alertView.title isEqualToString:@"Invalid monthly rate"]) {
         
         
         _monthlytxtfld.text=@"";
@@ -1603,14 +1607,14 @@ _shiftwisetxtfld.text=@"";
     }
     
 
-    if ([alertView.message isEqualToString:@"Invalid yearly rate"]) {
+    if ([alertView.title isEqualToString:@"Invalid yearly rate"]) {
         
         
         _yearlytxtfld.text=@"";
         
     }
     
-    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
+    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
         
         
         _stockinhndtxtfld.text=@"";

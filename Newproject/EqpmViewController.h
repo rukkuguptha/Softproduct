@@ -30,6 +30,7 @@
 @property(strong,nonatomic)NSString*picturelocation;
 @property(strong,nonatomic)NSString*uplodpiclctn;
 
+@property(strong,nonatomic)NSString*itemcode;
 @property (strong, nonatomic) IBOutlet UIImageView *picimageview;
 @property(strong,nonatomic)Validation *vald;
 @property(strong,nonatomic)Equpmntmdl *eqmdl;

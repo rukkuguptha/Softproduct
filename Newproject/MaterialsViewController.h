@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
+#import "Validation.h"
 
 @interface MaterialsViewController : UIViewController{
      BOOL recordResults;
@@ -20,9 +21,11 @@
 }
 
 @property(strong,nonatomic)Manpwr *materialmdl;
+@property(strong,nonatomic)Validation *val;
 
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *subtypearray;
+
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
 
