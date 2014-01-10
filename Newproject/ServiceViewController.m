@@ -83,6 +83,8 @@
     Servicemdl*semdl=(Servicemdl *)[_servicelistarray objectAtIndex:indexPath.row];
     _servicelabel=(UILabel *)[cell viewWithTag:1];
     _servicelabel.text=semdl.servname;
+    _abbrvtnlabel=(UILabel*)[cell viewWithTag:2];
+    _abbrvtnlabel.text=semdl.abbrevtn;
 
     
        return cell;
@@ -624,5 +626,20 @@
     
     
 }
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_servicetextfld)
+    {
+        NSUInteger newLength = [_servicetextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_abbreviatintextfld)
+    {
+        NSUInteger newLength = [_abbreviatintextfld.text length] + [string length] - range.length;
+        return (newLength > 5) ? NO : YES;
+    }
+    return YES;
+}
+
 
 @end

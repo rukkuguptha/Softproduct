@@ -39,14 +39,14 @@
                             <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <navigationBar contentMode="scaleToFill" id="wbZ-dI-ka2">
-                            <rect key="frame" x="3" y="2" width="763" height="44"/>
+                            <rect key="frame" x="2" y="1" width="765" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Folders" id="hTC-FB-AAl">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="2wX-Cp-B96">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oTZ-tA-57y">
-                                            <rect key="frame" x="707" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="709" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">

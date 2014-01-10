@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Servicemdl.h"
 
-@interface ServiceViewController : UIViewController
+@interface ServiceViewController : UIViewController<UITextFieldDelegate>
 
 {
     NSInteger optionidentifier;
@@ -38,6 +38,7 @@
 /*cell outlets*/
 @property (strong, nonatomic) IBOutlet UILabel *servicelabel;
 @property (strong, nonatomic) IBOutlet UIButton *editbtn;
+@property(strong,nonatomic)IBOutlet UILabel *abbrvtnlabel;
 
 /*IBActions*/
 -(IBAction)closetheservicesview:(id)sender;

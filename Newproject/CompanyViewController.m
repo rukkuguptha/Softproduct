@@ -412,7 +412,7 @@
     {
         
         recordResults = FALSE;
-        _ziptextfld.text=_soapResults;
+        _ziptextfld.text=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         _soapResults = nil;
     }
@@ -428,7 +428,7 @@
     {
         
         recordResults = FALSE;
-        _phonetxtfld.text=_soapResults;
+        _phonetxtfld.text=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         
         _soapResults = nil;
     }
@@ -436,8 +436,7 @@
     {
         
         recordResults = FALSE;
-        _faxtxtfld.text=_soapResults;
-        
+        _faxtxtfld.text=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"email"])
@@ -498,36 +497,22 @@
 
 #pragma mark - Buttons
 - (IBAction)savebtn:(id)sender {
-    
-    if(fmt==1)
-    {
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
-        
-        [alert show];
-        
-    }
-    else
-    {
-        Validation*val=[[Validation alloc]init];
-        int value1=[val isNumeric:_ziptextfld.text];
-        
-//        int value2=[val isNumeric:_faxtxtfld.text];
-//        int value3=[val isNumeric:_phonetxtfld.text];
-        
-        if(value1==0)
-        {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"please Enter Valid Number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-            [alert1 show];
-            
-            
-        }
-        else
-        {
-             [self SaveBasicInfo];
-        }
+    [self SaveBasicInfo];
+//    if(fmt==1)
+//    {
+//        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+//        
+//        [alert show];
+//        
+//    }
+//    else
+//    {
+//        
+//        [self SaveBasicInfo];
+//    }
 
 }
-}
+
 
 -(IBAction)cancel:(id)sender
 {
@@ -628,9 +613,22 @@
             }
             else
             {
+                
+                
+                Validation*val=[[Validation alloc]init];
+                int value1=[val isdataformat:_faxtxtfld.text];
+                if(value1==0)
+                {
+                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert1 show];
+                    
+                    
+                }
+                else
+
+                {
                 faxnoString=_faxtxtfld.text;
-                
-                
+
                 //checking a particular charector
                 // NSString *connectstring;
                 NSString*new=[faxnoString substringWithRange:NSMakeRange(3, 1)];
@@ -712,6 +710,8 @@
                 
             }
         }
+        
+        }
         if(textField==_phonetxtfld)
         {
             
@@ -737,9 +737,20 @@
             }
             else
             {
-                phnnostring=_phonetxtfld.text;
-                
-                
+               
+                Validation*val=[[Validation alloc]init];
+                int value1=[val isdataformat:_phonetxtfld.text];
+                if(value1==0)
+                {
+                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                    [alert1 show];
+                    
+                    
+                }
+                else
+                {
+
+                 phnnostring=_phonetxtfld.text;
                 //checking a particular charector
                 // NSString *connectstring;
                 NSString*new=[phnnostring substringWithRange:NSMakeRange(3, 1)];
@@ -819,9 +830,60 @@
                 }
                 
             }
+            }
+        }
+    if(textField==_ziptextfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_ziptextfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter A Valid Zip" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    
+    
+    if ([alertView.message isEqualToString:@"Please Enter A Valid Zip"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _ziptextfld.text=@"";
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Invalid PhoneNumber"])
+    {
+        if (buttonIndex==0) {
+            
+            _phonetxtfld.text=@"";
+            
+        }
+
+    }
+    if ([alertView.message isEqualToString:@"Invalid Fax Number"])
+    {
+        if (buttonIndex==0) {
+            
+            _faxtxtfld.text=@"";
+            
         }
         
+    }
+
+    
 }
+
 
 
 
