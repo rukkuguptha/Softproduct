@@ -698,7 +698,7 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString *soapMessage;
     
-    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
+   // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
     NSString *type=@"Equipments";
     
     soapMessage = [NSString stringWithFormat:
@@ -714,7 +714,7 @@ finishedSavingWithError:(NSError *)error
                    "<type>%@</type>\n"
                    "</FetchAnyImage>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",imagename,type];
+                   "</soap:Envelope>\n",_uplodpiclctn,type];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1349,6 +1349,8 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=eqmdl.MonthlyRate;
     _yearlytxtfld.text=eqmdl.YearlyRate;
     _stockinhndtxtfld.text=eqmdl.stockinhand;
+    _uplodpiclctn=eqmdl.PictureLocation;
+    
     [self FetchAnyImage];
 
 _addequipmentview.hidden=NO;

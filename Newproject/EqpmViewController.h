@@ -28,6 +28,7 @@
 @property(strong,nonatomic)NSData*basedata;
 @property(strong,nonatomic)NSString*encodedString;
 @property(strong,nonatomic)NSString*picturelocation;
+@property(strong,nonatomic)NSString*uplodpiclctn;
 
 @property (strong, nonatomic) IBOutlet UIImageView *picimageview;
 @property(strong,nonatomic)Validation *vald;
