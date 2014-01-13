@@ -662,8 +662,8 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString *soapMessage;
     
-    //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
-    NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+   // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
     NSString *type=@"Equipments";
     
     soapMessage = [NSString stringWithFormat:
@@ -731,12 +731,14 @@ finishedSavingWithError:(NSError *)error
                    "<soap:Body>\n"
                    
                    "<FetchAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<fileName>%@</fileName>\n"
+                   "<filename>%@</filename>\n"
                    "<type1>%@</type1>\n"
                    "</FetchAnyImage>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_uplodpiclctn,type];
     NSLog(@"soapmsg%@",soapMessage);
+    //UIAlertView *alert=[ui]
+    
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
@@ -1261,7 +1263,7 @@ finishedSavingWithError:(NSError *)error
         _yearlytxtfld.text=@"";
         _stockinhndtxtfld.text=@"";
     
-        _picimageview.image=nil;
+        //_picimageview.image=nil;
         
       _soapResults = nil;
         

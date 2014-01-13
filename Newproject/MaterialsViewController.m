@@ -507,7 +507,120 @@
     {
         ////NSLog(@"theConnection is NULL");
     }
+}
+
+-(void)UploadAnyImage{
+        recordResults = FALSE;
+        NSString *soapMessage;
+        
+        NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+        // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+        NSString *type=@"Equipments";
+        
+        soapMessage = [NSString stringWithFormat:
+                       
+                       @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                       "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                       
+                       
+                       "<soap:Body>\n"
+                       
+                       "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                       "<f>%@</f>\n"
+                       "<fileName>%@</fileName>\n"
+                       "<type>%@</type>\n"
+                       "<itemcode>%@</itemcode>\n"
+                       "</UploadAnyImage>\n"
+                       "</soap:Body>\n"
+                       "</soap:Envelope>\n",_encodedString,imagename,type,_codetxfld.text];
+        NSLog(@"soapmsg%@",soapMessage);
+        
+        
+        // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+        
+        NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+        
+        NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+        
+        [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        
+        [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+        
+        [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+        [theRequest setHTTPMethod:@"POST"];
+        [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+        
+        if( theConnection )
+        {
+            _webData = [NSMutableData data];
+        }
+        else
+        {
+            ////NSLog(@"theConnection is NULL");
+        }
+        
+}
     
+-(void)FetchAnyImage{
+        recordResults = FALSE;
+        NSString *soapMessage;
+        
+        // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
+        NSString *type=@"Equipments";
+        //NSString*filename=@"818191.jpg";
+        
+        soapMessage = [NSString stringWithFormat:
+                       
+                       @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                       "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                       
+                       
+                       "<soap:Body>\n"
+                       
+                       "<FetchAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                       "<filename>%@</filename>\n"
+                       "<type1>%@</type1>\n"
+                       "</FetchAnyImage>\n"
+                       "</soap:Body>\n"
+                       "</soap:Envelope>\n",_uplodpiclctn,type];
+        NSLog(@"soapmsg%@",soapMessage);
+       
+        
+        
+        
+        // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+        
+        NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+        
+        NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+        
+        [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        
+        [theRequest addValue: @"http://ios.kontract360.com/FetchAnyImage" forHTTPHeaderField:@"Soapaction"];
+        
+        [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+        [theRequest setHTTPMethod:@"POST"];
+        [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+        
+        if( theConnection )
+        {
+            _webData = [NSMutableData data];
+        }
+        else
+        {
+            ////NSLog(@"theConnection is NULL");
+        }
+        
+    }
+
 }
 
 
@@ -800,6 +913,17 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
+    
+    
+    UIImage *imagename =_picimageview.image;
+    // NSData *data = UIImagePNGRepresentation(imagename);
+    
+    NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+    
+    
+    _encodedString = [data base64EncodedString];
+
+    
     if (butntype==1) {
         [self InserteMaterials];
 

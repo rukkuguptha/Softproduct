@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import "Validation.h"
+#import "Base64.h"
 
 @interface MaterialsViewController : UIViewController{
      BOOL recordResults;
@@ -22,6 +23,12 @@
 
 @property(strong,nonatomic)Manpwr *materialmdl;
 @property(strong,nonatomic)Validation *val;
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
+
+@property(strong,nonatomic)NSString*picturelocation;
+@property(strong,nonatomic)NSString*uplodpiclctn;
 
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *subtypearray;
