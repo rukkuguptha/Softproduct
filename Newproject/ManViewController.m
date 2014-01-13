@@ -34,6 +34,8 @@
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
     _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+   // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+
     
     self.manpowerTable.tableHeaderView =_SearchingBar;
     
@@ -154,6 +156,23 @@
         
     }
     
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_manpowerTable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
 }
 
 
@@ -945,7 +964,7 @@
     
     Validation*val=[[Validation alloc]init];
     if (textField==_unitcosttxtfld) {
-        int value2=[val isIntegerValue:_unitcosttxtfld.text];
+        int value2=[val isNumeric:_unitcosttxtfld.text];
         if (value2==0) {
             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid unit cost" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];

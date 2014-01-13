@@ -142,10 +142,10 @@
                         <navigationItem title="Resources" id="Gl2-LG-g16">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="1br-OI-l5M">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2h-I9-Qyb">
-                                    <rect key="frame" x="487" y="7" width="30" height="30"/>
+                                    <rect key="frame" x="477" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" image="closebutton.png">
+                                    <state key="normal" image="appbar.close.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -163,7 +163,7 @@
         </view>
     </objects>
     <resources>
-        <image name="closebutton.png" width="30" height="30"/>
+        <image name="appbar.close.png" width="76" height="76"/>
         <image name="squareimage1.png" width="300" height="400"/>
     </resources>
 </document>
