@@ -31,7 +31,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             </textAttributes>
                             <items>
-                                <navigationItem title="Company Values &amp; Pholosophy" id="XaF-3y-PhX">
+                                <navigationItem title="Company Values &amp; Philosophy" id="XaF-3y-PhX">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="ABb-Z1-QF1">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4IB-Ky-DoG">
                                             <rect key="frame" x="708" y="2" width="40" height="40"/>
