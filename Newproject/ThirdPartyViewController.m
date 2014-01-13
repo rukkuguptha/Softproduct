@@ -741,9 +741,29 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"UpdateThirdPartyResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+
     
+    if([elementName isEqualToString:@"InsertThirdPartyResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+
     
     
 }
@@ -934,6 +954,34 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"result"])
+    {  recordResults = FALSE;
+        
+        _codetxtfld.text=@"";
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _purchasetxtfld.text=@"";
+        _serialtxtfld.text=@"";
+        _manufattxtfld.text =@"";
+        _insuredtxtfld.text=@"";
+        _hurstxtfld.text=@"";
+        _fueltxtfld.text=@"";
+        _condtntxtfld.text=@"";
+        _hurlytxtfld.text=@"";
+        _dailytxtfld.text=@"";
+        _shiftwisetxtfld.text=@"";
+        _weeklytxtfld.text=@"";
+        _monthlytxtfld.text=@"";
+        _yearlytxtfld.text=@"";
+        _typetxtfld.text=@"";
+        _unitcsttxtfld.text=@"";
+        _stckinhandtxtdfld.text=@"";
+
+         _soapResults = nil;
+        
+    }
+    
+
 
     
 }
@@ -1153,6 +1201,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     _yearlytxtfld.text=@"";
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
+    _stckinhandtxtdfld.text=@"";
 
     
 }
@@ -1182,6 +1231,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     _yearlytxtfld.text=@"";
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
+    _stckinhandtxtdfld.text=@"";
 
     btntype=1;
     _addview.hidden=NO;
@@ -1279,7 +1329,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     if (textField==_hurlytxtfld) {
         int value6=[val isNumeric:_hurlytxtfld.text];
         if (value6==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hurly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hourly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1391,10 +1441,10 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
         _hurstxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
+    if ([alertView.title isEqualToString:@"Invalid hurly rate"]) {
         
         
-        _hurstxtfld.text=@"";
+        _hurlytxtfld.text=@"";
         
     }
     

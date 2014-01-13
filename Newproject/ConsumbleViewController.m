@@ -549,6 +549,25 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UpdateConsumablesResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"InsertConsumablesResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -628,6 +647,23 @@
         
         
     }
+    
+    if([elementName isEqualToString:@"result"])
+    {  recordResults = FALSE;
+        
+        _codetxtfld.text=@"";
+        
+        _destxtfld.text=@"";
+        _subtyptxtfld.text=@"";
+        _unitcosttxtfld.text=@"";
+        _stckinhandtxtfld.text=@"";
+        
+        
+        _soapResults = nil;
+        
+    }
+    
+
 }
 
 
@@ -780,6 +816,7 @@
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
+    _stckinhandtxtfld.text=@"";
     
 }
 - (IBAction)deletebtn:(id)sender{
@@ -820,6 +857,7 @@
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
+    _stckinhandtxtfld.text=@"";
     butntype=1;
        _navItem.title=@"ADD";
     

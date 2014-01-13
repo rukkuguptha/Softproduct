@@ -1260,7 +1260,8 @@ finishedSavingWithError:(NSError *)error
         _monthlytxtfld.text=@"";
         _yearlytxtfld.text=@"";
         _stockinhndtxtfld.text=@"";
-
+    
+        _picimageview.image=nil;
         
       _soapResults = nil;
         
@@ -1492,7 +1493,7 @@ _addequipmentview.hidden=NO;
     if (textField==_hurlytxtfld) {
           int value6=[val isNumeric:_hurlytxtfld.text];
         if (value6==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hurly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hourly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1592,10 +1593,10 @@ _addequipmentview.hidden=NO;
         _hurstxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
+    if ([alertView.title isEqualToString:@"Invalid  hourly rate"]) {
         
         
-        _hurstxtfld.text=@"";
+        _hurlytxtfld.text=@"";
         
     }
 

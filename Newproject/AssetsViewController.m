@@ -831,7 +831,16 @@
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"InsertOtherResult"])
+    {
+        _Assetarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     
     
@@ -1007,6 +1016,31 @@
         [_Assetarray addObject:_Assetmdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        _codetxtfld.text=@"";
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _purchasetxtfld.text=@"";
+        _serialtxtfld.text=@"";
+        _manufattxtfld.text =@"";
+        _insuredtxtfld.text=@"";
+        _hurstxtfld.text=@"";
+        _fueltxtfld.text=@"";
+        _condtntxtfld.text=@"";
+        _hurlytxtfld.text=@"";
+        _dailytxtfld.text=@"";
+        _shiftwisetxtfld.text=@"";
+        _weeklytxtfld.text=@"";
+        _monthlytxtfld.text=@"";
+        _yearlytxtfld.text=@"";
+        _stckinhandtxtfld.text=@"";
+
+        
+               _soapResults = nil;
+    }
 
     
 }
@@ -1069,6 +1103,7 @@
     _weeklytxtfld.text=@"";
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
+    _stckinhandtxtfld.text=@"";
     
     btntype=1;
     _addview.hidden=NO;
@@ -1147,6 +1182,7 @@
     _weeklytxtfld.text=@"";
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
+    _stckinhandtxtfld.text=@"";
 
 }
 #pragma mark-textfield delegate
@@ -1204,7 +1240,7 @@
     if (textField==_hurlytxtfld) {
         int value6=[val isNumeric:_hurlytxtfld.text];
         if (value6==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hurly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hourly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1305,10 +1341,10 @@
         _hurstxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
+    if ([alertView.title isEqualToString:@"Invalid hourly rate"]) {
         
         
-        _hurstxtfld.text=@"";
+        _hurlytxtfld.text=@"";
         
     }
     
