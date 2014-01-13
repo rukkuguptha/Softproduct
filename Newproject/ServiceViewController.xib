@@ -101,7 +101,7 @@
                             </subviews>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="7Tk-Wh-cWs">
-                            <rect key="frame" x="152" y="222" width="443" height="267"/>
+                            <rect key="frame" x="151" y="119" width="443" height="267"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="zHb-ua-2mx">
@@ -149,6 +149,7 @@
                                     <rect key="frame" x="1" y="1" width="441" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="Rus-kJ-85g">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="Gd0-gY-p8J">
