@@ -421,7 +421,7 @@
     {
         
         recordResults = FALSE;
-       [_coutryBtn setTitle:_soapResults forState:UIControlStateNormal];
+       //[_coutryBtn setTitle:_soapResults forState:UIControlStateNormal];
         
         _soapResults = nil;
     }

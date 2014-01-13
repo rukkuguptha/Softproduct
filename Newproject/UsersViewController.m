@@ -497,14 +497,13 @@
     {
         
         recordresults = FALSE;
-        _usrmdl.username=_soapResults;
-        _soapResults = nil;
+        _usrmdl.username=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];        _soapResults = nil;
     }
     if([elementName isEqualToString:@"Password"])
     {
         
         recordresults = FALSE;
-        _usrmdl.pwd=_soapResults;
+        _usrmdl.pwd=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [_userlistarray addObject:_usrmdl];
         _soapResults = nil;
     }

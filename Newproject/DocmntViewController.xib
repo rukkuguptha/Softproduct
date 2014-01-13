@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -26,11 +26,11 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="wUf-bo-HeX">
-                            <rect key="frame" x="20" y="20" width="992" height="736"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <view contentMode="scaleToFill" id="dHD-EN-gJ5">
-                            <rect key="frame" x="77" y="435" width="160" height="160"/>
+                            <rect key="frame" x="105" y="433" width="160" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nuJ-5g-7KV">
@@ -51,7 +51,7 @@
                             <color key="backgroundColor" red="0.59999999999999998" green="0.19426500739999999" blue="0.51259679629999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" id="dFY-4w-nQ5">
-                            <rect key="frame" x="266" y="258" width="160" height="160"/>
+                            <rect key="frame" x="294" y="256" width="160" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2O-ex-2D4">
@@ -72,7 +72,7 @@
                             <color key="backgroundColor" red="1" green="0.77183681029999995" blue="0.043825061339999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" id="q86-JH-CoO">
-                            <rect key="frame" x="77" y="258" width="160" height="160"/>
+                            <rect key="frame" x="105" y="256" width="160" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fEh-ht-0zw">
@@ -93,7 +93,7 @@
                             <color key="backgroundColor" red="0.0" green="0.40000000000000002" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" id="ko0-Uu-r86">
-                            <rect key="frame" x="266" y="435" width="160" height="160"/>
+                            <rect key="frame" x="294" y="433" width="160" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kyr-js-QG5">
@@ -114,14 +114,14 @@
                             <color key="backgroundColor" red="0.67781409439999996" green="0.3643638904" blue="0.030034646759999999" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <navigationBar contentMode="scaleToFill" id="x2g-n0-LYW">
-                            <rect key="frame" x="24" y="23" width="984" height="44"/>
+                            <rect key="frame" x="2" y="2" width="1020" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Company Documents" id="9dy-8m-bVX">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="HVn-XJ-s40">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G5w-n3-g2u">
-                                            <rect key="frame" x="911" y="-3" width="57" height="49"/>
+                                            <rect key="frame" x="964" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -136,7 +136,7 @@
                             </items>
                         </navigationBar>
                         <view contentMode="scaleToFill" id="enb-mx-ijH">
-                            <rect key="frame" x="77" y="81" width="160" height="160"/>
+                            <rect key="frame" x="105" y="79" width="160" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4h7-ps-odk">
@@ -157,7 +157,7 @@
                             <color key="backgroundColor" red="0.72941176470000002" green="0.1647058824" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <view contentMode="scaleToFill" id="fqR-0C-DI7">
-                            <rect key="frame" x="266" y="81" width="160" height="160"/>
+                            <rect key="frame" x="294" y="79" width="160" height="160"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Wn-ON-OkP">
