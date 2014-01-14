@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -21,6 +21,7 @@
                 <outlet property="monthlytxtfld" destination="2CI-d5-UBB" id="K5M-0t-awm"/>
                 <outlet property="navItem" destination="fIA-02-YsI" id="b6X-32-YqY"/>
                 <outlet property="navbar" destination="Pi2-ZB-gEw" id="hqH-z2-CSZ"/>
+                <outlet property="pictureimgview" destination="7bL-8F-pdH" id="dgB-Gf-P2M"/>
                 <outlet property="purchasetxtfld" destination="rfh-Li-yEi" id="coU-H0-sIl"/>
                 <outlet property="serialtxtfld" destination="THR-0Z-lh9" id="nLe-74-EM4"/>
                 <outlet property="shiftwisetxtfld" destination="SO8-db-SU0" id="t2O-Xf-SbD"/>
@@ -124,7 +125,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-Fd-gca">
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aA1-Fd-gca">
                             <rect key="frame" x="47" y="73" width="628" height="736"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>

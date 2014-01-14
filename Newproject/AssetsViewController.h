@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
 #import "Validation.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "Base64.h"
 
-@interface AssetsViewController : UIViewController<UITextFieldDelegate>
+
+@interface AssetsViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
 {
 BOOL recordResults ;
 NSInteger btntype;
@@ -23,6 +27,12 @@ NSInteger popvr;
 
 
 }
+/*cameraAction*/
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
+@property(strong,nonatomic)NSString*picturelocation;
+@property(strong,nonatomic)NSString*uplodpiclctn;
 @property(strong,nonatomic)Validation *vald;
 @property (strong, nonatomic)Equpmntmdl *Assetmdl;
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
@@ -47,6 +57,7 @@ NSInteger popvr;
 @property (strong, nonatomic)NSMutableArray *Typearray;
 
 /*OUTLETS*/
+@property(strong,nonatomic)IBOutlet UIImageView *pictureimgview;
 @property (strong, nonatomic) IBOutlet UITableView *AssetTable;
 @property (strong, nonatomic) IBOutlet UIButton *suserachbtnlbl;
 @property (strong, nonatomic) IBOutlet UITextField *codetxtfld;
