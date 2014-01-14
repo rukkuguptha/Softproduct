@@ -661,8 +661,10 @@ finishedSavingWithError:(NSError *)error
 -(void)UploadAnyImage{
     recordResults = FALSE;
     NSString *soapMessage;
+    NSString *imagename;
     
-    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+    imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+    
    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
     NSString *type=@"Equipments";
     

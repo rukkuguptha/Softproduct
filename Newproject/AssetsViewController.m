@@ -132,8 +132,6 @@ finishedSavingWithError:(NSError *)error
     
 }
 
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -418,7 +416,7 @@ finishedSavingWithError:(NSError *)error
 -(void)InsertOther{
     webtype=1;
     recordResults = FALSE;
-    NSString*picturelocatn=@"";
+    //NSString*picturelocatn=@"";
     NSString *soapMessage;
     
     
@@ -451,7 +449,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -486,7 +484,7 @@ finishedSavingWithError:(NSError *)error
 -(void)UpdateOther{
     webtype=2;
     recordResults = FALSE;
-    NSString*picturelocatn=@"";
+    //NSString*picturelocatn=@"";
     NSString *soapMessage;
   Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
     
@@ -520,7 +518,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -654,11 +652,12 @@ finishedSavingWithError:(NSError *)error
     
 }
 -(void)UploadAnyImage{
+     img=2;
     recordResults = FALSE;
     NSString *soapMessage;
-    
-    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxtfld.text];
-    //NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *imagename;
+    imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxtfld.text];
+       //NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
     NSString *type=@"OtherSmall";
     
     soapMessage = [NSString stringWithFormat:
@@ -710,13 +709,15 @@ finishedSavingWithError:(NSError *)error
 }
 
 -(void)FetchAnyImage{
+    img=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
     //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
     NSString *type=@"OtherSmall";
-    Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
-    NSString*filename=eqmdl.PictureLocation;
+
+    //Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
+    //NSString*filename=eqmdl.PictureLocation;
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -731,7 +732,7 @@ finishedSavingWithError:(NSError *)error
                    "<type1>%@</type1>\n"
                    "</FetchAnyImage>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",filename,type];
+                   "</soap:Envelope>\n",_uplodpiclctn,type];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1050,16 +1051,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"FetchAnyImageResult"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-
+    
     if([elementName isEqualToString:@"url"])
     {
         
@@ -1246,22 +1238,13 @@ finishedSavingWithError:(NSError *)error
         [_Assetarray addObject:_Assetmdl];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"url"])
-    {
-        recordResults = FALSE;
-        _picturelocation=_soapResults;
-        
-        _soapResults = nil;
-        
-        
-    }
-
+   
     if([elementName isEqualToString:@"result"])
     {
         
         recordResults = FALSE;
          [self UploadAnyImage];
-        _codetxtfld.text=@"";
+        //_codetxtfld.text=@"";
         _destxtfld.text=@"";
         _subtypetxtfld.text=@"";
         _purchasetxtfld.text=@"";
@@ -1279,9 +1262,40 @@ finishedSavingWithError:(NSError *)error
         _yearlytxtfld.text=@"";
         _stckinhandtxtfld.text=@"";
 
-         _pictureimgview.image=nil;
+         //_pictureimgview.image=nil;
                _soapResults = nil;
     }
+    if([elementName isEqualToString:@"url"])
+    {
+        recordResults = FALSE;
+        _picturelocation=_soapResults;
+        if (img==2)
+        {
+            
+//            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+
+        }
+        if (img==1) {
+            NSData *data1=[_soapResults base64DecodedData];
+            
+            UIImage *image1=  [[UIImage alloc]initWithData:data1];
+            
+            //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+            
+            
+            _pictureimgview.image=image1;
+            NSLog(@"img%@",image1);
+            
+            
+        }
+
+        
+        _soapResults = nil;
+        
+        
+    }
+
     
 
     
@@ -1390,12 +1404,11 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=eqmdl.MonthlyRate;
     _yearlytxtfld.text=eqmdl.YearlyRate;
     _stckinhandtxtfld.text=eqmdl.stockinhand;
-    _addview.hidden=NO;
-    _navItem.title=@"EDIT";
     _uplodpiclctn=eqmdl.PictureLocation;
     
     [self FetchAnyImage];
-    
+    _addview.hidden=NO;
+    _navItem.title=@"EDIT";
 }
 
 

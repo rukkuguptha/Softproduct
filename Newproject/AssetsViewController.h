@@ -24,6 +24,7 @@ NSInteger deltepath;
 NSInteger webtype;
 NSInteger btnpath;
 NSInteger popvr;
+NSInteger img;
 
 
 }
