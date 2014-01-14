@@ -144,7 +144,9 @@
      if (tableView==_materialTable) {
     Manpwr*materaialmdl=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
     _codelbl=(UILabel *)[cell viewWithTag:1];
+         
     _codelbl.text=materaialmdl.itemcode;
+         NSLog(@"%@",materaialmdl.itemcode);
     _deslbl=(UILabel *)[cell viewWithTag:2];
     _deslbl.text=materaialmdl.itemdescptn;
     _typelbl=(UILabel *)[cell viewWithTag:3];
@@ -513,9 +515,9 @@
         recordResults = FALSE;
         NSString *soapMessage;
         
-        NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxfld.text];
+        NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxtfld.text];
         // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
-        NSString *type=@"Equipments";
+        NSString *type=@"Materials";
         
         soapMessage = [NSString stringWithFormat:
                        
@@ -532,7 +534,7 @@
                        "<itemcode>%@</itemcode>\n"
                        "</UploadAnyImage>\n"
                        "</soap:Body>\n"
-                       "</soap:Envelope>\n",_encodedString,imagename,type,_codetxfld.text];
+                       "</soap:Envelope>\n",_encodedString,imagename,type,_codetxtfld.text];
         NSLog(@"soapmsg%@",soapMessage);
         
         
@@ -570,7 +572,7 @@
         NSString *soapMessage;
         
         // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
-        NSString *type=@"Equipments";
+        NSString *type=@"Materials";
         //NSString*filename=@"818191.jpg";
         
         soapMessage = [NSString stringWithFormat:
@@ -621,7 +623,7 @@
         
     }
 
-}
+
 
 
 #pragma mark - Connection
@@ -695,6 +697,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"itemcode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"Description"])
     {
         
@@ -751,6 +763,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"picture"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"qtyinstock"])
     {
         
@@ -781,6 +803,27 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"UploadAnyImageResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -808,10 +851,19 @@
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ItemCode"])
+    { recordResults = FALSE;
+ _materialmdl.itemcode=_soapResults;
+        _soapResults = nil;
+
+        
+    }
+    if([elementName isEqualToString:@"itemcode"])
     {
         
         recordResults = FALSE;
       _materialmdl.itemcode=_soapResults;
+        NSLog(@"%@",_materialmdl.itemcode);
+
         
         _soapResults = nil;
     }
@@ -830,6 +882,12 @@
        _materialmdl.subtype=_soapResults;
         
         _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"picture"])
+    {
+        recordResults=FALSE;
+        _materialmdl.picturelocation=_soapResults;
+        
     }
     if([elementName isEqualToString:@"UnitCost"])
     {
@@ -864,6 +922,7 @@
     {
 
         recordResults = FALSE;
+        [self UploadAnyImage];
         
         _codetxtfld.text=@"";
         
@@ -873,6 +932,18 @@
         _stockinhandtxtfld.text=@"";
         _soapResults = nil;
     }
+    
+    if([elementName isEqualToString:@"url"])
+    {
+        recordResults = FALSE;
+        _picturelocation=_soapResults;
+        
+        _soapResults = nil;
+        
+        
+    }
+
+    
 }
 
 #pragma mark-Searchbar
@@ -1001,6 +1072,10 @@
     _subtyptxtfld.text=pwrmdl.subtype;
     _unitcosttxtfld.text=pwrmdl.unitcost;
     _stockinhandtxtfld.text=pwrmdl.stckinhand;
+    _uplodpiclctn=pwrmdl.picturelocation;
+    
+    [self FetchAnyImage];
+
 
     _addmatView.hidden=NO;
     _navItem.title=@"EDIT";
@@ -1088,6 +1163,65 @@
     
     
     return YES;
+}
+#pragma mark-ImagePicker
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // [self.popoverController dismissPopoverAnimated:true];
+    NSString *mediaType = [info
+                           objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = [info
+                          objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"dict%@",info);
+        _picimageview.image=nil;
+        
+        
+        
+        _picimageview.image =image;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    
+    
+    
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end

@@ -9,6 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
 #import "Validation.h"
+#import "Base64.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface FleetsViewController : UIViewController{
 
@@ -29,6 +32,15 @@ NSInteger popvr;
 @property(strong,nonatomic)Validation *val;
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
+@property (strong, nonatomic) IBOutlet UIImageView *picimageview;
+
+
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
+
+@property(strong,nonatomic)NSString*picturelocation;
+@property(strong,nonatomic)NSString*uplodpiclctn;
 
 
 /*popover*/

@@ -12,6 +12,7 @@
                 <outlet property="destxtfld" destination="AA2-Pd-kcl" id="Lja-BE-hBg"/>
                 <outlet property="materialTable" destination="ioM-Hg-c3p" id="Cui-2M-5OH"/>
                 <outlet property="navItem" destination="aMt-1h-Qkm" id="toj-Fn-cC8"/>
+                <outlet property="picimageview" destination="srX-5q-wqr" id="Rch-5S-X26"/>
                 <outlet property="stockinhandtxtfld" destination="F7N-Io-6MJ" id="T4d-k6-J3v"/>
                 <outlet property="subsearchbtnlbl" destination="qZF-B4-eqY" id="BIv-o4-kFs"/>
                 <outlet property="subtyptxtfld" destination="jbQ-Qx-4uW" id="Pwi-Df-Ef2"/>

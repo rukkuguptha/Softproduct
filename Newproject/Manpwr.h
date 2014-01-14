@@ -15,6 +15,7 @@
 @property(strong,nonatomic)NSString*subtype;
 @property(strong,nonatomic)NSString*unitcost;
 @property(strong,nonatomic)NSString*stckinhand;
+@property(strong,nonatomic)NSString*picturelocation;
  @property(readwrite)NSInteger overhead;
 
 @end

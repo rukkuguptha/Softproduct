@@ -21,6 +21,7 @@
                 <outlet property="monthlytxtfld" destination="Lbo-eC-hDh" id="Y2P-s5-6B3"/>
                 <outlet property="navbar" destination="I6j-T7-5Yh" id="Hxb-WM-nJE"/>
                 <outlet property="navitem" destination="qI5-MM-Mmh" id="hzH-nq-Q7k"/>
+                <outlet property="picimageview" destination="12P-nf-m7Z" id="oRs-eQ-o77"/>
                 <outlet property="purchasetxtfld" destination="9Rb-V5-Fvj" id="t8q-JG-SXE"/>
                 <outlet property="serialtxtfld" destination="aaH-K5-TUU" id="bZv-P9-k0e"/>
                 <outlet property="shiftwisetxtfld" destination="cFd-a1-8Je" id="fds-85-uld"/>
@@ -40,7 +41,7 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Bq7-W6-9hv">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="qZs-vx-Gmq">
                             <rect key="frame" x="1" y="0.0" width="767" height="1024"/>

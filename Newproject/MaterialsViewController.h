@@ -10,6 +10,9 @@
 #import "Manpwr.h"
 #import "Validation.h"
 #import "Base64.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
 
 @interface MaterialsViewController : UIViewController{
      BOOL recordResults;
@@ -20,6 +23,9 @@
     NSInteger webtype;
     
 }
+
+@property (strong, nonatomic) IBOutlet UIImageView *picimageview;
+
 
 @property(strong,nonatomic)Manpwr *materialmdl;
 @property(strong,nonatomic)Validation *val;
