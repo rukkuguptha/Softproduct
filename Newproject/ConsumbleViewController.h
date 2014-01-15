@@ -57,6 +57,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *subtyptxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *unitcosttxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *subsearchbtnlbl;
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 
 - (IBAction)subsearchbtn:(id)sender;
 

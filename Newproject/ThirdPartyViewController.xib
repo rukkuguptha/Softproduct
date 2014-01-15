@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThirdPartyViewController">
             <connections>
                 <outlet property="addview" destination="uav-My-ObZ" id="yL8-x0-qLd"/>
+                <outlet property="cancelbtn" destination="28i-wh-e4L" id="Vru-Ab-LZm"/>
                 <outlet property="codetxtfld" destination="B8p-of-u6I" id="3Q2-WR-hdc"/>
                 <outlet property="condtntxtfld" destination="5VR-tI-vbU" id="epW-Ov-OXI"/>
                 <outlet property="dailytxtfld" destination="QIV-dB-TVq" id="l8C-Cd-shn"/>
@@ -412,14 +413,6 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20h-If-8l9">
-                                            <rect key="frame" x="429" y="523" width="106" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Select Files">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                        </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rectangle3.png" translatesAutoresizingMaskIntoConstraints="NO" id="gJU-RM-Sal">
                                             <rect key="frame" x="366" y="543" width="200" height="105"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -429,7 +422,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28i-wh-e4L">
-                                            <rect key="frame" x="261" y="657" width="88" height="30"/>
+                                            <rect key="frame" x="311" y="657" width="88" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <state key="normal" title="Cancel">
@@ -440,7 +433,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpO-jy-zI6">
-                                            <rect key="frame" x="123" y="657" width="130" height="30"/>
+                                            <rect key="frame" x="143" y="657" width="130" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <state key="normal" title="Update ThirdParty">

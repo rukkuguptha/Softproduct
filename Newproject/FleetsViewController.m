@@ -571,7 +571,7 @@
     
     NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxtfld.text];
     // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
-    NSString *type=@"Materials";
+    NSString *type=@"Fleets";
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -626,7 +626,7 @@
     NSString *soapMessage;
     
     // NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxfld.text];
-    NSString *type=@"Equipments";
+    NSString *type=@"Fleets";
     //NSString*filename=@"818191.jpg";
     
     soapMessage = [NSString stringWithFormat:
@@ -956,6 +956,35 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UploadAnyImageResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"FetchAnyImageResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"url"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
 
     
@@ -1159,25 +1188,19 @@
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        [self UploadAnyImage];
-        _codetxtfld.text=@"";
-        _destxtfld.text=@"";
-        _subtypetxtfld.text=@"";
-        _purchasetxtfld.text=@"";
-        _serialtxtfld.text=@"";
-        _manufattxtfld.text =@"";
-        _insuredtxtfld.text=@"";
-        _hurstxtfld.text=@"";
-        _fueltxtfld.text=@"";
-        _condtntxtfld.text=@"";
-        _hurlytxtfld.text=@"";
-        _dailytxtfld.text=@"";
-        _shiftwisetxtfld.text=@"";
-        _weeklytxtfld.text=@"";
-        _monthlytxtfld.text=@"";
-        _yearlytxtfld.text=@"";
-        _stockinhandtxtfld.text=@"";
-
+        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
+        {
+            [self UploadAnyImage];
+            webtype=0;
+            
+        }
+        else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            [self SelectAllfleet];
+        }
+       
         _soapResults = nil;
 
     }
@@ -1186,7 +1209,15 @@
 if([elementName isEqualToString:@"url"])
 {
     recordResults = FALSE;
-    _picturelocation=_soapResults;
+    NSData *data1=[_soapResults base64DecodedData];
+    
+    UIImage *image1=  [[UIImage alloc]initWithData:data1];
+    
+    //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+    
+    
+    _picimageview.image=image1;
+    NSLog(@"img%@",image1);
     
     _soapResults = nil;
     
@@ -1248,7 +1279,8 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
       _stockinhandtxtfld.text=@"";
-    
+    _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _cancelbtn.enabled=YES;
     btntype=1;
     _addview.hidden=NO;
     _navitem.title=@"ADD";
@@ -1293,9 +1325,11 @@ if([elementName isEqualToString:@"url"])
     _yearlytxtfld.text=eqmdl.YearlyRate;
       _stockinhandtxtfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
+    _cancelbtn.enabled=NO;
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navitem.title=@"EDIT";
+    
     
 }
 
@@ -1339,6 +1373,7 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
+    _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
 
 }
 
@@ -1476,6 +1511,28 @@ if([elementName isEqualToString:@"url"])
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Updated"])
+    {
+        _codetxtfld.text=@"";
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _purchasetxtfld.text=@"";
+        _serialtxtfld.text=@"";
+        _manufattxtfld.text =@"";
+        _insuredtxtfld.text=@"";
+        _hurstxtfld.text=@"";
+        _fueltxtfld.text=@"";
+        _condtntxtfld.text=@"";
+        _hurlytxtfld.text=@"";
+        _dailytxtfld.text=@"";
+        _shiftwisetxtfld.text=@"";
+        _weeklytxtfld.text=@"";
+        _monthlytxtfld.text=@"";
+        _yearlytxtfld.text=@"";
+        _stockinhandtxtfld.text=@"";
+        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+
+    }
     if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
         
         

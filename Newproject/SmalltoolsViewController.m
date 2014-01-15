@@ -931,8 +931,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
         
-        
-        _costtxtfld.text=@"";
+                _costtxtfld.text=@"";
         
     }
     

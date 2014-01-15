@@ -23,7 +23,7 @@
     NSInteger webtype;
     NSInteger btnpath;
     NSInteger popvr;
-    NSInteger img;
+   
 
     
 }
@@ -84,7 +84,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *yearlytxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *typetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *unitcsttxtfld;
-
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 @property (strong, nonatomic)NSString*searchstring;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchbar;

@@ -81,7 +81,7 @@ NSInteger popvr;
 @property (strong, nonatomic) IBOutlet UITextField *condtntxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *hurlytxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *dailytxtfld;
-
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 @property (strong, nonatomic) IBOutlet UITextField *shiftwisetxtfld;
 
 @property (strong, nonatomic) IBOutlet UITextField *weeklytxtfld;
