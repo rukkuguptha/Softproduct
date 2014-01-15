@@ -1243,8 +1243,11 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
+        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"]){
          [self UploadAnyImage];
-        //_codetxtfld.text=@"";
+            [_soapResults isEqualToString:@"done"];
+        }
+        _codetxtfld.text=@"";
         _destxtfld.text=@"";
         _subtypetxtfld.text=@"";
         _purchasetxtfld.text=@"";
@@ -1267,15 +1270,6 @@ finishedSavingWithError:(NSError *)error
     }
     if([elementName isEqualToString:@"url"])
     {
-        recordResults = FALSE;
-        _picturelocation=_soapResults;
-        if (img==2)
-        {
-            
-//            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-
-        }
         if (img==1) {
             NSData *data1=[_soapResults base64DecodedData];
             
