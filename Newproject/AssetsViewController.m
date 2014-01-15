@@ -1035,13 +1035,23 @@ finishedSavingWithError:(NSError *)error
     }
     if([elementName isEqualToString:@"InsertOtherResult"])
     {
-        _Assetarray=[[NSMutableArray alloc]init];
+        //_Assetarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UpdateOtherResult"])
+    {
+        //_Assetarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"UploadAnyImageResult"])
     {
         
@@ -1243,29 +1253,40 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"]){
-         [self UploadAnyImage];
-            [_soapResults isEqualToString:@"done"];
+        NSLog(@"%@",_soapResults);
+        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
+        {
+            [self UploadAnyImage];
+            webtype=0;
+           
         }
-        _codetxtfld.text=@"";
-        _destxtfld.text=@"";
-        _subtypetxtfld.text=@"";
-        _purchasetxtfld.text=@"";
-        _serialtxtfld.text=@"";
-        _manufattxtfld.text =@"";
-        _insuredtxtfld.text=@"";
-        _hurstxtfld.text=@"";
-        _fueltxtfld.text=@"";
-        _condtntxtfld.text=@"";
-        _hurlytxtfld.text=@"";
-        _dailytxtfld.text=@"";
-        _shiftwisetxtfld.text=@"";
-        _weeklytxtfld.text=@"";
-        _monthlytxtfld.text=@"";
-        _yearlytxtfld.text=@"";
-        _stckinhandtxtfld.text=@"";
-
-         //_pictureimgview.image=nil;
+        else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            [self SelectAllOther];
+        }
+//        else{
+//        _codetxtfld.text=@"";
+//        _destxtfld.text=@"";
+//        _subtypetxtfld.text=@"";
+//        _purchasetxtfld.text=@"";
+//        _serialtxtfld.text=@"";
+//        _manufattxtfld.text =@"";
+//        _insuredtxtfld.text=@"";
+//        _hurstxtfld.text=@"";
+//        _fueltxtfld.text=@"";
+//        _condtntxtfld.text=@"";
+//        _hurlytxtfld.text=@"";
+//        _dailytxtfld.text=@"";
+//        _shiftwisetxtfld.text=@"";
+//        _weeklytxtfld.text=@"";
+//        _monthlytxtfld.text=@"";
+//        _yearlytxtfld.text=@"";
+//        _stckinhandtxtfld.text=@"";
+//        _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+//        }
+        
                _soapResults = nil;
     }
     if([elementName isEqualToString:@"url"])
@@ -1576,6 +1597,37 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    
+    if ([alertView.message isEqualToString:@"Updated"])
+ {
+        
+        
+        
+        
+            
+            _codetxtfld.text=@"";
+            _destxtfld.text=@"";
+            _subtypetxtfld.text=@"";
+            _purchasetxtfld.text=@"";
+            _serialtxtfld.text=@"";
+            _manufattxtfld.text =@"";
+            _insuredtxtfld.text=@"";
+            _hurstxtfld.text=@"";
+            _fueltxtfld.text=@"";
+            _condtntxtfld.text=@"";
+            _hurlytxtfld.text=@"";
+            _dailytxtfld.text=@"";
+            _shiftwisetxtfld.text=@"";
+            _weeklytxtfld.text=@"";
+            _monthlytxtfld.text=@"";
+            _yearlytxtfld.text=@"";
+            _stckinhandtxtfld.text=@"";
+            _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+            
+        }
+    
+
     if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
         
         
