@@ -859,6 +859,7 @@
     _unitcosttxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
     butntype=1;
+    _cancelbtn.enabled=YES;
        _navItem.title=@"ADD";
     
     
@@ -877,7 +878,7 @@
     _destxtfld.text=toolmdl.itemdescptn;
     _subtyptxtfld.text=toolmdl.subtype;
     _unitcosttxtfld.text=toolmdl.unitcost;
-    
+    _cancelbtn.enabled=NO;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
     _navItem.title=@"EDIT";

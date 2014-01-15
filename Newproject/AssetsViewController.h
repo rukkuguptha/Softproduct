@@ -24,7 +24,7 @@ NSInteger deltepath;
 NSInteger webtype;
 NSInteger btnpath;
 NSInteger popvr;
-NSInteger img;
+
 
 
 }
@@ -92,6 +92,7 @@ NSInteger img;
 @property (strong, nonatomic) IBOutlet UITableViewCell *Assetcell;
 
 @property (strong, nonatomic) IBOutlet UIButton *typesearchlbl;
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 
 /*cell outlets*/
 

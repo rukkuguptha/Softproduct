@@ -652,7 +652,7 @@ finishedSavingWithError:(NSError *)error
     
 }
 -(void)UploadAnyImage{
-     img=2;
+    
     recordResults = FALSE;
     NSString *soapMessage;
     NSString *imagename;
@@ -709,7 +709,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 -(void)FetchAnyImage{
-    img=1;
+    
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -1291,7 +1291,7 @@ finishedSavingWithError:(NSError *)error
     }
     if([elementName isEqualToString:@"url"])
     {
-        if (img==1) {
+       
             NSData *data1=[_soapResults base64DecodedData];
             
             UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1303,7 +1303,7 @@ finishedSavingWithError:(NSError *)error
             NSLog(@"img%@",image1);
             
             
-        }
+        
 
         
         _soapResults = nil;
@@ -1375,6 +1375,8 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
+    _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    _cancelbtn.enabled=YES;
     
     btntype=1;
     _addview.hidden=NO;
@@ -1420,7 +1422,7 @@ finishedSavingWithError:(NSError *)error
     _yearlytxtfld.text=eqmdl.YearlyRate;
     _stckinhandtxtfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
-    
+    _cancelbtn.enabled=NO;
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navItem.title=@"EDIT";
@@ -1464,6 +1466,7 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
+    _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
 
 }
 #pragma mark-textfield delegate

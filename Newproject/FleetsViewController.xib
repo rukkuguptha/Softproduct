@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FleetsViewController">
             <connections>
                 <outlet property="addview" destination="O7G-oF-xvt" id="BbP-Jw-4zW"/>
+                <outlet property="cancelbtn" destination="BL7-x6-gLH" id="9Pr-jo-8uF"/>
                 <outlet property="codetxtfld" destination="AS8-Qh-Qqm" id="sn8-ry-LdZ"/>
                 <outlet property="condtntxtfld" destination="hkI-kJ-F6W" id="mSL-3Y-frr"/>
                 <outlet property="dailytxtfld" destination="vUn-gB-dJF" id="A37-Ym-HfS"/>
@@ -40,22 +41,22 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Bq7-W6-9hv">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                    <rect key="frame" x="0.0" y="-4" width="768" height="1028"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="qZs-vx-Gmq">
-                            <rect key="frame" x="1" y="0.0" width="767" height="1024"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <rect key="frame" x="-1" y="4" width="769" height="1023"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <navigationBar contentMode="scaleToFill" id="iTO-dv-FyN">
-                            <rect key="frame" x="4" y="3" width="759" height="44"/>
+                            <rect key="frame" x="2" y="7" width="763" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Fleets" id="I6j-T7-5Yh">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="jk3-W6-cXm">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Urw-bm-HyB">
-                                            <rect key="frame" x="703" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="707" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">

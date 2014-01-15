@@ -545,7 +545,7 @@ finishedSavingWithError:(NSError *)error
     
 }
 -(void)UploadAnyImage{
-    img=2;
+   
     recordResults = FALSE;
     NSString *soapMessage;
     NSString *imagename;
@@ -604,7 +604,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 -(void)FetchAnyImage{
-    img=1;
+    
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -1182,42 +1182,29 @@ finishedSavingWithError:(NSError *)error
     }
     if([elementName isEqualToString:@"result"])
     {  recordResults = FALSE;
-        [self UploadAnyImage];
-        _codetxtfld.text=@"";
-        _destxtfld.text=@"";
-        _subtypetxtfld.text=@"";
-        _purchasetxtfld.text=@"";
-        _serialtxtfld.text=@"";
-        _manufattxtfld.text =@"";
-        _insuredtxtfld.text=@"";
-        _hurstxtfld.text=@"";
-        _fueltxtfld.text=@"";
-        _condtntxtfld.text=@"";
-        _hurlytxtfld.text=@"";
-        _dailytxtfld.text=@"";
-        _shiftwisetxtfld.text=@"";
-        _weeklytxtfld.text=@"";
-        _monthlytxtfld.text=@"";
-        _yearlytxtfld.text=@"";
-        _typetxtfld.text=@"";
-        _unitcsttxtfld.text=@"";
-        _stckinhandtxtdfld.text=@"";
+        
+        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
+        {
+            [self UploadAnyImage];
+            webtype=0;
+            
+        }
+        else if ([_soapResults isEqualToString:@"ThirdParty Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            [self SelectAllThirdParty];
+        }
 
-         _soapResults = nil;
+       
+                _soapResults = nil;
         
     }
     if([elementName isEqualToString:@"url"])
     {
         recordResults = FALSE;
         
-        if (img==2)
-        {
-            _picturelocation=_soapResults;
-//            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-            
-        }
-        if (img==1) {
+        
             NSData *data1=[_soapResults base64DecodedData];
             
             UIImage *image1=  [[UIImage alloc]initWithData:data1];
@@ -1229,7 +1216,7 @@ finishedSavingWithError:(NSError *)error
             NSLog(@"img%@",image1);
             
             
-        }
+      
         
         
         _soapResults = nil;
@@ -1470,6 +1457,7 @@ finishedSavingWithError:(NSError *)error
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
     _stckinhandtxtdfld.text=@"";
+    _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
 
     
 }
@@ -1481,6 +1469,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)addbtn:(id)sender {
+    _cancelbtn.enabled=YES;
     _codetxtfld.text=@"";
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
@@ -1500,6 +1489,7 @@ finishedSavingWithError:(NSError *)error
     _typetxtfld.text=@"";
     _unitcsttxtfld.text=@"";
     _stckinhandtxtdfld.text=@"";
+    _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
 
     btntype=1;
     _addview.hidden=NO;
@@ -1542,6 +1532,7 @@ finishedSavingWithError:(NSError *)error
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navitem.title=@"EDIT";
+    _cancelbtn.enabled=NO;
     
 
    }
@@ -1687,6 +1678,30 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+     if ([alertView.message isEqualToString:@"Updated"])
+     {
+        
+        
+         _codetxtfld.text=@"";
+         _destxtfld.text=@"";
+         _subtypetxtfld.text=@"";
+         _purchasetxtfld.text=@"";
+         _serialtxtfld.text=@"";
+         _manufattxtfld.text =@"";
+         _insuredtxtfld.text=@"";
+         _hurstxtfld.text=@"";
+         _fueltxtfld.text=@"";
+         _condtntxtfld.text=@"";
+         _hurlytxtfld.text=@"";
+         _dailytxtfld.text=@"";
+         _shiftwisetxtfld.text=@"";
+         _weeklytxtfld.text=@"";
+         _monthlytxtfld.text=@"";
+         _yearlytxtfld.text=@"";
+         _stckinhandtxtdfld.text=@"";
+         _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    }
+
     if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
         
         
