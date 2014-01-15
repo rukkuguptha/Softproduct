@@ -867,7 +867,7 @@ finishedSavingWithError:(NSError *)error
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
-        }
+        }               
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"ShiftwiseRate"])

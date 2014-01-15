@@ -798,7 +798,18 @@
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"Picture"])
+    {
+      
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+        
+
+    }
 
     if([elementName isEqualToString:@"result"])
     {
@@ -897,6 +908,14 @@
          _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"Picture"])
+    {
+        recordResults=FALSE;
+        _materialmdl.picturelocation=_soapResults;
+        _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"UnitCost"])
     {
         
