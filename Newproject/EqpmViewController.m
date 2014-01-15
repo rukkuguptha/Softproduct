@@ -1048,6 +1048,16 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UpdateEquipmentResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"UploadAnyImageResult"])
     {
         
@@ -1058,6 +1068,7 @@ finishedSavingWithError:(NSError *)error
         recordResults = TRUE;
     }
 
+   
     if([elementName isEqualToString:@"url"])
     {
         
@@ -1245,27 +1256,19 @@ finishedSavingWithError:(NSError *)error
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-         [self UploadAnyImage];
         
-        _codetxfld.text=@"";
-        _destxtfld.text=@"";
-        _subtypetxtfld.text=@"";
-        _purchasetxtfld.text=@"";
-        _serialtxtfld.text=@"";
-        _manufattxtfld.text =@"";
-        _insuredtxtfld.text=@"";
-        _hurstxtfld.text=@"";
-        _fueltxtfld.text=@"";
-        _condtntxtfld.text=@"";
-        _hurlytxtfld.text=@"";
-        _dailytxtfld.text=@"";
-        _shiftwisetxtfld.text=@"";
-        _weeklytxtfld.text=@"";
-        _monthlytxtfld.text=@"";
-        _yearlytxtfld.text=@"";
-        _stockinhndtxtfld.text=@"";
-    
-        //_picimageview.image=nil;
+        if ([_soapResults isEqualToString:@"Inserted"]||[_soapResults isEqualToString:@"Updated"]) {
+               [self UploadAnyImage];
+            webtype=0;
+        }
+        else if ([_soapResults isEqualToString:@"Eqp Picture Updated"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+            [self SelectAllEquipment];
+        }
+      
+        
         
       _soapResults = nil;
         
@@ -1274,10 +1277,18 @@ finishedSavingWithError:(NSError *)error
     
     if([elementName isEqualToString:@"url"])
     {
-            recordResults = FALSE;
-        _picturelocation=_soapResults;
+        recordResults = FALSE;
+        NSData *data1=[_soapResults base64DecodedData];
+        UIImage *image1=  [[UIImage alloc]initWithData:data1];
         
-               _soapResults = nil;
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        
+        _picimageview.image=image1;
+        NSLog(@"img%@",image1);
+
+       // _picturelocation=_soapResults;
+        _soapResults = nil;
 
       
     }
@@ -1336,7 +1347,7 @@ finishedSavingWithError:(NSError *)error
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhndtxtfld.text=@"";
-
+  _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     
   
     btntype=1;
@@ -1437,6 +1448,7 @@ _addequipmentview.hidden=NO;
     _monthlytxtfld.text=@"";
     _yearlytxtfld.text=@"";
     _stockinhndtxtfld.text=@"";
+      _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
 
 }
 
@@ -1572,6 +1584,28 @@ _addequipmentview.hidden=NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Updated"]) {
+        _codetxfld.text=@"";
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _purchasetxtfld.text=@"";
+        _serialtxtfld.text=@"";
+        _manufattxtfld.text =@"";
+        _insuredtxtfld.text=@"";
+        _hurstxtfld.text=@"";
+        _fueltxtfld.text=@"";
+        _condtntxtfld.text=@"";
+        _hurlytxtfld.text=@"";
+        _dailytxtfld.text=@"";
+        _shiftwisetxtfld.text=@"";
+        _weeklytxtfld.text=@"";
+        _monthlytxtfld.text=@"";
+        _yearlytxtfld.text=@"";
+        _stockinhndtxtfld.text=@"";
+        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+
+        
+    }
     if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
         
         

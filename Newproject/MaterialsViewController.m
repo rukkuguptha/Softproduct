@@ -887,6 +887,7 @@
     {
         recordResults=FALSE;
         _materialmdl.picturelocation=_soapResults;
+         _soapResults = nil;
         
     }
     if([elementName isEqualToString:@"UnitCost"])
@@ -920,24 +921,39 @@
     
     if([elementName isEqualToString:@"result"])
     {
-
         recordResults = FALSE;
-        [self UploadAnyImage];
         
-        _codetxtfld.text=@"";
+        if ([_soapResults isEqualToString:@"insert"]||[_soapResults isEqualToString:@"update"]) {
+            [self UploadAnyImage];
+            webtype=0;
+        }
+        else if ([_soapResults isEqualToString:@"Material Picture Updated"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+            [self SelectAllMaterials];
+        }
         
-        _destxtfld.text=@"";
-        _subtyptxtfld.text=@"";
-        _unitcosttxtfld.text=@"";
-        _stockinhandtxtfld.text=@"";
+        
+        
         _soapResults = nil;
+        
     }
+    
     
     if([elementName isEqualToString:@"url"])
     {
         recordResults = FALSE;
-        _picturelocation=_soapResults;
+        NSData *data1=[_soapResults base64DecodedData];
+        UIImage *image1=  [[UIImage alloc]initWithData:data1];
         
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        
+        _picimageview.image=image1;
+        NSLog(@"img%@",image1);
+        
+        // _picturelocation=_soapResults;
         _soapResults = nil;
         
         
@@ -1108,10 +1124,22 @@
             [alert1 show];
             
         }}
-    
+    return YES;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Updated"]) {
+        _codetxtfld.text=@"";
+        
+        _destxtfld.text=@"";
+        _subtyptxtfld.text=@"";
+        _unitcosttxtfld.text=@"";
+        _stockinhandtxtfld.text=@"";
+        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+        
+        
+    }
+
     if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
         
         
