@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EqpmViewController">
             <connections>
                 <outlet property="addequipmentview" destination="kya-lt-JaY" id="mWS-6G-dTg"/>
+                <outlet property="cancelbtnlbl" destination="MmP-v5-qkq" id="Dcd-B9-9ju"/>
                 <outlet property="codetxfld" destination="Wni-Zn-4X3" id="kAN-rJ-ceg"/>
                 <outlet property="condtntxtfld" destination="XPV-tn-HR6" id="20U-bB-Fup"/>
                 <outlet property="dailytxtfld" destination="wk1-Vc-sP2" id="8Hi-YN-zOm"/>

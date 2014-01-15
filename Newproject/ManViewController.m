@@ -849,6 +849,7 @@
     btnidtfr=22;
     _navitem.title=@"ADD";
     _addview.hidden=NO;
+    _cancelbtnlbl.enabled=YES;
     
 }
 - (IBAction)clsebtn:(id)sender {
@@ -858,6 +859,7 @@
 -(IBAction)editmanpower:(id)sender
 {
     btnidtfr=11;
+     _cancelbtnlbl.enabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.manpowerTable];

@@ -1349,7 +1349,8 @@ finishedSavingWithError:(NSError *)error
     _stockinhndtxtfld.text=@"";
   _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     
-  
+    _cancelbtnlbl.enabled=YES;
+
     btntype=1;
     _addequipmentview.hidden=NO;
     _navItem.title=@"ADD";
@@ -1362,7 +1363,7 @@ finishedSavingWithError:(NSError *)error
 -(IBAction)editequipview:(id)sender
 {
     btntype=2;
-  
+    _cancelbtnlbl.enabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.equipmenttbl];

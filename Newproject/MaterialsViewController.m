@@ -1027,6 +1027,7 @@
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
+    _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -1066,14 +1067,16 @@
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
+        _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     butntype=1;
+    _cancelbtnlbl.enabled=YES;
     _addmatView.hidden=NO;
     _navItem.title=@"ADD";
 }
 -(IBAction)editmaterial:(id)sender
 {
     butntype=2;
-  
+    _cancelbtnlbl.enabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.materialTable];

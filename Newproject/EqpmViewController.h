@@ -44,6 +44,7 @@
 @property (strong, nonatomic)NSString*searchstring;
 
 @property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

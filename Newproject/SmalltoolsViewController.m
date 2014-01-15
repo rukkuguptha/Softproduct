@@ -813,6 +813,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _stockinhandtxtfld.text=@"";
     
     _addview.hidden=NO;
+    _cancelbtnlbl.enabled=YES;
     _navtitle.title=@"ADD";
 
 
@@ -881,6 +882,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
 - (IBAction)editbtn:(id)sender {
     butntype=2;
+    _cancelbtnlbl.enabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.Tooltable];

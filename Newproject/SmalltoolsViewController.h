@@ -23,6 +23,7 @@
 @property(strong,nonatomic)Validation *val;
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

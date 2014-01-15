@@ -54,6 +54,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *itemdestxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *subtypetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *unitcosttxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 - (IBAction)overhdcheck:(id)sender;
 - (IBAction)searchbtn:(id)sender;

@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="Tooltable" destination="vQ6-0w-lwp" id="J6Z-Rz-IgJ"/>
                 <outlet property="addview" destination="utJ-Ha-2lI" id="vuY-1e-UC7"/>
+                <outlet property="cancelbtnlbl" destination="Ruw-Qs-grE" id="oBt-tw-fYU"/>
                 <outlet property="codetxtfld" destination="jmM-3h-ugT" id="c3R-bl-eje"/>
                 <outlet property="costtxtfld" destination="Djm-vH-8TL" id="Xj8-fQ-HhP"/>
                 <outlet property="destxtfld" destination="LfS-2o-ba2" id="LJC-3d-nbT"/>

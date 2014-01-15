@@ -471,7 +471,6 @@
 		D400402F185B12A600C38E12 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */,
 				D4004067185B180200C38E12 /* ResViewController.h */,
 				D4004068185B180200C38E12 /* ResViewController.m */,
 				D4004069185B180200C38E12 /* ResViewController.xib */,
@@ -514,8 +513,6 @@
 		D40D1E9E176B086E00379DD5 = {
 			isa = PBXGroup;
 			children = (
-				D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */,
-				D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */,
 				D4D570161772BE8800671A35 /* model */,
 				D4D570151772BE4A00671A35 /* images */,
 				D40D1EB0176B086F00379DD5 /* Newproject */,
@@ -535,6 +532,8 @@
 		D40D1EA9176B086F00379DD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */,
+				D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */,
 				D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */,
 				D40D1EAA176B086F00379DD5 /* UIKit.framework */,
 				D40D1EAC176B086F00379DD5 /* Foundation.framework */,
@@ -554,8 +553,6 @@
 				D40D1ECD176B0A0800379DD5 /* HomeViewController.h */,
 				D40D1ECE176B0A0800379DD5 /* HomeViewController.m */,
 				D40D1ECF176B0A0800379DD5 /* HomeViewController.xib */,
-				D4FED41117F18CB6004BE242 /* btn.png */,
-				D4FED41317F18E28004BE242 /* tabbtn.png */,
 				D400402F185B12A600C38E12 /* Resources */,
 				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				648D130A1771A29B006BB41A /* Company */,
@@ -659,6 +656,9 @@
 				649AE8781772DB8C00CAECE7 /* appbar.edit.png */,
 				64161C0C17FEB511007D4D89 /* squre.png */,
 				6481615B176EF0C50017F4CC /* rightarowblack.png */,
+				D4FED41117F18CB6004BE242 /* btn.png */,
+				D4FED41317F18E28004BE242 /* tabbtn.png */,
+				D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */,
 			);
 			name = images;
 			path = Newproject;

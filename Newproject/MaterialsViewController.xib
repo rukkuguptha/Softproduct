@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MaterialsViewController">
             <connections>
                 <outlet property="addmatView" destination="AdN-1P-aZt" id="8Qc-el-C3t"/>
+                <outlet property="cancelbtnlbl" destination="euM-lj-5st" id="eac-uv-735"/>
                 <outlet property="codetxtfld" destination="6HA-9R-XIM" id="8BW-Fs-zzI"/>
                 <outlet property="destxtfld" destination="AA2-Pd-kcl" id="Lja-BE-hBg"/>
                 <outlet property="materialTable" destination="ioM-Hg-c3p" id="Cui-2M-5OH"/>

@@ -41,6 +41,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 
 /*cell outlets*/
