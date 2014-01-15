@@ -1209,12 +1209,12 @@ finishedSavingWithError:(NSError *)error
     if([elementName isEqualToString:@"url"])
     {
         recordResults = FALSE;
-        _picturelocation=_soapResults;
+        
         if (img==2)
         {
-            
-            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
+            _picturelocation=_soapResults;
+//            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
             
         }
         if (img==1) {
