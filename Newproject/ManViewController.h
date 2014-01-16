@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
 #import"Validation.h"
+#import "sqlite3.h"
+
 @interface ManViewController : UIViewController{
     
     BOOL recordResults;
@@ -18,10 +20,20 @@
     NSInteger btnindex;
     NSInteger btnidtfr;
     NSInteger checkbtnclick;
+    NSInteger Newprimarykey;
 }
-
 @property(strong,nonatomic)Manpwr *manpwrmdl;
 @property(strong,nonatomic)Validation *vald;
+
+/*For Sqlite Database*/
+
+@property(strong,nonatomic) NSString *docsDir;
+@property(strong,nonatomic) NSArray *dirPaths;
+@property(nonatomic,readwrite) sqlite3*newResourcesListDB;
+@property (strong, nonatomic) NSString *databasePath;
+@property (strong, nonatomic) NSString *Availablityresult;
+
+
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -32,6 +44,9 @@
 
 @property(strong,nonatomic)NSMutableArray *Allmanpwrarry;
 @property(strong,nonatomic)NSMutableArray *subtypearray;
+@property(strong,nonatomic)NSMutableArray *Sqlitearry;
+@property(strong,nonatomic)NSMutableArray *keyarray;
+
 
 
 /*popover*/

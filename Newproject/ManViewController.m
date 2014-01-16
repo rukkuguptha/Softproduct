@@ -44,16 +44,51 @@
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
 
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+  
+    NSTimer *timer;
+    timer=[NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(Checknetavailabilty) userInfo:nil repeats:YES];
+   
     
-    [self Selectallmanpower];
+
     
 }
 
+-(void)Checknetavailabilty{
+    /* for checking Connectivity*/
+    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+    _Availablityresult = [[NSString alloc] init];
+    _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
+    NSLog(@"Internet connection availability : %@", _Availablityresult);
+    if ([_Availablityresult isEqualToString:@"Yes"]) {
+        [self FetchManapowerdatasfromDB];
 
+        if ([_Sqlitearry count]>0) {
+             [self SynManpowertoserver];
+        }
+        else{
+        [self Selectallmanpower];
+        }
+    
+        
+    }
+    else if([_Availablityresult isEqualToString:@"No"]){
+        [self Createdatabase];
+        [self FetchManapowerdatasfromDB];
+        
+        
+    }
+    
+
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -72,8 +107,14 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_manpowerTable) {
-        return [_Allmanpwrarry count];
-    }
+        
+        if ([_Availablityresult isEqualToString:@"Yes"]) {
+            
+            return [_Allmanpwrarry count];
+        }
+        else if([_Availablityresult isEqualToString:@"No"]){
+             return [_Sqlitearry count];
+        }}
     
     else if (tableView==_popOverTableView) {
         return [_subtypearray count];
@@ -102,27 +143,57 @@
         
     }
      if(tableView==_manpowerTable){
-    Manpwr*pwrmdl=(Manpwr *)[_Allmanpwrarry objectAtIndex:indexPath.row];
-    _codelbl=(UILabel *)[cell viewWithTag:1];
-    _codelbl.text=pwrmdl.itemcode;
-    _deslbl=(UILabel *)[cell viewWithTag:2];
-    _deslbl.text=pwrmdl.itemdescptn;
-    _typelbl=(UILabel *)[cell viewWithTag:3];
-    _typelbl.text=pwrmdl.subtype;
-    _costlbl=(UILabel *)[cell viewWithTag:4];
-    _costlbl.text=pwrmdl.unitcost;
-         
-         NSLog(@"OVERHEAD%d",pwrmdl.overhead);
-              
-         if (pwrmdl.overhead==0) {
-                          [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         Manpwr*pwrmdl;
+         if ([_Availablityresult isEqualToString:@"Yes"]) {
              
-         }
-         else if(pwrmdl.overhead==1){
-             [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+               pwrmdl=(Manpwr *)[_Allmanpwrarry objectAtIndex:indexPath.row];
+             _codelbl=(UILabel *)[cell viewWithTag:1];
+             _codelbl.text=pwrmdl.itemcode;
+             _deslbl=(UILabel *)[cell viewWithTag:2];
+             _deslbl.text=pwrmdl.itemdescptn;
+             _typelbl=(UILabel *)[cell viewWithTag:3];
+             _typelbl.text=pwrmdl.subtype;
+             _costlbl=(UILabel *)[cell viewWithTag:4];
+             _costlbl.text=pwrmdl.unitcost;
+             
+             NSLog(@"OVERHEAD%d",pwrmdl.overhead);
+             
+             if (pwrmdl.overhead==0) {
+                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                 
+             }
+             else if(pwrmdl.overhead==1){
+                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                 
+             }
 
          }
-    
+         else if([_Availablityresult isEqualToString:@"No"]){
+              pwrmdl=(Manpwr *)[_Sqlitearry objectAtIndex:indexPath.row];
+             _codelbl=(UILabel *)[cell viewWithTag:1];
+             _codelbl.text=pwrmdl.itemcode;
+             _deslbl=(UILabel *)[cell viewWithTag:2];
+             _deslbl.text=pwrmdl.itemdescptn;
+             _typelbl=(UILabel *)[cell viewWithTag:3];
+             _typelbl.text=pwrmdl.subtype;
+             _costlbl=(UILabel *)[cell viewWithTag:4];
+             _costlbl.text=pwrmdl.unitcost;
+             
+             NSLog(@"OVERHEAD%d",pwrmdl.overhead);
+             
+             if (pwrmdl.overhead==0) {
+                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+                 
+             }
+             else if(pwrmdl.overhead==1){
+                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+                 
+             }
+
+         }
+
+  
+      
      }
     return cell;
 }
@@ -226,6 +297,7 @@
 
 #pragma mark- WebService
 -(void)Selectallmanpower{
+    webtype=0;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -373,6 +445,70 @@
     }
     
 }
+
+
+-(void)SynManpowertoserver{
+    webtype=11;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    _keyarray=[[NSMutableArray alloc]init];
+    
+    for (int i=0;i<[_Sqlitearry count];i++) {
+        
+        
+        Manpwr*manpwr1=(Manpwr *)[_Sqlitearry objectAtIndex:i];
+        Newprimarykey=manpwr1.primarykey;
+        
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertManpower xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "<description>%@</description>\n"
+                   "<subtype>%@</subtype>\n"
+                   "<unitcost>%f</unitcost>\n"
+                   "<overhead>%d</overhead>\n"
+                   "</InsertManpower>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",manpwr1.itemcode,manpwr1.itemdescptn,manpwr1.subtype,[manpwr1.unitcost doubleValue],manpwr1.overhead];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertManpower" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    }
+}
+
 -(void)InsertManpower{
     webtype=1;
     recordResults = FALSE;
@@ -796,6 +932,14 @@
     {
         
         recordResults = FALSE;
+        if (webtype==11) {
+            
+            [self DeleteDBtable];
+            
+          
+        }
+        
+        
         _itemcodetxtfld.text=@"";
         
         _itemdestxtfld.text=@"";
@@ -917,10 +1061,20 @@
 
 - (IBAction)update:(id)sender {
     if (btnidtfr==11) {
+        
         [self UpdateManpower];
     }
     else if (btnidtfr==22){
-    [self InsertManpower];
+        if ([_Availablityresult isEqualToString:@"Yes"]) {
+            
+             [self InsertManpower];
+        }
+        else if([_Availablityresult isEqualToString:@"No"]){
+           [self InsertManpowerDatastoDB];
+        }
+
+  
+      
     
     }
 }
@@ -1027,5 +1181,185 @@
     return YES;
 }
 
+#pragma mark-Sqlite Database
+
+-(void)Createdatabase{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ResourcesList.db"]];
+     NSLog(@"Path %@",_databasePath);
+    
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    if ([filemgr fileExistsAtPath: _databasePath ] == NO)
+    {
+        const char *dbpath = [_databasePath UTF8String];
+        if (sqlite3_open(dbpath, &_newResourcesListDB) == SQLITE_OK)
+        {
+            char *errMsg;
+             const char *sql_stmt = "CREATE TABLE IF NOT EXISTS ManpowerList (ID INTEGER PRIMARY KEY AUTOINCREMENT, ItemCode TEXT, ItemDescrptn TEXT,Subtype TEXT,Unitcost TEXT,Overhead TEXT)";
+            
+            
+            if (sqlite3_exec(_newResourcesListDB, sql_stmt, NULL, NULL, &errMsg)
+                != SQLITE_OK)
+            {
+                
+                NSLog(@"Failed to create table");
+                 NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_newResourcesListDB));
+            }
+            sqlite3_close(_newResourcesListDB);
+           
+        }
+        
+        else {
+            NSLog( @"Failed to open/create database");
+            
+        }
+        
+    }
+}
+
+-(void)InsertManpowerDatastoDB{
+     sqlite3_stmt    *statement;
+      const char *dbpath = [_databasePath UTF8String];
+    
+    NSInteger overhead;
+    if (checkbtnclick==0) {
+        overhead=0;
+    }
+    else{
+        overhead=1;
+        
+    }
+
+    if (sqlite3_open(dbpath, &_newResourcesListDB) == SQLITE_OK)
+    {
+        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ManpowerList(ItemCode,ItemDescrptn,Subtype,Unitcost,Overhead) VALUES (\"%@\",\"%@\",\"%@\",\"%f\",\"%d\")",_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text doubleValue],overhead];
+        
+        const char *insert_stmt = [InsertSQl UTF8String];
+         sqlite3_prepare_v2(_newResourcesListDB, insert_stmt, -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            
+            NSLog( @"ManpowerData's added");
+            
+        } else {
+            //status.text = @"Failed to add contact";
+            NSLog( @"Failed to add ManpowerData's ");
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_newResourcesListDB);
+
+    }
+    [self FetchManapowerdatasfromDB];
+    
+}
+
+-(void)FetchManapowerdatasfromDB{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ResourcesList.db"]];
+    NSLog(@"Path %@",_databasePath);
+
+    const char *dbpath = [_databasePath UTF8String];
+    sqlite3_stmt    *statement;
+    
+    if (sqlite3_open(dbpath, &_newResourcesListDB) == SQLITE_OK)
+    {
+        
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ManpowerList"];
+        // NSLog(@"Sql%@",querySQL);
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_newResourcesListDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            // NSLog(@"sqlite %@",sqlite3_step(statement));
+             _Sqlitearry=[[NSMutableArray alloc]init];
+            while (sqlite3_step(statement) == SQLITE_ROW)
+                
+                
+            {
+                _manpwrmdl=[[Manpwr alloc]init];
+                const char* key = (const char*)sqlite3_column_text(statement, 0);
+                 NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+                _manpwrmdl.primarykey=[pkey integerValue];
+                
+                const char* itmcode = (const char*)sqlite3_column_text(statement, 1);
+                _manpwrmdl.itemcode= itmcode == NULL ? nil : [[NSString alloc] initWithUTF8String:itmcode];
+                
+                
+                const char*itmdescptn = (const char*)sqlite3_column_text(statement, 2);
+                _manpwrmdl.itemdescptn= itmdescptn== NULL ? nil : [[NSString alloc] initWithUTF8String:itmdescptn];
+                
+                
+                const char* subtype = (const char*)sqlite3_column_text(statement, 3);
+                _manpwrmdl.subtype = subtype== NULL ? nil : [[NSString alloc] initWithUTF8String:subtype];
+                
+                
+                const char* unitcost = (const char*)sqlite3_column_text(statement, 4);
+                _manpwrmdl.unitcost= unitcost == NULL ? nil : [[NSString alloc] initWithUTF8String:unitcost];
+                
+                
+                const char* overhead = (const char*)sqlite3_column_text(statement, 5);
+                 NSString *newoverhead= overhead  == NULL ? nil : [[NSString alloc] initWithUTF8String:overhead ];
+                
+                
+                _manpwrmdl.overhead=[newoverhead integerValue];
+                
+                [_Sqlitearry addObject:_manpwrmdl];
+              
+                
+            }
+            
+            
+            
+            
+            
+        }
+        sqlite3_finalize(statement);
+        
+    }
+    sqlite3_close(_newResourcesListDB);
+    [_manpowerTable reloadData];
+
+}
+
+-(void)DeleteDBtable{
+    
+    
+    sqlite3_stmt *statement;
+    const char *dbPath=[_databasePath UTF8String];
+    if(sqlite3_open(dbPath, &_newResourcesListDB)==SQLITE_OK)
+    {
+        NSString *deleteSql=[NSString stringWithFormat:@"DELETE FROM ManpowerList"];
+        
+           const char *delete_stmt=[deleteSql UTF8String];
+        
+     
+        sqlite3_prepare_v2(_newResourcesListDB, delete_stmt, -1, &statement, NULL);
+        
+        if (sqlite3_step(statement) == SQLITE_DONE) {
+            
+            NSLog(@"List Deleted");
+            
+            
+        }else{
+            
+            
+            NSLog(@"Failed to Delete");
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_newResourcesListDB);
+    }
+    
+
+}
 
 @end

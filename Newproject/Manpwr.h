@@ -10,6 +10,7 @@
 
 @interface Manpwr : NSObject
 @property(readwrite)NSInteger entryid;
+@property(readwrite)NSInteger primarykey;
 @property(strong,nonatomic)NSString*itemcode;
 @property(strong,nonatomic)NSString*itemdescptn;
 @property(strong,nonatomic)NSString*subtype;

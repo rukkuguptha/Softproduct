@@ -154,6 +154,7 @@
 		D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */; };
 		D4E658D417F2EF5B00202B14 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D317F2EF5B00202B14 /* wrong.png */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
+		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7E2E017856D5E00F9545D /* NSData+Base64.m */; };
 		D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */; };
 		D4FED40817F15B07004BE242 /* HRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FED40617F15B07004BE242 /* HRViewController.m */; };
@@ -376,6 +377,7 @@
 		D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-checkmark4-1.png"; sourceTree = "<group>"; };
 		D4E658D317F2EF5B00202B14 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
+		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4F7E2DF17856D4400F9545D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../NSData+Base64.h"; sourceTree = "<group>"; };
 		D4F7E2E017856D5E00F9545D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../NSData+Base64.m"; sourceTree = "<group>"; };
 		D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-camera-icon.png"; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */,
 				D4DEEDDF17F428E20096A908 /* AssetsLibrary.framework in Frameworks */,
 				D4DEEDDD17F428D40096A908 /* MobileCoreServices.framework in Frameworks */,
 				D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */,
@@ -532,6 +535,7 @@
 		D40D1EA9176B086F00379DD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */,
 				D4DEEDDE17F428E10096A908 /* AssetsLibrary.framework */,
 				D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */,
 				D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */,
