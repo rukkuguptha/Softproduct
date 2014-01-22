@@ -211,7 +211,9 @@
     webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
-    
+//    NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890."] invertedSet];
+//    NSString *resultString = [[_unitcosttxtfld.text componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+     NSString* cleanedString = [_unitcosttxtfld.text stringByTrimmingCharactersInSet: [NSCharacterSet symbolCharacterSet]];
     Manpwr*pwrmdl=(Manpwr *)[_cnsumblearray objectAtIndex:butnpath];
     soapMessage = [NSString stringWithFormat:
                    
@@ -230,7 +232,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[cleanedString doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -877,7 +879,7 @@
     NSLog(@"toolmdl.itemcode%@",toolmdl.itemcode);
     _destxtfld.text=toolmdl.itemdescptn;
     _subtyptxtfld.text=toolmdl.subtype;
-    _unitcosttxtfld.text=toolmdl.unitcost;
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
