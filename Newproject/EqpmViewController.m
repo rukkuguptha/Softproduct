@@ -525,7 +525,7 @@ finishedSavingWithError:(NSError *)error
                      "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[[_hurlytxtfld.text substringFromIndex:1]doubleValue],[[_dailytxtfld.text substringFromIndex:1]doubleValue],[[_shiftwisetxtfld.text substringFromIndex:1]doubleValue],[[_weeklytxtfld.text substringFromIndex:1]doubleValue],[[_monthlytxtfld.text substringFromIndex:1]doubleValue],[[_yearlytxtfld.text substringFromIndex:1]doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

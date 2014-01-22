@@ -338,7 +338,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],@"",[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[[_unitcosttxtfld.text substringFromIndex:1]doubleValue],@"",[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

@@ -230,7 +230,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_costtxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[[_costtxtfld.text substringFromIndex:1] doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
