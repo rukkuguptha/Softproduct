@@ -377,6 +377,13 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
+     NSString*unitcost=[_unitcsttxtfld.text substringFromIndex:1];
+    NSString*HourlyRate=[_hurlytxtfld.text substringFromIndex:1];
+    NSString*DailyRate=[_dailytxtfld.text substringFromIndex:1];
+    NSString*ShiftwiseRate=[_shiftwisetxtfld.text substringFromIndex:1];
+    NSString*WeeklyRate=[_weeklytxtfld.text substringFromIndex:1];
+    NSString*MonthlyRate=[_monthlytxtfld.text substringFromIndex:1];
+    NSString*YearlyRate=[_yearlytxtfld.text substringFromIndex:1];
    Equpmntmdl*Thrdprty=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
@@ -411,7 +418,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[_unitcsttxtfld.text doubleValue],_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],_typetxtfld.text,[_stckinhandtxtdfld.text doubleValue]];
+                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost doubleValue],_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],_typetxtfld.text,[_stckinhandtxtdfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1291,7 +1298,7 @@ finishedSavingWithError:(NSError *)error
         _typelbl=(UILabel *)[cell viewWithTag:3];
         _typelbl.text=eqmdl.subtype;
          _costlbl=(UILabel *)[cell viewWithTag:4];
-        _costlbl.text=eqmdl.unitcost;
+        _costlbl.text=[NSString stringWithFormat:@"$%@",eqmdl.unitcost];
     }
     return cell;
 }
