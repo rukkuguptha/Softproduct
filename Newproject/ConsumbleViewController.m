@@ -211,9 +211,7 @@
     webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
-//    NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890."] invertedSet];
-//    NSString *resultString = [[_unitcosttxtfld.text componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
-     NSString* cleanedString = [_unitcosttxtfld.text stringByTrimmingCharactersInSet: [NSCharacterSet symbolCharacterSet]];
+    NSString*unitcost=[_unitcosttxtfld.text substringFromIndex:1];
     Manpwr*pwrmdl=(Manpwr *)[_cnsumblearray objectAtIndex:butnpath];
     soapMessage = [NSString stringWithFormat:
                    
@@ -232,7 +230,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[cleanedString doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[unitcost doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -717,7 +715,7 @@
         _typelbl=(UILabel *)[cell viewWithTag:3];
         _typelbl.text=materaialmdl.subtype;
         _costlbl=(UILabel *)[cell viewWithTag:4];
-        _costlbl.text=materaialmdl.unitcost;
+        _costlbl.text=[NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
         
     }
     return cell;
