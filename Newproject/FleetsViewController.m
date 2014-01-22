@@ -1347,13 +1347,14 @@ if([elementName isEqualToString:@"url"])
     _hurstxtfld.text=eqmdl.HoursUsed;
     _fueltxtfld.text=eqmdl.FuelConsumptionPerHour;
     _condtntxtfld.text=eqmdl.Condition;
-    _hurlytxtfld.text=eqmdl.HourlyRate;
-    _dailytxtfld.text=eqmdl.DailyRate;
-    _shiftwisetxtfld.text=eqmdl.ShiftwiseRate;
-    _weeklytxtfld.text=eqmdl.WeeklyRate;
-    _monthlytxtfld.text=eqmdl.MonthlyRate;
-    _yearlytxtfld.text=eqmdl.YearlyRate;
-      _stockinhandtxtfld.text=eqmdl.stockinhand;
+    _hurlytxtfld.text= [NSString stringWithFormat:@"$%@",eqmdl.HourlyRate];
+
+    _dailytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.DailyRate];
+    _shiftwisetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.ShiftwiseRate];
+    _weeklytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.WeeklyRate];
+    _monthlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.MonthlyRate];
+    _yearlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.YearlyRate];
+    _stockinhandtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
     [self FetchAnyImage];

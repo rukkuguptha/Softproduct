@@ -21,7 +21,7 @@
 -(BOOL)isNumeric:(NSString *)input{
     for(int i=0;i<[input length];i++){
         char c=[input characterAtIndex:i];
-        if((c=='-' && c=='0')||((!(c>='0' && c<='9')) && (!(c=='.')))){
+        if((c=='-' && c=='0')||((!(c>='0' && c<='9')) && (!(c=='.' && c=='&')))){
             
             return NO;
         }

@@ -154,7 +154,7 @@
              _typelbl=(UILabel *)[cell viewWithTag:3];
              _typelbl.text=pwrmdl.subtype;
              _costlbl=(UILabel *)[cell viewWithTag:4];
-             _costlbl.text=pwrmdl.unitcost;
+             _costlbl.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
              
              NSLog(@"OVERHEAD%d",pwrmdl.overhead);
              
@@ -639,7 +639,7 @@
         
     }
     
-   
+NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -658,7 +658,7 @@
                    "<overhead>%d</overhead>\n"
                    "</UpdateManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[unitcost floatValue],overhead];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1016,7 +1016,8 @@
     
     _itemdestxtfld.text=pwrmdl.itemdescptn;
     _subtypetxtfld.text=pwrmdl.subtype;
-    _unitcosttxtfld.text=pwrmdl.unitcost;
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
+    //_unitcosttxtfld.text=pwrmdl.unitcost;
 
     if (pwrmdl.overhead==0) {
         [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];

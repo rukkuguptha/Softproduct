@@ -725,7 +725,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         _typelbl=(UILabel *)[cell viewWithTag:3];
         _typelbl.text=materaialmdl.subtype;
         _costlbl=(UILabel *)[cell viewWithTag:4];
-        _costlbl.text=materaialmdl.unitcost;
+        _costlbl.text= [NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
         
     }
     return cell;
@@ -894,7 +894,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     _destxtfld.text=toolmdl.itemdescptn;
     _subtypetxtfld.text=toolmdl.subtype;
-    _costtxtfld.text=toolmdl.unitcost;
+    _costtxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
+   
     _stockinhandtxtfld.text=toolmdl.stckinhand;
 
     _addview.hidden=NO;

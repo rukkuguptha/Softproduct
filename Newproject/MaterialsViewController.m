@@ -159,7 +159,7 @@
     _typelbl=(UILabel *)[cell viewWithTag:3];
     _typelbl.text=materaialmdl.subtype;
     _costlbl=(UILabel *)[cell viewWithTag:4];
-    _costlbl.text=materaialmdl.unitcost;
+    _costlbl.text=[NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
 
      }
     return cell;
@@ -1115,7 +1115,7 @@
     
     _destxtfld.text=pwrmdl.itemdescptn;
     _subtyptxtfld.text=pwrmdl.subtype;
-    _unitcosttxtfld.text=pwrmdl.unitcost;
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
     _stockinhandtxtfld.text=pwrmdl.stckinhand;
     _uplodpiclctn=pwrmdl.picturelocation;
     
