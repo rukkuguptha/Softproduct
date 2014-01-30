@@ -118,11 +118,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="AdN-1P-aZt">
-                            <rect key="frame" x="51" y="72" width="649" height="611"/>
+                            <rect key="frame" x="51" y="72" width="649" height="456"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="ix8-Iz-jvf">
-                                    <rect key="frame" x="0.0" y="0.0" width="649" height="611"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="649" height="456"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                                 <navigationBar contentMode="scaleToFill" id="38w-m9-ijD">
@@ -220,7 +220,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="euM-lj-5st">
-                                    <rect key="frame" x="340" y="502" width="67" height="30"/>
+                                    <rect key="frame" x="350" y="401" width="67" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -231,7 +231,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jpw-2m-GxA">
-                                    <rect key="frame" x="178" y="502" width="126" height="30"/>
+                                    <rect key="frame" x="190" y="401" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update Materials">
