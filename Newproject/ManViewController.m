@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
   
+    [self Checknetavailabilty];
     _manpowerTable.layer.borderWidth = 2.0;
     _manpowerTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -53,8 +54,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
   
-    NSTimer *timer;
-    timer=[NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(Checknetavailabilty) userInfo:nil repeats:YES];
+//    NSTimer *timer;
+//    timer=[NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(Checknetavailabilty) userInfo:nil repeats:YES];
    
     
 
@@ -68,7 +69,7 @@
     _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
     NSLog(@"Internet connection availability : %@", _Availablityresult);
     if ([_Availablityresult isEqualToString:@"Yes"]) {
-        [self FetchManapowerdatasfromDB];
+    //[self FetchManapowerdatasfromDB];
 
         if ([_Sqlitearry count]>0) {
              [self SynManpowertoserver];
@@ -81,7 +82,7 @@
     }
     else if([_Availablityresult isEqualToString:@"No"]){
         [self Createdatabase];
-        [self FetchManapowerdatasfromDB];
+        //[self FetchManapowerdatasfromDB];
         
         
     }
