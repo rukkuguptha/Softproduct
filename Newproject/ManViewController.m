@@ -155,7 +155,7 @@
              _typelbl=(UILabel *)[cell viewWithTag:3];
              _typelbl.text=pwrmdl.subtype;
              _costlbl=(UILabel *)[cell viewWithTag:4];
-             _costlbl.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
+             _costlbl.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
              
              NSLog(@"OVERHEAD%d",pwrmdl.overhead);
              
