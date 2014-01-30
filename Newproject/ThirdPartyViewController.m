@@ -1530,7 +1530,7 @@ finishedSavingWithError:(NSError *)error
     _dailytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.DailyRate];
     _shiftwisetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.ShiftwiseRate];
     _weeklytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.WeeklyRate];
-    _monthlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.MonthlyRate];
+    _monthlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.MonthlyRate];
     _yearlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.YearlyRate];
     _typetxtfld.text=eqmdl.type;
    _unitcsttxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.unitcost];
