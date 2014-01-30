@@ -10,7 +10,7 @@
 #import "CompanyViewController.h"
 #import "DocmntViewController.h"
 #import "ServiceViewController.h"
-#import "FoldersViewController.h"
+#import "folderrightsViewController.h"
 #import "UsersViewController.h"
 #import "jobsitereqViewController.h"
 #import "BasicReqViewController.h"
@@ -40,7 +40,7 @@
 @property(strong,nonatomic)CompanyViewController *compVCtrl;
 @property(strong,nonatomic)DocmntViewController *docVCtrl;
 @property(strong,nonatomic)ServiceViewController *serviceVCtrl;
-@property(strong,nonatomic)FoldersViewController *folderVCtrl;
+@property(strong,nonatomic)folderrightsViewController *folderVCtrl;
 @property(strong,nonatomic)UsersViewController *usersVctrl;
 @property(strong,nonatomic)jobsitereqViewController *jobsitereqVctrl;
 @property(strong,nonatomic)BasicReqViewController *basicreqVctrl;
