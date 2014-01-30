@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>FA3AE206-449F-46B0-8551-B07E4C01EAA3</string>
+	<string>595B9892-00EE-4DD0-86AA-C0BB74AEB67E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Newproject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>18655540-3D01-4636-AA24-6F16E9B3107F</key>
-		<string>ssh://github.com/Riagms/Akontract.git</string>
+		<key>6FF6B02B-819C-4287-B736-2C5D2DC8BA9F</key>
+		<string>ssh://github.com/Riagms/Abkontract.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>18655540-3D01-4636-AA24-6F16E9B3107F</key>
+		<key>6FF6B02B-819C-4287-B736-2C5D2DC8BA9F</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/Riagms/Akontract.git</string>
+	<string>ssh://github.com/Riagms/Abkontract.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>18655540-3D01-4636-AA24-6F16E9B3107F</string>
+	<string>6FF6B02B-819C-4287-B736-2C5D2DC8BA9F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>18655540-3D01-4636-AA24-6F16E9B3107F</string>
+			<string>6FF6B02B-819C-4287-B736-2C5D2DC8BA9F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Kontract</string>
 		</dict>
