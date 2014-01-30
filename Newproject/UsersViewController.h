@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "listusermdl.h"
+#import "Validation.h"
 
 @interface UsersViewController : UIViewController<UITextFieldDelegate>
 {
@@ -18,6 +19,7 @@
     NSInteger btnindex;
     NSInteger webtype;
 }
+@property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)listusermdl *usrmdl;
 @property(strong,nonatomic)NSString *searchstring;
 

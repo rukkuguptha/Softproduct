@@ -568,15 +568,53 @@
 {
     if(optionIdentifier==1)
     {
+        Validation *val=[[Validation alloc]init];
+        int value1=[val isBlank:_usrnametextfld.text];
+        int value2=[val isBlank:_pswdtextfld.text];
+        if (value1==0||value2==0) {
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your UserName" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            else if(value2==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your Password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert1 show];
+            }
+        }
+        else
+        {
+
         [self InsertUsers];
         _usrnametextfld.text=@"";
         _pswdtextfld.text=@"";
+        }
     }
     else if(optionIdentifier==2)
     {
+        Validation *val=[[Validation alloc]init];
+        int value1=[val isBlank:_usrnametextfld.text];
+        int value2=[val isBlank:_pswdtextfld.text];
+        if (value1==0||value2==0) {
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your UserName" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            else if(value2==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your Password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert1 show];
+            }
+        }
+        else
+        {
+
         [self UpdateUsers];
         _usrnametextfld.text=@"";
         _pswdtextfld.text=@"";
+        }
     }
 }
 -(IBAction)cancel:(id)sender
