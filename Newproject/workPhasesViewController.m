@@ -128,15 +128,15 @@
         _underoflabel=(UILabel *)[cell viewWithTag:3];
         _underoflabel.text=phmdl.underof;
         _parentbtncell=(UIButton *)[cell viewWithTag:4];
-        if (phmdl.parent==0) {
-            [_parentbtncell setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            
-        }
-        else if(phmdl.parent==1){
-            [_parentbtncell setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            
-        }
-        
+//        if (phmdl.parent==0) {
+//            [_parentbtncell setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            
+//        }
+//        else if(phmdl.parent==1){
+//            [_parentbtncell setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//            
+//        }
+//        
 
         
     }
@@ -252,7 +252,7 @@
     {
     [self InsertPhases];
         _phasetextfld.text=@"";
-         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_servicebtn setTitle:@"" forState:UIControlStateNormal];
         [_phasebtn setTitle:@"" forState:UIControlStateNormal];
         
@@ -261,7 +261,7 @@
     {
         [self UpdatePhases];
         _phasetextfld.text=@"";
-         [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        // [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_servicebtn setTitle:@"" forState:UIControlStateNormal];
          [_phasebtn setTitle:@"" forState:UIControlStateNormal];
     }
@@ -269,30 +269,30 @@
 -(IBAction)cancel_phases:(id)sender
 {
     _phasetextfld.text=@"";
-    [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      [_servicebtn setTitle:@"" forState:UIControlStateNormal];
      [_phasebtn setTitle:@"" forState:UIControlStateNormal];
     
 }
 
--(IBAction)parentbtn:(id)sender
-{ checkstring=@"clicked";
-    if (parentcheck==0) {
-        [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        _phasebtn.enabled=NO;
-        [_phasebtn setTitle:@"" forState:UIControlStateNormal];
-        parentcheck=1;
-        
-    }
-    
-    else{
-        [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        _phasebtn.enabled=YES;
-        parentcheck=0;
-        
-    }
-
-}
+//-(IBAction)parentbtn:(id)sender
+//{ checkstring=@"clicked";
+//    if (parentcheck==0) {
+//        [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        _phasebtn.enabled=NO;
+//        [_phasebtn setTitle:@"" forState:UIControlStateNormal];
+//        parentcheck=1;
+//        
+//    }
+//    
+//    else{
+//        [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        _phasebtn.enabled=YES;
+//        parentcheck=0;
+//        
+//    }
+//
+//}
 -(IBAction)deletephases:(id)sender
 {
     if (self.editing) {
@@ -403,7 +403,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
@@ -541,13 +541,13 @@
     NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
     NSInteger parnt;
     
-    if (parentcheck==0) {
+    if([phid isEqualToString:@"0"])
+    {
         parnt=0;
     }
-    else{
+    else
+    {
         parnt=1;
-        phid=0;
-        
     }
 
     recordresults = FALSE;
@@ -608,23 +608,31 @@
     NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
     NSInteger parnt;
     phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:btnindex];
-    if([checkstring isEqualToString:@"clicked"])
+//    if([checkstring isEqualToString:@"clicked"])
+//    {
+//        if (parentcheck==0) {
+//            parnt=0;
+//        }
+//        else{
+//            parnt=1;
+//            phid=0;
+//        }
+//        checkstring=@"";
+//        
+//        
+//    }
+//    
+//    else
+//    {
+//        parnt=phmdl.parent;
+//    }
+    if([phid isEqualToString:@"0"])
     {
-        if (parentcheck==0) {
-            parnt=0;
-        }
-        else{
-            parnt=1;
-            phid=0;
-        }
-        checkstring=@"";
-        
-        
+        parnt=0;
     }
-    
     else
     {
-        parnt=phmdl.parent;
+        parnt=1;
     }
     
     recordresults = FALSE;
@@ -938,7 +946,9 @@
     if([elementName isEqualToString:@"SelectPhasesbasedonServiceResponse"])
     {
         _phasesbasedonservicearray=[[NSMutableArray alloc]init];
+        [_phasesbasedonservicearray addObject:@"Select Phase"];
         _phasedict=[[NSMutableDictionary alloc]init];
+        [_phasedict setObject:@"0" forKey:@"Select Phase"];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
