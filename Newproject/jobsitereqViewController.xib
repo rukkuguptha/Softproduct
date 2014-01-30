@@ -94,15 +94,15 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="TRN-0s-w4D">
-                            <rect key="frame" x="164" y="122" width="467" height="358"/>
+                            <rect key="frame" x="224" y="121" width="332" height="267"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="kva-L2-90i">
-                                    <rect key="frame" x="0.0" y="0.0" width="467" height="358"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="332" height="267"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                                 <navigationBar contentMode="scaleToFill" id="9Ym-Of-wun">
-                                    <rect key="frame" x="2" y="1" width="463" height="44"/>
+                                    <rect key="frame" x="0.0" y="1" width="332" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,7 +110,7 @@
                                         <navigationItem title="Title" id="RN1-8n-Fem">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="1FG-Xl-Ry3">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kjs-Oo-j4b">
-                                                    <rect key="frame" x="407" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="276" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button" image="appbar.close.png">
@@ -125,14 +125,14 @@
                                     </items>
                                 </navigationBar>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jobsite Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Xyn-y3-mSW">
-                                    <rect key="frame" x="50" y="129" width="127" height="21"/>
+                                    <rect key="frame" x="52" y="87" width="127" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="e0n-25-Erb">
-                                    <rect key="frame" x="185" y="125" width="223" height="30"/>
+                                    <rect key="frame" x="52" y="111" width="223" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -141,7 +141,7 @@
                                     </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Mrn-5q-yUn">
-                                    <rect key="frame" x="145" y="211" width="46" height="30"/>
+                                    <rect key="frame" x="84" y="187" width="46" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update">
@@ -152,7 +152,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="drv-Pk-bHj">
-                                    <rect key="frame" x="248" y="211" width="46" height="30"/>
+                                    <rect key="frame" x="195" y="187" width="46" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">

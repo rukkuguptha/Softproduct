@@ -96,11 +96,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="lbl-gW-TtC">
-                            <rect key="frame" x="151" y="127" width="412" height="297"/>
+                            <rect key="frame" x="151" y="127" width="412" height="277"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="maV-mR-xwf">
-                                    <rect key="frame" x="0.0" y="0.0" width="412" height="297"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="412" height="277"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </imageView>
                                 <navigationBar contentMode="scaleToFill" id="bDo-wA-UIa">
@@ -127,7 +127,7 @@
                                     </items>
                                 </navigationBar>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lue-3k-cHO">
-                                    <rect key="frame" x="12" y="88" width="90" height="21"/>
+                                    <rect key="frame" x="6" y="100" width="90" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
@@ -142,7 +142,7 @@
                                     </connections>
                                 </textField>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q6h-Mx-ONn">
-                                    <rect key="frame" x="227" y="88" width="90" height="21"/>
+                                    <rect key="frame" x="222" y="100" width="90" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
@@ -157,7 +157,7 @@
                                     </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uYF-GG-iZH">
-                                    <rect key="frame" x="143" y="202" width="46" height="30"/>
+                                    <rect key="frame" x="143" y="197" width="46" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update"/>
@@ -166,7 +166,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2sN-my-AhA">
-                                    <rect key="frame" x="236" y="202" width="46" height="30"/>
+                                    <rect key="frame" x="238" y="197" width="46" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
