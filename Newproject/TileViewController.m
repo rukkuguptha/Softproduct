@@ -125,9 +125,9 @@
 -(void)foldersPage
 {
     if (!self.folderVCtrl) {
-        self.folderVCtrl=[[FoldersViewController alloc]initWithNibName:@"FoldersViewController" bundle:nil];
+        self.folderVCtrl=[[folderrightsViewController alloc]initWithNibName:@"folderrightsViewController" bundle:nil];
     }
-    _folderVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    _folderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_folderVCtrl
                        animated:YES completion:NULL];
 }
