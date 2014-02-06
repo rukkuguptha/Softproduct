@@ -7,20 +7,40 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "basicreqmdl.h"
+#import "Validation.h"
 
 @interface BasicReqViewController : UIViewController
 {
+    BOOL recordresults;
     NSInteger poptype;
+    NSInteger webtype;
     /*value for checkbtn*/
     NSInteger expiry;
     NSInteger defaultcheck;
     NSInteger inhouse;
     NSInteger craft;
+    NSString *expirystring;
+    NSString *defaultstring;
+    NSString *inhousestring;
+    NSString *craftsrings;
+    NSInteger optionidentifier;
+    NSInteger path;
+    UIButton *button;
+    NSInteger btnindex;
+    NSString *checkstring;
     
      
 }
+@property(strong,nonatomic)Validation *val;
+@property(strong,nonatomic)basicreqmdl *basicmdl;
 
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
+@property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)IBOutlet UITableView *basicreqtable;
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 @property(strong,nonatomic)IBOutlet UIView *addreqview;
@@ -33,6 +53,7 @@
 -(IBAction)closetheBASicreqview:(id)sender;
 -(IBAction)addbasicreq:(id)sender;
 -(IBAction)editBasicreq:(id)sender;
+-(IBAction)deleterequirements:(id)sender;
 
 /*IBAction in editview*/
 -(IBAction)closeeditBasicreqview:(id)sender;
@@ -42,7 +63,9 @@
 -(IBAction)inhousecheckaction:(id)sender;
 -(IBAction)craftcheckaction:(id)sender;
 -(IBAction)selectcraft:(id)sender;
-
+-(IBAction)selecttype:(id)sender;
+-(IBAction)selectallvender:(id)sender;
+-(IBAction)updateaction:(id)sender;
 
 /*outlets in addview*/
 @property(strong,nonatomic)IBOutlet UIButton *jobbtn;
@@ -51,14 +74,46 @@
 @property(strong,nonatomic)IBOutlet UIButton *inhousecheckbtn;
 @property(strong,nonatomic)IBOutlet UIButton *craftcheckbtn;
 @property(strong,nonatomic)IBOutlet UIButton *craftbtn;
-
-
+@property(strong,nonatomic)IBOutlet UIButton *typebtn;
+@property(strong,nonatomic)IBOutlet UIButton *venderbtn;
+@property(strong,nonatomic)IBOutlet UITextField *itemnametextfield;
+@property(strong,nonatomic)IBOutlet UITextField *codetextfield;
+@property(strong,nonatomic)IBOutlet UITextField *ratetextfield;
+@property(strong,nonatomic)IBOutlet UITextField *hourstextfield;
+@property(strong,nonatomic)IBOutlet UITextField *vendertextfield;
+@property(strong,nonatomic)UITableView *autotable;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UIPopoverController *popOverController1;
 @property(strong,nonatomic)UITableView *popOverTableView;
 
+/*arrays & dictionarys*/
+@property(strong,nonatomic)NSString *typestring;
+@property(strong,nonatomic)NSString *jobstring;
+@property(strong,nonatomic)NSString *craftstring;
+@property(strong,nonatomic)NSMutableArray *typelistarray;
+@property(strong,nonatomic)NSMutableArray *joblistarray;
+@property(strong,nonatomic)NSMutableArray *craftlistarray;
+@property(strong,nonatomic)NSMutableDictionary *typelistdictionary;
+@property(strong,nonatomic)NSMutableDictionary *joblistdictionary;
+@property(strong,nonatomic)NSMutableDictionary *craftlistdictionary;
+@property(strong,nonatomic)NSMutableArray *venderlistarray;
+@property(strong,nonatomic)NSMutableArray *autocompletearray;
+@property(strong,nonatomic)NSMutableArray *allrequirementarray;
+
+/*outlets in cell*/
+@property(strong,nonatomic)IBOutlet UILabel *itemnamelabel;
+@property(strong,nonatomic)IBOutlet UILabel *codelabel;
+@property(strong,nonatomic)IBOutlet UILabel *ratelabel;
+@property(strong,nonatomic)IBOutlet UILabel *typelabel;
+@property(strong,nonatomic)IBOutlet UIButton *expirybtn;
+@property(strong,nonatomic)IBOutlet UIButton *defbtn;
+@property(strong,nonatomic)IBOutlet UIButton *allcrftbtn;
+@property(strong,nonatomic)IBOutlet UIButton *inhousebtn;
+@property(strong,nonatomic)IBOutlet UILabel *crftlabel;
+@property(strong,nonatomic)IBOutlet UILabel *joblabel;
+@property(strong,nonatomic)IBOutlet UILabel *venderlabel;
 
 
 @end
