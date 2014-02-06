@@ -24,7 +24,7 @@
         // Set up the tap gesture recognizer.
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleOpen:)];
         [self addGestureRecognizer:tapGesture];
-        UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showpopoverview)];
+        UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showaction)];
         [self addGestureRecognizer:tapGesture2];
 
 
@@ -65,7 +65,7 @@
         button.frame = CGRectMake(210.0, 5.0, 35.0, 35.0);
         [button setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
-        //[button addTarget:self action:@selector(toggleOpen:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(showaction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         _disclosureButton = button;
         
@@ -134,7 +134,31 @@
     }
 }
 
+-(void)showaction{
+    [self showviewWithUserAction:YES];
+}
+-(void)showviewWithUserAction:(BOOL)userAction{
+        
+        // Toggle the disclosure button state.
 
+    self.disclosureButton.selected = !self.disclosureButton.selected;
+    
+    // If this was a user action, send the delegate the appropriate message.
+    if (userAction) {
+        if (self.disclosureButton.selected) {
+            if ([self.delegate respondsToSelector:@selector(showhidepopoverview)]) {
+                
+            }
+        }
+        else {
+//            if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionClosed:)]) {
+//                [self.delegate sectionHeaderView:self sectionClosed:self.section];
+//            }
+        }
+    }
+
+    
+}
 
 
 @end

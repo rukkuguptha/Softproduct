@@ -109,51 +109,51 @@
 #pragma mark - ButtonActions
 
 - (IBAction)disclurebtn:(id)sender {
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
-    
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 160, 90)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
-    
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    
-    
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
-    
-    //create a popover controller
-    
-    self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    
-       
-    UIButton *button = (UIButton *)sender;
-    
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    UITableView *table = (UITableView *)[cell superview];
-    NSIndexPath *IndexPath = [table indexPathForCell:cell];
-    
-   
-    Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
-    _applicantid=empdetls1.applicantid;
-    _ssnstring=empdetls1.ssn;
-    
-
-    
-    [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
-                                            inView:cell
-                          permittedArrowDirections:UIPopoverArrowDirectionLeft
-                                          animated:YES];
+//    UIViewController* popoverContent = [[UIViewController alloc]
+//                                        init];
+//    
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 160, 90)];
+//    
+//    popoverView.backgroundColor = [UIColor whiteColor];
+//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
+//    
+//    _popOverTableView.delegate=(id)self;
+//    _popOverTableView.dataSource=(id)self;
+//    _popOverTableView.rowHeight= 32;
+//    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+//    
+//    
+//    [popoverView addSubview:_popOverTableView];
+//    popoverContent.view = popoverView;
+//    
+//    //resize the popover view shown
+//    //in the current view to the view's size
+//    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
+//    
+//    //create a popover controller
+//    
+//    self.popOverController = [[UIPopoverController alloc]
+//                              initWithContentViewController:popoverContent];
+//    
+//       
+//    UIButton *button = (UIButton *)sender;
+//    
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    UITableView *table = (UITableView *)[cell superview];
+//    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+//    
+//   
+//    Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
+//    _applicantid=empdetls1.applicantid;
+//    _ssnstring=empdetls1.ssn;
+//    
+//
+//    
+//    [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
+//                                            inView:cell
+//                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+//                                          animated:YES];
     
 
 }
@@ -1260,6 +1260,55 @@
     }
 
 
+
+}
+-(void)showhidepopoverview:(SectionHeaderView*)sectionHeaderView popoveropened:(NSInteger)popoveropened{
+  
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 160, 90)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    
+//   // UIButton *button = (UIButton *)sender;
+//    
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    UITableView *table = (UITableView *)[cell superview];
+//    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+//    
+//    
+//    Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
+//    _applicantid=empdetls1.applicantid;
+//    _ssnstring=empdetls1.ssn;
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
+                                            inView:self.view
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
 
 }
 - (IBAction)basiccheck:(id)sender {

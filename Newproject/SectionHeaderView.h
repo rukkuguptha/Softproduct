@@ -15,6 +15,7 @@
 
 -(id)initWithFrame:(CGRect)frame title:(NSString*)title section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)delegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
+-(void)showviewWithUserAction:(BOOL)userAction;
 
 @end
 
@@ -28,6 +29,7 @@
 @optional
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)section;
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)section;
+-(void)showhidepopoverview:(SectionHeaderView*)sectionHeaderView popoveropened:(NSInteger)section;
 
 @end
 
