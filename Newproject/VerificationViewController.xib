@@ -422,7 +422,7 @@
     <resources>
         <image name="RadioButton-Selected.png" width="20" height="21"/>
         <image name="RadioButton-Unselected.png" width="20" height="21"/>
-        <image name="cb_mono_on.png" width="16" height="16"/>
+        <image name="cb_mono_on.png" width="22" height="21"/>
         <image name="detailDisclosureButton.png" width="33" height="35"/>
         <image name="green-checkmark4-1.png" width="40" height="40"/>
         <image name="rectangle3.png" width="551" height="327"/>

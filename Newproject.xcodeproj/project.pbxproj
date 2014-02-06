@@ -122,6 +122,7 @@
 		D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */; };
 		D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */; };
 		D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D48B608317F98CFC001A53C8 /* Coursemdl.m */; };
+		D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D48F436518A2335400AFDDC2 /* vertical blue.png */; };
 		D49DE838185EB391006F1CDA /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE836185EB391006F1CDA /* closebutton.png */; };
 		D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE837185EB391006F1CDA /* closebutton@2x.png */; };
 		D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */; };
@@ -129,6 +130,8 @@
 		D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */; };
 		D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */; };
 		D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFFC176F186200F4E196 /* FollowupCell.xib */; };
+		D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */; };
+		D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */; };
 		D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C33EB9180FB43500C90728 /* PDFImageConverter.m */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
@@ -336,6 +339,7 @@
 		D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
 		D48B608217F98CEC001A53C8 /* Coursemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coursemdl.h; sourceTree = "<group>"; };
 		D48B608317F98CFC001A53C8 /* Coursemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coursemdl.m; sourceTree = "<group>"; };
+		D48F436518A2335400AFDDC2 /* vertical blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertical blue.png"; sourceTree = "<group>"; };
 		D49DE836185EB391006F1CDA /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		D49DE837185EB391006F1CDA /* closebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closebutton@2x.png"; sourceTree = "<group>"; };
 		D4A2AFF1176EEC4F00F4E196 /* ActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityViewController.h; sourceTree = "<group>"; };
@@ -345,6 +349,9 @@
 		D4A2AFF7176EEC7200F4E196 /* FollowupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowupViewController.m; sourceTree = "<group>"; };
 		D4A2AFF8176EEC7200F4E196 /* FollowupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupViewController.xib; sourceTree = "<group>"; };
 		D4A2AFFC176F186200F4E196 /* FollowupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupCell.xib; sourceTree = "<group>"; };
+		D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilehrViewController.h; sourceTree = "<group>"; };
+		D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilehrViewController.m; sourceTree = "<group>"; };
+		D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilehrViewController.xib; sourceTree = "<group>"; };
 		D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFImageConverter.h; path = ../PDFImageConverter.h; sourceTree = "<group>"; };
 		D4C33EB9180FB43500C90728 /* PDFImageConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFImageConverter.m; path = ../PDFImageConverter.m; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
@@ -629,6 +636,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D48F436518A2335400AFDDC2 /* vertical blue.png */,
 				D4EC1FE01875280500A55942 /* textbox.png */,
 				D40A6639187131CA00AB7496 /* cb_mono_on.png */,
 				D40A663A187131CA00AB7496 /* cb_mono_off.png */,
@@ -723,6 +731,9 @@
 		D4FED40417F15AC5004BE242 /* hr */ = {
 			isa = PBXGroup;
 			children = (
+				D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */,
+				D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */,
+				D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */,
 				D4FED40517F15B07004BE242 /* HRViewController.h */,
 				D4FED40617F15B07004BE242 /* HRViewController.m */,
 				D4FED40717F15B07004BE242 /* HRViewController.xib */,
@@ -873,6 +884,7 @@
 				D4004070185B181500C38E12 /* ManViewController.xib in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
+				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
 				D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
@@ -883,6 +895,7 @@
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
+				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
@@ -932,6 +945,7 @@
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
+				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */,
 				64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,

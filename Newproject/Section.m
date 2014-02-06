@@ -7,7 +7,7 @@
 
 @implementation Section
 
-@synthesize sectionHeader, sectionRows,open,sectionHeaderView;
+@synthesize sectionHeader, sectionRows,open,sectionHeaderView,sectionname;
 
 
 @end

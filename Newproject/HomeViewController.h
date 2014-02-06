@@ -13,6 +13,7 @@
 #import "HRViewController.h"
 #import "TileViewController.h"
 #import "ResViewController.h"
+#import "TilehrViewController.h"
 @interface HomeViewController : UIViewController
 /*Views*/
 @property (strong, nonatomic) IBOutlet UIView *customerview;
@@ -27,6 +28,7 @@
 @property(strong,nonatomic)HRViewController*hrVCtrl;
 @property(strong,nonatomic)TileViewController*tileVCtrl;
 @property(strong,nonatomic)ResViewController*ReVCtrl;
+@property(strong,nonatomic)TilehrViewController*TilehrVCtrl;
 
 
 //newcomment.

@@ -98,12 +98,14 @@
     
 }
 -(void)hrpage{
-    if (!self.hrVCtrl) {
-        self.hrVCtrl=[[HRViewController alloc]initWithNibName:@"HRViewController" bundle:nil];
+    if (!self.TilehrVCtrl) {
+        self.TilehrVCtrl=[[TilehrViewController alloc]initWithNibName:@"TilehrViewController" bundle:nil];
     }
   
-    [self.navigationController pushViewController:_hrVCtrl animated:YES];
-    
+    _TilehrVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+   
+    [self presentViewController:_TilehrVCtrl
+                       animated:YES completion:NULL];
 }
 -(void)repage{
     if (!self.ReVCtrl) {

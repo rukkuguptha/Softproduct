@@ -22,8 +22,10 @@
     
 
 }
-@property(readwrite)NSInteger applicantid;
 
+@property (strong, nonatomic) IBOutlet UIView *newcellview;
+@property(readwrite)NSInteger applicantid;
+@property(strong,nonatomic)NSString* empskillid;
 @property(strong,nonatomic)NSString*newid;
 @property(strong,nonatomic)NSString*teststrng;
 @property(strong,nonatomic)Empdetails*empdetl;
@@ -38,15 +40,35 @@
 @property (strong, nonatomic) NSString *searchstring;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
+@property (strong, nonatomic) IBOutlet UIView *titleview;
 
 /*cellOutlets*/
 @property (strong, nonatomic) IBOutlet UITableViewCell *employeecell;
 @property (strong, nonatomic) IBOutlet UIButton *_disclyrebtnlbl;
-@property (strong, nonatomic) IBOutlet UILabel *empolyeename;
+
 @property(strong,nonatomic)IBOutlet UIImageView *empImgview;
 - (IBAction)disclurebtn:(id)sender;
-@property (strong, nonatomic) IBOutlet UILabel *ssnlbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *adresslbl;
+@property (strong, nonatomic) IBOutlet UILabel *citylbl;
+@property (strong, nonatomic) IBOutlet UILabel *statelbl;
+@property (strong, nonatomic) IBOutlet UILabel *countrylbl;
+@property (strong, nonatomic) IBOutlet UILabel *ziplbl;
+@property (strong, nonatomic) IBOutlet UILabel *doblbl;
 @property (strong, nonatomic) IBOutlet UILabel *phonelbl;
+@property (strong, nonatomic) IBOutlet UILabel *emergencylbl;
+@property (strong, nonatomic) IBOutlet UILabel *EmrgcyName;
+@property (strong, nonatomic) IBOutlet UILabel *maillbl;
+@property (strong, nonatomic) IBOutlet UILabel *alternatvelbl;
+@property (strong, nonatomic) IBOutlet UIButton *basicchecklbl;
+@property (strong, nonatomic) IBOutlet UILabel *basicexpry;
+@property (strong, nonatomic) IBOutlet UILabel *licenceno;
+@property (strong, nonatomic) IBOutlet UILabel *licencename;
+@property (strong, nonatomic) IBOutlet UILabel *licencestate;
+
+@property (strong, nonatomic) IBOutlet UILabel *twiclbl;
+
+- (IBAction)basiccheck:(id)sender;
 
 
 /*popover*/
@@ -55,15 +77,21 @@
 
 /*Arrays & Dictionaries*/
 @property(strong,nonatomic)NSMutableDictionary*imageArraydict;
+@property(strong,nonatomic)NSMutableDictionary*Skilldict;
 @property(strong,nonatomic)NSMutableArray*listarray;
 @property(strong,nonatomic)NSMutableArray*empnameArray;
 @property(strong,nonatomic)NSMutableArray *imageArray;
 @property (nonatomic, strong) NSMutableArray *sectionArray;
 @property (nonatomic, assign) NSInteger openSectionIndex;
 
+
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+
+
+
+
 
 @end
