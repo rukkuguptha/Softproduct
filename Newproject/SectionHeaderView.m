@@ -24,6 +24,9 @@
         // Set up the tap gesture recognizer.
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleOpen:)];
         [self addGestureRecognizer:tapGesture];
+        UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showpopoverview)];
+        [self addGestureRecognizer:tapGesture2];
+
 
         _delegate = delegate;        
         self.userInteractionEnabled = YES;
