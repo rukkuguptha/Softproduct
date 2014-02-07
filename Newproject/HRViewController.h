@@ -19,6 +19,11 @@
     NSString *imgString;
    
     int x;
+    SectionHeaderView*prcessectn;
+    NSInteger btntouch;
+      NSInteger chektouch;
+    NSString *jobstring;
+    NSInteger selectedsectn;
     
 
 }
@@ -70,7 +75,7 @@
 
 - (IBAction)basiccheck:(id)sender;
 
-
+-(void)popoveractn;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
@@ -82,6 +87,8 @@
 @property(strong,nonatomic)NSMutableArray*empnameArray;
 @property(strong,nonatomic)NSMutableArray *imageArray;
 @property (nonatomic, strong) NSMutableArray *sectionArray;
+@property (nonatomic, strong) NSMutableArray *JobsiteArray;
+@property (nonatomic, strong)NSMutableDictionary *jobsitedict;
 @property (nonatomic, assign) NSInteger openSectionIndex;
 
 
@@ -90,8 +97,26 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
+@property (strong, nonatomic) IBOutlet UIWebView *uiwebview;
 
 
+@property (strong, nonatomic) IBOutlet UIView *applicantprocessview;
+
+
+
+/*processview*/
+@property (strong, nonatomic) IBOutlet UIButton *sitechecklbl;
+
+- (IBAction)sitecheckactn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *officechecklbl;
+- (IBAction)officecheckactn:(id)sender;
+- (IBAction)jobsitebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
+
+- (IBAction)processbtn:(id)sender;
+
+- (IBAction)clsebtnactn:(id)sender;
+- (IBAction)clsehrbtn:(id)sender;
 
 
 @end

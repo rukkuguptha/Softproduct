@@ -36,8 +36,7 @@
 {
     [super viewDidLoad];
      // Do any additional setup after loading the view from its nib.
-   
-;
+  //
 
 //    self.sectionArray=[[NSMutableArray alloc]init];
 //    for (int i=0; i<=10; i++) {
@@ -109,34 +108,36 @@
 #pragma mark - ButtonActions
 
 - (IBAction)disclurebtn:(id)sender {
-//    UIViewController* popoverContent = [[UIViewController alloc]
-//                                        init];
-//    
-//    UIView* popoverView = [[UIView alloc]
-//                           initWithFrame:CGRectMake(0, 0, 160, 90)];
-//    
-//    popoverView.backgroundColor = [UIColor whiteColor];
-//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
-//    
-//    _popOverTableView.delegate=(id)self;
-//    _popOverTableView.dataSource=(id)self;
-//    _popOverTableView.rowHeight= 32;
-//    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-//    
-//    
-//    [popoverView addSubview:_popOverTableView];
-//    popoverContent.view = popoverView;
-//    
-//    //resize the popover view shown
-//    //in the current view to the view's size
-//    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
-//    
-//    //create a popover controller
-//    
-//    self.popOverController = [[UIPopoverController alloc]
-//                              initWithContentViewController:popoverContent];
-//    
-//       
+}
+-(void)popoveractn{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 160, 90)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+       
 //    UIButton *button = (UIButton *)sender;
 //    
 //    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
@@ -147,13 +148,13 @@
 //    Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
 //    _applicantid=empdetls1.applicantid;
 //    _ssnstring=empdetls1.ssn;
-//    
-//
-//    
-//    [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
-//                                            inView:cell
-//                          permittedArrowDirections:UIPopoverArrowDirectionLeft
-//                                          animated:YES];
+    
+
+    
+    [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
+                                            inView:self.view
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
     
 
 }
@@ -165,11 +166,18 @@
 
 #pragma mark - Table View
 -(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section {
+   
+    Section *aSection;
+   // if (tableView==_employeestable) {
+        
     
     /*
      Create the section header views lazily.
      */
-	Section *aSection=[sectionArray objectAtIndex:section];
+    if (tableView==_employeestable) {
+        
+    
+	aSection=[sectionArray objectAtIndex:section];
     if (!aSection.sectionHeaderView) {
         aSection.sectionHeaderView = [[SectionHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.employeestable.bounds.size.width, HEADER_HEIGHT) title:aSection.sectionHeader section:section delegate:self];
         NSLog(@"sectn%d",section);
@@ -177,6 +185,7 @@
         NSLog(@"sectn%@",empdetls2.Inproceesstatus);
         if ([empdetls2.Inproceesstatus isEqualToString:@"true"]) {
             
+            aSection.sectionHeaderView.animatedview.userInteractionEnabled=NO;
             CAGradientLayer *gradient = [CAGradientLayer layer];
             gradient.frame =  aSection.sectionHeaderView.bounds;
             gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:255.0/255.0f green:174.0/255.0f blue:185.0/255.0f alpha:1.0f] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
@@ -184,6 +193,7 @@
 
         }
         else{
+            aSection.sectionHeaderView.animatedview.userInteractionEnabled=YES;
             CAGradientLayer *gradient = [CAGradientLayer layer];
             gradient.frame =  aSection.sectionHeaderView.bounds;
             gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f] CGColor],(id)[[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
@@ -192,26 +202,40 @@
             
         }
         
-        
+    }
         
     }
     
     
-    return aSection.sectionHeaderView;
+    else if (tableView==_popOverTableView){
+        
+        
+    }
+    
+           return aSection.sectionHeaderView;
+    //}
+    
+ 
+    
+   
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
     // Return the number of sections.
+     if (tableView==_popOverTableView) {
+     }
+     else{
     return [sectionArray count];
-    //return [_empnameArray count];
+     }
+    return YES;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_popOverTableView) {
-        return [_listarray count];
+        return [_JobsiteArray count];
     }
     else{
         Section *aSection=[sectionArray objectAtIndex:section];
@@ -297,13 +321,19 @@
         }
 
         
+        NSString *fullURL =[NSString stringWithFormat:@"http://arvin.kontract360.com/files/docs/hr/%@",empdetls1.photo]  ;
+        NSURL *url = [NSURL URLWithString:fullURL];
+        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        [_uiwebview loadRequest:requestObj];
+//        _empImgview=(UIImageView *)[cell viewWithTag:18];
+//        _empImgview.image=[UIImage imageNamed:[NSString stringWithFormat:<#(NSString *), ...#>] ]
                 }
 
     if (tableView==_popOverTableView) {
         
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12.0f];
 
-        cell.textLabel.text=[_listarray objectAtIndex:indexPath.row];
+        cell.textLabel.text=[_JobsiteArray objectAtIndex:indexPath.row];
     }
     return cell;
 }
@@ -314,38 +344,10 @@
     
     
     if (tableView==_popOverTableView) {
+        [_jobsitebtnlbl setTitle:[_JobsiteArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
         
        
-        if (indexPath.row==0) {
-            if (!self.verifctnVCtrl) {
-                _verifctnVCtrl=[[VerificationViewController alloc]initWithNibName:@"VerificationViewController" bundle:nil];
             }
-            [self.popOverController dismissPopoverAnimated:YES];
-            _verifctnVCtrl.applicantid=_applicantid;
-            NSLog(@" _verifctnVCtrl.applicantid%d", _verifctnVCtrl.applicantid);
-                        [self.navigationController pushViewController:_verifctnVCtrl animated:YES];
-            
-        }
-        if (indexPath.row==1) {
-            if (!self.uploadVCtrl) {
-                _uploadVCtrl=[[UploadDocViewController alloc]initWithNibName:@"UploadDocViewController" bundle:nil];
-            }
-            [self.popOverController dismissPopoverAnimated:YES];
-              _uploadVCtrl.applicantid=_applicantid;
-            _uploadVCtrl.ssnstring=_ssnstring;
-            [self.navigationController pushViewController:_uploadVCtrl animated:YES];
-            
-        }
-
-        
-        if (indexPath.row==2) {
-            /*arvinice*/
-            [self UpdateApplicantEmployeeStatus];
-           // [self FetchApplicant];
-            //[_employeestable reloadData];
-            
-        }
-    }
     
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -373,7 +375,8 @@
 
 
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
-    
+   
+ 
     Section *aSection=[sectionArray objectAtIndex:sectionOpened];
     aSection.open=YES;
     
@@ -424,6 +427,7 @@
     self.openSectionIndex = sectionOpened;
     
     
+    
 }
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {
     
@@ -445,15 +449,24 @@
     }
     self.openSectionIndex = NSNotFound;
 }
+-(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)viewopened{
+    
+    //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
+    
+    selectedsectn=viewopened;
+
+}
 
 
 
 #pragma mark - SearchBar
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self SearchApplicants];
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self ListAllApplicants];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
@@ -528,6 +541,58 @@
     
     
 }
+-(void)SelectAllJobSites{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllJobSites xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllJobSites>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllJobSites" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 
 -(void)ListAllApplicants{
    
@@ -631,6 +696,139 @@
     
     
 }
+-(void)MoveApplicanttoInprocess{
+       recordResults = FALSE;
+    NSString *soapMessage;
+     Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:selectedsectn];
+    NSInteger  admin;
+    NSInteger jobsiteno;
+    
+    
+    NSDate *localDate = [NSDate date];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+    dateFormatter.dateFormat = @"yyyy-MM-dd";
+    
+    NSString *dateString = [dateFormatter stringFromDate: localDate];
+
+  
+   
+    if (btntouch%2) {
+        admin=0;
+        NSLog(@"%@",_jobsitebtnlbl.titleLabel.text);
+        jobsiteno=[[_jobsitedict objectForKey:_jobsitebtnlbl.titleLabel.text]integerValue];
+        }
+    
+    else {
+//        admin=0;
+//        jobsiteno=0;
+    }
+    if (chektouch%2) {
+        admin=1;
+        jobsiteno=0;
+}
+    else{
+        
+    }
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<MoveApplicanttoInprocess xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<appid>%d</appid>\n"
+                   "<jobsite>%d</jobsite>\n"
+                   "<admin>%d</admin>\n"
+                   "<pdate>%@</pdate>\n"
+                   "</MoveApplicanttoInprocess>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",empdetls1.applicantid,jobsiteno,admin,dateString];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/MoveApplicanttoInprocess" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)SearchApplicants{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SearchApplicants xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "</SearchApplicants>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -707,21 +905,13 @@
         
         
     [_employeestable reloadData];
+        
            imgString=@"";
     
     }
-//    if([imgString isEqualToString:@"img"])
-//    {
-//        if (x==[_empnameArray count]) {
-//             [_employeestable reloadData];
-//        }
-//       
-//
-//       // imgString=@"";
-//        
-//    }
 
     
+    [_popOverTableView reloadData];
 
 }
 #pragma mark - XMLParser
@@ -979,6 +1169,17 @@
 
     }
     
+    
+    if([elementName isEqualToString:@"applicant_photo"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
+    
     if([elementName isEqualToString:@"AllSkillsResult"])
     {
         _Skilldict=[[NSMutableDictionary alloc]init];
@@ -1007,6 +1208,46 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"SelectAllJobSitesResult"])
+    {
+        _JobsiteArray=[[NSMutableArray alloc]init];
+        _jobsitedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SearchApplicantsResponse"])
+    {
+        imgString=@"Fetchapp";
+        _empnameArray=[[NSMutableArray alloc]init];
+
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 
@@ -1234,6 +1475,14 @@
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"applicant_photo"])
+    {
+        recordResults = FALSE;
+        _empdetl.photo=_soapResults;
+        _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"InProcess"])
     {
         recordResults = FALSE;
@@ -1258,20 +1507,40 @@
         
         
     }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        recordResults = FALSE;
+    
+        jobstring=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobSiteName"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        [_JobsiteArray addObject:_soapResults];
+        [_jobsitedict setObject:jobstring forKey:_soapResults];
+     
+        _soapResults = nil;
+    }
 
 
 
 }
--(void)showhidepopoverview:(SectionHeaderView*)sectionHeaderView popoveropened:(NSInteger)popoveropened{
-  
+
+
+-(void)jobsitepopover{
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 160, 90)];
+                           initWithFrame:CGRectMake(0, 0, 160, 120)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 120)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -1284,7 +1553,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 90);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(160, 120);
     
     //create a popover controller
     
@@ -1292,27 +1561,75 @@
                               initWithContentViewController:popoverContent];
     
     
-//   // UIButton *button = (UIButton *)sender;
-//    
-//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-//    UITableView *table = (UITableView *)[cell superview];
-//    NSIndexPath *IndexPath = [table indexPathForCell:cell];
-//    
-//    
-//    Empdetails*empdetls1=(Empdetails *)[_empnameArray objectAtIndex:IndexPath.row];
-//    _applicantid=empdetls1.applicantid;
-//    _ssnstring=empdetls1.ssn;
     
-    
-    
-    [self.popOverController presentPopoverFromRect:__disclyrebtnlbl.frame
-                                            inView:self.view
-                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+    [self.popOverController presentPopoverFromRect:_jobsitebtnlbl.frame
+                                            inView:self.applicantprocessview
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
 
+    
 }
+
 - (IBAction)basiccheck:(id)sender {
     
     
 }
+-(void)hideview:(NSString *)s{
+    _applicantprocessview.hidden=NO;
+}
+
+- (IBAction)sitecheckactn:(id)sender {
+    btntouch++;
+    
+    if (btntouch%2) {
+        
+        [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        //_sitechecklbl.enabled=NO;
+
+      }
+    
+    else{
+        [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        //_sitechecklbl.enabled=YES;
+
+    }
+
+}
+- (IBAction)officecheckactn:(id)sender {
+chektouch++;
+    
+    if (chektouch%2) {
+        
+        [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        //_officechecklbl.enabled=NO;
+        
+    }
+    
+    else{
+        [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        //_officechecklbl.enabled=YES;
+        
+    }
+
+}
+
+- (IBAction)jobsitebtn:(id)sender {
+   
+    [self jobsitepopover];
+     [self SelectAllJobSites];
+    
+}
+- (IBAction)processbtn:(id)sender {
+    [self MoveApplicanttoInprocess];
+}
+
+- (IBAction)clsebtnactn:(id)sender {
+    _applicantprocessview.hidden=YES;
+}
+
+- (IBAction)clsehrbtn:(id)sender {
+     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
 @end

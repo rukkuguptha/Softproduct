@@ -2,9 +2,9 @@
 
 #import "SectionHeaderView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "HRViewController.h"
 
 @implementation SectionHeaderView
-
 
 @synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section;
 
@@ -26,7 +26,7 @@
         [self addGestureRecognizer:tapGesture];
         UITapGestureRecognizer *tapGesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showaction)];
         [self addGestureRecognizer:tapGesture2];
-
+       
 
         _delegate = delegate;        
         self.userInteractionEnabled = YES;
@@ -65,10 +65,25 @@
         button.frame = CGRectMake(210.0, 5.0, 35.0, 35.0);
         [button setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
-        [button addTarget:self action:@selector(showaction) forControlEvents:UIControlEventTouchUpInside];
+            [button addTarget:self action:@selector(showaction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:button];
         _disclosureButton = button;
         
+        
+        
+        //create uiview
+        _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
+        _animatedview.backgroundColor=[UIColor colorWithRed:176.0/255.0f green:196.0/255.0f blue:222.0/255.0f alpha:1.0f];
+        proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+          proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+        proecsslbl.textColor=[UIColor whiteColor];
+        proecsslbl.text=@"Process Applicant";
+        [self.animatedview addSubview:proecsslbl];
+        proecsslbl.hidden=YES;
+        UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextpage)];
+        [self.animatedview addGestureRecognizer:tap];
+
+         [self addSubview:_animatedview];
        
 //       //create Namelabel
 //        UILabel *namelabel = [[UILabel alloc] initWithFrame:CGRectMake(220, 0.0, 210, 45)];
@@ -107,6 +122,10 @@
     return self;
 }
 
+-(void)nextpage{
+    [[self delegate]hideview:@"y"];
+
+}
 
 -(IBAction)toggleOpen:(id)sender {
     
@@ -137,28 +156,42 @@
 -(void)showaction{
     [self showviewWithUserAction:YES];
 }
+
 -(void)showviewWithUserAction:(BOOL)userAction{
         
         // Toggle the disclosure button state.
 
     self.disclosureButton.selected = !self.disclosureButton.selected;
+   
+//    UIView *newview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 0)];
+//    newview.backgroundColor=[UIColor redColor];
+//    
+//    [self addSubview:newview];
     
+
     // If this was a user action, send the delegate the appropriate message.
     if (userAction) {
         if (self.disclosureButton.selected) {
-            if ([self.delegate respondsToSelector:@selector(showhidepopoverview)]) {
-                
-            }
+            
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+                .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
+            [self.delegate sectionHeaderView:self viewopened:self.section];
+            proecsslbl.hidden=NO;
+            
+            
+
+                }
+        else{
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+                .frame =  CGRectMake(250, 5, 0, 25);} completion:nil];
+              proecsslbl.hidden=YES;
+
         }
-        else {
-//            if ([self.delegate respondsToSelector:@selector(sectionHeaderView:sectionClosed:)]) {
-//                [self.delegate sectionHeaderView:self sectionClosed:self.section];
-//            }
-        }
-    }
 
     
 }
+}
+
 
 
 @end
