@@ -39,10 +39,10 @@
                                     <state key="normal" image="appbar.close.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="closebtnactn:" destination="-1" eventType="touchUpInside" id="vxr-ye-6kR"/>
+                                    </connections>
                                 </button>
-                                <connections>
-                                    <action selector="closebtnactn:" destination="-1" id="9YT-bc-T6h"/>
-                                </connections>
                             </barButtonItem>
                         </navigationItem>
                     </items>

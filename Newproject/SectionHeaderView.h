@@ -1,17 +1,21 @@
 
 #import <Foundation/Foundation.h>
-
+@class HRViewController;
 @protocol SectionHeaderViewDelegate;
 
 
-@interface SectionHeaderView : UIView 
+@interface SectionHeaderView : UIView {
+    UILabel *proecsslbl;
+}
 
 @property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UILabel *nameLabel;
+@property (nonatomic, strong)UIView *animatedview;
 @property (nonatomic, weak) UIButton *disclosureButton;
 @property (nonatomic, weak) UIButton *DetailButton;
 @property (nonatomic, assign) NSInteger section;
 @property (nonatomic, weak) id <SectionHeaderViewDelegate> delegate;
+@property (nonatomic, retain) IBOutlet HRViewController *hrVCrl;
 
 -(id)initWithFrame:(CGRect)frame title:(NSString*)title section:(NSInteger)sectionNumber delegate:(id <SectionHeaderViewDelegate>)delegate;
 -(void)toggleOpenWithUserAction:(BOOL)userAction;
@@ -29,7 +33,8 @@
 @optional
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)section;
 -(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)section;
--(void)showhidepopoverview:(SectionHeaderView*)sectionHeaderView popoveropened:(NSInteger)section;
-
++(void)showhidepopoverview:(SectionHeaderView*)sectionHeaderView popoveropened:(NSInteger)section;
+-(void)hideview:(NSString *)s;
+-(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)section;
 @end
 

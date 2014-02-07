@@ -16,7 +16,6 @@
                 <outlet property="countrylbl" destination="aNJ-Px-UrF" id="dvs-Iz-gN2"/>
                 <outlet property="doblbl" destination="yqs-w6-c9e" id="G5d-nx-iCL"/>
                 <outlet property="emergencylbl" destination="quu-VF-Sj0" id="Wsm-7G-RxK"/>
-                <outlet property="empImgview" destination="GJN-gM-Ugk" id="qed-1Q-zq9"/>
                 <outlet property="employeecell" destination="2" id="12"/>
                 <outlet property="licencename" destination="h8z-YB-7sU" id="XWO-n1-vtt"/>
                 <outlet property="licenceno" destination="sfj-eW-6WL" id="v89-hx-GMO"/>
@@ -25,6 +24,7 @@
                 <outlet property="phonelbl" destination="R8m-50-FH6" id="fgL-pv-vhU"/>
                 <outlet property="statelbl" destination="99P-KX-8tP" id="5BO-2t-e4g"/>
                 <outlet property="twiclbl" destination="Eao-RA-l79" id="MwC-oH-nfM"/>
+                <outlet property="uiwebview" destination="Dzc-Tk-dan" id="svR-y0-oGh"/>
                 <outlet property="ziplbl" destination="Jlr-M6-Lsu" id="dpE-0M-nrv"/>
             </connections>
         </placeholder>
@@ -39,10 +39,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="5ET-6V-78R">
                         <rect key="frame" x="0.0" y="0.0" width="978" height="255"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilepicture.png" id="GJN-gM-Ugk">
-                        <rect key="frame" x="8" y="37" width="109" height="123"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cca-ed-WWh">
                         <rect key="frame" x="147" y="79" width="42" height="21"/>
@@ -285,13 +281,20 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.1951047242" green="0.8248648864" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <webView userInteractionEnabled="NO" contentMode="scaleAspectFit" scalesPageToFit="YES" id="Dzc-Tk-dan">
+                        <rect key="frame" x="8" y="36" width="131" height="139"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="WrJ-Vs-SyG"/>
+                        </connections>
+                    </webView>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
     <resources>
         <image name="cb_mono_off.png" width="22" height="21"/>
-        <image name="profilepicture.png" width="500" height="315"/>
         <image name="squareimage1.png" width="300" height="400"/>
         <image name="vertical blue.png" width="225" height="225"/>
     </resources>

@@ -37,6 +37,7 @@
 @property(strong,nonatomic)NSString*stateissuinglicence;
 @property(strong,nonatomic)NSString*twiccardno;
 @property(strong,nonatomic)NSString*Inproceesstatus;
+@property(strong,nonatomic)NSString*photo;
 
 
 
