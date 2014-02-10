@@ -36,5 +36,7 @@
 +(void)showhidepopoverview:(SectionHeaderView*)sectionHeaderView popoveropened:(NSInteger)section;
 -(void)hideview:(NSString *)s;
 -(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)section;
+-(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewclosed:(NSInteger)section;
+
 @end
 

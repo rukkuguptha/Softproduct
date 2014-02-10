@@ -165,13 +165,6 @@
 
     self.disclosureButton.selected = !self.disclosureButton.selected;
    
-//    UIView *newview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 0)];
-//    newview.backgroundColor=[UIColor redColor];
-//    
-//    [self addSubview:newview];
-    
-
-    // If this was a user action, send the delegate the appropriate message.
     if (userAction) {
         if (self.disclosureButton.selected) {
             _animatedview.hidden=NO;
@@ -186,6 +179,7 @@
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
                 .frame =  CGRectMake(250, 5, 0, 25);} completion:nil];
+            [self.delegate sectionHeaderView:self viewclosed:self.section];
               proecsslbl.hidden=YES;
 
         }
