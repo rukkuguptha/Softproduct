@@ -73,10 +73,10 @@
         
         //create uiview
         _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
-        _animatedview.backgroundColor=[UIColor colorWithRed:176.0/255.0f green:196.0/255.0f blue:222.0/255.0f alpha:1.0f];
+        _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
         proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-          proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-        proecsslbl.textColor=[UIColor whiteColor];
+        proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+        proecsslbl.textColor=[UIColor blackColor];
         proecsslbl.text=@"Process Applicant";
         [self.animatedview addSubview:proecsslbl];
         proecsslbl.hidden=YES;
@@ -154,6 +154,8 @@
 }
 
 -(void)showaction{
+    //[_animatedview removeFromSuperview];
+  
     [self showviewWithUserAction:YES];
 }
 
@@ -172,7 +174,7 @@
     // If this was a user action, send the delegate the appropriate message.
     if (userAction) {
         if (self.disclosureButton.selected) {
-            
+            _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
                 .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
             [self.delegate sectionHeaderView:self viewopened:self.section];
