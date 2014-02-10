@@ -26,6 +26,9 @@
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
 		649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F82186193790010CBD8 /* custommaterialcell.xib */; };
 		649EA38618769D96006651E6 /* jobsitemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EA38518769D96006651E6 /* jobsitemodel.m */; };
+		649EB48418A8A92A00CDBE28 /* DetailproHrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EB48218A8A92A00CDBE28 /* DetailproHrViewController.m */; };
+		649EB48518A8A92A00CDBE28 /* DetailproHrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48318A8A92A00CDBE28 /* DetailproHrViewController.xib */; };
+		649EB48718A8AE6300CDBE28 /* proHRDetailcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48618A8AE6300CDBE28 /* proHRDetailcell.xib */; };
 		649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649ED79C187FB8260086CDDE /* CompanyViewController.m */; };
 		649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED79D187FB8260086CDDE /* CompanyViewController.xib */; };
 		649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED7A7187FBD710086CDDE /* customservicescell.xib */; };
@@ -213,6 +216,10 @@
 		649E1F82186193790010CBD8 /* custommaterialcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custommaterialcell.xib; sourceTree = "<group>"; };
 		649EA38418769D96006651E6 /* jobsitemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitemodel.h; sourceTree = "<group>"; };
 		649EA38518769D96006651E6 /* jobsitemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitemodel.m; sourceTree = "<group>"; };
+		649EB48118A8A92A00CDBE28 /* DetailproHrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailproHrViewController.h; sourceTree = "<group>"; };
+		649EB48218A8A92A00CDBE28 /* DetailproHrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailproHrViewController.m; sourceTree = "<group>"; };
+		649EB48318A8A92A00CDBE28 /* DetailproHrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailproHrViewController.xib; sourceTree = "<group>"; };
+		649EB48618A8AE6300CDBE28 /* proHRDetailcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = proHRDetailcell.xib; sourceTree = "<group>"; };
 		649ED79B187FB8260086CDDE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		649ED79C187FB8260086CDDE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		649ED79D187FB8260086CDDE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
@@ -757,6 +764,10 @@
 				D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */,
 				D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */,
 				D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */,
+				649EB48118A8A92A00CDBE28 /* DetailproHrViewController.h */,
+				649EB48218A8A92A00CDBE28 /* DetailproHrViewController.m */,
+				649EB48318A8A92A00CDBE28 /* DetailproHrViewController.xib */,
+				649EB48618A8AE6300CDBE28 /* proHRDetailcell.xib */,
 			);
 			name = hr;
 			sourceTree = "<group>";
@@ -864,6 +875,7 @@
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */,
 				D4D39CD8177AF1CA00C1E87D /* FollowCommentcell.xib in Resources */,
+				649EB48518A8A92A00CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
@@ -895,6 +907,7 @@
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
 				D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */,
+				649EB48718A8AE6300CDBE28 /* proHRDetailcell.xib in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				64F9798D185EDB5400E7722B /* UsersViewController.xib in Resources */,
@@ -947,6 +960,7 @@
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
+				649EB48418A8A92A00CDBE28 /* DetailproHrViewController.m in Sources */,
 				D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,
