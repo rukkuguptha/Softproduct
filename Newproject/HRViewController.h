@@ -27,6 +27,7 @@
     
 
 }
+/*newcommment*/
 
 @property (strong, nonatomic) IBOutlet UIView *newcellview;
 @property(readwrite)NSInteger applicantid;
