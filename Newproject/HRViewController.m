@@ -26,7 +26,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.title=NSLocalizedString(@"Registered Applicants", @"Registered Applicants");
+        //self.title=NSLocalizedString(@"Registered Applicants", @"Registered Applicants");
         
     }
     return self;
@@ -524,7 +524,7 @@
 
 
 #pragma mark - webservice
-/*arvinices*/
+
 -(void)UpdateApplicantEmployeeStatus{
     
     recordResults = FALSE;
@@ -937,8 +937,7 @@
         self.openSectionIndex = NSNotFound;
         self.openviewIndex=NSNotFound;
 
-        
-        
+            
     [_employeestable reloadData];
         
            imgString=@"";
