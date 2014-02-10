@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "HRViewController.h"
+#import "ProcesshrViewController.h"
+
 @interface TilehrViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *masterview;
 @property (strong, nonatomic) IBOutlet UIView *processview;
 @property (strong, nonatomic) IBOutlet UIView *mangmntview;
 @property (strong, nonatomic)HRViewController *hrVCtrl;
+@property (strong, nonatomic)ProcesshrViewController *prcsVCtrl;
 - (IBAction)closebtnactn:(id)sender;
 
 @end

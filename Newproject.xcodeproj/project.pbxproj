@@ -158,6 +158,8 @@
 		D4E658D417F2EF5B00202B14 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D317F2EF5B00202B14 /* wrong.png */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
+		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
+		D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F61A5518A896D90006093B /* ProcesshrViewController.xib */; };
 		D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7E2E017856D5E00F9545D /* NSData+Base64.m */; };
 		D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */; };
 		D4FED40817F15B07004BE242 /* HRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FED40617F15B07004BE242 /* HRViewController.m */; };
@@ -385,6 +387,9 @@
 		D4E658D317F2EF5B00202B14 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
+		D4F61A5418A896D90006093B /* ProcesshrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcesshrViewController.m; sourceTree = "<group>"; };
+		D4F61A5518A896D90006093B /* ProcesshrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcesshrViewController.xib; sourceTree = "<group>"; };
 		D4F7E2DF17856D4400F9545D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../NSData+Base64.h"; sourceTree = "<group>"; };
 		D4F7E2E017856D5E00F9545D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../NSData+Base64.m"; sourceTree = "<group>"; };
 		D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-camera-icon.png"; sourceTree = "<group>"; };
@@ -738,6 +743,9 @@
 				D4FED40617F15B07004BE242 /* HRViewController.m */,
 				D4FED40717F15B07004BE242 /* HRViewController.xib */,
 				D4FED40A17F16722004BE242 /* HRcellview.xib */,
+				D4F61A5318A896D90006093B /* ProcesshrViewController.h */,
+				D4F61A5418A896D90006093B /* ProcesshrViewController.m */,
+				D4F61A5518A896D90006093B /* ProcesshrViewController.xib */,
 				D4FED40C17F16EED004BE242 /* VerificationViewController.h */,
 				D4FED40D17F16EED004BE242 /* VerificationViewController.m */,
 				D4FED40E17F16EEE004BE242 /* VerificationViewController.xib */,
@@ -832,6 +840,7 @@
 				64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */,
+				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
 				D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */,
 				D453DA2C1873F1D0007EE3DC /* AssetsViewController.xib in Resources */,
 				649ED7AD187FBD710086CDDE /* ServiceViewController.xib in Resources */,
@@ -923,6 +932,7 @@
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */,
+				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
 				D40D1ED5176B0D4F00379DD5 /* CustomerViewController.m in Sources */,
 				D40D1EDA176B27E300379DD5 /* LeadsViewController.m in Sources */,
