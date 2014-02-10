@@ -7,7 +7,6 @@
 //
 
 #import "TilehrViewController.h"
-
 @interface TilehrViewController ()
 
 @end
@@ -58,6 +57,20 @@
     
 }
 
+-(void)processpage{
+    
+    if (!self.prcsVCtrl ) {
+        self.prcsVCtrl=[[ProcesshrViewController alloc]initWithNibName:@"ProcesshrViewController" bundle:nil];
+    }
+    
+        self.prcsVCtrl.modalPresentationStyle=UIModalPresentationFullScreen;
+    
+    [self presentViewController:self.prcsVCtrl
+                       animated:YES completion:NULL];
+    
+
+    
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
