@@ -474,18 +474,23 @@
         
         
     }
-    else {
-//        Section *previousOpenSection;
-//            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
-        
-    }
-
+  
     self.openviewIndex=viewopened;
     
     
 
 }
+-(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewclosed:(NSInteger)viewclosed{
+    
+    Section *aSection = [self.sectionArray objectAtIndex:viewclosed];
+	
+    aSection.open = NO;
+    
+    
+       self.openviewIndex = NSNotFound;
 
+    
+}
 
 
 #pragma mark - SearchBar
