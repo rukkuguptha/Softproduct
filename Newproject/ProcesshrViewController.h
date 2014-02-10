@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "Section.h"
-#import "SectionHeaderView.h"
 #import "Empdetails.h"
-
-@interface ProcesshrViewController : UIViewController<SectionHeaderViewDelegate>{
+#import "DetailproHrViewController.h"
+#import "Processsectionheaderview.h"
+@interface ProcesshrViewController : UIViewController<ProcesssectionheaderviewDelegate>{
     BOOL   recordResults;
+    NSInteger selectedsectn;
 }
 @property(strong,nonatomic)Empdetails*empdetl;
+
 @property (nonatomic, assign) NSInteger openSectionIndex;
 @property (nonatomic, assign) NSInteger openviewIndex;
+@property(strong,nonatomic)DetailproHrViewController *DetailproVCtrl;
 
 /*views*/
 @property (strong, nonatomic) IBOutlet UINavigationBar *titleview;

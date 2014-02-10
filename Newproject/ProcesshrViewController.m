@@ -928,35 +928,90 @@ return aSection.open ? [aSection.sectionRows count]:0;
 -(UIView*)tableView:(UITableView*)tableView viewForHeaderInSection:(NSInteger)section {
     
     Section *aSection;
-    // if (tableView==_employeestable) {
-    
-    
     /*
      Create the section header views lazily.
      */
     
         
         aSection=[_sectionArray objectAtIndex:section];
-        if (!aSection.sectionHeaderView) {
-            aSection.sectionHeaderView = [[SectionHeaderView alloc] initWithFrame:CGRectMake(0.0, 0.0, self.processtable.bounds.size.width, HEADER_HEIGHT) title:aSection.sectionHeader section:section delegate:self];
+        if (!aSection.newsectionHeaderView) {
+            aSection.newsectionHeaderView = [[Processsectionheaderview alloc] initWithFrame:CGRectMake(0.0, 0.0, self.processtable.bounds.size.width, HEADER_HEIGHT) title:aSection.sectionHeader section:section delegate:self];
             NSLog(@"sectn%d",section);
             Empdetails*empdetls2=(Empdetails *)[_newprocesssarray objectAtIndex:section];
             NSLog(@"sectn%@",empdetls2.Inproceesstatus);
          
-                
-                aSection.sectionHeaderView.animatedview.userInteractionEnabled=NO;
+            aSection.newsectionHeaderView.DetailButton.hidden=YES;
+                //aSection.newsectionHeaderView.animatedview.userInteractionEnabled=NO;
+            aSection.newsectionHeaderView.proecsslbl.text=@"Process Details";
+            
                 CAGradientLayer *gradient = [CAGradientLayer layer];
-                gradient.frame =  aSection.sectionHeaderView.bounds;
+                gradient.frame =  aSection.newsectionHeaderView.bounds;
                 gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f] CGColor], (id)[[UIColor whiteColor] CGColor], nil];
-                [ aSection.sectionHeaderView.layer insertSublayer:gradient atIndex:0];
+                [ aSection.newsectionHeaderView.layer insertSublayer:gradient atIndex:0];
                 
                    }
         
-return aSection.sectionHeaderView;
+return aSection.newsectionHeaderView;
 
 }
+-(void)sectionHeaderView:(Processsectionheaderview *)sectionHeaderView viewopened:(NSInteger)viewopened{
+    
+    //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
+    
+    selectedsectn=viewopened;
+    NSInteger previousOpenviewIndex = self.openviewIndex;
+    
+    if (previousOpenviewIndex != NSNotFound) {
+        Section *previousOpenSection=[_sectionArray objectAtIndex:previousOpenviewIndex];
+        previousOpenSection.open=NO;
+        [previousOpenSection.newsectionHeaderView showviewWithUserAction:NO];
+        NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
+        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+            previousOpenSection.newsectionHeaderView.proecsslbl.hidden=YES;
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.newsectionHeaderView.animatedview
+                .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
+            
+            previousOpenSection.newsectionHeaderView.animatedview.hidden=YES;
+            
+            
+        }
+        
+        
+    }
+    
+    self.openviewIndex=viewopened;
+    
+    
+    
+}
+-(void)sectionHeaderView:(Processsectionheaderview *)sectionHeaderView viewclosed:(NSInteger)viewclosed{
+    
+    Section *aSection = [self.sectionArray objectAtIndex:viewclosed];
+	
+    aSection.open = NO;
+    
+    
+    self.openviewIndex = NSNotFound;
+    
+    
+}
+
+-(void)navigatetoVctrl:(NSString *)s{
+    if (!_DetailproVCtrl) {
+        self.DetailproVCtrl=[[DetailproHrViewController alloc]initWithNibName:@"DetailproHrViewController" bundle:nil];
+    }
+    
+    _DetailproVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    
+    [self presentViewController:_DetailproVCtrl
+                       animated:YES completion:NULL];
+}
+
+//#pragma mark-
 #pragma mark-Button Actions
+
 - (IBAction)prcessclsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end
