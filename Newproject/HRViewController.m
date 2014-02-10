@@ -449,11 +449,40 @@
     }
     self.openSectionIndex = NSNotFound;
 }
+
 -(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)viewopened{
     
     //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
     
     selectedsectn=viewopened;
+    NSInteger previousOpenviewIndex = self.openviewIndex;
+    
+    if (previousOpenviewIndex != NSNotFound) {
+        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenviewIndex];
+        previousOpenSection.open=NO;
+        [previousOpenSection.sectionHeaderView showviewWithUserAction:NO];
+        NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
+        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.sectionHeaderView.animatedview
+                .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
+            
+            previousOpenSection.sectionHeaderView.animatedview.hidden=YES;
+
+          
+        }
+        
+        
+    }
+    else {
+//        Section *previousOpenSection;
+//            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
+        
+    }
+
+    self.openviewIndex=viewopened;
+    
+    
 
 }
 
@@ -901,6 +930,7 @@
         }
         self.employeestable.sectionHeaderHeight = HEADER_HEIGHT;
         self.openSectionIndex = NSNotFound;
+        self.openviewIndex=NSNotFound;
 
         
         
@@ -1584,12 +1614,17 @@
     if (btntouch%2) {
         
         [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+           [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _jobsitebtnlbl.enabled=YES;
         //_sitechecklbl.enabled=NO;
 
       }
     
     else{
         [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+        [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+ _jobsitebtnlbl.enabled=NO;
         //_sitechecklbl.enabled=YES;
 
     }
@@ -1601,12 +1636,17 @@ chektouch++;
     if (chektouch%2) {
         
         [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _jobsitebtnlbl.enabled=NO;
         //_officechecklbl.enabled=NO;
         
     }
     
     else{
         [_officechecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_sitechecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+         _jobsitebtnlbl.enabled=YES;
+
         //_officechecklbl.enabled=YES;
         
     }
@@ -1620,6 +1660,12 @@ chektouch++;
     
 }
 - (IBAction)processbtn:(id)sender {
+//    if (btntouch%2&&chektouch%2){
+//        
+//     
+//    }
+    
+    
     [self MoveApplicanttoInprocess];
 }
 

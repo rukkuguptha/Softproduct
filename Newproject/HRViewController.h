@@ -90,6 +90,8 @@
 @property (nonatomic, strong) NSMutableArray *JobsiteArray;
 @property (nonatomic, strong)NSMutableDictionary *jobsitedict;
 @property (nonatomic, assign) NSInteger openSectionIndex;
+@property (nonatomic, assign) NSInteger openviewIndex;
+
 
 
 /*xmlparse*/
