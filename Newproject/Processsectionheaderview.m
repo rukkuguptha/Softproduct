@@ -12,7 +12,7 @@
 
 @implementation Processsectionheaderview
 
-@synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section;
+@synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section,proecsslbl;
 
 
 + (Class)layerClass {
@@ -42,7 +42,7 @@
         detailbtn.frame = CGRectMake(15.0, 5.0, 35.0, 35.0);
         [detailbtn setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
         [detailbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
-        [detailbtn addTarget:self action:@selector(toggleOpen:) forControlEvents:UIControlEventTouchUpInside];
+        [detailbtn addTarget:self action:@selector(nextpage) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:detailbtn];
         _DetailButton = detailbtn;
         
@@ -83,10 +83,10 @@
         proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
         proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
         proecsslbl.textColor=[UIColor blackColor];
-        proecsslbl.text=@"Process Details";
+        proecsslbl.text=@"Send To Job";
         [self.animatedview addSubview:proecsslbl];
         proecsslbl.hidden=YES;
-        UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextpage)];
+        UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(newjobview)];
         [self.animatedview addGestureRecognizer:tap];
         
         [self addSubview:_animatedview];
@@ -94,6 +94,10 @@
        }
     
     return self;
+}
+-(void)newjobview{
+    [[self delegate]Jobview:@"n"];
+    
 }
 
 -(void)nextpage{

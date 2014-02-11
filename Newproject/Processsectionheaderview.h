@@ -13,9 +13,9 @@
 
 
 
-    UILabel *proecsslbl;
+    //UILabel *proecsslbl;
 }
-@property (nonatomic, weak) UILabel *proecsslbl;
+@property (nonatomic, strong) UILabel *proecsslbl;
 @property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UILabel *nameLabel;
 @property (nonatomic, strong) UIView *animatedview;
@@ -43,6 +43,7 @@
 -(void)sectionHeaderView:(Processsectionheaderview*)sectionHeaderView sectionClosed:(NSInteger)section;
 +(void)showhidepopoverview:(Processsectionheaderview*)sectionHeaderView popoveropened:(NSInteger)section;
 -(void)navigatetoVctrl:(NSString *)s;
+-(void)Jobview:(NSString *)nwstrg;
 -(void)sectionHeaderView:(Processsectionheaderview *)sectionHeaderView viewopened:(NSInteger)section;
 -(void)sectionHeaderView:(Processsectionheaderview*)sectionHeaderView viewclosed:(NSInteger)section;
 

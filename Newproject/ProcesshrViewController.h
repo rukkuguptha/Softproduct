@@ -23,6 +23,7 @@
 
 /*views*/
 @property (strong, nonatomic) IBOutlet UINavigationBar *titleview;
+@property (strong, nonatomic) IBOutlet UIView *jobviews;
 
 /*strings*/
 @property (strong, nonatomic)NSString *imgString;
@@ -54,5 +55,7 @@
 
 /*buttons*/
 - (IBAction)prcessclsebtn:(id)sender;
+
+- (IBAction)jobclsebtn:(id)sender;
 
 @end

@@ -940,7 +940,7 @@ return aSection.open ? [aSection.sectionRows count]:0;
             Empdetails*empdetls2=(Empdetails *)[_newprocesssarray objectAtIndex:section];
             NSLog(@"sectn%@",empdetls2.Inproceesstatus);
          
-            aSection.newsectionHeaderView.DetailButton.hidden=YES;
+            //aSection.newsectionHeaderView.DetailButton.hidden=YES;
                 //aSection.newsectionHeaderView.animatedview.userInteractionEnabled=NO;
             aSection.newsectionHeaderView.proecsslbl.text=@"Process Details";
             
@@ -1007,11 +1007,21 @@ return aSection.newsectionHeaderView;
                        animated:YES completion:NULL];
 }
 
+-(void)Jobview:(NSString *)nwstrg{
+    _jobviews.hidden=NO;
+    
+}
+
+
 //#pragma mark-
 #pragma mark-Button Actions
 
 - (IBAction)prcessclsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)jobclsebtn:(id)sender {
+       _jobviews.hidden=YES;
 }
 
 @end
