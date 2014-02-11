@@ -26,9 +26,9 @@
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
 		649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F82186193790010CBD8 /* custommaterialcell.xib */; };
 		649EA38618769D96006651E6 /* jobsitemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EA38518769D96006651E6 /* jobsitemodel.m */; };
-		649EB48418A8A92A00CDBE28 /* DetailproHrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EB48218A8A92A00CDBE28 /* DetailproHrViewController.m */; };
-		649EB48518A8A92A00CDBE28 /* DetailproHrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48318A8A92A00CDBE28 /* DetailproHrViewController.xib */; };
-		649EB48718A8AE6300CDBE28 /* proHRDetailcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48618A8AE6300CDBE28 /* proHRDetailcell.xib */; };
+		649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EB48918A8DF4700CDBE28 /* DetailproHrViewController.m */; };
+		649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48A18A8DF4700CDBE28 /* DetailproHrViewController.xib */; };
+		649EB48E18A8DF8400CDBE28 /* proHRDetailcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48D18A8DF8400CDBE28 /* proHRDetailcell.xib */; };
 		649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649ED79C187FB8260086CDDE /* CompanyViewController.m */; };
 		649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED79D187FB8260086CDDE /* CompanyViewController.xib */; };
 		649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED7A7187FBD710086CDDE /* customservicescell.xib */; };
@@ -52,6 +52,7 @@
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
 		64A14D82187573B50028B43A /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D81187573B50028B43A /* basicreqmdl.m */; };
+		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -217,10 +218,10 @@
 		649E1F82186193790010CBD8 /* custommaterialcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custommaterialcell.xib; sourceTree = "<group>"; };
 		649EA38418769D96006651E6 /* jobsitemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitemodel.h; sourceTree = "<group>"; };
 		649EA38518769D96006651E6 /* jobsitemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitemodel.m; sourceTree = "<group>"; };
-		649EB48118A8A92A00CDBE28 /* DetailproHrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailproHrViewController.h; sourceTree = "<group>"; };
-		649EB48218A8A92A00CDBE28 /* DetailproHrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailproHrViewController.m; sourceTree = "<group>"; };
-		649EB48318A8A92A00CDBE28 /* DetailproHrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailproHrViewController.xib; sourceTree = "<group>"; };
-		649EB48618A8AE6300CDBE28 /* proHRDetailcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = proHRDetailcell.xib; sourceTree = "<group>"; };
+		649EB48818A8DF4700CDBE28 /* DetailproHrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailproHrViewController.h; sourceTree = "<group>"; };
+		649EB48918A8DF4700CDBE28 /* DetailproHrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailproHrViewController.m; sourceTree = "<group>"; };
+		649EB48A18A8DF4700CDBE28 /* DetailproHrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailproHrViewController.xib; sourceTree = "<group>"; };
+		649EB48D18A8DF8400CDBE28 /* proHRDetailcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = proHRDetailcell.xib; sourceTree = "<group>"; };
 		649ED79B187FB8260086CDDE /* CompanyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyViewController.h; sourceTree = "<group>"; };
 		649ED79C187FB8260086CDDE /* CompanyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyViewController.m; sourceTree = "<group>"; };
 		649ED79D187FB8260086CDDE /* CompanyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyViewController.xib; sourceTree = "<group>"; };
@@ -252,6 +253,7 @@
 		64A14D7E18755B910028B43A /* customdetlcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdetlcell.xib; sourceTree = "<group>"; };
 		64A14D80187573B50028B43A /* basicreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basicreqmdl.h; sourceTree = "<group>"; };
 		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
+		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -761,6 +763,11 @@
 				D4FED40C17F16EED004BE242 /* VerificationViewController.h */,
 				D4FED40D17F16EED004BE242 /* VerificationViewController.m */,
 				D4FED40E17F16EEE004BE242 /* VerificationViewController.xib */,
+				649EB48818A8DF4700CDBE28 /* DetailproHrViewController.h */,
+				649EB48918A8DF4700CDBE28 /* DetailproHrViewController.m */,
+				649EB48A18A8DF4700CDBE28 /* DetailproHrViewController.xib */,
+				64A1F8B618AA007500EE8850 /* customdoccell.xib */,
+				649EB48D18A8DF8400CDBE28 /* proHRDetailcell.xib */,
 				64955C98180E52D5000A86A1 /* WebViewController.h */,
 				64955C99180E52D5000A86A1 /* WebViewController.m */,
 				64955C9A180E52D5000A86A1 /* WebViewController.xib */,
@@ -769,10 +776,6 @@
 				D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */,
 				D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */,
 				D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */,
-				649EB48118A8A92A00CDBE28 /* DetailproHrViewController.h */,
-				649EB48218A8A92A00CDBE28 /* DetailproHrViewController.m */,
-				649EB48318A8A92A00CDBE28 /* DetailproHrViewController.xib */,
-				649EB48618A8AE6300CDBE28 /* proHRDetailcell.xib */,
 			);
 			name = hr;
 			sourceTree = "<group>";
@@ -880,7 +883,7 @@
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */,
 				D4D39CD8177AF1CA00C1E87D /* FollowCommentcell.xib in Resources */,
-				649EB48518A8A92A00CDBE28 /* DetailproHrViewController.xib in Resources */,
+				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
@@ -894,6 +897,7 @@
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				64A09DAB186050A3001F74E2 /* custommanapowercell.xib in Resources */,
 				64A11EE01867F968008D20CC /* custombasicreqcell.xib in Resources */,
+				64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */,
 				D4FED41617F1A047004BE242 /* 1.png in Resources */,
 				64F97988185EDB4200E7722B /* FoldersViewController.xib in Resources */,
 				D4FED41817F1A04E004BE242 /* 2.png in Resources */,
@@ -912,7 +916,7 @@
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
 				D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */,
-				649EB48718A8AE6300CDBE28 /* proHRDetailcell.xib in Resources */,
+				649EB48E18A8DF8400CDBE28 /* proHRDetailcell.xib in Resources */,
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				64F9798D185EDB5400E7722B /* UsersViewController.xib in Resources */,
@@ -966,7 +970,6 @@
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
-				649EB48418A8A92A00CDBE28 /* DetailproHrViewController.m in Sources */,
 				D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */,
 				D4D570141772B58200671A35 /* Infoleads.m in Sources */,
 				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,
@@ -981,6 +984,7 @@
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				64F97996185EFBB600E7722B /* BasicReqViewController.m in Sources */,
 				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
+				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,
 				64F97987185EDB4200E7722B /* FoldersViewController.m in Sources */,
 				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
 				64F4DB67187E77A200AD1C83 /* Validation.m in Sources */,
