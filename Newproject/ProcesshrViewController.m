@@ -1002,6 +1002,7 @@ return aSection.newsectionHeaderView;
     }
     
     _DetailproVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _DetailproVCtrl.Applicantarray=_newprocesssarray;
     
     [self presentViewController:_DetailproVCtrl
                        animated:YES completion:NULL];

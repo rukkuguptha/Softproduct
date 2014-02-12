@@ -7,7 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailproHrViewController">
             <connections>
+                <outlet property="Accuntnumbr" destination="Oqv-ev-1eb" id="9X9-eY-uBq"/>
                 <outlet property="Dependentstexffld" destination="YEQ-J1-Vdx" id="Odp-hE-ez2"/>
+                <outlet property="cardnumbtxtfld" destination="40O-lZ-yrV" id="KZq-Vn-GZS"/>
+                <outlet property="cardroutdno" destination="Gh6-v6-RmO" id="lMM-Ci-dHl"/>
+                <outlet property="citytxt" destination="WET-9I-y9S" id="bcq-kX-KgY"/>
                 <outlet property="dcmntdetailview" destination="Sxi-89-Fcc" id="Apg-No-jsf"/>
                 <outlet property="detailsaddview" destination="MvF-Nj-18U" id="pJ1-RD-4wE"/>
                 <outlet property="detailstabletitleview" destination="NcK-h2-Gl2" id="NNT-gu-usn"/>
@@ -16,9 +20,14 @@
                 <outlet property="documentlisttable" destination="fhR-Eb-Naq" id="N4N-fa-WoH"/>
                 <outlet property="documentnametextfld" destination="IIf-9v-hGm" id="qUQ-L6-USF"/>
                 <outlet property="editview" destination="3BW-W1-7HM" id="b2Z-Xn-3On"/>
+                <outlet property="expbtn" destination="lED-I1-wId" id="9VV-cb-O5I"/>
+                <outlet property="instnname" destination="7mP-3q-Pb7" id="HiB-Ep-Cw6"/>
                 <outlet property="maritalbtn" destination="HET-Nt-5wu" id="85K-Pw-bHA"/>
                 <outlet property="paymentdetailview" destination="PL3-P4-5jQ" id="PzZ-Y9-5Un"/>
                 <outlet property="paymenttypebtn" destination="f89-N6-vtJ" id="JFi-Br-yRC"/>
+                <outlet property="rontgnumbr" destination="msy-jY-0CH" id="Uzp-Vs-BTh"/>
+                <outlet property="statelbl" destination="EhJ-en-j7z" id="ZJi-vr-bUu"/>
+                <outlet property="typesegmntlbl" destination="TyJ-aa-gkY" id="Soc-pS-cpX"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="w4detailview" destination="xUd-w7-hWW" id="ZZm-6P-Tv6"/>
             </connections>
@@ -73,7 +82,7 @@
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </toolbar>
-                        <view hidden="YES" contentMode="scaleToFill" id="MvF-Nj-18U" userLabel="Details View">
+                        <view contentMode="scaleToFill" id="MvF-Nj-18U" userLabel="Details View">
                             <rect key="frame" x="14" y="68" width="743" height="373"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -131,7 +140,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="3BW-W1-7HM" userLabel="Edit View">
+                        <view contentMode="scaleToFill" id="3BW-W1-7HM" userLabel="Edit View">
                             <rect key="frame" x="155" y="155" width="513" height="285"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -240,7 +249,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="Sxi-89-Fcc" userLabel="Document">
+                        <view contentMode="scaleToFill" id="Sxi-89-Fcc" userLabel="Document">
                             <rect key="frame" x="6" y="59" width="745" height="354"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -309,7 +318,7 @@
                                 </view>
                             </subviews>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="xUd-w7-hWW" userLabel="W4 view">
+                        <view contentMode="scaleToFill" id="xUd-w7-hWW" userLabel="W4 view">
                             <rect key="frame" x="8" y="53" width="749" height="343"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -329,11 +338,18 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HET-Nt-5wu">
-                                    <rect key="frame" x="231" y="182" width="264" height="35"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="HET-Nt-5wu">
+                                    <rect key="frame" x="210" y="177" width="307" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" image="textbox.png">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" backgroundImage="textbox.png">
+                                        <attributedString key="attributedTitle">
+                                            <fragment content="Select">
+                                                <attributes>
+                                                    <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
                                     </state>
                                     <connections>
                                         <action selector="selectmaritalstatus:" destination="-1" eventType="touchUpInside" id="XdG-0A-Bm4"/>
@@ -348,9 +364,13 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n9h-RG-YmR">
                                     <rect key="frame" x="202" y="274" width="46" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Save">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="w4savebtn:" destination="-1" eventType="touchUpInside" id="fCI-Yq-wkp"/>
+                                    </connections>
                                 </button>
                                 <navigationBar contentMode="scaleToFill" id="d8D-sS-OWt">
                                     <rect key="frame" x="-1" y="0.0" width="748" height="44"/>
@@ -363,7 +383,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="PL3-P4-5jQ" userLabel="Payement View">
+                        <view contentMode="scaleToFill" id="PL3-P4-5jQ" userLabel="Payement View">
                             <rect key="frame" x="6" y="57" width="757" height="578"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -467,6 +487,9 @@
                                         <segment title="Savings"/>
                                     </segments>
                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="typesegmnt:" destination="-1" eventType="valueChanged" id="GaB-5v-fW4"/>
+                                    </connections>
                                 </segmentedControl>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Oqv-ev-1eb">
                                     <rect key="frame" x="152" y="204" width="203" height="30"/>
@@ -510,6 +533,9 @@
                                     <state key="normal" image="textbox.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="statebtn:" destination="-1" eventType="touchUpInside" id="7Vo-ZH-eID"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WQP-9T-ghk">
                                     <rect key="frame" x="494" y="352" width="46" height="30"/>
@@ -517,6 +543,9 @@
                                     <state key="normal" title="Save">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="savebtn:" destination="-1" eventType="touchUpInside" id="tdQ-AS-Wi9"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

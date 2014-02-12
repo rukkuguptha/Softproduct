@@ -6,7 +6,7 @@
 
 @implementation SectionHeaderView
 
-@synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section,proecsslbl;
+@synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section;
 
 
 + (Class)layerClass {

@@ -7,12 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Empdetails.h"
 
 @interface DetailproHrViewController : UIViewController
 {
     NSInteger poptype;
+    BOOL   recordResults;
+    
 }
 
+
+
+
+/*webservice*/
+
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+
+/*button*/
 - (IBAction)DetailsBtnAction:(id)sender;
 - (IBAction)DcmntBtnAction:(id)sender;
 - (IBAction)w4BtnAction:(id)sender;
@@ -46,12 +60,31 @@
 
 -(IBAction)selectmaritalstatus:(id)sender;
 
+- (IBAction)w4savebtn:(id)sender;
+
+
 /*Paymentypeview*/
 @property(strong,nonatomic)IBOutlet UIView *paymentdetailview;
 @property(strong,nonatomic)IBOutlet UIButton *paymenttypebtn;
 
+@property (strong, nonatomic) IBOutlet UITextField *instnname;
+@property (strong, nonatomic) IBOutlet UITextField *Accuntnumbr;
+@property (strong, nonatomic) IBOutlet UITextField *rontgnumbr;
+@property (strong, nonatomic) IBOutlet UITextField *citytxt;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *statelbl;
+@property (strong, nonatomic) IBOutlet UITextField *cardnumbtxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *expbtn;
+
+@property (strong, nonatomic) IBOutlet UITextField *cardroutdno;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *typesegmntlbl;
+
+- (IBAction)statebtn:(id)sender;
+- (IBAction)typesegmnt:(id)sender;
 
 -(IBAction)selectpaymenttype:(id)sender;
+- (IBAction)savebtn:(id)sender;
 
 /*document View*/
 @property(strong,nonatomic)IBOutlet UIView *dcmntdetailview;
@@ -71,4 +104,8 @@
 
 /*arrays*/
 @property(strong,nonatomic)NSMutableArray *maritalarray;
+@property(strong,nonatomic)NSMutableArray *maritalkeyarray;
+@property(strong,nonatomic)NSMutableArray *Applicantarray;
+@property(strong,nonatomic)NSMutableDictionary *maritaldict;
+
 @end
