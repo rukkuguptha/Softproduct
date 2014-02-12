@@ -82,7 +82,7 @@
                             <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </toolbar>
-                        <view contentMode="scaleToFill" id="MvF-Nj-18U" userLabel="Details View">
+                        <view hidden="YES" contentMode="scaleToFill" id="MvF-Nj-18U" userLabel="Details View">
                             <rect key="frame" x="14" y="68" width="743" height="373"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -140,7 +140,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" id="3BW-W1-7HM" userLabel="Edit View">
+                        <view hidden="YES" contentMode="scaleToFill" id="3BW-W1-7HM" userLabel="Edit View">
                             <rect key="frame" x="155" y="155" width="513" height="285"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -249,7 +249,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" id="Sxi-89-Fcc" userLabel="Document">
+                        <view hidden="YES" contentMode="scaleToFill" id="Sxi-89-Fcc" userLabel="Document">
                             <rect key="frame" x="6" y="59" width="745" height="354"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -318,7 +318,7 @@
                                 </view>
                             </subviews>
                         </view>
-                        <view contentMode="scaleToFill" id="xUd-w7-hWW" userLabel="W4 view">
+                        <view hidden="YES" contentMode="scaleToFill" id="xUd-w7-hWW" userLabel="W4 view">
                             <rect key="frame" x="8" y="53" width="749" height="343"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -383,7 +383,7 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view contentMode="scaleToFill" id="PL3-P4-5jQ" userLabel="Payement View">
+                        <view hidden="YES" contentMode="scaleToFill" id="PL3-P4-5jQ" userLabel="Payement View">
                             <rect key="frame" x="6" y="57" width="757" height="578"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
