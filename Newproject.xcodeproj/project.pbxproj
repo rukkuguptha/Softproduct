@@ -136,6 +136,8 @@
 		D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFFC176F186200F4E196 /* FollowupCell.xib */; };
 		D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */; };
 		D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */; };
+		D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */; };
+		D4B7018118AB3EAB0060BE0A /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */; };
 		D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C33EB9180FB43500C90728 /* PDFImageConverter.m */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
@@ -364,6 +366,9 @@
 		D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilehrViewController.h; sourceTree = "<group>"; };
 		D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilehrViewController.m; sourceTree = "<group>"; };
 		D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilehrViewController.xib; sourceTree = "<group>"; };
+		D4B7017D18AB3EAB0060BE0A /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
+		D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
+		D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
 		D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFImageConverter.h; path = ../PDFImageConverter.h; sourceTree = "<group>"; };
 		D4C33EB9180FB43500C90728 /* PDFImageConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFImageConverter.m; path = ../PDFImageConverter.m; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
@@ -573,19 +578,13 @@
 		D40D1EB0176B086F00379DD5 /* Newproject */ = {
 			isa = PBXGroup;
 			children = (
-				D40D1EB9176B086F00379DD5 /* AppDelegate.h */,
-				D40D1EBA176B086F00379DD5 /* AppDelegate.m */,
-				D40D1EC2176B086F00379DD5 /* ViewController.h */,
-				D40D1EC3176B086F00379DD5 /* ViewController.m */,
-				D40D1EC5176B086F00379DD5 /* ViewController.xib */,
-				D40D1ECD176B0A0800379DD5 /* HomeViewController.h */,
-				D40D1ECE176B0A0800379DD5 /* HomeViewController.m */,
-				D40D1ECF176B0A0800379DD5 /* HomeViewController.xib */,
+				D4B7017B18AB3E280060BE0A /* Home */,
 				D400402F185B12A600C38E12 /* Resources */,
 				D4A2AFF0176EEC1100F4E196 /* Leads */,
 				648D130A1771A29B006BB41A /* Company */,
 				D4A2AFFB176EED2A00F4E196 /* Customer */,
 				D4FED40417F15AC5004BE242 /* hr */,
+				D4B7017C18AB3E490060BE0A /* Planning */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
 			);
 			path = Newproject;
@@ -648,6 +647,31 @@
 				649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */,
 			);
 			name = Customer;
+			sourceTree = "<group>";
+		};
+		D4B7017B18AB3E280060BE0A /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D40D1EB9176B086F00379DD5 /* AppDelegate.h */,
+				D40D1EBA176B086F00379DD5 /* AppDelegate.m */,
+				D40D1EC2176B086F00379DD5 /* ViewController.h */,
+				D40D1EC3176B086F00379DD5 /* ViewController.m */,
+				D40D1EC5176B086F00379DD5 /* ViewController.xib */,
+				D40D1ECD176B0A0800379DD5 /* HomeViewController.h */,
+				D40D1ECE176B0A0800379DD5 /* HomeViewController.m */,
+				D40D1ECF176B0A0800379DD5 /* HomeViewController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		D4B7017C18AB3E490060BE0A /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				D4B7017D18AB3EAB0060BE0A /* PlanningViewController.h */,
+				D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */,
+				D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */,
+			);
+			name = Planning;
 			sourceTree = "<group>";
 		};
 		D4D570151772BE4A00671A35 /* images */ = {
@@ -896,6 +920,7 @@
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
 				D4FED41417F18E28004BE242 /* tabbtn.png in Resources */,
 				64A09DAB186050A3001F74E2 /* custommanapowercell.xib in Resources */,
+				D4B7018118AB3EAB0060BE0A /* PlanningViewController.xib in Resources */,
 				64A11EE01867F968008D20CC /* custombasicreqcell.xib in Resources */,
 				64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */,
 				D4FED41617F1A047004BE242 /* 1.png in Resources */,
@@ -985,6 +1010,7 @@
 				64F97996185EFBB600E7722B /* BasicReqViewController.m in Sources */,
 				642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */,
 				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,
+				D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */,
 				64F97987185EDB4200E7722B /* FoldersViewController.m in Sources */,
 				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
 				64F4DB67187E77A200AD1C83 /* Validation.m in Sources */,

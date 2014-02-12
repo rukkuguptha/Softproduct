@@ -30,6 +30,7 @@
     _detailstabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
    _documentlisttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _doctabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _documentlisttable.layer.borderWidth=2.0f;
 
     _maritalarray=[[NSMutableArray alloc]initWithObjects:@"SINGLE",@"MARRIED",@"DIVORCED", nil];
     // Do any additional setup after loading the view from its nib.
@@ -183,7 +184,7 @@
         }
     }
 }
-/*popover*/
+#pragma mark-Button Action
 -(IBAction)selectmaritalstatus:(id)sender
 {
     poptype=1;
@@ -266,4 +267,13 @@
 
 }
 
+- (IBAction)detailclsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(IBAction)selectfileaction:(id)sender{
+    
+}
+-(IBAction)updatedoc:(id)sender{
+    
+}
 @end

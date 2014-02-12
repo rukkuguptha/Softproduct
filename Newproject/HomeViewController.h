@@ -9,30 +9,34 @@
 #import <UIKit/UIKit.h>
 #import "CustomerViewController.h"
 #import "LeadsViewController.h"
-//#import "CompanyViewController.h"
 #import "HRViewController.h"
 #import "TileViewController.h"
 #import "ResViewController.h"
 #import "TilehrViewController.h"
+#import "PlanningViewController.h"
 @interface HomeViewController : UIViewController
+
 /*Views*/
 @property (strong, nonatomic) IBOutlet UIView *customerview;
 @property (strong, nonatomic) IBOutlet UIView *leadView;
 @property (strong, nonatomic) IBOutlet UIView *companyView;
 @property (strong, nonatomic) IBOutlet UIView *hrview;
+@property (strong, nonatomic) IBOutlet UIView *planngview;
+@property (strong, nonatomic) IBOutlet UIView *reurceview;
 
+
+/*controllers*/
 
 @property (strong, nonatomic)CustomerViewController*custmrVCtrl;
 @property(strong,nonatomic)LeadsViewController *leadVCtrl;
-//@property(strong,nonatomic)CompanyViewController *cmpanyctrl;
-@property(strong,nonatomic)HRViewController*hrVCtrl;
 @property(strong,nonatomic)TileViewController*tileVCtrl;
 @property(strong,nonatomic)ResViewController*ReVCtrl;
 @property(strong,nonatomic)TilehrViewController*TilehrVCtrl;
+@property(strong,nonatomic)PlanningViewController *PlangVCtrl;
 
 
-//newcomment.
-@property (strong, nonatomic) IBOutlet UIView *reurceview;
+
+
 
 
 @end

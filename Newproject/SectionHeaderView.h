@@ -5,7 +5,7 @@
 
 
 @interface SectionHeaderView : UIView {
-    UILabel *proecsslbl;
+    //UILabel *proecsslbl;
 }
 @property (nonatomic, weak) UILabel *proecsslbl;
 @property (nonatomic, weak) UILabel *titleLabel;

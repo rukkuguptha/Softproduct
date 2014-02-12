@@ -62,6 +62,8 @@
 
 -(IBAction)selectfileaction:(id)sender;
 -(IBAction)updatedoc:(id)sender;
+- (IBAction)detailclsebtn:(id)sender;
+
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

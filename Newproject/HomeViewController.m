@@ -61,9 +61,17 @@
     UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
                                           action:@selector(repage)];
-    doubleTap3.numberOfTapsRequired=1;
-    doubleTap3.delegate=(id)self;
+    doubleTap4.numberOfTapsRequired=1;
+    doubleTap4.delegate=(id)self;
     [self.reurceview addGestureRecognizer:doubleTap4];
+    
+    UITapGestureRecognizer *doubleTap5 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(plangpage)];
+    doubleTap5.numberOfTapsRequired=1;
+    doubleTap5.delegate=(id)self;
+    [self.planngview addGestureRecognizer:doubleTap5];
+
 
 
 }
@@ -116,6 +124,16 @@
                        animated:YES completion:NULL];
 
     
+}
+-(void)plangpage{
+    if (!self.PlangVCtrl) {
+        self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
+    }
+    _PlangVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_PlangVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (void)didReceiveMemoryWarning
