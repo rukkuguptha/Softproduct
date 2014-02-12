@@ -219,7 +219,7 @@
                    "<exp>%@</exp>\n"
                    "</UpdateDirectDeposit>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",empdmdl.applicantid,];
+                   "</soap:Envelope>\n",empdmdl.applicantid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
