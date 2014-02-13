@@ -97,6 +97,10 @@
 
 -(IBAction)selectpaymenttype:(id)sender;
 - (IBAction)savebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *docnamelbl;
+- (IBAction)showbtn:(id)sender;
+
+
 
 /*document View*/
 @property(strong,nonatomic)IBOutlet UIView *dcmntdetailview;

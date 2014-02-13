@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailproHrViewController">
             <connections>
                 <outlet property="doccell" destination="D49-LW-nRV" id="vwG-48-HMq"/>
+                <outlet property="docnamelbl" destination="BH2-vl-oxy" id="O2d-Jr-B9d"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,6 +36,9 @@
                         <state key="normal" title="View">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="showbtn:" destination="-1" eventType="touchUpInside" id="2hf-6d-n0I"/>
+                        </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>

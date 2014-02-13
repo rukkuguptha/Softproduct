@@ -122,6 +122,14 @@
 
            }
     }
+    if(tableView==_documentlisttable){
+        NSArray*namearry=[_docmntdict allKeys];
+        _docnamelbl=(UILabel *)[cell viewWithTag:1];
+        _docnamelbl.text=[namearry objectAtIndex:indexPath.row];
+        
+        
+    }
+
     
     return cell;
 }
@@ -907,4 +915,6 @@ finishedSavingWithError:(NSError *)error
     [self UpdateW4];
     
     }
+- (IBAction)showbtn:(id)sender {
+}
 @end
