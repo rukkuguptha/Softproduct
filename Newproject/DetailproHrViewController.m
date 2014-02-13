@@ -34,8 +34,11 @@
       _maritalarray=[[NSMutableArray alloc]initWithObjects:@"SINGLE",@"MARRIED",@"DIVORCED", nil];
     _maritalkeyarray=[[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3", nil];
     _maritaldict=[[NSMutableDictionary alloc]initWithObjects:_maritalarray forKeys:_maritalkeyarray];
+    _payementtypearray=[[NSMutableArray alloc]initWithObjects:@"Check",@"Direct Deposit",@"Paysource Card", nil];
+     _maritalkeyarray=[[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3", nil];
+    _paymenttypedict=[[NSMutableDictionary alloc]initWithObjects:_payementtypearray forKeys:_maritalkeyarray];
 
-  
+   
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -67,7 +70,13 @@
         return 5;
     }
     if (tableView==_popOverTableView) {
-        return [_maritalarray count];
+        if (poptype==1) {
+              return [_maritalarray count];
+        }
+      
+        if (poptype==2) {
+            return [_payementtypearray count];
+        }
     }
     return YES;
    
@@ -81,6 +90,9 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+
         if(tableView==_detailstablview)
         {
             [[NSBundle mainBundle]loadNibNamed:@"proHRDetailcell" owner:self options:nil];
@@ -93,10 +105,22 @@
         }
     
     if (tableView==_popOverTableView) {
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-        cell.textLabel.text=[_maritalarray objectAtIndex:indexPath.row];
-    }
+        if (poptype==1) {
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+            cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+            cell.textLabel.text=[_maritalarray objectAtIndex:indexPath.row];
+
+            
+                    }
+        
+        if (poptype==2) {
+            
+            
+            cell.textLabel.text=[_payementtypearray objectAtIndex:indexPath.row];
+
+                   }
+
+           }
     }
     
     return cell;
@@ -106,8 +130,62 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView==_popOverTableView){
+         if (poptype==1) {
         
         _maritalbtn.titleLabel.text=[_maritalarray objectAtIndex:indexPath.row];
+             
+             
+         }
+        
+        if (poptype==2) {
+            
+            
+            _paymenttypebtn.titleLabel.text=[_payementtypearray objectAtIndex:indexPath.row];
+            
+            switch (indexPath.row) {
+                case 0:
+                    _instnname.enabled=NO;
+                    _Accuntnumbr.enabled=NO;
+                    _typesegmntlbl.enabled=NO;
+                    _rontgnumbr.enabled=NO;
+                    _citytxt.enabled=NO;
+                    _statelbl.enabled=NO;
+                    _cardnumbtxtfld.enabled=NO;
+                    _cardroutdno.enabled=NO;
+                    _expbtn.enabled=NO;
+                    break;
+                case 1:
+                    _instnname.enabled=YES;
+                    _Accuntnumbr.enabled=YES;
+                    _typesegmntlbl.enabled=YES;
+                    _rontgnumbr.enabled=YES;
+                    _citytxt.enabled=YES;
+                    _statelbl.enabled=YES;
+                    _cardnumbtxtfld.enabled=NO;
+                    _cardroutdno.enabled=NO;
+                    _expbtn.enabled=NO;
+                    break;
+
+                case 2:
+                    _instnname.enabled=NO;
+                    _Accuntnumbr.enabled=NO;
+                    _typesegmntlbl.enabled=NO;
+                    _rontgnumbr.enabled=NO;
+                    _citytxt.enabled=NO;
+                    _statelbl.enabled=NO;
+                    _cardnumbtxtfld.enabled=YES;
+                    _cardroutdno.enabled=YES;
+                    _expbtn.enabled=YES;
+                    break;
+
+                    
+                default:
+                    break;
+            }
+            
+        }
+        
+
     }
         
         
@@ -196,7 +274,32 @@
     
     recordResults=FALSE;
     Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    NSInteger paymnt=[[_paymenttypedict objectForKey:_paymenttypebtn.titleLabel.text]integerValue];
+    NSInteger type = 0;
 
+    if (_typesegmntlbl.selectedSegmentIndex==0) {
+        type=1;
+        
+    }
+    else{
+        type=2;
+    }
+    
+    NSString *date1 =_expbtn.titleLabel.text;
+    NSLog(@"s%@",date1);
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:date1];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    dateString = [dateFormat2 stringFromDate:dates];
+    if ([dateString isEqualToString:@""]) {
+        
+        
+    }
+    
     NSString *soapMessage;
     
     soapMessage = [NSString stringWithFormat:
@@ -210,7 +313,7 @@
                    "<UpdateDirectDeposit xmlns=\"http://ios.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<payment>%d</payment>\n"
-                   "<fname>%d</fname>\n"
+                   "<fname>%@</fname>\n"
                    "<fac>%@</fac>\n"
                    "<type1>%d</type1>\n"
                    "<froute>%@</froute>\n"
@@ -219,8 +322,8 @@
                    "<exp>%@</exp>\n"
                    "</UpdateDirectDeposit>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",empdmdl.applicantid];
-    NSLog(@"soapmsg%@",soapMessage);
+                   "</soap:Envelope>\n",empdmdl.applicantid,paymnt,_instnname.text,_Accuntnumbr.text,type,_rontgnumbr.text,_cardnumbtxtfld.text,_cardroutdno.text,dateString];
+        NSLog(@"soapmsg%@",soapMessage);
     
     
     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
@@ -249,7 +352,117 @@
     {
         ////NSLog(@"theConnection is NULL");
     }
+}
 
+-(void)UploadHRDocsImage{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    
+    NSString *imagename;
+    imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_documentnametextfld.text];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadHRDocsImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<appid>%d</appid>\n"
+                   "<doctitle>%@</doctitle>\n"
+                   "</UploadHRDocsImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,empdmdl.applicantid,_documentnametextfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadHRDocsImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+    
+}
+-(void)SelectHRDocs{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectHRDocs xmlns=\"http://ios.kontract360.com/\">\n"
+              
+                   "<appid>%d</appid>\n"
+                  "</SelectHRDocs>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",empdmdl.applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectHRDocs" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
     
 }
 
@@ -289,6 +502,160 @@
     [_popOverTableView reloadData];
     
 }
+#pragma mark - XMLParser
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"SelectHRDocs"])
+    {
+        _docmntdict=[[NSMutableDictionary alloc]init];           
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DocumentTitle"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"DocumentName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"url"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        
+        
+		[_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"DocumentTitle"])
+    {
+       
+        recordResults = FALSE;
+        _docname=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"DocumentName"])
+    {
+        recordResults = FALSE;
+      _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"url"])
+    {
+        recordResults = FALSE;
+        [_docmntdict setObject:_soapResults forKey:_docname];
+        _soapResults = nil;
+    }
+
+}
+
+#pragma mark - Calendar
+-(void)createCalenderPopover
+{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 315, 330)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(315, 330);
+    
+    CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
+    self.calendar = calendar;
+    calendar.delegate = self;
+    
+    
+    NSDate *date = [NSDate date];
+    
+    // format it
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"dd/MM/YYYY"];
+    
+    // convert it to a string
+    NSString *dateString = [dateFormat stringFromDate:date];
+    //NSLog(@"datestring%@",dateString);
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
+    calendar.selectedDate = [self.dateFormatter dateFromString:dateString];
+    
+    calendar.minimumDate = [self.dateFormatter dateFromString:@"09/07/2011"];
+    calendar.maximumDate = [self.dateFormatter dateFromString:@"1/07/2019"];
+    calendar.shouldFillCalendar = YES;
+    calendar.adaptHeightToNumberOfWeeksInMonth = NO;
+    
+    calendar.frame = CGRectMake(10, 10, 300, 320);
+    [popoverView addSubview:calendar];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(localeDidChange) name:NSCurrentLocaleDidChangeNotification object:nil];
+    
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_expbtn.frame
+                                            inView:self.paymentdetailview
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+}
+
+
+
+- (void)localeDidChange {
+    [self.calendar setLocale:[NSLocale currentLocale]];
+}
+
+
+
+#pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    
+    NSString *dateString = [dateFormat stringFromDate:date];
+[_expbtn setTitle:dateString forState:UIControlStateNormal];}
+
 
 
 
@@ -335,6 +702,11 @@
 
 }
 
+
+- (IBAction)expbtn:(id)sender {
+    dateString=@"01/01/1900";
+    [self createCalenderPopover];
+}
 
 - (IBAction)statebtn:(id)sender {
 }
@@ -384,15 +756,105 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    [self UpdateDirectDeposit];
 }
 
 - (IBAction)detailclsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 -(IBAction)selectfileaction:(id)sender{
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate =(id) self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.showsCameraControls=YES;
+        
+        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+                                  (NSString *) kUTTypeImage,
+                                  nil];
+        imagePicker.allowsEditing = NO;
+        // imagePicker.cameraCaptureMode=YES;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        _newMedia = YES;
+    }
+}
+#pragma mark-ImagePicker
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // [self.popoverController dismissPopoverAnimated:true];
+    NSString *mediaType = [info
+                           objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = [info
+                          objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"dict%@",info);
+    
+        
+        _previewimg.image=nil;
+        _previewimg.image=image;
+      
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    
+    
     
 }
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+    
+    
+    
+    
+
 -(IBAction)updatedoc:(id)sender{
+    UIImage *imagename =_previewimg.image;
+    NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+    _encodedString = [data base64EncodedString];
+    
+    [self UploadHRDocsImage];
     
 }
 - (IBAction)DetailsBtnAction:(id)sender
@@ -405,6 +867,7 @@
 
 - (IBAction)DcmntBtnAction:(id)sender
 {
+    [self SelectHRDocs];
     _dcmntdetailview.hidden=NO;
     _w4detailview.hidden=YES;
     _detailsaddview.hidden=YES;

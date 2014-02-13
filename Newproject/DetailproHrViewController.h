@@ -8,17 +8,27 @@
 
 #import <UIKit/UIKit.h>
 #import "Empdetails.h"
+#import "CKCalendarView.h"
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <AssetsLibrary/AssetsLibrary.h>
+#import "Base64.h"
 
-@interface DetailproHrViewController : UIViewController
+@interface DetailproHrViewController : UIViewController<UIImagePickerControllerDelegate>
 {
     NSInteger poptype;
     BOOL   recordResults;
+    NSString *dateString ;
     
 }
 
 
+@property(nonatomic, weak) CKCalendarView *calendar;
+@property(nonatomic, strong) NSDateFormatter *dateFormatter;
 
-
+/*cameraAction*/
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
 /*webservice*/
 
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -72,13 +82,15 @@
 @property (strong, nonatomic) IBOutlet UITextField *rontgnumbr;
 @property (strong, nonatomic) IBOutlet UITextField *citytxt;
 
+@property (strong, nonatomic) IBOutlet UIButton *expbtn;
 
 @property (strong, nonatomic) IBOutlet UIButton *statelbl;
 @property (strong, nonatomic) IBOutlet UITextField *cardnumbtxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *expbtn;
+//@property (strong, nonatomic) IBOutlet UITextField *expbtn;
 
 @property (strong, nonatomic) IBOutlet UITextField *cardroutdno;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *typesegmntlbl;
+- (IBAction)expbtn:(id)sender;
 
 - (IBAction)statebtn:(id)sender;
 - (IBAction)typesegmnt:(id)sender;
@@ -88,11 +100,14 @@
 
 /*document View*/
 @property(strong,nonatomic)IBOutlet UIView *dcmntdetailview;
-@property(strong,nonatomic)IBOutlet UIView *documentnametextfld;
+@property(strong,nonatomic)IBOutlet UITextField *documentnametextfld;
+
 @property(strong,nonatomic)IBOutlet UITableView *documentlisttable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *doccell;
 @property(strong,nonatomic)IBOutlet UIView *doctabletitleview;
-
+@property(strong,nonatomic)NSMutableDictionary *docmntdict;
+@property(strong,nonatomic)NSString *docname;
+@property (strong, nonatomic) IBOutlet UIImageView *previewimg;
 -(IBAction)selectfileaction:(id)sender;
 -(IBAction)updatedoc:(id)sender;
 - (IBAction)detailclsebtn:(id)sender;
@@ -107,5 +122,9 @@
 @property(strong,nonatomic)NSMutableArray *maritalkeyarray;
 @property(strong,nonatomic)NSMutableArray *Applicantarray;
 @property(strong,nonatomic)NSMutableDictionary *maritaldict;
+@property(strong,nonatomic)NSMutableDictionary *paymenttypedict;
+@property(strong,nonatomic)NSMutableArray  *payementtypearray;
+@property(strong,nonatomic)NSMutableArray  *payementtypekey;
+
 
 @end
