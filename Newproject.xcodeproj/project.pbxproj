@@ -12,6 +12,13 @@
 		642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B77AE17799D1000EECCC0 /* activityInfo.m */; };
 		642F93011872870E0059101A /* customjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F93001872870E0059101A /* customjobcell.xib */; };
 		642F930B1872B6A80059101A /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F930A1872B6A80059101A /* allfolderrights.m */; };
+		642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA78718AC927F00372623 /* AddserviceViewController.m */; };
+		642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA78818AC927F00372623 /* AddserviceViewController.xib */; };
+		642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA78C18AC945C00372623 /* SitevisitViewController.m */; };
+		642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA78D18AC945C00372623 /* SitevisitViewController.xib */; };
+		642FA79818AC960400372623 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA79618AC960400372623 /* DetailplanViewController.m */; };
+		642FA79918AC960400372623 /* DetailplanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA79718AC960400372623 /* DetailplanViewController.xib */; };
+		642FA79C18ACC9FB00372623 /* planmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA79B18ACC9FB00372623 /* planmodel.m */; };
 		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
@@ -193,6 +200,17 @@
 		642F93001872870E0059101A /* customjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customjobcell.xib; sourceTree = "<group>"; };
 		642F93091872B6A80059101A /* allfolderrights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfolderrights.h; sourceTree = "<group>"; };
 		642F930A1872B6A80059101A /* allfolderrights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allfolderrights.m; sourceTree = "<group>"; };
+		642FA78618AC927F00372623 /* AddserviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddserviceViewController.h; sourceTree = "<group>"; };
+		642FA78718AC927F00372623 /* AddserviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddserviceViewController.m; sourceTree = "<group>"; };
+		642FA78818AC927F00372623 /* AddserviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddserviceViewController.xib; sourceTree = "<group>"; };
+		642FA78B18AC945C00372623 /* SitevisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitevisitViewController.h; sourceTree = "<group>"; };
+		642FA78C18AC945C00372623 /* SitevisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevisitViewController.m; sourceTree = "<group>"; };
+		642FA78D18AC945C00372623 /* SitevisitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SitevisitViewController.xib; sourceTree = "<group>"; };
+		642FA79518AC960400372623 /* DetailplanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailplanViewController.h; sourceTree = "<group>"; };
+		642FA79618AC960400372623 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
+		642FA79718AC960400372623 /* DetailplanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailplanViewController.xib; sourceTree = "<group>"; };
+		642FA79A18ACC9FB00372623 /* planmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planmodel.h; sourceTree = "<group>"; };
+		642FA79B18ACC9FB00372623 /* planmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = planmodel.m; sourceTree = "<group>"; };
 		64481EC71873EBFD007D66E7 /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
 		64481EC81873EBFD007D66E7 /* phasesmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phasesmodel.m; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
@@ -673,6 +691,15 @@
 				D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */,
 				D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */,
 				64A15E1518AB7C1B008112EA /* customplancell.xib */,
+				642FA78618AC927F00372623 /* AddserviceViewController.h */,
+				642FA78718AC927F00372623 /* AddserviceViewController.m */,
+				642FA78818AC927F00372623 /* AddserviceViewController.xib */,
+				642FA78B18AC945C00372623 /* SitevisitViewController.h */,
+				642FA78C18AC945C00372623 /* SitevisitViewController.m */,
+				642FA78D18AC945C00372623 /* SitevisitViewController.xib */,
+				642FA79518AC960400372623 /* DetailplanViewController.h */,
+				642FA79618AC960400372623 /* DetailplanViewController.m */,
+				642FA79718AC960400372623 /* DetailplanViewController.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -769,6 +796,8 @@
 				D41377C6187BD59200156A92 /* Equpmntmdl.m */,
 				64F4DB65187E77A200AD1C83 /* Validation.h */,
 				64F4DB66187E77A200AD1C83 /* Validation.m */,
+				642FA79A18ACC9FB00372623 /* planmodel.h */,
+				642FA79B18ACC9FB00372623 /* planmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -862,11 +891,13 @@
 				D400406B185B180200C38E12 /* ResViewController.xib in Resources */,
 				D40D1EBD176B086F00379DD5 /* Default.png in Resources */,
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
+				642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */,
 				D49DE838185EB391006F1CDA /* closebutton.png in Resources */,
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
 				649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */,
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
+				642FA79918AC960400372623 /* DetailplanViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
@@ -962,6 +993,7 @@
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
+				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -995,6 +1027,7 @@
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				64A14D7818752E3F0028B43A /* listusermdl.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,
+				642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */,
 				D443A33417717F890011C5DB /* CKCalendarView.m in Sources */,
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
@@ -1005,6 +1038,7 @@
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				D400406F185B181500C38E12 /* ManViewController.m in Sources */,
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
+				642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */,
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
@@ -1021,6 +1055,7 @@
 				D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */,
 				D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */,
 				64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */,
+				642FA79C18ACC9FB00372623 /* planmodel.m in Sources */,
 				642F930B1872B6A80059101A /* allfolderrights.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,
@@ -1030,6 +1065,7 @@
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
+				642FA79818AC960400372623 /* DetailplanViewController.m in Sources */,
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,

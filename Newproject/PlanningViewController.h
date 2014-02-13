@@ -8,14 +8,29 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-
+#import "AddserviceViewController.h"
+#import "SitevisitViewController.h"
+#import "DetailplanViewController.h"
+#import "planmodel.h"
 @interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger leadcheck;
     NSInteger customercheck;
     NSInteger poptype;
     UIButton *button;
+    BOOL recordResults;
 }
+@property(strong,nonatomic)planmodel *plnmdl;
+@property(strong,nonatomic)AddserviceViewController *servVctrl;
+@property(strong,nonatomic)SitevisitViewController *sitevisitVctrl;
+@property(strong,nonatomic)DetailplanViewController *DetailplanVctrl;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+
 
 /*views*/
 @property (strong, nonatomic) IBOutlet UINavigationBar *titleview;
@@ -32,8 +47,11 @@
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *planingcell;
 @property(strong,nonatomic)IBOutlet UILabel *organizationname;
+@property(strong,nonatomic)IBOutlet UILabel *leadlabel;
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
+@property(strong,nonatomic)UISearchBar *searchbar;
+@property(strong,nonatomic)NSString *searchstring;
 
 
 /*IBAction*/
@@ -45,11 +63,22 @@
 -(IBAction)selectcustomer:(id)sender;
 -(IBAction)selectlead:(id)sender;
 -(IBAction)selectdisclosure:(id)sender;
+-(IBAction)updateplanning:(id)sender;
+-(IBAction)cancelplanning:(id)sender;
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *leadlistarray;
 @property(strong,nonatomic)NSMutableArray *customerlistarray;
 @property(strong,nonatomic)NSMutableArray *disclosurearry;
+@property(strong,nonatomic)NSMutableArray *planlistarray;
+
+/*Dict*/
+@property(strong,nonatomic)NSMutableDictionary *leaddict;
+@property(strong,nonatomic)NSMutableDictionary *customerdict;
+
+@property(strong,nonatomic)NSString *leadstring;
+@property(strong,nonatomic)NSString *customerstring;
+
 
 
 @end
