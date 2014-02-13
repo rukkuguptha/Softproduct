@@ -13,4 +13,7 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webview;
 @property(strong,nonatomic)NSString*docpdf;
 @property(strong,nonatomic)IBOutlet UIActivityIndicatorView *activity;
+@property(strong,nonatomic)NSString *urlstring;
+- (IBAction)clsebtn:(id)sender;
+
 @end

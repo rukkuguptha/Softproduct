@@ -27,11 +27,11 @@
 {
     [super viewDidLoad];
      [self.view addSubview:_webview];
-    _activity=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    UIBarButtonItem*barbutton=[[UIBarButtonItem alloc]initWithCustomView:_activity];
+   // _activity=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+   // UIBarButtonItem*barbutton=[[UIBarButtonItem alloc]initWithCustomView:_activity];
     
     
-    [self.navigationItem setRightBarButtonItem:barbutton];
+    //[self.navigationItem setRightBarButtonItem:barbutton];
 
     
     // Do any additional setup after loading the view from its nib.
@@ -44,11 +44,12 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   NSString *header=@"http://";
-    NSString *urlstring=[NSString stringWithFormat:@"%@%@",header,_docpdf];
-
-    NSLog(@"reportname%@",urlstring);
-    NSURL *targetURL = [NSURL URLWithString:urlstring];
+    
+    
+     NSString*urls=[_urlstring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+   // NSString*urls=[NSString stringWithFormat:@"http://ios.kontract360.com/Folder/Root/HR/1/17493136.jpg"];
+    NSLog(@"url%@",urls);
+    NSURL *targetURL = [NSURL URLWithString:urls];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];
     [_webview loadRequest:request];
 
@@ -69,7 +70,7 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-    [_activity stopAnimating];
+   [_activity stopAnimating];
     _activity.hidden=YES;
 
 }
@@ -83,4 +84,7 @@
 
 
 
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

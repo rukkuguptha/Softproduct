@@ -12,15 +12,27 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
+#import "WebViewController.h"
 
 @interface DetailproHrViewController : UIViewController<UIImagePickerControllerDelegate>
 {
     NSInteger poptype;
     BOOL   recordResults;
     NSString *dateString ;
+    UIButton *button;
+    NSString *urlstring;
+
     
 }
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *detailbtnlbl;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *docubtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *w4btnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *paymntbtnlbl;
+
+
+
+@property(nonatomic, strong)WebViewController *webVCtrl;
 
 @property(nonatomic, weak) CKCalendarView *calendar;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;

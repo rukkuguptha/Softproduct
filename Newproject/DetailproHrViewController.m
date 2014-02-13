@@ -27,10 +27,11 @@
 {
     [super viewDidLoad];
     _detailsaddview.hidden=NO;;
+     _detailbtnlbl.tintColor=[UIColor whiteColor];
     _detailstabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
    _documentlisttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _doctabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    _documentlisttable.layer.borderWidth=2.0f;
+    _documentlisttable.layer.borderWidth=3.0f;
       _maritalarray=[[NSMutableArray alloc]initWithObjects:@"SINGLE",@"MARRIED",@"DIVORCED", nil];
     _maritalkeyarray=[[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3", nil];
     _maritaldict=[[NSMutableDictionary alloc]initWithObjects:_maritalarray forKeys:_maritalkeyarray];
@@ -67,7 +68,7 @@
     }
     if(tableView==_documentlisttable)
     {
-        return 5;
+        return [_docmntdict count];
     }
     if (tableView==_popOverTableView) {
         if (poptype==1) {
@@ -126,6 +127,7 @@
         NSArray*namearry=[_docmntdict allKeys];
         _docnamelbl=(UILabel *)[cell viewWithTag:1];
         _docnamelbl.text=[namearry objectAtIndex:indexPath.row];
+           button=(UIButton *)[cell viewWithTag:4];
         
         
     }
@@ -140,15 +142,17 @@
     if(tableView==_popOverTableView){
          if (poptype==1) {
         
-        _maritalbtn.titleLabel.text=[_maritalarray objectAtIndex:indexPath.row];
-             
+        //_maritalbtn.titleLabel.text=[_maritalarray objectAtIndex:indexPath.row];
+             [ _maritalbtn  setTitle:[_maritalarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+
              
          }
         
         if (poptype==2) {
             
             
-            _paymenttypebtn.titleLabel.text=[_payementtypearray objectAtIndex:indexPath.row];
+           // _paymenttypebtn.titleLabel.text=[_payementtypearray objectAtIndex:indexPath.row];
+            [_paymenttypebtn  setTitle:[_payementtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
             
             switch (indexPath.row) {
                 case 0:
@@ -295,6 +299,11 @@
     
     NSString *date1 =_expbtn.titleLabel.text;
     NSLog(@"s%@",date1);
+    if ([date1 isEqualToString:@"select"]) {
+         date1 =@"01/01/1900";
+        
+    }
+
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
     NSDate *dates = [dateFormat1 dateFromString:date1];
@@ -303,10 +312,6 @@
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
     dateString = [dateFormat2 stringFromDate:dates];
-    if ([dateString isEqualToString:@""]) {
-        
-        
-    }
     
     NSString *soapMessage;
     
@@ -508,12 +513,13 @@
 	[_xmlParser parse];
     
     [_popOverTableView reloadData];
+    [_documentlisttable reloadData];
     
 }
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"SelectHRDocs"])
+    if([elementName isEqualToString:@"SelectHRDocsResult"])
     {
         _docmntdict=[[NSMutableDictionary alloc]init];           
         
@@ -551,6 +557,25 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"UploadHRDocsImageResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -586,7 +611,16 @@
         [_docmntdict setObject:_soapResults forKey:_docname];
         _soapResults = nil;
     }
-
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alertview show];
+        _documentnametextfld.text=@"";
+        [self SelectHRDocs];
+        _soapResults = nil;
+    }
 }
 
 #pragma mark - Calendar
@@ -606,7 +640,7 @@
     
     CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
     self.calendar = calendar;
-    calendar.delegate = self;
+    calendar.delegate =(id) self;
     
     
     NSDate *date = [NSDate date];
@@ -867,6 +901,11 @@ finishedSavingWithError:(NSError *)error
 }
 - (IBAction)DetailsBtnAction:(id)sender
 {
+    _detailbtnlbl.tintColor=[UIColor whiteColor];
+       _docubtnlbl.tintColor=[UIColor blackColor];
+       _w4btnlbl.tintColor=[UIColor blackColor];
+       _paymntbtnlbl.tintColor=[UIColor blackColor];
+    
     _detailsaddview.hidden=NO;
     _w4detailview.hidden=YES;
     _paymentdetailview.hidden=YES;
@@ -875,6 +914,11 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)DcmntBtnAction:(id)sender
 {
+    _detailbtnlbl.tintColor=[UIColor blackColor];
+    _docubtnlbl.tintColor=[UIColor whiteColor];
+    _w4btnlbl.tintColor=[UIColor blackColor];
+    _paymntbtnlbl.tintColor=[UIColor blackColor];
+    
     [self SelectHRDocs];
     _dcmntdetailview.hidden=NO;
     _w4detailview.hidden=YES;
@@ -884,6 +928,11 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)w4BtnAction:(id)sender
 {
+    _detailbtnlbl.tintColor=[UIColor blackColor];
+    _docubtnlbl.tintColor=[UIColor blackColor];
+    _w4btnlbl.tintColor=[UIColor whiteColor];
+    _paymntbtnlbl.tintColor=[UIColor blackColor];
+
     _w4detailview.hidden=NO;
     _detailsaddview.hidden=YES;
     _paymentdetailview.hidden=YES;
@@ -893,6 +942,11 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)paymentbtnaction:(id)sender
 {
+    _detailbtnlbl.tintColor=[UIColor blackColor];
+    _docubtnlbl.tintColor=[UIColor blackColor];
+    _w4btnlbl.tintColor=[UIColor blackColor];
+    _paymntbtnlbl.tintColor=[UIColor whiteColor];
+
     _paymentdetailview.hidden=NO;
     _w4detailview.hidden=YES;
     _detailsaddview.hidden=YES;
@@ -916,5 +970,25 @@ finishedSavingWithError:(NSError *)error
     
     }
 - (IBAction)showbtn:(id)sender {
+    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.documentlisttable];
+   NSIndexPath *textFieldIndexPath = [self.documentlisttable indexPathForRowAtPoint:rootViewPoint];
+   NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    NSArray *newnamearry=[_docmntdict allKeys];
+    urlstring=[_docmntdict objectForKey:[newnamearry objectAtIndex:textFieldIndexPath.row]];
+
+
+    if (!_webVCtrl) {
+        self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
+    }
+    _webVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _webVCtrl.urlstring=urlstring;
+    [self presentViewController:_webVCtrl
+                       animated:YES completion:NULL];
+    
+
+    
 }
 @end

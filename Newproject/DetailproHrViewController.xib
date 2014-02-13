@@ -13,10 +13,12 @@
                 <outlet property="cardroutdno" destination="Gh6-v6-RmO" id="lMM-Ci-dHl"/>
                 <outlet property="citytxt" destination="WET-9I-y9S" id="bcq-kX-KgY"/>
                 <outlet property="dcmntdetailview" destination="Sxi-89-Fcc" id="Apg-No-jsf"/>
+                <outlet property="detailbtnlbl" destination="vhg-7U-apG" id="RXc-tM-bUE"/>
                 <outlet property="detailsaddview" destination="MvF-Nj-18U" id="pJ1-RD-4wE"/>
                 <outlet property="detailstabletitleview" destination="NcK-h2-Gl2" id="NNT-gu-usn"/>
                 <outlet property="detailstablview" destination="Ptw-dI-QcQ" id="Ouy-2j-24N"/>
                 <outlet property="doctabletitleview" destination="d50-Wk-ey5" id="Ux3-DM-u20"/>
+                <outlet property="docubtnlbl" destination="djZ-l0-2GS" id="JAz-4o-PIx"/>
                 <outlet property="documentlisttable" destination="fhR-Eb-Naq" id="N4N-fa-WoH"/>
                 <outlet property="documentnametextfld" destination="IIf-9v-hGm" id="sHS-xl-62S"/>
                 <outlet property="editview" destination="3BW-W1-7HM" id="b2Z-Xn-3On"/>
@@ -24,12 +26,14 @@
                 <outlet property="instnname" destination="7mP-3q-Pb7" id="HiB-Ep-Cw6"/>
                 <outlet property="maritalbtn" destination="HET-Nt-5wu" id="85K-Pw-bHA"/>
                 <outlet property="paymentdetailview" destination="PL3-P4-5jQ" id="PzZ-Y9-5Un"/>
-                <outlet property="paymenttypebtn" destination="f89-N6-vtJ" id="JFi-Br-yRC"/>
+                <outlet property="paymenttypebtn" destination="3Fd-Zx-pvV" id="QGB-cB-2Dt"/>
+                <outlet property="paymntbtnlbl" destination="zi0-Ua-raC" id="5U6-Jw-xAX"/>
                 <outlet property="previewimg" destination="YJv-dt-B4V" id="vs6-Lf-Avd"/>
                 <outlet property="rontgnumbr" destination="msy-jY-0CH" id="Uzp-Vs-BTh"/>
                 <outlet property="statelbl" destination="EhJ-en-j7z" id="ZJi-vr-bUu"/>
                 <outlet property="typesegmntlbl" destination="TyJ-aa-gkY" id="Soc-pS-cpX"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="w4btnlbl" destination="Okl-sk-E6B" id="p9q-hu-A5w"/>
                 <outlet property="w4detailview" destination="xUd-w7-hWW" id="ZZm-6P-Tv6"/>
             </connections>
         </placeholder>
@@ -43,7 +47,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="XuP-rD-Vft">
-                            <rect key="frame" x="0.0" y="0.0" width="763" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="770" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
@@ -53,25 +57,28 @@
                                         <action selector="DetailsBtnAction:" destination="-1" id="hy1-Kr-H75"/>
                                     </connections>
                                 </barButtonItem>
+                                <barButtonItem width="86" style="plain" systemItem="fixedSpace" id="7RX-UW-qAW"/>
                                 <barButtonItem title="Documents" width="106" id="djZ-l0-2GS">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="DcmntBtnAction:" destination="-1" id="kHk-j3-rxe"/>
                                     </connections>
                                 </barButtonItem>
+                                <barButtonItem width="86" style="plain" systemItem="fixedSpace" id="SkD-Wl-jHJ"/>
                                 <barButtonItem title="W4" width="48" id="Okl-sk-E6B">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="w4BtnAction:" destination="-1" id="ekB-7T-K0c"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem title="Payment Type" width="119" id="zi0-Ua-raC">
+                                <barButtonItem width="77" style="plain" systemItem="fixedSpace" id="rGW-Tg-C6s"/>
+                                <barButtonItem title="Payment Type" id="zi0-Ua-raC">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="paymentbtnaction:" destination="-1" id="iSd-0f-btU"/>
                                     </connections>
                                 </barButtonItem>
-                                <barButtonItem width="319" style="plain" systemItem="fixedSpace" id="7RX-UW-qAW"/>
+                                <barButtonItem width="109" style="plain" systemItem="fixedSpace" id="ezN-Ak-zoV"/>
                                 <barButtonItem image="closebutton.png" id="BLm-Ov-DD7">
                                     <inset key="imageInsets" minX="-8" minY="-3" maxX="5" maxY="-3"/>
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -270,19 +277,11 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="HET-Nt-5wu">
-                                    <rect key="frame" x="210" y="177" width="307" height="44"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HET-Nt-5wu">
+                                    <rect key="frame" x="232" y="182" width="264" height="34"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" backgroundImage="textbox.png">
-                                        <attributedString key="attributedTitle">
-                                            <fragment content="Select">
-                                                <attributes>
-                                                    <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </state>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png"/>
                                     <connections>
                                         <action selector="selectmaritalstatus:" destination="-1" eventType="touchUpInside" id="XdG-0A-Bm4"/>
                                     </connections>
@@ -315,12 +314,95 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="PL3-P4-5jQ" userLabel="Payement View">
-                            <rect key="frame" x="6" y="57" width="757" height="578"/>
+                        <view hidden="YES" contentMode="scaleToFill" id="Sxi-89-Fcc" userLabel="Document">
+                            <rect key="frame" x="6" y="59" width="745" height="670"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="0jM-QE-nOA">
+                                    <rect key="frame" x="0.0" y="2" width="745" height="668"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TTE-2Q-b5p">
+                                    <rect key="frame" x="24" y="33" width="215" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qkb-df-fgv">
+                                    <rect key="frame" x="220" y="211" width="111" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Upload" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="updatedoc:" destination="-1" eventType="touchUpInside" id="iZy-Lf-gMg"/>
+                                    </connections>
+                                </button>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="IIf-9v-hGm">
+                                    <rect key="frame" x="176" y="28" width="189" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fhR-Eb-Naq">
+                                    <rect key="frame" x="36" y="334" width="611" height="207"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="92D-Je-6We"/>
+                                        <outlet property="delegate" destination="-1" id="ZfU-IG-Hx6"/>
+                                    </connections>
+                                </tableView>
+                                <view contentMode="scaleToFill" id="d50-Wk-ey5">
+                                    <rect key="frame" x="36" y="298" width="611" height="37"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ioi-uk-zYR">
+                                            <rect key="frame" x="57" y="8" width="121" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle3.png" id="YJv-dt-B4V">
+                                    <rect key="frame" x="176" y="76" width="189" height="114"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </imageView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QgH-h6-gCt">
+                                    <rect key="frame" x="24" y="76" width="105" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9vb-bb-RPa">
+                                    <rect key="frame" x="421" y="28" width="105" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Take picture" backgroundImage="textbox.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectfileaction:" destination="-1" eventType="touchUpInside" id="WYH-rL-2pk"/>
+                                    </connections>
+                                </button>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios7-camera-icon.png" id="AY4-Ze-in6">
+                                    <rect key="frame" x="182" y="78" width="176" height="109"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                            </subviews>
+                        </view>
+                        <view contentMode="scaleToFill" id="PL3-P4-5jQ" userLabel="Payement View">
+                            <rect key="frame" x="0.0" y="44" width="757" height="578"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="Hky-iW-7Ki">
-                                    <rect key="frame" x="0.0" y="7" width="753" height="578"/>
+                                    <rect key="frame" x="9" y="5" width="753" height="578"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hc6-W6-orC">
@@ -335,23 +417,6 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" id="f89-N6-vtJ">
-                                    <rect key="frame" x="128" y="15" width="211" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" backgroundImage="textbox.png">
-                                        <attributedString key="attributedTitle">
-                                            <fragment content="Select">
-                                                <attributes>
-                                                    <font key="NSFont" size="12" name="HelveticaNeue-Bold"/>
-                                                    <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                </attributes>
-                                            </fragment>
-                                        </attributedString>
-                                    </state>
-                                    <connections>
-                                        <action selector="selectpaymenttype:" destination="-1" eventType="touchUpInside" id="kXI-NV-zqF"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7Bh-C9-7ms">
                                     <rect key="frame" x="399" y="74" width="97" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -489,91 +554,17 @@
                                         <action selector="expbtn:" destination="-1" eventType="touchUpInside" id="JGe-GU-byY"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Fd-Zx-pvV">
+                                    <rect key="frame" x="170" y="17" width="260" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png"/>
+                                    <connections>
+                                        <action selector="selectpaymenttype:" destination="-1" eventType="touchUpInside" id="Sie-u1-egU"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                        <view hidden="YES" contentMode="scaleToFill" id="Sxi-89-Fcc" userLabel="Document">
-                            <rect key="frame" x="6" y="59" width="745" height="631"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="0jM-QE-nOA">
-                                    <rect key="frame" x="0.0" y="2" width="745" height="620"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TTE-2Q-b5p">
-                                    <rect key="frame" x="24" y="33" width="215" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Qkb-df-fgv">
-                                    <rect key="frame" x="220" y="211" width="111" height="28"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Upload" backgroundImage="textbox.png">
-                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="updatedoc:" destination="-1" eventType="touchUpInside" id="iZy-Lf-gMg"/>
-                                    </connections>
-                                </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="IIf-9v-hGm">
-                                    <rect key="frame" x="176" y="28" width="189" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="fhR-Eb-Naq">
-                                    <rect key="frame" x="36" y="334" width="611" height="207"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <connections>
-                                        <outlet property="dataSource" destination="-1" id="92D-Je-6We"/>
-                                        <outlet property="delegate" destination="-1" id="ZfU-IG-Hx6"/>
-                                    </connections>
-                                </tableView>
-                                <view contentMode="scaleToFill" id="d50-Wk-ey5">
-                                    <rect key="frame" x="36" y="298" width="611" height="37"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ioi-uk-zYR">
-                                            <rect key="frame" x="265" y="8" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle3.png" id="YJv-dt-B4V">
-                                    <rect key="frame" x="176" y="76" width="189" height="114"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </imageView>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preview" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QgH-h6-gCt">
-                                    <rect key="frame" x="24" y="76" width="105" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9vb-bb-RPa">
-                                    <rect key="frame" x="421" y="28" width="105" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Take picture" backgroundImage="textbox.png">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="selectfileaction:" destination="-1" eventType="touchUpInside" id="WYH-rL-2pk"/>
-                                    </connections>
-                                </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios7-camera-icon.png" id="AY4-Ze-in6">
-                                    <rect key="frame" x="182" y="78" width="176" height="109"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                </imageView>
-                            </subviews>
                         </view>
                     </subviews>
                 </scrollView>
