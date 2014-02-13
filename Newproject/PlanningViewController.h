@@ -27,9 +27,13 @@
 @property(strong,nonatomic)IBOutlet UIButton *custcheckbtn;
 @property(strong,nonatomic)IBOutlet UIButton *customerselectionBtn;
 @property(strong,nonatomic)IBOutlet UIButton *leadselectionBtn;
+@property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 
+@property(strong,nonatomic)IBOutlet UITableViewCell *planingcell;
+@property(strong,nonatomic)IBOutlet UILabel *organizationname;
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
+
 
 /*IBAction*/
 - (IBAction)clseVCtrlbtn:(id)sender;
@@ -39,10 +43,12 @@
 -(IBAction)checkcustomeraction:(id)sender;
 -(IBAction)selectcustomer:(id)sender;
 -(IBAction)selectlead:(id)sender;
+-(IBAction)selectdisclosure:(id)sender;
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *leadlistarray;
 @property(strong,nonatomic)NSMutableArray *customerlistarray;
+@property(strong,nonatomic)NSMutableArray *disclosurearry;
 
 
 @end

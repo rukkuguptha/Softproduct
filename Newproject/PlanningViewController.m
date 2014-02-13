@@ -31,6 +31,8 @@
     _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _plangtable.layer.borderWidth=2.0f;
     _plangtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _disclosurearry=[[NSMutableArray alloc]initWithObjects:@"Add Services",@"Site Visit",@"Plan",nil];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,8 +40,16 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
 #pragma mark-Tableview
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
     if(tableView==_plangtable)
     {
     return 5;
@@ -52,6 +62,9 @@
                 break;
                 case 2:
                 [_leadlistarray count];
+                break;
+                case 3:
+                [_disclosurearry count];
                 break;
                 
             default:
@@ -67,27 +80,75 @@
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellidentifier];
     if (cell==nil) {
         cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellidentifier];
+    
+    if(tableView==_plangtable)
+    {
+        [[NSBundle mainBundle]loadNibNamed:@"customplancell" owner:self options:nil];
+        cell=_planingcell;
+    }
     }
     if(tableView==_popovertableview)
     {
-        switch (poptype) {
-            case 1:
-                cell.textLabel.text=[_customerlistarray objectAtIndex:indexPath.row];
-                break;
-            case 2:
-                cell.textLabel.text=[_leadlistarray objectAtIndex:indexPath.row];
-            default:
-                break;
-        }
+        NSLog(@"%@",[_disclosurearry objectAtIndex:0]);
+        NSLog(@"%@",[_disclosurearry objectAtIndex:1]);
+        NSLog(@"%@",[_disclosurearry objectAtIndex:2]);
+        
+        cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+        cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
+
+//        switch (poptype) {
+//            case 1:
+//                cell.textLabel.text=[_customerlistarray objectAtIndex:indexPath.row];
+//                break;
+//            case 2:
+//                cell.textLabel.text=[_leadlistarray objectAtIndex:indexPath.row];
+//                break;
+//            case 3:
+//                cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
+//                break;
+//            default:
+//                break;
+//        }
     }
-    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+     if(tableView==_plangtable)
+     {
+         _organizationname=(UILabel*)[cell viewWithTag:1];
+         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+         
+         
+         
+    }
     
-    cell.textLabel.text=[NSString stringWithFormat:@"\t\t\tcompany"];
     return cell;
     
 }
+-(IBAction)selectdisclosure:(id)sender
+{
+    poptype=3;
+    UIViewController* popoverContent = [[UIViewController alloc]init];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight= 30;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverView addSubview:_popovertableview];
+    popoverContent.view = popoverView;
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
+    UIButton *button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+            //UITableView *table = (UITableView *)[cell superview];
+    self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
+    [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
+    //[_popovertableview reloadData];
+}
 
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    
+}
 
 
 

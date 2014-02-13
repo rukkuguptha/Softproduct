@@ -52,6 +52,7 @@
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
 		64A14D82187573B50028B43A /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D81187573B50028B43A /* basicreqmdl.m */; };
+		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
@@ -255,6 +256,7 @@
 		64A14D7E18755B910028B43A /* customdetlcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdetlcell.xib; sourceTree = "<group>"; };
 		64A14D80187573B50028B43A /* basicreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basicreqmdl.h; sourceTree = "<group>"; };
 		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
+		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				D4B7017D18AB3EAB0060BE0A /* PlanningViewController.h */,
 				D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */,
 				D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */,
+				64A15E1518AB7C1B008112EA /* customplancell.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -958,6 +961,7 @@
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
+				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
