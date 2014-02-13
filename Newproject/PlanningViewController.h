@@ -14,6 +14,7 @@
     NSInteger leadcheck;
     NSInteger customercheck;
     NSInteger poptype;
+    UIButton *button;
 }
 
 /*views*/

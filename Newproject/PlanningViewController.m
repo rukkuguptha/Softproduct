@@ -57,14 +57,14 @@
     if(tableView==_popovertableview)
     {
         switch (poptype) {
-            case 1:
-                [_customerlistarray count];
+                case 1:
+                return [_customerlistarray count];
                 break;
                 case 2:
-                [_leadlistarray count];
+                return [_leadlistarray count];
                 break;
                 case 3:
-                [_disclosurearry count];
+               return[_disclosurearry count];
                 break;
                 
             default:
@@ -96,19 +96,19 @@
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
 
-//        switch (poptype) {
-//            case 1:
-//                cell.textLabel.text=[_customerlistarray objectAtIndex:indexPath.row];
-//                break;
-//            case 2:
-//                cell.textLabel.text=[_leadlistarray objectAtIndex:indexPath.row];
-//                break;
-//            case 3:
-//                cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
-//                break;
-//            default:
-//                break;
-//        }
+        switch (poptype) {
+            case 1:
+                cell.textLabel.text=[_customerlistarray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                cell.textLabel.text=[_leadlistarray objectAtIndex:indexPath.row];
+                break;
+            case 3:
+                cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
+                break;
+            default:
+                break;
+        }
     }
      if(tableView==_plangtable)
      {
@@ -136,7 +136,7 @@
     [popoverView addSubview:_popovertableview];
     popoverContent.view = popoverView;
     popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
-    UIButton *button = (UIButton *)sender;
+    button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
             //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
