@@ -25,6 +25,8 @@
 //@property(strong,nonatomic)IBOutlet UIView *insulationview;
 //@property(strong,nonatomic)IBOutlet UIView *fireproofingview;
 @property(strong,nonatomic)IBOutlet UIView *scaffoldtabletitleview;
+@property(strong,nonatomic)IBOutlet UITableViewCell *scaffoldcell;
+@property(strong,nonatomic)IBOutlet UITableView *scaffoldtable;
 
 
 

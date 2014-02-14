@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _scaffoldtable.layer.borderWidth=4.0f;
+    _scaffoldtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _scaffoldtabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
 }
@@ -67,6 +69,41 @@
 //    _scaffoldview.hidden=YES;
 //    _insulationview.hidden=YES;
 }
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
+#pragma mark-Tableview
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView==_scaffoldtable)
+    {
+        return 5;
+    }
+       return YES;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *cellidentifier=@"mycell";
+    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:cellidentifier];
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellidentifier];
+        
+        if(tableView==_scaffoldtable)
+        {
+            [[NSBundle mainBundle]loadNibNamed:@"scaffoldcell" owner:self options:nil];
+            cell=_scaffoldcell;
+        }
+    }
+    
+    return cell;
+    
+}
+
 
 
 @end
