@@ -32,16 +32,17 @@
                                 <tabBarItem title="Production Rates" id="B5c-QJ-gZ3"/>
                                 <tabBarItem title="Item" id="OMp-IS-Hff"/>
                                 <tabBarItem title="Item" id="ybd-PW-cfo"/>
-                                <tabBarItem systemItem="favorites" id="GAc-7M-IdJ"/>
+                                <tabBarItem title="item" id="GAc-7M-IdJ"/>
                                 <tabBarItem title="Item" id="uJB-0u-n0V"/>
                                 <tabBarItem title="Item" id="mdq-Rg-UwR"/>
                                 <tabBarItem title="Item" id="Wb2-Fb-zfY"/>
                                 <tabBarItem title="Item" id="OaI-Gb-P98"/>
-                                <tabBarItem systemItem="more" id="cmh-KD-gFl"/>
+                                <tabBarItem title="item" id="cmh-KD-gFl"/>
                                 <tabBarItem title="Item" id="IvL-qt-KYS"/>
                                 <tabBarItem title="Item" id="QIs-nr-Yxa"/>
                                 <tabBarItem title="Item" id="vOx-qg-L2Q"/>
                             </items>
+                            <color key="selectedImageTintColor" red="0.31071814730000002" green="0.6208944515" blue="0.47233222619999998" alpha="1" colorSpace="calibratedRGB"/>
                         </tabBar>
                     </subviews>
                 </scrollView>
