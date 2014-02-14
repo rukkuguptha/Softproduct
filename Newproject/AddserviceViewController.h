@@ -12,6 +12,7 @@
 
 {
     NSInteger path;
+    BOOL recordResults;
 }
 
 /*IBAction*/
@@ -30,4 +31,12 @@
 /*array*/
 @property(strong,nonatomic)NSMutableArray *allservicearray;
 @property(strong,nonatomic)NSMutableArray *serviceaddedarray;
+@property(strong,nonatomic)NSMutableDictionary *servicedict;
+@property(strong,nonatomic)NSString *servicestring;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 @end

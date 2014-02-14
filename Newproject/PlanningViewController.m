@@ -71,14 +71,14 @@
     {
         switch (poptype) {
                 case 1:
-                return [_customerlistarray count];
+                return [_planslectionarray count];
                 break;
                 case 2:
-                return [_leadlistarray count];
+                return[_disclosurearry count];
                 break;
-                case 3:
-               return[_disclosurearry count];
-                break;
+//                case 3:
+//               return[_disclosurearry count];
+//                break;
                 
             default:
                 break;
@@ -111,14 +111,14 @@
 
         switch (poptype) {
             case 1:
-                cell.textLabel.text=[_customerlistarray objectAtIndex:indexPath.row];
+                cell.textLabel.text=[_planslectionarray objectAtIndex:indexPath.row];
                 break;
             case 2:
-                cell.textLabel.text=[_leadlistarray objectAtIndex:indexPath.row];
-                break;
-            case 3:
                 cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
                 break;
+//            case 3:
+//                cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
+//                break;
             default:
                 break;
         }
@@ -148,25 +148,24 @@
             case 1:
                 
 
-                [_customerselectionBtn setTitle:[_customerlistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+               // [_customerselectionBtn setTitle:[_customerlistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                [_planselectionbtn setTitle:[_planslectionarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                
+
                 
                 
                 break;
             case 2:
-                [_leadselectionBtn setTitle:[_leadlistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
-                
-                break;
-            case 3:
-                 if (indexPath.row==0) {
-                if (!self.servVctrl) {
-                    self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
+                if (indexPath.row==0) {
+                    if (!self.servVctrl) {
+                        self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
+                    }
+                    
+                    _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                    _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+                    [self presentViewController:_servVctrl
+                                       animated:YES completion:NULL];
                 }
-                     
-                _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
-                _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                [self presentViewController:_servVctrl
-                                   animated:YES completion:NULL];
-                 }
                 if (indexPath.row==1) {
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
@@ -180,18 +179,55 @@
                     if (!self.DetailplanVctrl) {
                         self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
                     }
-                    _DetailplanVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                    _DetailplanVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_DetailplanVctrl
                                        animated:YES completion:NULL];
                 }
                 
-
                 
-
-
+                
+                
+                
                 
                 break;
+                
+//            case 3:
+//                 if (indexPath.row==0) {
+//                if (!self.servVctrl) {
+//                    self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
+//                }
+//                     
+//                _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+//                _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//                [self presentViewController:_servVctrl
+//                                   animated:YES completion:NULL];
+//                 }
+//                if (indexPath.row==1) {
+//                    if (!self.sitevisitVctrl) {
+//                        self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
+//                    }
+//                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+//                    _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//                    [self presentViewController:_sitevisitVctrl
+//                                       animated:YES completion:NULL];
+//                }
+//                if (indexPath.row==2) {
+//                    if (!self.DetailplanVctrl) {
+//                        self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
+//                    }
+//                    _DetailplanVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+//                    _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//                    [self presentViewController:_DetailplanVctrl
+//                                       animated:YES completion:NULL];
+//                }
+//                
+//
+//                
+//
+//
+//                
+//                break;
             default:
                 break;
         }
@@ -231,7 +267,9 @@
 }
 
 - (IBAction)addplan:(id)sender {
-    [self SelectAllCustomer];
+    optionidentifier=1;
+    self.navabar.title = @"ADD";
+    //[self SelectAllCustomer];
     _addplanview.hidden=NO;
 }
 -(IBAction)closeaddview:(id)sender
@@ -243,81 +281,90 @@
 {
     if(leadcheck==0)
     {
+        [_popovertableview reloadData];
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+
         leadcheck=1;
         _selectionlabel.text=@"Select Lead";
-        _customerselectionBtn.enabled=NO;
+        _planslectionarray=[[NSMutableArray alloc]init];
+        [self SelectAllLeads];
+        //_customerselectionBtn.enabled=NO;
         
     }
     else
     {
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         leadcheck=0;
-        _customerselectionBtn.enabled=YES;
+        //_customerselectionBtn.enabled=YES;
     }
     
 }
 -(IBAction)checkcustomeraction:(id)sender
 {
     if(customercheck==0)
-    {
+    {      [_popovertableview reloadData];
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         customercheck=1;
         _selectionlabel.text=@"Select Customer";
-        _leadselectionBtn.enabled=NO;
+        _planslectionarray=[[NSMutableArray alloc]init];
+        [self SelectAllCustomer];
+        //_leadselectionBtn.enabled=NO;
     }
     else
     {
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         customercheck=0;
-        _leadselectionBtn.enabled=YES;
+        //_leadselectionBtn.enabled=YES;
     }
     
 }
--(IBAction)selectcustomer:(id)sender
+//-(IBAction)selectcustomer:(id)sender
+//{
+//    poptype=1;
+//    UIViewController *popovercontent=[[UIViewController alloc]init];
+//    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
+//    popoverview.backgroundColor=[UIColor whiteColor];
+//    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
+//    _popovertableview.delegate=(id)self;
+//    _popovertableview.dataSource=(id)self;
+//    _popovertableview.rowHeight=32;
+//    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+//    [popoverview addSubview:_popovertableview];
+//    popovercontent.view=popoverview;
+//    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 90);
+//    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+//    [self.popovercontroller presentPopoverFromRect:_customerselectionBtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+//    
+//    
+//    
+//}
+-(IBAction)planselection:(id)sender
 {
+    //[self SelectAllLeads];
+   
     poptype=1;
     UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
     popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
     _popovertableview.rowHeight=32;
     _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     [popoverview addSubview:_popovertableview];
     popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 90);
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
     self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
-    [self.popovercontroller presentPopoverFromRect:_customerselectionBtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-    
-    
-    
-}
--(IBAction)selectlead:(id)sender
-{
-    [self SelectAllLeads];
-    poptype=2;
-    UIViewController *popovercontent=[[UIViewController alloc]init];
-    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
-    popoverview.backgroundColor=[UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 160, 90)];
-    _popovertableview.delegate=(id)self;
-    _popovertableview.dataSource=(id)self;
-    _popovertableview.rowHeight=32;
-    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    [popoverview addSubview:_popovertableview];
-    popovercontent.view=popoverview;
-    popovercontent.contentSizeForViewInPopover=CGSizeMake(160, 90);
-    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
-    [self.popovercontroller presentPopoverFromRect:_leadselectionBtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popovercontroller presentPopoverFromRect:_planselectionbtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
     
     
 }
 -(IBAction)selectdisclosure:(id)sender
 {
-    poptype=3;
+    poptype=2;
     UIViewController* popoverContent = [[UIViewController alloc]init];
     UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 90)];
     popoverView.backgroundColor = [UIColor whiteColor];
@@ -344,6 +391,12 @@
 -(IBAction)cancelplanning:(id)sender
 {
     
+}
+-(IBAction)Editaction:(id)sender
+{
+    optionidentifier=1;
+    self.navabar.title = @"Edit";
+      _addplanview.hidden=NO;
 }
 #pragma mark - SearchBar
 
@@ -564,7 +617,7 @@
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"SelectAllLeadsResult"])
     {
-        _leadlistarray=[[NSMutableArray alloc]init];
+        _planslectionarray=[[NSMutableArray alloc]init];
         _leaddict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
@@ -592,7 +645,7 @@
     }
     if([elementName isEqualToString:@"SelectAllCustomerResult"])
     {
-        _customerlistarray=[[NSMutableArray alloc]init];
+        _planslectionarray=[[NSMutableArray alloc]init];
         _customerdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
@@ -722,7 +775,7 @@
         
         recordResults = FALSE;
         [_leaddict setObject:_leadstring forKey:_soapResults];
-        [_leadlistarray addObject:_soapResults];
+        [_planslectionarray addObject:_soapResults];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"SelectAllLeadsResult"])
@@ -743,7 +796,7 @@
         
         recordResults = FALSE;
         [_customerdict setObject:_customerstring forKey:_soapResults];
-        [_customerlistarray addObject:_soapResults];
+        [_planslectionarray addObject:_soapResults];
 
         _soapResults = nil;
     }
