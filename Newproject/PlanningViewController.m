@@ -171,7 +171,7 @@
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
                     }
-                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_sitevisitVctrl
                                        animated:YES completion:NULL];
