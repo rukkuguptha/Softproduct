@@ -24,16 +24,21 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <tabBar contentMode="scaleToFill" id="Yul-9O-N5T">
-                            <rect key="frame" x="-105" y="94" width="1122" height="49"/>
+                            <rect key="frame" x="4" y="48" width="1016" height="49"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <items>
+                                <tabBarItem title="General" id="00B-0h-PUu"/>
+                                <tabBarItem title="Production Rates" id="B5c-QJ-gZ3"/>
                                 <tabBarItem title="Item" id="OMp-IS-Hff"/>
+                                <tabBarItem title="Item" id="ybd-PW-cfo"/>
                                 <tabBarItem systemItem="favorites" id="GAc-7M-IdJ"/>
                                 <tabBarItem title="Item" id="uJB-0u-n0V"/>
                                 <tabBarItem title="Item" id="mdq-Rg-UwR"/>
                                 <tabBarItem title="Item" id="Wb2-Fb-zfY"/>
+                                <tabBarItem title="Item" id="OaI-Gb-P98"/>
                                 <tabBarItem systemItem="more" id="cmh-KD-gFl"/>
+                                <tabBarItem title="Item" id="IvL-qt-KYS"/>
                                 <tabBarItem title="Item" id="QIs-nr-Yxa"/>
                                 <tabBarItem title="Item" id="vOx-qg-L2Q"/>
                             </items>
