@@ -17,6 +17,7 @@
 #import "AssetsViewController.h"
 
 @interface ResViewController : UIViewController
+///wwwwwww
 //Tiles
 
 @property (strong, nonatomic) IBOutlet UIView *manpwrview;
