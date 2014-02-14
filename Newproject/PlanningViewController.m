@@ -171,7 +171,7 @@
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
                     }
-                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
+                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_sitevisitVctrl
                                        animated:YES completion:NULL];
@@ -245,6 +245,7 @@
     {
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         leadcheck=1;
+        _selectionlabel.text=@"Select Lead";
         _customerselectionBtn.enabled=NO;
         
     }
@@ -262,6 +263,7 @@
     {
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         customercheck=1;
+        _selectionlabel.text=@"Select Customer";
         _leadselectionBtn.enabled=NO;
     }
     else
