@@ -114,6 +114,7 @@
 		D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41377C6187BD59200156A92 /* Equpmntmdl.m */; };
 		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
+		D415486318ADF64900351248 /* Ratecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D415486218ADF64900351248 /* Ratecellview.xib */; };
 		D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = D4399EB9186D74BB00A693F7 /* Manpwr.m */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
 		D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBD186D7BBF00A693F7 /* search-button.png */; };
@@ -350,6 +351,7 @@
 		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
 		D41404C9187294700067F71A /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
+		D415486218ADF64900351248 /* Ratecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ratecellview.xib; sourceTree = "<group>"; };
 		D4399EB8186D74BB00A693F7 /* Manpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manpwr.h; sourceTree = "<group>"; };
 		D4399EB9186D74BB00A693F7 /* Manpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manpwr.m; sourceTree = "<group>"; };
 		D4399EBB186D7BB000A693F7 /* search-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button@2x.png"; sourceTree = "<group>"; };
@@ -697,6 +699,7 @@
 				642FA78B18AC945C00372623 /* SitevisitViewController.h */,
 				642FA78C18AC945C00372623 /* SitevisitViewController.m */,
 				642FA78D18AC945C00372623 /* SitevisitViewController.xib */,
+				D415486218ADF64900351248 /* Ratecellview.xib */,
 				642FA79518AC960400372623 /* DetailplanViewController.h */,
 				642FA79618AC960400372623 /* DetailplanViewController.m */,
 				642FA79718AC960400372623 /* DetailplanViewController.xib */,
@@ -947,6 +950,7 @@
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
+				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				D4FED41017F16EEE004BE242 /* VerificationViewController.xib in Resources */,
