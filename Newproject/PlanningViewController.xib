@@ -13,6 +13,7 @@
                 <outlet property="leadcheckbtn" destination="N0w-R8-PPz" id="DUX-eh-ztV"/>
                 <outlet property="leadselectionBtn" destination="kgV-3x-YWU" id="aBY-ks-hfX"/>
                 <outlet property="plangtable" destination="847-Xa-wgb" id="WNR-6a-a8j"/>
+                <outlet property="selectionlabel" destination="nwH-rK-qJG" id="C1h-XO-Yw9"/>
                 <outlet property="tabletitleview" destination="ldd-qP-mZc" id="130-0m-aYu"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -53,7 +54,7 @@
                             </items>
                         </navigationBar>
                         <view contentMode="scaleToFill" id="ldd-qP-mZc" userLabel="TableHeaderview" colorLabel="IBBuiltInLabel-Green">
-                            <rect key="frame" x="107" y="72" width="852" height="44"/>
+                            <rect key="frame" x="86" y="74" width="852" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="971-RU-Rm0">
@@ -84,7 +85,7 @@
                             <color key="backgroundColor" red="0.1951047242" green="0.8248648864" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="847-Xa-wgb">
-                            <rect key="frame" x="107" y="116" width="852" height="522"/>
+                            <rect key="frame" x="86" y="118" width="852" height="522"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -93,7 +94,7 @@
                             </connections>
                         </tableView>
                         <view hidden="YES" contentMode="scaleToFill" id="1sr-eH-f7a" userLabel="ADD view">
-                            <rect key="frame" x="147" y="124" width="512" height="384"/>
+                            <rect key="frame" x="126" y="126" width="512" height="384"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="J6v-m3-YeZ">

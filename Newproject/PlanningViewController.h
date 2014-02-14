@@ -52,6 +52,7 @@
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 @property(strong,nonatomic)UISearchBar *searchbar;
 @property(strong,nonatomic)NSString *searchstring;
+@property(strong,nonatomic)IBOutlet UILabel *selectionlabel;
 
 
 /*IBAction*/
