@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddserviceViewController">
             <connections>
+                <outlet property="servicebtn" destination="Ita-1W-N8K" id="8mm-nV-vIr"/>
                 <outlet property="servicelisttable" destination="y6P-Ln-Zqc" id="DYo-aL-nKj"/>
+                <outlet property="tabletitleview" destination="SVF-Nr-jDy" id="env-zP-Oac"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -25,14 +27,18 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ita-1W-N8K">
-                            <rect key="frame" x="65" y="81" width="251" height="41"/>
+                            <rect key="frame" x="65" y="66" width="251" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Button" backgroundImage="textbox.png">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Select" backgroundImage="textbox.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="selectservices:" destination="-1" eventType="touchUpInside" id="VRS-GD-R4J"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="96i-05-ORr">
-                            <rect key="frame" x="162" y="152" width="46" height="30"/>
+                            <rect key="frame" x="161" y="141" width="46" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Add">
@@ -40,7 +46,7 @@
                             </state>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="y6P-Ln-Zqc">
-                            <rect key="frame" x="65" y="239" width="620" height="327"/>
+                            <rect key="frame" x="65" y="227" width="620" height="429"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -49,7 +55,7 @@
                             </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="SVF-Nr-jDy">
-                            <rect key="frame" x="65" y="190" width="620" height="41"/>
+                            <rect key="frame" x="65" y="186" width="620" height="41"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kcF-EN-ZCr">
@@ -66,6 +72,9 @@
                                     <state key="normal" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="deleteservices:" destination="-1" eventType="touchUpInside" id="wyp-gV-XsP"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
