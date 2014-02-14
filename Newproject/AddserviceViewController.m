@@ -43,7 +43,22 @@
 }
 -(IBAction)deleteservices:(id)sender
 {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_servicelisttable setEditing:NO animated:NO];
+        [_servicelisttable reloadData];
+        
+        
+        
+    }
     
+    else{
+        [super setEditing:YES animated:YES];
+        [_servicelisttable setEditing:YES animated:YES];
+        [_servicelisttable reloadData];
+        
+    }
+
 }
 -(IBAction)selectservices:(id)sender
 {
