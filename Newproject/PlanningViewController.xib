@@ -9,10 +9,10 @@
             <connections>
                 <outlet property="addplanview" destination="1sr-eH-f7a" id="Rsr-Pb-MWk"/>
                 <outlet property="custcheckbtn" destination="FlS-2L-LZz" id="9Q2-cQ-O3L"/>
-                <outlet property="customerselectionBtn" destination="KeM-6P-gEd" id="WZQ-zx-0O8"/>
                 <outlet property="leadcheckbtn" destination="N0w-R8-PPz" id="DUX-eh-ztV"/>
-                <outlet property="leadselectionBtn" destination="kgV-3x-YWU" id="aBY-ks-hfX"/>
+                <outlet property="navabar" destination="wMZ-FX-GhQ" id="xeo-xw-hom"/>
                 <outlet property="plangtable" destination="847-Xa-wgb" id="WNR-6a-a8j"/>
+                <outlet property="planselectionbtn" destination="kgV-3x-YWU" id="Mq6-eN-OLc"/>
                 <outlet property="selectionlabel" destination="nwH-rK-qJG" id="C1h-XO-Yw9"/>
                 <outlet property="tabletitleview" destination="ldd-qP-mZc" id="130-0m-aYu"/>
                 <outlet property="view" destination="2" id="3"/>
@@ -164,12 +164,6 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Customer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aFW-KO-ijj">
-                                    <rect key="frame" x="59" y="220" width="135" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kgV-3x-YWU">
                                     <rect key="frame" x="220" y="142" width="222" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -179,23 +173,11 @@
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <action selector="selectlead:" destination="-1" eventType="touchUpInside" id="8DG-3z-pyo"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KeM-6P-gEd">
-                                    <rect key="frame" x="220" y="214" width="222" height="36"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Select" backgroundImage="textbox.png">
-                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="selectcustomer:" destination="-1" eventType="touchUpInside" id="jyQ-2t-i76"/>
+                                        <action selector="planselection:" destination="-1" eventType="touchUpInside" id="TLt-Cc-qwn"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0xA-8o-8iB">
-                                    <rect key="frame" x="278" y="291" width="59" height="30"/>
+                                    <rect key="frame" x="278" y="245" width="59" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -206,7 +188,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BHl-H8-Vf1">
-                                    <rect key="frame" x="154" y="291" width="78" height="30"/>
+                                    <rect key="frame" x="146" y="245" width="78" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update">

@@ -19,6 +19,7 @@
     NSInteger poptype;
     UIButton *button;
     BOOL recordResults;
+    NSInteger optionidentifier;
 }
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
@@ -41,18 +42,20 @@
 /*Buttons*/
 @property(strong,nonatomic)IBOutlet UIButton *leadcheckbtn;
 @property(strong,nonatomic)IBOutlet UIButton *custcheckbtn;
-@property(strong,nonatomic)IBOutlet UIButton *customerselectionBtn;
-@property(strong,nonatomic)IBOutlet UIButton *leadselectionBtn;
+//@property(strong,nonatomic)IBOutlet UIButton *customerselectionBtn;
+@property(strong,nonatomic)IBOutlet UIButton *planselectionbtn;
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *planingcell;
 @property(strong,nonatomic)IBOutlet UILabel *organizationname;
 @property(strong,nonatomic)IBOutlet UILabel *leadlabel;
+@property(strong,nonatomic)IBOutlet UILabel *planidlabel;
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 @property(strong,nonatomic)UISearchBar *searchbar;
 @property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)IBOutlet UILabel *selectionlabel;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 
 
 /*IBAction*/
@@ -61,15 +64,17 @@
 -(IBAction)closeaddview:(id)sender;
 -(IBAction)checkleadaction:(id)sender;
 -(IBAction)checkcustomeraction:(id)sender;
--(IBAction)selectcustomer:(id)sender;
--(IBAction)selectlead:(id)sender;
+//-(IBAction)selectcustomer:(id)sender;
+-(IBAction)planselection:(id)sender;
 -(IBAction)selectdisclosure:(id)sender;
 -(IBAction)updateplanning:(id)sender;
 -(IBAction)cancelplanning:(id)sender;
+-(IBAction)Editaction:(id)sender;
 
 /*array*/
-@property(strong,nonatomic)NSMutableArray *leadlistarray;
-@property(strong,nonatomic)NSMutableArray *customerlistarray;
+//@property(strong,nonatomic)NSMutableArray *leadlistarray;
+//@property(strong,nonatomic)NSMutableArray *customerlistarray;
+@property(strong,nonatomic)NSMutableArray *planslectionarray;
 @property(strong,nonatomic)NSMutableArray *disclosurearry;
 @property(strong,nonatomic)NSMutableArray *planlistarray;
 

@@ -62,6 +62,7 @@
 		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
+		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97987185EDB4200E7722B /* FoldersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F97985185EDB4200E7722B /* FoldersViewController.m */; };
@@ -277,6 +278,7 @@
 		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
 		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
+		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				642FA79518AC960400372623 /* DetailplanViewController.h */,
 				642FA79618AC960400372623 /* DetailplanViewController.m */,
 				642FA79718AC960400372623 /* DetailplanViewController.xib */,
+				64AD76C618AE12B100089A0F /* scaffoldcell.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
+				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
