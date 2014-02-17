@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 
-@interface SitevisitViewController : UIViewController<UITabBarDelegate>
+@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
@@ -42,22 +42,26 @@
 @property (strong, nonatomic) IBOutlet UIButton *complextyofwrkbtnlbl;
 @property (strong, nonatomic) IBOutlet UITextView *facilitytxtview;
 @property (strong, nonatomic) IBOutlet UITextView *scpeofwrktxtview;
-
 - (IBAction)cmpxtyofwrkbtn:(id)sender;
 - (IBAction)updatebtn:(id)sender;
 
 /*productn Rate*/
-@property (strong, nonatomic) IBOutlet UIView *ratecell;
+
+@property (strong, nonatomic) IBOutlet UIView *rateview;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *ratecell;
 @property (strong, nonatomic) IBOutlet UILabel *ratelbl;
 @property (strong, nonatomic) IBOutlet UILabel *ratedeslbl;
 @property (strong, nonatomic) IBOutlet UITableView *prdunratetble;
 @property (strong, nonatomic) IBOutlet UILabel *ratevaluelbl;
-
-
-
 - (IBAction)ratedeletebtn:(id)sender;
 - (IBAction)Rateaddbtn:(id)sender;
 - (IBAction)celleditbtn:(id)sender;
+
+
+
+
+@property (strong, nonatomic) IBOutlet UIView *docmntview;
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;
