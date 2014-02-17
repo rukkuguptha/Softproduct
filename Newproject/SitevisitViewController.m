@@ -31,8 +31,11 @@
     [[UITabBar appearance] setTintColor:[UIColor redColor]];
     _prdunratetble.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _prdunratetble.layer.borderWidth=3.0;
+    _documenttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _documenttable.layer.borderWidth=3.0;
     NSArray*newarray=[[NSArray alloc]initWithObjects:_genralitm,_rateitm,_docuitm, nil];
     [self.firsttabbar setItems:newarray animated:YES];
+    _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
 }
 
@@ -63,43 +66,61 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
+        if (tableView==_prdunratetble) {
+             [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
+        }
+        if (tableView==_documenttable) {
+                 [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
+        }
+
         cell=_ratecell;
     }
-   // cell.textLabel.text=[_serviceaddedarray objectAtIndex:indexPath.row];
+     // cell.textLabel.text=[_serviceaddedarray objectAtIndex:indexPath.row];
     
     return cell;
 }
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    
-    
-    
-    
-    if ([self.firsttabbar.items objectAtIndex:0]) {
-        
-        _gernalview.hidden=NO;
-        
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_documenttable||tableView==_prdunratetble)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+        }
     }
-    if ([self.firsttabbar.items objectAtIndex:1]) {
-        
-        _rateview.hidden=NO;
-        
-        
-    }
-    if ([self.firsttabbar.items objectAtIndex:2]) {
-        
-        _docmntview.hidden=NO;
-        
 }
+
 
     
 
-    
-}
 
 -(IBAction)closesitevisit:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)generalbtn:(id)sender {
+    
+    _gernalview.hidden=NO;
+     _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+}
+
+- (IBAction)prductnbtn:(id)sender {
+     _gernalview.hidden=YES;
+    _rateview.hidden=NO;
+    _docmntview.hidden=YES;
+}
+
+- (IBAction)documntbtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=NO;
 }
 
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
@@ -116,5 +137,13 @@
 }
 
 - (IBAction)celleditbtn:(id)sender {
+}
+- (IBAction)takepicturebtn:(id)sender {
+}
+
+- (IBAction)upadtepicturebtn:(id)sender {
+}
+
+- (IBAction)docutypebtn:(id)sender {
 }
 @end

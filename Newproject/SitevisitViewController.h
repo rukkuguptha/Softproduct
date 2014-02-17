@@ -58,12 +58,24 @@
 - (IBAction)Rateaddbtn:(id)sender;
 - (IBAction)celleditbtn:(id)sender;
 
-
-
-
+/*Document view*/
 @property (strong, nonatomic) IBOutlet UIView *docmntview;
+@property (strong, nonatomic) IBOutlet UIButton *docutypebtnlbl;
+@property (strong, nonatomic) IBOutlet UIImageView *picturepreviewimg;
+- (IBAction)takepicturebtn:(id)sender;
+- (IBAction)upadtepicturebtn:(id)sender;
+- (IBAction)docutypebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *tabletitleview;
+
+@property (strong, nonatomic) IBOutlet UITableView *documenttable;
+
+
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;
+- (IBAction)generalbtn:(id)sender;
+
+- (IBAction)prductnbtn:(id)sender;
+- (IBAction)documntbtn:(id)sender;
 
 @end
