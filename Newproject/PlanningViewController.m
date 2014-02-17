@@ -128,9 +128,9 @@
          _organizationname=(UILabel*)[cell viewWithTag:1];
          cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
          _organizationname.text=planmdl.customername;
-         _leadlabel=(UILabel*)[cell viewWithTag:2];
-         NSString *led=[NSString stringWithFormat:@"%d",planmdl.leadid];
-         _leadlabel.text=led;
+//         _leadlabel=(UILabel*)[cell viewWithTag:2];
+//         NSString *led=[NSString stringWithFormat:@"%d",planmdl.leadid];
+//         _leadlabel.text=led;
          _planidlabel=(UILabel*)[cell viewWithTag:3];
        _planidlabel.text=planmdl.planid;
              }
@@ -242,6 +242,22 @@
 
     
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+       // [self DeleteServices];
+        [_planlistarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if(tableView==_plangtable)
@@ -278,6 +294,25 @@
 {
     _addplanview.hidden=YES;
     
+}
+-(IBAction)deleteplan:(id)sender
+{
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_plangtable setEditing:NO animated:NO];
+        [_plangtable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_plangtable setEditing:YES animated:YES];
+        [_plangtable reloadData];
+        
+    }
+
 }
 -(IBAction)checkleadaction:(id)sender
 {
@@ -322,26 +357,6 @@
     }
     
 }
-//-(IBAction)selectcustomer:(id)sender
-//{
-//    poptype=1;
-//    UIViewController *popovercontent=[[UIViewController alloc]init];
-//    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
-//    popoverview.backgroundColor=[UIColor whiteColor];
-//    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 100)];
-//    _popovertableview.delegate=(id)self;
-//    _popovertableview.dataSource=(id)self;
-//    _popovertableview.rowHeight=32;
-//    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-//    [popoverview addSubview:_popovertableview];
-//    popovercontent.view=popoverview;
-//    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 90);
-//    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
-//    [self.popovercontroller presentPopoverFromRect:_customerselectionBtn.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
-//    
-//    
-//    
-//}
 -(IBAction)planselection:(id)sender
 {
     //[self SelectAllLeads];
@@ -751,9 +766,7 @@
 	if( recordResults )
         
 	{
-        
-        
-		[_soapResults appendString: string];
+        [_soapResults appendString: string];
     }
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName

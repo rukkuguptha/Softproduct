@@ -20,6 +20,7 @@
     UIButton *button;
     BOOL recordResults;
     NSInteger optionidentifier;
+    NSInteger path;
 }
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
@@ -42,7 +43,6 @@
 /*Buttons*/
 @property(strong,nonatomic)IBOutlet UIButton *leadcheckbtn;
 @property(strong,nonatomic)IBOutlet UIButton *custcheckbtn;
-//@property(strong,nonatomic)IBOutlet UIButton *customerselectionBtn;
 @property(strong,nonatomic)IBOutlet UIButton *planselectionbtn;
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 
@@ -70,6 +70,7 @@
 -(IBAction)updateplanning:(id)sender;
 -(IBAction)cancelplanning:(id)sender;
 -(IBAction)Editaction:(id)sender;
+-(IBAction)deleteplan:(id)sender;
 
 /*array*/
 //@property(strong,nonatomic)NSMutableArray *leadlistarray;
