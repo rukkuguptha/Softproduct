@@ -131,6 +131,8 @@
          _leadlabel=(UILabel*)[cell viewWithTag:2];
          NSString *led=[NSString stringWithFormat:@"%d",planmdl.leadid];
          _leadlabel.text=led;
+         _planidlabel=(UILabel*)[cell viewWithTag:3];
+       _planidlabel.text=planmdl.planid;
              }
     
     return cell;
@@ -170,7 +172,7 @@
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
                     }
-                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                    _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_sitevisitVctrl
                                        animated:YES completion:NULL];
@@ -812,7 +814,7 @@
         
         recordResults = FALSE;
         _plnmdl=[[planmodel alloc]init];
-        _plnmdl.planid=[_soapResults integerValue];
+        _plnmdl.planid=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"customername"])

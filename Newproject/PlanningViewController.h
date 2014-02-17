@@ -49,6 +49,7 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *planingcell;
 @property(strong,nonatomic)IBOutlet UILabel *organizationname;
 @property(strong,nonatomic)IBOutlet UILabel *leadlabel;
+@property(strong,nonatomic)IBOutlet UILabel *planidlabel;
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 @property(strong,nonatomic)UISearchBar *searchbar;

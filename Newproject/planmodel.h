@@ -10,7 +10,7 @@
 
 @interface planmodel : NSObject
 
-@property(readwrite)NSInteger planid;
+@property(strong,nonatomic)NSString *planid;
 @property(strong,nonatomic)NSString *customername;
 @property(readwrite)NSInteger leadid;
 @property(readwrite)NSInteger customerid;
