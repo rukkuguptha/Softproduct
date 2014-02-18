@@ -31,7 +31,12 @@
     _servicelisttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     // Do any additional setup after loading the view from its nib.
 }
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self SelectAllServices];
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -62,7 +67,7 @@
 }
 -(IBAction)selectservices:(id)sender
 {
-    [self SelectAllServices];
+   
     UIViewController *popovercontent=[[UIViewController alloc]init];
     UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
     popoverview.backgroundColor=[UIColor whiteColor];
@@ -78,6 +83,10 @@
     [self.popovercontroller presentPopoverFromRect:_servicebtn.frame inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
 
+}
+-(IBAction)addservicetotable:(id)sender
+{
+    [self InsertPlanService];
 }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -109,7 +118,13 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
+    if(tableView==_servicelisttable)
+    {
     cell.textLabel.text=[_serviceaddedarray objectAtIndex:indexPath.row];
+     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    //cell.textLabel.text=[_serviceadddict objectForKey:[_serviceaddedarray objectAtIndex:indexPath.row]];
+//    NSLog(@"soapmsg%@",[_servicedict objectForKey:[_serviceaddedarray objectAtIndex:indexPath.row]]);
+}
     if(tableView==_popovertableview)
     {
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
@@ -162,6 +177,7 @@
 }
 /*webservice*/
 -(void)SelectAllServices{
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -210,6 +226,109 @@
     }
     
 }
+-(void)InsertPlanService{
+    webtype=1;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSString *serv;
+    serv=[_servicedict objectForKey:_servicebtn.titleLabel.text];
+
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertPlanService xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<serviceid>%d</serviceid>\n"
+                   "</InsertPlanService>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planID,[serv integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertPlanService" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SelectPlanServices{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectPlanServices xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>"
+                   "</SelectPlanServices>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planID];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectPlanServices" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -242,16 +361,24 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_popovertableview reloadData];
-    //[_plangtable reloadData];
+    [_servicelisttable reloadData];
+        if(webtype==1)
+    {
+        [self SelectPlanServices];
+        webtype=0;
+    }
+    
+
     
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"SelectAllServicesResult"])
-    {
+    {   
         _allservicearray=[[NSMutableArray alloc]init];
        _servicedict=[[NSMutableDictionary alloc]init];
+          _serviceadddict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -276,7 +403,30 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectPlanServicesResponse"])
+    {
+        _serviceaddedarray=[[NSMutableArray alloc]init];
+      
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ServiceId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+
+
     
     
     
@@ -318,11 +468,32 @@
     {
         
         recordResults = FALSE;
+       
         [_servicedict setObject:_servicestring forKey:_soapResults];
+        [_serviceadddict setObject:_soapResults forKey:_servicestring];
+
        [_allservicearray addObject:_soapResults];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"PlanId"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"ServiceId"])
+    {
+        
+        recordResults = FALSE;
+        
+        NSString *servicename=[_serviceadddict objectForKey:_soapResults];
+        [_serviceaddedarray addObject:servicename];
+        _soapResults = nil;
+    }
     
+
     
     
     

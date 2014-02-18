@@ -13,12 +13,16 @@
 {
     NSInteger path;
     BOOL recordResults;
+    NSInteger webtype;
 }
+
+@property(strong,nonatomic)NSString *planID;
 
 /*IBAction*/
 -(IBAction)closeservices:(id)sender;
 -(IBAction)deleteservices:(id)sender;
 -(IBAction)selectservices:(id)sender;
+-(IBAction)addservicetotable:(id)sender;
 
 /*outlets*/
 @property(strong,nonatomic)IBOutlet UITableView *servicelisttable;
@@ -32,6 +36,7 @@
 @property(strong,nonatomic)NSMutableArray *allservicearray;
 @property(strong,nonatomic)NSMutableArray *serviceaddedarray;
 @property(strong,nonatomic)NSMutableDictionary *servicedict;
+@property(strong,nonatomic)NSMutableDictionary *serviceadddict;
 @property(strong,nonatomic)NSString *servicestring;
 
 /* xmlparser*/

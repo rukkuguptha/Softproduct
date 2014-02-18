@@ -163,7 +163,9 @@
                     if (!self.servVctrl) {
                         self.servVctrl=[[AddserviceViewController alloc]initWithNibName:@"AddserviceViewController" bundle:nil];
                     }
-                    
+                    planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+                    _servVctrl.planID=planmdl.planid;
+                    NSLog(@"%@",planmdl.planid);
                     _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                     _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_servVctrl
@@ -400,6 +402,11 @@
     popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 90);
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
+    NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
     //UITableView *table = (UITableView *)[cell superview];
     self.popovercontroller = [[UIPopoverController alloc]initWithContentViewController:popoverContent];
     [self.popovercontroller presentPopoverFromRect:_disclosurebtn.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
