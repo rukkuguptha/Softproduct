@@ -21,6 +21,8 @@
     BOOL recordResults;
     NSInteger optionidentifier;
     NSInteger path;
+    NSInteger webtype;
+    NSInteger btnindex;
 }
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
