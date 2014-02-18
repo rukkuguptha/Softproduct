@@ -55,6 +55,9 @@
     _bidderstable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _bidderstable.layer.borderWidth=3.0;
 
+    _weathertitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _weathertable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _weathertable.layer.borderWidth=3.0;
 
 
     
@@ -307,5 +310,7 @@
 - (IBAction)addmeetgnots:(id)sender {
 }
 - (IBAction)addbidder:(id)sender {
+}
+- (IBAction)addweather:(id)sender {
 }
 @end

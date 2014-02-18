@@ -127,10 +127,13 @@
 @property (strong, nonatomic) IBOutlet UITableView *bidderstable;
 @property (strong, nonatomic) IBOutlet UIView *bidderstitle;
 
-
-
-
 - (IBAction)addbidder:(id)sender;
+/*weatheroutlook*/
+@property (strong, nonatomic) IBOutlet UIView *weatherview;
+@property (strong, nonatomic) IBOutlet UIView *weathertitle;
+@property (strong, nonatomic) IBOutlet UITableView *weathertable;
+
+- (IBAction)addweather:(id)sender;
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;

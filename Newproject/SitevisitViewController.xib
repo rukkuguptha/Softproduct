@@ -41,6 +41,9 @@
                 <outlet property="scrollview" destination="7Sa-15-2Ih" id="wsj-Ah-t01"/>
                 <outlet property="tabletitleview" destination="PHA-u6-Q1v" id="Q8Z-n5-vu0"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="weathertable" destination="MRU-zb-2OY" id="T5e-0x-kF9"/>
+                <outlet property="weathertitle" destination="uXN-iK-QGX" id="AXp-p9-ovR"/>
+                <outlet property="weatherview" destination="GXJ-KZ-gBZ" id="WDS-mE-Z4S"/>
                 <outlet property="workscdletable" destination="954-kv-jtW" id="HOn-iK-gNm"/>
                 <outlet property="workschdleview" destination="dDb-gC-cU1" id="eh5-Iy-5aj"/>
                 <outlet property="worktitleview" destination="UW6-TP-gYQ" id="OD5-tA-hbj"/>
@@ -699,6 +702,59 @@
                                         </tableView>
                                     </subviews>
                                     <color key="backgroundColor" red="0.31071814730000002" green="0.6208944515" blue="0.47233222619999998" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="GXJ-KZ-gBZ" userLabel="weatheroutlook">
+                                    <rect key="frame" x="14" y="17" width="969" height="622"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="TGg-lI-71J">
+                                            <rect key="frame" x="91" y="31" width="791" height="528"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="MRU-zb-2OY">
+                                            <rect key="frame" x="122" y="102" width="730" height="427"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                        <view contentMode="scaleToFill" id="uXN-iK-QGX">
+                                            <rect key="frame" x="122" y="49" width="730" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather From Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYK-rH-0Df">
+                                                    <rect key="frame" x="75" y="14" width="120" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather To Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EIC-Zs-YLI">
+                                                    <rect key="frame" x="314" y="14" width="102" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Condition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JnP-uu-mOj">
+                                                    <rect key="frame" x="501" y="14" width="141" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aE6-N4-fxn">
+                                                    <rect key="frame" x="0.0" y="5" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" image="appbar.addblack.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addweather:" destination="-1" eventType="touchUpInside" id="GRH-2s-3kG"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                             </subviews>
                         </scrollView>
