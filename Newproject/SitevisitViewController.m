@@ -28,13 +28,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [[UITabBar appearance] setTintColor:[UIColor redColor]];
+    [[UIToolbar appearance] setTintColor:[UIColor redColor]];
     _prdunratetble.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _prdunratetble.layer.borderWidth=3.0;
     _documenttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _documenttable.layer.borderWidth=3.0;
-    NSArray*newarray=[[NSArray alloc]initWithObjects:_genralitm,_rateitm,_docuitm, nil];
-    [self.firsttabbar setItems:newarray animated:YES];
+  
     _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _jobsitetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _jobsitetable.layer.borderWidth=3.0;
@@ -64,8 +63,7 @@
     _notestable.layer.borderWidth=3.0;
     
 
-    
-}
+    }
 
 - (void)didReceiveMemoryWarning
 {
@@ -96,12 +94,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         if (tableView==_prdunratetble) {
              [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
+            
+             cell=_ratecell;
         }
         if (tableView==_documenttable) {
-                 [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
+                 [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
+            
+            cell=_docucell;
+            
         }
 
-        cell=_ratecell;
+        
+        if (tableView==_jobsitetable) {
+            [[NSBundle mainBundle]loadNibNamed:@"Jobsitecellview" owner:self options:nil];
+            
+            cell=_jobsitecell;
+            
+        }
+        
+
+       
     }
      // cell.textLabel.text=[_serviceaddedarray objectAtIndex:indexPath.row];
     
@@ -133,6 +145,24 @@
 }
 
 - (IBAction)generalbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor whiteColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
+    
+    
+
+    
     
     _gernalview.hidden=NO;
      _rateview.hidden=YES;
@@ -152,6 +182,20 @@
 }
 
 - (IBAction)prductnbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor whiteColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+    
      _gernalview.hidden=YES;
     _rateview.hidden=NO;
     _docmntview.hidden=YES;
@@ -170,6 +214,22 @@
 }
 
 - (IBAction)documntbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor whiteColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
+    
+    
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=NO;
@@ -188,6 +248,24 @@
 }
 
 - (IBAction)acceblitybtn:(id)sender {
+    
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor whiteColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
+    
+    
+    
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -206,6 +284,21 @@
 }
 
 - (IBAction)Equmntstgareabtn:(id)sender {
+    
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor whiteColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
@@ -226,6 +319,21 @@
 }
 
 - (IBAction)jobsitebtn:(id)sender {
+    
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor whiteColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -244,6 +352,21 @@
 }
 
 - (IBAction)safetybtn:(id)sender {
+    
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor whiteColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -262,6 +385,20 @@
 }
 
 - (IBAction)newequipmentbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor whiteColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -282,6 +419,20 @@
 }
 
 - (IBAction)workschedulebtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor whiteColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -302,6 +453,20 @@
 }
 
 - (IBAction)meetingnotesbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor whiteColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -321,6 +486,20 @@
 }
 
 - (IBAction)otherbiddersbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor whiteColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -338,6 +517,20 @@
 }
 
 - (IBAction)weatheroutlookbtn:(id)sender {
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor whiteColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -356,6 +549,21 @@
 }
 
 - (IBAction)notesbtn:(id)sender {
+    
+    _gernalbtnlbl.tintColor=[UIColor blackColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor whiteColor];
+
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
