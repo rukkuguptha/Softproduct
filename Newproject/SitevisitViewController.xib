@@ -813,12 +813,18 @@
                                 </barButtonItem>
                                 <barButtonItem title="Weather Outlook" id="cVR-bp-EOA">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="weatheroutlookbtn:" destination="-1" id="EeV-op-Tov"/>
+                                    </connections>
                                 </barButtonItem>
                                 <barButtonItem width="36" style="plain" systemItem="fixedSpace" id="yfK-Rz-eQx">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </barButtonItem>
                                 <barButtonItem title="Notes" id="Ykw-Ec-MDB">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <connections>
+                                        <action selector="notesbtn:" destination="-1" id="0xm-UE-FkR"/>
+                                    </connections>
                                 </barButtonItem>
                             </items>
                         </toolbar>

@@ -146,6 +146,8 @@
 - (IBAction)workschedulebtn:(id)sender;
 - (IBAction)meetingnotesbtn:(id)sender;
 - (IBAction)otherbiddersbtn:(id)sender;
+- (IBAction)weatheroutlookbtn:(id)sender;
+- (IBAction)notesbtn:(id)sender;
 
 
 @end

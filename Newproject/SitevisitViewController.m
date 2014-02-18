@@ -135,6 +135,8 @@
       _jobsiteview.hidden=YES;
     _safetyview.hidden=YES;
    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+
 }
 
 - (IBAction)prductnbtn:(id)sender {
@@ -146,6 +148,8 @@
       _jobsiteview.hidden=YES;
     _safetyview.hidden=YES;
    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+
 }
 
 - (IBAction)documntbtn:(id)sender {
@@ -157,6 +161,8 @@
       _jobsiteview.hidden=YES;
     _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+
 
 }
 
@@ -169,6 +175,8 @@
       _jobsiteview.hidden=YES;
     _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+
 
 }
 
@@ -182,6 +190,8 @@
      _jobsiteview.hidden=YES;
     _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+
 
 
 }
@@ -195,6 +205,8 @@
     _jobsiteview.hidden=NO;
      _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+
     
 }
 
@@ -207,6 +219,7 @@
     _jobsiteview.hidden=YES;
     _safetyview.hidden=NO;
        _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
 
     
 }
@@ -221,18 +234,38 @@
     _safetyview.hidden=YES;
     
     _neweqmntview.hidden=NO;
+      _workschdleview.hidden=YES;
     
 
     
 }
 
 - (IBAction)workschedulebtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=NO;
+    
+    
+
+    
 }
 
 - (IBAction)meetingnotesbtn:(id)sender {
 }
 
 - (IBAction)otherbiddersbtn:(id)sender {
+}
+
+- (IBAction)weatheroutlookbtn:(id)sender {
+}
+
+- (IBAction)notesbtn:(id)sender {
 }
 
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
