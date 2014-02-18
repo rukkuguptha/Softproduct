@@ -35,6 +35,9 @@
                 <outlet property="scrollview" destination="7Sa-15-2Ih" id="wsj-Ah-t01"/>
                 <outlet property="tabletitleview" destination="PHA-u6-Q1v" id="Q8Z-n5-vu0"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="workscdletable" destination="954-kv-jtW" id="HOn-iK-gNm"/>
+                <outlet property="workschdleview" destination="dDb-gC-cU1" id="eh5-Iy-5aj"/>
+                <outlet property="worktitleview" destination="UW6-TP-gYQ" id="OD5-tA-hbj"/>
                 <outlet property="ziptxtfld" destination="blc-Fn-hDy" id="PdI-LY-bKf"/>
             </connections>
         </placeholder>
@@ -170,7 +173,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="Vyz-Bj-iPo" userLabel="Rate View">
+                                <view contentMode="scaleToFill" id="Vyz-Bj-iPo" userLabel="Rate View">
                                     <rect key="frame" x="7" y="0.0" width="1006" height="601"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -237,7 +240,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="XNq-fp-i9s" userLabel="DocumentView">
+                                <view contentMode="scaleToFill" id="XNq-fp-i9s" userLabel="DocumentView">
                                     <rect key="frame" x="20" y="14" width="983" height="582"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -320,7 +323,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="68C-iE-dOo" userLabel="Accessibilityview">
+                                <view contentMode="scaleToFill" id="68C-iE-dOo" userLabel="Accessibilityview">
                                     <rect key="frame" x="24" y="17" width="976" height="577"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -359,7 +362,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="yH7-LT-N8m" userLabel="EquipmentView">
+                                <view contentMode="scaleToFill" id="yH7-LT-N8m" userLabel="EquipmentView">
                                     <rect key="frame" x="33" y="24" width="958" height="562"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -397,7 +400,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="w3C-lq-T0n" userLabel="Jobsiteview">
+                                <view contentMode="scaleToFill" id="w3C-lq-T0n" userLabel="Jobsiteview">
                                     <rect key="frame" x="40" y="31" width="943" height="549"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -447,7 +450,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="M4O-Ol-Vze" userLabel="SafetyView">
+                                <view contentMode="scaleToFill" id="M4O-Ol-Vze" userLabel="SafetyView">
                                     <rect key="frame" x="50" y="40" width="923" height="531"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -493,7 +496,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" id="Bt2-Yr-sjl" userLabel="NewEquipmentview">
+                                <view contentMode="scaleToFill" id="Bt2-Yr-sjl" userLabel="NewEquipmentview">
                                     <rect key="frame" x="26" y="42" width="972" height="537"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -550,6 +553,59 @@
                                         </tableView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="dDb-gC-cU1">
+                                    <rect key="frame" x="0.0" y="0.0" width="1024" height="621"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="3rz-N8-cms">
+                                            <rect key="frame" x="87" y="43" width="856" height="550"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="954-kv-jtW">
+                                            <rect key="frame" x="141" y="129" width="720" height="427"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                        <view contentMode="scaleToFill" id="UW6-TP-gYQ">
+                                            <rect key="frame" x="141" y="81" width="720" height="50"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="axn-rR-FKa">
+                                                    <rect key="frame" x="115" y="14" width="68" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sWC-jL-m6K">
+                                                    <rect key="frame" x="248" y="14" width="76" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jxg-n9-ISd">
+                                                    <rect key="frame" x="433" y="14" width="95" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KkD-Nk-P2Y">
+                                                    <rect key="frame" x="30" y="5" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" image="appbar.addblack.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addworkscdle:" destination="-1" eventType="touchUpInside" id="5Hu-lc-V6c"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                             </subviews>
                         </scrollView>

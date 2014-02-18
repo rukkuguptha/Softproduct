@@ -105,9 +105,13 @@
 @property (strong, nonatomic) IBOutlet UIView *neweqmnttitile;
 
 @property (strong, nonatomic) IBOutlet UITableView *newequipmenttable;
-
-
 - (IBAction)addnewequipment:(id)sender;
+/*work schedule view*/
+
+@property (strong, nonatomic) IBOutlet UIView *workschdleview;
+@property (strong, nonatomic) IBOutlet UIView *worktitleview;
+@property (strong, nonatomic) IBOutlet UITableView *workscdletable;
+- (IBAction)addworkscdle:(id)sender;
 
 
 /*IBAction*/
