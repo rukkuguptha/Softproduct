@@ -286,6 +286,7 @@
 }
 
 - (IBAction)addplan:(id)sender {
+    _planslectionarray=[[NSMutableArray alloc]init];
     optionidentifier=1;
     self.navabar.title = @"ADD";
     //[self SelectAllCustomer];
