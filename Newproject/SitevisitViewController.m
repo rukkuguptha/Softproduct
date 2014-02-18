@@ -36,6 +36,18 @@
     NSArray*newarray=[[NSArray alloc]initWithObjects:_genralitm,_rateitm,_docuitm, nil];
     [self.firsttabbar setItems:newarray animated:YES];
     _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _jobsitetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _jobsitetable.layer.borderWidth=3.0;
+    _jobsitetitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _safteytitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _safetytableview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _safetytableview.layer.borderWidth=3.0;
+    _neweqmnttitile.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _newequipmenttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _newequipmenttable.layer.borderWidth=3.0;
+
+
+
     
 }
 
@@ -109,21 +121,113 @@
     _gernalview.hidden=NO;
      _rateview.hidden=YES;
     _docmntview.hidden=YES;
+     _accblitytxtview.hidden=YES;
+    _equipmentview.hidden=YES;
+      _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+   _neweqmntview.hidden=YES;
 }
 
 - (IBAction)prductnbtn:(id)sender {
      _gernalview.hidden=YES;
     _rateview.hidden=NO;
     _docmntview.hidden=YES;
+     _accblitytxtview.hidden=YES;
+    _equipmentview.hidden=YES;
+      _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+   _neweqmntview.hidden=YES;
 }
 
 - (IBAction)documntbtn:(id)sender {
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=NO;
+    _accblitytxtview.hidden=YES;
+    _equipmentview.hidden=YES;
+      _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+       _neweqmntview.hidden=YES;
+
+}
+
+- (IBAction)acceblitybtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=NO;
+      _equipmentview.hidden=YES;
+      _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+       _neweqmntview.hidden=YES;
+
+}
+
+- (IBAction)Equmntstgareabtn:(id)sender {
+    
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=NO;
+     _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+       _neweqmntview.hidden=YES;
+
+
+}
+
+- (IBAction)jobsitebtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=NO;
+     _safetyview.hidden=YES;
+       _neweqmntview.hidden=YES;
+    
+}
+
+- (IBAction)safetybtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=NO;
+       _neweqmntview.hidden=YES;
+
+    
+}
+
+- (IBAction)newequipmentbtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    
+    _neweqmntview.hidden=NO;
+    
+
+    
+}
+
+- (IBAction)workschedulebtn:(id)sender {
+}
+
+- (IBAction)meetingnotesbtn:(id)sender {
+}
+
+- (IBAction)otherbiddersbtn:(id)sender {
 }
 
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
+    
     
     
 }
@@ -145,5 +249,15 @@
 }
 
 - (IBAction)docutypebtn:(id)sender {
+}
+- (IBAction)accebilityupdate:(id)sender {
+}
+- (IBAction)equpmntupdatebtn:(id)sender {
+}
+- (IBAction)addnewjobsite:(id)sender {
+}
+- (IBAction)addsafetyrules:(id)sender {
+}
+- (IBAction)addnewequipment:(id)sender {
 }
 @end
