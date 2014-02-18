@@ -22,6 +22,8 @@
 		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
+		6482C11B18B21A940015BB7D /* newViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6482C11918B21A940015BB7D /* newViewController.m */; };
+		6482C11C18B21A940015BB7D /* newViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6482C11A18B21A940015BB7D /* newViewController.xib */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
 		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
@@ -218,6 +220,9 @@
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		6481615D176F0B230017F4CC /* ActivityCustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCustomCell.xib; sourceTree = "<group>"; };
+		6482C11818B21A940015BB7D /* newViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newViewController.h; sourceTree = "<group>"; };
+		6482C11918B21A940015BB7D /* newViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newViewController.m; sourceTree = "<group>"; };
+		6482C11A18B21A940015BB7D /* newViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newViewController.xib; sourceTree = "<group>"; };
 		648D12FD17716C7F006BB41A /* rectangle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle3.png; sourceTree = "<group>"; };
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
 		648D13011771726E006BB41A /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
@@ -694,6 +699,9 @@
 				D4B7017D18AB3EAB0060BE0A /* PlanningViewController.h */,
 				D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */,
 				D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */,
+				6482C11818B21A940015BB7D /* newViewController.h */,
+				6482C11918B21A940015BB7D /* newViewController.m */,
+				6482C11A18B21A940015BB7D /* newViewController.xib */,
 				64A15E1518AB7C1B008112EA /* customplancell.xib */,
 				642FA78618AC927F00372623 /* AddserviceViewController.h */,
 				642FA78718AC927F00372623 /* AddserviceViewController.m */,
@@ -921,6 +929,7 @@
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
 				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
 				64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */,
+				6482C11C18B21A940015BB7D /* newViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */,
 				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
@@ -1032,6 +1041,7 @@
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
 				64A14D82187573B50028B43A /* basicreqmdl.m in Sources */,
 				649ED7AC187FBD710086CDDE /* ServiceViewController.m in Sources */,
+				6482C11B18B21A940015BB7D /* newViewController.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				64A14D7818752E3F0028B43A /* listusermdl.m in Sources */,
 				D4A2AFF9176EEC7200F4E196 /* FollowupViewController.m in Sources */,

@@ -53,6 +53,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -60,7 +61,7 @@
     return 1;
 }
 
-#pragma mark-Tableview
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView==_plangtable)
@@ -289,6 +290,9 @@
     self.navabar.title = @"ADD";
     //[self SelectAllCustomer];
     _addplanview.hidden=NO;
+    [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+     [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+     [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
 }
 -(IBAction)closeaddview:(id)sender
 {
@@ -403,7 +407,14 @@
 
 -(IBAction)updateplanning:(id)sender
 {
-    
+  if(optionidentifier==1)
+  {
+      [self insertplans];
+  }
+    else if(optionidentifier==2)
+    {
+        
+    }
 }
 -(IBAction)cancelplanning:(id)sender
 {
@@ -411,9 +422,36 @@
 }
 -(IBAction)Editaction:(id)sender
 {
-    optionidentifier=1;
+    optionidentifier=2;
     self.navabar.title = @"Edit";
       _addplanview.hidden=NO;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
+    NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:textFieldIndexPath.row];
+    if (planmdl.leadid==0) {
+        [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else{
+        [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    if (planmdl.customerid==0) {
+        [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+    }
+    else{
+        [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
+    [_planselectionbtn setTitle:planmdl.customername forState:UIControlStateNormal];
+    
+
+
 }
 #pragma mark - SearchBar
 
@@ -443,7 +481,7 @@
     }
     
 }
-/*webservices*/
+#pragma mark-webservices
 -(void)SelectAllPlans
 {
     recordResults = FALSE;
@@ -593,6 +631,78 @@
     }
     
 }
+-(void)insertplans
+{  webtype=1;
+    NSString *ledid;
+    NSString *custid;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+  
+    if (leadcheck==0)
+    {
+        ledid=0;
+    }
+    else if(leadcheck==1)
+    {
+        ledid=[_leaddict objectForKey:_planselectionbtn.titleLabel.text];
+    }
+    if(customercheck==0)
+    {
+        custid=0;
+    }
+    else if(customercheck==1)
+    {
+        custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
+    }
+   
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertPlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<customer>%@</customer>\n"
+                   "<lead>%d</lead>\n"
+                   "<cusid>%d</cusid>\n"
+                   "</InsertPlan>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -627,6 +737,11 @@
 	[_xmlParser parse];
     [_popovertableview reloadData];
     [_plangtable reloadData];
+    if(webtype==1)
+    {
+        [self SelectAllPlans];
+        webtype=0;
+    }
     
 }
 #pragma mark-xml parser
