@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>049010F1-0789-430E-8937-CE8AAE416D37</string>
+	<string>581408CD-D170-44DE-8126-D8484D02FBAE</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Newproject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8FE33B55-5235-4EB5-8036-6B98E6258525</key>
-		<string>ssh://github.com/rukkugms/CDKontract.git</string>
+		<key>58148584-F943-41B1-AEB4-7178498E9903</key>
+		<string>ssh://github.com/Riagms/CDKontract.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8FE33B55-5235-4EB5-8036-6B98E6258525</key>
+		<key>58148584-F943-41B1-AEB4-7178498E9903</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/rukkugms/CDKontract.git</string>
+	<string>ssh://github.com/Riagms/CDKontract.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8FE33B55-5235-4EB5-8036-6B98E6258525</string>
+	<string>58148584-F943-41B1-AEB4-7178498E9903</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8FE33B55-5235-4EB5-8036-6B98E6258525</string>
+			<string>58148584-F943-41B1-AEB4-7178498E9903</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CDKontract</string>
+			<string>Kontract</string>
 		</dict>
 	</array>
 </dict>
