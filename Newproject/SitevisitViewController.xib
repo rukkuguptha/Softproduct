@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SitevisitViewController">
             <connections>
+                <outlet property="EstggAreabtnlbl" destination="8EW-gK-0kf" id="IK6-Nx-Ghx"/>
                 <outlet property="accblitytxtview" destination="cUa-as-xcr" id="fL2-Rb-Afd"/>
+                <outlet property="accesbltybtnlbl" destination="cxS-8e-ojO" id="jAP-8D-KnZ"/>
                 <outlet property="accessview" destination="68C-iE-dOo" id="xoT-pu-Wka"/>
+                <outlet property="biddersbtnlbl" destination="jp7-S0-OuB" id="TCi-ur-tHJ"/>
                 <outlet property="bidderstable" destination="RoK-Ip-x4J" id="eeF-SX-YGq"/>
                 <outlet property="bidderstitle" destination="dob-cd-BSf" id="sEm-lh-45y"/>
                 <outlet property="biddersview" destination="Q5V-lz-SOH" id="5wz-Ur-972"/>
@@ -16,37 +19,47 @@
                 <outlet property="complextyofwrkbtnlbl" destination="OFw-a5-rg2" id="wmJ-WJ-AMk"/>
                 <outlet property="docmntview" destination="XNq-fp-i9s" id="o9T-mc-ft0"/>
                 <outlet property="documenttable" destination="TML-lG-QA2" id="aSf-8Z-Z6H"/>
+                <outlet property="documntbtnlbl" destination="fbZ-E1-dfa" id="oSA-P6-nmP"/>
                 <outlet property="docutypebtnlbl" destination="Jkw-ff-kSx" id="0nL-Wv-Y02"/>
                 <outlet property="equipmentview" destination="yH7-LT-N8m" id="A9V-Nt-nTW"/>
                 <outlet property="equipmnttxtview" destination="MLV-Y7-tSs" id="Gq4-HT-fOT"/>
+                <outlet property="equpmntslbl" destination="egx-hO-R4Q" id="DYk-CM-d6J"/>
                 <outlet property="facilitytxtview" destination="MGX-iK-94e" id="OTF-JM-82p"/>
+                <outlet property="gernalbtnlbl" destination="a3h-G4-w0u" id="d7c-3A-hEr"/>
                 <outlet property="gernalview" destination="Gcq-hx-B5r" id="sMX-XN-iaT"/>
+                <outlet property="jobsitebtnlbl" destination="r4h-Sx-0E2" id="oBR-WA-ziQ"/>
                 <outlet property="jobsitetable" destination="q5E-uL-DqH" id="Irb-Ma-8Fc"/>
                 <outlet property="jobsitetitleview" destination="Osr-Mo-LQd" id="UDW-qV-Kv1"/>
                 <outlet property="jobsiteview" destination="w3C-lq-T0n" id="syP-b0-aa1"/>
                 <outlet property="loctntxtfld" destination="C1w-VY-1PC" id="qqk-by-5Ll"/>
+                <outlet property="meetingnotesbtnlbl" destination="ah1-3n-VwF" id="kDX-Ci-cwA"/>
                 <outlet property="meetingtable" destination="qd8-pm-qWY" id="znq-eg-QDd"/>
                 <outlet property="meetingtitleview" destination="aZH-Ep-3Sy" id="RWb-LF-48k"/>
                 <outlet property="meetingview" destination="60n-C1-Sq0" id="6JZ-e8-4hF"/>
                 <outlet property="neweqmnttitile" destination="5CV-WG-ESS" id="SUG-oe-Waf"/>
                 <outlet property="neweqmntview" destination="Bt2-Yr-sjl" id="p37-eC-2Gl"/>
                 <outlet property="newequipmenttable" destination="3df-8X-ofX" id="zpl-ye-t8f"/>
+                <outlet property="notesbtnlbl" destination="Ykw-Ec-MDB" id="4xT-iI-Abx"/>
                 <outlet property="notestable" destination="lX0-lx-Tlp" id="YqA-96-4NR"/>
                 <outlet property="notestitle" destination="qZp-Xx-jXf" id="z1Q-99-s3e"/>
                 <outlet property="notesview" destination="hdW-2l-gyZ" id="Zhz-R2-2U1"/>
                 <outlet property="picturepreviewimg" destination="iMR-tn-QE3" id="475-aW-4Et"/>
+                <outlet property="pratebtnlbl" destination="hZb-DZ-6b9" id="LeM-Ru-dXP"/>
                 <outlet property="prdunratetble" destination="YtF-Od-Rb5" id="hvt-Bp-jSo"/>
                 <outlet property="rateview" destination="Vyz-Bj-iPo" id="hk3-4c-LMp"/>
                 <outlet property="safetytableview" destination="DmM-kh-e8R" id="NG6-yd-fOa"/>
                 <outlet property="safetyview" destination="M4O-Ol-Vze" id="UPs-rv-3gd"/>
                 <outlet property="safteytitleview" destination="9nf-TD-E7d" id="6lf-28-HEq"/>
+                <outlet property="saftybtnlbl" destination="V3s-PM-Gc4" id="XiU-ns-YVl"/>
                 <outlet property="scpeofwrktxtview" destination="DFC-Xp-kpQ" id="fjh-YX-WRf"/>
                 <outlet property="scrollview" destination="7Sa-15-2Ih" id="wsj-Ah-t01"/>
                 <outlet property="tabletitleview" destination="PHA-u6-Q1v" id="Q8Z-n5-vu0"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="weatherbtnlbl" destination="cVR-bp-EOA" id="bXZ-wS-VZU"/>
                 <outlet property="weathertable" destination="MRU-zb-2OY" id="T5e-0x-kF9"/>
                 <outlet property="weathertitle" destination="uXN-iK-QGX" id="AXp-p9-ovR"/>
                 <outlet property="weatherview" destination="GXJ-KZ-gBZ" id="WDS-mE-Z4S"/>
+                <outlet property="workbtnlbl" destination="J96-nG-dvl" id="Ab9-Ai-kSV"/>
                 <outlet property="workscdletable" destination="954-kv-jtW" id="HOn-iK-gNm"/>
                 <outlet property="workschdleview" destination="dDb-gC-cU1" id="eh5-Iy-5aj"/>
                 <outlet property="worktitleview" destination="UW6-TP-gYQ" id="OD5-tA-hbj"/>
@@ -720,7 +733,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableView>
                                         <view contentMode="scaleToFill" id="uXN-iK-QGX">
-                                            <rect key="frame" x="122" y="49" width="730" height="50"/>
+                                            <rect key="frame" x="122" y="53" width="730" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather From Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYK-rH-0Df">
@@ -764,16 +777,16 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="yQX-Se-Han">
-                                            <rect key="frame" x="86" y="116" width="791" height="478"/>
+                                            <rect key="frame" x="100" y="71" width="791" height="478"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </imageView>
                                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lX0-lx-Tlp">
-                                            <rect key="frame" x="133" y="174" width="716" height="408"/>
+                                            <rect key="frame" x="147" y="129" width="716" height="408"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableView>
                                         <view contentMode="scaleToFill" id="qZp-Xx-jXf">
-                                            <rect key="frame" x="133" y="131" width="716" height="45"/>
+                                            <rect key="frame" x="147" y="86" width="716" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zBw-Nt-VkU">
@@ -811,7 +824,7 @@
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YfS-a4-0AR">
                             <rect key="frame" x="0.0" y="48" width="1026" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                            <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <barButtonItem title="General" id="a3h-G4-w0u">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -865,11 +878,11 @@
                                     </connections>
                                 </barButtonItem>
                             </items>
+                            <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </toolbar>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="d7c-jc-gXd">
                             <rect key="frame" x="0.0" y="92" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="qCr-Mg-i2V"/>
                                 <barButtonItem title="Safety Rules" id="V3s-PM-Gc4">
@@ -933,6 +946,7 @@
                                     </connections>
                                 </barButtonItem>
                             </items>
+                            <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </toolbar>
                     </subviews>
                 </scrollView>

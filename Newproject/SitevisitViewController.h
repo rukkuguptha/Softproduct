@@ -13,26 +13,6 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
-/*uitabbaritems*/
-@property (strong, nonatomic) IBOutlet UITabBar *firsttabbar;
-@property (strong, nonatomic) IBOutlet UITabBar *secondtabbar;
-
-@property (strong, nonatomic) IBOutlet UITabBarItem *genralitm;
-@property (strong, nonatomic) IBOutlet UITabBarItem *rateitm;
-@property (strong, nonatomic) IBOutlet UITabBarItem *docuitm;
-@property (strong, nonatomic) IBOutlet UITabBarItem *accesblity;
-
-@property (strong, nonatomic) IBOutlet UITabBarItem *Estagareaitm;
-
-@property (strong, nonatomic) IBOutlet UITabBarItem *meetgnotsitm;
-
-@property (strong, nonatomic) IBOutlet UITabBarItem *equpmntiem;
-
-@property (strong, nonatomic) IBOutlet UITabBarItem *wrkshedule;
-@property (strong, nonatomic) IBOutlet UITabBarItem *biddersitm;
-@property (strong, nonatomic) IBOutlet UITabBarItem *weatheritm;
-
-@property (strong, nonatomic) IBOutlet UITabBarItem *noteitm;
 
 /*General View outlet*/
 @property (strong, nonatomic) IBOutlet UIView *gernalview;
@@ -69,6 +49,8 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *documenttable;
 
+@property (strong, nonatomic) IBOutlet UITableViewCell *docucell;
+
 /*Accebility view*/
 
 @property (strong, nonatomic) IBOutlet UIView *accessview;
@@ -88,6 +70,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *jobsitetable;
 @property (strong, nonatomic) IBOutlet UIView *jobsitetitleview;
 - (IBAction)addnewjobsite:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableViewCell *jobsitecell;
 
 
 /*safety views*/
@@ -142,6 +125,25 @@
 @property (strong, nonatomic) IBOutlet UITableView *notestable;
 
 - (IBAction)addnotesbtn:(id)sender;
+
+/*barbuttonitmlbl*/
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *gernalbtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *pratebtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *documntbtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *accesbltybtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *EstggAreabtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *jobsitebtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *saftybtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *equpmntslbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *workbtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *meetingnotesbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *biddersbtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *weatherbtnlbl;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *notesbtnlbl;
+
+
+
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;
