@@ -69,6 +69,45 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *documenttable;
 
+/*Accebility view*/
+
+@property (strong, nonatomic) IBOutlet UIView *accessview;
+@property (strong, nonatomic) IBOutlet UITextView *accblitytxtview;
+- (IBAction)accebilityupdate:(id)sender;
+
+
+/*Equipment Staging area Views*/
+
+@property (strong, nonatomic) IBOutlet UIView *equipmentview;
+
+@property (strong, nonatomic) IBOutlet UITextView *equipmnttxtview;
+- (IBAction)equpmntupdatebtn:(id)sender;
+
+/*Jobsite Views*/
+@property (strong, nonatomic) IBOutlet UIView *jobsiteview;
+@property (strong, nonatomic) IBOutlet UITableView *jobsitetable;
+@property (strong, nonatomic) IBOutlet UIView *jobsitetitleview;
+- (IBAction)addnewjobsite:(id)sender;
+
+
+/*safety views*/
+
+@property (strong, nonatomic) IBOutlet UIView *safetyview;
+@property (strong, nonatomic) IBOutlet UIView *safteytitleview;
+
+@property (strong, nonatomic) IBOutlet UITableView *safetytableview;
+- (IBAction)addsafetyrules:(id)sender;
+
+
+
+/*Equipments views*/
+@property (strong, nonatomic) IBOutlet UIView *neweqmntview;
+@property (strong, nonatomic) IBOutlet UIView *neweqmnttitile;
+
+@property (strong, nonatomic) IBOutlet UITableView *newequipmenttable;
+
+
+- (IBAction)addnewequipment:(id)sender;
 
 
 /*IBAction*/
@@ -77,5 +116,14 @@
 
 - (IBAction)prductnbtn:(id)sender;
 - (IBAction)documntbtn:(id)sender;
+- (IBAction)acceblitybtn:(id)sender;
+- (IBAction)Equmntstgareabtn:(id)sender;
+- (IBAction)jobsitebtn:(id)sender;
+- (IBAction)safetybtn:(id)sender;
+- (IBAction)newequipmentbtn:(id)sender;
+- (IBAction)workschedulebtn:(id)sender;
+- (IBAction)meetingnotesbtn:(id)sender;
+- (IBAction)otherbiddersbtn:(id)sender;
+
 
 @end
