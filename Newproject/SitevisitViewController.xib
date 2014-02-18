@@ -9,6 +9,9 @@
             <connections>
                 <outlet property="accblitytxtview" destination="cUa-as-xcr" id="fL2-Rb-Afd"/>
                 <outlet property="accessview" destination="68C-iE-dOo" id="xoT-pu-Wka"/>
+                <outlet property="bidderstable" destination="RoK-Ip-x4J" id="eeF-SX-YGq"/>
+                <outlet property="bidderstitle" destination="dob-cd-BSf" id="sEm-lh-45y"/>
+                <outlet property="biddersview" destination="Q5V-lz-SOH" id="5wz-Ur-972"/>
                 <outlet property="companynametxtfld" destination="xXu-aj-bMG" id="ww7-8T-hjx"/>
                 <outlet property="complextyofwrkbtnlbl" destination="OFw-a5-rg2" id="wmJ-WJ-AMk"/>
                 <outlet property="docmntview" destination="XNq-fp-i9s" id="o9T-mc-ft0"/>
@@ -22,6 +25,9 @@
                 <outlet property="jobsitetitleview" destination="Osr-Mo-LQd" id="UDW-qV-Kv1"/>
                 <outlet property="jobsiteview" destination="w3C-lq-T0n" id="syP-b0-aa1"/>
                 <outlet property="loctntxtfld" destination="C1w-VY-1PC" id="qqk-by-5Ll"/>
+                <outlet property="meetingtable" destination="qd8-pm-qWY" id="znq-eg-QDd"/>
+                <outlet property="meetingtitleview" destination="aZH-Ep-3Sy" id="RWb-LF-48k"/>
+                <outlet property="meetingview" destination="60n-C1-Sq0" id="6JZ-e8-4hF"/>
                 <outlet property="neweqmnttitile" destination="5CV-WG-ESS" id="SUG-oe-Waf"/>
                 <outlet property="neweqmntview" destination="Bt2-Yr-sjl" id="p37-eC-2Gl"/>
                 <outlet property="newequipmenttable" destination="3df-8X-ofX" id="zpl-ye-t8f"/>
@@ -554,7 +560,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="dDb-gC-cU1">
+                                <view contentMode="scaleToFill" id="dDb-gC-cU1" userLabel="wrkschduleview">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="621"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -606,6 +612,93 @@
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="60n-C1-Sq0" userLabel="Meeting Notes">
+                                    <rect key="frame" x="10" y="7" width="1003" height="607"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="EX2-W9-z8i">
+                                            <rect key="frame" x="63" y="39" width="861" height="521"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="qd8-pm-qWY">
+                                            <rect key="frame" x="99" y="101" width="788" height="388"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                        <view contentMode="scaleToFill" id="aZH-Ep-3Sy">
+                                            <rect key="frame" x="99" y="63" width="788" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kJW-n5-UvG">
+                                                    <rect key="frame" x="147" y="9" width="114" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AaI-wM-dV3">
+                                                    <rect key="frame" x="482" y="9" width="114" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W4K-m4-cxX">
+                                                    <rect key="frame" x="20" y="5" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" backgroundImage="appbar.addblack.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addmeetgnots:" destination="-1" eventType="touchUpInside" id="1ne-bL-G09"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="0.57698741170000001" blue="0.61864439270000005" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.57698741170000001" blue="0.61864439270000005" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <view contentMode="scaleToFill" id="Q5V-lz-SOH" userLabel="Other Bidders">
+                                    <rect key="frame" x="14" y="7" width="984" height="596"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="LwM-DJ-oEP">
+                                            <rect key="frame" x="78" y="52" width="829" height="388"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <view contentMode="scaleToFill" id="dob-cd-BSf">
+                                            <rect key="frame" x="104" y="83" width="764" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bidder Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DUz-bJ-oJa">
+                                                    <rect key="frame" x="163" y="6" width="110" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bST-0K-6Cr">
+                                                    <rect key="frame" x="12" y="2" width="46" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.addblack.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addbidder:" destination="-1" eventType="touchUpInside" id="Yxq-jT-BZ5"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="RoK-Ip-x4J">
+                                            <rect key="frame" x="104" y="116" width="764" height="293"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.31071814730000002" green="0.6208944515" blue="0.47233222619999998" alpha="1" colorSpace="calibratedRGB"/>
                                 </view>
                             </subviews>
                         </scrollView>

@@ -113,6 +113,24 @@
 @property (strong, nonatomic) IBOutlet UITableView *workscdletable;
 - (IBAction)addworkscdle:(id)sender;
 
+/*meetingnote*/
+
+@property (strong, nonatomic) IBOutlet UIView *meetingview;
+@property (strong, nonatomic) IBOutlet UIView *meetingtitleview;
+@property (strong, nonatomic) IBOutlet UITableView *meetingtable;
+- (IBAction)addmeetgnots:(id)sender;
+
+
+/*otherbidders*/
+
+@property (strong, nonatomic) IBOutlet UIView *biddersview;
+@property (strong, nonatomic) IBOutlet UITableView *bidderstable;
+@property (strong, nonatomic) IBOutlet UIView *bidderstitle;
+
+
+
+
+- (IBAction)addbidder:(id)sender;
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;

@@ -48,6 +48,12 @@
     _worktitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _workscdletable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _workscdletable.layer.borderWidth=3.0;
+    _meetingtitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _meetingtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _meetingtable.layer.borderWidth=3.0;
+    _bidderstitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _bidderstable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _bidderstable.layer.borderWidth=3.0;
 
 
 
@@ -264,5 +270,9 @@
 - (IBAction)addnewequipment:(id)sender {
 }
 - (IBAction)addworkscdle:(id)sender {
+}
+- (IBAction)addmeetgnots:(id)sender {
+}
+- (IBAction)addbidder:(id)sender {
 }
 @end
