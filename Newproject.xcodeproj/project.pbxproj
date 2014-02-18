@@ -65,6 +65,7 @@
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
+		64BB435A18B3266000BEA9B6 /* notes.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64BB435918B3266000BEA9B6 /* notes.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97987185EDB4200E7722B /* FoldersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F97985185EDB4200E7722B /* FoldersViewController.m */; };
@@ -284,6 +285,7 @@
 		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
+		64BB435918B3266000BEA9B6 /* notes.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = notes.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -700,6 +702,7 @@
 				D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */,
 				D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */,
 				6482C11818B21A940015BB7D /* newViewController.h */,
+				64BB435918B3266000BEA9B6 /* notes.xib */,
 				6482C11918B21A940015BB7D /* newViewController.m */,
 				6482C11A18B21A940015BB7D /* newViewController.xib */,
 				64A15E1518AB7C1B008112EA /* customplancell.xib */,
@@ -1000,6 +1003,7 @@
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
+				64BB435A18B3266000BEA9B6 /* notes.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
