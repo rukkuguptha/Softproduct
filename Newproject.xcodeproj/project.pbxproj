@@ -146,6 +146,8 @@
 		D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A2AFFC176F186200F4E196 /* FollowupCell.xib */; };
 		D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */; };
 		D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */; };
+		D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */; };
+		D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B0386B18B36FBD00F9DE04 /* Jobsitecellview.xib */; };
 		D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */; };
 		D4B7018118AB3EAB0060BE0A /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */; };
 		D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C33EB9180FB43500C90728 /* PDFImageConverter.m */; };
@@ -390,6 +392,8 @@
 		D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilehrViewController.h; sourceTree = "<group>"; };
 		D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilehrViewController.m; sourceTree = "<group>"; };
 		D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilehrViewController.xib; sourceTree = "<group>"; };
+		D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cellfordocumnt.xib; sourceTree = "<group>"; };
+		D4B0386B18B36FBD00F9DE04 /* Jobsitecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Jobsitecellview.xib; sourceTree = "<group>"; };
 		D4B7017D18AB3EAB0060BE0A /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
 		D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
 		D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
@@ -702,6 +706,8 @@
 				642FA78C18AC945C00372623 /* SitevisitViewController.m */,
 				642FA78D18AC945C00372623 /* SitevisitViewController.xib */,
 				D415486218ADF64900351248 /* Ratecellview.xib */,
+				D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */,
+				D4B0386B18B36FBD00F9DE04 /* Jobsitecellview.xib */,
 				642FA79518AC960400372623 /* DetailplanViewController.h */,
 				642FA79618AC960400372623 /* DetailplanViewController.m */,
 				642FA79718AC960400372623 /* DetailplanViewController.xib */,
@@ -944,6 +950,7 @@
 				6407291817744A900085CB7B /* newCommentCell.xib in Resources */,
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
+				D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				D4D39CD6177AD7C300C1E87D /* CommentsCells.xib in Resources */,
 				D4D39CD8177AF1CA00C1E87D /* FollowCommentcell.xib in Resources */,
@@ -1003,6 +1010,7 @@
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
+				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
