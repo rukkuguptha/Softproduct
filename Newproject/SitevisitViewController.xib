@@ -31,6 +31,9 @@
                 <outlet property="neweqmnttitile" destination="5CV-WG-ESS" id="SUG-oe-Waf"/>
                 <outlet property="neweqmntview" destination="Bt2-Yr-sjl" id="p37-eC-2Gl"/>
                 <outlet property="newequipmenttable" destination="3df-8X-ofX" id="zpl-ye-t8f"/>
+                <outlet property="notestable" destination="lX0-lx-Tlp" id="YqA-96-4NR"/>
+                <outlet property="notestitle" destination="qZp-Xx-jXf" id="z1Q-99-s3e"/>
+                <outlet property="notesview" destination="hdW-2l-gyZ" id="Zhz-R2-2U1"/>
                 <outlet property="picturepreviewimg" destination="iMR-tn-QE3" id="475-aW-4Et"/>
                 <outlet property="prdunratetble" destination="YtF-Od-Rb5" id="hvt-Bp-jSo"/>
                 <outlet property="rateview" destination="Vyz-Bj-iPo" id="hk3-4c-LMp"/>
@@ -182,7 +185,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="Vyz-Bj-iPo" userLabel="Rate View">
+                                <view hidden="YES" contentMode="scaleToFill" id="Vyz-Bj-iPo" userLabel="Rate View">
                                     <rect key="frame" x="7" y="0.0" width="1006" height="601"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -249,7 +252,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="XNq-fp-i9s" userLabel="DocumentView">
+                                <view hidden="YES" contentMode="scaleToFill" id="XNq-fp-i9s" userLabel="DocumentView">
                                     <rect key="frame" x="20" y="14" width="983" height="582"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -332,7 +335,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="68C-iE-dOo" userLabel="Accessibilityview">
+                                <view hidden="YES" contentMode="scaleToFill" id="68C-iE-dOo" userLabel="Accessibilityview">
                                     <rect key="frame" x="24" y="17" width="976" height="577"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -371,7 +374,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="yH7-LT-N8m" userLabel="EquipmentView">
+                                <view hidden="YES" contentMode="scaleToFill" id="yH7-LT-N8m" userLabel="EquipmentView">
                                     <rect key="frame" x="33" y="24" width="958" height="562"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -409,7 +412,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="w3C-lq-T0n" userLabel="Jobsiteview">
+                                <view hidden="YES" contentMode="scaleToFill" id="w3C-lq-T0n" userLabel="Jobsiteview">
                                     <rect key="frame" x="40" y="31" width="943" height="549"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -459,7 +462,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="M4O-Ol-Vze" userLabel="SafetyView">
+                                <view hidden="YES" contentMode="scaleToFill" id="M4O-Ol-Vze" userLabel="SafetyView">
                                     <rect key="frame" x="50" y="40" width="923" height="531"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -505,7 +508,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="Bt2-Yr-sjl" userLabel="NewEquipmentview">
+                                <view hidden="YES" contentMode="scaleToFill" id="Bt2-Yr-sjl" userLabel="NewEquipmentview">
                                     <rect key="frame" x="26" y="42" width="972" height="537"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -563,7 +566,7 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="dDb-gC-cU1" userLabel="wrkschduleview">
+                                <view hidden="YES" contentMode="scaleToFill" id="dDb-gC-cU1" userLabel="wrkschduleview">
                                     <rect key="frame" x="0.0" y="0.0" width="1024" height="621"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -614,9 +617,9 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="60n-C1-Sq0" userLabel="Meeting Notes">
+                                <view hidden="YES" contentMode="scaleToFill" id="60n-C1-Sq0" userLabel="Meeting Notes">
                                     <rect key="frame" x="10" y="7" width="1003" height="607"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -662,9 +665,9 @@
                                             <color key="backgroundColor" red="1" green="0.57698741170000001" blue="0.61864439270000005" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="0.57698741170000001" blue="0.61864439270000005" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="Q5V-lz-SOH" userLabel="Other Bidders">
+                                <view hidden="YES" contentMode="scaleToFill" id="Q5V-lz-SOH" userLabel="Other Bidders">
                                     <rect key="frame" x="14" y="7" width="984" height="596"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -701,9 +704,9 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </tableView>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.31071814730000002" green="0.6208944515" blue="0.47233222619999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
-                                <view contentMode="scaleToFill" id="GXJ-KZ-gBZ" userLabel="weatheroutlook">
+                                <view hidden="YES" contentMode="scaleToFill" id="GXJ-KZ-gBZ" userLabel="weatheroutlook">
                                     <rect key="frame" x="14" y="17" width="969" height="622"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -754,7 +757,54 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <view hidden="YES" contentMode="scaleToFill" id="hdW-2l-gyZ" userLabel="NotesView">
+                                    <rect key="frame" x="49" y="-23" width="926" height="667"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="yQX-Se-Han">
+                                            <rect key="frame" x="86" y="116" width="791" height="478"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lX0-lx-Tlp">
+                                            <rect key="frame" x="133" y="174" width="716" height="408"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </tableView>
+                                        <view contentMode="scaleToFill" id="qZp-Xx-jXf">
+                                            <rect key="frame" x="133" y="131" width="716" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zBw-Nt-VkU">
+                                                    <rect key="frame" x="23" y="3" width="40" height="40"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" image="appbar.addblack.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="addnotesbtn:" destination="-1" eventType="touchUpInside" id="1dQ-Bf-o6U"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fib-zd-ybZ">
+                                                    <rect key="frame" x="111" y="12" width="72" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iOh-aL-2Of">
+                                                    <rect key="frame" x="329" y="12" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
                             </subviews>
                         </scrollView>

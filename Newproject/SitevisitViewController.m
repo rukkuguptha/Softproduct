@@ -59,6 +59,10 @@
     _weathertable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _weathertable.layer.borderWidth=3.0;
 
+    _notestitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _notestable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _notestable.layer.borderWidth=3.0;
+    
 
     
 }
@@ -139,6 +143,11 @@
     _safetyview.hidden=YES;
    _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+
 
 }
 
@@ -152,6 +161,11 @@
     _safetyview.hidden=YES;
    _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+
 
 }
 
@@ -165,6 +179,10 @@
     _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
 
 
 }
@@ -179,6 +197,10 @@
     _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
 
 
 }
@@ -195,6 +217,10 @@
        _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
 
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
 
 
 }
@@ -209,6 +235,10 @@
      _safetyview.hidden=YES;
        _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
 
     
 }
@@ -223,6 +253,10 @@
     _safetyview.hidden=NO;
        _neweqmntview.hidden=YES;
     _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
 
     
 }
@@ -238,7 +272,11 @@
     
     _neweqmntview.hidden=NO;
       _workschdleview.hidden=YES;
-    
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+
 
     
 }
@@ -253,22 +291,87 @@
     _safetyview.hidden=YES;
     _neweqmntview.hidden=YES;
     _workschdleview.hidden=NO;
-    
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+
     
 
     
 }
 
 - (IBAction)meetingnotesbtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+    _meetingview.hidden=NO;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+    
+
+
 }
 
 - (IBAction)otherbiddersbtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+      _biddersview.hidden=NO;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+
 }
 
 - (IBAction)weatheroutlookbtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+
+    _weatherview.hidden=NO;
+    _notesview.hidden=YES;
+
 }
 
 - (IBAction)notesbtn:(id)sender {
+    _gernalview.hidden=YES;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accessview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=NO;
+    _biddersview.hidden=YES;
+
+
+
 }
 
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
@@ -312,5 +415,7 @@
 - (IBAction)addbidder:(id)sender {
 }
 - (IBAction)addweather:(id)sender {
+}
+- (IBAction)addnotesbtn:(id)sender {
 }
 @end

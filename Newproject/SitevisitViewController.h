@@ -135,6 +135,14 @@
 
 - (IBAction)addweather:(id)sender;
 
+/*Notes*/
+@property (strong, nonatomic) IBOutlet UIView *notesview;
+@property (strong, nonatomic) IBOutlet UIView *notestitle;
+
+@property (strong, nonatomic) IBOutlet UITableView *notestable;
+
+- (IBAction)addnotesbtn:(id)sender;
+
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;
 - (IBAction)generalbtn:(id)sender;
