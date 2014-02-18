@@ -45,6 +45,9 @@
     _neweqmnttitile.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _newequipmenttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _newequipmenttable.layer.borderWidth=3.0;
+    _worktitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _workscdletable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _workscdletable.layer.borderWidth=3.0;
 
 
 
@@ -259,5 +262,7 @@
 - (IBAction)addsafetyrules:(id)sender {
 }
 - (IBAction)addnewequipment:(id)sender {
+}
+- (IBAction)addworkscdle:(id)sender {
 }
 @end
