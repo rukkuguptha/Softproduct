@@ -8,11 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "NewrecordViewController.h"
 
-@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
+    BOOL recordResults;
+
+}
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
+@property (strong, nonatomic)NewrecordViewController *newrecordVCtrl;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 /*General View outlet*/
 @property (strong, nonatomic) IBOutlet UIView *gernalview;
