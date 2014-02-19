@@ -326,7 +326,7 @@
 
 }
 -(IBAction)checkleadaction:(id)sender
-{
+{   leadclicked=@"Clicked";
     if(leadcheck==0)
     {
         [_popovertableview reloadData];
@@ -349,7 +349,7 @@
     
 }
 -(IBAction)checkcustomeraction:(id)sender
-{
+{ customerclicked=@"clicked";
     if(customercheck==0)
     {      [_popovertableview reloadData];
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
@@ -450,7 +450,7 @@
     }
     else{
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        
+        [self SelectAllLeads];
     }
     if (planmdl.customerid==0) {
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -458,7 +458,7 @@
     }
     else{
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        
+        [self SelectAllCustomer];
     }
     [_planselectionbtn setTitle:planmdl.customername forState:UIControlStateNormal];
     
@@ -468,29 +468,25 @@
 #pragma mark - SearchBar
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    //[self SearchApplicants];
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self SearchPlan];
+    [searchBar resignFirstResponder];
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    //[self ListAllApplicants];
+    [self SelectAllPlans];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([_searchbar.text length]==0) {
         
-        [searchBar resignFirstResponder];
+        [self SelectAllPlans];
+        // [searchBar resignFirstResponder];
         
         
     }
-    else  if ([_searchbar.text length]>0) {
-        
-        
-        
-        
-        _searchstring=_searchbar.text;
-        
-        
-    }
+    //[searchBar resignFirstResponder];
     
 }
 #pragma mark-webservices
@@ -718,28 +714,48 @@
 -(void)UpdatePlan
 {
     webtype=1;
-    NSString *ledid;
-    NSString *custid;
+    NSInteger lead;
+    NSInteger cust;
     
     recordResults = FALSE;
     NSString *soapMessage;
      planmodel*plmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
-    
+   if([leadclicked isEqualToString:@"Clicked"])
+   {
+       NSString *ledid;
+      
     if (leadcheck==0)
     {
         ledid=0;
+        lead=[ledid integerValue];
     }
-    else if(leadcheck==1)
+    else //if(leadcheck==1)
     {
         ledid=[_leaddict objectForKey:_planselectionbtn.titleLabel.text];
+        lead=[ledid integerValue];
     }
+}
+    else
+    {
+        lead=plmdl.leadid;
+    }
+    if([customerclicked isEqualToString:@"Clicked"])
+    {
+         NSString *custid;
     if(customercheck==0)
     {
         custid=0;
+        cust=[custid integerValue];
     }
-    else if(customercheck==1)
+    else //if(customercheck==1)
     {
         custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
+        cust=[custid integerValue];
+    }
+    }
+    else
+    {
+        cust=plmdl.customerid;
     }
     
     
@@ -758,7 +774,7 @@
                    "<cusid>%d</cusid>\n"
                    "</UpdatePlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue]];
+                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -842,6 +858,57 @@
     }
     
 }
+-(void)SearchPlan
+{
+   // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<SearchPlan xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<searchtext>%@</searchtext>\n"
+                   "</SearchPlan>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SearchPlan" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 
 #pragma mark - Connection
@@ -1027,10 +1094,29 @@
         
         
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
 
+    if([elementName isEqualToString:@"SearchPlanResponse"])
+    {
+        _planlistarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
 
-
-
+    }
 
 }
 
@@ -1144,9 +1230,21 @@
         
         recordResults = FALSE;
         
-        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+
+        
+        
+    }
+
 
 
 
