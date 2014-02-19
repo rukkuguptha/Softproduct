@@ -175,6 +175,10 @@
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
                     }
+                    planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+                    _sitevisitVctrl.companyid=planmdl.planid;
+                    _sitevisitVctrl.companyname=planmdl.customername;
+                    NSLog(@"%@",planmdl.customername);
                     _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_sitevisitVctrl
@@ -250,7 +254,7 @@
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
         
-       // [self DeleteServices];
+        [self DeletePlan];
         [_planlistarray removeObject:indexPath];
         
         
@@ -421,7 +425,7 @@
   }
     else if(optionidentifier==2)
     {
-        
+        [self UpdatePlan];
     }
 }
 -(IBAction)cancelplanning:(id)sender
@@ -711,6 +715,134 @@
     }
 
 }
+-(void)UpdatePlan
+{
+    webtype=1;
+    NSString *ledid;
+    NSString *custid;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+     planmodel*plmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+    
+    if (leadcheck==0)
+    {
+        ledid=0;
+    }
+    else if(leadcheck==1)
+    {
+        ledid=[_leaddict objectForKey:_planselectionbtn.titleLabel.text];
+    }
+    if(customercheck==0)
+    {
+        custid=0;
+    }
+    else if(customercheck==1)
+    {
+        custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
+    }
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UpdatePlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<customer>%@</customer>\n"
+                   "<lead>%d</lead>\n"
+                   "<cusid>%d</cusid>\n"
+                   "</UpdatePlan>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)DeletePlan
+{
+    webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+   planmodel*plnmdl=(planmodel *)[_planlistarray objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<DeletePlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</DeletePlan>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",plnmdl.planid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/DeletePlan" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -871,9 +1003,30 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"DeletePlanResult"])
+    {
+
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
 
 
-
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
 
 
 
@@ -986,7 +1139,15 @@
         _soapResults = nil;
     }
 
-   
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        _soapResults = nil;
+    }
+
 
 
 
