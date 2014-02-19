@@ -62,6 +62,7 @@
     _notestable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _notestable.layer.borderWidth=3.0;
     
+    _cmpxtyofwrk=[[NSMutableArray alloc]initWithObjects:@"Easy",@"Moderate",@"Difficult", nil];
 
     }
 
@@ -80,6 +81,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (tableView==_popOverTableView) {
+        return [_cmpxtyofwrk count];
+    }
     return 5;
     
 }
@@ -136,8 +140,61 @@
 }
 
 
-    
 
+
+
+
+#pragma mark-popovers
+-(void)createpopover{
+    
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 120, 120)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 120);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_complextyofwrkbtnlbl.frame
+                                            inView:self.gernalview
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+
+    
+}
+
+#pragma mark-button Actions
 
 -(IBAction)closesitevisit:(id)sender
 {
@@ -584,7 +641,8 @@
 
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
     
-    
+    [self createpopover];
+    [_popOverTableView reloadData];
     
 }
 
