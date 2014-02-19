@@ -119,7 +119,13 @@
 
        
     }
-     // cell.textLabel.text=[_serviceaddedarray objectAtIndex:indexPath.row];
+    
+    
+      if (tableView==_popOverTableView) {
+          
+           cell.textLabel.text=[_cmpxtyofwrk objectAtIndex:indexPath.row];
+
+      }
     
     return cell;
 }
@@ -139,7 +145,13 @@
     }
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView==_popOverTableView) {
+        
+        [_complextyofwrkbtnlbl setTitle:[_cmpxtyofwrk objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+       
+    }
+}
 
 
 
