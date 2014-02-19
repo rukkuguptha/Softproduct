@@ -63,9 +63,52 @@
     _notestable.layer.borderWidth=3.0;
     
     _cmpxtyofwrk=[[NSMutableArray alloc]initWithObjects:@"Easy",@"Moderate",@"Difficult", nil];
+    
+    _gernalbtnlbl.tintColor=[UIColor whiteColor];
 
     }
 
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     _companynametxtfld.text=_companyname;
+    
+    _gernalbtnlbl.tintColor=[UIColor whiteColor];
+    _pratebtnlbl.tintColor=[UIColor blackColor];
+    _documntbtnlbl.tintColor=[UIColor blackColor];
+    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+    _saftybtnlbl.tintColor=[UIColor blackColor];
+    _equpmntslbl.tintColor=[UIColor blackColor];
+    _workbtnlbl.tintColor=[UIColor blackColor];
+    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+    _biddersbtnlbl.tintColor=[UIColor blackColor];
+    _weatherbtnlbl.tintColor=[UIColor blackColor];
+    _notesbtnlbl.tintColor=[UIColor blackColor];
+    
+
+    
+    
+    _gernalview.hidden=NO;
+    _rateview.hidden=YES;
+    _docmntview.hidden=YES;
+    _accblitytxtview.hidden=YES;
+    _equipmentview.hidden=YES;
+    _jobsiteview.hidden=YES;
+    _safetyview.hidden=YES;
+    _neweqmntview.hidden=YES;
+    _workschdleview.hidden=YES;
+    _meetingview.hidden=YES;
+    _biddersview.hidden=YES;
+    _weatherview.hidden=YES;
+    _notesview.hidden=YES;
+    
+
+    
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -84,7 +127,13 @@
     if (tableView==_popOverTableView) {
         return [_cmpxtyofwrk count];
     }
-    return 5;
+    else{
+        
+        return 5;
+
+    }
+    
+    return YES;
     
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -154,7 +203,39 @@
 }
 
 
+#pragma mark-xml parser
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"SelectAllLeadsResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }}
 
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        [_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"SelectAllLeadsResult"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+   }
 
 #pragma mark-popovers
 -(void)createpopover{
@@ -206,12 +287,8 @@
     
 }
 
-#pragma mark-button Actions
+#pragma mark-Barbuttonitems
 
--(IBAction)closesitevisit:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 
 - (IBAction)generalbtn:(id)sender {
     _gernalbtnlbl.tintColor=[UIColor whiteColor];
@@ -228,11 +305,6 @@
     _weatherbtnlbl.tintColor=[UIColor blackColor];
     _notesbtnlbl.tintColor=[UIColor blackColor];
 
-    
-    
-
-    
-    
     _gernalview.hidden=NO;
      _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -246,8 +318,6 @@
     _biddersview.hidden=YES;
     _weatherview.hidden=YES;
     _notesview.hidden=YES;
-
-
 }
 
 - (IBAction)prductnbtn:(id)sender {
@@ -332,9 +402,6 @@
     _weatherbtnlbl.tintColor=[UIColor blackColor];
     _notesbtnlbl.tintColor=[UIColor blackColor];
 
-    
-    
-    
     _gernalview.hidden=YES;
     _rateview.hidden=YES;
     _docmntview.hidden=YES;
@@ -651,6 +718,8 @@
 
 }
 
+
+#pragma mark-button Actions
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
     
     [self createpopover];
@@ -659,11 +728,21 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
+    
+ 
+    
 }
 - (IBAction)ratedeletebtn:(id)sender {
 }
 
 - (IBAction)Rateaddbtn:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
+    }
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (IBAction)celleditbtn:(id)sender {
@@ -696,4 +775,9 @@
 }
 - (IBAction)addnotesbtn:(id)sender {
 }
+-(IBAction)closesitevisit:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
 @end
