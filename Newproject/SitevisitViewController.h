@@ -144,6 +144,21 @@
 
 
 
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
+
+/*String*/
+@property(strong,nonatomic)NSString *companyid;
+@property(strong,nonatomic)NSString *companyname;
+
+
+
+
+/*Arrays*/
+@property(strong,nonatomic)NSMutableArray *cmpxtyofwrk;
+
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;
