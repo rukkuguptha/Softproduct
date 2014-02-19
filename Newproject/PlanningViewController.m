@@ -175,6 +175,10 @@
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
                     }
+                    planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+                    _sitevisitVctrl.companyid=planmdl.planid;
+                    _sitevisitVctrl.companyname=planmdl.customername;
+                    NSLog(@"%@",planmdl.customername);
                     _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_sitevisitVctrl
