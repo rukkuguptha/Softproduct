@@ -760,6 +760,14 @@
 - (IBAction)equpmntupdatebtn:(id)sender {
 }
 - (IBAction)addnewjobsite:(id)sender {
+    
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
+    }
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 - (IBAction)addsafetyrules:(id)sender {
 }

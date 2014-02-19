@@ -116,6 +116,9 @@
 		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D415486318ADF64900351248 /* Ratecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D415486218ADF64900351248 /* Ratecellview.xib */; };
+		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
+		D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61A18B4A5620043644A /* NewrecordViewController.xib */; };
+		D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61D18B4AFE90043644A /* Jobsiterecord.xib */; };
 		D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = D4399EB9186D74BB00A693F7 /* Manpwr.m */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
 		D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBD186D7BBF00A693F7 /* search-button.png */; };
@@ -356,6 +359,10 @@
 		D41404C9187294700067F71A /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D415486218ADF64900351248 /* Ratecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ratecellview.xib; sourceTree = "<group>"; };
+		D418B61818B4A5620043644A /* NewrecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewrecordViewController.h; sourceTree = "<group>"; };
+		D418B61918B4A5620043644A /* NewrecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewrecordViewController.m; sourceTree = "<group>"; };
+		D418B61A18B4A5620043644A /* NewrecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewrecordViewController.xib; sourceTree = "<group>"; };
+		D418B61D18B4AFE90043644A /* Jobsiterecord.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Jobsiterecord.xib; sourceTree = "<group>"; };
 		D4399EB8186D74BB00A693F7 /* Manpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manpwr.h; sourceTree = "<group>"; };
 		D4399EB9186D74BB00A693F7 /* Manpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manpwr.m; sourceTree = "<group>"; };
 		D4399EBB186D7BB000A693F7 /* search-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button@2x.png"; sourceTree = "<group>"; };
@@ -708,6 +715,10 @@
 				D415486218ADF64900351248 /* Ratecellview.xib */,
 				D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */,
 				D4B0386B18B36FBD00F9DE04 /* Jobsitecellview.xib */,
+				D418B61818B4A5620043644A /* NewrecordViewController.h */,
+				D418B61918B4A5620043644A /* NewrecordViewController.m */,
+				D418B61A18B4A5620043644A /* NewrecordViewController.xib */,
+				D418B61D18B4AFE90043644A /* Jobsiterecord.xib */,
 				642FA79518AC960400372623 /* DetailplanViewController.h */,
 				642FA79618AC960400372623 /* DetailplanViewController.m */,
 				642FA79718AC960400372623 /* DetailplanViewController.xib */,
@@ -936,7 +947,9 @@
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D443A33217716EEB0011C5DB /* ActivityCustomCell.xib in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
+				D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
+				D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */,
 				D453DA321873F215007EE3DC /* Assetcell.xib in Resources */,
 				649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
@@ -1078,6 +1091,7 @@
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
+				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
