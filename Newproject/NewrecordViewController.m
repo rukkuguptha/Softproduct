@@ -95,7 +95,7 @@
     recordResults = FALSE;
     
     NSString *soapMessage;
-    
+    NSInteger typeid=[[_JobtypeDic objectForKey:_typeidbtnlbl.titleLabel.text]integerValue];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -113,7 +113,7 @@
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertjobsiterequirements>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_jobnametxtfld.text,_jobcodetxtfld.text,[_typeidbtnlbl.titleLabel.text integerValue],[_jobcosttxtfld.text floatValue],_companyid];
+                   "</soap:Envelope>\n",_jobnametxtfld.text,_jobcodetxtfld.text,typeid,[_jobcosttxtfld.text floatValue],_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -342,6 +342,7 @@
     
 
 }
+#pragma mark-Tableview Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -376,6 +377,18 @@
     }
            return cell;
 }
+
+#pragma mark-Tableview Datasource
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+       if (tableView==_popOverTableView){
+            NSArray *array1=[_JobtypeDic allKeys];
+           [_typeidbtnlbl setTitle:[array1 objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+      
+       }
+    
+
+}
+
 
 - (IBAction)clsebtn:(id)sender {
     //[self.navigationController popViewControllerAnimated:YES];

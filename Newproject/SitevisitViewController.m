@@ -3269,6 +3269,7 @@
     if (!_newrecordVCtrl) {
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
     }
+      self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
