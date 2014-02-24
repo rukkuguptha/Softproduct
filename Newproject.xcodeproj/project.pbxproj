@@ -98,6 +98,10 @@
 		D4041F161779ACB500247373 /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4041F151779ACB400247373 /* followupmodel.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
+		D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BC18BB1E9B00C5DB30 /* right_arrow.png */; };
+		D40736C118BB1E9B00C5DB30 /* right_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */; };
+		D40736C218BB1E9B00C5DB30 /* left_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BE18BB1E9B00C5DB30 /* left_arrow.png */; };
+		D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BF18BB1E9B00C5DB30 /* left_arrow@2x.png */; };
 		D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A6639187131CA00AB7496 /* cb_mono_on.png */; };
 		D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A663A187131CA00AB7496 /* cb_mono_off.png */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
@@ -342,6 +346,10 @@
 		D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = siteEqupmtntcell.xib; sourceTree = "<group>"; };
 		D4041F141779ACB400247373 /* followupmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = followupmodel.h; sourceTree = "<group>"; };
 		D4041F151779ACB400247373 /* followupmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = followupmodel.m; sourceTree = "<group>"; };
+		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
+		D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
+		D40736BE18BB1E9B00C5DB30 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
+		D40736BF18BB1E9B00C5DB30 /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
 		D40A6639187131CA00AB7496 /* cb_mono_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_on.png; sourceTree = "<group>"; };
 		D40A663A187131CA00AB7496 /* cb_mono_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_off.png; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -744,17 +752,17 @@
 				D40313B718B6036300C27F2F /* SaftyCell.xib */,
 				D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */,
 				D4F036C818B71781003A668C /* Meetingnotesview.xib */,
-				649EDEC718BB051900B78D97 /* meetingnoterecordaddview.xib */,
-				649EDEC918BB053E00B78D97 /* otherbiddrecordaddview.xib */,
-				649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */,
-				649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */,
 				D418B61818B4A5620043644A /* NewrecordViewController.h */,
 				D418B61918B4A5620043644A /* NewrecordViewController.m */,
 				D418B61A18B4A5620043644A /* NewrecordViewController.xib */,
 				D418B61D18B4AFE90043644A /* Jobsiterecord.xib */,
 				649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */,
 				649EDEC318BB011A00B78D97 /* EqaddRecordview.xib */,
+				649EDEC718BB051900B78D97 /* meetingnoterecordaddview.xib */,
 				649EDEC518BB04EC00B78D97 /* addworkscheduleview.xib */,
+				649EDEC918BB053E00B78D97 /* otherbiddrecordaddview.xib */,
+				649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */,
+				649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */,
 				642FA79518AC960400372623 /* DetailplanViewController.h */,
 				642FA79618AC960400372623 /* DetailplanViewController.m */,
 				642FA79718AC960400372623 /* DetailplanViewController.xib */,
@@ -778,6 +786,10 @@
 				D49DE836185EB391006F1CDA /* closebutton.png */,
 				D49DE837185EB391006F1CDA /* closebutton@2x.png */,
 				64F97982185ED60000E7722B /* appbar.addblack.png */,
+				D40736BC18BB1E9B00C5DB30 /* right_arrow.png */,
+				D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */,
+				D40736BE18BB1E9B00C5DB30 /* left_arrow.png */,
+				D40736BF18BB1E9B00C5DB30 /* left_arrow@2x.png */,
 				D4FFBD1F1855B7830007851D /* carat.png */,
 				D4FFBD211855B7880007851D /* carat-open.png */,
 				D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */,
@@ -996,11 +1008,13 @@
 				649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 				64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */,
+				D40736C118BB1E9B00C5DB30 /* right_arrow@2x.png in Resources */,
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
 				64A11EE218681AAF008D20CC /* usercell.xib in Resources */,
 				D4E15794177416D9002764AB /* icon-disclosure.png in Resources */,
+				D40736C218BB1E9B00C5DB30 /* left_arrow.png in Resources */,
 				D4E1579917744013002764AB /* CommentsViewController.xib in Resources */,
 				6407291817744A900085CB7B /* newCommentCell.xib in Resources */,
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
@@ -1038,6 +1052,7 @@
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
+				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
@@ -1058,6 +1073,7 @@
 				D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */,
 				649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
+				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
