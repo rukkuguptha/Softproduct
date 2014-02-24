@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "NewrecordViewController.h"
+#import "SitevistMdl.h"
 
 @interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     BOOL recordResults;
+    NSString *itemid;
 
 }
+@property (strong, nonatomic)SitevistMdl *sitevistmdl;
+
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
@@ -64,6 +68,9 @@
 
 @property (strong, nonatomic) IBOutlet UIView *accessview;
 @property (strong, nonatomic) IBOutlet UITextView *accblitytxtview;
+@property (strong, nonatomic) IBOutlet UITextView *Accibltylblview;
+
+
 - (IBAction)accebilityupdate:(id)sender;
 
 
@@ -80,6 +87,11 @@
 @property (strong, nonatomic) IBOutlet UIView *jobsitetitleview;
 - (IBAction)addnewjobsite:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableViewCell *jobsitecell;
+@property (strong, nonatomic) IBOutlet UILabel *jobname;
+@property (strong, nonatomic) IBOutlet UILabel *jobcode;
+@property (strong, nonatomic) IBOutlet UILabel *jobtype;
+@property (strong, nonatomic) IBOutlet UILabel *jobcost;
+
 
 
 /*safety views*/
@@ -89,7 +101,10 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *safetytableview;
 - (IBAction)addsafetyrules:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableViewCell *saftycell;
 
+@property (strong, nonatomic) IBOutlet UILabel *rultitllbl;
+@property (strong, nonatomic) IBOutlet UILabel *ruledesptn;
 
 
 /*Equipments views*/
@@ -98,12 +113,22 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *newequipmenttable;
 - (IBAction)addnewequipment:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableViewCell *equmntcell;
+@property (strong, nonatomic) IBOutlet UILabel *eqnamelbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqdeslbl;
+@property (strong, nonatomic) IBOutlet UILabel *equarealbl;
+@property (strong, nonatomic) IBOutlet UILabel *equunitlbl;
+
+
+
+
 /*work schedule view*/
 
 @property (strong, nonatomic) IBOutlet UIView *workschdleview;
 @property (strong, nonatomic) IBOutlet UIView *worktitleview;
 @property (strong, nonatomic) IBOutlet UITableView *workscdletable;
 - (IBAction)addworkscdle:(id)sender;
+
 
 /*meetingnote*/
 
@@ -167,7 +192,15 @@
 
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray *cmpxtyofwrk;
+@property(strong,nonatomic)NSMutableArray *productionratearray;
+@property(strong,nonatomic)NSMutableArray *jobsiteArray;
+@property(strong,nonatomic)NSMutableArray *saftyArray;
+@property(strong,nonatomic)NSMutableArray *Equpmntarray;
 
+
+
+/*Dictionary*/
+@property(strong,nonatomic)NSMutableDictionary *JobtypeDict;
 
 /*IBAction*/
 -(IBAction)closesitevisit:(id)sender;
