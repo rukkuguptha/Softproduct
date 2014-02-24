@@ -998,21 +998,24 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 }
 
+#pragma mark-Button Action
+
 - (IBAction)clsebtn:(id)sender {
      if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
-   // if (self.delegate && [self.delegate respondsToSelector:@selector(toreloadatable)]) {
-        
-        [self.delegate toreloadatable];
+          [self.delegate toreloadatable];
           [self dismissViewControllerAnimated:YES completion:nil];
     }
-    //[self.navigationController popViewControllerAnimated:YES];
-  
-}
+   }
 - (IBAction)updatepratebtn:(id)sender {
     [self InsertSitevisitProductionRates];
 }
 
 - (IBAction)pratecancel:(id)sender {
+    _ratetxtfld.text=@"";
+    _descptntxtfld.text=@"";
+    _valuetxtfld.text=@"";
+    
+    
 }
 - (IBAction)typeidbtn:(id)sender {
     [self createpopover];
@@ -1024,6 +1027,12 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)cancelbtn:(id)sender {
+    _jobnametxtfld.text=@"";
+    _jobcodetxtfld.text=@"";
+    _jobcosttxtfld.text=@"";
+    [_typeidbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    
+    
 }
 - (IBAction)ruleupdte:(id)sender {
     [self SitevisitInsertsafetyrules];
@@ -1038,6 +1047,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)equcancelbtn:(id)sender {
+    _equpnotxtfld.text=@"";
+    _equpareatxtfld.text=@"";
+    _equpdscptn.text=@"";
+    _equnittxtfld.text=@"";
+    
 }
 - (IBAction)startdatebtn:(id)sender {
     istr=1;
@@ -1053,6 +1067,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)wrkschdlecancel:(id)sender {
+    [_startdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    [_enddatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    
+    _wrkdesctxtfld.text=@"";
+   
 }
 - (IBAction)datebtn:(id)sender {
     istr=3;
@@ -1063,6 +1082,10 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)meetgcancelbtn:(id)sender {
+    
+    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _meetgdetailslbl.text=@"";
+    
 }
 - (IBAction)bidupdatebtn:(id)sender {
     [self SitevisitInsertotherbidders];
@@ -1086,6 +1109,10 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)weathrcancelbtn:(id)sender {
+    [_wethrfrmdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    [_wethrendbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+
+     _wathrcndtnlbl.text=@"";
 }
 - (IBAction)notedatebtn:(id)sender {
      istr=6;
@@ -1096,5 +1123,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)notescancelbtn:(id)sender {
+    [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    _notestxtfld.text=@"";
+   
 }
 @end
