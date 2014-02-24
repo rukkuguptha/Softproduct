@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CKCalendarView.h"
 
 @interface NewrecordViewController : UIViewController{
     BOOL recordResults;
     NSString *jobtypeitm;
+    NSInteger istr;
 }
+@property(nonatomic, weak) CKCalendarView *calendar;
+@property(nonatomic, strong) NSDateFormatter *dateFormatter;
+
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
@@ -79,6 +84,23 @@
 - (IBAction)wrkupdtebtn:(id)sender;
 
 - (IBAction)wrkschdlecancel:(id)sender;
+
+/*meetingnotes*/
+
+@property (strong, nonatomic) IBOutlet UIButton *datebtnlbl;
+
+- (IBAction)datebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *meetgdetailslbl;
+
+- (IBAction)meetgupdatebt:(id)sender;
+- (IBAction)meetgcancelbtn:(id)sender;
+
+/*otherbidders*/
+@property (strong, nonatomic) IBOutlet UITextField *bidnamelbl;
+
+- (IBAction)bidupdatebtn:(id)sender;
+- (IBAction)bidcancelbtn:(id)sender;
+
 
 
 @end
