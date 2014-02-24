@@ -146,6 +146,116 @@
     
     
 }
+
+-(void)SitevisitInsertsafetyrules{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+   
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertsafetyrules xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ruletitle>%@</ruletitle>\n"
+                   "<description>%@</description>\n"
+                   "<planId>%@</planId>\n"
+                   "</SitevisitInsertsafetyrules>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_ruletxtfld.text,_ruldescptn.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertsafetyrules" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitInsertequipment{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertequipment xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<equipmentnumber>string</equipmentnumber>\n"
+                   "<description>string</description>\n"
+                   "<area>float</area>\n"
+                   "<unit>string</unit>\n"
+                   "<planId>string</planId>\n"
+                   "</SitevisitInsertequipment>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_ruletxtfld.text,_ruldescptn.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertequipment" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 -(void)SelectAllItemType{
     recordResults = FALSE;
     NSString *soapMessage;
@@ -410,5 +520,13 @@
 }
 
 - (IBAction)cancelbtn:(id)sender {
+}
+- (IBAction)ruleupdte:(id)sender {
+    [self SitevisitInsertsafetyrules];
+}
+
+- (IBAction)rulecancel:(id)sender {
+    _ruletxtfld.text=@"";
+    _ruldescptn.text=@"";
 }
 @end

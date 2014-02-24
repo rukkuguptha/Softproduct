@@ -79,7 +79,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TypeId" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bo-ZF-y5d">
-                            <rect key="frame" x="89" y="250" width="118" height="21"/>
+                            <rect key="frame" x="89" y="251" width="118" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

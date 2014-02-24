@@ -50,5 +50,13 @@
 - (IBAction)cancelbtn:(id)sender;
 
 
+/*Safty rules */
+@property (strong, nonatomic) IBOutlet UITextField *ruletxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *ruldescptn;
+
+- (IBAction)ruleupdte:(id)sender;
+- (IBAction)rulecancel:(id)sender;
+
 
 @end
