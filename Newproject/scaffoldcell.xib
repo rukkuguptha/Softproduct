@@ -7,7 +7,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailplanViewController">
             <connections>
+                <outlet property="elevationcelllabel" destination="kD7-Da-PUx" id="Dtr-bl-gd5"/>
+                <outlet property="equipcelllabel" destination="m7Z-HD-ITg" id="orH-Nb-ORv"/>
+                <outlet property="heightcelllabel" destination="YCc-NM-Fqt" id="RHP-9g-ZwJ"/>
+                <outlet property="lengthcelllabel" destination="UTm-C4-2qC" id="CZZ-BE-KHR"/>
+                <outlet property="manhourslabel" destination="RO7-CU-wV1" id="Jb6-yU-Peo"/>
+                <outlet property="pjctheadercelllabel" destination="4vE-an-EHM" id="Ab2-Ul-E5X"/>
+                <outlet property="quantitycelllabel" destination="psi-gW-56U" id="i16-PB-5Fs"/>
                 <outlet property="scaffoldcell" destination="ohT-ND-xRS" id="EgU-kI-AyL"/>
+                <outlet property="scaffoldcellalbel" destination="kxi-QF-wYa" id="iN7-q7-drG"/>
+                <outlet property="unitcelllabel" destination="Wqs-hi-d6k" id="bKe-Gw-zJP"/>
+                <outlet property="widthcelllabel" destination="Fq4-aT-tKy" id="HOP-NL-yUL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

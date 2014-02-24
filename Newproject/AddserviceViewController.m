@@ -175,7 +175,8 @@
         }
     }
 }
-/*webservice*/
+#pragma mark-Webservices
+
 -(void)SelectAllServices{
     webtype=1;
     recordResults = FALSE;

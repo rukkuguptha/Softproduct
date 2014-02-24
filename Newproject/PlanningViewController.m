@@ -188,6 +188,8 @@
                     if (!self.DetailplanVctrl) {
                         self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
                     }
+                     planmodel*planmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
+                    _DetailplanVctrl.planid=planmdl.planid;
                     _DetailplanVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     [self presentViewController:_DetailplanVctrl
