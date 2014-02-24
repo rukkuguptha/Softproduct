@@ -7,20 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Customscaffoldingplan.h"
+#import "Scaffoldtypemdl.h"
+#import "AllDetailsplandisplayViewController.h"
 
 @interface DetailplanViewController : UIViewController
 {
     BOOL recordResults;
+    NSInteger webtype;
+    UIButton *button;
+    NSInteger btnindex;
 }
 
 @property(strong,nonatomic)NSString *planid;
-
+@property(strong,nonatomic)Customscaffoldingplan *scfldmdl;
+@property(strong,nonatomic)Scaffoldtypemdl *typemdl;
+@property(strong,nonatomic)AllDetailsplandisplayViewController *allctrlr;
 
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;
 - (IBAction)Scaffoldslection:(id)sender;
 - (IBAction)InsulationSelection:(id)sender;
 - (IBAction)fireproofingselection:(id)sender;
+-(IBAction)detailscaffoldaction:(id)sender;
 
 /*IBOutlets*/
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *scaffoldbtn;
@@ -57,4 +66,7 @@
 
 /*arrays and Dicts*/
 @property(strong,nonatomic)NSMutableArray *scaffoldingplanlistarray;
+@property(strong,nonatomic)NSMutableArray *scaffoldtyperesultarray;
+@property(strong,nonatomic)NSMutableDictionary *scaffoldtypeDict;
+@property(strong,nonatomic)NSString *scaffoldtypestring;
 @end
