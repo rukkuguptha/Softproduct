@@ -41,6 +41,13 @@
 		649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED7A7187FBD710086CDDE /* customservicescell.xib */; };
 		649ED7AC187FBD710086CDDE /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649ED7A9187FBD710086CDDE /* ServiceViewController.m */; };
 		649ED7AD187FBD710086CDDE /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649ED7AA187FBD710086CDDE /* ServiceViewController.xib */; };
+		649EDEC418BB011A00B78D97 /* EqaddRecordview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDEC318BB011A00B78D97 /* EqaddRecordview.xib */; };
+		649EDEC618BB04EC00B78D97 /* addworkscheduleview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDEC518BB04EC00B78D97 /* addworkscheduleview.xib */; };
+		649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDEC718BB051900B78D97 /* meetingnoterecordaddview.xib */; };
+		649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDEC918BB053E00B78D97 /* otherbiddrecordaddview.xib */; };
+		649EDECC18BB055E00B78D97 /* Outlookrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */; };
+		649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */; };
+		649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */; };
 		64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA0186023D2001F74E2 /* AllfolderViewController.m */; };
 		64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */; };
 		64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA518602A1B001F74E2 /* folderrightsViewController.m */; };
@@ -262,6 +269,13 @@
 		649ED7A8187FBD710086CDDE /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
 		649ED7A9187FBD710086CDDE /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		649ED7AA187FBD710086CDDE /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
+		649EDEC318BB011A00B78D97 /* EqaddRecordview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqaddRecordview.xib; sourceTree = "<group>"; };
+		649EDEC518BB04EC00B78D97 /* addworkscheduleview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = addworkscheduleview.xib; sourceTree = "<group>"; };
+		649EDEC718BB051900B78D97 /* meetingnoterecordaddview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = meetingnoterecordaddview.xib; sourceTree = "<group>"; };
+		649EDEC918BB053E00B78D97 /* otherbiddrecordaddview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = otherbiddrecordaddview.xib; sourceTree = "<group>"; };
+		649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Outlookrecordaddview.xib; sourceTree = "<group>"; };
+		649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Addnoterecordview.xib; sourceTree = "<group>"; };
+		649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Roolsrecordaddview.xib; sourceTree = "<group>"; };
 		64A09D9F186023D2001F74E2 /* AllfolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllfolderViewController.h; sourceTree = "<group>"; };
 		64A09DA0186023D2001F74E2 /* AllfolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllfolderViewController.m; sourceTree = "<group>"; };
 		64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllfolderViewController.xib; sourceTree = "<group>"; };
@@ -730,6 +744,13 @@
 				D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */,
 				D4F036C618B70A38003A668C /* Wrkschdulecell.xib */,
 				D4F036C818B71781003A668C /* Meetingnotesview.xib */,
+				649EDEC318BB011A00B78D97 /* EqaddRecordview.xib */,
+				649EDEC518BB04EC00B78D97 /* addworkscheduleview.xib */,
+				649EDEC718BB051900B78D97 /* meetingnoterecordaddview.xib */,
+				649EDEC918BB053E00B78D97 /* otherbiddrecordaddview.xib */,
+				649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */,
+				649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */,
+				649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */,
 				D418B61818B4A5620043644A /* NewrecordViewController.h */,
 				D418B61918B4A5620043644A /* NewrecordViewController.m */,
 				D418B61A18B4A5620043644A /* NewrecordViewController.xib */,
@@ -939,14 +960,17 @@
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				642FA79918AC960400372623 /* DetailplanViewController.xib in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
+				649EDEC618BB04EC00B78D97 /* addworkscheduleview.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
+				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,
 				64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
 				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
 				64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */,
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
+				649EDECC18BB055E00B78D97 /* Outlookrecordaddview.xib in Resources */,
 				D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */,
@@ -966,6 +990,7 @@
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
 				D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
+				649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */,
 				D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */,
 				D453DA321873F215007EE3DC /* Assetcell.xib in Resources */,
 				649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */,
@@ -994,6 +1019,7 @@
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
+				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				D4FED41017F16EEE004BE242 /* VerificationViewController.xib in Resources */,
 				D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */,
@@ -1030,6 +1056,7 @@
 				64A09DA818602A1B001F74E2 /* folderrightsViewController.xib in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */,
+				649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
@@ -1039,6 +1066,7 @@
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
+				649EDEC418BB011A00B78D97 /* EqaddRecordview.xib in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
