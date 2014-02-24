@@ -215,14 +215,14 @@
                    "<soap:Body>\n"
                    
                    "<SitevisitInsertequipment xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<equipmentnumber>string</equipmentnumber>\n"
-                   "<description>string</description>\n"
-                   "<area>float</area>\n"
-                   "<unit>string</unit>\n"
-                   "<planId>string</planId>\n"
+                   "<equipmentnumber>%@</equipmentnumber>\n"
+                   "<description>%@</description>\n"
+                   "<area>%f</area>\n"
+                   "<unit>%@</unit>\n"
+                   "<planId>%@</planId>\n"
                    "</SitevisitInsertequipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_ruletxtfld.text,_ruldescptn.text,_companyid];
+                   "</soap:Envelope>\n",_equpnotxtfld.text,_equpdscptn.text,[_equpareatxtfld.text doubleValue],_equnittxtfld.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -236,6 +236,60 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertequipment" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitInsertworkschedule{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertworkschedule xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Fromdate>%@</Fromdate>\n"
+                   "<enddate>%@</enddate>\n"
+                   "<description>%@</description>\n"
+                   "<planId>%@</planId>\n"
+                   "</SitevisitInsertworkschedule>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_equpnotxtfld.text,_equpdscptn.text,[_equpareatxtfld.text doubleValue],_equnittxtfld.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertworkschedule" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -528,5 +582,22 @@
 - (IBAction)rulecancel:(id)sender {
     _ruletxtfld.text=@"";
     _ruldescptn.text=@"";
+}
+- (IBAction)equupdtebtn:(id)sender {
+    [self SitevisitInsertequipment];
+}
+
+- (IBAction)equcancelbtn:(id)sender {
+}
+- (IBAction)startdatebtn:(id)sender {
+}
+- (IBAction)enddatebtn:(id)sender {
+}
+- (IBAction)updatebtn:(id)sender {
+}
+- (IBAction)wrkupdtebtn:(id)sender {
+}
+
+- (IBAction)wrkschdlecancel:(id)sender {
 }
 @end

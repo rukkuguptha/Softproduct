@@ -3168,9 +3168,8 @@
 
 
 - (IBAction)Rateaddbtn:(id)sender {
-    if (!_newrecordVCtrl) {
-        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
-    }
+            self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3211,9 +3210,9 @@
 }
 - (IBAction)addnewjobsite:(id)sender {
     
-    if (!_newrecordVCtrl) {
+   
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
-    }
+    
       self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3221,9 +3220,9 @@
 
 }
 - (IBAction)addsafetyrules:(id)sender {
-    if (!_newrecordVCtrl) {
+  
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Roolsrecordaddview" bundle:nil];
-    }
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3233,9 +3232,9 @@
     
 }
 - (IBAction)addnewequipment:(id)sender {
-    if (!_newrecordVCtrl) {
+   
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"EqaddRecordview" bundle:nil];
-    }
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3243,9 +3242,9 @@
 
 }
 - (IBAction)addworkscdle:(id)sender {
-    if (!_newrecordVCtrl) {
+    
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"addworkscheduleview" bundle:nil];
-    }
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3253,9 +3252,8 @@
 
 }
 - (IBAction)addmeetgnots:(id)sender {
-    if (!_newrecordVCtrl) {
-        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
-    }
+           self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3283,9 +3281,9 @@
 
      }
 - (IBAction)addbidder:(id)sender {
-    if (!_newrecordVCtrl) {
+   
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"otherbiddrecordaddview" bundle:nil];
-    }
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3293,9 +3291,9 @@
 
 }
 - (IBAction)addweather:(id)sender {
-    if (!_newrecordVCtrl) {
+  
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Outlookrecordaddview" bundle:nil];
-    }
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3321,9 +3319,9 @@
 
 }
 - (IBAction)addnotesbtn:(id)sender {
-    if (!_newrecordVCtrl) {
+ 
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Addnoterecordview" bundle:nil];
-    }
+    
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl

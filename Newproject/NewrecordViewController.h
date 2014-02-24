@@ -58,5 +58,27 @@
 - (IBAction)ruleupdte:(id)sender;
 - (IBAction)rulecancel:(id)sender;
 
+/*Equpment */
+@property (strong, nonatomic) IBOutlet UITextField *equpnotxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *equpdscptn;
+
+@property (strong, nonatomic) IBOutlet UITextField *equpareatxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *equnittxtfld;
+
+- (IBAction)equupdtebtn:(id)sender;
+- (IBAction)equcancelbtn:(id)sender;
+
+
+/*wrkschedule*/
+- (IBAction)startdatebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *startdatebtnlbl;
+- (IBAction)enddatebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *enddatebtnlbl;
+@property (strong, nonatomic) IBOutlet UITextField *wrkdesctxtfld;
+
+- (IBAction)wrkupdtebtn:(id)sender;
+
+- (IBAction)wrkschdlecancel:(id)sender;
+
 
 @end
