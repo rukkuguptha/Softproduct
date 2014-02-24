@@ -6,19 +6,24 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
+
+
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "NewrecordViewController.h"
 #import "SitevistMdl.h"
 
-@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
+
+@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate>{
     BOOL recordResults;
     NSString *itemid;
     NSInteger path;
 
 }
+
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
 
+-(void)toreloadatable;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 

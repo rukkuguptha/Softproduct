@@ -68,6 +68,18 @@
 
     }
 
+-(void)toreloadatable{
+    [self SitevisitSelectproductionrate];
+    [self SitevisitSelectjobsitereq];
+    [self  SitevisitSelectWorkSchedule];
+    [self SitevisitSelectWeatherOutlook];
+    [self SitevisitSelectOtherBidders];
+    [self SitevisitSelectMeetingNotes];
+    [self SitevisitSelectNotes];
+    [self Selectsafetyrulessitevisit];
+    [self SitevisitSelectequipment];
+    
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -3171,6 +3183,7 @@
             self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
     
     self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
@@ -3212,7 +3225,7 @@
     
    
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
       self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3222,7 +3235,7 @@
 - (IBAction)addsafetyrules:(id)sender {
   
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Roolsrecordaddview" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3234,7 +3247,7 @@
 - (IBAction)addnewequipment:(id)sender {
    
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"EqaddRecordview" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3244,7 +3257,7 @@
 - (IBAction)addworkscdle:(id)sender {
     
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"addworkscheduleview" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3253,7 +3266,7 @@
 }
 - (IBAction)addmeetgnots:(id)sender {
            self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3283,7 +3296,7 @@
 - (IBAction)addbidder:(id)sender {
    
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"otherbiddrecordaddview" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3292,8 +3305,8 @@
 }
 - (IBAction)addweather:(id)sender {
   
-        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Outlookrecordaddview" bundle:nil];
-    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Outlookrecordaddview" bundle:nil];
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
@@ -3321,7 +3334,7 @@
 - (IBAction)addnotesbtn:(id)sender {
  
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Addnoterecordview" bundle:nil];
-    
+     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl

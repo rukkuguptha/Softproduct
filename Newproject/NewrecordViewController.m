@@ -13,6 +13,7 @@
 @end
 
 @implementation NewrecordViewController
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -443,6 +444,146 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
 }
+-(void)SitevisitInsertweatheroutlook{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_wethrfrmdatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *datesss = [dateFormat1 dateFromString:_wethrendbtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString1 = [dateFormat4 stringFromDate:datesss];
+    
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertweatheroutlook xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<WeatherFrom>%@</WeatherFrom>\n"
+                   "<WeatherTo>%@</WeatherTo>\n"
+                   "<WeatherDescription>%@</WeatherDescription>\n"
+                   "<planId>%@</planId>\n"
+                   "</SitevisitInsertweatheroutlook>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",   dateString ,dateString1,_wathrcndtnlbl.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertweatheroutlook" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitInsertNotes{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_notedatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertNotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<NoteDate>%@</NoteDate>\n"
+                   "<Notes>%@</Notes>\n"
+                   "<UserId>%d</UserId>\n"
+                   "<planId>%@</planId>\n"
+                    "</SitevisitInsertNotes>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",   dateString ,_notestxtfld.text,0,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertNotes" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 
 -(void)SelectAllItemType{
     recordResults = FALSE;
@@ -758,7 +899,31 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                                               animated:YES];
         
     }
+    if (istr==4) {
+        [self.popOverController presentPopoverFromRect:_wethrfrmdatebtnlbl.frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
     
+    if (istr==5) {
+        [self.popOverController presentPopoverFromRect:_wethrendbtnlbl.frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
+    
+    if (istr==6) {
+        [self.popOverController presentPopoverFromRect:_notedatebtnlbl.frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
+    
+
 
 }
 
@@ -801,12 +966,47 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         NSString *dateString = [dateFormat stringFromDate:date];
         [_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
     }
+    if (istr==4) {
+        
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        
+        NSString *dateString = [dateFormat stringFromDate:date];
+        [_wethrfrmdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    }
+
+    if (istr==5) {
+        
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        
+        NSString *dateString = [dateFormat stringFromDate:date];
+        [_wethrendbtnlbl setTitle:dateString forState:UIControlStateNormal];
+    }
+    if (istr==6) {
+        
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        
+        NSString *dateString = [dateFormat stringFromDate:date];
+        [_notedatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    }
+
 
 }
 
 - (IBAction)clsebtn:(id)sender {
+     if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
+   // if (self.delegate && [self.delegate respondsToSelector:@selector(toreloadatable)]) {
+        
+        [self.delegate toreloadatable];
+          [self dismissViewControllerAnimated:YES completion:nil];
+    }
     //[self.navigationController popViewControllerAnimated:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+  
 }
 - (IBAction)updatepratebtn:(id)sender {
     [self InsertSitevisitProductionRates];
@@ -870,5 +1070,31 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)bidcancelbtn:(id)sender {
     _bidnamelbl.text=@"";
+}
+- (IBAction)wetherfrmbtn:(id)sender {
+     istr=4;
+     [self createCalenderPopover];
+}
+
+- (IBAction)weathrtodatebtn:(id)sender {
+     istr=5;
+     [self createCalenderPopover];
+}
+
+- (IBAction)wethrupdatebtn:(id)sender {
+    [self SitevisitInsertweatheroutlook];
+}
+
+- (IBAction)weathrcancelbtn:(id)sender {
+}
+- (IBAction)notedatebtn:(id)sender {
+     istr=6;
+     [self createCalenderPopover];
+}
+- (IBAction)notesupdatebtn:(id)sender {
+    [self SitevisitInsertNotes];
+}
+
+- (IBAction)notescancelbtn:(id)sender {
 }
 @end

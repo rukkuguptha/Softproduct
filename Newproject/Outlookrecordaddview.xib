@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewrecordViewController">
             <connections>
                 <outlet property="view" destination="1" id="WNb-oe-Jhq"/>
+                <outlet property="wathrcndtnlbl" destination="D2f-vF-i8k" id="hBo-Ca-WpB"/>
+                <outlet property="wethrendbtnlbl" destination="cMT-Hn-dd2" id="pcD-to-lpG"/>
+                <outlet property="wethrfrmdatebtnlbl" destination="8n6-bp-m7E" id="cMf-DP-giP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -33,6 +36,9 @@
                                     <state key="normal" title="Button" image="appbar.close.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="clsebtn:" destination="-1" eventType="touchUpInside" id="YC5-VF-EUY"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>
@@ -73,6 +79,9 @@
                     <state key="normal" title="Update">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="wethrupdatebtn:" destination="-1" eventType="touchUpInside" id="YkZ-gA-77g"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pFe-2H-GTm">
                     <rect key="frame" x="287" y="369" width="46" height="30"/>
@@ -81,6 +90,9 @@
                     <state key="normal" title="Cancel">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="weathrcancelbtn:" destination="-1" eventType="touchUpInside" id="0Wu-r7-1gw"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8n6-bp-m7E">
                     <rect key="frame" x="263" y="139" width="198" height="35"/>
@@ -89,6 +101,9 @@
                     <state key="normal" title="Select" backgroundImage="textbox.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="wetherfrmbtn:" destination="-1" eventType="touchUpInside" id="ofW-Bm-0oc"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cMT-Hn-dd2">
                     <rect key="frame" x="263" y="208" width="198" height="35"/>
@@ -97,6 +112,9 @@
                     <state key="normal" title="Select" backgroundImage="textbox.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="weathrtodatebtn:" destination="-1" eventType="touchUpInside" id="ErW-1d-1QQ"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
