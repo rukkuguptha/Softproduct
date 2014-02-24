@@ -3269,18 +3269,53 @@
     if (!_newrecordVCtrl) {
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Jobsiterecord" bundle:nil];
     }
+      self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
 
 }
 - (IBAction)addsafetyrules:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Roolsrecordaddview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
+    
+    
 }
 - (IBAction)addnewequipment:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"EqaddRecordview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 - (IBAction)addworkscdle:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"addworkscheduleview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 - (IBAction)addmeetgnots:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (IBAction)deltemeetng:(id)sender {
@@ -3303,8 +3338,24 @@
 
      }
 - (IBAction)addbidder:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"otherbiddrecordaddview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 - (IBAction)addweather:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Outlookrecordaddview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (IBAction)deleteweather:(id)sender {
@@ -3325,6 +3376,14 @@
 
 }
 - (IBAction)addnotesbtn:(id)sender {
+    if (!_newrecordVCtrl) {
+        self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Addnoterecordview" bundle:nil];
+    }
+    self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_newrecordVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (IBAction)deletenotes:(id)sender {
