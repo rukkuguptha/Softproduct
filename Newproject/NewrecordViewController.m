@@ -260,7 +260,26 @@
     
     NSString *soapMessage;
     
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_startdatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
+NSString*    dateString = [dateFormat2 stringFromDate:dates];
+
+    
+    NSDateFormatter *dateFormat3 = [[NSDateFormatter alloc] init];
+    [dateFormat3 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *datesss = [dateFormat1 dateFromString:_enddatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat4 = [[NSDateFormatter alloc]init];
+    [dateFormat4 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString1 = [dateFormat4 stringFromDate:datesss];
+    
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -276,7 +295,7 @@
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertworkschedule>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_equpnotxtfld.text,_equpdscptn.text,[_equpareatxtfld.text doubleValue],_equnittxtfld.text,_companyid];
+                   "</soap:Envelope>\n",dateString, dateString1,_wrkdesctxtfld.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -290,6 +309,121 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertworkschedule" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitInsertmeetingnotes{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertmeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Datetime>%@</Datetime>\n"
+                   "<details>%@</details>\n"
+                   "<userId>%d</userId>\n"
+                   "<planId>%@</planId>\n"
+                   "</SitevisitInsertmeetingnotes>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",   dateString ,_meetgdetailslbl.text,0,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertmeetingnotes" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)SitevisitInsertotherbidders{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitInsertotherbidders xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<biddername>%@</biddername>\n"
+                   "<planId>%@</planId>\n"
+                   "</SitevisitInsertotherbidders>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_bidnamelbl.text,_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitInsertotherbidders" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -552,7 +686,123 @@
     
 
 }
+#pragma mark - Calendar
+-(void)createCalenderPopover
+{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 315, 330)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(315, 330);
+    
+    CKCalendarView *calendar = [[CKCalendarView alloc] initWithStartDay:startMonday];
+    self.calendar = calendar;
+    calendar.delegate =(id) self;
+    
+    
+    NSDate *date = [NSDate date];
+    
+    // format it
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"dd/MM/YYYY"];
+    
+    // convert it to a string
+    NSString *dateString = [dateFormat stringFromDate:date];
+    //NSLog(@"datestring%@",dateString);
+    
+    self.dateFormatter = [[NSDateFormatter alloc] init];
+    [self.dateFormatter setDateFormat:@"dd/MM/yyyy"];
+    
+    calendar.selectedDate = [self.dateFormatter dateFromString:dateString];
+    
+    calendar.minimumDate = [self.dateFormatter dateFromString:@"09/07/2011"];
+    calendar.maximumDate = [self.dateFormatter dateFromString:@"1/07/2019"];
+    calendar.shouldFillCalendar = YES;
+    calendar.adaptHeightToNumberOfWeeksInMonth = NO;
+    
+    calendar.frame = CGRectMake(10, 10, 300, 320);
+    [popoverView addSubview:calendar];
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(localeDidChange) name:NSCurrentLocaleDidChangeNotification object:nil];
+    
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    if (istr==1) {
 
+    [self.popOverController presentPopoverFromRect:_startdatebtnlbl.frame
+                                            inView:self.view
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    }
+    if (istr==2) {
+        [self.popOverController presentPopoverFromRect:_enddatebtnlbl.frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+
+    }
+
+    if (istr==3) {
+        [self.popOverController presentPopoverFromRect:_datebtnlbl.frame
+                                                inView:self.view
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
+    
+
+}
+
+
+
+- (void)localeDidChange {
+    [self.calendar setLocale:[NSLocale currentLocale]];
+}
+
+
+
+#pragma mark - CKCalendarDelegate
+
+- (void)calendar:(CKCalendarView *)calendar didSelectDate:(NSDate *)date {
+    if (istr==1) {
+        
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    
+    NSString *dateString = [dateFormat stringFromDate:date];
+    [_startdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    
+    }
+    if (istr==2) {
+        
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        
+        NSString *dateString = [dateFormat stringFromDate:date];
+        [_enddatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    }
+    if (istr==3) {
+        
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"MM/dd/YYYY"];
+        
+        NSString *dateString = [dateFormat stringFromDate:date];
+        [_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    }
+
+}
 
 - (IBAction)clsebtn:(id)sender {
     //[self.navigationController popViewControllerAnimated:YES];
@@ -590,14 +840,35 @@
 - (IBAction)equcancelbtn:(id)sender {
 }
 - (IBAction)startdatebtn:(id)sender {
+    istr=1;
+    [self createCalenderPopover];
 }
 - (IBAction)enddatebtn:(id)sender {
+    istr=2;
+    [self createCalenderPopover];
 }
-- (IBAction)updatebtn:(id)sender {
-}
+
 - (IBAction)wrkupdtebtn:(id)sender {
+    [self SitevisitInsertworkschedule];
 }
 
 - (IBAction)wrkschdlecancel:(id)sender {
+}
+- (IBAction)datebtn:(id)sender {
+    istr=3;
+    [self createCalenderPopover];
+}
+- (IBAction)meetgupdatebt:(id)sender {
+    [self SitevisitInsertmeetingnotes];
+}
+
+- (IBAction)meetgcancelbtn:(id)sender {
+}
+- (IBAction)bidupdatebtn:(id)sender {
+    [self SitevisitInsertotherbidders];
+}
+
+- (IBAction)bidcancelbtn:(id)sender {
+    _bidnamelbl.text=@"";
 }
 @end
