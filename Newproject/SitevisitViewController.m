@@ -74,6 +74,7 @@
      _companynametxtfld.text=_companyname;
     [self ListSiteVisitGeneral];
     [self SelectAllItemType];
+    [self SitevisitSelectproductionrate];
     
     _gernalbtnlbl.tintColor=[UIColor whiteColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
@@ -680,6 +681,692 @@
     
     
 }
+-(void)SitevisitSelectOtherBidders{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitSelectOtherBidders xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</SitevisitSelectOtherBidders>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSelectOtherBidders" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitSelectWeatherOutlook{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitSelectWeatherOutlook xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</SitevisitSelectWeatherOutlook>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSelectWeatherOutlook" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitSelectNotes{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitSelectNotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</SitevisitSelectNotes>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitSelectNotes" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)Sitevisitdeleteproductionrates{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_productionratearray objectAtIndex:path];
+
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeleteproductionrates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeleteproductionrates>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.prentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteproductionrates" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SitevisitdeleteEquipments{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_Equpmntarray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SitevisitdeleteEquipments xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</SitevisitdeleteEquipments>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.equpentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SitevisitdeleteEquipments" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)Sitevisitdeletejobsiterequirements{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_jobsiteArray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeletejobsiterequirements xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeletejobsiterequirements>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.jobentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeletejobsiterequirements" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)Sitevisitdeletemeetingnotes{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeletemeetingnotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeletemeetingnotes>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.meetgentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeletemeetingnotes" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)Sitevisitdeletenotes{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_notearray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeletenotes xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeletenotes>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.notesentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeletenotes" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)Sitevisitdeleteotherbidders{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_bidderarray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeleteotherbidders xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeleteotherbidders>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.bidderentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteotherbidders" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)Sitevisitdeletesafetyrules{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_saftyArray objectAtIndex:path];
+    NSLog(@"sitem%@",sitemdl1.Saftruleentry);
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeletesafetyrules xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeletesafetyrules>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.Saftruleentry integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeletesafetyrules" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)Sitevisitdeleteweatheroutlook{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_weatherarray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeleteweatheroutlook xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeleteweatheroutlook>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.weatherentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteweatheroutlook" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)Sitevisitdeleteworkschedule{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Sitevisitdeleteworkschedule xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "<entryid>%d</entryid>\n"
+                   "</Sitevisitdeleteworkschedule>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid,[sitemdl1.wrkschdlentryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteworkschedule" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)InsertSitevisitProductionRates{
+    recordResults = FALSE;
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertSitevisitProductionRates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<rate>%@</rate>\n"
+                   "<description>%@</description>\n"
+                   "<value>%f</value>\n"
+                   "<planId>%@</planId>\n"
+                   "</InsertSitevisitProductionRates>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_companyid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertSitevisitProductionRates" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -716,9 +1403,15 @@
     [_jobsitetable reloadData];
     [_safetytableview reloadData];
     [_newequipmenttable reloadData];
+    [_workscdletable reloadData];
+    [_meetingtable reloadData];
+    [_bidderstable reloadData];
+    [_weathertable reloadData];
+    [_notestable reloadData];
     
     
 }
+
 
 
 #pragma mark-tableview datasource
@@ -749,13 +1442,23 @@
             return [_Equpmntarray count];
         }
         
-
-
-              else{
-        return 5;
-          }
-
-    }
+        if (tableView==_workscdletable) {
+            return [_wrkschdlearray count];
+        }
+        
+        if (tableView==_meetingtable) {
+            return [_meetgarray count];
+        }
+        if (tableView==_bidderstable) {
+            return [_bidderarray count];
+        }
+        if (tableView==_weathertable) {
+            return [_weatherarray count];
+        }
+        if (tableView==_notestable) {
+            return [_notearray count];
+        }
+        }
     
     return YES;
     
@@ -769,6 +1472,7 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
         if (tableView==_prdunratetble) {
              [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
             
@@ -798,7 +1502,37 @@
           if (tableView==_newequipmenttable) {
               [[NSBundle mainBundle]loadNibNamed:@"siteEqupmtntcell" owner:self options:nil];
               
-              cell=_equmntcell;}
+              cell=_equmntcell;
+          }
+        if (tableView==_workscdletable) {
+            [[NSBundle mainBundle]loadNibNamed:@"Wrkschdulecell" owner:self options:nil];
+            
+            cell=_wrkschdlecell;
+
+            
+        }
+        if (tableView==_meetingtable) {
+        [[NSBundle mainBundle]loadNibNamed:@"SaftyCell" owner:self options:nil];
+                
+                cell=_saftycell;
+
+        }
+        if (tableView==_bidderstable) {
+            cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+            
+        }
+        if (tableView==_weathertable) {
+            [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
+            
+            cell=_ratecell;
+        }
+        if (tableView==_notestable) {
+            [[NSBundle mainBundle]loadNibNamed:@"SaftyCell" owner:self options:nil];
+            
+            cell=_saftycell;
+            
+        }
+
 
 
        }
@@ -861,6 +1595,56 @@
        
    }
     
+    if (tableView==_workscdletable) {
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:indexPath.row];
+        
+        _startdaelbl=(UILabel *)[cell viewWithTag:1];
+        _startdaelbl.text=sitemdl1.wrkstartdate;
+        _enddatelbl=(UILabel *)[cell viewWithTag:2];
+        _enddatelbl.text=sitemdl1.wrkenddate;
+        _wrkschdledscrptn=(UILabel *)[cell viewWithTag:3];
+        _wrkschdledscrptn.text=sitemdl1.wrkshdledescptn;
+      
+        
+        
+        
+    }
+    if (tableView==_meetingtable) {
+        
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:indexPath.row];
+        _rultitllbl=(UILabel *)[cell viewWithTag:1];
+        _rultitllbl.text=sitemdl1.meetingdate;
+        _ruledesptn=(UILabel *)[cell viewWithTag:2];
+        _ruledesptn.text=sitemdl1.meetingdetails;
+
+        
+    }
+    if (tableView==_bidderstable) {
+          SitevistMdl *sitemdl1=(SitevistMdl *)[_bidderarray objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text=[NSString stringWithFormat:@"\t\t\t\t\t\t%@",sitemdl1.biddername];
+            }
+    
+    
+    if (tableView==_weathertable) {
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_weatherarray objectAtIndex:indexPath.row];
+        _ratelbl=(UILabel *)[cell viewWithTag:1];
+        _ratelbl.text=sitemdl1.wethrfrm;
+        _ratedeslbl=(UILabel *)[cell viewWithTag:2];
+        _ratedeslbl.text=sitemdl1.weathrto;
+        _ratevaluelbl=(UILabel *)[cell viewWithTag:3];
+        _ratevaluelbl.text=sitemdl1.weatherdescptn;
+        
+    }
+    if (tableView==_notestable) {
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_notearray objectAtIndex:indexPath.row];
+        _rultitllbl=(UILabel *)[cell viewWithTag:1];
+        _rultitllbl.text=sitemdl1.notedate;
+        _ruledesptn=(UILabel *)[cell viewWithTag:2];
+        _ruledesptn.text=sitemdl1.Notes;
+        
+    }
+
     return cell;
 }
 
@@ -886,6 +1670,75 @@
        
     }
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+      if (tableView==_prdunratetble) {
+        [self Sitevisitdeleteproductionrates];
+        [_productionratearray removeObject:indexPath];
+        
+        }
+        
+        if (tableView==_jobsitetable) {
+            [self Sitevisitdeletejobsiterequirements];
+            [_jobsiteArray removeObject:indexPath];
+            
+            
+          
+        }
+        if (tableView==_safetytableview) {
+            [self Sitevisitdeletesafetyrules];
+            [_saftyArray removeObject:indexPath];
+          
+            }
+        
+        if (tableView==_newequipmenttable) {
+            [self SitevisitdeleteEquipments];
+            [_Equpmntarray removeObject:indexPath];
+         
+            }
+        
+        if (tableView==_workscdletable) {
+            
+            [self Sitevisitdeleteworkschedule];
+            [_wrkschdlearray removeObject:indexPath];
+        
+         }
+        
+        if (tableView==_meetingtable) {
+            [self Sitevisitdeletemeetingnotes];
+            [_meetgarray removeObject:indexPath];
+          
+
+            
+            }
+        if (tableView==_bidderstable) {
+            [self Sitevisitdeleteotherbidders];
+            [_bidderarray removeObject:indexPath];
+          
+
+           
+        }
+        if (tableView==_weathertable) {
+            [self Sitevisitdeleteweatheroutlook];
+            [_weatherarray removeObject:indexPath];
+           
+           
+        }
+        if (tableView==_notestable) {
+            [self Sitevisitdeletenotes];
+            [_notearray removeObject:indexPath];
+         
+           }
+
+        
+        }
+    
+}
+
+
 
 
 #pragma mark-xml parser
@@ -956,7 +1809,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SitevisitSelectproductionrateResult"])
+    if([elementName isEqualToString:@"SitevisitSelectproductionrateResponse"])
     {
         _productionratearray=[[NSMutableArray alloc]init];
         
@@ -1003,7 +1856,7 @@
     }
     
     
-    if([elementName isEqualToString:@"SitevisitSelectjobsitereqResult"])
+    if([elementName isEqualToString:@"SitevisitSelectjobsitereqResponse"])
     {
         _jobsiteArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1053,7 +1906,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SelectAllItemTypeResult"])
+    if([elementName isEqualToString:@"SelectAllItemTypeResponse"])
     {
         _JobtypeDict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
@@ -1079,7 +1932,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SelectsafetyrulessitevisitResult"])
+    if([elementName isEqualToString:@"SelectsafetyrulessitevisitResponse"])
     {
         _saftyArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1088,7 +1941,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Entryjobsite"])
+    if([elementName isEqualToString:@"entrysafety"])
     {
         if(!_soapResults)
         {
@@ -1114,7 +1967,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SitevisitSelectequipmentResult"])
+    if([elementName isEqualToString:@"SitevisitSelectequipmentResponse"])
     {
         _Equpmntarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1165,6 +2018,220 @@
         recordResults = TRUE;
     }
 
+    if([elementName isEqualToString:@"SitevisitSelectWorkScheduleResponse"])
+    {
+        _wrkschdlearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"FromDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"EndDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"Description"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"SitevisitSelectMeetingNotesResponse"])
+    {
+        _meetgarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"entrymeeting"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"DateTime"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Details"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"UserId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"SitevisitSelectOtherBiddersResponse"])
+    {
+        _bidderarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"entryother"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"BidderName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"SitevisitSelectWeatherOutlookResponse"])
+    {
+        _weatherarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"weatherentry"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"WeatherFrom"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"WeatherTo"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"WeatherDescription"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    if([elementName isEqualToString:@"SitevisitSelectNotesResponse"])
+    {
+        _notearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"entrynotes"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"NoteDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Notes"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"UserId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
 
 
 }
@@ -1219,8 +2286,48 @@
     if([elementName isEqualToString:@"result"])
     {
        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"deletedweatheroutlook"]) {
+            
+            [self SitevisitSelectWeatherOutlook];
+           }
+        if ([_soapResults isEqualToString:@"deletedjobsitereq"]) {
+            
+            [self SitevisitSelectjobsitereq];
+        }
+        
+        if ([_soapResults isEqualToString:@"deletedsafetyrules"]) {
+            
+            [self Selectsafetyrulessitevisit];
+        }
+        if ([_soapResults isEqualToString:@"deletedequipmentsitevisit"]) {
+            
+            [self SitevisitSelectequipment];
+        }
+        if ([_soapResults isEqualToString:@"deletedworkschedule"]) {
+            
+            [self SitevisitSelectWorkSchedule];
+        }
+        if ([_soapResults isEqualToString:@"deletedmeetingnotes"]) {
+            
+            [self SitevisitSelectMeetingNotes];
+        }
+        if ([_soapResults isEqualToString:@"deletedotherbidder"]) {
+            
+            [self SitevisitSelectOtherBidders];
+        }
+        if ([_soapResults isEqualToString:@"deletednotes"]) {
+            
+            [self SitevisitSelectNotes];
+        }
+        if ([_soapResults isEqualToString:@"deletedproductionrates"]) {
+            
+            [self SitevisitSelectproductionrate];
+        }
+
+        else{
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alertview show];
+        }
      _soapResults = nil;
     }
     if([elementName isEqualToString:@"proentyId"])
@@ -1317,13 +2424,14 @@
     {
         _sitevistmdl=[[SitevistMdl alloc]init];
         recordResults = FALSE;
-        _sitevistmdl.ruleentryid=_soapResults;
+        _sitevistmdl.Saftruleentry=_soapResults;
+         NSLog(@"sitem%@",_sitevistmdl.Saftruleentry);
         _soapResults = nil;
     }
 
     if([elementName isEqualToString:@"RuleTitle"])
     {
-        _sitevistmdl=[[SitevistMdl alloc]init];
+       
         recordResults = FALSE;
         _sitevistmdl.RuleTitle=_soapResults;
         _soapResults = nil;
@@ -1377,6 +2485,211 @@
         _soapResults = nil;
     
     }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _sitevistmdl=[[SitevistMdl alloc]init];
+
+        recordResults = FALSE;
+        
+       
+        
+        _sitevistmdl.wrkschdlentryid=_soapResults;
+        
+        _soapResults = nil;
+
+    }
+    
+    if([elementName isEqualToString:@"FromDate"])
+    {
+        recordResults = FALSE;
+        NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1=[newarray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _sitevistmdl.wrkstartdate=myFormattedDate;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"EndDate"])
+    {
+        recordResults = FALSE;
+        NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1=[newarray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _sitevistmdl.wrkenddate=myFormattedDate;
+        
+        _soapResults = nil;
+    }
+    
+    
+    if([elementName isEqualToString:@"Description"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.wrkshdledescptn=_soapResults;
+        [_wrkschdlearray addObject:_sitevistmdl];
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"entrymeeting"])
+    {
+        _sitevistmdl=[[SitevistMdl alloc]init];
+        
+        recordResults = FALSE;
+        _sitevistmdl.meetgentryid=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"DateTime"])
+    {
+        recordResults = FALSE;
+        NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1=[newarray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _sitevistmdl.meetingdate=myFormattedDate;
+        
+        _soapResults = nil;    }
+    
+    if([elementName isEqualToString:@"Details"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.meetingdetails=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"UserId"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.meetguserid=_soapResults;
+        [_meetgarray addObject:_sitevistmdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"entryother"])
+    {
+        _sitevistmdl=[[SitevistMdl alloc]init];
+        
+        recordResults = FALSE;
+        _sitevistmdl.bidderentryid=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"BidderName"])
+    {  recordResults = FALSE;
+        _sitevistmdl.biddername=_soapResults;
+        [_bidderarray addObject:_sitevistmdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"entrynotes"])
+    {
+        _sitevistmdl=[[SitevistMdl alloc]init];
+        
+        recordResults = FALSE;
+        _sitevistmdl.notesentryid=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"NoteDate"])
+    {
+        recordResults = FALSE;
+        NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1=[newarray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _sitevistmdl.notedate=myFormattedDate;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Notes"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.Notes=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"UserId"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.notesuserid=_soapResults;
+        [_notearray addObject:_sitevistmdl];
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"weatherentry"])
+    {
+        _sitevistmdl=[[SitevistMdl alloc]init];
+        
+        recordResults = FALSE;
+        _sitevistmdl.weatherentryid=_soapResults;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"WeatherFrom"])
+    {
+        recordResults = FALSE;
+        NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1=[newarray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        _sitevistmdl.wethrfrm=myFormattedDate;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"WeatherTo"])
+    {
+        recordResults = FALSE;
+        NSArray *newarray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1=[newarray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        _sitevistmdl.weathrto=myFormattedDate;
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"WeatherDescription"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.weatherdescptn=_soapResults;
+        [_weatherarray addObject:_sitevistmdl];
+        
+        
+        _soapResults = nil;    }
+    
+
+
 
 
    }
@@ -1775,6 +3088,7 @@
 }
 
 - (IBAction)otherbiddersbtn:(id)sender {
+    [self SitevisitSelectOtherBidders];
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -1806,6 +3120,7 @@
 }
 
 - (IBAction)weatheroutlookbtn:(id)sender {
+    [self SitevisitSelectWeatherOutlook];
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -1838,6 +3153,7 @@
 }
 
 - (IBAction)notesbtn:(id)sender {
+    [self SitevisitSelectNotes];
     
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
@@ -1887,6 +3203,20 @@
     
 }
 - (IBAction)ratedeletebtn:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_prdunratetble setEditing:NO animated:NO];
+        [_prdunratetble reloadData];
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_prdunratetble setEditing:YES animated:YES];
+        [_prdunratetble reloadData];
+        
+    }
     
     
 }
@@ -1896,6 +3226,7 @@
     if (!_newrecordVCtrl) {
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
     }
+    self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
@@ -1951,11 +3282,69 @@
 }
 - (IBAction)addmeetgnots:(id)sender {
 }
+
+- (IBAction)deltemeetng:(id)sender {
+    
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+         [_meetingtable setEditing:NO animated:NO];
+        [_meetingtable reloadData];
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_meetingtable setEditing:YES animated:YES];
+        [_meetingtable reloadData];
+        
+        
+    }
+
+     }
 - (IBAction)addbidder:(id)sender {
 }
 - (IBAction)addweather:(id)sender {
 }
+
+- (IBAction)deleteweather:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+            [_weathertable setEditing:NO animated:NO];
+        [_weathertable reloadData];
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+           [_weathertable setEditing:YES animated:YES];
+        [_weathertable reloadData];
+        
+    }
+
+}
 - (IBAction)addnotesbtn:(id)sender {
+}
+
+- (IBAction)deletenotes:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+             [_notestable setEditing:NO animated:NO];
+        [_notestable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+         [_notestable setEditing:YES animated:YES];
+        [_notestable reloadData];
+        
+        
+    }
+
 }
 -(IBAction)closesitevisit:(id)sender
 {
@@ -1971,4 +3360,96 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)deletebidd:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+           [_bidderstable setEditing:NO animated:NO];
+        [_bidderstable reloadData];
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+           [_bidderstable setEditing:YES animated:YES];
+        [_bidderstable reloadData];
+        
+        
+    }
+}
+- (IBAction)deletewrkschdle:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+ 
+        [_workscdletable setEditing:NO animated:NO];
+        [_workscdletable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+           [_workscdletable setEditing:YES animated:YES];
+        [_workscdletable reloadData];
+        [_meetingtable setEditing:YES animated:YES];
+        
+    }
+
+}
+- (IBAction)deleteequmnt:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_newequipmenttable setEditing:NO animated:NO];
+        [_newequipmenttable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+         [_newequipmenttable setEditing:YES animated:YES];
+        [_newequipmenttable reloadData];
+        
+    }
+
+}
+- (IBAction)deletesfty:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+            [_safetytableview setEditing:NO animated:NO];
+        [_safetytableview reloadData];
+        
+        
+        
+    }
+    
+    else{
+         [super setEditing:YES animated:YES];
+        [_safetytableview setEditing:YES animated:YES];
+        [_safetytableview reloadData];
+        
+        
+    }
+
+}
+- (IBAction)deletejobsite:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+ 
+        [_jobsitetable setEditing:NO animated:NO];
+        [_jobsitetable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+            [_jobsitetable setEditing:YES animated:YES];
+        [_jobsitetable reloadData];
+        
+    }
+}
 @end

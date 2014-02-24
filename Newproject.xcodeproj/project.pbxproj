@@ -181,6 +181,8 @@
 		D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */; };
 		D4E658D417F2EF5B00202B14 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D317F2EF5B00202B14 /* wrong.png */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
+		D4F036C718B70A38003A668C /* Wrkschdulecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F036C618B70A38003A668C /* Wrkschdulecell.xib */; };
+		D4F036C918B71781003A668C /* Meetingnotesview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F036C818B71781003A668C /* Meetingnotesview.xib */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
 		D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F61A5518A896D90006093B /* ProcesshrViewController.xib */; };
@@ -443,6 +445,8 @@
 		D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-checkmark4-1.png"; sourceTree = "<group>"; };
 		D4E658D317F2EF5B00202B14 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
+		D4F036C618B70A38003A668C /* Wrkschdulecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Wrkschdulecell.xib; sourceTree = "<group>"; };
+		D4F036C818B71781003A668C /* Meetingnotesview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Meetingnotesview.xib; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
 		D4F61A5418A896D90006093B /* ProcesshrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcesshrViewController.m; sourceTree = "<group>"; };
@@ -724,6 +728,8 @@
 				D4B0386B18B36FBD00F9DE04 /* Jobsitecellview.xib */,
 				D40313B718B6036300C27F2F /* SaftyCell.xib */,
 				D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */,
+				D4F036C618B70A38003A668C /* Wrkschdulecell.xib */,
+				D4F036C818B71781003A668C /* Meetingnotesview.xib */,
 				D418B61818B4A5620043644A /* NewrecordViewController.h */,
 				D418B61918B4A5620043644A /* NewrecordViewController.m */,
 				D418B61A18B4A5620043644A /* NewrecordViewController.xib */,
@@ -973,6 +979,7 @@
 				D4E1579917744013002764AB /* CommentsViewController.xib in Resources */,
 				6407291817744A900085CB7B /* newCommentCell.xib in Resources */,
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
+				D4F036C918B71781003A668C /* Meetingnotesview.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
 				D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
@@ -983,6 +990,7 @@
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
+				D4F036C718B70A38003A668C /* Wrkschdulecell.xib in Resources */,
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,

@@ -7,6 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewrecordViewController">
             <connections>
+                <outlet property="jobcodetxtfld" destination="ppJ-zV-IFb" id="jCn-Pk-fNH"/>
+                <outlet property="jobcosttxtfld" destination="lIQ-vA-aJq" id="96P-C8-oh9"/>
+                <outlet property="jobnametxtfld" destination="sb7-2Z-aGH" id="pWW-9p-Pal"/>
+                <outlet property="typeidbtnlbl" destination="SVq-GH-vfq" id="M8L-T6-Uqq"/>
                 <outlet property="view" destination="1" id="F4d-NE-DsR"/>
             </connections>
         </placeholder>
@@ -81,12 +85,6 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lef-yq-ObX">
-                            <rect key="frame" x="274" y="246" width="200" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QKC-gG-adR">
                             <rect key="frame" x="89" y="308" width="118" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,6 +105,9 @@
                             <state key="normal" title="Update" backgroundImage="textbox.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="jobupdatebtn:" destination="-1" eventType="touchUpInside" id="UmP-fO-8P4"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MWE-6n-x6u">
                             <rect key="frame" x="297" y="387" width="132" height="30"/>
@@ -115,6 +116,20 @@
                             <state key="normal" title="Cancel" backgroundImage="textbox.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="cancelbtn:" destination="-1" eventType="touchUpInside" id="f3N-96-0KS"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVq-GH-vfq">
+                            <rect key="frame" x="274" y="246" width="200" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="typeidbtn:" destination="-1" eventType="touchUpInside" id="BjJ-vl-2wB"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>

@@ -14,6 +14,7 @@
 @interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate>{
     BOOL recordResults;
     NSString *itemid;
+    NSInteger path;
 
 }
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
@@ -91,6 +92,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *jobcode;
 @property (strong, nonatomic) IBOutlet UILabel *jobtype;
 @property (strong, nonatomic) IBOutlet UILabel *jobcost;
+- (IBAction)deletejobsite:(id)sender;
 
 
 
@@ -106,6 +108,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *rultitllbl;
 @property (strong, nonatomic) IBOutlet UILabel *ruledesptn;
 
+- (IBAction)deletesfty:(id)sender;
 
 /*Equipments views*/
 @property (strong, nonatomic) IBOutlet UIView *neweqmntview;
@@ -118,6 +121,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *eqdeslbl;
 @property (strong, nonatomic) IBOutlet UILabel *equarealbl;
 @property (strong, nonatomic) IBOutlet UILabel *equunitlbl;
+- (IBAction)deleteequmnt:(id)sender;
+
 
 
 
@@ -128,6 +133,12 @@
 @property (strong, nonatomic) IBOutlet UIView *worktitleview;
 @property (strong, nonatomic) IBOutlet UITableView *workscdletable;
 - (IBAction)addworkscdle:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableViewCell *wrkschdlecell;
+@property (strong, nonatomic) IBOutlet UILabel *startdaelbl;
+@property (strong, nonatomic) IBOutlet UILabel *enddatelbl;
+@property (strong, nonatomic) IBOutlet UILabel *wrkschdledscrptn;
+- (IBAction)deletewrkschdle:(id)sender;
+
 
 
 /*meetingnote*/
@@ -136,6 +147,7 @@
 @property (strong, nonatomic) IBOutlet UIView *meetingtitleview;
 @property (strong, nonatomic) IBOutlet UITableView *meetingtable;
 - (IBAction)addmeetgnots:(id)sender;
+- (IBAction)deltemeetng:(id)sender;
 
 
 /*otherbidders*/
@@ -145,12 +157,20 @@
 @property (strong, nonatomic) IBOutlet UIView *bidderstitle;
 
 - (IBAction)addbidder:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableViewCell *biddercell;
+@property (strong, nonatomic) IBOutlet UILabel *biddernamelbl;
+- (IBAction)deletebidd:(id)sender;
+
+
 /*weatheroutlook*/
 @property (strong, nonatomic) IBOutlet UIView *weatherview;
 @property (strong, nonatomic) IBOutlet UIView *weathertitle;
 @property (strong, nonatomic) IBOutlet UITableView *weathertable;
 
 - (IBAction)addweather:(id)sender;
+
+- (IBAction)deleteweather:(id)sender;
+
 
 /*Notes*/
 @property (strong, nonatomic) IBOutlet UIView *notesview;
@@ -159,6 +179,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *notestable;
 
 - (IBAction)addnotesbtn:(id)sender;
+- (IBAction)deletenotes:(id)sender;
 
 /*barbuttonitmlbl*/
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *gernalbtnlbl;
@@ -196,7 +217,11 @@
 @property(strong,nonatomic)NSMutableArray *jobsiteArray;
 @property(strong,nonatomic)NSMutableArray *saftyArray;
 @property(strong,nonatomic)NSMutableArray *Equpmntarray;
-
+@property(strong,nonatomic)NSMutableArray *wrkschdlearray;
+@property(strong,nonatomic)NSMutableArray *meetgarray;
+@property(strong,nonatomic)NSMutableArray *bidderarray;
+@property(strong,nonatomic)NSMutableArray *weatherarray;
+@property(strong,nonatomic)NSMutableArray *notearray;
 
 
 /*Dictionary*/
