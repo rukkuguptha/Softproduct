@@ -29,6 +29,6 @@
 @property(strong,nonatomic)IBOutlet UITableView *scaffoldtable;
 
 
-
+-(IBAction)addplan:(id)sender;
 
 @end

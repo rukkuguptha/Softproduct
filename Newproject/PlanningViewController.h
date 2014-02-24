@@ -23,6 +23,8 @@
     NSInteger path;
     NSInteger webtype;
     NSInteger btnindex;
+    NSString *customerclicked;
+    NSString *leadclicked;
 }
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
