@@ -462,13 +462,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MDZ-9w-FOM">
-                                                    <rect key="frame" x="13" y="2" width="46" height="30"/>
+                                                    <rect key="frame" x="-10" y="2" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="appbar.addblack.png">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="addnewjobsite:" destination="-1" eventType="touchUpInside" id="s9k-UJ-9t1"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cbV-rS-Uek">
+                                                    <rect key="frame" x="30" y="-4" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletejobsite:" destination="-1" eventType="touchUpInside" id="usK-bP-FQD"/>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="Da5-3L-gWK"/>
+                                                        <action selector="deleteweather:" destination="-1" eventType="touchUpInside" id="dCm-ZY-yzx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -510,7 +522,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9Bg-x9-fWS">
-                                                    <rect key="frame" x="20" y="0.0" width="46" height="30"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" backgroundImage="appbar.addblack.png">
@@ -518,6 +530,18 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addsafetyrules:" destination="-1" eventType="touchUpInside" id="EHo-ZT-XHf"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ior-tg-NeU">
+                                                    <rect key="frame" x="50" y="-6" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="UmK-9g-DwQ"/>
+                                                        <action selector="deletesfty:" destination="-1" eventType="touchUpInside" id="a5k-mr-55p"/>
+                                                        <action selector="deleteweather:" destination="-1" eventType="touchUpInside" id="Y4C-b0-byG"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -548,7 +572,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8vO-Q5-kAY">
-                                                    <rect key="frame" x="65" y="8" width="176" height="21"/>
+                                                    <rect key="frame" x="82" y="8" width="176" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
@@ -572,7 +596,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tri-m6-bwl">
-                                                    <rect key="frame" x="6" y="4" width="46" height="30"/>
+                                                    <rect key="frame" x="0.0" y="4" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" backgroundImage="appbar.addblack.png">
@@ -580,6 +604,18 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addnewequipment:" destination="-1" eventType="touchUpInside" id="nqf-p9-E2b"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uw8-i9-Hjy">
+                                                    <rect key="frame" x="38" y="-2" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteequmnt:" destination="-1" eventType="touchUpInside" id="LVl-Bj-074"/>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="WCB-sp-LwU"/>
+                                                        <action selector="deleteweather:" destination="-1" eventType="touchUpInside" id="sbi-65-Mhl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -619,26 +655,26 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="axn-rR-FKa">
-                                                    <rect key="frame" x="115" y="14" width="68" height="21"/>
+                                                    <rect key="frame" x="89" y="14" width="68" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="End Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sWC-jL-m6K">
-                                                    <rect key="frame" x="248" y="14" width="76" height="21"/>
+                                                    <rect key="frame" x="239" y="14" width="76" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jxg-n9-ISd">
-                                                    <rect key="frame" x="433" y="14" width="95" height="21"/>
+                                                    <rect key="frame" x="417" y="14" width="95" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KkD-Nk-P2Y">
-                                                    <rect key="frame" x="30" y="5" width="40" height="40"/>
+                                                    <rect key="frame" x="0.0" y="5" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.addblack.png">
@@ -646,6 +682,18 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addworkscdle:" destination="-1" eventType="touchUpInside" id="5Hu-lc-V6c"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vM3-qE-bez">
+                                                    <rect key="frame" x="40" y="4" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="Atz-Sh-aNC"/>
+                                                        <action selector="deleteweather:" destination="-1" eventType="touchUpInside" id="t4s-GY-jNJ"/>
+                                                        <action selector="deletewrkschdle:" destination="-1" eventType="touchUpInside" id="4hr-KR-Qbd"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -676,21 +724,21 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kJW-n5-UvG">
-                                                    <rect key="frame" x="147" y="9" width="114" height="21"/>
+                                                    <rect key="frame" x="90" y="9" width="114" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AaI-wM-dV3">
-                                                    <rect key="frame" x="482" y="9" width="114" height="21"/>
+                                                    <rect key="frame" x="338" y="9" width="114" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W4K-m4-cxX">
-                                                    <rect key="frame" x="20" y="5" width="46" height="30"/>
+                                                    <rect key="frame" x="0.0" y="5" width="46" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" backgroundImage="appbar.addblack.png">
@@ -698,6 +746,18 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addmeetgnots:" destination="-1" eventType="touchUpInside" id="1ne-bL-G09"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qIS-9s-njw">
+                                                    <rect key="frame" x="41" y="0.0" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="ijA-aE-6vk"/>
+                                                        <action selector="deleteweather:" destination="-1" eventType="touchUpInside" id="tgq-WQ-ujS"/>
+                                                        <action selector="deltemeetng:" destination="-1" eventType="touchUpInside" id="l2v-1r-bSU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -732,6 +792,17 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addbidder:" destination="-1" eventType="touchUpInside" id="Yxq-jT-BZ5"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0D1-0c-5XV">
+                                                    <rect key="frame" x="66" y="-4" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletebidd:" destination="-1" eventType="touchUpInside" id="Vgu-Xg-4uD"/>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="d49-i7-cHH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -771,20 +842,20 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather From Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KYK-rH-0Df">
-                                                    <rect key="frame" x="75" y="14" width="120" height="21"/>
+                                                    <rect key="frame" x="69" y="14" width="120" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather To Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EIC-Zs-YLI">
-                                                    <rect key="frame" x="314" y="14" width="102" height="21"/>
+                                                    <rect key="frame" x="244" y="14" width="102" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Condition" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JnP-uu-mOj">
-                                                    <rect key="frame" x="501" y="14" width="141" height="21"/>
+                                                    <rect key="frame" x="432" y="14" width="141" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
@@ -798,6 +869,16 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="addweather:" destination="-1" eventType="touchUpInside" id="GRH-2s-3kG"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gyM-98-bMr">
+                                                    <rect key="frame" x="32" y="4" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deleteweather:" destination="-1" eventType="touchUpInside" id="Xgj-g3-eYo"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -828,7 +909,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zBw-Nt-VkU">
-                                                    <rect key="frame" x="23" y="3" width="40" height="40"/>
+                                                    <rect key="frame" x="9" y="3" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.addblack.png">
@@ -851,6 +932,16 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MyY-dO-kIy">
+                                                    <rect key="frame" x="57" y="3" width="41" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="deletenotes:" destination="-1" eventType="touchUpInside" id="tAe-3H-DJX"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         </view>
