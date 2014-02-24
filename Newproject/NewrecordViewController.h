@@ -8,12 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "CKCalendarView.h"
+@protocol newrecordDelgate <NSObject>
+
+-(void)toreloadatable;
+
+@end
+
 
 @interface NewrecordViewController : UIViewController{
     BOOL recordResults;
     NSString *jobtypeitm;
     NSInteger istr;
+  //  id <newrecordDelgate>Delegate;
 }
+
+@property(nonatomic, weak)id<newrecordDelgate>delegate;
 @property(nonatomic, weak) CKCalendarView *calendar;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
 
@@ -101,6 +110,22 @@
 - (IBAction)bidupdatebtn:(id)sender;
 - (IBAction)bidcancelbtn:(id)sender;
 
+/*weather outlook*/
+@property (strong, nonatomic) IBOutlet UIButton *wethrfrmdatebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *wethrendbtnlbl;
+@property (strong, nonatomic) IBOutlet UITextField *wathrcndtnlbl;
 
+- (IBAction)wetherfrmbtn:(id)sender;
+- (IBAction)weathrtodatebtn:(id)sender;
+- (IBAction)wethrupdatebtn:(id)sender;
+
+- (IBAction)weathrcancelbtn:(id)sender;
+/*Notes*/
+@property (strong, nonatomic) IBOutlet UIButton *notedatebtnlbl;
+- (IBAction)notedatebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *notestxtfld;
+
+- (IBAction)notesupdatebtn:(id)sender;
+- (IBAction)notescancelbtn:(id)sender;
 
 @end
