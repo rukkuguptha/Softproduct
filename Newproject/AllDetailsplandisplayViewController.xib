@@ -252,6 +252,10 @@
                             <rect key="frame" x="20" y="364" width="201" height="340"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="uvv-PD-Z8K"/>
+                                <outlet property="delegate" destination="-1" id="vvG-tV-bde"/>
+                            </connections>
                         </tableView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eCN-1k-tCh">
                             <rect key="frame" x="20" y="337" width="201" height="29"/>
@@ -271,6 +275,10 @@
                             <rect key="frame" x="333" y="364" width="671" height="340"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="35D-DX-qeI"/>
+                                <outlet property="delegate" destination="-1" id="hih-uI-a4i"/>
+                            </connections>
                         </tableView>
                     </subviews>
                 </scrollView>

@@ -26,6 +26,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *maintable;
 
 
+@property (strong, nonatomic) IBOutlet UITableViewCell *subtypecell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *maintblecell;
 
 
 @end
