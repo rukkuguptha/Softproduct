@@ -199,7 +199,7 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
     
     draggedCell = [[UITableViewCell alloc] init];
     draggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    draggedCell.textLabel.text =[NSString stringWithFormat:@"new"];
+    draggedCell.textLabel.text =[NSString stringWithFormat:@"Item"];
     
     
     draggedCell.textLabel.textColor = cell.textLabel.textColor;
