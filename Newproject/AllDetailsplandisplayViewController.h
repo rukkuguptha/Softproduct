@@ -10,7 +10,7 @@
 #import "Scaffoldtypemdl.h"
 #import "Customscaffoldingplan.h"
 #import <QuartzCore/QuartzCore.h>
-#import "DroptableViewController.h"
+
 
 @interface AllDetailsplandisplayViewController : UIViewController<UIGestureRecognizerDelegate>{
     
@@ -47,5 +47,5 @@
 
 /*for drag and Drop*/
 
-@property (strong, nonatomic)DroptableViewController * droptable;
+
 @end
