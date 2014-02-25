@@ -17,6 +17,7 @@
     NSInteger webtype;
     UIButton *button;
     NSInteger btnindex;
+    NSInteger optionidentifier;
 }
 
 @property(strong,nonatomic)NSString *planid;
@@ -29,7 +30,7 @@
 - (IBAction)Scaffoldslection:(id)sender;
 - (IBAction)InsulationSelection:(id)sender;
 - (IBAction)fireproofingselection:(id)sender;
--(IBAction)detailscaffoldaction:(id)sender;
+-(IBAction)editscaffoldaction:(id)sender;
 -(IBAction)addplan:(id)sender;
 -(IBAction)closescaffoldview:(id)sender;
 -(IBAction)nextbtnaction:(id)sender;
