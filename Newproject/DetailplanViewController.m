@@ -48,6 +48,16 @@
 {
     _addscaffoldrecordview.hidden=NO;
     optionidentifier=1;
+    _unittextfield.text=@"";
+    _equipmenttextfield.text=@"";
+    _proheadertextfield.text=@"";
+    [_scaffoldtyprbtn setTitle:@"Select" forState:UIControlStateNormal];
+    _lengthtextfield.text=@"";
+    _widthtextfield.text=@"";
+    _heighttextfield.text=@"";
+    _qtytextfield.text=@"";
+    _elevationtextfield.text=@"";
+
 }
 -(IBAction)editscaffoldaction:(id)sender
 {
@@ -236,6 +246,9 @@
      }
     if(tableView==_popovertableview)
     {
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+
         Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
 
         cell.textLabel.text=typmdl.typeName;
@@ -244,6 +257,16 @@
     return cell;
     
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView==_popovertableview)
+    { Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
+        
+       // cell.textLabel.text=typmdl.typeName;
+        [_scaffoldtyprbtn setTitle:typmdl.typeName forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark-webservices
 -(void)ScaffoldingSelectScaffoldtype{
     webtype=1;

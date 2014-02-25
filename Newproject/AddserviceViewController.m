@@ -86,7 +86,15 @@
 }
 -(IBAction)addservicetotable:(id)sender
 {
+    if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a Service" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self InsertPlanService];
+    }
 }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
