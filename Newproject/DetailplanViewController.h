@@ -30,7 +30,7 @@
 - (IBAction)Scaffoldslection:(id)sender;
 - (IBAction)InsulationSelection:(id)sender;
 - (IBAction)fireproofingselection:(id)sender;
--(IBAction)detailscaffoldaction:(id)sender;
+-(IBAction)editscaffoldaction:(id)sender;
 -(IBAction)addplan:(id)sender;
 -(IBAction)closescaffoldview:(id)sender;
 -(IBAction)nextbtnaction:(id)sender;

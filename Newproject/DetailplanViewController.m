@@ -49,12 +49,11 @@
     _addscaffoldrecordview.hidden=NO;
     optionidentifier=1;
 }
--(IBAction)detailscaffoldaction:(id)sender
+-(IBAction)editscaffoldaction:(id)sender
 {
     optionidentifier=2;
-    if (!self.allctrlr) {
-        self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-    }
+     _addscaffoldrecordview.hidden=NO;
+    
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
@@ -63,13 +62,16 @@
     btnindex=textFieldIndexPath.row;
 
     Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
-    Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
-    _allctrlr.sccfldtypemdl=typemdl;
-    _allctrlr.customsccfldmdl=scaffldingplan;
-    _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-    _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-    [self presentViewController:_allctrlr
-                       animated:YES completion:NULL];
+    //Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
+    _unittextfield.text=scaffldingplan.unit;
+    _equipmenttextfield.text=scaffldingplan.equp;
+    _proheadertextfield.text=scaffldingplan.ph;
+    [_scaffoldtyprbtn setTitle:scaffldingplan.scaffoldname forState:UIControlStateNormal];
+    _lengthtextfield.text=scaffldingplan.length;
+    _widthtextfield.text=scaffldingplan.width;
+    _heighttextfield.text=scaffldingplan.height;
+    _qtytextfield.text=scaffldingplan.qty;
+    _elevationtextfield.text=scaffldingplan.elevation;
 }
 -(IBAction)closeplan:(id)sender
 {
@@ -124,12 +126,12 @@
         if (!self.allctrlr) {
             self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
         }
-        button = (UIButton *)sender;
-        CGPoint center= button.center;
-        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
-        NSIndexPath *textFieldIndexPath = [self.scaffoldtable indexPathForRowAtPoint:rootViewPoint];
-        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-        btnindex=textFieldIndexPath.row;
+//        button = (UIButton *)sender;
+//        CGPoint center= button.center;
+//        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
+//        NSIndexPath *textFieldIndexPath = [self.scaffoldtable indexPathForRowAtPoint:rootViewPoint];
+//        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//        btnindex=textFieldIndexPath.row;
         
         Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
         Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
