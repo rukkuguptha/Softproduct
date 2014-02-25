@@ -19,6 +19,8 @@
 		642FA79818AC960400372623 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA79618AC960400372623 /* DetailplanViewController.m */; };
 		642FA79918AC960400372623 /* DetailplanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA79718AC960400372623 /* DetailplanViewController.xib */; };
 		642FA79C18ACC9FB00372623 /* planmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA79B18ACC9FB00372623 /* planmodel.m */; };
+		6437578518BC554B003691E6 /* Subtypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578418BC554B003691E6 /* Subtypecell.xib */; };
+		6437578718BC5572003691E6 /* maintablecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578618BC5572003691E6 /* maintablecell.xib */; };
 		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
 		6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64816159176EE7CF0017F4CC /* CustomLeadCell.xib */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
@@ -238,6 +240,8 @@
 		642FA79718AC960400372623 /* DetailplanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailplanViewController.xib; sourceTree = "<group>"; };
 		642FA79A18ACC9FB00372623 /* planmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planmodel.h; sourceTree = "<group>"; };
 		642FA79B18ACC9FB00372623 /* planmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = planmodel.m; sourceTree = "<group>"; };
+		6437578418BC554B003691E6 /* Subtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subtypecell.xib; sourceTree = "<group>"; };
+		6437578618BC5572003691E6 /* maintablecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = maintablecell.xib; sourceTree = "<group>"; };
 		64481EC71873EBFD007D66E7 /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
 		64481EC81873EBFD007D66E7 /* phasesmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phasesmodel.m; sourceTree = "<group>"; };
 		64816159176EE7CF0017F4CC /* CustomLeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomLeadCell.xib; sourceTree = "<group>"; };
@@ -781,6 +785,8 @@
 				649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */,
 				649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */,
 				649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */,
+				6437578418BC554B003691E6 /* Subtypecell.xib */,
+				6437578618BC5572003691E6 /* maintablecell.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -997,6 +1003,7 @@
 				64F9799E185F038700E7722B /* ValuesPhilosophyDocViewController.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
 				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
+				6437578518BC554B003691E6 /* Subtypecell.xib in Resources */,
 				64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */,
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
@@ -1096,6 +1103,7 @@
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
+				6437578718BC5572003691E6 /* maintablecell.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,

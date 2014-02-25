@@ -43,9 +43,10 @@
     [self ScaffoldingSelectScaffoldtype];
     //[self ScaffoldingSelectplan];
 }
+#pragma mark-Actions
 -(IBAction)addplan:(id)sender
 {
-    
+    _addscaffoldrecordview.hidden=NO;
 }
 -(IBAction)detailscaffoldaction:(id)sender
 {
@@ -72,6 +73,10 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+-(IBAction)closescaffoldview:(id)sender
+{
+   _addscaffoldrecordview.hidden=YES;
+}
 - (IBAction)Scaffoldslection:(id)sender
 {
     _scaffoldbtn.tintColor=[UIColor whiteColor];
@@ -80,6 +85,35 @@
     _scaffoldview.hidden=NO;
 //    _fireproofingview.hidden=YES;
 //    _insulationview.hidden=YES;
+}
+-(IBAction)selectscaffoldtype:(id)sender
+{
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_scaffoldtyprbtn.frame inView:self.addscaffoldrecordview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+
+}
+
+-(IBAction)nextbtnaction:(id)sender
+{
+    if (!self.allctrlr) {
+        self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+    }
+    _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+    _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_allctrlr
+                       animated:YES completion:NULL];
 }
 - (IBAction)InsulationSelection:(id)sender
 {
@@ -100,6 +134,7 @@
 //    _scaffoldview.hidden=YES;
 //    _insulationview.hidden=YES;
 }
+#pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -107,7 +142,6 @@
     return 1;
 }
 
-#pragma mark-Tableview
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView==_scaffoldtable)
@@ -169,6 +203,7 @@
     return cell;
     
 }
+#pragma mark-webservices
 -(void)ScaffoldingSelectScaffoldtype{
     webtype=1;
     recordResults = FALSE;
