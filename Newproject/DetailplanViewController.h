@@ -17,6 +17,7 @@
     NSInteger webtype;
     UIButton *button;
     NSInteger btnindex;
+    NSInteger optionidentifier;
 }
 
 @property(strong,nonatomic)NSString *planid;

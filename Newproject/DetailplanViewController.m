@@ -47,9 +47,11 @@
 -(IBAction)addplan:(id)sender
 {
     _addscaffoldrecordview.hidden=NO;
+    optionidentifier=1;
 }
 -(IBAction)detailscaffoldaction:(id)sender
 {
+    optionidentifier=2;
     if (!self.allctrlr) {
         self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
     }
@@ -107,6 +109,8 @@
 
 -(IBAction)nextbtnaction:(id)sender
 {
+    if (optionidentifier==1) {
+    
     if (!self.allctrlr) {
         self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
     }
@@ -114,6 +118,31 @@
     _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_allctrlr
                        animated:YES completion:NULL];
+}
+    else if(optionidentifier==2)
+    {
+        if (!self.allctrlr) {
+            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+        }
+        button = (UIButton *)sender;
+        CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
+        NSIndexPath *textFieldIndexPath = [self.scaffoldtable indexPathForRowAtPoint:rootViewPoint];
+        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+        btnindex=textFieldIndexPath.row;
+        
+        Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
+        Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
+        _allctrlr.sccfldtypemdl=typemdl;
+        _allctrlr.customsccfldmdl=scaffldingplan;
+        _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+        _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        [self presentViewController:_allctrlr
+                           animated:YES completion:NULL];
+
+    }
+    
+   
 }
 - (IBAction)InsulationSelection:(id)sender
 {
@@ -147,6 +176,10 @@
     if(tableView==_scaffoldtable)
     {
         return [_scaffoldingplanlistarray count];
+    }
+    if(tableView==_popovertableview)
+    {
+        return [_scaffoldtyperesultarray count];
     }
        return YES;
     
@@ -199,6 +232,12 @@
 
 
      }
+    if(tableView==_popovertableview)
+    {
+        Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
+
+        cell.textLabel.text=typmdl.typeName;
+    }
     
     return cell;
     
