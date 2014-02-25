@@ -9,10 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "Scaffoldtypemdl.h"
 #import "Customscaffoldingplan.h"
+#import <QuartzCore/QuartzCore.h>
 
-@interface AllDetailsplandisplayViewController : UIViewController
+@interface AllDetailsplandisplayViewController : UIViewController{
+    
+}
 
 @property(strong,nonatomic)Scaffoldtypemdl *sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan *customsccfldmdl;
+
+@property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
+
+-(IBAction)clsebtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UITableView *subtypetable;
+@property (strong, nonatomic) IBOutlet UITableView *maintable;
+
+
+
 
 @end

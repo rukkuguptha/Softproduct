@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.subtypetable.layer.borderWidth=3.0;
+    self.subtypetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    self.maintable.layer.borderWidth=3.0;
+    self.maintable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +39,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)clsebtn:(id)sender{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end
