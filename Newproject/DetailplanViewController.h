@@ -30,18 +30,28 @@
 - (IBAction)InsulationSelection:(id)sender;
 - (IBAction)fireproofingselection:(id)sender;
 -(IBAction)detailscaffoldaction:(id)sender;
+-(IBAction)addplan:(id)sender;
+-(IBAction)closescaffoldview:(id)sender;
+-(IBAction)nextbtnaction:(id)sender;
+-(IBAction)selectscaffoldtype:(id)sender;
 
-/*IBOutlets*/
+
+/*IBOutlets in main view*/
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *scaffoldbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *insulationbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *fireproofingbtn;
 
 @property(strong,nonatomic)IBOutlet UIView *scaffoldview;
+@property(strong,nonatomic)IBOutlet UIView *addscaffoldrecordview;
 //@property(strong,nonatomic)IBOutlet UIView *insulationview;
 //@property(strong,nonatomic)IBOutlet UIView *fireproofingview;
 @property(strong,nonatomic)IBOutlet UIView *scaffoldtabletitleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *scaffoldcell;
 @property(strong,nonatomic)IBOutlet UITableView *scaffoldtable;
+
+/*popovercontroller*/
+@property(strong,nonatomic)UITableView *popovertableview;
+@property(strong,nonatomic)UIPopoverController *popovercontroller;
 
 /*outlets in cell*/
 @property(strong,nonatomic)IBOutlet UILabel *unitcelllabel;
@@ -55,13 +65,23 @@
 @property(strong,nonatomic)IBOutlet UILabel *elevationcelllabel;
 @property(strong,nonatomic)IBOutlet UILabel *manhourslabel;
 
+/*outlets in addrecordview*/
+@property(strong,nonatomic)IBOutlet UITextField *unittextfield;
+@property(strong,nonatomic)IBOutlet UITextField *equipmenttextfield;
+@property(strong,nonatomic)IBOutlet UITextField *proheadertextfield;
+@property(strong,nonatomic)IBOutlet UIButton *scaffoldtyprbtn;
+@property(strong,nonatomic)IBOutlet UITextField *lengthtextfield;
+@property(strong,nonatomic)IBOutlet UITextField *heighttextfield;
+@property(strong,nonatomic)IBOutlet UITextField *widthtextfield;
+@property(strong,nonatomic)IBOutlet UITextField *qtytextfield;
+@property(strong,nonatomic)IBOutlet UITextField *elevationtextfield;
+
 
 /*xmlParser*/
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSMutableString *soapresults;
 @property(strong,nonatomic)NSXMLParser *xmlparser;
 
--(IBAction)addplan:(id)sender;
 
 
 /*arrays and Dicts*/
