@@ -122,7 +122,7 @@
 -(IBAction)nextbtnaction:(id)sender
 {
     if (optionidentifier==1) {
-        
+        //[self Selectcheight];
     if (!self.allctrlr) {
         self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
     }
@@ -384,7 +384,7 @@
                    "<ht>%d</ht>\n"
                    "</Selectcheight>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_heighttextfield.text integerValue]];
+                   "</soap:Envelope>\n",[_elevationtextfield.text integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
