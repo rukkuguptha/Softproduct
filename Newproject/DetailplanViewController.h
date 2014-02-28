@@ -89,5 +89,8 @@
 @property(strong,nonatomic)NSMutableArray *scaffoldingplanlistarray;
 @property(strong,nonatomic)NSMutableArray *scaffoldtyperesultarray;
 @property(strong,nonatomic)NSMutableDictionary *scaffoldtypeDict;
+@property(strong,nonatomic)NSMutableDictionary *scaffoldidDict;
 @property(strong,nonatomic)NSString *scaffoldtypestring;
+@property(strong,nonatomic)NSString *insertresultvalue;
+
 @end

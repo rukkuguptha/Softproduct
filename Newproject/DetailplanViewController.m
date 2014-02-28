@@ -122,17 +122,18 @@
 -(IBAction)nextbtnaction:(id)sender
 {
     if (optionidentifier==1) {
-        //[self Selectcheight];
-    if (!self.allctrlr) {
-        self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-    }
-    _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-    _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-    [self presentViewController:_allctrlr
-                       animated:YES completion:NULL];
+        [self Scaffoldinsert];
+//    if (!self.allctrlr) {
+//        self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+//    }
+//    _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+//    _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//    [self presentViewController:_allctrlr
+//                       animated:YES completion:NULL];
 }
     else if(optionidentifier==2)
     {
+        
         if (!self.allctrlr) {
             self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
         }
@@ -368,11 +369,66 @@
     }
     
 }
--(void)Selectcheight{
+//-(void)Selectcheight{
+//    recordResults = FALSE;
+//    NSString *soapMessage;
+//    
+//    
+//    soapMessage = [NSString stringWithFormat:
+//                   
+//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+//                   
+//                   
+//                   "<soap:Body>\n"
+//                   
+//                   "<Selectcheight xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<ht>%d</ht>\n"
+//                   "</Selectcheight>\n"
+//                   "</soap:Body>\n"
+//                   "</soap:Envelope>\n",[_elevationtextfield.text integerValue]];
+//    NSLog(@"soapmsg%@",soapMessage);
+//    
+//    
+//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+//    
+//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+//    
+//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+//    
+//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+//    
+//    [theRequest addValue: @"http://ios.kontract360.com/Selectcheight" forHTTPHeaderField:@"Soapaction"];
+//    
+//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+//    [theRequest setHTTPMethod:@"POST"];
+//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+//    
+//    
+//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+//    
+//    if( theConnection )
+//    {
+//        _webData = [NSMutableData data];
+//    }
+//    else
+//    {
+//        ////NSLog(@"theConnection is NULL");
+//    }
+//    
+//}
+-(void)Scaffoldinsert{
     recordResults = FALSE;
     NSString *soapMessage;
-    
-    
+    NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+    NSLog(@"%@",scaffoldid);
+    NSString *desc=@"";
+     NSString *manhours=@"0";
+     NSString *erecthours=@"0";
+     NSString *dismantilehours=@"0";
+    NSString *insertid=@"0";
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -381,11 +437,27 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Selectcheight xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<ht>%d</ht>\n"
-                   "</Selectcheight>\n"
+                   "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<id>%d</id>\n"
+                   "<length>%@</length>\n"
+                   "<width>%@</width>\n"
+                   "<height>%@</height>\n"
+                   "<qty>%@</qty>\n"
+                   "<elevation>%@</elevation>\n"
+                   "<unit>%@</unit>\n"
+                   "<equp>%@</equp>\n"
+                   "<description>%@</description>\n"
+                   "<typeofscaffold>%d</typeofscaffold>\n"
+                   "<ManHours>%f</ManHours>\n"
+                   "<ErectHours>%f</ErectHours>\n"
+                   "<DismantleHours>%f</DismantleHours>\n"
+                   "<planId>%@</planId>\n"
+                   "<InternalWorkFactor>%d</InternalWorkFactor>\n"
+                   "<PPE>%d</PPE>\n"
+                   "<UnplannedWork>%d</UnplannedWork>"
+                   "</Scaffoldinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_elevationtextfield.text integerValue]];
+                   "</soap:Envelope>\n",[insertid integerValue],_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -398,7 +470,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Selectcheight" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Scaffoldinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -417,6 +489,8 @@
     }
     
 }
+
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
@@ -663,6 +737,7 @@
     {
         _scaffoldtyperesultarray=[[NSMutableArray alloc]init];
         _scaffoldtypeDict=[[NSMutableDictionary alloc]init];
+        _scaffoldidDict=[[NSMutableDictionary alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -759,6 +834,27 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ScaffoldinsertResult"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+
     
 
     
@@ -983,6 +1079,7 @@
         recordResults = FALSE;
         _typemdl.typeName=_soapresults;
         [_scaffoldtypeDict setObject:_soapresults forKey:_scaffoldtypestring];
+        [_scaffoldidDict setObject:_scaffoldtypestring forKey:_soapresults];
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"rate"])
@@ -1047,6 +1144,22 @@
         [_scaffoldtyperesultarray addObject:_typemdl];
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        recordResults = FALSE;
+        _insertresultvalue=_soapresults;
+        if (!self.allctrlr) {
+            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+        }
+        _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+        _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        [self presentViewController:_allctrlr
+                           animated:YES completion:NULL];
+
+        _soapresults = nil;
+    }
+
 
 
 
