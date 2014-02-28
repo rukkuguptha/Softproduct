@@ -7,8 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllDetailsplandisplayViewController">
             <connections>
+                <outlet property="dismntlehrslbl" destination="ywB-S3-Ox6" id="VsT-NR-GUt"/>
+                <outlet property="ercthrslbl" destination="FZu-Lz-Eke" id="8WX-Wc-fc8"/>
+                <outlet property="heihtlbl" destination="6cH-o1-Qk4" id="Yh9-RP-Ivd"/>
+                <outlet property="lngtnlbl" destination="Krn-fg-EGa" id="Aqs-c8-NTt"/>
                 <outlet property="maintblecell" destination="zKk-zo-btN" id="O0H-ar-ouY"/>
+                <outlet property="manhrslbl" destination="J2O-5Z-hqH" id="z0U-tJ-d0L"/>
+                <outlet property="numbrlbl" destination="wyW-qO-f92" id="Xgr-h0-9my"/>
                 <outlet property="scffoldtypemainlbl" destination="15E-3L-pAc" id="zOD-bc-3FI"/>
+                <outlet property="widthlbl" destination="dgI-te-jE7" id="kJM-z0-kmG"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

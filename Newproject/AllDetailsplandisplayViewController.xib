@@ -7,11 +7,20 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AllDetailsplandisplayViewController">
             <connections>
+                <outlet property="Destxtfld" destination="CyO-R7-h3F" id="QVm-Av-MUf"/>
+                <outlet property="elvatnfld" destination="kh4-46-0SE" id="8je-ZG-gAh"/>
+                <outlet property="hightfld" destination="U47-IK-Xye" id="upW-s7-i9A"/>
+                <outlet property="iwfbtnlbl" destination="d46-in-q7a" id="abi-qI-KfN"/>
+                <outlet property="lengthfld" destination="kHP-Kz-tqv" id="9Md-PV-0xh"/>
                 <outlet property="maintable" destination="9af-of-KJE" id="LFv-2D-BSn"/>
                 <outlet property="navbar" destination="vYm-2C-3AL" id="R66-HS-Fbd"/>
+                <outlet property="sitefctrfld" destination="spb-nW-743" id="Emn-9b-Vgr"/>
+                <outlet property="spfbtnlbl" destination="7g0-ti-bCb" id="Dwh-E6-wXn"/>
                 <outlet property="subtypetable" destination="96r-by-kSJ" id="zad-Qu-73c"/>
                 <outlet property="tuchgview" destination="3t0-RE-GeU" id="oJX-wp-MpH"/>
+                <outlet property="upwbtnlbl" destination="2y0-c6-U76" id="GLv-jS-lVi"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="widthfld" destination="BLI-ef-N1g" id="Re1-Sp-zLL"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -56,14 +65,14 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLI-ef-N1g">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BLI-ef-N1g">
                             <rect key="frame" x="281" y="9" width="31" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Kz-tqv">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHP-Kz-tqv">
                             <rect key="frame" x="111" y="9" width="57" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
@@ -84,7 +93,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U47-IK-Xye">
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U47-IK-Xye">
                             <rect key="frame" x="467" y="9" width="41" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
@@ -157,26 +166,35 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-c6-U76">
-                            <rect key="frame" x="453" y="253" width="27" height="25"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2y0-c6-U76">
+                            <rect key="frame" x="453" y="253" width="22" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" backgroundImage="cb_mono_off.png">
+                            <state key="normal" image="cb_mono_off.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="upwbtn:" destination="-1" eventType="touchUpInside" id="2r6-01-Nb0"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g0-ti-bCb">
-                            <rect key="frame" x="278" y="253" width="27" height="25"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7g0-ti-bCb">
+                            <rect key="frame" x="278" y="253" width="22" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" backgroundImage="cb_mono_off.png">
+                            <state key="normal" image="cb_mono_off.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="spfbtn:" destination="-1" eventType="touchUpInside" id="leS-5R-GbN"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d46-in-q7a">
-                            <rect key="frame" x="111" y="253" width="27" height="25"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d46-in-q7a">
+                            <rect key="frame" x="111" y="253" width="22" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" backgroundImage="cb_mono_off.png">
+                            <state key="normal" image="cb_mono_off.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="iwfbtn:" destination="-1" eventType="touchUpInside" id="BuB-Gn-WSw"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJz-hK-yaN">
                             <rect key="frame" x="666" y="251" width="106" height="30"/>
@@ -185,6 +203,9 @@
                             <state key="normal" title="Update" backgroundImage="textbox.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="sCP-et-ALl"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3t0-RE-GeU">
                             <rect key="frame" x="20" y="306" width="990" height="411"/>
