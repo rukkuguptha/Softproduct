@@ -467,7 +467,7 @@ return cell;
     NSString *soapMessage;
     // _sccfldtypemdl=(Scaffoldtypemdl *)[];
     
-    
+      _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -520,6 +520,121 @@ return cell;
     }
     
 }
+-(void)Planfactorsinsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+      _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Planfactorsinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<sitefactor>%f</sitefactor>\n"
+                   "<planId>%@</planId>\n"
+                   "</Planfactorsinsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_sitefctrfld.text doubleValue],_customsccfldmdl.pid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Planfactorsinsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Scaffoldinsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<id>int</id>\n"
+                   "<length>string</length>\n"
+                   "<width>string</width>\n"
+                   "<height>string</height>\n"
+                   "<qty>string</qty>\n"
+                   "<elevation>string</elevation>\n"
+                   "<unit>string</unit>\n"
+                   "<equp>string</equp>\n"
+                   "<description>string</description>\n"
+                   "<typeofscaffold>int</typeofscaffold>\n"
+                   "<ManHours>float</ManHours>\n"
+                   "<ErectHours>float</ErectHours>\n"
+                   "<DismantleHours>float</DismantleHours>\n"
+                   "<planId>string</planId>\n"
+                   "</Scaffoldinsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Scaffoldinsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
@@ -680,6 +795,7 @@ return cell;
 }
 
 - (IBAction)updatebtn:(id)sender {
+    [self Planfactorsinsert];
 }
 
 - (IBAction)iwfbtn:(id)sender {

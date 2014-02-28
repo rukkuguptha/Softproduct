@@ -40,6 +40,9 @@
 @property(strong,nonatomic)Scaffoldtypemdl *sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan *customsccfldmdl;
 @property (strong, nonatomic)NSMutableArray *Scafldarry;
+@property (strong, nonatomic)NSMutableArray *newscfoldarry;
+@property (strong, nonatomic)NSString *planid;
+
 
 @property (strong, nonatomic)NSMutableDictionary *subtypdict;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
