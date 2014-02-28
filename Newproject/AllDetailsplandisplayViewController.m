@@ -53,6 +53,14 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
     [self.tuchgview addGestureRecognizer:panGesture];
     [self ScaffoldingSelectScaffoldsubtype];
     [self Selectcheight];
+    
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:0];
+    _lengthfld.text=_customsccfldmdl.length;
+    _widthfld.text=_customsccfldmdl.width;
+    _hightfld.text=_customsccfldmdl.height;
+    _elvatnfld.text=_customsccfldmdl.elevation;
+
+    
 
 
 }
@@ -329,7 +337,7 @@ return cell;
             else
             {
                 [dstData addObject:draggedData];
-                
+                [self ScaffoldDetailinsert];
                 [self calulatemanhrs];
 
                 [_maintable reloadData];
@@ -466,8 +474,14 @@ return cell;
     recordResults = FALSE;
     NSString *soapMessage;
     // _sccfldtypemdl=(Scaffoldtypemdl *)[];
-    
-      _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    NSString *manpr=@"0";
+    NSString *ercthr=@"0";
+    NSString *dishr=@"0";
+
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];  NSArray *newarray=[_subtypdict allKeys];
+    draggedCell.textLabel.text =[newarray objectAtIndex:path];
+
+  
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -488,7 +502,7 @@ return cell;
                    "<DismantleHours>%f</DismantleHours>\n"
                    "</ScaffoldDetailinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",0,[[_subtypdict objectForKey:draggedCell.textLabel.text]integerValue],[_customsccfldmdl.length integerValue],[_customsccfldmdl.width integerValue],[_customsccfldmdl.height integerValue ],1,[manpr doubleValue],[ercthr doubleValue],[dishr doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -575,8 +589,33 @@ return cell;
     recordResults = FALSE;
     NSString *soapMessage;
     
+    NSString *manpr=@"0";
+    NSString *ercthr=@"0";
+    NSString *dishr=@"0";
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:0];
+    int iwf;
+    int spf;
+    int upw;
+    if (btntouch%2) {
+        iwf=1;
+    }
+    else{
+        iwf=0;
+    }
     
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    if (chektouch%2) {
+        spf=1;
+    }
+    else{
+        spf=0;
+    }
+    if (ticktouch%2) {
+        upw=1;
+    }
+    else{
+        upw=0;
+    }
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -586,23 +625,26 @@ return cell;
                    "<soap:Body>\n"
                    
                    "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<id>int</id>\n"
-                   "<length>string</length>\n"
-                   "<width>string</width>\n"
-                   "<height>string</height>\n"
-                   "<qty>string</qty>\n"
-                   "<elevation>string</elevation>\n"
-                   "<unit>string</unit>\n"
-                   "<equp>string</equp>\n"
-                   "<description>string</description>\n"
-                   "<typeofscaffold>int</typeofscaffold>\n"
-                   "<ManHours>float</ManHours>\n"
-                   "<ErectHours>float</ErectHours>\n"
-                   "<DismantleHours>float</DismantleHours>\n"
-                   "<planId>string</planId>\n"
+                   "<id>%d</id>\n"
+                   "<length>%@</length>\n"
+                   "<width>%@</width>\n"
+                   "<height>%@</height>\n"
+                   "<qty>%@</qty>\n"
+                   "<elevation>%@</elevation>\n"
+                   "<unit>%@</unit>\n"
+                   "<equp>%@</equp>\n"
+                   "<description>%@</description>\n"
+                   "<typeofscaffold>%d</typeofscaffold>\n"
+                   "<ManHours>%f</ManHours>\n"
+                   "<ErectHours>%f</ErectHours>\n"
+                   "<DismantleHours>%f</DismantleHours>\n"
+                   "<planId>%@</planId>\n"
+                   "<InternalWorkFactor>%d</InternalWorkFactor>\n"
+                   "<PPE>%d</PPE>\n"
+                   "<UnplannedWork>%d</UnplannedWork>\n"
                    "</Scaffoldinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",0,_customsccfldmdl.length,_customsccfldmdl.width,_customsccfldmdl.height,_customsccfldmdl.qty,_customsccfldmdl.elevation,_customsccfldmdl.unit,_customsccfldmdl.equp,_Destxtfld.text,_customsccfldmdl.typescaffold,[manpr doubleValue],[ercthr doubleValue],[dishr doubleValue],_customsccfldmdl.pid,iwf,spf,upw];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -795,6 +837,7 @@ return cell;
 }
 
 - (IBAction)updatebtn:(id)sender {
+    [self Scaffoldinsert];
     [self Planfactorsinsert];
 }
 

@@ -42,7 +42,7 @@
 @property (strong, nonatomic)NSMutableArray *Scafldarry;
 @property (strong, nonatomic)NSMutableArray *newscfoldarry;
 @property (strong, nonatomic)NSString *planid;
-
+@property (strong, nonatomic)NSString *Scfldid;
 
 @property (strong, nonatomic)NSMutableDictionary *subtypdict;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
