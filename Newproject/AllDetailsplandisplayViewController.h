@@ -14,6 +14,8 @@
 
 @interface AllDetailsplandisplayViewController : UIViewController<UIGestureRecognizerDelegate>{
     
+    float manhrs;
+    
     UITableViewCell*    draggedCell;
     UIView*             dropArea;
     
@@ -24,10 +26,13 @@
     BOOL            dragFromSource;     // used for reodering
     NSIndexPath*    pathFromDstTable;
     
+      BOOL recordResults;
+    
   }
 
 @property(strong,nonatomic)Scaffoldtypemdl *sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan *customsccfldmdl;
+@property (strong, nonatomic)NSMutableArray *Scafldarry;
 
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 
@@ -46,6 +51,10 @@
 
 
 /*for drag and Drop*/
+/*xmlParser*/
+@property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSMutableString *soapresults;
+@property(strong,nonatomic)NSXMLParser *xmlparser;
 
 
 @end
