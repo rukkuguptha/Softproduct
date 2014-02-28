@@ -147,6 +147,7 @@
         Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
         _allctrlr.sccfldtypemdl=typemdl;
         _allctrlr.customsccfldmdl=scaffldingplan;
+        _allctrlr.Scafldarry=_scaffoldingplanlistarray;
         _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
         _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
         [self presentViewController:_allctrlr
