@@ -122,7 +122,7 @@
 -(IBAction)nextbtnaction:(id)sender
 {
     if (optionidentifier==1) {
-        
+        //[self Selectcheight];
     if (!self.allctrlr) {
         self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
     }
@@ -147,6 +147,7 @@
         Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
         _allctrlr.sccfldtypemdl=typemdl;
         _allctrlr.customsccfldmdl=scaffldingplan;
+        _allctrlr.Scafldarry=_scaffoldingplanlistarray;
         _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
         _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
         [self presentViewController:_allctrlr
@@ -384,7 +385,7 @@
                    "<ht>%d</ht>\n"
                    "</Selectcheight>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_heighttextfield.text integerValue]];
+                   "</soap:Envelope>\n",[_elevationtextfield.text integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
