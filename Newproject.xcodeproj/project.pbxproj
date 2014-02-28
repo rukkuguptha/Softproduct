@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		6407291817744A900085CB7B /* newCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6407291717744A900085CB7B /* newCommentCell.xib */; };
 		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
+		6426F5E318C05C12002471AC /* bgmetro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E218C05C12002471AC /* bgmetro1.png */; };
+		6426F5E518C05D2B002471AC /* res.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E418C05D2B002471AC /* res.png */; };
+		6426F5E718C05E09002471AC /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E618C05E09002471AC /* com.png */; };
+		6426F5E918C05E88002471AC /* cos.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E818C05E88002471AC /* cos.png */; };
+		6426F5EB18C06062002471AC /* leads.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5EA18C06062002471AC /* leads.png */; };
+		6426F5ED18C060CF002471AC /* planning.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5EC18C060CF002471AC /* planning.png */; };
+		6426F5EF18C06100002471AC /* estimation.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5EE18C06100002471AC /* estimation.png */; };
+		6426F5F118C06157002471AC /* hr.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5F018C06157002471AC /* hr.png */; };
+		6426F5F318C0621B002471AC /* jobs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5F218C0621B002471AC /* jobs.png */; };
+		6426F5F518C062F6002471AC /* payroll.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5F418C062F6002471AC /* payroll.png */; };
+		6426F5F718C067F3002471AC /* accounting.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5F618C067F3002471AC /* accounting.png */; };
+		6426F5F918C06824002471AC /* fleet.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5F818C06824002471AC /* fleet.png */; };
+		6426F5FB18C0685C002471AC /* SasteyPicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5FA18C0685C002471AC /* SasteyPicture.png */; };
 		642B77AF17799D1000EECCC0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 642B77AE17799D1000EECCC0 /* activityInfo.m */; };
 		642F93011872870E0059101A /* customjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F93001872870E0059101A /* customjobcell.xib */; };
 		642F930B1872B6A80059101A /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F930A1872B6A80059101A /* allfolderrights.m */; };
@@ -224,6 +237,19 @@
 /* Begin PBXFileReference section */
 		6407291717744A900085CB7B /* newCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newCommentCell.xib; sourceTree = "<group>"; };
 		64161C0C17FEB511007D4D89 /* squre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squre.png; sourceTree = "<group>"; };
+		6426F5E218C05C12002471AC /* bgmetro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgmetro1.png; sourceTree = "<group>"; };
+		6426F5E418C05D2B002471AC /* res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res.png; sourceTree = "<group>"; };
+		6426F5E618C05E09002471AC /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
+		6426F5E818C05E88002471AC /* cos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cos.png; sourceTree = "<group>"; };
+		6426F5EA18C06062002471AC /* leads.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = leads.png; sourceTree = "<group>"; };
+		6426F5EC18C060CF002471AC /* planning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = planning.png; sourceTree = "<group>"; };
+		6426F5EE18C06100002471AC /* estimation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = estimation.png; sourceTree = "<group>"; };
+		6426F5F018C06157002471AC /* hr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hr.png; sourceTree = "<group>"; };
+		6426F5F218C0621B002471AC /* jobs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jobs.png; sourceTree = "<group>"; };
+		6426F5F418C062F6002471AC /* payroll.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payroll.png; sourceTree = "<group>"; };
+		6426F5F618C067F3002471AC /* accounting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accounting.png; sourceTree = "<group>"; };
+		6426F5F818C06824002471AC /* fleet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fleet.png; sourceTree = "<group>"; };
+		6426F5FA18C0685C002471AC /* SasteyPicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SasteyPicture.png; sourceTree = "<group>"; };
 		642B77AD17799D1000EECCC0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
 		642B77AE17799D1000EECCC0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
 		642F93001872870E0059101A /* customjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customjobcell.xib; sourceTree = "<group>"; };
@@ -794,6 +820,19 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6426F5FA18C0685C002471AC /* SasteyPicture.png */,
+				6426F5F818C06824002471AC /* fleet.png */,
+				6426F5F618C067F3002471AC /* accounting.png */,
+				6426F5F418C062F6002471AC /* payroll.png */,
+				6426F5F218C0621B002471AC /* jobs.png */,
+				6426F5F018C06157002471AC /* hr.png */,
+				6426F5EE18C06100002471AC /* estimation.png */,
+				6426F5EC18C060CF002471AC /* planning.png */,
+				6426F5EA18C06062002471AC /* leads.png */,
+				6426F5E818C05E88002471AC /* cos.png */,
+				6426F5E618C05E09002471AC /* com.png */,
+				6426F5E418C05D2B002471AC /* res.png */,
+				6426F5E218C05C12002471AC /* bgmetro1.png */,
 				D48F436518A2335400AFDDC2 /* vertical blue.png */,
 				D4EC1FE01875280500A55942 /* textbox.png */,
 				D40A6639187131CA00AB7496 /* cb_mono_on.png */,
@@ -984,6 +1023,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6426F5EF18C06100002471AC /* estimation.png in Resources */,
 				D40D1EB5176B086F00379DD5 /* InfoPlist.strings in Resources */,
 				D400406B185B180200C38E12 /* ResViewController.xib in Resources */,
 				D40D1EBD176B086F00379DD5 /* Default.png in Resources */,
@@ -991,10 +1031,12 @@
 				642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */,
 				D49DE838185EB391006F1CDA /* closebutton.png in Resources */,
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
+				6426F5FB18C0685C002471AC /* SasteyPicture.png in Resources */,
 				649ED7AB187FBD710086CDDE /* customservicescell.xib in Resources */,
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				642FA79918AC960400372623 /* DetailplanViewController.xib in Resources */,
+				6426F5F918C06824002471AC /* fleet.png in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
 				649EDEC618BB04EC00B78D97 /* addworkscheduleview.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
@@ -1008,6 +1050,7 @@
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
 				D40D1EDB176B27E300379DD5 /* LeadsViewController.xib in Resources */,
 				649EDECC18BB055E00B78D97 /* Outlookrecordaddview.xib in Resources */,
+				6426F5E518C05D2B002471AC /* res.png in Resources */,
 				D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				6481615A176EE7CF0017F4CC /* CustomLeadCell.xib in Resources */,
@@ -1017,6 +1060,7 @@
 				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
 				64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
+				6426F5F118C06157002471AC /* hr.png in Resources */,
 				64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */,
 				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
 				D4A2AFFD176F186200F4E196 /* FollowupCell.xib in Resources */,
@@ -1058,6 +1102,7 @@
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
+				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				D4FED41017F16EEE004BE242 /* VerificationViewController.xib in Resources */,
@@ -1075,6 +1120,7 @@
 				D4FED41817F1A04E004BE242 /* 2.png in Resources */,
 				D4E658C017F2A54F00202B14 /* I9view.xib in Resources */,
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
+				6426F5ED18C060CF002471AC /* planning.png in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
@@ -1082,6 +1128,8 @@
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
+				6426F5EB18C06062002471AC /* leads.png in Resources */,
+				6426F5E718C05E09002471AC /* com.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4004070185B181500C38E12 /* ManViewController.xib in Resources */,
@@ -1095,10 +1143,12 @@
 				64F9798D185EDB5400E7722B /* UsersViewController.xib in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
 				64A09DA818602A1B001F74E2 /* folderrightsViewController.xib in Resources */,
+				6426F5E318C05C12002471AC /* bgmetro1.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */,
 				649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
+				6426F5F518C062F6002471AC /* payroll.png in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
@@ -1107,6 +1157,7 @@
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
+				6426F5F718C067F3002471AC /* accounting.png in Resources */,
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				649EDEC418BB011A00B78D97 /* EqaddRecordview.xib in Resources */,
@@ -1116,6 +1167,7 @@
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
+				6426F5E918C05E88002471AC /* cos.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
