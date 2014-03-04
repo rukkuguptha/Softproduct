@@ -10,4 +10,15 @@
 
 @interface Scfflddetails : NSObject
 
+@property(readwrite)NSInteger scaffolddetailid;
+@property(readwrite)NSInteger mainscffoldid;
+@property(readwrite)NSInteger subscaffid;
+@property(strong,nonatomic)NSString *length;
+@property(strong,nonatomic)NSString *width;
+@property(strong,nonatomic)NSString *height;
+@property(strong,nonatomic)NSString *numb;
+@property(strong,nonatomic)NSString *ManHoures;
+@property(strong,nonatomic)NSString *ErectHoures;
+@property(strong,nonatomic)NSString *DesmandleHoures;
+
 @end

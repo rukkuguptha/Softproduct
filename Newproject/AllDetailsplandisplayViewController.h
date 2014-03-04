@@ -10,6 +10,7 @@
 #import "Scaffoldtypemdl.h"
 #import "Customscaffoldingplan.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Scfflddetails.h"
 
 
 @interface AllDetailsplandisplayViewController : UIViewController<UIGestureRecognizerDelegate>{
@@ -29,6 +30,8 @@
       BOOL recordResults;
     NSString *scfldid;
     NSInteger path;
+    NSInteger Deletepath;
+    
     NSInteger tabpath;
     NSInteger btntouch;
     NSInteger chektouch;
@@ -36,11 +39,13 @@
     NSInteger chrate;
 
   }
-
+@property(strong,nonatomic)Scfflddetails * scflddetails;
 @property(strong,nonatomic)Scaffoldtypemdl *sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan *customsccfldmdl;
 @property (strong, nonatomic)NSMutableArray *Scafldarry;
 @property (strong, nonatomic)NSMutableArray *newscfoldtypearry;
+@property (strong, nonatomic)NSMutableArray *scflddetailsaarry;
+
 @property (strong, nonatomic)NSString *planid;
 @property (strong, nonatomic)NSString *Scfldid;
 @property (strong, nonatomic)NSString *len;
@@ -62,6 +67,7 @@
 
 
 @property (strong, nonatomic)NSMutableDictionary *subtypdict;
+@property (strong, nonatomic)NSMutableDictionary *subtypreversedict;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 
 -(IBAction)clsebtn:(id)sender;
@@ -110,6 +116,7 @@
 - (IBAction)iwfbtn:(id)sender;
 - (IBAction)spfbtn:(id)sender;
 - (IBAction)upwbtn:(id)sender;
+- (IBAction)deletebtn:(id)sender;
 
 
 
