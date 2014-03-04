@@ -28,6 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"%@",_Scfldid);
     // Do any additional setup after loading the view from its nib.
     self.subtypetable.layer.borderWidth=3.0;
     self.subtypetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -54,15 +55,48 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
     [self ScaffoldingSelectScaffoldsubtype];
     [self Selectcheight];
     
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:0];
-    _lengthfld.text=_customsccfldmdl.length;
-    _widthfld.text=_customsccfldmdl.width;
-    _hightfld.text=_customsccfldmdl.height;
-    _elvatnfld.text=_customsccfldmdl.elevation;
+    
+    if(_optionidentifier==1)
+    {
+        _lengthfld.text=_len;
+        _widthfld.text=_wid;
+        _hightfld.text=_height;
+        _elvatnfld.text=_ele;
+    }
+    else if(_optionidentifier==2)
+    {
+        _lengthfld.text=_len;
+        _widthfld.text=_wid;
+        _hightfld.text=_height;
+        _elvatnfld.text=_ele;
+    }
+
 
     
 
 
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(_optionidentifier==1)
+    {
+    _lengthfld.text=_len;
+    _widthfld.text=_wid;
+    _hightfld.text=_height;
+    _elvatnfld.text=_ele;
+    }
+    else if(_optionidentifier==2)
+    {
+    
+        _lengthfld.text=_len;
+        _widthfld.text=_wid;
+        _hightfld.text=_height;
+        _elvatnfld.text=_ele;
+
+    }
+    [self Selectcheight];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -146,6 +180,10 @@ return cell;
 
 -(IBAction)clsebtn:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
+    _lengthfld.text=@"";
+    _widthfld.text=@"";
+    _hightfld.text=@"";
+    _elvatnfld.text=@"";;
 }
 
 #pragma mark -
@@ -338,7 +376,7 @@ return cell;
             {
                 [dstData addObject:draggedData];
                 [self ScaffoldDetailinsert];
-                [self calulatemanhrs];
+                //[self calulatemanhrs];
 
                 [_maintable reloadData];
             }
@@ -375,7 +413,8 @@ return cell;
 -(void)Selectcheight{
     recordResults = FALSE;
     NSString *soapMessage;
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:_btnindx];
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -478,7 +517,8 @@ return cell;
     NSString *ercthr=@"0";
     NSString *dishr=@"0";
 
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];  NSArray *newarray=[_subtypdict allKeys];
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    NSArray *newarray=[_subtypdict allKeys];
     draggedCell.textLabel.text =[newarray objectAtIndex:path];
 
   
@@ -553,7 +593,7 @@ return cell;
                    "<planId>%@</planId>\n"
                    "</Planfactorsinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_sitefctrfld.text doubleValue],_customsccfldmdl.pid];
+                   "</soap:Envelope>\n",[_sitefctrfld.text doubleValue],_planid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -588,11 +628,72 @@ return cell;
 -(void)Scaffoldinsert{
     recordResults = FALSE;
     NSString *soapMessage;
+    if (_optionidentifier==1) {
+        
+       // _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:0];
+        int iwf;
+        int spf;
+        int upw;
+        if (btntouch%2) {
+            iwf=1;
+        }
+        else{
+            iwf=0;
+        }
+        
+        if (chektouch%2) {
+            spf=1;
+        }
+        else{
+            spf=0;
+        }
+        if (ticktouch%2) {
+            upw=1;
+        }
+        else{
+            upw=0;
+        }
+        
+        soapMessage = [NSString stringWithFormat:
+                       
+                       @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                       "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                       
+                       
+                       "<soap:Body>\n"
+                       
+                       "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                       "<id>%d</id>\n"
+                       "<length>%@</length>\n"
+                       "<width>%@</width>\n"
+                       "<height>%@</height>\n"
+                       "<qty>%@</qty>\n"
+                       "<elevation>%@</elevation>\n"
+                       "<unit>%@</unit>\n"
+                       "<equp>%@</equp>\n"
+                       "<description>%@</description>\n"
+                       "<typeofscaffold>%d</typeofscaffold>\n"
+                       "<ManHours>%f</ManHours>\n"
+                       "<ErectHours>%f</ErectHours>\n"
+                       "<DismantleHours>%f</DismantleHours>\n"
+                       "<planId>%@</planId>\n"
+                       "<InternalWorkFactor>%d</InternalWorkFactor>\n"
+                       "<PPE>%d</PPE>\n"
+                       "<UnplannedWork>%d</UnplannedWork>\n"
+                       "<ph>%@</ph>\n"
+                       "</Scaffoldinsert>\n"
+                       "</soap:Body>\n"
+                       "</soap:Envelope>\n",[_Scfldid integerValue],_len,_wid,_height,_qty,_ele,_unit,
+                       _equip,_Destxtfld.text,[_sid integerValue],_manpwr,_erecrhr,_dishr,_planid,iwf,spf,upw,_ph];
+        NSLog(@"soapmsg%@",soapMessage);
+
+    }
+    else if(_optionidentifier==2)
+    {
     
-    NSString *manpr=@"0";
-    NSString *ercthr=@"0";
-    NSString *dishr=@"0";
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:0];
+   
+    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:_btnindx];
+        NSLog(@"%d",_customsccfldmdl.idvalue);
     int iwf;
     int spf;
     int upw;
@@ -642,11 +743,13 @@ return cell;
                    "<InternalWorkFactor>%d</InternalWorkFactor>\n"
                    "<PPE>%d</PPE>\n"
                    "<UnplannedWork>%d</UnplannedWork>\n"
+                   "<ph>%@</ph>\n"
                    "</Scaffoldinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",0,_customsccfldmdl.length,_customsccfldmdl.width,_customsccfldmdl.height,_customsccfldmdl.qty,_customsccfldmdl.elevation,_customsccfldmdl.unit,_customsccfldmdl.equp,_Destxtfld.text,_customsccfldmdl.typescaffold,[manpr doubleValue],[ercthr doubleValue],[dishr doubleValue],_customsccfldmdl.pid,iwf,spf,upw];
+                   "</soap:Envelope>\n",_customsccfldmdl.idvalue,_len,_wid,_height,_qty,_ele,_unit,
+                   _equip,_Destxtfld.text,[_sid integerValue],_manpwr,_erecrhr,_dishr,_planid,iwf,spf,upw,_ph];
     NSLog(@"soapmsg%@",soapMessage);
-    
+    }
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
@@ -804,6 +907,77 @@ return cell;
 }
 #pragma mark-Equatn
 -(void)calulatemanhrs{
+    NSString *rate;
+    NSInteger l=[_lengthfld.text integerValue];
+    NSInteger w=[_widthfld.text integerValue];
+    NSInteger h=[_hightfld.text integerValue];
+    NSInteger sf=[_sitefctrfld.text integerValue];
+   Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_newscfoldtypearry objectAtIndex:_scaffoldtypeindex];
+
+    NSLog(@"%d",[_sid integerValue]);
+    if([_sid integerValue]==1)
+    {
+        if(h<=33)
+        {
+            rate=typmdl.ftupto33;
+            NSLog(@"%@",typmdl.ftupto33);
+            NSLog(@"%@",rate);
+        }
+        else if(h>33 && h<=100)
+        {
+            rate=typmdl.ftupto100;
+        }
+        else if(h>100 && h<=165)
+        {
+            rate=typmdl.ftupto165;
+        }
+        else if(h>165)
+        {
+            rate=typmdl.ftg165;
+        }
+
+    }
+   else if([_sid integerValue]==2)
+    {
+        
+        rate=typmdl.rate;
+    }
+   else if([_sid integerValue]==3)
+   {
+    rate=typmdl.rate;
+
+   }
+   else if([_sid integerValue]==4)
+   {
+       NSInteger result=l*w*h;
+       if(result<=1750)
+       {
+           rate=typmdl.ft3upto1750;
+       }
+       else if(result>1750 && result<=1750)
+       {
+           rate=typmdl.ft3upto7000;
+       }
+       else if(result>7000 && result<=18000)
+       {
+           rate=typmdl.ft3upto18000;
+       }
+       else if(result>18000)
+       {
+           rate=typmdl.ft3g18000;
+       }
+
+
+   }
+   else
+   {
+       rate=typmdl.rate;
+
+   }
+
+
+
+    
     int iwf;
     int spf;
     int upw;
@@ -826,19 +1000,16 @@ return cell;
     else{
         upw=0;
     }
-    NSInteger sf=[_sitefctrfld.text integerValue];
-
-    NSInteger result1=(chrate+iwf+spf+upw+1)*sf;
-    NSLog(@"re%d",result1);
-    
-    
-    
-    
+    _manpwr=((chrate+iwf+spf+upw+1)*sf)*l*w*h*1*[rate doubleValue];
+     _dishr=_manpwr*0.33;
+    _erecrhr=_manpwr*0.67;
+        [self Scaffoldinsert];
+       [self Planfactorsinsert];
 }
 
 - (IBAction)updatebtn:(id)sender {
-    [self Scaffoldinsert];
-    [self Planfactorsinsert];
+    [self calulatemanhrs];
+
 }
 
 - (IBAction)iwfbtn:(id)sender {

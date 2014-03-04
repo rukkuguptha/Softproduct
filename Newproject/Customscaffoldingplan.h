@@ -19,6 +19,7 @@
 @property(strong,nonatomic)NSString *elevation;
 @property(strong,nonatomic)NSString *unit;
 @property(strong,nonatomic)NSString *equp;
+@property(strong,nonatomic)NSString *desc;
 @property(strong,nonatomic)NSString *ph;
 @property(strong,nonatomic)NSString *decking;
 @property(strong,nonatomic)NSString *handrail;
