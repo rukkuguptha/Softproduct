@@ -36,12 +36,12 @@
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.processview addGestureRecognizer:doubleTap1];
-//    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
-//                                          initWithTarget:self
-//                                          action:@selector(managmntPage)];
-//    doubleTap2.numberOfTapsRequired=1;
-//    doubleTap2.delegate=(id)self;
-//    [self.mangmntview addGestureRecognizer:doubleTap2];
+    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(managmntPage)];
+    doubleTap2.numberOfTapsRequired=1;
+    doubleTap2.delegate=(id)self;
+    [self.mangmntview addGestureRecognizer:doubleTap2];
     
     }
 -(void)masterpage{
@@ -71,6 +71,21 @@
 
     
 }
+-(void)managmntPage{
+    
+    if (!self.mgmtVCtrl ) {
+        self.mgmtVCtrl=[[EmplyhrmgntViewController alloc]initWithNibName:@"EmplyhrmgntViewController" bundle:nil];
+    }
+    
+    self.mgmtVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    
+    [self presentViewController:self.mgmtVCtrl
+                       animated:YES completion:NULL];
+    
+    
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

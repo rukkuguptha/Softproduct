@@ -65,6 +65,8 @@
 		649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */; };
 		649EDED818BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */; };
 		649EDEDB18BB4E5E00B78D97 /* Scaffoldtypemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */; };
+		64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A00F3018C5B115002F607E /* empmgmtcell.xib */; };
+		64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */; };
 		64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA0186023D2001F74E2 /* AllfolderViewController.m */; };
 		64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */; };
 		64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA518602A1B001F74E2 /* folderrightsViewController.m */; };
@@ -322,6 +324,9 @@
 		649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllDetailsplandisplayViewController.xib; sourceTree = "<group>"; };
 		649EDED918BB4E5E00B78D97 /* Scaffoldtypemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldtypemdl.h; sourceTree = "<group>"; };
 		649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldtypemdl.m; sourceTree = "<group>"; };
+		64A00F3018C5B115002F607E /* empmgmtcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = empmgmtcell.xib; sourceTree = "<group>"; };
+		64A00F3218C5C854002F607E /* Scaffoldsubtypemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldsubtypemodel.h; sourceTree = "<group>"; };
+		64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldsubtypemodel.m; sourceTree = "<group>"; };
 		64A09D9F186023D2001F74E2 /* AllfolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllfolderViewController.h; sourceTree = "<group>"; };
 		64A09DA0186023D2001F74E2 /* AllfolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllfolderViewController.m; sourceTree = "<group>"; };
 		64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllfolderViewController.xib; sourceTree = "<group>"; };
@@ -947,6 +952,8 @@
 				649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */,
 				D40A99C618C5A956005384F9 /* Scfflddetails.h */,
 				D40A99C718C5A956005384F9 /* Scfflddetails.m */,
+				64A00F3218C5C854002F607E /* Scaffoldsubtypemodel.h */,
+				64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -976,6 +983,7 @@
 				D40A99C918C5A9B5005384F9 /* EmplyhrmgntViewController.h */,
 				D40A99CA18C5A9B5005384F9 /* EmplyhrmgntViewController.m */,
 				D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */,
+				64A00F3018C5B115002F607E /* empmgmtcell.xib */,
 				D4FED40C17F16EED004BE242 /* VerificationViewController.h */,
 				D4FED40D17F16EED004BE242 /* VerificationViewController.m */,
 				D4FED40E17F16EEE004BE242 /* VerificationViewController.xib */,
@@ -1042,6 +1050,7 @@
 				6426F5EF18C06100002471AC /* estimation.png in Resources */,
 				D40D1EB5176B086F00379DD5 /* InfoPlist.strings in Resources */,
 				D400406B185B180200C38E12 /* ResViewController.xib in Resources */,
+				64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */,
 				D40D1EBD176B086F00379DD5 /* Default.png in Resources */,
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
 				642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */,
@@ -1260,6 +1269,7 @@
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
+				64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
