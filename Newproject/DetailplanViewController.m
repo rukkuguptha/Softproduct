@@ -1262,7 +1262,7 @@
         _allctrlr.len=_lengthtextfield.text;
         _allctrlr.wid=_widthtextfield.text;
         _allctrlr.height=_heighttextfield.text;
-        _allctrlr.ele=_heighttextfield.text;
+        _allctrlr.ele=_elevationtextfield.text;
         _allctrlr.unit=_unittextfield.text;
         _allctrlr.equip=_equipmenttextfield.text;
         _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
@@ -1274,7 +1274,7 @@
         _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
         _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
         _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-        [self presentViewController:_allctrlr
+        [self presentViewController:_allctrlr           
                            animated:YES completion:NULL];
         }
         else if(optionidentifier==2)
@@ -1298,6 +1298,8 @@
             _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
             _allctrlr.qty=_qtytextfield.text;
             _allctrlr.planid=_planid;
+            
+            
             _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
             _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
             _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
@@ -1345,8 +1347,6 @@
     }
 
 
-
-
-    }
+}
 
 @end
