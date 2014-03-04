@@ -121,7 +121,7 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
     }
     if (tableView==_maintable) {
         
-         return[dstData count];
+         return[_scflddetailsaarry count];
         
     }
     return YES;
@@ -162,22 +162,48 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
   }
     if (tableView==_maintable) {
         
-        //cell.textLabel.text=[dstData objectAtIndex:indexPath.row];
+        Scfflddetails *scfdetals=(Scfflddetails *)[_scflddetailsaarry objectAtIndex:indexPath.row];
+        
         _scffoldtypemainlbl=(UILabel *)[cell viewWithTag:1];
-        _scffoldtypemainlbl.text=[dstData objectAtIndex:indexPath.row];
+        NSString *subid=[NSString stringWithFormat:@"%d",scfdetals.subscaffid];
+        
+        _scffoldtypemainlbl.text=[_subtypreversedict objectForKey:subid];
         _lngtnlbl=(UILabel *)[cell viewWithTag:2];
+        _lngtnlbl.text=scfdetals.length;
         _widthlbl=(UILabel *)[cell viewWithTag:3];
+      _widthlbl.text=scfdetals.width;
+
         _heihtlbl=(UILabel *)[cell viewWithTag:4];
+        _heihtlbl.text=scfdetals.height;
         _numbrlbl=(UILabel *)[cell viewWithTag:5];
+        _numbrlbl.text=scfdetals.numb;
         _manhrslbl=(UILabel *)[cell viewWithTag:6];
+        _manhrslbl.text=scfdetals.ManHoures;
         _ercthrslbl=(UILabel *)[cell viewWithTag:7];
+        _ercthrslbl.text=scfdetals.ErectHoures;
         _dismntlehrslbl=(UILabel *)[cell viewWithTag:8];
+        _dismntlehrslbl.text=scfdetals.DesmandleHoures;
         
     }
     
    
 return cell;
 }
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        Deletepath=indexPath.row;
+        
+        if (tableView==_maintable) {
+            [self Scaffoldetaildelete];
+            [_scflddetailsaarry removeObject:indexPath];
+            
+        }
+        
+    }
+}
+
 
 -(IBAction)clsebtn:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -841,6 +867,58 @@ return cell;
     }
     
 }
+-(void)Scaffoldetaildelete{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Scfflddetails *scfdetals=(Scfflddetails *)[_scflddetailsaarry objectAtIndex:Deletepath];
+      soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Scaffoldetaildelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<mainscaafid>%d</mainscaafid>\n"
+                   "<subscaffid>%d</subscaffid>\n"
+                   "<ManHours>%f</ManHours>\n"
+                   "<ErectHours>%f</ErectHours>\n"
+                   "<DismantleHours>%f</DismantleHours>\n"
+                   "</Scaffoldetaildelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",scfdetals.mainscffoldid,scfdetals.subscaffid,[scfdetals.ManHoures doubleValue],[scfdetals.ErectHoures doubleValue],[scfdetals.DesmandleHoures doubleValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Scaffoldetaildelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
@@ -874,6 +952,7 @@ return cell;
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_subtypetable reloadData];
+    [_maintable reloadData];
        
     
 }
@@ -883,7 +962,8 @@ return cell;
     if([elementName isEqualToString:@"ScaffoldingSelectScaffoldsubtypeResult"])
     {
         _subtypdict=[[NSMutableDictionary alloc]init];
-       
+        _subtypreversedict=[[NSMutableDictionary alloc]init];
+        
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -927,6 +1007,196 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ScaffodDetailselectResult"])
+    {
+        _scflddetailsaarry=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"scaffolddetailid"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"mainscaffid"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"subscaffid"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"length"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"width"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"height"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"numb"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ManHoures"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"ErectHoures"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DesmandleHoures"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"ScaffoldingSelectScaffoldsubtypeResult"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"scaffoldsubtypeId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"scaffoldtypename"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"lbit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"wbit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"hbit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"nbit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"sf"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"rate"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -954,6 +1224,7 @@ return cell;
     {
         recordResults = FALSE;
         [_subtypdict setObject:scfldid forKey:_soapresults];
+        [_subtypreversedict setObject:_soapresults forKey:scfldid];
         
         _soapresults = nil;
     }
@@ -963,6 +1234,85 @@ return cell;
         recordResults = FALSE;
         chrate=[_soapresults integerValue];
         _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"scaffolddetailid"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails=[[Scfflddetails alloc]init];
+        _scflddetails.scaffolddetailid=[_soapresults integerValue];
+        _soapresults = nil;
+
+    }
+    if([elementName isEqualToString:@"mainscaffid"])
+    {
+        
+        recordResults = FALSE;
+              _scflddetails.mainscffoldid=[_soapresults integerValue];
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"subscaffid"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.subscaffid=[_soapresults integerValue];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"length"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.length=_soapresults;
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"width"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.width=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"height"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.height=_soapresults;
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"numb"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.numb=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"ManHoures"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.ManHoures=_soapresults;
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"ErectHoures"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.ErectHoures=_soapresults;
+        _soapresults = nil;
+
+    }
+    if([elementName isEqualToString:@"DesmandleHoures"])
+    {
+        
+        recordResults = FALSE;
+        _scflddetails.DesmandleHoures=_soapresults;
+        [_scflddetailsaarry addObject:_scflddetails];
+        _soapresults = nil;
+
     }
 
 }
@@ -1067,6 +1417,11 @@ return cell;
         [self Scaffoldinsert];
        [self Planfactorsinsert];
 }
+
+-(void)manhoursfordetail{
+    
+    
+}
 #pragma mark-Buttons
 
 - (IBAction)updatebtn:(id)sender {
@@ -1120,6 +1475,26 @@ return cell;
         [_upwbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
               
+    }
+
+}
+
+- (IBAction)deletebtn:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_maintable setEditing:NO animated:NO];
+        [_maintable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_maintable setEditing:YES animated:YES];
+        [_maintable reloadData];
+        
+        
     }
 
 }
