@@ -1006,6 +1006,7 @@ return cell;
         [self Scaffoldinsert];
        [self Planfactorsinsert];
 }
+#pragma mark-Buttons
 
 - (IBAction)updatebtn:(id)sender {
     [self calulatemanhrs];

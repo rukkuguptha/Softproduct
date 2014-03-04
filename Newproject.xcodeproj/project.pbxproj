@@ -121,6 +121,7 @@
 		D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BF18BB1E9B00C5DB30 /* left_arrow@2x.png */; };
 		D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A6639187131CA00AB7496 /* cb_mono_on.png */; };
 		D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A663A187131CA00AB7496 /* cb_mono_off.png */; };
+		D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40A99C418C5A334005384F9 /* Editplanview.xib */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
 		D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAC176B086F00379DD5 /* Foundation.framework */; };
 		D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */; };
@@ -390,6 +391,7 @@
 		D40736BF18BB1E9B00C5DB30 /* left_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "left_arrow@2x.png"; sourceTree = "<group>"; };
 		D40A6639187131CA00AB7496 /* cb_mono_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_on.png; sourceTree = "<group>"; };
 		D40A663A187131CA00AB7496 /* cb_mono_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_off.png; sourceTree = "<group>"; };
+		D40A99C418C5A334005384F9 /* Editplanview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editplanview.xib; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -813,6 +815,7 @@
 				649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */,
 				6437578418BC554B003691E6 /* Subtypecell.xib */,
 				6437578618BC5572003691E6 /* maintablecell.xib */,
+				D40A99C418C5A334005384F9 /* Editplanview.xib */,
 			);
 			name = Planning;
 			sourceTree = "<group>";
@@ -1128,6 +1131,7 @@
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
 				6426F5EB18C06062002471AC /* leads.png in Resources */,
+				D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
