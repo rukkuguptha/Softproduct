@@ -121,40 +121,53 @@
 
 -(IBAction)nextbtnaction:(id)sender
 {
-    if (optionidentifier==1) {
-        [self Scaffoldinsert];
-//    if (!self.allctrlr) {
-//        self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+    [self Scaffoldinsert];
+//   if (optionidentifier==1)
+//   {
+//        [self Scaffoldinsert];
+////        if (!self.allctrlr)
+////        {
+////        self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+////        }
+////        _allctrlr.len=_lengthtextfield.text;
+////        _allctrlr.wid=_widthtextfield.text;
+////        _allctrlr.height=_heighttextfield.text;
+////        _allctrlr.ele=_heighttextfield.text;
+////        _allctrlr.unit=_unittextfield.text;
+////        _allctrlr.equip=_equipmenttextfield.text;
+////        _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+////        _allctrlr.qty=_qtytextfield.text;
+////        _allctrlr.planid=_planid;
+////        _allctrlr.optionidentifier=optionidentifier;
+////       _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+////       _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+////       [self presentViewController:_allctrlr
+////                       animated:YES completion:NULL];
+//   }
+//   else if(optionidentifier==2)
+//    {
+////        if (!self.allctrlr)
+////        {
+////            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+////        }
+////        _allctrlr.Scafldarry=_scaffoldingplanlistarray;
+////        _allctrlr.btnindx=btnindex;
+////        _allctrlr.optionidentifier=optionidentifier;
+////        _allctrlr.len=_lengthtextfield.text;
+////        _allctrlr.wid=_widthtextfield.text;
+////        _allctrlr.height=_heighttextfield.text;
+////        _allctrlr.ele=_heighttextfield.text;
+////        _allctrlr.unit=_unittextfield.text;
+////        _allctrlr.equip=_equipmenttextfield.text;
+////        _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+////        _allctrlr.qty=_qtytextfield.text;
+////        _allctrlr.planid=_planid;
+////        _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+////        _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+////        [self presentViewController:_allctrlr
+////                           animated:YES completion:NULL];
+//
 //    }
-//    _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-//    _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-//    [self presentViewController:_allctrlr
-//                       animated:YES completion:NULL];
-}
-    else if(optionidentifier==2)
-    {
-        
-        if (!self.allctrlr) {
-            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-        }
-//        button = (UIButton *)sender;
-//        CGPoint center= button.center;
-//        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
-//        NSIndexPath *textFieldIndexPath = [self.scaffoldtable indexPathForRowAtPoint:rootViewPoint];
-//        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-//        btnindex=textFieldIndexPath.row;
-        
-        Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
-        Scaffoldtypemdl*typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:btnindex];
-        _allctrlr.sccfldtypemdl=typemdl;
-        _allctrlr.customsccfldmdl=scaffldingplan;
-        _allctrlr.Scafldarry=_scaffoldingplanlistarray;
-        _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-        _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-        [self presentViewController:_allctrlr
-                           animated:YES completion:NULL];
-
-    }
     
    
 }
@@ -263,7 +276,7 @@
 {
     if (tableView==_popovertableview)
     { Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
-        
+        scaffoldtypeindex=indexPath.row;
        // cell.textLabel.text=typmdl.typeName;
         [_scaffoldtyprbtn setTitle:typmdl.typeName forState:UIControlStateNormal];
     }
@@ -421,6 +434,7 @@
 -(void)Scaffoldinsert{
     recordResults = FALSE;
     NSString *soapMessage;
+    if(optionidentifier==1){
     NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
     NSLog(@"%@",scaffoldid);
     NSString *desc=@"";
@@ -454,11 +468,56 @@
                    "<planId>%@</planId>\n"
                    "<InternalWorkFactor>%d</InternalWorkFactor>\n"
                    "<PPE>%d</PPE>\n"
-                   "<UnplannedWork>%d</UnplannedWork>"
+                   "<UnplannedWork>%d</UnplannedWork>\n"
+                   "<ph>%@</ph>\n"
                    "</Scaffoldinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[insertid integerValue],_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0];
+                   "</soap:Envelope>\n",[insertid integerValue],_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text];
     NSLog(@"soapmsg%@",soapMessage);
+    }
+    else if (optionidentifier==2)
+    {
+        NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+        NSLog(@"%@",scaffoldid);
+        
+       // NSString *insertid=@"0";
+         Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
+        NSString *manhours=scaffldingplan.manhours;
+        NSString *erecthours=scaffldingplan.erecthours;
+        NSString *dismantilehours=scaffldingplan.dismantlehours;
+        soapMessage = [NSString stringWithFormat:
+                       
+                       @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                       "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                       
+                       
+                       "<soap:Body>\n"
+                       
+                       "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                       "<id>%d</id>\n"
+                       "<length>%@</length>\n"
+                       "<width>%@</width>\n"
+                       "<height>%@</height>\n"
+                       "<qty>%@</qty>\n"
+                       "<elevation>%@</elevation>\n"
+                       "<unit>%@</unit>\n"
+                       "<equp>%@</equp>\n"
+                       "<description>%@</description>\n"
+                       "<typeofscaffold>%d</typeofscaffold>\n"
+                       "<ManHours>%f</ManHours>\n"
+                       "<ErectHours>%f</ErectHours>\n"
+                       "<DismantleHours>%f</DismantleHours>\n"
+                       "<planId>%@</planId>\n"
+                       "<InternalWorkFactor>%d</InternalWorkFactor>\n"
+                       "<PPE>%d</PPE>\n"
+                       "<UnplannedWork>%d</UnplannedWork>"
+                       "<ph>%@</ph>\n"
+                       "</Scaffoldinsert>\n"
+                       "</soap:Body>\n"
+                       "</soap:Envelope>\n",scaffldingplan.idvalue,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,scaffldingplan.desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text];
+        NSLog(@"soapmsg%@",soapMessage);
+
+    }
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
@@ -633,6 +692,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"description"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"Decking"])
     {
         
@@ -798,6 +867,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ftg165"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ft3upto1750"])
     {
         
@@ -852,6 +931,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
 
 
@@ -974,6 +1063,13 @@
          NSString *scaffoldname=[_scaffoldtypeDict objectForKey:_soapresults];
         _scfldmdl.typescaffold=[_soapresults integerValue];
         _scfldmdl.scaffoldname=scaffoldname;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"description"])
+    {
+        
+        recordResults = FALSE;
+        _scfldmdl.desc=_soapresults;
         _soapresults = nil;
     }
 
@@ -1113,6 +1209,14 @@
         _typemdl.ftupto165=_soapresults;
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"ftg165"])
+    {
+        
+        recordResults = FALSE;
+        _typemdl.ftg165=_soapresults;
+        _soapresults = nil;
+    }
+
 
     if([elementName isEqualToString:@"ft3upto1750"])
     {
@@ -1149,30 +1253,100 @@
         
         recordResults = FALSE;
         _insertresultvalue=_soapresults;
-        if (!self.allctrlr) {
+        if(optionidentifier==1)
+        {
+        if (!self.allctrlr)
+        {
             self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
         }
+        _allctrlr.len=_lengthtextfield.text;
+        _allctrlr.wid=_widthtextfield.text;
+        _allctrlr.height=_heighttextfield.text;
+        _allctrlr.ele=_heighttextfield.text;
+        _allctrlr.unit=_unittextfield.text;
+        _allctrlr.equip=_equipmenttextfield.text;
+        _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+        _allctrlr.qty=_qtytextfield.text;
+        _allctrlr.ph=_proheadertextfield.text;
+        _allctrlr.planid=_planid;
+        _allctrlr.Scfldid=_insertresultvalue;
+        _allctrlr.optionidentifier=optionidentifier;
+        _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
         _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
         _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
         [self presentViewController:_allctrlr
                            animated:YES completion:NULL];
+        }
+        else if(optionidentifier==2)
+        {
+//            if (!self.allctrlr)
+//            {
+//                self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+//            }
+            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+            _allctrlr.Scafldarry=_scaffoldingplanlistarray;
+            _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
+            _allctrlr.btnindx=btnindex;
+            _allctrlr.optionidentifier=optionidentifier;
+            _allctrlr.len=_lengthtextfield.text;
+            _allctrlr.wid=_widthtextfield.text;
+            _allctrlr.height=_heighttextfield.text;
+            _allctrlr.ele=_heighttextfield.text;
+            _allctrlr.unit=_unittextfield.text;
+             _allctrlr.ph=_proheadertextfield.text;
+            _allctrlr.equip=_equipmenttextfield.text;
+            _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+            _allctrlr.qty=_qtytextfield.text;
+            _allctrlr.planid=_planid;
+            _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
+            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            [self presentViewController:_allctrlr
+                               animated:YES completion:NULL];
+        }
 
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        if([_soapresults isEqualToString:@"updatedscaffold"])
+        {
+                if (!self.allctrlr)
+                        {
+                            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+                        }
+            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+            _allctrlr.Scafldarry=_scaffoldingplanlistarray;
+            _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
+            _allctrlr.btnindx=btnindex;
+            _allctrlr.optionidentifier=optionidentifier;
+            _allctrlr.len=_lengthtextfield.text;
+            _allctrlr.wid=_widthtextfield.text;
+            _allctrlr.height=_heighttextfield.text;
+            _allctrlr.ele=_heighttextfield.text;
+            _allctrlr.unit=_unittextfield.text;
+             _allctrlr.ph=_proheadertextfield.text;
+            _allctrlr.equip=_equipmenttextfield.text;
+            _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+            _allctrlr.qty=_qtytextfield.text;
+            _allctrlr.planid=_planid;
+             _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
+            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            [self presentViewController:_allctrlr
+                               animated:YES completion:NULL];
+        }
+        
+
+        
         _soapresults = nil;
     }
 
 
 
 
-    
-
-
-
-    
-
-
-
-
-
-}
+    }
 
 @end

@@ -40,9 +40,26 @@
 @property(strong,nonatomic)Scaffoldtypemdl *sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan *customsccfldmdl;
 @property (strong, nonatomic)NSMutableArray *Scafldarry;
-@property (strong, nonatomic)NSMutableArray *newscfoldarry;
+@property (strong, nonatomic)NSMutableArray *newscfoldtypearry;
 @property (strong, nonatomic)NSString *planid;
 @property (strong, nonatomic)NSString *Scfldid;
+@property (strong, nonatomic)NSString *len;
+@property (strong, nonatomic)NSString *wid;
+@property (strong, nonatomic)NSString *height;
+@property (strong, nonatomic)NSString *ele;
+@property (strong, nonatomic)NSString *unit;
+@property (strong, nonatomic)NSString *equip;
+@property (strong, nonatomic)NSString *ph;
+@property (strong, nonatomic)NSString *sid;
+@property (strong, nonatomic)NSString *qty;
+//@property (strong, nonatomic)NSString *ph;
+@property (readwrite)NSInteger btnindx;
+@property (readwrite)NSInteger optionidentifier;
+@property (readwrite)NSInteger scaffoldtypeindex;
+@property (nonatomic)double manpwr;
+@property (nonatomic)double dishr;
+@property (nonatomic)double erecrhr;
+
 
 @property (strong, nonatomic)NSMutableDictionary *subtypdict;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;

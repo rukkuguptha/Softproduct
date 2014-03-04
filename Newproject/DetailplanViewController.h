@@ -18,6 +18,7 @@
     UIButton *button;
     NSInteger btnindex;
     NSInteger optionidentifier;
+    NSInteger scaffoldtypeindex;
 }
 
 @property(strong,nonatomic)NSString *planid;

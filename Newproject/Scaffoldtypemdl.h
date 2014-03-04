@@ -17,9 +17,11 @@
 @property(strong,nonatomic)NSString *ftupto33;
 @property(strong,nonatomic)NSString *ftupto100;
 @property(strong,nonatomic)NSString *ftupto165;
+@property(strong,nonatomic)NSString *ftg165;
 @property(strong,nonatomic)NSString *ft3upto1750;
 @property(strong,nonatomic)NSString *ft3upto7000;
 @property(strong,nonatomic)NSString *ft3upto18000;
 @property(strong,nonatomic)NSString *ft3g18000;
+
 
 @end
