@@ -61,6 +61,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *deslbl;
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
+@property (strong, nonatomic) IBOutlet UILabel *billabel;
+@property (strong, nonatomic) IBOutlet UILabel *paylabel;
+@property (strong, nonatomic) IBOutlet UILabel *craftlabel;
 @property (strong, nonatomic) IBOutlet UIButton *overhdchecklbl;
 
 /*Add button outlets*/
@@ -70,6 +73,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *subtypetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *unitcosttxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
+@property(strong,nonatomic)IBOutlet UITextField *craftcodetextfld;
+@property(strong,nonatomic)IBOutlet UITextField *billingratetextfield;
+@property(strong,nonatomic)IBOutlet UITextField *payratetextfield;
 
 - (IBAction)overhdcheck:(id)sender;
 - (IBAction)searchbtn:(id)sender;

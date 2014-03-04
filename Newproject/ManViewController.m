@@ -156,8 +156,14 @@
              _typelbl.text=pwrmdl.subtype;
              _costlbl=(UILabel *)[cell viewWithTag:4];
              _costlbl.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
+             _craftlabel=(UILabel *)[cell viewWithTag:5];
+             _craftlabel.text=pwrmdl.craftcode;
+             _billabel=(UILabel *)[cell viewWithTag:6];
+             _billabel.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
+             _paylabel=(UILabel *)[cell viewWithTag:7];
+             _paylabel.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
              
-             NSLog(@"OVERHEAD%d",pwrmdl.overhead);
+             
              
              if (pwrmdl.overhead==0) {
                  [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -798,6 +804,26 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"BillingRate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PayRate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
 
     if([elementName isEqualToString:@"SelectAllSubtypeResult"])
     {
@@ -919,9 +945,28 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
               checkbtnclick=1;
         }
         
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BillingRate"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.billingrate=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"PayRate"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.payrate=_soapResults;
         [_Allmanpwrarry addObject:_manpwrmdl];
         _soapResults = nil;
     }
+
+
     if([elementName isEqualToString:@"subtype"])
     {
         
@@ -1018,6 +1063,10 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
     _itemdestxtfld.text=pwrmdl.itemdescptn;
     _subtypetxtfld.text=pwrmdl.subtype;
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
+    _payratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
+    _billingratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
+    _craftcodetextfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.craftcode];
+
     //_unitcosttxtfld.text=pwrmdl.unitcost;
 
     if (pwrmdl.overhead==0) {
