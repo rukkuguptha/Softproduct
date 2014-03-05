@@ -712,7 +712,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"UnitCost"])
+    if([elementName isEqualToString:@"unitCost"])
     {
         
         if(!_soapResults)
@@ -782,28 +782,27 @@
         recordResults = FALSE;
         
         _manpwrmdl.itemdescptn=_soapResults;
-        [_manpwrarray addObject:_manpwrmdl];
+     
         _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"UnitCost"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
     }
     if([elementName isEqualToString:@"SubType"])
     {
         
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
+        recordResults = FALSE;
+        _manpwrmdl.subtype=_soapResults;
+        _soapResults = nil;;
     }
 
+    if([elementName isEqualToString:@"UnitCost"])
+    {
+        
+        recordResults = FALSE;
+         _manpwrmdl.unitcost=_soapResults;
+           [_manpwrarray addObject:_manpwrmdl];
+        
+         _soapResults = nil;
+    }
+    
     if([elementName isEqualToString:@"crewname"])
     {
         
@@ -850,7 +849,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"UnitCost"])
+    if([elementName isEqualToString:@"unitCost"])
     {
         
         if(!_soapResults)
