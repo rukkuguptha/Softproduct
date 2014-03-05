@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "basicreqmdl.h"
 #import "Validation.h"
+#import "venderViewController.h"
 
 @interface BasicReqViewController : UIViewController
 {
@@ -34,6 +35,7 @@
 }
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)basicreqmdl *basicmdl;
+@property(strong,nonatomic)venderViewController *venderVCtrl;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -85,6 +87,7 @@
 @property(strong,nonatomic)IBOutlet UITextField *hourstextfield;
 @property(strong,nonatomic)IBOutlet UITextField *vendertextfield;
 @property(strong,nonatomic)UITableView *autotable;
+@property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

@@ -11,6 +11,7 @@
                 <outlet property="codelabel" destination="QqT-tZ-dry" id="obp-Xe-KVw"/>
                 <outlet property="crftlabel" destination="qXt-ZT-g9u" id="J38-6V-eiF"/>
                 <outlet property="defbtn" destination="f4c-xi-vgv" id="cvw-TP-wdt"/>
+                <outlet property="disclosurebtn" destination="jaJ-bK-yvB" id="sNc-0x-ppK"/>
                 <outlet property="expirybtn" destination="RX8-Of-VQ4" id="V7W-Tt-HKB"/>
                 <outlet property="inhousebtn" destination="NCV-ee-XGY" id="no2-AZ-Lh6"/>
                 <outlet property="itemnamelabel" destination="90c-Pm-Zn9" id="bAz-pm-2OU"/>
@@ -106,7 +107,7 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jaJ-bK-yvB">
+                    <button opaque="NO" tag="12" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jaJ-bK-yvB">
                         <rect key="frame" x="198" y="14" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>

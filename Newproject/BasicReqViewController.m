@@ -153,6 +153,15 @@
         {
             [[NSBundle mainBundle]loadNibNamed:@"custombasicreqcell" owner:self options:nil];
             cell=_reqcell;
+//            _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 10, 0, 25)];
+//            _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
+//            _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//            _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//            _venderlbl.textColor=[UIColor blackColor];
+//            _venderlbl.text=@"Add Vender";
+//            [self.animatedview addSubview:_venderlbl];
+//            _venderlbl.hidden=YES;
+//           [_reqcell addSubview:_animatedview];
         }
     }
         if(tableView==_popOverTableView)
@@ -247,6 +256,8 @@
          NSLog(@"%@",reqmdl.jobname);
         _venderlabel=(UILabel *)[cell viewWithTag:11];
         _venderlabel.text=reqmdl.vendername;
+        _disclosurebtn=(UIButton*)[cell viewWithTag:12];
+       // [_disclosurebtn sendAction:@selector(selectreqvender:) to:self forEvent:UIControlEventTouchUpInside];
 
     }
     return cell;
@@ -554,15 +565,6 @@
 }
 -(IBAction)selectreqvender:(id)sender
 {
-    //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
-    _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
-    _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
-    _venderlbl.textColor=[UIColor blackColor];
-    _venderlbl.text=@"Add Vender";
-    [self.animatedview addSubview:_venderlbl];
-    _venderlabel.hidden=YES;
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     CGPoint center= button.center;
@@ -571,11 +573,24 @@
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
 
-//    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(nextpage)];
-//    [self.animatedview addGestureRecognizer:tap];
-    
-    [cell addSubview:_animatedview];
     _animatedview.hidden=NO;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+        .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
+    
+    _venderlbl.hidden=NO;
+    
+}
+-(void)nextPage
+{
+    if(!_venderVCtrl)
+    {
+        _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
+    }
+    _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_venderVCtrl animated:YES completion:NULL];
+}
+-(void)disclosureaction
+{
     
 }
 
