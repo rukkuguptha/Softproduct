@@ -54,7 +54,6 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
     [self.tuchgview addGestureRecognizer:panGesture];
     [self ScaffoldingSelectScaffoldsubtype];
     [self Selectcheight];
-    [self ScaffodDetailselect];
     
     
     if(_optionidentifier==1)
@@ -97,6 +96,8 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
 
     }
     [self Selectcheight];
+    [self ScaffodDetailselect];
+
     
 }
 
@@ -115,13 +116,13 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_subtypetable) {
-        return[_subtypdict count];
+        return[_scfldsubtypearray count];
         
         
     }
     if (tableView==_maintable) {
         
-         return[_scflddetailsaarry count];
+         return[_Maintablescflddetailsarray count];
         
     }
     return YES;
@@ -155,18 +156,19 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
   if (tableView==_subtypetable) {
       //cell.textLabel.text=[srcData objectAtIndex:indexPath.row];
       
-      NSArray *newarray=[_subtypdict allKeys];
-      _scfldtypesublbl=(UILabel *)[cell viewWithTag:1];
-      _scfldtypesublbl.text=[newarray objectAtIndex:indexPath.row];
+      Scaffoldsubtypemodel *sfmdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:indexPath.row];
+      
+    _scfldtypesublbl=(UILabel *)[cell viewWithTag:1];
+      _scfldtypesublbl.text=sfmdl.scaffoldtypename;
+    
       
   }
     if (tableView==_maintable) {
         
-        Scfflddetails *scfdetals=(Scfflddetails *)[_scflddetailsaarry objectAtIndex:indexPath.row];
+        NewscfldDetails *scfdetals=(NewscfldDetails *)[_Maintablescflddetailsarray objectAtIndex:indexPath.row];
         
         _scffoldtypemainlbl=(UILabel *)[cell viewWithTag:1];
-        NSString *subid=[NSString stringWithFormat:@"%d",scfdetals.subscaffid];
-        
+        NSString *subid=[NSString stringWithFormat:@"%@",scfdetals.subscaffid];
         _scffoldtypemainlbl.text=[_subtypreversedict objectForKey:subid];
         _lngtnlbl=(UILabel *)[cell viewWithTag:2];
         _lngtnlbl.text=scfdetals.length;
@@ -197,7 +199,7 @@ return cell;
         
         if (tableView==_maintable) {
             [self Scaffoldetaildelete];
-            [_scflddetailsaarry removeObject:indexPath];
+            [_Maintablescflddetailsarray removeObject:indexPath];
             
         }
         
@@ -270,6 +272,8 @@ return cell;
 
 - (void)initDraggedCellWithCell:(UITableViewCell*)cell AtPoint:(CGPoint)point
 {
+    NSIndexPath* indexPath = [_subtypetable indexPathForRowAtPoint:point];
+    //UITableViewCell* cell = [_subtypetable cellForRowAtIndexPath:indexPath];
     // get rid of old cell, if it wasn't disposed already
     if(draggedCell != nil)
     {
@@ -278,12 +282,16 @@ return cell;
         draggedCell = nil;
     }
     
-    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width, cell.frame.size.height);
+    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
     
     draggedCell = [[UITableViewCell alloc] init];
     draggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    NSArray *newarray=[_subtypdict allKeys];
-    draggedCell.textLabel.text =[newarray objectAtIndex:path];
+    Scaffoldsubtypemodel *sstypemdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:indexPath.row-1];
+    draggedCell.textLabel.text =sstypemdl.scaffoldtypename;
+    NSLog(@"name1%@",sstypemdl.scaffoldtypename);
+     NSLog(@"apath%d",indexPath.row);
+    draggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+
     draggedCell.textLabel.textColor = cell.textLabel.textColor;
     draggedCell.highlighted = YES;
     draggedCell.frame = frame;
@@ -316,8 +324,7 @@ return cell;
 {
     NSIndexPath* indexPath = [_subtypetable indexPathForRowAtPoint:point];
         UITableViewCell* cell = [_subtypetable cellForRowAtIndexPath:indexPath];
-    path=indexPath.row;
-
+ 
     if(cell != nil)
     {
         CGPoint origin = cell.frame.origin;
@@ -332,8 +339,14 @@ return cell;
             //[draggedData release];
             draggedData = nil;
         }
-          NSArray *newarray=[_subtypdict allKeys];
-        draggedData = [newarray objectAtIndex:indexPath.row];
+        
+        path=indexPath.row;
+
+        Scaffoldsubtypemodel *sstypemdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:path];
+
+        draggedData = sstypemdl.scaffoldtypename;
+          NSLog(@"name2%@",sstypemdl.scaffoldtypename);
+         NSLog(@"apath%d",path);
     }
 }
 
@@ -355,10 +368,12 @@ return cell;
             //[draggedData release];
             draggedData = nil;
         }
-        draggedData = [dstData objectAtIndex:indexPath.row];
+        Scaffoldsubtypemodel *sstypemdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:indexPath.row];
         
+        draggedData = sstypemdl.scaffoldtypename;
+          NSLog(@"name3%@",sstypemdl.scaffoldtypename);
         // remove old cell
-        [dstData removeObjectAtIndex:indexPath.row];
+        [_Maintablescflddetailsarray removeObjectAtIndex:indexPath.row];
         [_maintable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
         pathFromDstTable = indexPath;
         
@@ -396,22 +411,25 @@ return cell;
             NSIndexPath* indexPath = [_maintable indexPathForRowAtPoint:[gestureRecognizer locationInView:_maintable]];
             if(indexPath != nil)
             {
-                [dstData insertObject:draggedData atIndex:indexPath.row];
+                [_Maintablescflddetailsarray insertObject:draggedData atIndex:indexPath.row];
                 [_maintable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else
             {
-                [dstData addObject:draggedData];
-                [self ScaffoldDetailinsert];
-                //[self calulatemanhrs];
+                NewscfldDetails*nwscfld1=[[NewscfldDetails alloc]init];
+                nwscfld1.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
+                
+                [_Maintablescflddetailsarray addObject:nwscfld1];
+                
+                [self manhoursfordetail];
 
-                [_maintable reloadData];
+                //[_maintable reloadData];
             }
         }
         else if(!dragFromSource && pathFromDstTable != nil)
         {
             // insert cell back where it came from
-            [dstData insertObject:draggedData atIndex:pathFromDstTable.row];
+            [_Maintablescflddetailsarray insertObject:draggedData atIndex:pathFromDstTable.row];
             [_maintable insertRowsAtIndexPaths:[NSArray arrayWithObject:pathFromDstTable] withRowAnimation:UITableViewRowAnimationMiddle];
             
             //[pathFromDstTable release];
@@ -421,7 +439,7 @@ return cell;
         [UIView animateWithDuration:0.3 animations:^
          {
              CGRect frame = _maintable.frame;
-             frame.size.height = kCellHeight * [dstData count];
+             frame.size.height = kCellHeight * [_Maintablescflddetailsarray count];
              _maintable.frame = frame;
          }];
         
@@ -540,15 +558,50 @@ return cell;
     recordResults = FALSE;
     NSString *soapMessage;
     // _sccfldtypemdl=(Scaffoldtypemdl *)[];
-    NSString *manpr=@"0";
-    NSString *ercthr=@"0";
-    NSString *dishr=@"0";
+    
+    NSInteger mainscffldid;
+    
+    if (_optionidentifier==1) {
+        mainscffldid=[_Scfldid integerValue];
+    }
+    else{
+        _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:_btnindx];
+        
+        mainscffldid=_customsccfldmdl.idvalue;
+    }
 
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
-    NSArray *newarray=[_subtypdict allKeys];
-    draggedCell.textLabel.text =[newarray objectAtIndex:path];
+    
+    Scaffoldsubtypemodel *sstypemdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:path];
+      NSInteger l;
+    NSInteger w;
+    NSInteger h;
+       if ([sstypemdl.lbit isEqualToString:@"true"]) {
+        l=[_lengthfld.text integerValue];
+        
+    }
+    else{
+        l=0;
+    }
+    
+    
+    
+    if ([sstypemdl.wbit isEqualToString:@"true"]) {
+        w=[_widthfld.text integerValue];
+        
+    }
+    else{
+        w=0;
+    }
+    
+    if ([sstypemdl.hbit isEqualToString:@"true"]) {
+        h=[_hightfld.text integerValue];
+        
+    }
+    else{
+        h=0;
+    }
+    
 
-  
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -569,7 +622,7 @@ return cell;
                    "<DismantleHours>%f</DismantleHours>\n"
                    "</ScaffoldDetailinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",0,[[_subtypdict objectForKey:draggedCell.textLabel.text]integerValue],[_customsccfldmdl.length integerValue],[_customsccfldmdl.width integerValue],[_customsccfldmdl.height integerValue ],1,[manpr doubleValue],[ercthr doubleValue],[dishr doubleValue]];
+                   "</soap:Envelope>\n",mainscffldid,[sstypemdl.scaffoldsubtypeId integerValue],l,w,h,1,_sstmanpwr,_ssterecrhr,_sstdishr];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -820,9 +873,9 @@ return cell;
       
         mainscffldid=_customsccfldmdl.idvalue;
     }
+     // Scaffoldsubtypemodel *sstypemdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:path];
     
-    
-    _customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
+    //_customsccfldmdl=(Customscaffoldingplan *)[_Scafldarry objectAtIndex:path];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -870,7 +923,7 @@ return cell;
 -(void)Scaffoldetaildelete{
     recordResults = FALSE;
     NSString *soapMessage;
-    Scfflddetails *scfdetals=(Scfflddetails *)[_scflddetailsaarry objectAtIndex:Deletepath];
+    NewscfldDetails *newscfdetals=(NewscfldDetails *)[_Maintablescflddetailsarray objectAtIndex:Deletepath];
       soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -887,7 +940,7 @@ return cell;
                    "<DismantleHours>%f</DismantleHours>\n"
                    "</Scaffoldetaildelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",scfdetals.mainscffoldid,scfdetals.subscaffid,[scfdetals.ManHoures doubleValue],[scfdetals.ErectHoures doubleValue],[scfdetals.DesmandleHoures doubleValue]];
+                   "</soap:Envelope>\n",[newscfdetals.scfldprevious integerValue],[newscfdetals.subscaffid integerValue],[newscfdetals.ManHoures doubleValue],[newscfdetals.ErectHoures doubleValue],[newscfdetals.DesmandleHoures doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -961,6 +1014,7 @@ return cell;
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"ScaffoldingSelectScaffoldsubtypeResult"])
     {
+         _scfldsubtypearray=[[NSMutableArray alloc]init];
         _subtypdict=[[NSMutableDictionary alloc]init];
         _subtypreversedict=[[NSMutableDictionary alloc]init];
         
@@ -970,26 +1024,7 @@ return cell;
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"scaffoldsubtypeId"])
-    {
-        
-        if(!_soapresults)
-        {
-            _soapresults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
-    if([elementName isEqualToString:@"scaffoldtypename"])
-    {
-        
-        if(!_soapresults)
-        {
-            _soapresults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"SelectcheightResult"])
+        if([elementName isEqualToString:@"SelectcheightResult"])
     {
         
         if(!_soapresults)
@@ -1009,7 +1044,7 @@ return cell;
     }
     if([elementName isEqualToString:@"ScaffodDetailselectResult"])
     {
-        _scflddetailsaarry=[[NSMutableArray alloc]init];
+        _Maintablescflddetailsarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1115,6 +1150,7 @@ return cell;
     if([elementName isEqualToString:@"ScaffoldingSelectScaffoldsubtypeResult"])
     {
         
+       
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1130,7 +1166,7 @@ return cell;
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"scaffoldtypename"])
+    if([elementName isEqualToString:@"Scaffoldtypename"])
     {
         
         if(!_soapresults)
@@ -1187,7 +1223,7 @@ return cell;
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"rate"])
+    if([elementName isEqualToString:@"Rate"])
     {
         
         if(!_soapresults)
@@ -1196,6 +1232,16 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -1212,22 +1258,7 @@ return cell;
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"scaffoldsubtypeId"])
-    {
-        recordResults = FALSE;
-        scfldid=_soapresults;
-        
-        _soapresults = nil;
-    }
     
-    if([elementName isEqualToString:@"scaffoldtypename"])
-    {
-        recordResults = FALSE;
-        [_subtypdict setObject:scfldid forKey:_soapresults];
-        [_subtypreversedict setObject:_soapresults forKey:scfldid];
-        
-        _soapresults = nil;
-    }
     if([elementName isEqualToString:@"rate"])
     {
         
@@ -1239,8 +1270,8 @@ return cell;
     {
         
         recordResults = FALSE;
-        _scflddetails=[[Scfflddetails alloc]init];
-        _scflddetails.scaffolddetailid=[_soapresults integerValue];
+        _newscflddetails=[[NewscfldDetails alloc]init];
+        _newscflddetails.scaffolddetailid=[_soapresults integerValue];
         _soapresults = nil;
 
     }
@@ -1248,7 +1279,7 @@ return cell;
     {
         
         recordResults = FALSE;
-              _scflddetails.mainscffoldid=[_soapresults integerValue];
+        _newscflddetails.scfldprevious=_soapresults;
         _soapresults = nil;
     }
     
@@ -1256,14 +1287,14 @@ return cell;
     {
         
         recordResults = FALSE;
-        _scflddetails.subscaffid=[_soapresults integerValue];
+        _newscflddetails.subscaffid=_soapresults;
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"length"])
     {
         
         recordResults = FALSE;
-        _scflddetails.length=_soapresults;
+        _newscflddetails.length=_soapresults;
         _soapresults = nil;
     }
     
@@ -1271,14 +1302,14 @@ return cell;
     {
         
         recordResults = FALSE;
-        _scflddetails.width=_soapresults;
+        _newscflddetails.width=_soapresults;
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"height"])
     {
         
         recordResults = FALSE;
-        _scflddetails.height=_soapresults;
+        _newscflddetails.height=_soapresults;
         _soapresults = nil;
     }
     
@@ -1286,14 +1317,14 @@ return cell;
     {
         
         recordResults = FALSE;
-        _scflddetails.numb=_soapresults;
+        _newscflddetails.numb=_soapresults;
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"ManHoures"])
     {
         
         recordResults = FALSE;
-        _scflddetails.ManHoures=_soapresults;
+        _newscflddetails.ManHoures=_soapresults;
         _soapresults = nil;
     }
     
@@ -1301,7 +1332,7 @@ return cell;
     {
         
         recordResults = FALSE;
-        _scflddetails.ErectHoures=_soapresults;
+        _newscflddetails.ErectHoures=_soapresults;
         _soapresults = nil;
 
     }
@@ -1309,10 +1340,94 @@ return cell;
     {
         
         recordResults = FALSE;
-        _scflddetails.DesmandleHoures=_soapresults;
-        [_scflddetailsaarry addObject:_scflddetails];
+        _newscflddetails.DesmandleHoures=_soapresults;
+        [_Maintablescflddetailsarray addObject:_newscflddetails];
         _soapresults = nil;
 
+    }
+    
+    if([elementName isEqualToString:@"scaffoldsubtypeId"])
+    {
+        recordResults = FALSE;
+        scfldid=_soapresults;
+        _scfldsubtypemdl=[[Scaffoldsubtypemodel alloc]init];
+        _scfldsubtypemdl.scaffoldsubtypeId=_soapresults;
+        
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Scaffoldtypename"])
+    {
+        recordResults = FALSE;
+        _scfldsubtypemdl.scaffoldtypename=_soapresults;
+        
+        [_subtypdict setObject:scfldid forKey:_soapresults];
+        [_subtypreversedict setObject:_soapresults forKey:scfldid];
+        
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"lbit"])
+    {
+        
+        recordResults = FALSE;
+        
+        _scfldsubtypemdl.lbit=_soapresults;
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"wbit"])
+    {
+        
+        recordResults = FALSE;
+        
+        _scfldsubtypemdl.wbit=_soapresults;
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"hbit"])
+    {
+        
+        recordResults = FALSE;
+        
+        _scfldsubtypemdl.hbit=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"nbit"])
+    {
+        
+        recordResults = FALSE;
+        
+        _scfldsubtypemdl.nbit=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"sf"])
+    {
+        
+        recordResults = FALSE;
+        
+        _scfldsubtypemdl.sf=_soapresults;
+        _soapresults = nil;
+
+    }
+    if([elementName isEqualToString:@"Rate"])
+    {
+        recordResults = FALSE;
+        
+        _scfldsubtypemdl.rate=_soapresults;
+        [_scfldsubtypearray addObject:_scfldsubtypemdl];
+        _soapresults = nil;
+        
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        if ([_soapresults isEqualToString:@"InsertedScaffoldDetail"]||[_soapresults isEqualToString:@"DeletedScaffoldDetail"]) {
+            [self ScaffodDetailselect];
+
+        }
+
+          _soapresults = nil;
     }
 
 }
@@ -1419,7 +1534,76 @@ return cell;
 }
 
 -(void)manhoursfordetail{
+    NSLog(@"path%d",path);
+    Scaffoldsubtypemodel *sstypemdl=(Scaffoldsubtypemodel *)[_scfldsubtypearray objectAtIndex:path];
+    NSLog(@"name%@",sstypemdl.scaffoldtypename);
+    NSString *rate;
+    NSInteger l;
+    NSInteger w;
+    NSInteger h;
+    NSInteger sf;
+    if ([sstypemdl.lbit isEqualToString:@"true"]) {
+        l=[_lengthfld.text integerValue];
+        
+    }
+    else{
+        l=1;
+    }
     
+    
+    
+    if ([sstypemdl.wbit isEqualToString:@"true"]) {
+        w=[_widthfld.text integerValue];
+        
+    }
+    else{
+        w=1;
+    }
+    
+    if ([sstypemdl.hbit isEqualToString:@"true"]) {
+        h=[_hightfld.text integerValue];
+        
+    }
+    else{
+        h=1;
+    }
+    
+    
+    sf=[_sitefctrfld.text integerValue];
+        
+    
+
+    rate=sstypemdl.rate;
+    
+    int iwf;
+    int spf;
+    int upw;
+    if (btntouch%2) {
+        iwf=1;
+    }
+    else{
+        iwf=0;
+    }
+    
+    if (chektouch%2) {
+        spf=1;
+    }
+    else{
+        spf=0;
+    }
+    if (ticktouch%2) {
+        upw=1;
+    }
+    else{
+        upw=0;
+    }
+    _sstmanpwr=((chrate+iwf+spf+upw+1)*sf)*l*w*h*1*[rate doubleValue];
+    _sstdishr=_sstmanpwr*0.33;
+    _ssterecrhr=_sstmanpwr*0.67;
+//    NewscfldDetails *scfd1=(NewscfldDetails *)[_Maintablescflddetailsarray objectAtIndex:0];
+//    NSLog(@"main%@",scfd1.scfldprevious);
+//    firstscfldid=[scfd1.scfldprevious integerValue];
+    [self ScaffoldDetailinsert];
     
 }
 #pragma mark-Buttons

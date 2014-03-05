@@ -10,7 +10,9 @@
 #import "Scaffoldtypemdl.h"
 #import "Customscaffoldingplan.h"
 #import <QuartzCore/QuartzCore.h>
-#import "Scfflddetails.h"
+#import "NewscfldDetails.h"
+#import "Scaffoldsubtypemodel.h"
+
 
 
 @interface AllDetailsplandisplayViewController : UIViewController<UIGestureRecognizerDelegate>{
@@ -31,21 +33,25 @@
     NSString *scfldid;
     NSInteger path;
     NSInteger Deletepath;
+      NSInteger insertpath;
     
     NSInteger tabpath;
     NSInteger btntouch;
     NSInteger chektouch;
     NSInteger ticktouch;
     NSInteger chrate;
+    NSInteger firstscfldid;
 
   }
-@property(strong,nonatomic)Scfflddetails * scflddetails;
+@property(strong,nonatomic)Scaffoldsubtypemodel *scfldsubtypemdl;
+
+@property(strong,nonatomic)NewscfldDetails * newscflddetails;
 @property(strong,nonatomic)Scaffoldtypemdl *sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan *customsccfldmdl;
 @property (strong, nonatomic)NSMutableArray *Scafldarry;
 @property (strong, nonatomic)NSMutableArray *newscfoldtypearry;
-@property (strong, nonatomic)NSMutableArray *scflddetailsaarry;
-
+@property (strong, nonatomic)NSMutableArray *Maintablescflddetailsarray;
+@property (strong, nonatomic)NSMutableArray *scfldsubtypearray;
 @property (strong, nonatomic)NSString *planid;
 @property (strong, nonatomic)NSString *Scfldid;
 @property (strong, nonatomic)NSString *len;
@@ -64,6 +70,9 @@
 @property (nonatomic)double manpwr;
 @property (nonatomic)double dishr;
 @property (nonatomic)double erecrhr;
+@property (nonatomic)double sstmanpwr;
+@property (nonatomic)double sstdishr;
+@property (nonatomic)double ssterecrhr;
 
 
 @property (strong, nonatomic)NSMutableDictionary *subtypdict;

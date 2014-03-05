@@ -1271,42 +1271,41 @@
         _allctrlr.planid=_planid;
         _allctrlr.Scfldid=_insertresultvalue;
         _allctrlr.optionidentifier=optionidentifier;
-        _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
+            NSInteger scfid= [_allctrlr.sid integerValue];
+            switch (scfid) {
+                case 1:
+                    _allctrlr.scaffoldtypeindex=0;
+                    
+                    break;
+                case 2:
+                    _allctrlr.scaffoldtypeindex=1;
+                    
+                    break;
+                case 3:
+                    _allctrlr.scaffoldtypeindex=2;
+                    
+                    break;
+                case 4:
+                    _allctrlr.scaffoldtypeindex=3;
+                    
+                    break;
+                case 5:
+                    _allctrlr.scaffoldtypeindex=4;
+                    
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
+
         _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
         _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            _addscaffoldrecordview.hidden=YES;
         [self presentViewController:_allctrlr           
                            animated:YES completion:NULL];
         }
-        else if(optionidentifier==2)
-        {
-//            if (!self.allctrlr)
-//            {
-//                self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-//            }
-            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-            _allctrlr.Scafldarry=_scaffoldingplanlistarray;
-            _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
-            _allctrlr.btnindx=btnindex;
-            _allctrlr.optionidentifier=optionidentifier;
-            _allctrlr.len=_lengthtextfield.text;
-            _allctrlr.wid=_widthtextfield.text;
-            _allctrlr.height=_heighttextfield.text;
-            _allctrlr.ele=_heighttextfield.text;
-            _allctrlr.unit=_unittextfield.text;
-             _allctrlr.ph=_proheadertextfield.text;
-            _allctrlr.equip=_equipmenttextfield.text;
-            _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
-            _allctrlr.qty=_qtytextfield.text;
-            _allctrlr.planid=_planid;
-            
-            
-            _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
-            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-            [self presentViewController:_allctrlr
-                               animated:YES completion:NULL];
-        }
-
+       
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"result"])
@@ -1334,9 +1333,38 @@
             _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
             _allctrlr.qty=_qtytextfield.text;
             _allctrlr.planid=_planid;
-             _allctrlr.scaffoldtypeindex=scaffoldtypeindex;
+            NSInteger scfid= [_allctrlr.sid integerValue];
+            switch (scfid) {
+                case 1:
+                    _allctrlr.scaffoldtypeindex=0;
+                    
+                    break;
+                case 2:
+                    _allctrlr.scaffoldtypeindex=1;
+                    
+                    break;
+                case 3:
+                    _allctrlr.scaffoldtypeindex=2;
+                    
+                    break;
+                case 4:
+                    _allctrlr.scaffoldtypeindex=3;
+                    
+                    break;
+                case 5:
+                    _allctrlr.scaffoldtypeindex=4;
+                    
+                    break;
+                    
+                default:
+                    
+                    break;
+            }
+
             _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
             _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            _addscaffoldrecordview.hidden=YES;
+
             [self presentViewController:_allctrlr
                                animated:YES completion:NULL];
         }
