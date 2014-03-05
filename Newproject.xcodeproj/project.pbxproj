@@ -30,6 +30,9 @@
 		642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA78C18AC945C00372623 /* SitevisitViewController.m */; };
 		642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA78D18AC945C00372623 /* SitevisitViewController.xib */; };
 		642FA79C18ACC9FB00372623 /* planmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA79B18ACC9FB00372623 /* planmodel.m */; };
+		643118A218C72C810061A276 /* venderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 643118A018C72C810061A276 /* venderViewController.m */; };
+		643118A318C72C810061A276 /* venderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 643118A118C72C810061A276 /* venderViewController.xib */; };
+		643118A618C737560061A276 /* Crewmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 643118A518C737560061A276 /* Crewmodel.m */; };
 		6437578518BC554B003691E6 /* Subtypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578418BC554B003691E6 /* Subtypecell.xib */; };
 		6437578718BC5572003691E6 /* maintablecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578618BC5572003691E6 /* maintablecell.xib */; };
 		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
@@ -274,6 +277,11 @@
 		642FA78D18AC945C00372623 /* SitevisitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SitevisitViewController.xib; sourceTree = "<group>"; };
 		642FA79A18ACC9FB00372623 /* planmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planmodel.h; sourceTree = "<group>"; };
 		642FA79B18ACC9FB00372623 /* planmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = planmodel.m; sourceTree = "<group>"; };
+		6431189F18C72C810061A276 /* venderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = venderViewController.h; sourceTree = "<group>"; };
+		643118A018C72C810061A276 /* venderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = venderViewController.m; sourceTree = "<group>"; };
+		643118A118C72C810061A276 /* venderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = venderViewController.xib; sourceTree = "<group>"; };
+		643118A418C737560061A276 /* Crewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crewmodel.h; sourceTree = "<group>"; };
+		643118A518C737560061A276 /* Crewmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crewmodel.m; sourceTree = "<group>"; };
 		6437578418BC554B003691E6 /* Subtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subtypecell.xib; sourceTree = "<group>"; };
 		6437578618BC5572003691E6 /* maintablecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = maintablecell.xib; sourceTree = "<group>"; };
 		64481EC71873EBFD007D66E7 /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
@@ -632,6 +640,9 @@
 				64F97994185EFBB600E7722B /* BasicReqViewController.m */,
 				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
 				64A11EDF1867F968008D20CC /* custombasicreqcell.xib */,
+				6431189F18C72C810061A276 /* venderViewController.h */,
+				643118A018C72C810061A276 /* venderViewController.m */,
+				643118A118C72C810061A276 /* venderViewController.xib */,
 				D49E055D18C7022800AF6330 /* CrewsetupViewController.h */,
 				D49E055E18C7022800AF6330 /* CrewsetupViewController.m */,
 				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
@@ -973,6 +984,8 @@
 				64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */,
 				D40A99CE18C5E3C3005384F9 /* NewscfldDetails.h */,
 				D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */,
+				643118A418C737560061A276 /* Crewmodel.h */,
+				643118A518C737560061A276 /* Crewmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1102,6 +1115,7 @@
 				D4A2AFF5176EEC4F00F4E196 /* ActivityViewController.xib in Resources */,
 				D49E056318C71B7100AF6330 /* Cmanpwrcell.xib in Resources */,
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
+				643118A318C72C810061A276 /* venderViewController.xib in Resources */,
 				D4A2AFFA176EEC7200F4E196 /* FollowupViewController.xib in Resources */,
 				64F97997185EFBB600E7722B /* BasicReqViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
@@ -1232,8 +1246,10 @@
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
 				D41404CA187294700067F71A /* Servicemdl.m in Sources */,
 				D40313B618B5E34300C27F2F /* SitevistMdl.m in Sources */,
+				643118A218C72C810061A276 /* venderViewController.m in Sources */,
 				D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
+				643118A618C737560061A276 /* Crewmodel.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
 				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,

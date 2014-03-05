@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "basicreqmdl.h"
 #import "Validation.h"
+#import "venderViewController.h"
 
 @interface BasicReqViewController : UIViewController
 {
@@ -34,6 +35,7 @@
 }
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)basicreqmdl *basicmdl;
+@property(strong,nonatomic)venderViewController *venderVCtrl;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -46,6 +48,8 @@
 @property(strong,nonatomic)IBOutlet UIView *addreqview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *reqcell;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
+@property(strong,nonatomic)IBOutlet UIView *animatedview;
+@property(strong,nonatomic)IBOutlet UILabel *venderlbl;
 
 @property(strong,nonatomic)UISearchBar *searchbar;
 
@@ -66,6 +70,7 @@
 -(IBAction)selecttype:(id)sender;
 -(IBAction)selectallvender:(id)sender;
 -(IBAction)updateaction:(id)sender;
+-(IBAction)selectreqvender:(id)sender;
 
 /*outlets in addview*/
 @property(strong,nonatomic)IBOutlet UIButton *jobbtn;
@@ -82,6 +87,7 @@
 @property(strong,nonatomic)IBOutlet UITextField *hourstextfield;
 @property(strong,nonatomic)IBOutlet UITextField *vendertextfield;
 @property(strong,nonatomic)UITableView *autotable;
+@property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;

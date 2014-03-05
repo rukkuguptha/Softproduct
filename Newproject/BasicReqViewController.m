@@ -153,6 +153,15 @@
         {
             [[NSBundle mainBundle]loadNibNamed:@"custombasicreqcell" owner:self options:nil];
             cell=_reqcell;
+//            _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 10, 0, 25)];
+//            _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
+//            _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+//            _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+//            _venderlbl.textColor=[UIColor blackColor];
+//            _venderlbl.text=@"Add Vender";
+//            [self.animatedview addSubview:_venderlbl];
+//            _venderlbl.hidden=YES;
+//           [_reqcell addSubview:_animatedview];
         }
     }
         if(tableView==_popOverTableView)
@@ -247,6 +256,8 @@
          NSLog(@"%@",reqmdl.jobname);
         _venderlabel=(UILabel *)[cell viewWithTag:11];
         _venderlabel.text=reqmdl.vendername;
+        _disclosurebtn=(UIButton*)[cell viewWithTag:12];
+       // [_disclosurebtn sendAction:@selector(selectreqvender:) to:self forEvent:UIControlEventTouchUpInside];
 
     }
     return cell;
@@ -552,6 +563,37 @@
     }
 
 }
+-(IBAction)selectreqvender:(id)sender
+{
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
+    NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+
+    _animatedview.hidden=NO;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+        .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
+    
+    _venderlbl.hidden=NO;
+    
+}
+-(void)nextPage
+{
+    if(!_venderVCtrl)
+    {
+        _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
+    }
+    _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_venderVCtrl animated:YES completion:NULL];
+}
+-(void)disclosureaction
+{
+    
+}
+
 #pragma mark-popover
 -(IBAction)selectjobs:(id)sender
 {   //[self SelectAllJobSites];
@@ -1536,34 +1578,6 @@
         recordresults = TRUE;
     }
 
-    if([elementName isEqualToString:@"Default"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordresults = TRUE;
-    }
-    if([elementName isEqualToString:@"jobsite"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordresults = TRUE;
-    }
-    if([elementName isEqualToString:@"jobsitename"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordresults = TRUE;
-    }
-
     if([elementName isEqualToString:@"craft"])
     {
         
@@ -1573,7 +1587,8 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"craftname"])
+    
+       if([elementName isEqualToString:@"craftname"])
     {
         
         if(!_soapResults)
@@ -1881,7 +1896,7 @@
         
     }
 
-    if([elementName isEqualToString:@"Default"])
+    if([elementName isEqualToString:@"craft"])
     {
         recordresults=FALSE;
         
@@ -1899,37 +1914,37 @@
         
         
     }
-    if([elementName isEqualToString:@"jobsite"])
-    {
-        recordresults=FALSE;
-        
-        
-        _basicmdl.jobsite=[_soapResults integerValue];
-        _soapResults = nil;
-        
-        
-    }
-    if([elementName isEqualToString:@"jobsitename"])
-    {
-        recordresults=FALSE;
-        
-        
-        _basicmdl.jobname=_soapResults;
-        _soapResults = nil;
-        
-        
-    }
+//    if([elementName isEqualToString:@"jobsite"])
+//    {
+//        recordresults=FALSE;
+//        
+//        
+//        _basicmdl.jobsite=[_soapResults integerValue];
+//        _soapResults = nil;
+//        
+//        
+//    }
+//    if([elementName isEqualToString:@"jobsitename"])
+//    {
+//        recordresults=FALSE;
+//        
+//        
+//        _basicmdl.jobname=_soapResults;
+//        _soapResults = nil;
+//        
+//        
+//    }
 
-    if([elementName isEqualToString:@"craft"])
-    {
-        recordresults=FALSE;
-        
-        
-        _basicmdl.craft=[_soapResults integerValue];
-        _soapResults = nil;
-        
-        
-    }
+//    if([elementName isEqualToString:@"craft"])
+//    {
+//        recordresults=FALSE;
+//        
+//        
+//        _basicmdl.craft=[_soapResults integerValue];
+//        _soapResults = nil;
+//        
+//        
+//    }
     if([elementName isEqualToString:@"craftname"])
     {
         recordresults=FALSE;
