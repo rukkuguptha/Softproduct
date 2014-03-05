@@ -61,6 +61,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *deslbl;
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
+@property (strong, nonatomic) IBOutlet UILabel *billabel;
+@property (strong, nonatomic) IBOutlet UILabel *paylabel;
+@property (strong, nonatomic) IBOutlet UILabel *craftlabel;
 @property (strong, nonatomic) IBOutlet UIButton *overhdchecklbl;
 
 /*Add button outlets*/
@@ -70,11 +73,17 @@
 @property (strong, nonatomic) IBOutlet UITextField *subtypetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *unitcosttxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
+@property(strong,nonatomic)IBOutlet UITextField *craftcodetextfld;
+@property(strong,nonatomic)IBOutlet UITextField *billingratetextfield;
+@property(strong,nonatomic)IBOutlet UITextField *payratetextfield;
 
 - (IBAction)overhdcheck:(id)sender;
 - (IBAction)searchbtn:(id)sender;
 - (IBAction)update:(id)sender;
 - (IBAction)cancel:(id)sender;
+- (IBAction)selectQualificatin:(id)sender;
+- (IBAction)closeQualificatin:(id)sender;
+- (IBAction)saveQualificatin:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *checkbtnlbl;
 
@@ -96,4 +105,12 @@
 -(IBAction)editmanpower:(id)sender;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 
+
+/*Outlets in Qualifiactionview*/
+@property(strong,nonatomic)IBOutlet UIView *qualificationview;
+@property(strong,nonatomic)IBOutlet UITextView *trainingtextview;
+@property(strong,nonatomic)IBOutlet UITextView *jobtasktextview;
+@property(strong,nonatomic)IBOutlet UITextView *experiencetextview;
+@property(strong,nonatomic)IBOutlet UITextView *eduactiontextview;
+@property(strong,nonatomic)IBOutlet UIScrollView *scrollforqualification;
 @end

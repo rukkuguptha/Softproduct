@@ -18,5 +18,13 @@
 @property(strong,nonatomic)NSString*stckinhand;
 @property(strong,nonatomic)NSString*picturelocation;
  @property(readwrite)NSInteger overhead;
+@property(strong,nonatomic)NSString*billingrate;
+@property(strong,nonatomic)NSString *payrate;
+@property(strong,nonatomic)NSString *craftcode;
+@property(strong,nonatomic)NSString *JobDescription;
+@property(strong,nonatomic)NSString *TrainingReq;
+@property(strong,nonatomic)NSString *Experiance;
+@property(strong,nonatomic)NSString *JobTasks;
+@property(strong,nonatomic)NSString *EducationReq;
 
 @end

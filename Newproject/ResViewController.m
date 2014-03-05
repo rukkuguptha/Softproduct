@@ -100,7 +100,7 @@
     if (!self.manVCtrl) {
         _manVCtrl=[[ManViewController alloc]initWithNibName:@"ManViewController" bundle:nil];
     }
-    _manVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _manVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
 
     [self presentViewController:_manVCtrl
                        animated:YES completion:NULL];
