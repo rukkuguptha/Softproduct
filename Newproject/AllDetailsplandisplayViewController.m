@@ -380,7 +380,7 @@ return cell;
         [UIView animateWithDuration:0.2 animations:^
          {
              CGRect frame = _maintable.frame;
-             frame.size.height = kCellHeight * [dstData count];
+             frame.size.height = kCellHeight * [_Maintablescflddetailsarray count];
              _maintable.frame = frame;
          }];
         
