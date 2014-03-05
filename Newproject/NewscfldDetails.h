@@ -1,5 +1,5 @@
 //
-//  Scfflddetails.h
+//  NewscfldDetails.h
 //  Newproject
 //
 //  Created by GMSIndia1 on 3/4/14.
@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Scfflddetails : NSObject
-
+@interface NewscfldDetails : NSObject
 @property(readwrite)NSInteger scaffolddetailid;
 @property(strong,nonatomic)NSString * scfldprevious;
 @property(readwrite)NSString * subscaffid;
@@ -20,5 +19,4 @@
 @property(strong,nonatomic)NSString *ManHoures;
 @property(strong,nonatomic)NSString *ErectHoures;
 @property(strong,nonatomic)NSString *DesmandleHoures;
-
 @end

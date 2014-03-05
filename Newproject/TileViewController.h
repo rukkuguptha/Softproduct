@@ -15,6 +15,7 @@
 #import "jobsitereqViewController.h"
 #import "BasicReqViewController.h"
 #import "workPhasesViewController.h"
+#import "CrewsetupViewController.h"
 
 
 @interface TileViewController : UIViewController
