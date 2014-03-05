@@ -46,6 +46,8 @@
 @property(strong,nonatomic)IBOutlet UIView *addreqview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *reqcell;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navItem;
+@property(strong,nonatomic)IBOutlet UIView *animatedview;
+@property(strong,nonatomic)IBOutlet UILabel *venderlbl;
 
 @property(strong,nonatomic)UISearchBar *searchbar;
 
@@ -66,6 +68,7 @@
 -(IBAction)selecttype:(id)sender;
 -(IBAction)selectallvender:(id)sender;
 -(IBAction)updateaction:(id)sender;
+-(IBAction)selectreqvender:(id)sender;
 
 /*outlets in addview*/
 @property(strong,nonatomic)IBOutlet UIButton *jobbtn;
