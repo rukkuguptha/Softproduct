@@ -7,12 +7,17 @@
 //
 
 #import "ThirdPartyViewController.h"
+#import "SectionHeaderView.h"
+#import "Section.h"
 
 @interface ThirdPartyViewController ()
-
 @end
+#define DEFAULT_ROW_HEIGHT 78
+#define HEADER_HEIGHT 45
+
 
 @implementation ThirdPartyViewController
+@synthesize sectionArray, openSectionIndex;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -1354,6 +1359,125 @@ finishedSavingWithError:(NSError *)error
         }
     }
 }
+-(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
+    
+    
+    Section *aSection=[sectionArray objectAtIndex:sectionOpened];
+    aSection.open=YES;
+    
+    /*
+     Create an array containing the index paths of the rows to insert: These correspond to the rows for each quotation in the current section.
+     */
+    NSInteger countOfRowsToInsert = [aSection.sectionRows count];
+    NSMutableArray *indexPathsToInsert = [[NSMutableArray alloc] init];
+    for (NSInteger i = 0; i < countOfRowsToInsert; i++) {
+        [indexPathsToInsert addObject:[NSIndexPath indexPathForRow:i inSection:sectionOpened]];
+    }
+    
+    /*
+     Create an array containing the index paths of the rows to delete: These correspond to the rows for each quotation in the previously-open section, if there was one.
+     */
+    NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
+    
+    NSInteger previousOpenSectionIndex = self.openSectionIndex;
+    if (previousOpenSectionIndex != NSNotFound) {
+        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenSectionIndex];
+        previousOpenSection.open=NO;
+        [previousOpenSection.sectionHeaderView toggleOpenWithUserAction:NO];
+        NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
+        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:previousOpenSectionIndex]];
+        }
+        
+        
+    }
+    
+    // Style the animation so that there's a smooth flow in either direction.
+    UITableViewRowAnimation insertAnimation;
+    UITableViewRowAnimation deleteAnimation;
+    if (previousOpenSectionIndex == NSNotFound || sectionOpened < previousOpenSectionIndex) {
+        insertAnimation = UITableViewRowAnimationTop;
+        deleteAnimation = UITableViewRowAnimationBottom;
+    }
+    else {
+        insertAnimation = UITableViewRowAnimationBottom;
+        deleteAnimation = UITableViewRowAnimationTop;
+    }
+    
+    // Apply the updates.
+    [self.thirdprtyTable beginUpdates];
+    [self.thirdprtyTable insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:insertAnimation];
+    [self.thirdprtyTable deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:deleteAnimation];
+    [self.thirdprtyTable endUpdates];
+    self.openSectionIndex = sectionOpened;
+    
+    
+    
+}
+-(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {
+    
+    /*
+     Create an array of the index paths of the rows in the section that was closed, then delete those rows from the table view.
+     */
+	Section *aSection = [self.sectionArray objectAtIndex:sectionClosed];
+	
+    aSection.open = NO;
+    
+    NSInteger countOfRowsToDelete = [self.thirdprtyTable numberOfRowsInSection:sectionClosed];
+    
+    if (countOfRowsToDelete > 0) {
+        NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
+        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:sectionClosed]];
+        }
+        [self.thirdprtyTable deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:UITableViewRowAnimationTop];
+    }
+    self.openSectionIndex = NSNotFound;
+}
+
+-(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)viewopened{
+    
+    //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
+    
+    selectedsectn=viewopened;
+    NSInteger previousOpenviewIndex = self.openviewIndex;
+    
+    if (previousOpenviewIndex != NSNotFound) {
+        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenviewIndex];
+        previousOpenSection.open=NO;
+        [previousOpenSection.sectionHeaderView showviewWithUserAction:NO];
+        NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
+        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.sectionHeaderView.animatedview
+                .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
+            
+            previousOpenSection.sectionHeaderView.animatedview.hidden=YES;
+            
+            
+        }
+        
+        
+    }
+    
+    self.openviewIndex=viewopened;
+    
+    
+    
+}
+-(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewclosed:(NSInteger)viewclosed{
+    
+    Section *aSection = [self.sectionArray objectAtIndex:viewclosed];
+	
+    aSection.open = NO;
+    
+    
+    self.openviewIndex = NSNotFound;
+    
+    
+}
+
+
 
 
 #pragma mark-Searchbar
