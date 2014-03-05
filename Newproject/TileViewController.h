@@ -46,7 +46,7 @@
 @property(strong,nonatomic)jobsitereqViewController *jobsitereqVctrl;
 @property(strong,nonatomic)BasicReqViewController *basicreqVctrl;
 @property(strong,nonatomic)workPhasesViewController *workVCtrl;
-
+@property(strong,nonatomic)CrewsetupViewController *crewsetupVctrl;
 
 
 

@@ -21,13 +21,14 @@
     
     UITableViewCell*    draggedCell;
     UIView*             dropArea;
-    
-    NSMutableArray*     srcData;
-    NSMutableArray*     dstData;
     id                  draggedData;
     
     BOOL            dragFromSource;     // used for reodering
     NSIndexPath*    pathFromDstTable;
+    
+    NSMutableArray*     srcData;
+    NSMutableArray*     dstData;
+  
     
       BOOL recordResults;
     NSString *scfldid;

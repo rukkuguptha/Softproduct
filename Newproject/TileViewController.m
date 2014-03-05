@@ -106,12 +106,20 @@
 }
 -(void)documentPage
 {
-    if (!self.docVCtrl) {
-        self.docVCtrl=[[DocmntViewController alloc]initWithNibName:@"DocmntViewController" bundle:nil];
+//    if (!self.docVCtrl) {
+//        self.docVCtrl=[[DocmntViewController alloc]initWithNibName:@"DocmntViewController" bundle:nil];
+//    }
+//    _docVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+//    [self presentViewController:_docVCtrl
+//                       animated:YES completion:NULL];
+    
+    if (!self.crewsetupVctrl) {
+        self.crewsetupVctrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
     }
-    _docVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentViewController:_docVCtrl
+    _crewsetupVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController: _crewsetupVctrl
                        animated:YES completion:NULL];
+
 }
 -(void)servicesPage
 {
