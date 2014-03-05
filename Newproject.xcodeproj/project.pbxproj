@@ -180,6 +180,8 @@
 		D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D48F436518A2335400AFDDC2 /* vertical blue.png */; };
 		D49DE838185EB391006F1CDA /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE836185EB391006F1CDA /* closebutton.png */; };
 		D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE837185EB391006F1CDA /* closebutton@2x.png */; };
+		D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49E055E18C7022800AF6330 /* CrewsetupViewController.m */; };
+		D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */; };
 		D49EB4BA18C0AA07009249A9 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */; };
 		D49EB4BB18C0AA07009249A9 /* DetailplanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */; };
 		D4A2AFF4176EEC4F00F4E196 /* ActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A2AFF2176EEC4F00F4E196 /* ActivityViewController.m */; };
@@ -476,6 +478,9 @@
 		D48F436518A2335400AFDDC2 /* vertical blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertical blue.png"; sourceTree = "<group>"; };
 		D49DE836185EB391006F1CDA /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		D49DE837185EB391006F1CDA /* closebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closebutton@2x.png"; sourceTree = "<group>"; };
+		D49E055D18C7022800AF6330 /* CrewsetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrewsetupViewController.h; sourceTree = "<group>"; };
+		D49E055E18C7022800AF6330 /* CrewsetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CrewsetupViewController.m; sourceTree = "<group>"; };
+		D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CrewsetupViewController.xib; sourceTree = "<group>"; };
 		D49EB4B718C0AA07009249A9 /* DetailplanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailplanViewController.h; sourceTree = "<group>"; };
 		D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
 		D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailplanViewController.xib; sourceTree = "<group>"; };
@@ -623,6 +628,9 @@
 				64F97994185EFBB600E7722B /* BasicReqViewController.m */,
 				64F97995185EFBB600E7722B /* BasicReqViewController.xib */,
 				64A11EDF1867F968008D20CC /* custombasicreqcell.xib */,
+				D49E055D18C7022800AF6330 /* CrewsetupViewController.h */,
+				D49E055E18C7022800AF6330 /* CrewsetupViewController.m */,
+				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -1056,6 +1064,7 @@
 				D40D1EB5176B086F00379DD5 /* InfoPlist.strings in Resources */,
 				D400406B185B180200C38E12 /* ResViewController.xib in Resources */,
 				64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */,
+				D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */,
 				D40D1EBD176B086F00379DD5 /* Default.png in Resources */,
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
 				642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */,
@@ -1219,6 +1228,7 @@
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
+				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */,
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
