@@ -127,6 +127,7 @@
 		D40A99C818C5A956005384F9 /* Scfflddetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99C718C5A956005384F9 /* Scfflddetails.m */; };
 		D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99CA18C5A9B5005384F9 /* EmplyhrmgntViewController.m */; };
 		D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */; };
+		D40A99D018C5E3C3005384F9 /* NewscfldDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
 		D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAC176B086F00379DD5 /* Foundation.framework */; };
 		D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */; };
@@ -405,6 +406,8 @@
 		D40A99C918C5A9B5005384F9 /* EmplyhrmgntViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmplyhrmgntViewController.h; sourceTree = "<group>"; };
 		D40A99CA18C5A9B5005384F9 /* EmplyhrmgntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmplyhrmgntViewController.m; sourceTree = "<group>"; };
 		D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmplyhrmgntViewController.xib; sourceTree = "<group>"; };
+		D40A99CE18C5E3C3005384F9 /* NewscfldDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewscfldDetails.h; sourceTree = "<group>"; };
+		D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewscfldDetails.m; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -954,6 +957,8 @@
 				D40A99C718C5A956005384F9 /* Scfflddetails.m */,
 				64A00F3218C5C854002F607E /* Scaffoldsubtypemodel.h */,
 				64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */,
+				D40A99CE18C5E3C3005384F9 /* NewscfldDetails.h */,
+				D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1258,6 +1263,7 @@
 				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
 				64F4DB67187E77A200AD1C83 /* Validation.m in Sources */,
 				D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */,
+				D40A99D018C5E3C3005384F9 /* NewscfldDetails.m in Sources */,
 				D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */,
 				64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */,
 				642FA79C18ACC9FB00372623 /* planmodel.m in Sources */,
