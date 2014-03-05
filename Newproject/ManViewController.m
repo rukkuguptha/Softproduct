@@ -28,6 +28,17 @@
     [super viewDidLoad];
   
     [self Checknetavailabilty];
+    [[self.jobtasktextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.jobtasktextview layer] setBorderWidth:2];
+    [[self.jobtasktextview layer] setCornerRadius:10];
+    [[self.eduactiontextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.eduactiontextview layer] setBorderWidth:2];
+    [[self.eduactiontextview layer] setCornerRadius:10];
+    [[self.trainingtextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.trainingtextview layer] setBorderWidth:2];
+    [[self.trainingtextview layer] setCornerRadius:10];
+    [[self.experiencetextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];    [[self.experiencetextview layer] setBorderWidth:2.3];
+    [[self.experiencetextview layer] setCornerRadius:10];
     _manpowerTable.layer.borderWidth = 2.0;
     _manpowerTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -46,7 +57,8 @@
     searchController.delegate = (id)self;
 
     
-    
+    _scrollforqualification.frame=CGRectMake(0, 0, 590,900);
+    [_scrollforqualification setContentSize:CGSizeMake(590,1200)];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -530,7 +542,7 @@
         
     }
 
-   
+   NSString *jobdesc=@"";
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -545,9 +557,17 @@
                    "<subtype>%@</subtype>\n"
                    "<unitcost>%f</unitcost>\n"
                    "<overhead>%d</overhead>\n"
+                   "<craftcode>%@</craftcode>\n"
+                   "<billingrate>%f</billingrate>\n"
+                   "<payrate>%f</payrate>\n"
+                   "<JobDescription>%@</JobDescription>\n"
+                   "<TrainingReq>%@</TrainingReq>\n"
+                   "<Experiance>%@</Experiance>\n"
+                   "<JobTasks>%@</JobTasks>\n"
+                   "<EducationReq>%@</EducationReq>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead];
+                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text doubleValue],[_payratetextfield.text doubleValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -646,7 +666,10 @@
         
     }
     
-NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
+    NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
+    NSString*billrate=    [_billingratetextfield.text substringFromIndex:1];
+    NSString*payrate=    [_payratetextfield.text substringFromIndex:1];
+    NSString *jobdesc=@"";
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -657,15 +680,23 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
                    "<soap:Body>\n"
                    
                    "<UpdateManpower xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<entryid>%d</entryid>\n"
-                   "<itemcode>%@</itemcode>\n"
-                   "<description>%@</description>\n"
-                   "<subtype>%@</subtype>\n"
-                   "<unitcost>%f</unitcost>\n"
-                   "<overhead>%d</overhead>\n"
-                   "</UpdateManpower>\n"
-                   "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[unitcost floatValue],overhead];
+                    "<entryid>%d</entryid>\n"
+                    "<itemcode>%@</itemcode>\n"
+                    "<description>%@</description>\n"
+                    "<subtype>%@</subtype>\n"
+                    "<unitcost>%f</unitcost>\n"
+                    "<overhead>%d</overhead>\n"
+                    "<craftcode>%@</craftcode>\n"
+                    "<billingrate>%f</billingrate>\n"
+                    "<payrate>%f</payrate>\n"
+                    "<JobDescription>%@</JobDescription>\n"
+                    "<TrainingReq>%@</TrainingReq>\n"
+                    "<Experiance>%@</Experiance>\n"
+                    "<JobTasks>%@</JobTasks>\n"
+                    "<EducationReq>%@</EducationReq>\n"
+                    "</UpdateManpower>\n"
+                    "</soap:Body>\n"
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[billrate doubleValue],[payrate doubleValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -750,7 +781,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"entryid"])
     {
         
         if(!_soapResults)
@@ -759,7 +790,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"ItemCode"])
+    if([elementName isEqualToString:@"Itemcode"])
     {
         
         if(!_soapResults)
@@ -768,7 +799,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Description"])
+    if([elementName isEqualToString:@"description"])
     {
         
         if(!_soapResults)
@@ -804,6 +835,15 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CraftCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"BillingRate"])
     {
         
@@ -813,6 +853,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
+
     if([elementName isEqualToString:@"PayRate"])
     {
         
@@ -822,7 +863,55 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"JobDescription"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TrainingReq"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"Experiance"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"JobTasks"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EducationReq"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    
 
 
     if([elementName isEqualToString:@"SelectAllSubtypeResult"])
@@ -889,7 +978,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"entryid"])
     {
         _manpwrmdl=[[Manpwr alloc]init];
         
@@ -898,7 +987,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         _manpwrmdl.entryid=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"ItemCode"])
+    if([elementName isEqualToString:@"Itemcode"])
     {
         
         recordResults = FALSE;
@@ -906,7 +995,7 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"Description"])
+    if([elementName isEqualToString:@"description"])
     {
         
         recordResults = FALSE;
@@ -948,12 +1037,21 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"CraftCode"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.craftcode=_soapResults;
+        _soapResults = nil;
+    }
     if([elementName isEqualToString:@"BillingRate"])
     {
         
         recordResults = FALSE;
         
         _manpwrmdl.billingrate=_soapResults;
+       
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"PayRate"])
@@ -962,9 +1060,53 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
         recordResults = FALSE;
         
         _manpwrmdl.payrate=_soapResults;
-        [_Allmanpwrarry addObject:_manpwrmdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"JobDescription"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.JobDescription=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"TrainingReq"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.TrainingReq=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"Experiance"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.Experiance=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"JobTasks"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.JobTasks=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"EducationReq"])
+    {
+        
+        recordResults = FALSE;
+        
+        _manpwrmdl.EducationReq=_soapResults;
+         [_Allmanpwrarry addObject:_manpwrmdl];
+        _soapResults = nil;
+    }
+
 
 
     if([elementName isEqualToString:@"subtype"])
@@ -1040,6 +1182,10 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
     _navitem.title=@"ADD";
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
+    _eduactiontextview.text=@"";
+    _experiencetextview.text=@"";
+    _jobtasktextview.text=@"";
+    _trainingtextview.text=@"";
     
 }
 - (IBAction)clsebtn:(id)sender {
@@ -1065,7 +1211,11 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
     _payratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
     _billingratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
-    _craftcodetextfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.craftcode];
+    _craftcodetextfld.text=[NSString stringWithFormat:@"%@",pwrmdl.craftcode];
+    _eduactiontextview.text=pwrmdl.EducationReq;
+    _experiencetextview.text=pwrmdl.Experiance;
+    _jobtasktextview.text=pwrmdl.JobTasks;
+    _trainingtextview.text=pwrmdl.TrainingReq;
 
     //_unitcosttxtfld.text=pwrmdl.unitcost;
 
@@ -1164,6 +1314,19 @@ NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
 
     
 }
+- (IBAction)selectQualificatin:(id)sender
+{
+    _qualificationview.hidden=NO;
+}
+- (IBAction)closeQualificatin:(id)sender
+{
+    _qualificationview.hidden=YES;
+}
+- (IBAction)saveQualificatin:(id)sender
+{
+    
+}
+
 #pragma mark-Textfield Delegate
 
 

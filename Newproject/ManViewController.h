@@ -81,6 +81,9 @@
 - (IBAction)searchbtn:(id)sender;
 - (IBAction)update:(id)sender;
 - (IBAction)cancel:(id)sender;
+- (IBAction)selectQualificatin:(id)sender;
+- (IBAction)closeQualificatin:(id)sender;
+- (IBAction)saveQualificatin:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *checkbtnlbl;
 
@@ -102,4 +105,12 @@
 -(IBAction)editmanpower:(id)sender;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 
+
+/*Outlets in Qualifiactionview*/
+@property(strong,nonatomic)IBOutlet UIView *qualificationview;
+@property(strong,nonatomic)IBOutlet UITextView *trainingtextview;
+@property(strong,nonatomic)IBOutlet UITextView *jobtasktextview;
+@property(strong,nonatomic)IBOutlet UITextView *experiencetextview;
+@property(strong,nonatomic)IBOutlet UITextView *eduactiontextview;
+@property(strong,nonatomic)IBOutlet UIScrollView *scrollforqualification;
 @end
