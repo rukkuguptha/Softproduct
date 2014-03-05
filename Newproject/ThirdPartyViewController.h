@@ -12,8 +12,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
+#import "SectionHeaderView.h"
 
-@interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
+@interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,SectionHeaderViewDelegate>
 {
     BOOL recordResults ;
     NSInteger btntype;
@@ -23,7 +24,8 @@
     NSInteger webtype;
     NSInteger btnpath;
     NSInteger popvr;
-   
+    NSInteger selectedsectn;
+
 
     
 }
@@ -55,6 +57,9 @@
 @property (strong, nonatomic) NSMutableArray *thirdprtyarray;
 @property (strong, nonatomic)NSMutableArray *subtypearray;
 @property (strong, nonatomic)NSMutableArray *Typearray;
+@property (nonatomic, strong) NSMutableArray *sectionArray;
+@property (nonatomic, assign) NSInteger openSectionIndex;
+@property (nonatomic, assign) NSInteger openviewIndex;
 
 /*OUTLETS*/
 @property(strong,nonatomic)IBOutlet UIImageView *pictureimgvw;

@@ -1135,6 +1135,10 @@
         _unitcosttxtfld.text=@"";
                 [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         checkbtnclick=0;
+        _eduactiontextview.text=@"";
+        _experiencetextview.text=@"";
+        _jobtasktextview.text=@"";
+        _trainingtextview.text=@"";
 
        
         _soapResults = nil;
@@ -1186,6 +1190,9 @@
     _experiencetextview.text=@"";
     _jobtasktextview.text=@"";
     _trainingtextview.text=@"";
+    _payratetextfield.text=@"";
+    _billingratetextfield.text=@"";
+    _craftcodetextfld.text=@"";
     
 }
 - (IBAction)clsebtn:(id)sender {
@@ -1288,7 +1295,13 @@
     _unitcosttxtfld.text=@"";
        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     checkbtnclick=0;
-
+    _payratetextfield.text=@"";
+    _billingratetextfield.text=@"";
+    _craftcodetextfld.text=@"";
+    _eduactiontextview.text=@"";
+    _trainingtextview.text=@"";
+    _experiencetextview.text=@"";
+    _jobtasktextview.text=@"";
 
 }
 
