@@ -34,12 +34,26 @@
     _manpwrtable.layer.borderWidth=3.0f;
     _crewnametable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _crewnametable.layer.borderWidth=2.0f;
+    
+    
+    _autocompltearray=[[NSMutableArray alloc]init];
+    _crewnametxtfld.delegate=(id)self;
+    _autocompleteTableView = [[UITableView alloc] initWithFrame:CGRectMake(406, 130, 203, 100) style:UITableViewStylePlain];
+    _autocompleteTableView.delegate = (id)self;
+    _autocompleteTableView.dataSource =(id) self;
+    _autocompleteTableView.scrollEnabled = YES;
+    _autocompleteTableView.hidden = YES;
+    _autocompleteTableView.layer.borderColor=[UIColor blackColor].CGColor ;
+    _autocompleteTableView.layer.borderWidth=2.0f;
+    _autocompleteTableView.rowHeight=30;
+    [self.view addSubview:_autocompleteTableView];
+
+    
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
     panGesture.delegate=self;
     [self.touchview addGestureRecognizer:panGesture];
 
-    [self Selectcrew];
-    }
+        }
 
 - (void)didReceiveMemoryWarning
 {
@@ -49,8 +63,20 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self Selectallmanpower];
+    [self Selectcrew];
+
 }
+#pragma mark-textfield delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    _autocompleteTableView.hidden = NO;
+    NSString *substring = [NSString stringWithString:textField.text];
+    substring = [substring stringByReplacingCharactersInRange:range withString:string];
+    [self searchAutocompleteEntriesWithSubstring:substring];
+    return YES;
+}
+
 #pragma mark-tableview datasource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     
@@ -69,6 +95,10 @@
         return 5;
         
     }
+    if (tableView==_autocompleteTableView) {
+        return [_autocompltearray count];
+    }
+
     return YES;
     
     
@@ -106,8 +136,40 @@
         _manpwrdeslbl.text=manpwr.itemdescptn;
         
     }
+     if (tableView==_autocompleteTableView) {
+          cell.textLabel.text = [_autocompltearray objectAtIndex:indexPath.row];
+     }
     return cell;
 }
+#pragma mark UITableViewDelegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+    _crewnametxtfld.text = selectedCell.textLabel.text;
+      [self Selectcrewname];
+    _autocompleteTableView.hidden = YES;
+  
+    
+}
+
+
+- (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
+    
+    // Put anything that starts with this substring into the autocompleteUrls array
+    // The items in this array is what will show up in the table view
+    [_autocompltearray removeAllObjects];
+    for(NSString * curString in _crenamearray) {
+        NSRange substringRange = [curString rangeOfString:substring];
+        if (substringRange.location == 0) {
+            
+            [_autocompltearray addObject:curString];
+            
+        }
+    }
+    [_autocompleteTableView reloadData];
+}
+
 #pragma mark -
 #pragma mark UIGestureRecognizer
 
@@ -439,6 +501,56 @@
     }
     
 }
+-(void)Selectcrewname{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Selectcrewname xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<crewname>%@</crewname>\n"
+                   "</Selectcrewname>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_crewnametxtfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Selectcrewname" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 
 #pragma mark - Connection
@@ -514,6 +626,123 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UnitCost"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SubType"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    if([elementName isEqualToString:@"SelectcrewResult"])
+    {_crenamearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"crewname"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SelectcrewnameResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ID"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Manpower"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Type"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UnitCost"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Name"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"CrewName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -556,10 +785,112 @@
         [_manpwrarray addObject:_manpwrmdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"UnitCost"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SubType"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"crewname"])
+    {
+        
+        recordResults = FALSE;
+        [_crenamearray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"ID"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Manpower"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Type"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UnitCost"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"Name"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"CrewName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
 }
 #pragma mark-buttons
 
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)clearbtn:(id)sender {
+    _autocompleteTableView.hidden=YES;
+    _crewnametxtfld.text=@"";
+    [_crewnametable reloadData];
 }
 @end
