@@ -30,7 +30,7 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //_view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    //_tabbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+_navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
        [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
     _requirementtable.layer.borderWidth = 2.0;
     _requirementtable.layer.borderColor = [UIColor colorWithRed:0/255.0f green:191/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;

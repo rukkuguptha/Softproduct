@@ -18,10 +18,16 @@
     UIButton *button;
     NSInteger btnindex;
     NSInteger webtype;
+    NSInteger poptype;
 }
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)listusermdl *usrmdl;
 @property(strong,nonatomic)NSString *searchstring;
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UIPopoverController *popOverController1;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
 
 //Outlets
 @property(strong,nonatomic)IBOutlet UITableView *usertable;
@@ -30,6 +36,8 @@
 @property(strong,nonatomic)IBOutlet UIView *addview;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
+@property (strong, nonatomic) IBOutlet UIButton *type1btnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *type2btnlbl;
 
 /*outlets in cell*/
 @property(strong,nonatomic)IBOutlet UILabel *usernamelabel;
@@ -48,6 +56,9 @@
 -(IBAction)edituserview:(id)sender;
 -(IBAction)closeuserview:(id)sender;
 -(IBAction)deleteusers:(id)sender;
+- (IBAction)usertype1btn:(id)sender;
+- (IBAction)usertype2btn:(id)sender;
+
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

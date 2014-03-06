@@ -72,6 +72,7 @@
 - (IBAction)savebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)uploadbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 
 /*RequirementView*/
 

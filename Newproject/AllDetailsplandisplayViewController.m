@@ -79,6 +79,7 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self Selectplanfactors];
     if(_optionidentifier==1)
     {
     _lengthfld.text=_len;
@@ -404,7 +405,8 @@ return cell;
     {
         
         NSLog(@"%d",[gestureRecognizer state]);
-     
+        NSLog(@"%hhd",[dropArea pointInside:[gestureRecognizer locationInView:dropArea] withEvent:nil]);
+
         if([gestureRecognizer state] == UIGestureRecognizerStateEnded
            && [dropArea pointInside:[gestureRecognizer locationInView:dropArea] withEvent:nil])
         {
@@ -505,6 +507,56 @@ return cell;
     }
     
 }
+-(void)Selectplanfactors{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Selectplanfactors xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<planid>%@</planid>\n"
+                   "</Selectplanfactors>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Selectplanfactors" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)ScaffoldingSelectScaffoldsubtype{
     recordResults = FALSE;
     NSString *soapMessage;
@@ -1241,7 +1293,27 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectplanfactorsResult"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"sitefactor"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
 
 
 }
@@ -1429,6 +1501,13 @@ return cell;
 
           _soapresults = nil;
     }
+    if([elementName isEqualToString:@"sitefactor"])
+    {
+         recordResults = FALSE;
+        _sitefctrfld.text=_soapresults;
+        _soapresults = nil;
+
+        }
 
 }
 #pragma mark-Equatn

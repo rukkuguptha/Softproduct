@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "Manpwr.h"
+#import "Crewmodel.h"
 
 @interface CrewsetupViewController : UIViewController<UIGestureRecognizerDelegate>{
     BOOL recordResults;
@@ -19,25 +20,38 @@
     BOOL            dragFromSource;     // used for reodering
     NSIndexPath*    pathFromDstTable;
     NSInteger path;
+    NSInteger Deletepath;
+    int webpath;
 
 }
 
 
 
 @property (strong, nonatomic)Manpwr *manpwrmdl;
+@property (strong, nonatomic)Crewmodel *crewmdl1;
+@property (strong, nonatomic)NSMutableArray *crewmembersarray;
 @property (strong, nonatomic)NSMutableArray *manpwrarray;
+@property (strong, nonatomic)NSMutableArray *autocompltearray;
+@property (strong, nonatomic)NSMutableArray *crenamearray;
+
+
 /*Outlets*/
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UIView *touchview;
 @property (strong, nonatomic) IBOutlet UILabel *manpwritmlbl;
 @property (strong, nonatomic) IBOutlet UILabel *manpwrdeslbl;
 @property (strong, nonatomic) IBOutlet UITextField *crewnametxtfld;
+@property (strong, nonatomic) IBOutlet UILabel *crwmanpwrlbl;
+@property (strong, nonatomic) IBOutlet UILabel *crwdeslbl1;
+@property (strong, nonatomic) IBOutlet UILabel *crwdeslbl2;
+
 
 /*table&cell*/
 @property (strong, nonatomic) IBOutlet UITableView *manpwrtable;
 @property (strong, nonatomic) IBOutlet UITableView *crewnametable;
 @property (strong, nonatomic) IBOutlet UITableViewCell *crewnamecell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *manpwrcell;
+@property (nonatomic, retain) UITableView *autocompleteTableView;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -46,7 +60,9 @@
 
 /*buttons*/
 - (IBAction)clsebtn:(id)sender;
+- (IBAction)clearbtn:(id)sender;
 
+- (IBAction)deletebtn:(id)sender;
 
 
 @end

@@ -40,6 +40,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
+    [self SelectAllCustomer];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -225,6 +226,161 @@
     }
     
 }
+-(void)SelectAllCustomer{
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllCustomer xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllCustomer>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)Employeeselect
+{
+    
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Employeeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<cemp_id>%d</cemp_id>\n"
+                   "<vf_name>%@</vf_name>\n"
+                   "<vl_name>%@</vl_name>\n"
+                   "</Employeeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Employeeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)UserTypeselect
+{
+    
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UserTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UserTypeId>%d</UserTypeId>\n"
+                   "<UserTypeName>%@</UserTypeName>\n"
+                   "</UserTypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UserTypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)InsertUsers
 {
     webtype=1;
@@ -240,8 +396,10 @@
                    "<soap:Body>\n"
                    
                    "<InsertUsers xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<username>%@</username>"
-                   "<password>%@</password>"
+                   "<username>%@</username>\n"
+                   "<password>%@</password>\n"
+                   "<UserTypeId>%d</UserTypeId>\n"
+                   "<UserTypeName>%d</UserTypeName>\n"
                    "</InsertUsers>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_usrnametextfld.text,_pswdtextfld.text];
@@ -293,8 +451,10 @@
                    
                    "<UpdateUsers xmlns=\"http://ios.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
-                   "<username>%@</username>"
-                   "<password>%@</password>"
+                   "<username>%@</username>\n" 
+                   "<password>%@</password>\n"
+                   "<UserTypeId>%d</UserTypeId>\n"
+                   "<UserTypeName>%d</UserTypeName>\n"
                    "</UpdateUsers>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",usermdl.userid,_usrnametextfld.text,_pswdtextfld.text];
@@ -564,6 +724,16 @@
     }
     
 }
+
+- (IBAction)usertype1btn:(id)sender {
+    poptype=1;
+    [self createpopover];
+}
+
+- (IBAction)usertype2btn:(id)sender {
+    poptype=2;
+      [self createpopover];
+}
 -(IBAction)insertuser:(id)sender
 {
     if(optionIdentifier==1)
@@ -622,6 +792,49 @@
     _usrnametextfld.text=@"";
     _pswdtextfld.text=@"";
 }
+#pragma mark-create popover
+-(void)createpopover{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    if (poptype==1) {
+        [self.popOverController presentPopoverFromRect:_type1btnlbl.frame
+                                                inView:self.addview
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+
+    }
+    if (poptype==2) {
+        [self.popOverController presentPopoverFromRect:_type2btnlbl.frame
+                                                inView:self.addview
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
+
+ 
+}
+
 
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{

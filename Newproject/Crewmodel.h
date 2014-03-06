@@ -9,5 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Crewmodel : NSObject
+@property(strong,nonatomic)NSString *ID;
+@property(strong,nonatomic)NSString *manpower;
+@property(strong,nonatomic)NSString *mandescptn;
+@property(strong,nonatomic)NSString *type;
+@property(strong,nonatomic)NSString *unitcost;
+@property(strong,nonatomic)NSString *name;
+@property(strong,nonatomic)NSString *crewname;
 
 @end

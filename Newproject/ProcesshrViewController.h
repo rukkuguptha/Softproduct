@@ -11,10 +11,13 @@
 #import "Empdetails.h"
 #import "DetailproHrViewController.h"
 #import "Processsectionheaderview.h"
+#import "VerificationViewController.h"
 @interface ProcesshrViewController : UIViewController<ProcesssectionheaderviewDelegate>{
     BOOL   recordResults;
     NSInteger selectedsectn;
 }
+
+@property(strong,nonatomic)VerificationViewController *verifictnVCtrl;
 @property(strong,nonatomic)Empdetails*empdetl;
 
 @property (nonatomic, assign) NSInteger openSectionIndex;

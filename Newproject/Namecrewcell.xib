@@ -8,6 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CrewsetupViewController">
             <connections>
                 <outlet property="crewnamecell" destination="N80-HC-c8M" id="uoK-8h-KAq"/>
+                <outlet property="crwdeslbl1" destination="dFk-Aa-RNp" id="Yt3-RZ-eaN"/>
+                <outlet property="crwdeslbl2" destination="kKR-Oq-nrZ" id="YeL-HR-O6f"/>
+                <outlet property="crwmanpwrlbl" destination="fm2-1V-399" id="hvO-vg-ehs"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
