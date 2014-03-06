@@ -942,7 +942,7 @@ return aSection.open ? [aSection.sectionRows count]:0;
          
             //aSection.newsectionHeaderView.DetailButton.hidden=YES;
                 //aSection.newsectionHeaderView.animatedview.userInteractionEnabled=NO;
-            aSection.newsectionHeaderView.proecsslbl.text=@"Process Details";
+            aSection.newsectionHeaderView.proecsslbl.text=@"Verification";
             
                 CAGradientLayer *gradient = [CAGradientLayer layer];
                 gradient.frame =  aSection.newsectionHeaderView.bounds;
@@ -1009,8 +1009,16 @@ return aSection.newsectionHeaderView;
 }
 
 -(void)Jobview:(NSString *)nwstrg{
-    _jobviews.hidden=NO;
+    //_jobviews.hidden=NO;
+    if (!_verifictnVCtrl) {
+        self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"VerificationViewController" bundle:nil];
+    }
     
+    //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    
+    [self presentViewController:_verifictnVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 

@@ -83,7 +83,7 @@
         proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
         proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
         proecsslbl.textColor=[UIColor blackColor];
-        proecsslbl.text=@"Send To Job";
+        proecsslbl.text=@"Verification";
         [self.animatedview addSubview:proecsslbl];
         proecsslbl.hidden=YES;
         UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(newjobview)];
