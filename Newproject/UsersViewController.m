@@ -240,8 +240,10 @@
                    "<soap:Body>\n"
                    
                    "<InsertUsers xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<username>%@</username>"
-                   "<password>%@</password>"
+                   "<username>%@</username>\n"
+                   "<password>%@</password>\n"
+                   "<UserTypeId>%d</UserTypeId>\n"
+                   "<UserTypeName>%d</UserTypeName>\n"
                    "</InsertUsers>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_usrnametextfld.text,_pswdtextfld.text];
@@ -293,8 +295,10 @@
                    
                    "<UpdateUsers xmlns=\"http://ios.kontract360.com/\">\n"
                    "<userid>%d</userid>\n"
-                   "<username>%@</username>"
-                   "<password>%@</password>"
+                   "<username>%@</username>\n" 
+                   "<password>%@</password>\n"
+                   "<UserTypeId>%d</UserTypeId>\n"
+                   "<UserTypeName>%d</UserTypeName>\n"
                    "</UpdateUsers>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",usermdl.userid,_usrnametextfld.text,_pswdtextfld.text];
@@ -564,6 +568,16 @@
     }
     
 }
+
+- (IBAction)usertype1btn:(id)sender {
+    poptype=1;
+    [self createpopover];
+}
+
+- (IBAction)usertype2btn:(id)sender {
+    poptype=2;
+      [self createpopover];
+}
 -(IBAction)insertuser:(id)sender
 {
     if(optionIdentifier==1)
@@ -622,6 +636,49 @@
     _usrnametextfld.text=@"";
     _pswdtextfld.text=@"";
 }
+#pragma mark-create popover
+-(void)createpopover{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    if (poptype==1) {
+        [self.popOverController presentPopoverFromRect:_type1btnlbl.frame
+                                                inView:self.addview
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+
+    }
+    if (poptype==2) {
+        [self.popOverController presentPopoverFromRect:_type2btnlbl.frame
+                                                inView:self.addview
+                              permittedArrowDirections:UIPopoverArrowDirectionUp
+                                              animated:YES];
+        
+    }
+
+ 
+}
+
 
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
