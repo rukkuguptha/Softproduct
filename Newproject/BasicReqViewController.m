@@ -461,14 +461,6 @@
                 
                 
                 break;
-//            case 4:
-////                UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-////                _txtfld.text = selectedCell.textLabel.text;
-//               
-//                _vendertextfield.text=[_autocompletearray objectAtIndex:indexPath.row];
-//                 _autotable.hidden = YES;
-//                
-//                break;
             default:
                 break;
         }
