@@ -70,6 +70,8 @@
 		649EDEDB18BB4E5E00B78D97 /* Scaffoldtypemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */; };
 		64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A00F3018C5B115002F607E /* empmgmtcell.xib */; };
 		64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */; };
+		64A07BD318C82F9100B2F9D5 /* customvendercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A07BD218C82F9100B2F9D5 /* customvendercell.xib */; };
+		64A07BD618C8321F00B2F9D5 /* vendermodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A07BD518C8321F00B2F9D5 /* vendermodel.m */; };
 		64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA0186023D2001F74E2 /* AllfolderViewController.m */; };
 		64A09DA3186023D2001F74E2 /* AllfolderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */; };
 		64A09DA718602A1B001F74E2 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A09DA518602A1B001F74E2 /* folderrightsViewController.m */; };
@@ -340,6 +342,9 @@
 		64A00F3018C5B115002F607E /* empmgmtcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = empmgmtcell.xib; sourceTree = "<group>"; };
 		64A00F3218C5C854002F607E /* Scaffoldsubtypemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldsubtypemodel.h; sourceTree = "<group>"; };
 		64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldsubtypemodel.m; sourceTree = "<group>"; };
+		64A07BD218C82F9100B2F9D5 /* customvendercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customvendercell.xib; sourceTree = "<group>"; };
+		64A07BD418C8321F00B2F9D5 /* vendermodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vendermodel.h; sourceTree = "<group>"; };
+		64A07BD518C8321F00B2F9D5 /* vendermodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vendermodel.m; sourceTree = "<group>"; };
 		64A09D9F186023D2001F74E2 /* AllfolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllfolderViewController.h; sourceTree = "<group>"; };
 		64A09DA0186023D2001F74E2 /* AllfolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllfolderViewController.m; sourceTree = "<group>"; };
 		64A09DA1186023D2001F74E2 /* AllfolderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllfolderViewController.xib; sourceTree = "<group>"; };
@@ -643,6 +648,7 @@
 				6431189F18C72C810061A276 /* venderViewController.h */,
 				643118A018C72C810061A276 /* venderViewController.m */,
 				643118A118C72C810061A276 /* venderViewController.xib */,
+				64A07BD218C82F9100B2F9D5 /* customvendercell.xib */,
 				D49E055D18C7022800AF6330 /* CrewsetupViewController.h */,
 				D49E055E18C7022800AF6330 /* CrewsetupViewController.m */,
 				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
@@ -986,6 +992,8 @@
 				D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */,
 				643118A418C737560061A276 /* Crewmodel.h */,
 				643118A518C737560061A276 /* Crewmodel.m */,
+				64A07BD418C8321F00B2F9D5 /* vendermodel.h */,
+				64A07BD518C8321F00B2F9D5 /* vendermodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1095,6 +1103,7 @@
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				6426F5F918C06824002471AC /* fleet.png in Resources */,
 				D40D1ED6176B0D4F00379DD5 /* CustomerViewController.xib in Resources */,
+				64A07BD318C82F9100B2F9D5 /* customvendercell.xib in Resources */,
 				649EDEC618BB04EC00B78D97 /* addworkscheduleview.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
@@ -1301,6 +1310,7 @@
 				D4D39CD4177ACE4B00C1E87D /* commentmdl.m in Sources */,
 				64F9799D185F038700E7722B /* ValuesPhilosophyDocViewController.m in Sources */,
 				642FA79C18ACC9FB00372623 /* planmodel.m in Sources */,
+				64A07BD618C8321F00B2F9D5 /* vendermodel.m in Sources */,
 				642F930B1872B6A80059101A /* allfolderrights.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,

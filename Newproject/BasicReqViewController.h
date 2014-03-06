@@ -30,12 +30,16 @@
     UIButton *button;
     NSInteger btnindex;
     NSString *checkstring;
+    UIButton *butt;
+    NSInteger selectedcell;
     
      
 }
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)basicreqmdl *basicmdl;
 @property(strong,nonatomic)venderViewController *venderVCtrl;
+@property(readwrite)NSInteger openviewindex;
+@property(readwrite)NSInteger previousopenviewindex;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
