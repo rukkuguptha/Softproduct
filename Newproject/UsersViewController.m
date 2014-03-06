@@ -40,7 +40,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-    [self SelectAllCustomer];
+   
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -291,10 +291,7 @@
                    "<soap:Body>\n"
                    
                    "<Employeeselect xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<cemp_id>%d</cemp_id>\n"
-                   "<vf_name>%@</vf_name>\n"
-                   "<vl_name>%@</vl_name>\n"
-                   "</Employeeselect>\n"
+                    "</Employeeselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -344,9 +341,7 @@
                    "<soap:Body>\n"
                    
                    "<UserTypeselect xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<UserTypeId>%d</UserTypeId>\n"
-                   "<UserTypeName>%@</UserTypeName>\n"
-                   "</UserTypeselect>\n"
+                    "</UserTypeselect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -627,8 +622,33 @@
         recordresults = TRUE;
     }
 
+    if([elementName isEqualToString:@"UserTypeselectResult"])
+    {
+        _Nametypeusrdict=[[NSMutableDictionary alloc]init];
+               if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserTypeId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserTypeName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
 
-
+    
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -668,6 +688,20 @@
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"UserTypeId"])
+    {
+        recordresults = FALSE;
+        usertypename=_soapResults;
+        _soapResults = nil;
+
+            }
+    if([elementName isEqualToString:@"UserTypeName"])
+    {
+        recordresults = FALSE;
+        [_Nametypeusrdict setObject:usertypename forKey:_soapResults];
+        _soapResults = nil;
+
+    }
 
 }
 
@@ -728,11 +762,13 @@
 - (IBAction)usertype1btn:(id)sender {
     poptype=1;
     [self createpopover];
+    [self UserTypeselect];
 }
 
 - (IBAction)usertype2btn:(id)sender {
     poptype=2;
       [self createpopover];
+     [self SelectAllCustomer];
 }
 -(IBAction)insertuser:(id)sender
 {

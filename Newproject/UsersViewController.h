@@ -19,7 +19,11 @@
     NSInteger btnindex;
     NSInteger webtype;
     NSInteger poptype;
+    NSString*usertypename;
 }
+
+@property(strong,nonatomic)NSMutableArray *Nametypeusrarry;
+@property(strong,nonatomic)NSMutableDictionary *Nametypeusrdict;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)listusermdl *usrmdl;
 @property(strong,nonatomic)NSString *searchstring;
