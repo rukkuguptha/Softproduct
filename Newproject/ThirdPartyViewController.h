@@ -12,9 +12,9 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
-#import "SectionHeaderView.h"
 
-@interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate,SectionHeaderViewDelegate>
+
+@interface ThirdPartyViewController : UIViewController<UITextFieldDelegate,UIImagePickerControllerDelegate>
 {
     BOOL recordResults ;
     NSInteger btntype;
@@ -24,17 +24,19 @@
     NSInteger webtype;
     NSInteger btnpath;
     NSInteger popvr;
-    NSInteger selectedsectn;
-
+   
 
     
 }
+
 /*cameraAction*/
 @property (nonatomic) BOOL newMedia;
 @property(strong,nonatomic)NSData*basedata;
 @property(strong,nonatomic)NSString*encodedString;
 @property(strong,nonatomic)NSString*picturelocation;
 @property(strong,nonatomic)NSString*uplodpiclctn;
+@property(strong,nonatomic)NSString*imgstring;
+
 
 @property (strong, nonatomic)Equpmntmdl *thirdpartymdl;
 @property(strong,nonatomic)Validation *vald;

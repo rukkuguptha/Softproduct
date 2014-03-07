@@ -7,13 +7,11 @@
 //
 
 #import "ThirdPartyViewController.h"
-#import "SectionHeaderView.h"
-#import "Section.h"
+
 
 @interface ThirdPartyViewController ()
 @end
-#define DEFAULT_ROW_HEIGHT 78
-#define HEADER_HEIGHT 45
+
 
 
 @implementation ThirdPartyViewController
@@ -715,6 +713,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 #pragma mark-xml parser
+#pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     
@@ -879,7 +878,7 @@ finishedSavingWithError:(NSError *)error
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
-        }               
+        }
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"ShiftwiseRate"])
@@ -937,7 +936,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-
+    
     if([elementName isEqualToString:@"UnitCost"])
     {
         
@@ -947,7 +946,7 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
-
+    
     if([elementName isEqualToString:@"SearchThirdPartyResponse"])
     {
         _thirdprtyarray=[[NSMutableArray alloc]init];
@@ -968,7 +967,7 @@ finishedSavingWithError:(NSError *)error
         recordResults = TRUE;
     }
     
-
+    
     
     if([elementName isEqualToString:@"InsertThirdPartyResult"])
     {
@@ -999,9 +998,9 @@ finishedSavingWithError:(NSError *)error
         recordResults = TRUE;
     }
     
-
     
-
+    
+    
     
     
 }
@@ -1035,21 +1034,21 @@ finishedSavingWithError:(NSError *)error
         _thirdpartymdl=[[Equpmntmdl alloc]init];
         recordResults = FALSE;
         
-    _thirdpartymdl.entryid=[_soapResults integerValue];
+        _thirdpartymdl.entryid=[_soapResults integerValue];
         
         _soapResults = nil;    }
     if([elementName isEqualToString:@"ItemCode"])
     {
         
         recordResults = FALSE;
-    _thirdpartymdl.itemcode=_soapResults;
+        _thirdpartymdl.itemcode=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"Description"])
     {
         
         recordResults = FALSE;
-   _thirdpartymdl.itemdescptn=_soapResults;
+        _thirdpartymdl.itemdescptn=_soapResults;
         _soapResults = nil;
     }
     
@@ -1057,7 +1056,7 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-    _thirdpartymdl.subtype=_soapResults;
+        _thirdpartymdl.subtype=_soapResults;
         
         _soapResults = nil;    }
     
@@ -1065,35 +1064,35 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-      _thirdpartymdl.PurchaseValue=_soapResults;
+        _thirdpartymdl.PurchaseValue=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"SerialNo"])
     {
         
         recordResults = FALSE;
-  _thirdpartymdl.SerialNo=_soapResults;
+        _thirdpartymdl.SerialNo=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ManufacturedYear"])
     {
         
         recordResults = FALSE;
-     _thirdpartymdl.ManufacturedYear=_soapResults;
+        _thirdpartymdl.ManufacturedYear=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"PictureLocation"])
     {
         
         recordResults = FALSE;
-       _thirdpartymdl.PictureLocation=_soapResults;
+        _thirdpartymdl.PictureLocation=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"InsuredValue"])
     {
         
         recordResults = FALSE;
-       _thirdpartymdl.InsuredValue=_soapResults;
+        _thirdpartymdl.InsuredValue=_soapResults;
         _soapResults = nil;
     }
     
@@ -1101,14 +1100,14 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-       _thirdpartymdl.HoursUsed=_soapResults;
+        _thirdpartymdl.HoursUsed=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"FuelConsumptionPerHour"])
     {
         
         recordResults = FALSE;
-    _thirdpartymdl.FuelConsumptionPerHour=_soapResults;
+        _thirdpartymdl.FuelConsumptionPerHour=_soapResults;
         _soapResults = nil;
     }
     
@@ -1117,14 +1116,14 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-     _thirdpartymdl.Condition=_soapResults;
+        _thirdpartymdl.Condition=_soapResults;
         _soapResults = nil;    }
     
     if([elementName isEqualToString:@"HourlyRate"])
     {
         
         recordResults = FALSE;
-     _thirdpartymdl.HourlyRate=_soapResults;
+        _thirdpartymdl.HourlyRate=_soapResults;
         _soapResults = nil;
     }
     
@@ -1132,14 +1131,14 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-      _thirdpartymdl.DailyRate=_soapResults;
+        _thirdpartymdl.DailyRate=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ShiftwiseRate"])
     {
         
         recordResults = FALSE;
-      _thirdpartymdl.ShiftwiseRate=_soapResults;
+        _thirdpartymdl.ShiftwiseRate=_soapResults;
         _soapResults = nil;
         
     }
@@ -1148,22 +1147,22 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-      _thirdpartymdl.WeeklyRate=_soapResults;
+        _thirdpartymdl.WeeklyRate=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"MonthlyRate"])
     {
         
         recordResults = FALSE;
-      _thirdpartymdl.MonthlyRate=_soapResults;
+        _thirdpartymdl.MonthlyRate=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"YearlyRate"])
     {
         
         recordResults = FALSE;
-     _thirdpartymdl.YearlyRate=_soapResults;
-      
+        _thirdpartymdl.YearlyRate=_soapResults;
+        
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"UnitCost"])
@@ -1173,14 +1172,14 @@ finishedSavingWithError:(NSError *)error
         _thirdpartymdl.unitcost=_soapResults;
         
         _soapResults = nil;    }
-
+    
     if([elementName isEqualToString:@"Type"])
     {
-         recordResults = FALSE;
+        recordResults = FALSE;
         
         _thirdpartymdl.type=_soapResults;
         
-         _soapResults = nil;
+        _soapResults = nil;
         
     }
     if([elementName isEqualToString:@"qtyinstock"])
@@ -1207,9 +1206,9 @@ finishedSavingWithError:(NSError *)error
             
             [self SelectAllThirdParty];
         }
-
-       
-                _soapResults = nil;
+        
+        
+        _soapResults = nil;
         
     }
     if([elementName isEqualToString:@"url"])
@@ -1217,18 +1216,18 @@ finishedSavingWithError:(NSError *)error
         recordResults = FALSE;
         
         
-            NSData *data1=[_soapResults base64DecodedData];
-            
-            UIImage *image1=  [[UIImage alloc]initWithData:data1];
-            
-            //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
-            
-            
-            _pictureimgvw.image=image1;
-            NSLog(@"img%@",image1);
-            
-            
-      
+        NSData *data1=[_soapResults base64DecodedData];
+        
+        UIImage *image1=  [[UIImage alloc]initWithData:data1];
+        
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        
+        _pictureimgvw.image=image1;
+        NSLog(@"img%@",image1);
+        
+        
+        
         
         
         _soapResults = nil;
@@ -1237,20 +1236,14 @@ finishedSavingWithError:(NSError *)error
     }
     
     
-
     
-
-
+    
+    
+    
     
 }
-
 
 #pragma mark - Table View datasource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    
-    return 1;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -1280,29 +1273,29 @@ finishedSavingWithError:(NSError *)error
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-           cell.textLabel.font=[UIFont systemFontOfSize:12];
+        cell.textLabel.font=[UIFont systemFontOfSize:12];
         if(tableView==_thirdprtyTable){
             [[NSBundle mainBundle]loadNibNamed:@"Thirdpartycell" owner:self options:nil];
             cell=_thirdpartycell;
         }
     }
     if (tableView==_popOverTableView){
-         if (popvr==1) {
-        cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
-         }
-         if (popvr==2) {
-               cell.textLabel.text=[_Typearray objectAtIndex:indexPath.row];
-         }
+        if (popvr==1) {
+            cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
+        }
+        if (popvr==2) {
+            cell.textLabel.text=[_Typearray objectAtIndex:indexPath.row];
+        }
     }
     if(tableView==_thirdprtyTable){
-      Equpmntmdl*eqmdl=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:indexPath.row];
+        Equpmntmdl*eqmdl=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:indexPath.row];
         _codelbl=(UILabel *)[cell viewWithTag:1];
         _codelbl.text=eqmdl.itemcode;
         _deslbl=(UILabel *)[cell viewWithTag:2];
         _deslbl.text=eqmdl.itemdescptn;
         _typelbl=(UILabel *)[cell viewWithTag:3];
         _typelbl.text=eqmdl.subtype;
-         _costlbl=(UILabel *)[cell viewWithTag:4];
+        _costlbl=(UILabel *)[cell viewWithTag:4];
         _costlbl.text=[NSString stringWithFormat:@"$%@",eqmdl.unitcost];
     }
     return cell;
@@ -1314,12 +1307,12 @@ finishedSavingWithError:(NSError *)error
     
     if(tableView==_popOverTableView){
         if (popvr==1) {
-        _subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+            _subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
         }
-         if (popvr==2) {
-             
-             _typetxtfld.text=[_Typearray objectAtIndex:indexPath.row];
-         }
+        if (popvr==2) {
+            
+            _typetxtfld.text=[_Typearray objectAtIndex:indexPath.row];
+        }
         
     }
     
@@ -1359,125 +1352,6 @@ finishedSavingWithError:(NSError *)error
         }
     }
 }
--(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionOpened:(NSInteger)sectionOpened {
-    
-    
-    Section *aSection=[sectionArray objectAtIndex:sectionOpened];
-    aSection.open=YES;
-    
-    /*
-     Create an array containing the index paths of the rows to insert: These correspond to the rows for each quotation in the current section.
-     */
-    NSInteger countOfRowsToInsert = [aSection.sectionRows count];
-    NSMutableArray *indexPathsToInsert = [[NSMutableArray alloc] init];
-    for (NSInteger i = 0; i < countOfRowsToInsert; i++) {
-        [indexPathsToInsert addObject:[NSIndexPath indexPathForRow:i inSection:sectionOpened]];
-    }
-    
-    /*
-     Create an array containing the index paths of the rows to delete: These correspond to the rows for each quotation in the previously-open section, if there was one.
-     */
-    NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
-    
-    NSInteger previousOpenSectionIndex = self.openSectionIndex;
-    if (previousOpenSectionIndex != NSNotFound) {
-        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenSectionIndex];
-        previousOpenSection.open=NO;
-        [previousOpenSection.sectionHeaderView toggleOpenWithUserAction:NO];
-        NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:previousOpenSectionIndex]];
-        }
-        
-        
-    }
-    
-    // Style the animation so that there's a smooth flow in either direction.
-    UITableViewRowAnimation insertAnimation;
-    UITableViewRowAnimation deleteAnimation;
-    if (previousOpenSectionIndex == NSNotFound || sectionOpened < previousOpenSectionIndex) {
-        insertAnimation = UITableViewRowAnimationTop;
-        deleteAnimation = UITableViewRowAnimationBottom;
-    }
-    else {
-        insertAnimation = UITableViewRowAnimationBottom;
-        deleteAnimation = UITableViewRowAnimationTop;
-    }
-    
-    // Apply the updates.
-    [self.thirdprtyTable beginUpdates];
-    [self.thirdprtyTable insertRowsAtIndexPaths:indexPathsToInsert withRowAnimation:insertAnimation];
-    [self.thirdprtyTable deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:deleteAnimation];
-    [self.thirdprtyTable endUpdates];
-    self.openSectionIndex = sectionOpened;
-    
-    
-    
-}
--(void)sectionHeaderView:(SectionHeaderView*)sectionHeaderView sectionClosed:(NSInteger)sectionClosed {
-    
-    /*
-     Create an array of the index paths of the rows in the section that was closed, then delete those rows from the table view.
-     */
-	Section *aSection = [self.sectionArray objectAtIndex:sectionClosed];
-	
-    aSection.open = NO;
-    
-    NSInteger countOfRowsToDelete = [self.thirdprtyTable numberOfRowsInSection:sectionClosed];
-    
-    if (countOfRowsToDelete > 0) {
-        NSMutableArray *indexPathsToDelete = [[NSMutableArray alloc] init];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            [indexPathsToDelete addObject:[NSIndexPath indexPathForRow:i inSection:sectionClosed]];
-        }
-        [self.thirdprtyTable deleteRowsAtIndexPaths:indexPathsToDelete withRowAnimation:UITableViewRowAnimationTop];
-    }
-    self.openSectionIndex = NSNotFound;
-}
-
--(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewopened:(NSInteger)viewopened{
-    
-    //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
-    
-    selectedsectn=viewopened;
-    NSInteger previousOpenviewIndex = self.openviewIndex;
-    
-    if (previousOpenviewIndex != NSNotFound) {
-        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenviewIndex];
-        previousOpenSection.open=NO;
-        [previousOpenSection.sectionHeaderView showviewWithUserAction:NO];
-        NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
-        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
-            previousOpenSection.sectionHeaderView.proecsslbl.hidden=YES;
-            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.sectionHeaderView.animatedview
-                .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
-            
-            previousOpenSection.sectionHeaderView.animatedview.hidden=YES;
-            
-            
-        }
-        
-        
-    }
-    
-    self.openviewIndex=viewopened;
-    
-    
-    
-}
--(void)sectionHeaderView:(SectionHeaderView *)sectionHeaderView viewclosed:(NSInteger)viewclosed{
-    
-    Section *aSection = [self.sectionArray objectAtIndex:viewclosed];
-	
-    aSection.open = NO;
-    
-    
-    self.openviewIndex = NSNotFound;
-    
-    
-}
-
-
 
 
 #pragma mark-Searchbar
