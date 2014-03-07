@@ -100,8 +100,8 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     }
     
     else{
-        [_i9btnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        
+       
+         [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
         
     }
 
