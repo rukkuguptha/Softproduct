@@ -78,8 +78,71 @@
     substring = [substring stringByReplacingCharactersInRange:range withString:string];
     [self searchAutocompleteEntriesWithSubstring:substring];
 }
+    if(textField==_itemnametextfield)
+    {
+        NSUInteger newLength = [_itemnametextfield.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_ratetextfield)
+    {
+        NSUInteger newLength = [_ratetextfield.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_hourstextfield)
+    {
+        NSUInteger newLength = [_hourstextfield.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_codetextfield)
+    {
+        NSUInteger newLength = [_codetextfield.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+        
+    
+
     return YES;
 }
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_ratetextfield) {
+        int value2=[val isNumeric:_ratetextfield.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    if (textField==_hourstextfield) {
+        int value2=[val isNumeric:_hourstextfield.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Format" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+
+    return YES;
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Invalid Rate"]) {
+        
+        
+        _ratetextfield.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid Format"]) {
+        
+        
+        _hourstextfield.text=@"";
+        
+    }
+}
+
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
     
     // Put anything that starts with this substring into the autocompleteUrls array
