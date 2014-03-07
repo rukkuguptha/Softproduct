@@ -91,14 +91,20 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
 }
 
 - (IBAction)i9action:(id)sender {
+    
+    
 }
 
 - (IBAction)bgaction:(id)sender {
+    
 }
 
 - (IBAction)ssnaction:(id)sender {
+    
+    
 }
 - (IBAction)savebtn:(id)sender {
+    
 }
 
 - (IBAction)cancelbtn:(id)sender {
@@ -329,7 +335,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     [super viewDidUnload];
 }
 
-#pragma mark - arvinice
+#pragma mark - Webservice
 /*arvinices*/
 
 
@@ -347,7 +353,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
                    
                    "<soap:Body>\n"
                    
-                   "<FetchApplicant xmlns=\"http://arvin.kontract360.com/\">\n"
+                   "<FetchApplicant xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</FetchApplicant>\n"
                    "</soap:Body>\n"
@@ -356,7 +362,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://arvin.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -364,7 +370,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://arvin.kontract360.com/FetchApplicant" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FetchApplicant" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -584,7 +590,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     if (testint==1) {
         
         //[self FetchImage];
-        [self selectrequirements];
+       // [self selectrequirements];
         testint=3;
     }
     
@@ -881,61 +887,62 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     if([elementName isEqualToString:@"applicant_Id"])
     {
         recordResults = FALSE;
-        if (_applicantid==[_soapResults integerValue]) {
-                          _verfymdl=[[Verfymdl alloc]init];
-            _verfymdl.Selectedapplicantid=[_soapResults integerValue];
-            
-_verfymdl.applicantid=[_soapResults integerValue];
-            
-        }
-        else{
+          _verfymdl=[[Verfymdl alloc]init];
         _verfymdl.applicantid=[_soapResults integerValue];
-        }
+
+//        if (_applicantid==[_soapResults integerValue]) {
+//                          _verfymdl=[[Verfymdl alloc]init];
+//            _verfymdl.Selectedapplicantid=[_soapResults integerValue];
+//            
+//_verfymdl.applicantid=[_soapResults integerValue];
+//            
+//        }
+//        else{
+//        _verfymdl.applicantid=[_soapResults integerValue];
+//        }
                         _soapResults = nil;
     }
        if([elementName isEqualToString:@"applicant_FirstName"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
+       
         _verfymdl.firstname=_soapResults;
         _firstnametxtfld.text=_verfymdl.firstname;
-        }
+        
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_LastName"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
-        _verfymdl.lastname=_soapResults;
+             _verfymdl.lastname=_soapResults;
         _lastnametxtfld.text= _verfymdl.lastname;
-        }
+        
                 _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_SSN"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
-        _verfymdl.ssn=_soapResults;
+                _verfymdl.ssn=_soapResults;
         _ssntxtfld.text=  _verfymdl.ssn;
-        }
+        
       
         _soapResults = nil;
         
     }
     if([elementName isEqualToString:@"applicant_CellPhone"])
     { recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
+       
         _verfymdl.Phonenumber=_soapResults;
-        }
+        
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"applicant_Address"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
+       
         _verfymdl.address=_soapResults;
         _Addresstxtfld.text=  _verfymdl.address;
-        }
+        
         _soapResults = nil;
         
         
@@ -943,10 +950,10 @@ _verfymdl.applicantid=[_soapResults integerValue];
     if([elementName isEqualToString:@"applicant_City"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
+        
         _verfymdl.city=_soapResults;
         _citytxtfld.text=_verfymdl.city;
-        }
+        
         _soapResults = nil;
         
         
@@ -954,10 +961,10 @@ _verfymdl.applicantid=[_soapResults integerValue];
     if([elementName isEqualToString:@"applicant_State"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
+     
         _verfymdl.state=_soapResults;
         _statetxtfld.text= _verfymdl.state;
-        }
+        
         _soapResults = nil;
         
 
@@ -966,10 +973,9 @@ _verfymdl.applicantid=[_soapResults integerValue];
     if([elementName isEqualToString:@"applicant_Zip"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
-        _verfymdl.zip=_soapResults;
+              _verfymdl.zip=_soapResults;
         _ziptextfld.text=_verfymdl.zip;
-        }
+        
         _soapResults = nil;
         
 
@@ -978,11 +984,10 @@ _verfymdl.applicantid=[_soapResults integerValue];
         if([elementName isEqualToString:@"NameSuffix"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
-        _verfymdl.suffix=_soapResults;
+             _verfymdl.suffix=_soapResults;
         _suffixtxtfld.text=_verfymdl.suffix;
         
-        }
+        
         _soapResults = nil;
         
         
@@ -990,9 +995,8 @@ _verfymdl.applicantid=[_soapResults integerValue];
     if([elementName isEqualToString:@"jobSite_Id"])
     {
         recordResults = FALSE;
-        if (_applicantid==  _verfymdl.applicantid) {
-        _verfymdl.jobsiteid=_soapResults;
-        }
+             _verfymdl.jobsiteid=_soapResults;
+        
         _soapResults = nil;
              
     }
@@ -1002,20 +1006,21 @@ _verfymdl.applicantid=[_soapResults integerValue];
            NSLog(@"Appid%d",_verfymdl.applicantid);
         NSLog(@"Appid%d",_applicantid);
 
+        [_Fetchdetailsarray addObject:_verfymdl];
+
+//        if (_applicantid==  _verfymdl.applicantid) {
+//        _verfymdl.craftid=_soapResults;
+//       
+//              [_Fetchdetailsarray addObject:_verfymdl];
+//              NSLog(@"%d",_verfymdl.applicantid);
+//              NSLog(@"%d",_verfymdl.Selectedapplicantid);
+//              NSLog(@"%@",_verfymdl.jobsiteid);
+//             NSLog(@"%@",_verfymdl.craftid);
+//            
+//            NSLog(@"%@",_Fetchdetailsarray);
+//            
+//        }
         
-        if (_applicantid==  _verfymdl.applicantid) {
-        _verfymdl.craftid=_soapResults;
-       
-              [_Fetchdetailsarray addObject:_verfymdl];
-              NSLog(@"%d",_verfymdl.applicantid);
-              NSLog(@"%d",_verfymdl.Selectedapplicantid);
-              NSLog(@"%@",_verfymdl.jobsiteid);
-             NSLog(@"%@",_verfymdl.craftid);
-            
-            NSLog(@"%@",_Fetchdetailsarray);
-            
-        }
-          
         _soapResults = nil;
 
     }
@@ -1248,4 +1253,7 @@ _verfymdl.applicantid=[_soapResults integerValue];
 }
 
 
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

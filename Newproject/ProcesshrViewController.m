@@ -1011,7 +1011,7 @@ return aSection.newsectionHeaderView;
 -(void)Jobview:(NSString *)nwstrg{
     //_jobviews.hidden=NO;
     if (!_verifictnVCtrl) {
-        self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"VerificationViewController" bundle:nil];
+        self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"NVerificationViewController" bundle:nil];
     }
     
     //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;

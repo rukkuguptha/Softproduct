@@ -20,6 +20,9 @@
     NSInteger poptype;
      NSInteger cmpreid;
     NSString *docsstring;
+    NSInteger ssnclck;
+    NSInteger i9clck;
+    NSInteger bgclck;
 }
 @property (strong, nonatomic)Coursemdl*coursemdl;
 
@@ -106,5 +109,6 @@
 
 @property(strong,nonatomic)NSString *doc;
 @property(strong,nonatomic)WebViewController *webctrl;
+- (IBAction)clsebtn:(id)sender;
 
 @end
