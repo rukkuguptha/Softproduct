@@ -614,6 +614,189 @@
     
 }
 
+#pragma mark-Textfield Delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(textField==_nametextfld)
+    {
+        NSUInteger newLength = [_nametextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_addresstextfld)
+    {
+        NSUInteger newLength = [_addresstextfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_ratetextfld)
+    {
+        NSUInteger newLength = [_ratetextfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    
+    if(textField==_phonetextfld)
+    {
+        NSUInteger newLength = [_phonetextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    
+    
+    
+    return YES;
+}
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_ratetextfld) {
+        int value2=[val isNumeric:_ratetextfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+    }
+        if (textField==_phonetextfld)
+            
+            {
+                
+                phnnostring=_phonetextfld.text;
+                
+                
+                if ([phnnostring length]<10) {
+                    if([phnnostring isEqualToString:@""])
+                    {
+                        
+                    }
+                    else
+                    {
+                        //fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                        
+                    }
+                    
+                    
+                    
+                }
+                else
+                {
+                    
+                    Validation*val=[[Validation alloc]init];
+                    int value1=[val isdataformat:_phonetextfld.text];
+                    if(value1==0)
+                    {
+                        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                        [alert1 show];
+                        
+                        
+                    }
+                    else
+                    {
+                        
+                        phnnostring=_phonetextfld.text;
+                        //checking a particular charector
+                        // NSString *connectstring;
+                        NSString*new=[phnnostring substringWithRange:NSMakeRange(3, 1)];
+                        NSString*new1=[phnnostring substringWithRange:NSMakeRange(7, 1)];
+                        
+                        
+                        
+                        NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                        NSString *resultString = [[phnnostring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                        NSLog (@"Result: %@", resultString);
+                        if ([resultString length]==9){
+                            
+                            
+                            //fmt=1;
+                            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                            
+                            [alert show];
+                            
+                        }
+                        
+                        
+                        if ([phnnostring length]==12) {
+                            
+                            
+                            
+                            
+                            
+                            
+                            if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                                _phnnofmtstring=phnnostring;
+                                //fmt=2;
+                            }
+                            else
+                            { //fmt=1;
+                                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                                
+                                [alert show];
+                            }
+                            
+                        }
+                        
+                        
+                        
+                        if ([resultString length]==10){
+                            
+                            
+                           // fmt=2;
+                            
+                            NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                            NSLog(@"%@",subString);
+                            NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                            NSLog(@"%@",substring2);
+                            NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                            NSLog(@"%@",substring3);
+                            _phnnofmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                            NSLog(@"%@",_phnnofmtstring);
+                            
+                            
+                            
+                            
+                            _phonetextfld.text=_phnnofmtstring;
+                            
+                        }
+                        
+                        
+                        
+                        
+                        
+                        if ([resultString length]==11){
+                            
+                            
+                           // fmt=1;
+                            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                            
+                            [alert show];
+                            
+                        }
+                        
+                    }
+                }
+            
+    
+    
+            }
+    
+    
+    return YES;
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Invalid Rate"]) {
+        
+        
+        _ratetextfld.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid PhoneNumber"]) {
+        
+        
+        _phonetextfld.text=@"";
+        
+    }
+
+   }
 
 
 @end

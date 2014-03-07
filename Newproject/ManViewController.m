@@ -567,7 +567,7 @@
                    "<EducationReq>%@</EducationReq>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text doubleValue],[_payratetextfield.text doubleValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -696,7 +696,7 @@
                     "<EducationReq>%@</EducationReq>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[billrate doubleValue],[payrate doubleValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[billrate floatValue],[payrate floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1139,7 +1139,9 @@
         _experiencetextview.text=@"";
         _jobtasktextview.text=@"";
         _trainingtextview.text=@"";
-
+        _craftcodetextfld.text=@"";
+        _payratetextfield.text=@"";
+        _billingratetextfield.text=@"";
        
         _soapResults = nil;
     }
@@ -1193,7 +1195,8 @@
     _payratetextfield.text=@"";
     _billingratetextfield.text=@"";
     _craftcodetextfld.text=@"";
-    
+    [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    checkbtnclick=0;
 }
 - (IBAction)clsebtn:(id)sender {
     _addview.hidden=YES;
@@ -1363,16 +1366,50 @@
             [alert1 show];
             
         }}
+    if (textField==_billingratetextfield) {
+        int values=[val isNumeric:_billingratetextfield.text];
+        if (values==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Billing Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    if (textField==_payratetextfield) {
+        int values1=[val isNumeric:_payratetextfield.text];
+        if (values1==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Pay Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+
+
     return YES;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.title isEqualToString:@"Invalid Billing Rate"]) {
+        
+        
+        _billingratetextfield.text=@"";
+        
+    }
+    if ([alertView.title isEqualToString:@"Invalid Pay Rate"]) {
+        
+        
+        _payratetextfield.text=@"";
+        
+    }
+
     if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
         
         
         _unitcosttxtfld.text=@"";
         
     }
+
     
     
     if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
@@ -1403,6 +1440,22 @@
         NSUInteger newLength = [_stockinhandtxtfld.text length] + [string length] - range.length;
         return (newLength > 18) ? NO : YES;
     }
+    if(textField==_billingratetextfield)
+    {
+        NSUInteger newLength = [_billingratetextfield.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_payratetextfield)
+    {
+        NSUInteger newLength = [_payratetextfield.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_craftcodetextfld)
+    {
+        NSUInteger newLength = [_craftcodetextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+
     
     
     return YES;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "vendermodel.h"
+#import "Validation.h"
 
 @interface venderViewController : UIViewController
 {
@@ -17,9 +18,11 @@
     NSInteger optionidentifier;
     UIButton *button;
     NSInteger btnindex;
+    NSString *phnnostring;
 }
 
-
+@property(strong,nonatomic)Validation *val;
+@property(strong,nonatomic)NSString *phnnofmtstring;
 @property(readwrite)NSInteger itemid;
 @property(strong,nonatomic)vendermodel *vmodel;
 
