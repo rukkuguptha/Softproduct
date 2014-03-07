@@ -92,7 +92,19 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
 
 - (IBAction)i9action:(id)sender {
     
+    i9clck ++;
+    if (i9clck%2) {
+        
+       // [_spfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+    }
     
+    else{
+       // [_spfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
+        
+    }
+
 }
 
 - (IBAction)bgaction:(id)sender {
@@ -100,6 +112,8 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
 }
 
 - (IBAction)ssnaction:(id)sender {
+    //if()
+        
     
     
 }

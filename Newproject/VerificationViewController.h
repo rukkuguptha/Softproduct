@@ -97,6 +97,11 @@
 
 - (IBAction)yearbtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *ssnbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *i9btnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *bgbtnlbl;
 
 /*xmlparse*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

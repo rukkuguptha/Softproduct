@@ -8,11 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationViewController">
             <connections>
                 <outlet property="Addresstxtfld" destination="cUA-mf-wcW" id="izj-Va-t6B"/>
+                <outlet property="bgbtnlbl" destination="4p6-BP-cYW" id="fpB-pL-8sw"/>
                 <outlet property="citytxtfld" destination="dLR-8y-cYl" id="2el-W2-2xR"/>
                 <outlet property="firstnametxtfld" destination="Z9u-1a-A8N" id="W30-dH-J1t"/>
+                <outlet property="i9btnlbl" destination="H6w-mc-RPt" id="mtx-nv-Zw3"/>
                 <outlet property="lastnametxtfld" destination="Oja-Ng-BLL" id="v9D-pL-vou"/>
                 <outlet property="navbar" destination="0f4-Jj-Zmp" id="dwY-vk-pmI"/>
                 <outlet property="profileimg" destination="xpk-k3-pmW" id="6j7-dh-ujR"/>
+                <outlet property="ssnbtnlbl" destination="8PJ-hC-Ys1" id="L7q-JB-xed"/>
                 <outlet property="ssntxtfld" destination="gKu-8N-1VG" id="2rp-JW-yBb"/>
                 <outlet property="statetxtfld" destination="CRE-no-6yk" id="NHc-dc-T4J"/>
                 <outlet property="suffixtxtfld" destination="gwS-Ru-Pdy" id="vpi-Ue-xqA"/>
