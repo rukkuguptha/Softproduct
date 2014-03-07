@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _Nametypeusrarry=[[NSArray alloc]init];
+     _type2btnlbl.enabled=NO;
     _usertable.layer.borderWidth = 2.0;
     _usertable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -64,8 +66,35 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_userlistarray count];
-}
+    if (tableView==_popOverTableView) {
+       
+        if (poptype==1) {
+          return [_Nametypeusrdict count];
+            
+        }
+        else if (poptype==2){
+            switch (tyid) {
+                case 2:
+                return [_empydict count];
+                    
+                        break;
+                case 3:
+                    return [_custmrdict count];
+                    
+                    break;
+                default:
+                    break;
+            }
+            
+        }
+    }
+    else {
+         return [_userlistarray count];
+    }
+    return YES;
+    }
+        
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"mycell";
@@ -75,20 +104,83 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+        if (tableView==_usertable) {
+
         [[NSBundle mainBundle]loadNibNamed:@"usercell" owner:self options:nil];
         cell=_usercell;
+        }
     }
+    if (tableView==_usertable) {
+        
+    
     listusermdl*usrmdl=(listusermdl *)[_userlistarray objectAtIndex:indexPath.row];
     _usernamelabel=(UILabel *)[cell viewWithTag:1];
     _usernamelabel.text=usrmdl.username;
+    }
+    if (tableView==_popOverTableView) {
+         if (poptype==1) {
+        _Nametypeusrarry=[_Nametypeusrdict allKeys];
+        cell.textLabel.text=[_Nametypeusrarry objectAtIndex:indexPath.row];
+         }
+         if (poptype==2) {
+            
+             
+             switch (tyid) {
+                 case 2:
+                     _empyarry=[_empydict allKeys];
+                     cell.textLabel.text=[_empyarry objectAtIndex:indexPath.row];
+                     
+                     break;
+                 case 3:
+                     _custmrrarry=[_custmrdict allKeys];
+                     cell.textLabel.text=[_custmrrarry objectAtIndex:indexPath.row];
+                     break;
+                 default:
+                     break;
+             }
 
+             
+         }
+    }
     return cell;
 }
 
 #pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    insrtpath=indexPath.row;
+    if (tableView==_popOverTableView) {
+        
+        if (poptype==1) {
+            //_type1btnlbl.titleLabel.text=[_Nametypeusrarry objectAtIndex:indexPath.row];
+            [_type1btnlbl setTitle:[_Nametypeusrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+            _type2btnlbl.enabled=YES;
+            
+            
+        }
+        
+        
+        if (poptype==2) {
+            
+            switch (tyid) {
+                case 2:
+                      [_type2btnlbl setTitle:[_empyarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                    
+                    break;
+                case 3:
+                   [_type2btnlbl setTitle:[_custmrrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        
+        
+        
+    }
+
     
     
 }
@@ -108,6 +200,9 @@
             
         }
     }
+    
+    
+   
 }
 
 
@@ -380,6 +475,22 @@
 {
     webtype=1;
     recordresults = FALSE;
+    NSInteger userid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
+    
+    
+    
+    switch (tyid) {
+        case 2:
+               usertyid=[[_empydict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
+            break;
+        case 3:
+             usertyid=[[_custmrdict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
+
+            break;
+        default:
+            break;
+    }
+
     NSString *soapMessage;
     
     soapMessage = [NSString stringWithFormat:
@@ -397,7 +508,7 @@
                    "<UserTypeName>%d</UserTypeName>\n"
                    "</InsertUsers>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_usrnametextfld.text,_pswdtextfld.text];
+                   "</soap:Envelope>\n",_usrnametextfld.text,_pswdtextfld.text,userid,usertyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -432,6 +543,23 @@
 -(void)UpdateUsers
 {
     webtype=1;
+    
+    NSInteger userid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
+    
+    
+    
+    switch (tyid) {
+        case 2:
+            usertyid=[[_empydict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
+            break;
+        case 3:
+            usertyid=[[_custmrdict objectForKey:_type2btnlbl.titleLabel.text]integerValue];
+            
+            break;
+        default:
+            break;
+    }
+
     listusermdl*usermdl=(listusermdl *)[_userlistarray objectAtIndex:btnindex];
     recordresults = FALSE;
     NSString *soapMessage;
@@ -452,7 +580,7 @@
                    "<UserTypeName>%d</UserTypeName>\n"
                    "</UpdateUsers>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",usermdl.userid,_usrnametextfld.text,_pswdtextfld.text];
+                   "</soap:Envelope>\n",usermdl.userid,_usrnametextfld.text,_pswdtextfld.text,userid,usertyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -573,6 +701,7 @@
         webtype=0;
     }
     [_usertable reloadData];
+    [_popOverTableView reloadData];
     
     
 }
@@ -631,7 +760,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"UserTypeId"])
+    if([elementName isEqualToString:@"userTypeId"])
     {
         if(!_soapResults)
         {
@@ -639,7 +768,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"UserTypeName"])
+    if([elementName isEqualToString:@"userTypeName"])
     {
         if(!_soapResults)
         {
@@ -648,7 +777,67 @@
         recordresults = TRUE;
     }
 
+    if([elementName isEqualToString:@"SelectAllCustomerResult"])
+    {
+        _custmrdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"CustomerName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"EmployeeselectResult"])
+    {
+        _empydict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
     
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -677,7 +866,8 @@
     {
         
         recordresults = FALSE;
-        _usrmdl.username=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];        _soapResults = nil;
+        _usrmdl.username=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        _soapResults = nil;
     }
     if([elementName isEqualToString:@"Password"])
     {
@@ -688,19 +878,54 @@
         _soapResults = nil;
     }
 
-    if([elementName isEqualToString:@"UserTypeId"])
+    if([elementName isEqualToString:@"userTypeId"])
     {
         recordresults = FALSE;
         usertypename=_soapResults;
         _soapResults = nil;
 
             }
-    if([elementName isEqualToString:@"UserTypeName"])
+    if([elementName isEqualToString:@"userTypeName"])
     {
         recordresults = FALSE;
         [_Nametypeusrdict setObject:usertypename forKey:_soapResults];
         _soapResults = nil;
 
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        recordresults = FALSE;
+        custmrid=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"CustomerName"])
+    {
+        recordresults = FALSE;
+        [_custmrdict setObject:custmrid forKey:_soapResults];
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        recordresults = FALSE;
+        empid=_soapResults;
+        _soapResults = nil;
+
+
+    }
+    if([elementName isEqualToString:@"vf_name"])
+    {
+        recordresults = FALSE;
+        empname=_soapResults;
+        _soapResults = nil;
+    
+    }
+    if([elementName isEqualToString:@"vl_name"])
+    {
+        recordresults = FALSE;
+        [_empydict setObject:empid forKey:[NSString stringWithFormat:@"%@%@",empname,_soapResults]];
+        _soapResults = nil;
     }
 
 }
@@ -716,6 +941,8 @@
     _navitem.title=@"ADD";
     _pswdtextfld.text=@"";
     _usrnametextfld.text=@"";
+    [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
 -(IBAction)edituserview:(id)sender
 {
@@ -768,7 +995,22 @@
 - (IBAction)usertype2btn:(id)sender {
     poptype=2;
       [self createpopover];
-     [self SelectAllCustomer];
+    tyid=[[_Nametypeusrdict objectForKey:_type1btnlbl.titleLabel.text]integerValue];
+    
+    switch (tyid) {
+        case 2:
+            [self Employeeselect];
+            break;
+        case 3:
+            [self SelectAllCustomer];
+            break;
+        case 4:
+            break;
+            
+        default:
+            break;
+    }
+
 }
 -(IBAction)insertuser:(id)sender
 {
@@ -795,6 +1037,9 @@
         [self InsertUsers];
         _usrnametextfld.text=@"";
         _pswdtextfld.text=@"";
+        [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            
         }
     }
     else if(optionIdentifier==2)
@@ -820,6 +1065,8 @@
         [self UpdateUsers];
         _usrnametextfld.text=@"";
         _pswdtextfld.text=@"";
+        [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
         }
     }
 }
@@ -827,6 +1074,8 @@
 {
     _usrnametextfld.text=@"";
     _pswdtextfld.text=@"";
+    [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
 #pragma mark-create popover
 -(void)createpopover{
