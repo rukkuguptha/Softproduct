@@ -20,9 +20,20 @@
     NSInteger webtype;
     NSInteger poptype;
     NSString*usertypename;
+    NSInteger tyid;
+     NSString* custmrid;
+    NSInteger  insrtpath;
+    NSInteger usertyid;
+    NSString *empid;
+    NSString *empname;
 }
+@property(strong,nonatomic)NSArray *custmrrarry;
+@property(strong,nonatomic)NSMutableDictionary *custmrdict;
+@property(strong,nonatomic)NSArray *empyarry;
+@property(strong,nonatomic)NSMutableDictionary *empydict;
 
-@property(strong,nonatomic)NSMutableArray *Nametypeusrarry;
+
+@property(strong,nonatomic)NSArray *Nametypeusrarry;
 @property(strong,nonatomic)NSMutableDictionary *Nametypeusrdict;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)listusermdl *usrmdl;
