@@ -8,11 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeadsViewController">
             <connections>
                 <outlet property="citytxtfld" destination="47" id="92"/>
-                <outlet property="cmpnynametxtfld" destination="41" id="89"/>
                 <outlet property="cmtnav" destination="126" id="132"/>
                 <outlet property="cmttable" destination="130" id="134"/>
                 <outlet property="cmttxtbox" destination="137" id="143"/>
                 <outlet property="commentview" destination="124" id="131"/>
+                <outlet property="companybtn" destination="hXK-g4-AO2" id="L4J-Ny-Rlq"/>
                 <outlet property="composecmtview" destination="135" id="144"/>
                 <outlet property="contactnametxtfld" destination="43" id="90"/>
                 <outlet property="contacttiletxtfld" destination="59" id="98"/>
@@ -165,12 +165,16 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="41">
-                                    <rect key="frame" x="36" y="156" width="220" height="30"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hXK-g4-AO2">
+                                    <rect key="frame" x="36" y="154" width="219" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
+                                    <state key="normal" title="Button" backgroundImage="textbox.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="selectcompany:" destination="-1" eventType="touchUpInside" id="3Gk-J9-Xaf"/>
+                                    </connections>
+                                </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Contact Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="42">
                                     <rect key="frame" x="36" y="210" width="147" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -505,5 +509,6 @@
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="rectangle3.png" width="551" height="327"/>
         <image name="squareimage1.png" width="300" height="400"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

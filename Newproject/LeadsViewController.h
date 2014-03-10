@@ -17,6 +17,8 @@
     NSInteger poptype;
     BOOL recordResults;
     NSInteger butnidtfr;
+    UIButton *button;
+    NSInteger btnindex;
   }
 @property(readwrite)  NSInteger leadID;
 
@@ -79,6 +81,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *industrytypetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *prjctexcutntxtfld;
 @property(strong,nonatomic)IBOutlet UIButton *leadstatusBtn;
+@property(strong,nonatomic)IBOutlet UIButton *companybtn;
 @property (strong, nonatomic)commentmdl*cmtmdl;
 @property (strong, nonatomic) UIBarButtonItem*Editbtn;
 - (IBAction)leadtypebtn:(id)sender;
@@ -89,6 +92,7 @@
 
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
+- (IBAction)selectcompany:(id)sender;
 
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*CommentsArray;
@@ -98,7 +102,12 @@
 @property (strong, nonatomic)NSMutableArray*industrytypeArray;
 @property (strong, nonatomic)NSMutableArray*prjctexcutnArray;
 @property(strong,nonatomic)NSMutableArray *leadStatusArray;
+@property(strong,nonatomic)NSMutableArray *companylistArray;
+/*dict*/
+@property(strong,nonatomic)NSMutableDictionary *companydict;
 
+
+@property(strong,nonatomic)NSMutableString *companystring;
 /*models */
 @property(strong,nonatomic)Infoleads*infoleads;
 

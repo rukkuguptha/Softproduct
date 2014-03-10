@@ -43,6 +43,7 @@
 		64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64955C99180E52D5000A86A1 /* WebViewController.m */; };
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
+		649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */; };
 		649E0BF41862D5D500A71030 /* custonfldrrigtscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E0BF31862D5D500A71030 /* custonfldrrigtscell.xib */; };
 		649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7B18615A240010CBD8 /* customequipcell.xib */; };
 		649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */; };
@@ -307,6 +308,7 @@
 		649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalesRepInfoViewController.h; sourceTree = "<group>"; };
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
+		649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendEmployeeview.xib; sourceTree = "<group>"; };
 		649E0BF31862D5D500A71030 /* custonfldrrigtscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custonfldrrigtscell.xib; sourceTree = "<group>"; };
 		649E1F7B18615A240010CBD8 /* customequipcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = customequipcell.xib; path = ../customequipcell.xib; sourceTree = "<group>"; };
 		649E1F7D18617ECD0010CBD8 /* MaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsViewController.h; sourceTree = "<group>"; };
@@ -1023,6 +1025,7 @@
 				D4FED40D17F16EED004BE242 /* VerificationViewController.m */,
 				D4FED40E17F16EEE004BE242 /* VerificationViewController.xib */,
 				D43A395C18C993B00099EF7B /* NVerificationViewController.xib */,
+				649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */,
 				D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */,
 				D4E658BF17F2A54F00202B14 /* I9view.xib */,
 				64955C98180E52D5000A86A1 /* WebViewController.h */,
@@ -1168,6 +1171,7 @@
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
+				649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				D4F036C718B70A38003A668C /* Wrkschdulecell.xib in Resources */,
