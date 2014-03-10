@@ -15,8 +15,17 @@
 @interface ProcesshrViewController : UIViewController<ProcesssectionheaderviewDelegate>{
     BOOL   recordResults;
     NSInteger selectedsectn;
+    
 }
 
+
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
+
+
+
+@property(readwrite)NSInteger Applicantid;
 @property(strong,nonatomic)VerificationViewController *verifictnVCtrl;
 @property(strong,nonatomic)Empdetails*empdetl;
 

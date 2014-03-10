@@ -12,7 +12,7 @@
 
 @end
 #define DEFAULT_ROW_HEIGHT 78
-#define HEADER_HEIGHT 45
+#define HEADER_HEIGHT 60
 
 
 @implementation ProcesshrViewController
@@ -959,6 +959,10 @@ return aSection.newsectionHeaderView;
     //Section *aSection = [self.sectionArray objectAtIndex:viewopened];
     
     selectedsectn=viewopened;
+    Empdetails*empdet=(Empdetails *)[_newprocesssarray objectAtIndex:viewopened];
+    _Applicantid=empdet.applicantid;
+
+    
     NSInteger previousOpenviewIndex = self.openviewIndex;
     
     if (previousOpenviewIndex != NSNotFound) {
@@ -1015,14 +1019,71 @@ return aSection.newsectionHeaderView;
     }
     
     //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-    
+    _verifictnVCtrl.applicantid=_Applicantid;
     [self presentViewController:_verifictnVCtrl
                        animated:YES completion:NULL];
 
 }
+-(void)senttojob:(NSString *)nwstrg{
+    if (!_verifictnVCtrl) {
+        self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"NVerificationViewController" bundle:nil];
+    }
+    
+    //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _verifictnVCtrl.applicantid=_Applicantid;
+    [self presentViewController:_verifictnVCtrl
+                       animated:YES completion:NULL];
+}
 
+#pragma mark-popover
+-(void)commentpopover{
+    
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 531, 544)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    
+    
+    //[popoverView addSubview:self.commentview];
+    //self.commentview.hidden=NO;
+    // CGRect rect = frame;
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(531, 544);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    //    UIButton *button=(UIButton *)nil;
+    //
+    //    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    //    UITableView *table = (UITableView *)[cell superview];
+    //    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    //
+    
+    
+    
+    [self.popOverController presentPopoverFromRect: CGRectMake(380, 120, 300, 500)                                        inView:self.view
+                          permittedArrowDirections:nil
+                                          animated:YES];
+    
+    
+    
+}
 
-//#pragma mark-
 #pragma mark-Button Actions
 
 - (IBAction)prcessclsebtn:(id)sender {

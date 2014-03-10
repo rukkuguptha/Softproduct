@@ -16,9 +16,11 @@
     //UILabel *proecsslbl;
 }
 @property (nonatomic, strong) UILabel *proecsslbl;
+@property (nonatomic, strong) UILabel *proecsslbl2;
 @property (nonatomic, weak) UILabel *titleLabel;
 @property (nonatomic, weak) UILabel *nameLabel;
 @property (nonatomic, strong) UIView *animatedview;
+@property (nonatomic, strong) UIView *animatedview2;
 @property (nonatomic, weak) UIButton *disclosureButton;
 @property (nonatomic, weak) UIButton *DetailButton;
 @property (nonatomic, assign) NSInteger section;
@@ -44,6 +46,8 @@
 +(void)showhidepopoverview:(Processsectionheaderview*)sectionHeaderView popoveropened:(NSInteger)section;
 -(void)navigatetoVctrl:(NSString *)s;
 -(void)Jobview:(NSString *)nwstrg;
+-(void)senttojob:(NSString *)nwstrg;
+
 -(void)sectionHeaderView:(Processsectionheaderview *)sectionHeaderView viewopened:(NSInteger)section;
 -(void)sectionHeaderView:(Processsectionheaderview*)sectionHeaderView viewclosed:(NSInteger)section;
 

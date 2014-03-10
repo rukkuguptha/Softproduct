@@ -28,6 +28,8 @@
     [super viewDidLoad];
       
     // Do any additional setup after loading the view from its nib.
+    _userdict=[[NSMutableDictionary alloc]init];
+    [_userdict setObject:@"Admin" forKey:@"1"];
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //_view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
 _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -56,7 +58,10 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
     __requirmentview.hidden=NO;
 
-    [self FetchApplicant];
+    [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+    [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+    [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+    [self FetchApplicantId];
     NSLog(@"Applicnt %d",_applicantid);
 
     
@@ -91,33 +96,79 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
 }
 
 - (IBAction)i9action:(id)sender {
+    _cmmnttextview.text=@"";
+    _verfylbl.text=@"";
     
     i9clck ++;
-    if (i9clck%2) {
+    if (!i9clck%2) {
         
        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
         
     }
     
     else{
+       _type=@"I9";
        
          [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+          [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+          [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+         [self SelectVerificationcomment];
         
     }
 
 }
 
 - (IBAction)bgaction:(id)sender {
+    _cmmnttextview.text=@"";
+    _verfylbl.text=@"";
+    bgclck++;
+    if (!bgclck%2) {
+        
+        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        
+    }
+    
+    else{
+        _type=@"BackGround";
+
+        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+
+ [self SelectVerificationcomment];
+        
+    }
+
     
 }
 
 - (IBAction)ssnaction:(id)sender {
-    //if()
+    _cmmnttextview.text=@"";
+    _verfylbl.text=@"";
+ssnclck++;
+    if (!ssnclck%2) {
+        
+        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        
+        
+    }
+    
+    else{
+        _type=@"SSN";
+        
+        [_ssnbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Selected"] forState:UIControlStateNormal];
+        [_i9btnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [_bgbtnlbl setImage:[UIImage imageNamed:@"RadioButton-Unselected"] forState:UIControlStateNormal];
+        [self SelectVerificationcomment];
+        
+    }
+
         
     
     
 }
 - (IBAction)savebtn:(id)sender {
+    [self InsertVerificationComments];
     
 }
 
@@ -212,6 +263,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
         }
     }
         // Return the number of rows in the section.
+    return YES;
     }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -354,7 +406,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
 
 
 
--(void)FetchApplicant{
+-(void)FetchApplicantId{
     testint=1;
     recordResults = FALSE;
     NSString *soapMessage;
@@ -367,11 +419,11 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
                    
                    "<soap:Body>\n"
                    
-                   "<FetchApplicant xmlns=\"http://ios.kontract360.com/\">\n"
-                   
-                   "</FetchApplicant>\n"
+                   "<FetchApplicantId xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<applicant_Id>%d</applicant_Id>\n"
+                   "</FetchApplicantId>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",_applicantid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -384,7 +436,119 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/FetchApplicant" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FetchApplicantId" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SelectVerificationcomment{
+      recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectVerificationcomment xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Applicant_Id>%d</Applicant_Id>\n"
+                   "<Type>%@</Type>\n"
+                   "</SelectVerificationcomment>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_applicantid,_type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectVerificationcomment" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)InsertVerificationComments{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+//    if (ssnclck%2!=0) {
+//        _type=@"SSN";
+//    }
+//    if (i9clck%2!=0) {
+//        _type=@"I9";
+//    }
+//    if (bgclck%2!=0) {
+//        _type=@"BackGround";
+//    }
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertVerificationComments xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Applicant_Id>%d</Applicant_Id>\n"
+                   "<user_Id>%d</user_Id>\n"
+                   "<comment>%@</comment>\n"
+                   "<type>%@</type>\n"
+                   "</InsertVerificationComments>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_applicantid,1,_cmmnttextview.text,_type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertVerificationComments" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -737,16 +901,16 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
         
     }
     
-    if([elementName isEqualToString:@"InsertApplicantRequirementsResult"])
+    if([elementName isEqualToString:@"applicant_I9Status"])
     {
-        _requirementArray=[[NSMutableArray alloc]init];
+       
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Requirement_Id"])
+    if([elementName isEqualToString:@"SSNStatus"])
     {
         if(!_soapResults)
         {
@@ -756,7 +920,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     }
     
     
-    if([elementName isEqualToString:@"ItemName"])
+    if([elementName isEqualToString:@"BGStatus"])
     {
         if(!_soapResults)
         {
@@ -850,17 +1014,16 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SelectDocsResult"])
+    if([elementName isEqualToString:@"SelectVerificationcommentResult"])
     {
-        _docsarray=[[NSMutableArray alloc]init];
-        _docspathDict=[[NSMutableDictionary alloc]init];
+       
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Column1"])
+    if([elementName isEqualToString:@"EntryId"])
     {
         if(!_soapResults)
         {
@@ -868,7 +1031,16 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"FolderName"])
+
+    if([elementName isEqualToString:@"User_Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Comment"])
     {
         if(!_soapResults)
         {
@@ -1020,8 +1192,7 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
            NSLog(@"Appid%d",_verfymdl.applicantid);
         NSLog(@"Appid%d",_applicantid);
 
-        [_Fetchdetailsarray addObject:_verfymdl];
-
+       
 //        if (_applicantid==  _verfymdl.applicantid) {
 //        _verfymdl.craftid=_soapResults;
 //       
@@ -1038,7 +1209,34 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
         _soapResults = nil;
 
     }
+    if([elementName isEqualToString:@"applicant_I9Status"])
+    {
+        recordResults = FALSE;
+      
+     _verfymdl.i9status=_soapResults;
+        
+         _soapResults = nil;
     
+    }
+    
+    
+    if([elementName isEqualToString:@"BGStatus"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.bgstatus=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SSNStatus"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.ssnstatus=_soapResults;
+        [_Fetchdetailsarray addObject:_verfymdl];
+        
+        _soapResults = nil;
+    }
+
 
     if([elementName isEqualToString:@"Requirement_Id"])
     {
@@ -1174,6 +1372,37 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     }
 
     
+    
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        recordResults=FALSE;
+        _soapResults=nil;
+
+    }
+    if([elementName isEqualToString:@"Applicant_Id"])
+    {
+        recordResults=FALSE;
+        _soapResults=nil;
+        
+    }
+
+    
+    if([elementName isEqualToString:@"User_Id"])
+    {
+        recordResults=FALSE;
+        _verfylbl.text=[_userdict objectForKey:_soapResults];
+        
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"Comment"])
+    {
+        recordResults=FALSE;
+        _cmmnttextview.text=_soapResults;
+        
+        _soapResults=nil;
+    }
+    
+
    
 
 

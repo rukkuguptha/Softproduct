@@ -25,5 +25,8 @@
 @property(strong,nonatomic)NSString*zip;
 @property(strong,nonatomic)NSString*jobsiteid;
 @property(strong,nonatomic)NSString*craftid;
+@property(strong,nonatomic)NSString*ssnstatus;
+@property(strong,nonatomic)NSString*i9status;
+@property(strong,nonatomic)NSString*bgstatus;
 
 @end

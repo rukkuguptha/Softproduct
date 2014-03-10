@@ -23,7 +23,9 @@
     NSInteger ssnclck;
     NSInteger i9clck;
     NSInteger bgclck;
+    
 }
+@property(strong,nonatomic)NSMutableDictionary *userdict;
 @property (strong, nonatomic)Coursemdl*coursemdl;
 
 @property (strong, nonatomic)Verfymdl*verfymdl;
@@ -36,6 +38,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *ssnlbltext;
 
 @property (strong, nonatomic) IBOutlet UITabBar *tabbar;
+@property (strong, nonatomic) NSString *type;
 - (IBAction)requrmntactn:(id)sender;
 - (IBAction)i9action:(id)sender;
 - (IBAction)bgaction:(id)sender;
@@ -114,6 +117,11 @@
 
 @property(strong,nonatomic)NSString *doc;
 @property(strong,nonatomic)WebViewController *webctrl;
+
+@property (strong, nonatomic) IBOutlet UILabel *verfylbl;
+
+@property (strong, nonatomic) IBOutlet UITextView *cmmnttextview;
+
 - (IBAction)clsebtn:(id)sender;
 
 @end

@@ -10,6 +10,7 @@
                 <outlet property="Addresstxtfld" destination="cUA-mf-wcW" id="izj-Va-t6B"/>
                 <outlet property="bgbtnlbl" destination="4p6-BP-cYW" id="fpB-pL-8sw"/>
                 <outlet property="citytxtfld" destination="dLR-8y-cYl" id="2el-W2-2xR"/>
+                <outlet property="cmmnttextview" destination="Ja3-rp-Yb1" id="bdJ-Di-wGW"/>
                 <outlet property="firstnametxtfld" destination="Z9u-1a-A8N" id="W30-dH-J1t"/>
                 <outlet property="i9btnlbl" destination="H6w-mc-RPt" id="mtx-nv-Zw3"/>
                 <outlet property="lastnametxtfld" destination="Oja-Ng-BLL" id="v9D-pL-vou"/>
@@ -20,6 +21,7 @@
                 <outlet property="statetxtfld" destination="CRE-no-6yk" id="NHc-dc-T4J"/>
                 <outlet property="suffixtxtfld" destination="gwS-Ru-Pdy" id="vpi-Ue-xqA"/>
                 <outlet property="uploadbtnlbl" destination="lOV-Ur-NGD" id="RHs-CK-PYg"/>
+                <outlet property="verfylbl" destination="qCY-Vb-YF1" id="eTw-i0-XnM"/>
                 <outlet property="view" destination="1" id="eFI-v8-Q79"/>
                 <outlet property="ziptextfld" destination="b4s-sF-oRf" id="JOZ-Zt-Prp"/>
             </connections>

@@ -12,7 +12,7 @@
 
 @implementation Processsectionheaderview
 
-@synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section,proecsslbl;
+@synthesize titleLabel=_titleLabel, disclosureButton=_disclosureButton, delegate=_delegate, section=_section,proecsslbl,proecsslbl2;
 
 
 + (Class)layerClass {
@@ -79,7 +79,7 @@
         
         //create uiview
         _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
-        _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
+        _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
         proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
         proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
         proecsslbl.textColor=[UIColor blackColor];
@@ -91,9 +91,27 @@
         
         [self addSubview:_animatedview];
         
+        _animatedview2=[[UIView alloc]initWithFrame:CGRectMake(250, 30, 0, 25)];
+        _animatedview2.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+        proecsslbl2=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+        proecsslbl2.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+        proecsslbl2.textColor=[UIColor blackColor];
+        proecsslbl2.text=@"SendtoEmployee";
+        [self.animatedview2 addSubview:proecsslbl2];
+        proecsslbl2.hidden=YES;
+        UITapGestureRecognizer *tap11= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sentjob)];
+        [self.animatedview2 addGestureRecognizer:tap11];
+        
+        [self addSubview:_animatedview2];
+
+        
+        
        }
     
     return self;
+}
+-(void)sentjob{
+    [[self delegate]senttojob:@"r"];
 }
 -(void)newjobview{
     [[self delegate]Jobview:@"n"];
@@ -148,10 +166,15 @@
     if (userAction) {
         if (self.disclosureButton.selected) {
             _animatedview.hidden=NO;
+            _animatedview2.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
                 .frame =  CGRectMake(250, 5, 100, 25);} completion:nil];
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview2
+                .frame =  CGRectMake(250, 30, 100, 25);} completion:nil];
             [self.delegate sectionHeaderView:self viewopened:self.section];
             proecsslbl.hidden=NO;
+            proecsslbl2.hidden=NO;
+
             
             
             
@@ -159,8 +182,12 @@
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
                 .frame =  CGRectMake(250, 5, 0, 25);} completion:nil];
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview2
+                .frame =  CGRectMake(250, 30, 0, 25);} completion:nil];
+
             [self.delegate sectionHeaderView:self viewclosed:self.section];
             proecsslbl.hidden=YES;
+            proecsslbl2.hidden=YES;
             
         }
         
