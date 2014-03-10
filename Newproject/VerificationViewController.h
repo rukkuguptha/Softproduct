@@ -23,6 +23,7 @@
     NSInteger ssnclck;
     NSInteger i9clck;
     NSInteger bgclck;
+    NSInteger webtype;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *userdict;
@@ -123,5 +124,39 @@
 @property (strong, nonatomic) IBOutlet UITextView *cmmnttextview;
 
 - (IBAction)clsebtn:(id)sender;
+
+
+/*sendtojob*/
+@property (strong, nonatomic)NSString *crftid;
+@property (strong, nonatomic)NSString *skillid;
+@property (strong, nonatomic)NSString *jobsiteid;
+@property (strong, nonatomic)NSMutableDictionary *jobsitedict;
+@property (strong, nonatomic)NSMutableArray *jobsitearray;
+
+@property (strong, nonatomic)NSMutableDictionary *craftdict;
+@property (strong, nonatomic)NSMutableArray *craftarray;
+@property (strong, nonatomic)NSMutableDictionary *skilldict;
+@property (strong, nonatomic)NSMutableArray *skillarray;
+
+
+/*outlts*/
+ 
+@property (strong, nonatomic) IBOutlet UITextField *namefirsttxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *namelasttxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *jobssntxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *dobbtnlbl;
+@property (strong, nonatomic) IBOutlet UITextField *skilltxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *craftbtnlbl;
+@property (strong, nonatomic) IBOutlet UITextField *payratetxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *jobdobtxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *jobsitebtnlbl;
+- (IBAction)dobbtn:(id)sender;
+
+- (IBAction)craftbtn:(id)sender;
+
+- (IBAction)jobsitebtn:(id)sender;
+
+- (IBAction)movebtn:(id)sender;
 
 @end

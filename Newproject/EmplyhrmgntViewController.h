@@ -7,12 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Empmdl.h"
 @interface EmplyhrmgntViewController : UIViewController
 {
     NSInteger Path;
+       BOOL recordResults;
+    NSInteger webtype;
     
 }
+@property(strong,nonatomic)Empmdl *empmdl;
+@property (strong, nonatomic)NSString *jobsiteid;
+@property (strong, nonatomic)NSMutableDictionary *jobsitedict;
+@property (strong, nonatomic)NSMutableArray *jobsitearray;
+/*xmlparse*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 
 /*IBAction*/

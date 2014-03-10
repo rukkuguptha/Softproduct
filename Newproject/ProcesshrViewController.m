@@ -970,12 +970,20 @@ return aSection.newsectionHeaderView;
         previousOpenSection.open=NO;
         [previousOpenSection.newsectionHeaderView showviewWithUserAction:NO];
         NSInteger countOfRowsToDelete = [previousOpenSection.sectionRows count];
+        
         for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
             previousOpenSection.newsectionHeaderView.proecsslbl.hidden=YES;
+            previousOpenSection.newsectionHeaderView.proecsslbl2.hidden=YES;
+
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.newsectionHeaderView.animatedview
                 .frame =  CGRectMake(250, 5, 0, 0);} completion:nil];
             
             previousOpenSection.newsectionHeaderView.animatedview.hidden=YES;
+            
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{   previousOpenSection.newsectionHeaderView.animatedview2
+                .frame =  CGRectMake(250, 30, 0, 0);} completion:nil];
+            
+            previousOpenSection.newsectionHeaderView.animatedview2.hidden=YES;
             
             
         }
@@ -1026,10 +1034,10 @@ return aSection.newsectionHeaderView;
 }
 -(void)senttojob:(NSString *)nwstrg{
     if (!_verifictnVCtrl) {
-        self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"NVerificationViewController" bundle:nil];
+        self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"SendEmployeeview" bundle:nil];
     }
     
-    //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _verifictnVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _verifictnVCtrl.applicantid=_Applicantid;
     [self presentViewController:_verifictnVCtrl
                        animated:YES completion:NULL];

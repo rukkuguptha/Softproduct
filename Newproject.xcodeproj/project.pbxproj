@@ -216,6 +216,7 @@
 		D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7A29317F55B2400880E38 /* Empdetails.m */; };
 		D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */; };
 		D4DC425B178568BB0035A873 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC425A178568BB0035A873 /* Base64.m */; };
+		D4DD31BF18CDAF9800CA2A33 /* Empmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */; };
 		D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */; };
 		D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */; };
 		D4DEEDDD17F428D40096A908 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */; };
@@ -537,6 +538,8 @@
 		D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = requirmentcell.xib; sourceTree = "<group>"; };
 		D4DC4259178568B40035A873 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = ../Base64.h; sourceTree = "<group>"; };
 		D4DC425A178568BB0035A873 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = ../Base64.m; sourceTree = "<group>"; };
+		D4DD31BD18CDAF9800CA2A33 /* Empmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empmdl.h; sourceTree = "<group>"; };
+		D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empmdl.m; sourceTree = "<group>"; };
 		D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDocViewController.h; sourceTree = "<group>"; };
 		D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadDocViewController.m; sourceTree = "<group>"; };
 		D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadDocViewController.xib; sourceTree = "<group>"; };
@@ -998,6 +1001,8 @@
 				643118A518C737560061A276 /* Crewmodel.m */,
 				64A07BD418C8321F00B2F9D5 /* vendermodel.h */,
 				64A07BD518C8321F00B2F9D5 /* vendermodel.m */,
+				D4DD31BD18CDAF9800CA2A33 /* Empmdl.h */,
+				D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1298,6 +1303,7 @@
 				649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */,
 				D4E1579817744013002764AB /* CommentsViewController.m in Sources */,
 				D400406F185B181500C38E12 /* ManViewController.m in Sources */,
+				D4DD31BF18CDAF9800CA2A33 /* Empmdl.m in Sources */,
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */,
 				64F9798C185EDB5400E7722B /* UsersViewController.m in Sources */,
