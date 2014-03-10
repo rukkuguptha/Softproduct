@@ -126,7 +126,7 @@
     }];
 
     
-    
+    [self SelectAllCustomer];
 
 
 }
@@ -195,6 +195,9 @@ else{
               return [_popoverArray count];
              case 6:
                 return [_leadStatusArray count];
+                break;
+            case 7:
+                return [_companylistArray count];
                 break;
 
             default:
@@ -283,6 +286,11 @@ if (tableView==_leadTable) {
                               break;
             case 6:
                 cell.textLabel.text=[_leadStatusArray objectAtIndex:indexPath.row];
+                
+                break;
+                break;
+            case 7:
+                cell.textLabel.text=[_companylistArray objectAtIndex:indexPath.row];
                 
                 break;
 
@@ -418,7 +426,14 @@ if (tableView==_leadTable) {
                  
                  break;
 
+             case 7:
                  
+                 [_companybtn setTitle:[_companylistArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 
+                 
+                 
+                 break;
+
              default:
                  break;
          }
@@ -472,16 +487,15 @@ if (tableView==_leadTable) {
         
     }];
 
-    UIButton *button = (UIButton *)sender;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.leadTable];
+    NSIndexPath *textFieldIndexPath = [self.leadTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
     
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    UITableView *table = (UITableView *)[cell superview];
-    _Path = [table indexPathForCell:cell];
-   
-     NSLog(@"indexpath%d",_Path.row);
     
-    
-    Infoleads*info1=(Infoleads*)[_leadinfoArray objectAtIndex:_Path.row];
+    Infoleads*info1=(Infoleads*)[_leadinfoArray objectAtIndex:btnindex];
     
     _cmpnynametxtfld.text=info1.companyname;
     _contactnametxtfld.text=info1.contactName;
@@ -504,6 +518,7 @@ if (tableView==_leadTable) {
     
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
+    [self SelectAllCustomer];
 
 
    
@@ -748,14 +763,21 @@ if (tableView==_leadTable) {
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
     
     
-    UIButton *button = (UIButton *)sender;
+   
     
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    UITableView *table = (UITableView *)[cell superview];
+//    NSIndexPath *IndexPath = [table indexPathForCell:cell];
+    button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    UITableView *table = (UITableView *)[cell superview];
-    NSIndexPath *IndexPath = [table indexPathForCell:cell];
-    
-    _Path=IndexPath;
-    Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:IndexPath.row];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.leadTable];
+    NSIndexPath *textFieldIndexPath = [self.leadTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+
+    // _Path=IndexPath;
+    Infoleads*info=(Infoleads*)[_leadinfoArray objectAtIndex:btnindex];
     _leadID=info.leadid;
 
     
@@ -815,6 +837,38 @@ if (tableView==_leadTable) {
     }
     
     [self getLeads];
+}
+- (IBAction)selectcompany:(id)sender
+{
+    poptype=7;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+    
+    popoverView.backgroundColor = [UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    [self.popOverController presentPopoverFromRect:_companybtn.frame
+                                            inView:self.view2
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+
 }
 
 
@@ -975,7 +1029,7 @@ if (tableView==_leadTable) {
                    
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_cmpnynametxtfld.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,_statetxtfld.text,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue] ];
+                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,_statetxtfld.text,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue] ];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1062,6 +1116,56 @@ if (tableView==_leadTable) {
 
     
 }
+-(void)SelectAllCustomer{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllCustomer xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllCustomer>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 -(void)DeleteLead{
     recordResults = FALSE;
@@ -1301,7 +1405,7 @@ if (tableView==_leadTable) {
     
 
     
-    if([elementName isEqualToString:@"LeadID"])
+    if([elementName isEqualToString:@"LeadId"])
     {
         if(!_soapResults)
         {
@@ -1433,7 +1537,7 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SaveLeadResult"])
+    if([elementName isEqualToString:@"BidStatus"])
     {
         if(!_soapResults)
         {
@@ -1441,75 +1545,7 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
-    
-
-    if([elementName isEqualToString:@"Column1"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-
-    }
-
-    
-    
-    if([elementName isEqualToString:@"DeleteLeadResult"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-          }
-    if([elementName isEqualToString:@"msg"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"LeadId"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
-    
-        if([elementName isEqualToString:@"LeadCommentsListResult"])
-    {
-        _CommentsArray=[[NSMutableArray alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"Comments"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
-    if([elementName isEqualToString:@"CommentDate"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
-    
-    if([elementName isEqualToString:@"UserId"])
+    if([elementName isEqualToString:@"ID"])
     {
         if(!_soapResults)
         {
@@ -1518,14 +1554,130 @@ if (tableView==_leadTable) {
         recordResults = TRUE;
     }
 
+    
+//
+//    if([elementName isEqualToString:@"SaveLeadResult"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    
+//
+//    if([elementName isEqualToString:@"Column1"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//
+//    }
+//
+//    
+//    
+//    if([elementName isEqualToString:@"DeleteLeadResult"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//          }
+//    if([elementName isEqualToString:@"msg"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"LeadId"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    
+//    
+////        if([elementName isEqualToString:@"LeadCommentsListResult"])
+////    {
+////        _CommentsArray=[[NSMutableArray alloc]init];
+////        if(!_soapResults)
+////        {
+////            _soapResults = [[NSMutableString alloc] init];
+////        }
+////        recordResults = TRUE;
+////    }
+////    if([elementName isEqualToString:@"Comments"])
+////    {
+////        if(!_soapResults)
+////        {
+////            _soapResults = [[NSMutableString alloc] init];
+////        }
+////        recordResults = TRUE;
+////    }
+////    
+////    if([elementName isEqualToString:@"CommentDate"])
+////    {
+////        if(!_soapResults)
+////        {
+////            _soapResults = [[NSMutableString alloc] init];
+////        }
+////        recordResults = TRUE;
+////    }
+////    
+////    
+////    if([elementName isEqualToString:@"UserId"])
+////    {
+////        if(!_soapResults)
+////        {
+////            _soapResults = [[NSMutableString alloc] init];
+////        }
+////        recordResults = TRUE;
+////    }
+////
+////    if([elementName isEqualToString:@"Id"])
+////    {
+////        if(!_soapResults)
+////        {
+////            _soapResults = [[NSMutableString alloc] init];
+////        }
+////        recordResults = TRUE;
+////    }
+    if([elementName isEqualToString:@"SelectAllCustomerResult"])
+    {
+        _companylistArray=[[NSMutableArray alloc]init];
+        _companydict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     if([elementName isEqualToString:@"Id"])
     {
+        
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CustomerName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     
 
@@ -1555,7 +1707,7 @@ if (tableView==_leadTable) {
               _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"LeadID"])
+    if([elementName isEqualToString:@"LeadId"])
     {
         _infoleads=[[Infoleads alloc]init];
         recordResults = FALSE;
@@ -1678,79 +1830,114 @@ if (tableView==_leadTable) {
         
         recordResults = FALSE;
          _infoleads.projectexecutionyear=_soapResults;
+        //[_leadinfoArray addObject:_infoleads];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"BidStatus"])
+    {
+        
+        recordResults = FALSE;
+        _infoleads.bidstatus=_soapResults;
+        //[_leadinfoArray addObject:_infoleads];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"ID"])
+    {
+        
+        recordResults = FALSE;
+        _infoleads.idvalue=[_soapResults integerValue];
         [_leadinfoArray addObject:_infoleads];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SaveLeadResult"])
-    {
-        
-        recordResults = FALSE;
-              _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"Column1"])
-    {
-        
-        recordResults = FALSE;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        [alert show];
-        _soapResults = nil;
-    }
 
-
-      if([elementName isEqualToString:@"msg"])
-    {
-        
-       
-        recordResults = FALSE;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-        [alert show];
-        _soapResults = nil;
-    }
+//
+//    if([elementName isEqualToString:@"SaveLeadResult"])
+//    {
+//        
+//        recordResults = FALSE;
+//              _soapResults = nil;
+//    }
+//    if([elementName isEqualToString:@"Column1"])
+//    {
+//        
+//        recordResults = FALSE;
+//        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//        [alert show];
+//        _soapResults = nil;
+//    }
+//
+//
+//      if([elementName isEqualToString:@"msg"])
+//    {
+//        
+//       
+//        recordResults = FALSE;
+//        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+//        [alert show];
+//        _soapResults = nil;
+//    }
     
-    if([elementName isEqualToString:@"LeadId"])
-    {
-      
-        _infoleads=[[Infoleads alloc]init];
-        recordResults = FALSE;
-        _infoleads.leadid=[_soapResults integerValue];
-       
-        _soapResults = nil;
-    }
-    
-
-
-    if([elementName isEqualToString:@"Comments"])
-    {
-     recordResults = FALSE;
-        _cmtmdl.comments=_soapResults;
-        
-         _soapResults = nil;
-    }
-    
-    if([elementName isEqualToString:@"CommentDate"])
-    {
-        recordResults = FALSE;
-        _cmtmdl.commentdate=_soapResults;
-        [_CommentsArray addObject:_cmtmdl];
-        
-        _soapResults = nil;    }
-    
-    
-    if([elementName isEqualToString:@"UserId"])
-    {
-        recordResults = FALSE;
-        _cmtmdl.userid=[_soapResults integerValue];
-        _soapResults = nil;
-    }
-    
+//    if([elementName isEqualToString:@"LeadId"])
+//    {
+//      
+//        _infoleads=[[Infoleads alloc]init];
+//        recordResults = FALSE;
+//        _infoleads.leadid=[_soapResults integerValue];
+//       
+//        _soapResults = nil;
+//    }
+//    
+//
+//
+//    if([elementName isEqualToString:@"Comments"])
+//    {
+//     recordResults = FALSE;
+//        _cmtmdl.comments=_soapResults;
+//        
+//         _soapResults = nil;
+//    }
+//    
+//    if([elementName isEqualToString:@"CommentDate"])
+//    {
+//        recordResults = FALSE;
+//        _cmtmdl.commentdate=_soapResults;
+//        [_CommentsArray addObject:_cmtmdl];
+//        
+//        _soapResults = nil;    }
+//    
+//    
+//    if([elementName isEqualToString:@"UserId"])
+//    {
+//        recordResults = FALSE;
+//        _cmtmdl.userid=[_soapResults integerValue];
+//        _soapResults = nil;
+//    }
+//    
+//    if([elementName isEqualToString:@"Id"])
+//    {
+//        _cmtmdl=[[commentmdl alloc]init];
+//        recordResults = FALSE;
+//        _cmtmdl.Id=[_soapResults integerValue];
+//
+//        _soapResults = nil;
+//    }
     if([elementName isEqualToString:@"Id"])
     {
-        _cmtmdl=[[commentmdl alloc]init];
+        
         recordResults = FALSE;
-        _cmtmdl.Id=[_soapResults integerValue];
-
+        _companystring=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"CustomerName"])
+    {
+        
+        recordResults = FALSE;
+        [_companydict setObject:_companystring forKey:_soapResults];
+        [_companylistArray addObject:_soapResults];
+        
+        _soapResults = nil;
+    }
+
     
 
     
