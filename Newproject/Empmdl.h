@@ -14,5 +14,5 @@
 @property(strong,nonatomic)NSString *lastname;
 @property(strong,nonatomic)NSString *ssn;
 @property(strong,nonatomic)NSString *jobsite;
-
+@property(strong,nonatomic)NSString*badgeflag;
 @end

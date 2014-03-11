@@ -24,6 +24,7 @@
     NSInteger i9clck;
     NSInteger bgclck;
     NSInteger webtype;
+    NSInteger path;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *userdict;

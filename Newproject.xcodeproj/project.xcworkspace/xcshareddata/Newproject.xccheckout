@@ -12,6 +12,8 @@
 	<dict>
 		<key>0716D7DC-7432-491C-A506-1C7880FFBCC8</key>
 		<string>ssh://github.com/rukkugms/CDKontract.git</string>
+		<key>16E1B89B-9BCF-4DAE-9CA7-6FA01388CB0F</key>
+		<string>ssh://github.com/Riagms/dfkontract.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
@@ -19,13 +21,15 @@
 	<dict>
 		<key>0716D7DC-7432-491C-A506-1C7880FFBCC8</key>
 		<string>../..</string>
+		<key>16E1B89B-9BCF-4DAE-9CA7-6FA01388CB0F</key>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/rukkugms/CDKontract.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>0716D7DC-7432-491C-A506-1C7880FFBCC8</string>
+	<string>16E1B89B-9BCF-4DAE-9CA7-6FA01388CB0F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>0716D7DC-7432-491C-A506-1C7880FFBCC8</string>
 			<key>IDESourceControlWCCName</key>
 			<string>CDKontract</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>16E1B89B-9BCF-4DAE-9CA7-6FA01388CB0F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Kontract</string>
 		</dict>
 	</array>
 </dict>

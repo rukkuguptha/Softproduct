@@ -13,8 +13,17 @@
     NSInteger Path;
        BOOL recordResults;
     NSInteger webtype;
+    UIButton *butn;
+     NSInteger btnindex;
+    NSInteger selectedcell;
     
 }
+@property(readwrite)NSInteger openviewindex;
+@property(readwrite)NSInteger previousopenviewindex;
+
+@property(strong,nonatomic)IBOutlet UIView *animatedview;
+@property(strong,nonatomic)IBOutlet UILabel *badgelbl;
+
 @property(strong,nonatomic)Empmdl *empmdl;
 @property (strong, nonatomic)NSString *jobsiteid;
 @property (strong, nonatomic)NSMutableDictionary *jobsitedict;
@@ -43,5 +52,19 @@
 @property(strong,nonatomic)IBOutlet UILabel *firstnamelabel;
 @property(strong,nonatomic)IBOutlet UILabel *lastnamelabel;
 @property(strong,nonatomic)IBOutlet UILabel *jobsitelabel;
+
+
+@property (strong, nonatomic) IBOutlet UIView *badgeview;
+@property (strong, nonatomic) IBOutlet UITextField *firsttxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *lastnametxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *ssntxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *jobsitetxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *badgenumbrtxtfld;
+
+- (IBAction)savebtn:(id)sender;
+
+- (IBAction)badgeclsebtn:(id)sender;
 
 @end

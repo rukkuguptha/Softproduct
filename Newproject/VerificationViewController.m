@@ -967,6 +967,78 @@ ssnclck++;
     
     
 }
+-(void)EmployeeInsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Verfymdl *verfymdl=(Verfymdl *)[_Fetchdetailsarray objectAtIndex:0];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EmployeeInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<applicant_FirstName>%@</applicant_FirstName>\n"
+                   "<applicant_LastName>%@</applicant_LastName>\n"
+                   "<applicant_SSN>%@</applicant_SSN>\n"
+                   "<applicant_Address>%@</applicant_Address>\n"
+                   "<applicant_CellPhone>%@</applicant_CellPhone>\n"
+                   "<applicant_phone>%@</applicant_phone>\n"
+                   "<applicant_City>%@</applicant_City>\n"
+                   "<applicant_State>%@</applicant_State>\n"
+                   "<applicant_Zip>%@</applicant_Zip>\n"
+                   "<applicant_DOB>%@</applicant_DOB>\n"
+                   "<applicant_DrivingLicense>%@</applicant_DrivingLicense>\n"
+                   "<hiredate>%@</hiredate>\n"
+                   "<applicant_Gender>%@</applicant_Gender>\n"
+                   "<Country_name>%@</Country_name>\n"
+                   "<applicant_Email>%@</applicant_Email>\n"
+                   "<NoOfDependence>%f</NoOfDependence>\n"
+                   "<MaritalStatusId>%@</MaritalStatusId>\n"
+                   "<craftcode>%@</craftcode>\n"
+                   "<payrate>%f</payrate>\n"
+                   "<notrate>%f</notrate>\n"
+                   "<BadgeFlag>%d</BadgeFlag>\n"
+                   "<job_id>%@</job_id>\n"
+                   "</EmployeeInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",verfymdl.firstname,verfymdl.lastname,verfymdl.ssn,verfymdl.address,verfymdl.cellphone,verfymdl.Phonenumber,verfymdl.city,verfymdl.state,verfymdl.zip,verfymdl.dob,verfymdl.drivinglicence,verfymdl.hireddate,verfymdl.gender,verfymdl.country,verfymdl.email,[verfymdl.noofdependcies floatValue],verfymdl.maritalstatusid,[_craftdict objectForKey:_craftbtnlbl.titleLabel.text],[_payratetxtfld.text floatValue],[@"150" floatValue],0,_verfymdl.jobsiteid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EmployeeInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -1015,7 +1087,7 @@ ssnclck++;
 #pragma mark - XMLParser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"FetchApplicantResult"])
+    if([elementName isEqualToString:@"FetchApplicantIdResult"])
     {
         _Fetchdetailsarray=[[NSMutableArray alloc]init];
                 if(!_soapResults)
@@ -1116,6 +1188,85 @@ ssnclck++;
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"applicant_phone"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"applicant_DrivingLicense"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_Gender"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_HiredDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"country_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"applicant_Email"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"NoOfDependents"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"MaritalStatusId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+
+
+
     if([elementName isEqualToString:@"applicant_Skill"])
     {
         if(!_soapResults)
@@ -1468,7 +1619,7 @@ ssnclck++;
     if([elementName isEqualToString:@"applicant_CellPhone"])
     { recordResults = FALSE;
        
-        _verfymdl.Phonenumber=_soapResults;
+        _verfymdl.cellphone=_soapResults;
         
         _soapResults = nil;
     }
@@ -1524,15 +1675,95 @@ ssnclck++;
         NSString *date1 =[array objectAtIndex:0];
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        
         NSDate *dates = [dateFormat dateFromString:date1];
-        [dateFormat setDateFormat:@"MM-dd-yyy"];
+                [dateFormat setDateFormat:@"MM-dd-yyy"];
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        _verfymdl.dob=_soapResults;
         _jobdobtxtfld.text=myFormattedDate;
 
           _soapResults = nil;
 
         
     }
+    if([elementName isEqualToString:@"applicant_phone"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.Phonenumber=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    
+    if([elementName isEqualToString:@"applicant_DrivingLicense"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.drivinglicence=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"applicant_Gender"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.gender=_soapResults;
+        
+        _soapResults = nil;
+
+        
+    }
+    if([elementName isEqualToString:@"applicant_HiredDate"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.hireddate=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"country_name"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.country=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    
+    if([elementName isEqualToString:@"applicant_Email"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.email=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"NoOfDependents"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.noofdependcies=_soapResults;
+        
+        _soapResults = nil;
+
+        
+    }
+    
+    if([elementName isEqualToString:@"MaritalStatusId"])
+    {
+        recordResults = FALSE;
+        
+        _verfymdl.maritalstatusid=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"applicant_Skill"])
     {
       recordResults = FALSE;
@@ -1984,5 +2215,6 @@ ssnclck++;
 }
 
 - (IBAction)movebtn:(id)sender {
+    [self EmployeeInsert];
 }
 @end

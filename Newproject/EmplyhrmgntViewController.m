@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+      self.openviewindex=NSNotFound;
     _mgmttableview.layer.borderWidth = 2.0;
     _mgmttableview.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     
@@ -48,6 +48,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
       [self SelectAllJobSites];
+   
    
     
 }
@@ -84,11 +85,6 @@
         [[NSBundle mainBundle]loadNibNamed:@"empmgmtcell" owner:self options:nil];
         cell=_mgmtcell;
     }
-//    Servicemdl*semdl=(Servicemdl *)[_servicelistarray objectAtIndex:indexPath.row];
-//    _servicelabel=(UILabel *)[cell viewWithTag:1];
-//    _servicelabel.text=semdl.servname;
-//    _abbrvtnlabel=(UILabel*)[cell viewWithTag:2];
-//    _abbrvtnlabel.text=semdl.abbrevtn;
     
     Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:indexPath.row];
     _ssnlabel=(UILabel *)[cell viewWithTag:1];
@@ -100,6 +96,16 @@
     _jobsitelabel=(UILabel *)[cell viewWithTag:4];
     _jobsitelabel.text=empmdl.jobsite;
     
+    
+    /*detailbtn*/
+    
+    butn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [butn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+    butn.tag=indexPath.row;
+    [butn addTarget:self action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
+    butn.frame = CGRectMake(150.0, 0.0, 50.0, 40.0);
+    [cell.contentView addSubview:butn];
+
     return cell;
 }
 
@@ -125,6 +131,141 @@
             
         
     }
+}
+
+#pragma mark-Menu view Animation
+-(void)showaction:(UIButton*)sender{
+    // [_animatedview removeFromSuperview];
+    _badgelbl.hidden=YES;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+        .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
+    
+    _animatedview.hidden=YES;
+    Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
+    
+    
+    
+    
+    UIButton*  button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.mgmttableview];
+    NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    
+    
+    //create uiview
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(200, 10, 0, 25)];
+    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+    _badgelbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+    _badgelbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    _badgelbl.textColor=[UIColor blackColor];
+    _badgelbl.text=@"Badge Details";
+    [self.animatedview addSubview:_badgelbl];
+    
+    _badgelbl.hidden=YES;
+    
+    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(badgedetails)];
+    [self.animatedview addGestureRecognizer:tap];
+    
+    [cell addSubview:_animatedview];
+    
+   _animatedview.hidden=NO;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+        .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+    
+    _badgelbl.hidden=NO;
+    NSLog(@"%@",empmdl.badgeflag);
+    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+        //_badgelbl.enabled=NO;
+        _animatedview.userInteractionEnabled=NO;
+        //_animatedview.
+        
+    }
+    
+    [self showviewWithUserAction:YES];
+}
+
+-(void)showviewWithUserAction:(BOOL)userAction{
+    
+    // Toggle the disclosure button state.
+    
+    butn.selected = !butn.selected;
+    
+    if (userAction) {
+        if (butn.selected) {
+            _animatedview.hidden=NO;
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+                .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+            [self viewopened:btnindex];
+            _badgelbl.hidden=NO;
+            
+            
+            
+        }
+        else{
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+                .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+            [self viewclosed:btnindex];
+            //_venderlbl.hidden=YES;
+            
+        }
+        
+        
+    }
+}
+-(void)viewopened:(NSInteger)viewopened{
+    
+    
+    selectedcell=viewopened;
+    NSInteger previousOpenviewIndex = self.openviewindex;
+    
+    if (previousOpenviewIndex != NSNotFound) {
+        ////        Section *previousOpenSection=[sectionArray objectAtIndex:previousOpenviewIndex];
+        ////        previousOpenSection.open=NO;
+        [self showviewWithUserAction:NO];
+        //        NSInteger countOfRowsToDelete = selectedcell;
+        //        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
+        _badgelbl.hidden=YES;
+        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
+            .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
+        
+        _animatedview.hidden=YES;
+        
+        
+        // }
+        
+        
+    }
+    
+    self.openviewindex=viewopened;
+    
+    
+    
+    
+    
+    
+}
+-(void)viewclosed:(NSInteger)viewclosed
+{
+    
+    viewclosed=btnindex;
+    
+    self.openviewindex = NSNotFound;
+    
+    
+}
+-(void)badgedetails{
+     Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
+     [self SelectEmployeeBadge];
+    _badgeview.hidden=NO;
+    _firsttxtfld.text=empmdl.firstname;
+    _lastnametxtfld.text=empmdl.lastname;
+    _ssntxtfld.text=empmdl.ssn;
+    _jobsitetxtfld.text=empmdl.jobsite;
+    
 }
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -252,6 +393,110 @@
     }
     
 }
+-(void)SelectEmployeeBadge{
+
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Empmdl *empmdl1=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
+
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectEmployeeBadge xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<cempId>%d</cempId>\n"
+                   "</SelectEmployeeBadge>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[empmdl1.cempid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectEmployeeBadge" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)InsertEmployeeBadge{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    Empmdl *empmdl1=(Empmdl *)[_employeelistarray objectAtIndex:btnindex];
+    
+    
+  soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<InsertEmployeeBadge xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<CempId>%d</CempId>\n"
+                   "<BadgeNo>%@</BadgeNo>\n"
+                   "</InsertEmployeeBadge>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[empmdl1.cempid integerValue],_badgenumbrtxtfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/InsertEmployeeBadge" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -353,6 +598,15 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"BadgeFlag"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
     if([elementName isEqualToString:@"job_id"])
     {
         if(!_soapResults)
@@ -392,6 +646,24 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SelectEmployeeBadgeResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"BadgeNo"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
 
 
 }
@@ -422,6 +694,8 @@
     if([elementName isEqualToString:@"vf_name"])
     {
         recordResults = FALSE;
+       // _empmdl=[[Empmdl alloc]init];
+
         _empmdl.firstname=_soapResults;
         _soapResults = nil;
     }
@@ -438,9 +712,18 @@
            _empmdl.ssn=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"issued_state"])
+    if([elementName isEqualToString:@"not_rate"])
     {
         recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+    
+
+    if([elementName isEqualToString:@"BadgeFlag"])
+    {
+        recordResults = FALSE;
+        _empmdl.badgeflag=_soapResults;
        
         _soapResults = nil;
     }
@@ -469,10 +752,28 @@
         [_jobsitedict setObject:_soapResults forKey:_jobsiteid];
         _soapResults=nil;
     }
+    if([elementName isEqualToString:@"BadgeNo"])
+    {
+          recordResults=FALSE;
+        _badgenumbrtxtfld.text=_soapResults;
+         _soapResults=nil;
+    }
+    
+
     
 
 
 
 }
 
+- (IBAction)savebtn:(id)sender {
+    [self InsertEmployeeBadge];
+}
+
+- (IBAction)badgeclsebtn:(id)sender {
+    _badgeview.hidden=YES;
+    self.openviewindex=NSNotFound;
+    [self CustEmployeeselect];
+
+}
 @end
