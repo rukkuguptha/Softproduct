@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomerViewController.h"
 #import "LeadsViewController.h"
 #import "HRViewController.h"
 #import "TileViewController.h"
 #import "ResViewController.h"
 #import "TilehrViewController.h"
 #import "PlanningViewController.h"
+#import "TilecustmrViewController.h"
 @interface HomeViewController : UIViewController
 
 /*Views*/
@@ -27,7 +27,7 @@
 
 /*controllers*/
 
-@property (strong, nonatomic)CustomerViewController*custmrVCtrl;
+@property (strong, nonatomic)TilecustmrViewController*custmrVCtrl;
 @property(strong,nonatomic)LeadsViewController *leadVCtrl;
 @property(strong,nonatomic)TileViewController*tileVCtrl;
 @property(strong,nonatomic)ResViewController*ReVCtrl;

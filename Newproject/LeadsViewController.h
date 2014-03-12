@@ -13,15 +13,21 @@
 #import "Infoleads.h"
 #import "CommentsViewController.h"
 #import "commentmdl.h"
+#import "Validation.h"
 @interface LeadsViewController : UIViewController<UIActionSheetDelegate>{
     NSInteger poptype;
     BOOL recordResults;
     NSInteger butnidtfr;
     UIButton *button;
     NSInteger btnindex;
+    NSInteger webtype;
+    NSInteger path;
+    NSString *phonenostring;
+    NSInteger fmt;
   }
 @property(readwrite)  NSInteger leadID;
-
+@property(strong,nonatomic)Validation *val;
+@property(strong,nonatomic)NSString *phonenofmtstring;
 @property(strong,nonatomic)IBOutlet UITableView *leadTable;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 // for LeadCustomCell
@@ -78,6 +84,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *contacttiletxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *emailidtxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *statetxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *leadassigntotextfld;
 @property (strong, nonatomic) IBOutlet UIButton *industrytypetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *prjctexcutntxtfld;
 @property(strong,nonatomic)IBOutlet UIButton *leadstatusBtn;

@@ -80,9 +80,13 @@
 
 -(void)customerpage{
     if (!self.custmrVCtrl) {
-        self.custmrVCtrl=[[CustomerViewController alloc]initWithNibName:@"CustomerViewController" bundle:nil];
+        self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
     }
-    [self.navigationController pushViewController:_custmrVCtrl animated:YES];
+    _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+
+    [self presentViewController:_custmrVCtrl
+                       animated:YES completion:NULL];
+    
     
 }
 -(void)LeadPage

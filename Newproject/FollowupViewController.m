@@ -1336,11 +1336,11 @@ if([elementName isEqualToString:@"result"]){
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"Id"])
+    if([elementName isEqualToString:@"commentId"])
     {
         _cmtmdl=[[commentmdl alloc]init];
         recordResults = FALSE;
-        _cmtmdl.Id=[_soapResults integerValue];
+        _cmtmdl.commentId=[_soapResults integerValue];
         
         _soapResults = nil;
     }

@@ -18,7 +18,19 @@
     NSString *datetext;
       NSInteger butnidtfr;
     NSInteger poptype;
+    NSInteger btnindex;
+    UIButton *button;
+    NSInteger path;
+    NSInteger webtype;
+    NSInteger selectedcell;
+    UIButton *carbtn;
 }
+@property(readwrite)NSInteger openviewindex;
+@property(readwrite)NSInteger previousopenviewindex;
+@property(strong,nonatomic)IBOutlet UIView *animatedview;
+@property(strong,nonatomic)IBOutlet UILabel *commentlabel;
+
+
 @property(strong,nonatomic)IBOutlet UITableView *activityTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
@@ -38,7 +50,8 @@
 -(IBAction)closetheView:(id)sender;
 -(IBAction)selectDate:(id)sender;
 - (IBAction)editcellbtn:(id)sender;
-- (IBAction)disbtn:(id)sender;
+- (IBAction)closeactivity:(id)sender;
+//- (IBAction)disbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *disbtnlbl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
@@ -73,7 +86,7 @@
 
 @property (strong, nonatomic)NSIndexPath *Path;
 
-@property(readwrite)NSInteger selectedpath;
+
 //*commentview
 
 @property (strong, nonatomic) IBOutlet UIView *commentview;

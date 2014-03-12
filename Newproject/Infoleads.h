@@ -25,7 +25,9 @@
 @property(strong,nonatomic)NSString*projectexecution;
 @property(strong,nonatomic)NSString*projectexecutionyear;
 @property(strong,nonatomic)NSString*bidstatus;
-@property(readwrite)NSInteger idvalue;
+@property(strong,nonatomic)NSString *idvalue;
+@property(strong,nonatomic)NSString *leadassignto;
+@property(strong,nonatomic)NSString *leadstatus;
 
 
 

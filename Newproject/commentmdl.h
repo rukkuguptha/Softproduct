@@ -12,7 +12,10 @@
 @property(strong,nonatomic)NSString*comments;
 @property(strong,nonatomic)NSString*commentdate;
 @property(readwrite)NSInteger userid;
-@property(readwrite)NSInteger Id;
+@property(readwrite)NSInteger commentId;
+@property(readwrite)NSInteger activityid;
+@property(readwrite)NSInteger leadid;
+
 
 
 
