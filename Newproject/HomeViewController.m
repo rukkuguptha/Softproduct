@@ -94,7 +94,8 @@
     if (!self.leadVCtrl) {
         self.leadVCtrl=[[LeadsViewController alloc]initWithNibName:@"LeadsViewController" bundle:nil];
     }
-    [self.navigationController pushViewController:_leadVCtrl animated:YES];
+    [self presentViewController:_leadVCtrl
+                       animated:YES completion:NULL];
     
 
 }

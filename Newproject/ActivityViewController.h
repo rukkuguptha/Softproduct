@@ -35,7 +35,7 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *actvityCell;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIView *newviewactivity;
-@property(strong,nonatomic)IBOutlet UINavigationBar *activityNav;
+@property(strong,nonatomic)IBOutlet UINavigationItem *activityNav;
 @property(nonatomic, weak) CKCalendarView *calendar;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
 @property(strong,nonatomic)IBOutlet UIButton *dateBtn;
@@ -47,6 +47,8 @@
 
 /*butn*/
 -(IBAction)addNewActivity:(id)sender;
+-(IBAction)deleteActivity:(id)sender;
+
 -(IBAction)closetheView:(id)sender;
 -(IBAction)selectDate:(id)sender;
 - (IBAction)editcellbtn:(id)sender;

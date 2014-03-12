@@ -56,7 +56,7 @@
 - (IBAction)Addbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *view2;
 - (IBAction)clsebtn:(id)sender;
-@property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navbaritem;
 
 @property (strong, nonatomic) IBOutlet UIView *view3;
 
@@ -100,6 +100,11 @@
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)selectcompany:(id)sender;
+
+
+-(IBAction)closeleadpage:(id)sender;
+-(IBAction)addnewlead:(id)sender;
+-(IBAction)deletelead:(id)sender;
 
 /*Arrays*/
 @property(strong,nonatomic)NSMutableArray*CommentsArray;
