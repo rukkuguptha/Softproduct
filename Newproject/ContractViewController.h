@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface ContractViewController : UIViewController
+
+
+/*IBActions*/
+-(IBAction)closethecontractpage:(id)sender;
+
+/*IBOutlets*/
+@property(strong,nonatomic)IBOutlet UITableView *contracttable;
+@property(strong,nonatomic)IBOutlet UIView *contracttitleview;
 
 @end
