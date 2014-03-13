@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Custmermdl.h"
 
+
 @interface NewCustmrViewController : UIViewController{
     BOOL recordResults;
     NSString *stateid;
@@ -19,6 +20,11 @@
     
 }
 
+
+
+@property (strong, nonatomic)NSString*searchstring;
+
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
 
 @property(strong,nonatomic)Custmermdl *custmdl;
 @property(strong,nonatomic)NSMutableArray *customerarray;
