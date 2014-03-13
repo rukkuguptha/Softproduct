@@ -56,7 +56,7 @@
 self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    // self.newviewactivity.hidden=YES;
      _view2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    _activityNav.tintColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+//    _activityNav.tintColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
    _btnArray=[[NSMutableArray alloc]initWithObjects:@"New Activity",@"Edit Activity",@"Delete Activity" ,nil];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Comments",nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
@@ -69,60 +69,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    
      [self getLeadActivity];
     
-    UIBarButtonItem*addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addaction)];
-    UIBarButtonItem*editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
-    NSArray*barbutns=[[NSArray alloc]initWithObjects:addbtn,editbtn, nil];
-    [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
-
     
     
 }
--(void)editaction{
-    
-    if ([self.activityTable isEditing]) {
-        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
-        
-        [self.activityTable setEditing:NO animated:YES];
-        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
-    }
-    else {
-        // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
-        
-        // Turn on edit mode
-        
-        [self.activityTable setEditing:YES animated:YES];
-    }
-}
-
-
-
-
--(void)butnaction{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"EDIT"
-                                                             delegate:self
-                                                    cancelButtonTitle:nil
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:nil];
-    for (NSString *fruit in self.btnArray) {
-        [actionSheet addButtonWithTitle:fruit];
-    }
-    actionSheet.cancelButtonIndex = [actionSheet addButtonWithTitle:@"Cancel"];
-    [actionSheet showInView:self.view];
-    
-}
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
-    if  ([buttonTitle isEqualToString:@"Edit Leads"]) {
-        NSLog(@"Destructive pressed --> Delete Something");
-    }
-    if ([buttonTitle isEqualToString:@"New Activity"]) {
-        _newviewactivity.hidden=NO;
-        // self.leadTable.userInteractionEnabled=NO;
-    }
-    
-}
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -545,10 +494,46 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 -(IBAction)addNewActivity:(id)sender
 {
-    self.newviewactivity.hidden=NO;
+    butnidtfr=1;
+    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    
+     self.activityNav.title = @"ADD";
+    _employerTxtfld.text=@"";
+    
+    _statusTxtFld.text=@"";
+    
+    _descptionTextview.text=@"";
+    _activityTxtFld.text=@"";
+    
+    
+    //_newviewactivity.hidden=NO;
+    //_view2.hidden=NO;
+    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+    //    CGPoint origin = _hidenview.frame.origin;
+    [UIView animateWithDuration: 1.0f animations:^{
+        _newviewactivity.frame = CGRectMake(195, 100, 663, 492);
+        //        _hidenview.center = origin;
+        _newviewactivity.alpha = 1.0;
+        
+    }];
+
 }
 -(IBAction)closetheView:(id)sender
 {
+    _dateBtn.enabled=YES;
+    _activityTxtFld.userInteractionEnabled=YES;
+    _employerTxtfld.userInteractionEnabled=YES;
+
+    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    
+       _employerTxtfld.text=@"";
+    
+    _statusTxtFld.text=@"";
+    
+    _descptionTextview.text=@"";
+    _activityTxtFld.text=@"";
+    [_activityTypeBtn setTitle:@"" forState:UIControlStateNormal];
+
     butnidtfr=0;
    // self.newviewactivity.hidden=YES;
     _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
@@ -570,49 +555,24 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 
 
--(void)addaction {
-    butnidtfr=1;
-    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
-    
-    
-    _employerTxtfld.text=@"";
-    
-    _statusTxtFld.text=@"";
-    
-    _descptionTextview.text=@"";
-    _activityTxtFld.text=@"";
-    
-
-    //_newviewactivity.hidden=NO;
-    //_view2.hidden=NO;
-    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
-        //        _hidenview.center = origin;
-        _newviewactivity.alpha = 1.0;
-        
-    }];
-
-}
 
 - (IBAction)editcellbtn:(id)sender
-{
+{ self.activityNav.title = @"EDIT";
+
     _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
     //    CGPoint origin = _hidenview.frame.origin;
     [UIView animateWithDuration: 1.0f animations:^{
-        _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
+        _newviewactivity.frame = CGRectMake(195, 100, 663, 492);
         //        _hidenview.center = origin;
         _newviewactivity.alpha = 1.0;
         
     }];
     button = (UIButton *)sender;
-    
-    //UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
-    CGPoint center=button.center;
-    CGPoint rootviewpoint=[button.superview convertPoint:center fromView:self.activityTable];
-    NSIndexPath *textfieldindexpath=[self.activityTable indexPathForRowAtPoint:rootviewpoint];
-    btnindex=textfieldindexpath.row;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.activityTable];
+    NSIndexPath *textFieldIndexPath = [self.activityTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
     NSLog(@"indexpath%d",btnindex);
     activityInfo*info1=(activityInfo*)[_activityArray objectAtIndex:btnindex];
     
@@ -636,6 +596,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _dateBtn.enabled=NO;
     _activityTxtFld.userInteractionEnabled=NO;
     _employerTxtfld.userInteractionEnabled=NO;
+    [_activityTypeBtn setTitle:info1.communicationtype forState:UIControlStateNormal];
 
 }
 -(IBAction)cancelaction:(id)sender
@@ -650,6 +611,23 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _descptionTextview.text=@"";
     _activityTxtFld.text=@"";
  
+}
+-(IBAction)deleteActivity:(id)sender
+{
+    if ([self.activityTable isEditing]) {
+        // If the tableView is already in edit mode, turn it off. Also change the title of the button to reflect the intended verb (‘Edit’, in this case).
+        
+        [self.activityTable setEditing:NO animated:YES];
+        //[_Editbtn setTitle:@"Edit"forState:UIControlStateNormal];
+    }
+    else {
+        // [_Editbtn setTitle:@"Done"forState:UIControlStateNormal];
+        
+        // Turn on edit mode
+        
+        [self.activityTable setEditing:YES animated:YES];
+    }
+
 }
 - (IBAction)closeactivity:(id)sender
 {

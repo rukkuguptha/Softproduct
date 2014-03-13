@@ -51,8 +51,7 @@
     _leadTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _leadTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
     
-   // self.navigationController.navigationBar.tintColor=[UIColor colorWithRed:210.0/255.0f green:230.0/255.0f blue:450.0/255.0f alpha:1.0f];
-    self.navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+   
     
     
     self.view3.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:251.0/255.0f alpha:1.0f];
@@ -77,25 +76,19 @@
     [self getLeads];
 
     
-    UIBarButtonItem*Addbtn=[[UIBarButtonItem alloc]initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(butnaction)];
-   
-    _Editbtn=[[UIBarButtonItem alloc]initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(editaction)];
     
-   // _Editbtn.tintColor=[UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:235.0/255.0f alpha:1.0f];
-      NSArray*barbutns=[[NSArray alloc]initWithObjects:Addbtn,_Editbtn, nil];
-    [self.navigationItem setRightBarButtonItems:barbutns animated:YES];
-
 
     
 }
 
--(void)butnaction{
+-(IBAction)addnewlead:(id)sender
+{
     [self SelectAllCustomer];
-
+     self.navbaritem.title = @"ADD";
     
     butnidtfr=1;
     
-         _cmpnynametxtfld.text=@"";
+    _cmpnynametxtfld.text=@"";
     _contactnametxtfld.text=@"";
     _phonetxtfld.text=@"";
     
@@ -120,40 +113,39 @@
     _view2.frame = CGRectMake(512, 384, 0, 0);
     //    CGPoint origin = _hidenview.frame.origin;
     [UIView animateWithDuration: 1.0f animations:^{
-        _view2.frame = CGRectMake(195, 60, 692, 816);
+        _view2.frame = CGRectMake(195, 100, 692, 816);
         //        _hidenview.center = origin;
         _view2.alpha = 1.0;
         
     }];
-
-    
     
 
 }
--(void)editaction{
+-(IBAction)deletelead:(id)sender
+{
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_leadTable setEditing:NO animated:NO];
+        [_leadTable reloadData];
+        
+        
+        
+    }
     
-    
-   if (self.editing) {
-    [super setEditing:NO animated:NO];
-    [_leadTable setEditing:NO animated:NO];
-    [_leadTable reloadData];
-    
- 
-       
-}
-
-else{
-    [super setEditing:YES animated:YES];
-    [_leadTable setEditing:YES animated:YES];
-    [_leadTable reloadData];
-   
-    
-    
-    
-}
-
+    else{
+        [super setEditing:YES animated:YES];
+        [_leadTable setEditing:YES animated:YES];
+        [_leadTable reloadData];
+        
+        
+        
+        
+    }
 
 }
+
+
+
 
 
 
@@ -479,10 +471,12 @@ if (tableView==_leadTable) {
 #pragma mark - Buttons
 
 - (IBAction)editcellbtn:(id)sender {
+    butnidtfr=2;
+     self.navbaritem.title = @"EDIT";
     _view2.frame = CGRectMake(512, 384, 0, 0);
     //    CGPoint origin = _hidenview.frame.origin;
     [UIView animateWithDuration: 1.0f animations:^{
-        _view2.frame = CGRectMake(195, 60, 692, 816);
+        _view2.frame = CGRectMake(195, 100, 692, 816);
         //        _hidenview.center = origin;
         _view2.alpha = 1.0;
         
@@ -554,7 +548,10 @@ if (tableView==_leadTable) {
     
 }
 
-
+-(IBAction)closeleadpage:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 - (IBAction)clsebtn:(id)sender {
     butnidtfr=0;
