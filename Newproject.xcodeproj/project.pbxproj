@@ -244,6 +244,7 @@
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
 		D4F19E0418D03FD8007617F0 /* markupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0318D03FD8007617F0 /* markupcell.xib */; };
 		D4F19E0618D03FE8007617F0 /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0518D03FE8007617F0 /* billingcell.xib */; };
+		D4F19E0918D044AE007617F0 /* Custmermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19E0818D044AE007617F0 /* Custmermdl.m */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
 		D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F61A5518A896D90006093B /* ProcesshrViewController.xib */; };
@@ -585,6 +586,8 @@
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
 		D4F19E0318D03FD8007617F0 /* markupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markupcell.xib; sourceTree = "<group>"; };
 		D4F19E0518D03FE8007617F0 /* billingcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = billingcell.xib; sourceTree = "<group>"; };
+		D4F19E0718D044AE007617F0 /* Custmermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custmermdl.h; sourceTree = "<group>"; };
+		D4F19E0818D044AE007617F0 /* Custmermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custmermdl.m; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
 		D4F61A5418A896D90006093B /* ProcesshrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcesshrViewController.m; sourceTree = "<group>"; };
@@ -1017,6 +1020,8 @@
 				64A07BD518C8321F00B2F9D5 /* vendermodel.m */,
 				D4DD31BD18CDAF9800CA2A33 /* Empmdl.h */,
 				D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */,
+				D4F19E0718D044AE007617F0 /* Custmermdl.h */,
+				D4F19E0818D044AE007617F0 /* Custmermdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1389,6 +1394,7 @@
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
+				D4F19E0918D044AE007617F0 /* Custmermdl.m in Sources */,
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
 				D4FFBD181855A01F0007851D /* Section.m in Sources */,

@@ -7,11 +7,25 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Custmermdl.h"
 
 @interface NewCustmrViewController : UIViewController{
     BOOL recordResults;
+    NSString *stateid;
+     NSString *cuntryid;
+    NSInteger poptype;
+    UIButton *button;
+    NSInteger path;
+    
 }
 
+
+@property(strong,nonatomic)Custmermdl *custmdl;
+@property(strong,nonatomic)NSMutableArray *customerarray;
+@property(strong,nonatomic)NSMutableArray *statearray;
+@property(strong,nonatomic)NSMutableDictionary *statedict;
+@property(strong,nonatomic)NSMutableArray *countryarray;
+@property(strong,nonatomic)NSMutableDictionary *countrydict;
 
 
 /* xmlparser*/
@@ -21,6 +35,7 @@
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UIPopoverController *popOverController1;
 @property(strong,nonatomic)UITableView *popOverTableView;
 @property (strong, nonatomic)NSMutableArray*popoverArry;
 
@@ -49,6 +64,13 @@
 /*cell outlets*/
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *custmrcell;
+@property (strong, nonatomic) IBOutlet UILabel *namelbl;
+@property (strong, nonatomic) IBOutlet UILabel *citylbl;
+@property (strong, nonatomic) IBOutlet UILabel *statelbl;
+@property (strong, nonatomic) IBOutlet UILabel *cuntrylbl;
+@property (strong, nonatomic) IBOutlet UILabel *phonelbl;
+@property (strong, nonatomic) IBOutlet UILabel *emaillbl;
+@property (strong, nonatomic) IBOutlet UIButton *editbtnlbl;
 
 
 /*actions*/
@@ -61,6 +83,7 @@
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)clseviewbtn:(id)sender;
+- (IBAction)editbtn:(id)sender;
 
 
 @end
