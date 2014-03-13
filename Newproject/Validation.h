@@ -13,4 +13,6 @@
 -(BOOL)isNumeric:(NSString *)input;
 -(BOOL)isIntegerValue:(NSString *)input;
 -(BOOL)isdataformat:(NSString *)input;
+-(BOOL) validEmailAddress:(NSString*) emailStr;
+- (BOOL) validateUrl: (NSString *) candidate;
 @end

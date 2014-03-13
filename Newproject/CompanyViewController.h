@@ -17,18 +17,32 @@
      NSInteger fmt;
     //phoneno format
     NSString *phnnostring;
+    NSString *stateid;
+    NSString *cuntryid;
+    NSInteger poptype;
   
     
 }
 
 @property(strong,nonatomic)Validation*validate;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UIPopoverController *popOverController1;
+@property(strong,nonatomic)UITableView *popOverTableView;
+@property (strong, nonatomic)NSMutableArray*popoverArry;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 
 
+@property(strong,nonatomic)NSMutableArray *customerarray;
+@property(strong,nonatomic)NSMutableArray *statearray;
+@property(strong,nonatomic)NSMutableDictionary *statedict;
+@property(strong,nonatomic)NSMutableArray *countryarray;
+@property(strong,nonatomic)NSMutableDictionary *countrydict;
 
 /*outlets*/
 @property (strong, nonatomic) IBOutlet UITextField *companynametxtfld;
@@ -48,6 +62,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *webtxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *stateunempidtxtfld;
 @property(strong,nonatomic)IBOutlet UIButton *coutryBtn;
+@property (strong, nonatomic) IBOutlet UIButton *statebtn;
+- (IBAction)statebtn:(id)sender;
+- (IBAction)cuntrybtn:(id)sender;
 
 - (IBAction)savebtn:(id)sender;
 -(IBAction)closethecompany:(id)sender;
@@ -55,4 +72,7 @@
 /*faxfmt*/
 @property(strong,nonatomic)NSString *faxfmtstring;
 @property(strong,nonatomic)NSString *phnnofmtstring;
+
+@property (strong, nonatomic) IBOutlet UILabel *updatelbl;
+
 @end

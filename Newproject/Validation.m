@@ -55,5 +55,18 @@
     return YES;
 }
 
-
+-(BOOL) validEmailAddress:(NSString*) emailStr {
+    NSString *emailRegex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    NSPredicate *emailValidation = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    if (![emailValidation evaluateWithObject:emailStr]) {
+        return FALSE;
+    }
+    return TRUE;
+}
+- (BOOL) validateUrl: (NSString *) candidate {
+    NSString *urlRegEx =@"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+   
+    return [urlTest evaluateWithObject:candidate];
+}
 @end

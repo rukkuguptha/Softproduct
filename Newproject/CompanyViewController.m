@@ -123,7 +123,7 @@
                    "<LetterHead>%@</LetterHead>\n"
                    "</SaveBasicInfo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,_statetextfld.text,_ziptextfld.text,_coutryBtn.titleLabel.text,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,_statebtn.titleLabel.text,_ziptextfld.text,_coutryBtn.titleLabel.text,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -153,6 +153,107 @@
     {
         ////NSLog(@"theConnection is NULL");
     }
+    
+}
+-(void)Stateselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</Stateselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)countryselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Countryselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</Countryselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
     
 }
 
@@ -187,6 +288,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
+    [_popOverTableView reloadData];
       
     
 }
@@ -335,7 +437,68 @@
     }
 
 
+    if([elementName isEqualToString:@"StateselectResult"])
+    {_statearray=[[NSMutableArray alloc]init];
+        _statedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"state_id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    
+    if([elementName isEqualToString:@"state_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"CountryselectResult"])
+    {
+        _countryarray=[[NSMutableArray alloc]init];
+        _countrydict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"CountryCode"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"CountryName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
     
@@ -488,6 +651,41 @@
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"state_id"])
+    {
+        recordResults = FALSE;
+        stateid=_soapResults;
+        _soapResults = nil;
+    }
+    
+    
+    if([elementName isEqualToString:@"state_name"])
+    {
+        recordResults = FALSE;
+        [_statearray addObject:_soapResults];
+        [_statedict setObject:stateid forKey:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"CountryCode"])
+    {
+        recordResults = FALSE;
+        cuntryid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"CountryName"])
+    {
+        recordResults = FALSE;
+        [_countryarray addObject:_soapResults];
+        [_countrydict setObject:cuntryid forKey:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        
+        _updatelbl.hidden=NO;
+         _soapResults = nil;
+    }
 
 
 
@@ -495,12 +693,26 @@
 
 
 #pragma mark - Buttons
+- (IBAction)statebtn:(id)sender {
+    poptype=1;
+    [self createpopover];
+    [self Stateselect];
+}
+
+- (IBAction)cuntrybtn:(id)sender {
+    poptype=2;
+    [self createpopover];
+    [self countryselect];
+}
+
 - (IBAction)savebtn:(id)sender {
+    
+    
     [self SaveBasicInfo];
 //    if(fmt==1)
 //    {
 //        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
-//        
+//
 //        [alert show];
 //        
 //    }
@@ -520,6 +732,7 @@
 -(IBAction)closethecompany:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+      _updatelbl.hidden=YES;
 }
 #pragma mark-textfld delegates
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
@@ -845,6 +1058,79 @@
         }
 
     }
+    
+    
+    if(textField==_stateempIdtxtfld||textField==_stateunempidtxtfld||textField==_fedraltxtfld){
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_stateempIdtxtfld.text];
+        int value2=[val isNumeric:_stateunempidtxtfld.text];
+        int value3=[val isNumeric:_fedraltxtfld.text];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter A Valid State Employer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+         if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter A Valid State Unemployer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+
+        if(value3==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter A Valid Federal Employer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+
+
+    }
+    if(textField==_mailtxtfld){
+        
+            Validation *val=[[Validation alloc]init];
+            BOOL bEmailValid = [val validEmailAddress:_mailtxtfld.text];
+            if(bEmailValid)
+            {
+                // email valid, other validations in the form
+            }
+            else
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+        
+
+    }
+    
+    if(textField==_webtxtfld){
+        Validation *val=[[Validation alloc]init];
+        BOOL webval=[val validateUrl:_webtxtfld.text];
+        if(webval)
+        {
+            // email valid, other validations in the form
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"invalid Website address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+
+
+        
+        
+    }
+    
+    
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     ////NSLog(@"buttonIndex%d",buttonIndex);
@@ -871,20 +1157,187 @@
         }
 
     }
-    if ([alertView.message isEqualToString:@"Invalid Fax Number"])
+    if ([alertView.message isEqualToString:@"Please Enter A Valid State Employer ID"])
     {
         if (buttonIndex==0) {
             
-            _faxtxtfld.text=@"";
+            _stateempIdtxtfld.text=@"";
+            
+        }
+        
+    }
+    if ([alertView.message isEqualToString:@"Please Enter A Valid State Unemployer ID"])
+    {
+        if (buttonIndex==0) {
+            
+            _stateunempidtxtfld.text=@"";
+            
+        }
+        
+    }
+    if ([alertView.message isEqualToString:@"Please Enter A Valid Federal Employer ID"])
+    {
+        if (buttonIndex==0) {
+            
+            _fedraltxtfld.text=@"";
             
         }
         
     }
 
+
     
 }
 
 
+#pragma mark-popover
+-(void)createpopover{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 100)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 100);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    if(poptype==1){
+        
+        [self.popOverController presentPopoverFromRect:_statebtn.frame
+                                                inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    }
+    if(poptype==2){
+        [self.popOverController presentPopoverFromRect:_coutryBtn.frame
+                                                inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        
+    }
+    
+    
+    
+}
+
+#pragma mark-Tableview
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    // Return the number of rows in the section.
+    if(tableView==_popOverTableView)
+        
+    {
+        switch (poptype) {
+            case 1:
+                return [_statearray count];
+                break;
+            case 2:
+                return [_countryarray count];
+                break;
+            
+                
+            default:
+                break;
+        }
+        
+        
+    }
+    
+    return YES;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+           }
+   
+    if(tableView==_popOverTableView)
+    {  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+        
+        switch (poptype) {
+            case 1:
+                cell.textLabel.text=[_statearray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                cell.textLabel.text=[_countryarray objectAtIndex:indexPath.row];
+                
+                break;
+                        default:
+                break;
+                
+                
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    return cell;
+    
+    
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    if (tableView==_popOverTableView) {
+        
+        
+        
+        switch (poptype) {
+            case 1:
+                [_statebtn setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+                break;
+            case 2:
+                [_coutryBtn setTitle:[_countryarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                
+                break;
+                
+                
+                
+            default:
+                break;
+                
+        }
+        
+        
+        
+    }
+    
+}
 
 
 @end

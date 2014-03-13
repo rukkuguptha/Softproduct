@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Custmermdl.h"
+#import "ContactInfoViewController.h"
+#import "SalesRepInfoViewController.h"
 
 
 @interface NewCustmrViewController : UIViewController{
@@ -17,9 +19,12 @@
     NSInteger poptype;
     UIButton *button;
     NSInteger path;
-    
+    NSInteger webtype;
+    NSInteger btnindex;
 }
+@property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
 
+@property(strong,nonatomic)SalesRepInfoViewController *salesVCtrl;
 
 
 @property (strong, nonatomic)NSString*searchstring;
@@ -77,6 +82,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *phonelbl;
 @property (strong, nonatomic) IBOutlet UILabel *emaillbl;
 @property (strong, nonatomic) IBOutlet UIButton *editbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *disclurebtnlbl;
 
 
 /*actions*/
@@ -90,6 +96,7 @@
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)clseviewbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
+- (IBAction)disclurebtn:(id)sender;
 
 
 @end
