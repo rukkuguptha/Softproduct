@@ -54,10 +54,12 @@
 -(IBAction)closeaddview:(id)sender;
 -(IBAction)updatevender:(id)sender;
 -(IBAction)editvender:(id)sender;
+-(IBAction)cancelvendor:(id)sender;
 
 @property(strong,nonatomic)IBOutlet UITextField *nametextfld;
 @property(strong,nonatomic)IBOutlet UITextField *addresstextfld;
 @property(strong,nonatomic)IBOutlet UITextField *phonetextfld;;
 @property(strong,nonatomic)IBOutlet UITextField *ratetextfld;
+@property(strong,nonatomic)IBOutlet UILabel *resultdispaylabel;
 
 @end

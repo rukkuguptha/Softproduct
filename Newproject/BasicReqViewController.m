@@ -263,23 +263,16 @@
         _typelabel=(UILabel *)[cell viewWithTag:4];
         _typelabel.text=reqmdl.typname;
         
-        _expirybtn=(UIButton *)[cell viewWithTag:5];
+        _expirylbl=(UILabel *)[cell viewWithTag:5];
         _defbtn=(UIButton *)[cell viewWithTag:6];
         _inhousebtn=(UIButton *)[cell viewWithTag:7];
         _allcrftbtn=(UIButton *)[cell viewWithTag:8];
         _crftlabel=(UILabel *)[cell viewWithTag:9];
         _crftlabel.text=reqmdl.des;
         
+        _expirylbl.text=reqmdl.hrs;
        
-                if (reqmdl.haveexpirydate==0) {
-                    [_expirybtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        
-                }
-                else if(reqmdl.haveexpirydate==1){
-                    [_expirybtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-                    
-                }
-        if (reqmdl.def==0) {
+                    if (reqmdl.def==0) {
             [_defbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
         }
@@ -345,7 +338,7 @@
     
     //create uiview
     _animatedview=[[UIView alloc]initWithFrame:CGRectMake(200, 10, 0, 25)];
-    _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
+    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
     _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     _venderlbl.textColor=[UIColor blackColor];
@@ -360,7 +353,7 @@
     NSLog(@"I Clicked a button %d",sender.tag);
     _animatedview.hidden=NO;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+        .frame =  CGRectMake(200, 10, 70, 25);} completion:nil];
     
     _venderlbl.hidden=NO;
     if (reqmdl.inhouse==1) {
@@ -382,7 +375,7 @@
         if (butt.selected) {
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+                .frame =  CGRectMake(200, 10, 70, 25);} completion:nil];
             [self viewopened:btnindex];
             _venderlbl.hidden=NO;
             
@@ -391,7 +384,7 @@
         }
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+                .frame =  CGRectMake(200, 10, 70, 25);} completion:nil];
             [self viewclosed:btnindex];
             //_venderlbl.hidden=YES;
             
@@ -479,7 +472,7 @@
     NSLog(@"I Clicked a button %d",sender.tag);
     _animatedview.hidden=NO;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(200, 5, 90, 25);} completion:nil];
+        .frame =  CGRectMake(200, 5, 70, 25);} completion:nil];
     
     _venderlbl.hidden=NO;
     if (reqmdl.inhouse==1) {
@@ -584,38 +577,44 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Enter the ItemName" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-    else
-    {
-        if ([_jobbtn.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a JobSite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
     
-        }
-        else if ([_typebtn.titleLabel.text isEqualToString:@"Select"])
-        {
+    if ([_typebtn.titleLabel.text isEqualToString:@"Select"])
+    {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a Type" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
-        }
+    }
     
         else
         {
             [self insertrequirements];
         }
-    }
+    
 
     
 }
     else if(optionidentifier==2)
     {
-//        if (defaultcheck==0) {
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a JobSite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        else{
+        Validation *val=[[Validation alloc]init];
+        int value1=[val isBlank:_itemnametextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Enter the ItemName" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        if ([_typebtn.titleLabel.text isEqualToString:@"Select"])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a Type" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+
+       
+       else{
            [self UpdateRequirements];
             
-       // }
+        }
 
         
     }
@@ -623,6 +622,7 @@
 
 -(IBAction)closetheBASicreqview:(id)sender
 {
+     self.openviewindex=NSNotFound;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addbasicreq:(id)sender
@@ -631,14 +631,18 @@
     _addreqview.hidden=NO;
     _navItem.title=@"ADD";
     inhouse=0;
+    _craftview.hidden=NO;
+    _seperatorview.hidden=NO;
     expiry=0;
     craft=0;
     defaultcheck=0;
+    _resultdisplaylabel.hidden=YES;
 }
 -(IBAction)editBasicreq:(id)sender
 {   optionidentifier=2;
     _addreqview.hidden=NO;
     _navItem.title=@"EDIT";
+    _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
@@ -649,7 +653,7 @@
     
     _itemnametextfield.text=reqmdl.itemname;
     
-    _ratetextfield.text=[NSString stringWithFormat:@"$%@",reqmdl.rate];
+    _ratetextfield.text=[NSString stringWithFormat:@"%@$",reqmdl.rate];
     _codetextfield.text=reqmdl.code;
     _hourstextfield.text=reqmdl.hrs;
     _vendertextfield.text=reqmdl.vendername;
@@ -668,10 +672,14 @@
     if (reqmdl.def==0) {
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         defaultcheck=0;
+        _craftview.hidden=NO;
+        _seperatorview.hidden=NO;
     }
     else if(reqmdl.def==1){
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         defaultcheck=1;
+        _craftview.hidden=YES;
+        _seperatorview.hidden=YES;
     }
     if (reqmdl.inhouse==0) {
         [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -696,7 +704,8 @@
 
 }
 -(IBAction)closeeditBasicreqview:(id)sender
-{
+{ self.openviewindex=NSNotFound;
+    _resultdisplaylabel.hidden=YES;
     _addreqview.hidden=YES;
     _itemnametextfield.text=@"";
     
@@ -732,12 +741,16 @@
     if (defaultcheck==0) {
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         defaultcheck=1;
+        _craftview.hidden=YES;
+        _seperatorview.hidden=YES;
         
     }
     
     else{
         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         defaultcheck=0;
+         _craftview.hidden=NO;
+        _seperatorview.hidden=NO;
         
     }
 
@@ -872,7 +885,7 @@
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_craftbtn.frame
-                                            inView:self.addreqview
+                                            inView:self.craftview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -1364,7 +1377,8 @@
 }
 
 -(void)UpdateRequirements
-{   webtype=1;
+{
+    webtype=1;
    
     NSInteger house;
     NSInteger def;
@@ -1865,6 +1879,16 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
     if([elementName isEqualToString:@"InsertRequirementsResult"])
     {
         
@@ -2117,7 +2141,7 @@
         if ([_soapResults isEqualToString:@"false"]) {
             _basicmdl.def=0;
             defaultcheck=0;
-            
+                        
         }
         else{
             _basicmdl.def=1;
@@ -2243,7 +2267,8 @@
 
     if([elementName isEqualToString:@"result"])
     {  recordresults = FALSE;
-        
+        _resultdisplaylabel.hidden=NO;
+        _resultdisplaylabel.text=_soapResults;
         _itemnametextfield.text=@"";
         
         _codetextfield.text=@"";

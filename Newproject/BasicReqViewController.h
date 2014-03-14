@@ -35,6 +35,8 @@
     
      
 }
+@property(strong,nonatomic)IBOutlet UIView *craftview;
+@property(strong,nonatomic)IBOutlet UIView *seperatorview;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)basicreqmdl *basicmdl;
 @property(strong,nonatomic)venderViewController *venderVCtrl;
@@ -117,13 +119,15 @@
 @property(strong,nonatomic)IBOutlet UILabel *codelabel;
 @property(strong,nonatomic)IBOutlet UILabel *ratelabel;
 @property(strong,nonatomic)IBOutlet UILabel *typelabel;
-@property(strong,nonatomic)IBOutlet UIButton *expirybtn;
+@property(strong,nonatomic)IBOutlet UILabel *expirylbl;
 @property(strong,nonatomic)IBOutlet UIButton *defbtn;
 @property(strong,nonatomic)IBOutlet UIButton *allcrftbtn;
 @property(strong,nonatomic)IBOutlet UIButton *inhousebtn;
 @property(strong,nonatomic)IBOutlet UILabel *crftlabel;
 @property(strong,nonatomic)IBOutlet UILabel *joblabel;
 @property(strong,nonatomic)IBOutlet UILabel *venderlabel;
+@property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
+
 
 
 @end

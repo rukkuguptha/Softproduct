@@ -88,13 +88,7 @@
 }
 -(void)valuePhilosophyPage
 {
-    if (!self.valuePhiloCtrl) {
-        self.valuePhiloCtrl=[[ValuesPhilosophyDocViewController alloc]initWithNibName:@"ValuesPhilosophyDocViewController" bundle:nil];
-    }
-    _valuePhiloCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentViewController:_valuePhiloCtrl
-                       animated:YES completion:NULL];
- 
+   
 }
 -(void)qualityassurancepage
 {

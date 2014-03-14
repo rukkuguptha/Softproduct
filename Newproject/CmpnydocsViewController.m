@@ -100,9 +100,9 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 500, 510)];
+                           initWithFrame:CGRectMake(0, 0, 500, 507)];
     
-    popoverView.backgroundColor = [UIColor whiteColor];
+    popoverView.backgroundColor = [UIColor grayColor];
     
     
     [popoverView addSubview:self.cmmntview];
@@ -112,7 +112,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(500, 510);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(500, 507);
     
     //create a popover controller
     
@@ -122,7 +122,7 @@
     
     
     
-    [self.popOverController presentPopoverFromRect: CGRectMake(320, 150, 300, 500)
+    [self.popOverController presentPopoverFromRect: CGRectMake(200, 150, 300, 500)
                                             inView:self.view
                           permittedArrowDirections:nil
                                           animated:YES];
@@ -195,7 +195,7 @@
                 commentmdl *cmnt1=(commentmdl *)[_commentarray objectAtIndex:indexPath.row];
                 _cmntlbl=(UILabel *)[cell viewWithTag:1];
                 _cmntlbl.text=cmnt1.comments;
-                _cmttype=(UILabel *)[cell viewWithTag:1];
+                _cmttype=(UILabel *)[cell viewWithTag:2];
                 _cmttype.text=cmnt1.commentdate;
 
             
@@ -335,6 +335,68 @@ return cell;
     }
     
 }
+-(void)FileCommentsInsert
+{
+    NSDate*curntdate=[NSDate date];
+    NSLog(@"%@",curntdate);
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"HH:mm:ss a"];
+    NSLog(@"curntdate%@",[dateFormat stringFromDate:curntdate]);
+    NSString*time=[dateFormat stringFromDate:curntdate];
+    [dateFormat setDateFormat:@"MM/dd/ yyyy"];
+    NSString*date1=[dateFormat stringFromDate:curntdate];
+    NSString*today=[NSString stringWithFormat:@"%@ %@",date1,time];
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FileCommentsInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FileId>%d</FileId>\n"
+                   "<Comments>%@</Comments>\n"
+                   "<UserId>%d</UserId>\n"
+                   "<CommentDate>%@</CommentDate>\n"
+                   "</FileCommentsInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[newfieldid integerValue],_cmmnttxtview.text,1,today];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FileCommentsInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -471,6 +533,15 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
    }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -564,7 +635,15 @@ return cell;
         [_commentarray addObject:_cmntmdl1];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        [self FileCommentsselect];
+        _cmmnttxtview.text=@"";
+        _soapResults = nil;
 
+
+    }
 
  }
 
@@ -598,9 +677,11 @@ return cell;
     
 }
 - (IBAction)cmntsavebtn:(id)sender {
+    [self FileCommentsInsert];
 }
 
 - (IBAction)cancelbtn:(id)sender {
+    _cmmnttxtview.text=@"";
      _newcmntview.hidden=YES;
 }
 - (IBAction)cmntbtn:(id)sender {

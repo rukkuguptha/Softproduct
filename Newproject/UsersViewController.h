@@ -53,6 +53,8 @@
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 @property (strong, nonatomic) IBOutlet UIButton *type1btnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *type2btnlbl;
+@property(strong,nonatomic)IBOutlet UILabel *titlenamelabel;
+@property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
 
 /*outlets in cell*/
 @property(strong,nonatomic)IBOutlet UILabel *usernamelabel;
@@ -82,5 +84,6 @@
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *userlistarray;
+
 
 @end

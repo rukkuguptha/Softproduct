@@ -88,10 +88,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="499" height="505"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="squareimage1.png" id="LJh-Th-ntY">
-                            <rect key="frame" x="0.0" y="0.0" width="499" height="505"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <navigationBar contentMode="scaleToFill" id="kR6-f1-9Mm">
                             <rect key="frame" x="1" y="2" width="497" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -176,7 +172,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -187,7 +183,6 @@
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="rectangle3.png" width="551" height="327"/>
-        <image name="squareimage1.png" width="300" height="400"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

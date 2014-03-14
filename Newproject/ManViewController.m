@@ -916,7 +916,8 @@
 
     if([elementName isEqualToString:@"SelectAllSubtypeResult"])
     {
-        
+        _subtypearray=[[NSMutableArray alloc]init];
+
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -925,8 +926,7 @@
     }
     if([elementName isEqualToString:@"subtype"])
     {
-        _subtypearray=[[NSMutableArray alloc]init];
-        if(!_soapResults)
+                if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }

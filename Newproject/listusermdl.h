@@ -12,5 +12,9 @@
 @property(readwrite)NSInteger userid;
 @property(strong,nonatomic)NSString *username;
 @property(strong,nonatomic)NSString *pwd;
+@property(strong,nonatomic)NSString *empname;
+@property(strong,nonatomic)NSString *customername;
+@property(strong,nonatomic)NSString *UserTypeId;
+@property(strong,nonatomic)NSString *UserTypeName;
 
 @end

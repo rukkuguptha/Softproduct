@@ -47,6 +47,7 @@
 #pragma mark-Actions
 -(IBAction)closevendorpage:(id)sender
 {
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)deletevendors:(id)sender
@@ -73,25 +74,63 @@
     optionidentifier=1;
     _venderaddview.hidden=NO;
     _navitem.title=@"ADD";
+    _resultdispaylabel.hidden=YES;
+    _nametextfld.text=@"";
+    _addresstextfld.text=@"";
+    _phonetextfld.text=@"";
+    _ratetextfld.text=@"";
 }
 -(IBAction)closeaddview:(id)sender
 {
     _venderaddview.hidden=YES;
+    _resultdispaylabel.hidden=YES;
+    _nametextfld.text=@"";
+    _addresstextfld.text=@"";
+    _phonetextfld.text=@"";
+    _ratetextfld.text=@"";
 }
 -(IBAction)updatevender:(id)sender
-{ if(optionidentifier==1)
 {
+    if(optionidentifier==1)
+    {
+    Validation*val=[[Validation alloc]init];
+    int value1=[val isBlank:_nametextfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter The Name" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+    
+    else
+    {
+
     [self VendorInsert];
+    }
 }
     else if(optionidentifier==2)
     {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isBlank:_nametextfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter The Name" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+        else
+        {
+
         [self UpdateVendor];
+        }
     }
 }
 -(IBAction)editvender:(id)sender
 {
     optionidentifier=2;
     _venderaddview.hidden=NO;
+    _resultdispaylabel.hidden=YES;
     _navitem.title=@"EDIT";
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -104,8 +143,14 @@
     _nametextfld.text=vmdl.vendorname;
     _addresstextfld.text=vmdl.vendoraddress;
     _phonetextfld.text=vmdl.vendorphone;
-    _ratetextfld.text=vmdl.vendorrate;
-
+    _ratetextfld.text=[NSString stringWithFormat:@"%@$",vmdl.vendorrate];
+}
+-(IBAction)cancelvendor:(id)sender
+{
+    _nametextfld.text=@"";
+    _addresstextfld.text=@"";
+    _phonetextfld.text=@"";
+    _ratetextfld.text=@"";
 }
 
 #pragma mark-tableview datasource
@@ -140,8 +185,7 @@
     _phonelabel=(UILabel *)[cell viewWithTag:3];
     _phonelabel.text=_vmodel.vendorphone;
     _ratelabel=(UILabel *)[cell viewWithTag:4];
-    _ratelabel.text=_vmodel.vendorrate;
-    
+    _ratelabel.text=[NSString stringWithFormat:@"%@$",vmdl.vendorrate];
     return cell;
 }
 
@@ -527,6 +571,34 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"VendorInsertResult"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"UpdateVendorResult"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+
     
 
 
@@ -610,6 +682,35 @@
         [_venderlistarray addObject:_vmodel];
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"VendorInsertResult"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"UpdateVendorResult"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        _resultdispaylabel.hidden=NO;
+        _resultdispaylabel.text=_soapresults;
+        _nametextfld.text=@"";
+        _addresstextfld.text=@"";
+        _phonetextfld.text=@"";
+        _ratetextfld.text=@"";
+        _soapresults = nil;
+    }
+
+
 
     
 }
@@ -646,10 +747,20 @@
 {
     
     Validation*val=[[Validation alloc]init];
+    if(textField==_nametextfld)
+    {
+        int value1=[val isBlank:_nametextfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter The Name" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+
+        }
+    }
     if (textField==_ratetextfld) {
         int value2=[val isNumeric:_ratetextfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -669,7 +780,7 @@
                     else
                     {
                         //fmt=1;
-                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                         
                         [alert show];
                         
@@ -685,7 +796,7 @@
                     int value1=[val isdataformat:_phonetextfld.text];
                     if(value1==0)
                     {
-                        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                         [alert1 show];
                         
                         
@@ -708,7 +819,7 @@
                             
                             
                             //fmt=1;
-                            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                             
                             [alert show];
                             
@@ -728,7 +839,7 @@
                             }
                             else
                             { //fmt=1;
-                                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                                 
                                 [alert show];
                             }
@@ -766,7 +877,7 @@
                             
                             
                            // fmt=1;
-                            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                             
                             [alert show];
                             
@@ -789,10 +900,18 @@
         _ratetextfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid PhoneNumber"]) {
+    if ([alertView.message isEqualToString:@"Invalid PhoneNumber"]) {
         
         
-        _phonetextfld.text=@"";
+        
+        if (buttonIndex==0) {
+            
+            
+            _phonetextfld.text=@"";
+            
+        }
+    
+
         
     }
 

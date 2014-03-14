@@ -135,7 +135,7 @@
 -(IBAction)Addservices:(id)sender
 {   optionidentifier=1;
     self.navabar.title = @"ADD";
-    
+    _resultdispalylabel.hidden=YES;
     _addserview.hidden=NO;
     _servicetextfld.text=@"";
     _abbreviatintextfld.text=@"";
@@ -144,6 +144,7 @@
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
      self.navabar.title = @"Edit";
+    _resultdispalylabel.hidden=YES;
     _addserview.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -160,22 +161,50 @@
 }
 -(IBAction)closeaddview:(id)sender
 {
+    _resultdispalylabel.hidden=YES;
     _addserview.hidden=YES;
 }
 -(IBAction)updateservice:(id)sender
 {
-    if(optionidentifier==1)
+  if(optionidentifier==1)
 {
-   
+    
+   Validation*val=[[Validation alloc]init];
+        int value1=[val isBlank:_servicetextfld.text];
+        if (value1==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter a Service Name" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+        
+        
+    }
+    else
+    {
+        
+    
+
     [self InsertServices];
     _servicetextfld.text=@"";
     _abbreviatintextfld.text=@"";
+    }
 }
     else if(optionidentifier==2)
-    {
+    {   Validation*val=[[Validation alloc]init];
+        int value1=[val isBlank:_servicetextfld.text];
+        if (value1==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter a Service Name" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+            
+        }
+        else
+        {
+
         [self UpdateServices];
         _servicetextfld.text=@"";
         _abbreviatintextfld.text=@"";
+        }
     }
 }
 -(IBAction)cancelservice:(id)sender
@@ -539,6 +568,44 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UpdateServicesResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"InsertServicesResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DeleteServicesResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    
+
+    
+
+
 
     if([elementName isEqualToString:@"SearchServicesResponse"])
     {
@@ -597,6 +664,36 @@
         [_servicelistarray addObject:_servmdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"UpdateServicesResult"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"InsertServicesResult"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"DeleteServicesResult"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+
+
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        _resultdispalylabel.hidden=NO;
+        _resultdispalylabel.text=_soapResults;
+        _soapResults = nil;
+    }
+
+
 
 
 }
@@ -642,6 +739,15 @@
     }
     return YES;
 }
-
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    if([_servicetextfld.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter a Service Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+}
 
 @end

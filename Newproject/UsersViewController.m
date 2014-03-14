@@ -155,6 +155,9 @@
         if (poptype==1) {
             //_type1btnlbl.titleLabel.text=[_Nametypeusrarry objectAtIndex:indexPath.row];
             [_type1btnlbl setTitle:[_Nametypeusrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+            [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal ];
+            _titlenamelabel.hidden=NO;
+            _titlenamelabel.text=[_Nametypeusrarry objectAtIndex:indexPath.row];
             _type2btnlbl.enabled=YES;
             
             
@@ -741,6 +744,42 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"UserTypeId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"UserTypeName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"empname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Column1"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+
+    
     if([elementName isEqualToString:@"SearchUsersResponse"])
     {
         _userlistarray=[[NSMutableArray alloc]init];
@@ -838,6 +877,33 @@
         }
         recordresults = TRUE;
     }
+    if([elementName isEqualToString:@"InsertUsersResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"UpdateUsersResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+
+
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -874,9 +940,42 @@
         
         recordresults = FALSE;
         _usrmdl.pwd=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"UserTypeId"])
+    {
+        
+        recordresults = FALSE;
+        _usrmdl.UserTypeId=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"UserTypeName"])
+    {
+        
+        recordresults = FALSE;
+        _usrmdl.UserTypeName=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"empname"])
+    {
+        
+        recordresults = FALSE;
+        _usrmdl.empname=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        recordresults = FALSE;
+        _usrmdl.customername=_soapResults;
         [_userlistarray addObject:_usrmdl];
         _soapResults = nil;
     }
+
+
+
+
 
     if([elementName isEqualToString:@"userTypeId"])
     {
@@ -927,6 +1026,29 @@
         [_empydict setObject:empid forKey:[NSString stringWithFormat:@"%@%@",empname,_soapResults]];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"InsertUsersResult"])
+    {
+        recordresults = FALSE;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"UpdateUsersResult"])
+    {
+        recordresults = FALSE;
+        _soapResults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"result"])
+    {
+        recordresults = FALSE;
+        _resultdisplaylabel.hidden=NO;
+        _resultdisplaylabel.text=_soapResults;
+        _soapResults = nil;
+        
+    }
+
+
 
 }
 
@@ -937,10 +1059,12 @@
 }
 -(IBAction)adduserview:(id)sender
 {    optionIdentifier=1;
+    _resultdisplaylabel.hidden=YES;
     _addview.hidden=NO;
     _navitem.title=@"ADD";
     _pswdtextfld.text=@"";
     _usrnametextfld.text=@"";
+    _titlenamelabel.hidden=YES;
     [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
@@ -949,6 +1073,7 @@
     optionIdentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"EDIT";
+     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.usertable];
@@ -959,12 +1084,37 @@
     
     _usrnametextfld.text=usrmdl.username;
     _pswdtextfld.text=usrmdl.pwd;
-
+    _titlenamelabel.hidden=NO;
+   if([usrmdl.UserTypeId isEqualToString:@"2"])
+   {
+       [_type2btnlbl setTitle:usrmdl.empname forState:UIControlStateNormal];
+       [_type1btnlbl setTitle:@"Employee            " forState:UIControlStateNormal];
+       _titlenamelabel.text=_type1btnlbl.titleLabel.text;
+   }
+   else if ([usrmdl.UserTypeId isEqualToString:@"3"])
+   {
+       [_type2btnlbl setTitle:usrmdl.customername forState:UIControlStateNormal];
+        [_type1btnlbl setTitle:@"Customer            " forState:UIControlStateNormal];
+        _titlenamelabel.text=_type1btnlbl.titleLabel.text;
+   }
+   else if ([usrmdl.UserTypeId isEqualToString:@"4"])
+   {
+       [_type1btnlbl setTitle:@"Vendor              " forState:UIControlStateNormal];
+        _titlenamelabel.text=_type1btnlbl.titleLabel.text;
+   }
+   else if([usrmdl.UserTypeId isEqualToString:@"0"])
+    {
+        [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+         _titlenamelabel.text=@"";
+    }
 
 }
 -(IBAction)closeuserview:(id)sender
 {
     _addview.hidden=YES;
+//    [_type2btnlbl setTitle:@"" forState:UIControlStateNormal];
+//    [_type1btnlbl setTitle:@"" forState:UIControlStateNormal];
 }
 -(IBAction)deleteusers:(id)sender
 {
@@ -1019,6 +1169,7 @@
         Validation *val=[[Validation alloc]init];
         int value1=[val isBlank:_usrnametextfld.text];
         int value2=[val isBlank:_pswdtextfld.text];
+        
         if (value1==0||value2==0) {
             if(value1==0)
             {
@@ -1030,7 +1181,25 @@
                 UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your Password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert1 show];
             }
-        }
+                   }
+     else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"])
+        
+        
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Choose Your Usertype" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+    else if ([_type2btnlbl.titleLabel.text isEqualToString:@"Select"])
+            {
+                
+                    NSString *name=_titlenamelabel.text;
+                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:[NSString stringWithFormat:@"Please select a %@",name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [alert1 show];
+                }
+                
+        
+
+        
         else
         {
 
@@ -1058,7 +1227,25 @@
                 UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your Password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert1 show];
             }
+            
         }
+    else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"])
+            
+            
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Choose Your Usertype" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+        }
+     else  if ([_type2btnlbl.titleLabel.text isEqualToString:@"Select"])
+        {
+           
+            NSString *name=_titlenamelabel.text;
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:[NSString stringWithFormat:@"Please select a %@",name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+
+        }
+        
+        
         else
         {
 
@@ -1079,14 +1266,15 @@
 }
 #pragma mark-create popover
 -(void)createpopover{
-    
+    if (poptype==1)
+    {
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+                           initWithFrame:CGRectMake(0, 0, 150, 150)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 150)];
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
@@ -1097,12 +1285,12 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 150);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
-    if (poptype==1) {
+    
         [self.popOverController presentPopoverFromRect:_type1btnlbl.frame
                                                 inView:self.addview
                               permittedArrowDirections:UIPopoverArrowDirectionUp
@@ -1110,6 +1298,29 @@
 
     }
     if (poptype==2) {
+        UIViewController* popoverContent = [[UIViewController alloc]
+                                            init];
+        UIView* popoverView = [[UIView alloc]
+                               initWithFrame:CGRectMake(0, 0, 200, 250)];
+        
+        popoverView.backgroundColor = [UIColor lightTextColor];
+        _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+        _popOverTableView.delegate=(id)self;
+        _popOverTableView.dataSource=(id)self;
+        _popOverTableView.rowHeight= 32;
+        _popOverTableView.separatorColor=[UIColor cyanColor];
+        
+        [popoverView addSubview:_popOverTableView];
+        popoverContent.view = popoverView;
+        
+        //resize the popover view shown
+        //in the current view to the view's size
+        popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+        
+        //create a popover controller
+        self.popOverController = [[UIPopoverController alloc]
+                                  initWithContentViewController:popoverContent];
+        
         [self.popOverController presentPopoverFromRect:_type2btnlbl.frame
                                                 inView:self.addview
                               permittedArrowDirections:UIPopoverArrowDirectionUp

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Servicemdl.h"
+#import "Validation.h"
 
 @interface ServiceViewController : UIViewController<UITextFieldDelegate>
 
@@ -20,6 +21,7 @@
      NSInteger btnindex;
 }
 @property(strong,nonatomic)Servicemdl *servmdl;
+@property(strong,nonatomic)Validation *val;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -39,6 +41,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *servicelabel;
 @property (strong, nonatomic) IBOutlet UIButton *editbtn;
 @property(strong,nonatomic)IBOutlet UILabel *abbrvtnlabel;
+@property(strong,nonatomic)IBOutlet UILabel *resultdispalylabel;
 
 /*IBActions*/
 -(IBAction)closetheservicesview:(id)sender;

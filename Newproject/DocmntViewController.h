@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ValuesPhilosophyDocViewController.h"
+
 
 @interface DocmntViewController : UIViewController
 
@@ -25,5 +25,5 @@
 
 //viewCtrlr
 
-@property(strong,nonatomic)ValuesPhilosophyDocViewController *valuePhiloCtrl;
+
 @end
