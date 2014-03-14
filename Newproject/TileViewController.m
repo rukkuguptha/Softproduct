@@ -150,6 +150,13 @@
 }
 -(void)workProcedurePage
 {
+    if (!self.cmpnyVCtrl) {
+        self.cmpnyVCtrl=[[CmpnydocsViewController alloc]initWithNibName:@"CmpnydocsViewController" bundle:nil];
+    }
+    _cmpnyVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_cmpnyVCtrl
+                       animated:YES completion:NULL];
+
     
 }
 -(void)workphasePage

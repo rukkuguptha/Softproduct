@@ -162,6 +162,9 @@
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
 		D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBD186D7BBF00A693F7 /* search-button.png */; };
 		D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A395C18C993B00099EF7B /* NVerificationViewController.xib */; };
+		D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D43DAA3218D1B0A700280AA6 /* CmpnydocsViewController.m */; };
+		D43DAA3518D1B0A800280AA6 /* CmpnydocsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43DAA3318D1B0A700280AA6 /* CmpnydocsViewController.xib */; };
+		D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43DAA3618D1B62700280AA6 /* cmpnydocucell.xib */; };
 		D443A33317716FE60011C5DB /* appbar.close.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FF17716E0E006BB41A /* appbar.close.png */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
@@ -212,6 +215,7 @@
 		D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */; };
 		D4E658D417F2EF5B00202B14 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D317F2EF5B00202B14 /* wrong.png */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
+		D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */; };
 		D4F036C718B70A38003A668C /* Wrkschdulecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F036C618B70A38003A668C /* Wrkschdulecell.xib */; };
 		D4F036C918B71781003A668C /* Meetingnotesview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F036C818B71781003A668C /* Meetingnotesview.xib */; };
 		D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19D9D18D01CDB007617F0 /* NewCustmrViewController.m */; };
@@ -479,6 +483,10 @@
 		D4399EBB186D7BB000A693F7 /* search-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button@2x.png"; sourceTree = "<group>"; };
 		D4399EBD186D7BBF00A693F7 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
 		D43A395C18C993B00099EF7B /* NVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NVerificationViewController.xib; sourceTree = "<group>"; };
+		D43DAA3118D1B0A700280AA6 /* CmpnydocsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CmpnydocsViewController.h; sourceTree = "<group>"; };
+		D43DAA3218D1B0A700280AA6 /* CmpnydocsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CmpnydocsViewController.m; sourceTree = "<group>"; };
+		D43DAA3318D1B0A700280AA6 /* CmpnydocsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CmpnydocsViewController.xib; sourceTree = "<group>"; };
+		D43DAA3618D1B62700280AA6 /* cmpnydocucell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cmpnydocucell.xib; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
 		D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdPartyViewController.xib; sourceTree = "<group>"; };
@@ -542,6 +550,7 @@
 		D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-checkmark4-1.png"; sourceTree = "<group>"; };
 		D4E658D317F2EF5B00202B14 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
+		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
 		D4F036C618B70A38003A668C /* Wrkschdulecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Wrkschdulecell.xib; sourceTree = "<group>"; };
 		D4F036C818B71781003A668C /* Meetingnotesview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Meetingnotesview.xib; sourceTree = "<group>"; };
 		D4F19D9C18D01CDB007617F0 /* NewCustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCustmrViewController.h; sourceTree = "<group>"; };
@@ -691,6 +700,11 @@
 				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
 				D49E056218C71B7100AF6330 /* Cmanpwrcell.xib */,
 				D49E056418C71B9300AF6330 /* Namecrewcell.xib */,
+				D43DAA3118D1B0A700280AA6 /* CmpnydocsViewController.h */,
+				D43DAA3218D1B0A700280AA6 /* CmpnydocsViewController.m */,
+				D43DAA3318D1B0A700280AA6 /* CmpnydocsViewController.xib */,
+				D43DAA3618D1B62700280AA6 /* cmpnydocucell.xib */,
+				D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -1254,6 +1268,7 @@
 				D4F19E0618D03FE8007617F0 /* billingcell.xib in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D4F19DF018D03AD1007617F0 /* CommentsViewController.xib in Resources */,
+				D43DAA3518D1B0A800280AA6 /* CmpnydocsViewController.xib in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				D4F19DEA18D03AD1007617F0 /* customcommentforactivitycell.xib in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
@@ -1299,10 +1314,12 @@
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
 				649EDEC418BB011A00B78D97 /* EqaddRecordview.xib in Resources */,
+				D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
+				D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */,
 				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
@@ -1316,6 +1333,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,

@@ -22,6 +22,9 @@
     NSString *checkstring;
     
 }
+
+@property (strong, nonatomic) IBOutlet UILabel *updatelbl;
+
 @property(strong,nonatomic)NSString *unitstring;
 @property(strong,nonatomic)NSString *phasestring;
 @property(strong,nonatomic)phasesmodel *phasemdl;

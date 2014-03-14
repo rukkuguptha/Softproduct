@@ -16,7 +16,7 @@
 #import "BasicReqViewController.h"
 #import "workPhasesViewController.h"
 #import "CrewsetupViewController.h"
-
+#import "CmpnydocsViewController.h"
 
 @interface TileViewController : UIViewController
 
@@ -48,7 +48,7 @@
 @property(strong,nonatomic)workPhasesViewController *workVCtrl;
 @property(strong,nonatomic)CrewsetupViewController *crewsetupVctrl;
 
-
+@property(strong,nonatomic)CmpnydocsViewController *cmpnyVCtrl;
 
 
 

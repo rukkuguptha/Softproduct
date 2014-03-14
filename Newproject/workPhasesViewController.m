@@ -245,16 +245,24 @@
 -(IBAction)closeworkphasesview:(id)sender
 {
     _workphasesview.hidden=YES;
+    _updatelbl.hidden=YES;
 }
 -(IBAction)update_phases:(id)sender
 {
+    if ([_phasetextfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Phase" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+    
     if(optionIdentifier==1)
     {
     [self InsertPhases];
         _phasetextfld.text=@"";
          //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_servicebtn setTitle:@"" forState:UIControlStateNormal];
-        [_phasebtn setTitle:@"" forState:UIControlStateNormal];
+        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
         
     }
     else if(optionIdentifier==2)
@@ -262,16 +270,17 @@
         [self UpdatePhases];
         _phasetextfld.text=@"";
         // [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_servicebtn setTitle:@"" forState:UIControlStateNormal];
-         [_phasebtn setTitle:@"" forState:UIControlStateNormal];
+        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+         [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+    }
     }
 }
 -(IBAction)cancel_phases:(id)sender
 {
     _phasetextfld.text=@"";
     //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-     [_servicebtn setTitle:@"" forState:UIControlStateNormal];
-     [_phasebtn setTitle:@"" forState:UIControlStateNormal];
+     [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+     [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
     
 }
 
@@ -985,6 +994,16 @@
     
 
 
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordresults = TRUE;
+    }
+    
 
     
 
@@ -1118,6 +1137,16 @@
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordresults = FALSE;
+        
+        _updatelbl.hidden=NO;
+         _soapResults = nil;
+
+    }
+    
 
 
 
