@@ -781,16 +781,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"entryid"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"EntryId"])
+     if([elementName isEqualToString:@"EntryId"])
     {
         
         if(!_soapResults)
@@ -800,7 +791,7 @@
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"Itemcode"])
+    if([elementName isEqualToString:@"ItemCode"])
     {
         
         if(!_soapResults)
@@ -809,7 +800,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"description"])
+    if([elementName isEqualToString:@"Description"])
     {
         
         if(!_soapResults)
@@ -988,7 +979,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"entryid"])
+    if([elementName isEqualToString:@"EntryId"])
     {
         _manpwrmdl=[[Manpwr alloc]init];
         
@@ -997,7 +988,7 @@
         _manpwrmdl.entryid=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"Itemcode"])
+    if([elementName isEqualToString:@"ItemCode"])
     {
         
         recordResults = FALSE;
@@ -1005,7 +996,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"description"])
+    if([elementName isEqualToString:@"Description"])
     {
         
         recordResults = FALSE;

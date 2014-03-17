@@ -1077,7 +1077,7 @@
          if(value2==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter A Valid State Unemployer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter A Valid State Unemployement ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -1112,30 +1112,106 @@
     }
     
     if(textField==_webtxtfld){
-        Validation *val=[[Validation alloc]init];
-        BOOL webval=[val validateUrl:_webtxtfld.text];
-        if(webval)
-        {
-            // email valid, other validations in the form
-        }
-        else
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"invalid Website address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
         
-
-
+        NSString *urlRegEx =@"(http|https)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+        NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
+ if(![urlTest evaluateWithObject:self.citytxtfld.text]){
+     
+     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid Website Address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+             [alert show];
+ }
         
         
+//        Validation *val=[[Validation alloc]init];
+//        BOOL webval=[val validateUrl:_webtxtfld.text];
+//        if(webval)
+//        {
+//            // email valid, other validations in the form
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid Website Address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//
+//        }
+//        else
+//        {
+////            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid Website Address" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+////            [alert show];
+//        }
     }
+
+
+        if(textField==_citytxtfld){
+            NSString *nameRegex = @"[A-Za-z]+";
+            NSPredicate *nameTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameRegex];
+            if(![nameTest evaluateWithObject:self.citytxtfld.text]){
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid City Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                
+                           }
+        }
+        
+        
+    
     
     
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     ////NSLog(@"buttonIndex%d",buttonIndex);
     
+    if ([alertView.message isEqualToString:@"Invalid Website Address"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _webtxtfld.text=@"";
+            
+            
+        }
+    }
+
+    if ([alertView.message isEqualToString:@"invalid Email"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _mailtxtfld.text=@"";
+            
+            
+        }
+    }
     
+
+    
+    if ([alertView.message isEqualToString:@"Invalid City Name"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _citytxtfld.text=@"";
+            
+            
+        }
+    }
+    
+
+    if ([alertView.message isEqualToString:@"Invalid City Name"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _citytxtfld.text=@"";
+
+            
+        }
+    }
+
     
     if ([alertView.message isEqualToString:@"Please Enter A Valid Zip"]) {
         

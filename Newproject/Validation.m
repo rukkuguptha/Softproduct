@@ -30,6 +30,19 @@
     return YES;
     
 }
+//-(BOOL)isCharcter:(NSString *)input{
+//    for(int i=0;i<[input length];i++){
+//        char c=[input characterAtIndex:i];
+//      if((c=='-' && c=='0')||((!(c>='0' && c<='9')) && (!(c=='.'))&&(!(c=='$')))){
+//            return NO;
+//            
+//        }
+//        
+//    }
+//    return YES;
+//
+//    
+//}
 -(BOOL)isIntegerValue:(NSString *)input{
     
      for(int i=0;i<[input length];i++){
