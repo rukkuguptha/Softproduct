@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -14,6 +14,7 @@
                 <outlet property="materialTable" destination="ioM-Hg-c3p" id="Cui-2M-5OH"/>
                 <outlet property="navItem" destination="aMt-1h-Qkm" id="toj-Fn-cC8"/>
                 <outlet property="picimageview" destination="srX-5q-wqr" id="Rch-5S-X26"/>
+                <outlet property="resultdispalylabel" destination="JIQ-HE-PH2" id="kkC-5F-Msf"/>
                 <outlet property="stockinhandtxtfld" destination="F7N-Io-6MJ" id="T4d-k6-J3v"/>
                 <outlet property="subsearchbtnlbl" destination="qZF-B4-eqY" id="BIv-o4-kFs"/>
                 <outlet property="subtyptxtfld" destination="jbQ-Qx-4uW" id="Pwi-Df-Ef2"/>
@@ -31,19 +32,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="hiH-W4-tRH">
-                            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
                         <navigationBar contentMode="scaleToFill" id="y0I-JX-W6H">
-                            <rect key="frame" x="5" y="2" width="759" height="44"/>
+                            <rect key="frame" x="-9" y="0.0" width="777" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Materials" id="xSm-5t-Spp">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="Z5s-06-txO">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9YI-Vu-Y2P">
-                                            <rect key="frame" x="703" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="721" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -58,7 +55,7 @@
                             </items>
                         </navigationBar>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="ioM-Hg-c3p">
-                            <rect key="frame" x="27" y="112" width="721" height="624"/>
+                            <rect key="frame" x="24" y="112" width="721" height="624"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -67,11 +64,11 @@
                             </connections>
                         </tableView>
                         <view contentMode="scaleToFill" id="i7x-iL-hoU">
-                            <rect key="frame" x="27" y="72" width="721" height="39"/>
+                            <rect key="frame" x="24" y="72" width="721" height="39"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iBl-Zk-YPi">
-                                    <rect key="frame" x="119" y="9" width="104" height="21"/>
+                                    <rect key="frame" x="103" y="9" width="104" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
@@ -95,7 +92,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qlH-ra-mPA">
-                                    <rect key="frame" x="8" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="7" y="0.0" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="appbar.addblack.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -105,7 +102,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9gx-5b-iF4">
-                                    <rect key="frame" x="62" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="55" y="0.0" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" image="appbar.delete.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,15 +115,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="AdN-1P-aZt">
-                            <rect key="frame" x="51" y="72" width="649" height="456"/>
+                            <rect key="frame" x="55" y="72" width="649" height="456"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="ix8-Iz-jvf">
-                                    <rect key="frame" x="0.0" y="0.0" width="649" height="456"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </imageView>
                                 <navigationBar contentMode="scaleToFill" id="38w-m9-ijD">
-                                    <rect key="frame" x="3" y="2" width="644" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="649" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -134,7 +127,7 @@
                                         <navigationItem title="Title" id="aMt-1h-Qkm">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="ofD-uG-PDb">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MZm-6P-ElZ">
-                                                    <rect key="frame" x="588" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="593" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button" image="appbar.close.png">
@@ -212,15 +205,15 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle3.png" id="68K-dh-BCR">
-                                    <rect key="frame" x="398" y="244" width="209" height="128"/>
+                                    <rect key="frame" x="398" y="244" width="200" height="128"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ios7-camera-icon.png" id="srX-5q-wqr">
-                                    <rect key="frame" x="412" y="256" width="180" height="103"/>
+                                    <rect key="frame" x="408" y="256" width="180" height="103"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="euM-lj-5st">
-                                    <rect key="frame" x="350" y="401" width="67" height="30"/>
+                                    <rect key="frame" x="338" y="383" width="67" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -231,10 +224,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Jpw-2m-GxA">
-                                    <rect key="frame" x="190" y="401" width="126" height="30"/>
+                                    <rect key="frame" x="192" y="383" width="126" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                    <state key="normal" title="Update Materials">
+                                    <state key="normal" title="Update">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -266,13 +259,20 @@
                                         <outlet property="delegate" destination="-1" id="fQz-7s-B0t"/>
                                     </connections>
                                 </textField>
+                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JIQ-HE-PH2">
+                                    <rect key="frame" x="220" y="421" width="190" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
     </objects>
@@ -283,6 +283,5 @@
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="rectangle3.png" width="551" height="327"/>
         <image name="search-button.png" width="30" height="30"/>
-        <image name="squareimage1.png" width="300" height="400"/>
     </resources>
 </document>

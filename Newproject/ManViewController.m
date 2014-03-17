@@ -167,13 +167,13 @@
              _typelbl=(UILabel *)[cell viewWithTag:3];
              _typelbl.text=pwrmdl.subtype;
              _costlbl=(UILabel *)[cell viewWithTag:4];
-             _costlbl.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
+             _costlbl.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
              _craftlabel=(UILabel *)[cell viewWithTag:5];
              _craftlabel.text=pwrmdl.craftcode;
              _billabel=(UILabel *)[cell viewWithTag:6];
-             _billabel.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
+             _billabel.text=[NSString stringWithFormat:@"%@$",pwrmdl.billingrate];
              _paylabel=(UILabel *)[cell viewWithTag:7];
-             _paylabel.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
+             _paylabel.text=[NSString stringWithFormat:@"%@$",pwrmdl.payrate];
              
              
              
@@ -666,9 +666,9 @@
         
     }
     
-    NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
-    NSString*billrate=    [_billingratetextfield.text substringFromIndex:1];
-    NSString*payrate=    [_payratetextfield.text substringFromIndex:1];
+//    NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
+//    NSString*billrate=    [_billingratetextfield.text substringFromIndex:1];
+//    NSString*payrate=    [_payratetextfield.text substringFromIndex:1];
     NSString *jobdesc=@"";
     
     soapMessage = [NSString stringWithFormat:
@@ -696,7 +696,7 @@
                     "<EducationReq>%@</EducationReq>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[unitcost floatValue],overhead,_craftcodetextfld.text,[billrate floatValue],[payrate floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -790,6 +790,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"Itemcode"])
     {
         
@@ -1126,7 +1136,9 @@
             
           
         }
-        
+         _resultdisplaylabel.hidden=NO;
+        _resultdisplaylabel.text=_soapResults;
+       
         
         _itemcodetxtfld.text=@"";
         
@@ -1178,6 +1190,7 @@
 
 #pragma mark-Action
 - (IBAction)addmanpwer:(id)sender {
+    _resultdisplaylabel.hidden=YES;
     _itemcodetxtfld.text=@"";
     
     _itemdestxtfld.text=@"";
@@ -1200,12 +1213,14 @@
 }
 - (IBAction)clsebtn:(id)sender {
     _addview.hidden=YES;
+    _resultdisplaylabel.hidden=YES;
     
 }
 -(IBAction)editmanpower:(id)sender
 {
     btnidtfr=11;
      _cancelbtnlbl.enabled=NO;
+    _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.manpowerTable];
@@ -1218,9 +1233,9 @@
     
     _itemdestxtfld.text=pwrmdl.itemdescptn;
     _subtypetxtfld.text=pwrmdl.subtype;
-    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
-    _payratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
-    _billingratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
+    _payratetextfield.text=[NSString stringWithFormat:@"%@$",pwrmdl.payrate];
+    _billingratetextfield.text=[NSString stringWithFormat:@"%@$",pwrmdl.billingrate];
     _craftcodetextfld.text=[NSString stringWithFormat:@"%@",pwrmdl.craftcode];
     _eduactiontextview.text=pwrmdl.EducationReq;
     _experiencetextview.text=pwrmdl.Experiance;
@@ -1272,17 +1287,35 @@
 
 - (IBAction)update:(id)sender {
     if (btnidtfr==11) {
-        
+        if([_itemdestxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
         [self UpdateManpower];
     }
+    }
     else if (btnidtfr==22){
-        if ([_Availablityresult isEqualToString:@"Yes"]) {
-            
-             [self InsertManpower];
+        if([_itemdestxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
         }
-        else if([_Availablityresult isEqualToString:@"No"]){
-           [self InsertManpowerDatastoDB];
+        else
+        {
+            [self InsertManpower];
         }
+
+        
+//        if ([_Availablityresult isEqualToString:@"Yes"]) {
+//            
+//             [self InsertManpower];
+//        }
+//        else if([_Availablityresult isEqualToString:@"No"]){
+//           [self InsertManpowerDatastoDB];
+//        }
 
   
       
@@ -1352,7 +1385,7 @@
     if (textField==_unitcosttxtfld) {
         int value2=[val isNumeric:_unitcosttxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid unit cost" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Hourly Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }

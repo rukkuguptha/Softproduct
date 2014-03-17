@@ -76,6 +76,7 @@
 @property(strong,nonatomic)IBOutlet UITextField *craftcodetextfld;
 @property(strong,nonatomic)IBOutlet UITextField *billingratetextfield;
 @property(strong,nonatomic)IBOutlet UITextField *payratetextfield;
+@property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
 
 - (IBAction)overhdcheck:(id)sender;
 - (IBAction)searchbtn:(id)sender;
@@ -113,4 +114,5 @@
 @property(strong,nonatomic)IBOutlet UITextView *experiencetextview;
 @property(strong,nonatomic)IBOutlet UITextView *eduactiontextview;
 @property(strong,nonatomic)IBOutlet UIScrollView *scrollforqualification;
+
 @end

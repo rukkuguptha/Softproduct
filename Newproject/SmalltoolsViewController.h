@@ -63,6 +63,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *deslbl;
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
+@property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
 
 
 - (IBAction)addtoolbtn:(id)sender;

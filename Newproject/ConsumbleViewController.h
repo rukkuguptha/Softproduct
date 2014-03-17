@@ -33,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *deslbl;
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *costlbl;
+@property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
 
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
