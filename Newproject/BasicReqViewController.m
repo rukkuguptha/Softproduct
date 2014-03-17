@@ -528,7 +528,7 @@
         _vendertextfield.text=[_autocompletearray objectAtIndex:indexPath.row];
                         _autotable.hidden = YES;
     }
-
+ [self.popOverController dismissPopoverAnimated:YES];
     
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{

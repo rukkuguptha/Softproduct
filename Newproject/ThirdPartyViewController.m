@@ -1317,7 +1317,7 @@ finishedSavingWithError:(NSError *)error
         }
         
     }
-    
+     [self.popOverController dismissPopoverAnimated:YES];
     
     
 }

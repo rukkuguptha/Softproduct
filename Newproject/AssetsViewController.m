@@ -287,7 +287,7 @@ finishedSavingWithError:(NSError *)error
          [_suserachbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
-    
+     [self.popOverController dismissPopoverAnimated:YES];
     
 }
 

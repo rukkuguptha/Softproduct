@@ -747,7 +747,7 @@
     }
     
     
-    
+     [self.popOverController dismissPopoverAnimated:YES];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

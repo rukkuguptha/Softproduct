@@ -284,7 +284,7 @@ finishedSavingWithError:(NSError *)error
         [_subsearchlbl setTitle:[_Subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
-    
+     [self.popOverController dismissPopoverAnimated:YES];
     
 }
 

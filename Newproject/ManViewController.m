@@ -228,6 +228,7 @@
     if (tableView==_manpowerTable) {
       
             }
+   [self.popOverController dismissPopoverAnimated:YES];
     
     
 }
