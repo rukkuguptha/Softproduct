@@ -666,7 +666,9 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
           recordResults = FALSE;
 //        _resultdisplaylabel.hidden=NO;
 //        _resultdisplaylabel.text=_soapResults;
-        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+        [alert show];
+
         _codetxtfld.text=@"";
         
         _destxtfld.text=@"";
@@ -675,6 +677,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         _stockinhandtxtfld.text=@"";
 
          _soapResults = nil;
+        [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         
     }
 }
@@ -814,6 +817,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
+    [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
     
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
@@ -855,7 +860,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if (butntype==1) {
         if([_destxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 else
@@ -867,7 +872,7 @@ else
     else if (butntype==2){
         if([_destxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 else
@@ -885,6 +890,8 @@ else
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
+    [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
 
 }
 
@@ -914,6 +921,8 @@ else
     
     _destxtfld.text=toolmdl.itemdescptn;
     _subtypetxtfld.text=toolmdl.subtype;
+    [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
+
     _costtxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
    
     _stockinhandtxtfld.text=toolmdl.stckinhand;

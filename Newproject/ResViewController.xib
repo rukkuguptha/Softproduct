@@ -123,7 +123,7 @@
                     <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <navigationBar contentMode="scaleToFill" id="yOl-cq-Ui6">
-                    <rect key="frame" x="3" y="3" width="533" height="44"/>
+                    <rect key="frame" x="0.0" y="3" width="547" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
@@ -133,7 +133,7 @@
                         <navigationItem title="Resources" id="Gl2-LG-g16">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="1br-OI-l5M">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2h-I9-Qyb">
-                                    <rect key="frame" x="477" y="2" width="40" height="40"/>
+                                    <rect key="frame" x="481" y="-7" width="50" height="58"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.close.png">
@@ -159,7 +159,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view contentMode="scaleToFill" id="OaN-jw-sga">
                     <rect key="frame" x="344" y="406" width="150" height="151"/>

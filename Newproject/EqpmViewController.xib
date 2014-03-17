@@ -412,7 +412,7 @@
                                             <rect key="frame" x="189" y="642" width="130" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <state key="normal" title="Update Equipment"/>
+                                            <state key="normal" title="Update "/>
                                             <connections>
                                                 <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="U8A-CK-HOy"/>
                                             </connections>
