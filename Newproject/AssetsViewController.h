@@ -90,9 +90,11 @@ NSInteger popvr;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *SearchingBar;
 @property (strong, nonatomic) IBOutlet UITableViewCell *Assetcell;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
 @property (strong, nonatomic) IBOutlet UIButton *typesearchlbl;
 @property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
+@property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 
 /*cell outlets*/
 

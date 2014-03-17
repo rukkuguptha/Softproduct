@@ -30,7 +30,7 @@
     [super viewDidLoad];
     [self SelectAllEquipment];
     _scroll_addview.frame=CGRectMake(0, 0, 619,713);
-    [_scroll_addview setContentSize:CGSizeMake(619,1000)];
+    [_scroll_addview setContentSize:CGSizeMake(619,1024)];
     _equipmenttbl.layer.borderWidth = 2.0;
     _equipmenttbl.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -525,7 +525,7 @@ finishedSavingWithError:(NSError *)error
                      "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[[_hurlytxtfld.text substringFromIndex:1]doubleValue],[[_dailytxtfld.text substringFromIndex:1]doubleValue],[[_shiftwisetxtfld.text substringFromIndex:1]doubleValue],[[_weeklytxtfld.text substringFromIndex:1]doubleValue],[[_monthlytxtfld.text substringFromIndex:1]doubleValue],[[_yearlytxtfld.text substringFromIndex:1]doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1257,10 +1257,31 @@ finishedSavingWithError:(NSError *)error
     {
         recordResults = FALSE;
         
-        if ([_soapResults isEqualToString:@"Inserted"]||[_soapResults isEqualToString:@"Updated"]) {
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
                [self UploadAnyImage];
-            webtype=0;
-        }
+            _updatelbl.hidden=NO;
+            _updatelbl.text=_soapResults;
+            _codetxfld.text=@"";
+            _destxtfld.text=@"";
+            _subtypetxtfld.text=@"";
+            _purchasetxtfld.text=@"";
+            _serialtxtfld.text=@"";
+            _manufattxtfld.text =@"";
+            _insuredtxtfld.text=@"";
+            _hurstxtfld.text=@"";
+            _fueltxtfld.text=@"";
+            _condtntxtfld.text=@"";
+            _hurlytxtfld.text=@"";
+            _dailytxtfld.text=@"";
+            _shiftwisetxtfld.text=@"";
+            _weeklytxtfld.text=@"";
+            _monthlytxtfld.text=@"";
+            _yearlytxtfld.text=@"";
+            _stockinhndtxtfld.text=@"";
+            _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+            
+
+                   }
         else if ([_soapResults isEqualToString:@"Eqp Picture Updated"]){
             
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
@@ -1358,6 +1379,7 @@ finishedSavingWithError:(NSError *)error
 -(IBAction)closeaddview:(id)sender
 {
     _addequipmentview.hidden=YES;
+      _updatelbl.hidden=YES;
 
 }
 -(IBAction)editequipview:(id)sender
@@ -1417,6 +1439,14 @@ _addequipmentview.hidden=NO;
 
         
          // [self UploadAnyImage];
+    
+    if([_destxtfld.text isEqualToString:@""]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+    
     
     if (btntype==1) {
         [self InsertEquipment];
