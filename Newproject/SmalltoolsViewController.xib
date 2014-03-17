@@ -15,10 +15,8 @@
                 <outlet property="destxtfld" destination="LfS-2o-ba2" id="LJC-3d-nbT"/>
                 <outlet property="navbar" destination="qXt-r3-Qxm" id="iko-vf-OAV"/>
                 <outlet property="navtitle" destination="TlW-Bk-oFh" id="B2U-OF-1tY"/>
-                <outlet property="resultdisplaylabel" destination="FNS-yA-DTH" id="ahB-2b-nCU"/>
                 <outlet property="stockinhandtxtfld" destination="0l4-wj-wMA" id="Zfv-ib-eKw"/>
                 <outlet property="subsearchbtnlbl" destination="p51-kM-tTJ" id="XGz-2R-8if"/>
-                <outlet property="subtypetxtfld" destination="Quj-to-UEC" id="5ax-Ow-lNK"/>
                 <outlet property="view" destination="9N2-uw-8vf" id="kgk-1I-Tsb"/>
                 <outlet property="view1" destination="Ov6-Bx-oOC" id="oiL-CH-mih"/>
             </connections>
@@ -177,12 +175,6 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Quj-to-UEC">
-                                    <rect key="frame" x="25" y="162" width="203" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Djm-vH-8TL">
                                     <rect key="frame" x="381" y="162" width="198" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -221,9 +213,11 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p51-kM-tTJ">
-                                    <rect key="frame" x="242" y="163" width="27" height="27"/>
+                                    <rect key="frame" x="25" y="164" width="200" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" backgroundImage="search-button.png">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -237,7 +231,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="0l4-wj-wMA">
-                                    <rect key="frame" x="25" y="223" width="203" height="30"/>
+                                    <rect key="frame" x="25" y="223" width="200" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -245,13 +239,6 @@
                                         <outlet property="delegate" destination="-1" id="6mL-dD-hfo"/>
                                     </connections>
                                 </textField>
-                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FNS-yA-DTH">
-                                    <rect key="frame" x="242" y="364" width="165" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rectangle3.png" id="Edh-eW-bUN">
                                     <rect key="frame" x="382" y="223" width="196" height="108"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -282,6 +269,6 @@
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="rectangle3.png" width="551" height="327"/>
-        <image name="search-button.png" width="30" height="30"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

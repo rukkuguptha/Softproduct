@@ -738,7 +738,8 @@
     
     if(tableView==_popOverTableView){
         
-        _subtyptxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+       // _subtyptxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+         [_subsearchbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
     

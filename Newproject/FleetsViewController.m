@@ -219,7 +219,8 @@
     
     if(tableView==_popOverTableView){
         
-        _subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+        //_subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+        [_suserachbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
     
@@ -395,7 +396,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Insertfleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -464,7 +465,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Updatefleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1223,29 +1224,8 @@
         if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
         {
             [self UploadAnyImage];
-            _updatelbl.hidden=NO;
-            _updatelbl.text=_soapResults;
-            
-            _codetxtfld.text=@"";
-            _destxtfld.text=@"";
-            _subtypetxtfld.text=@"";
-            _purchasetxtfld.text=@"";
-            _serialtxtfld.text=@"";
-            _manufattxtfld.text =@"";
-            _insuredtxtfld.text=@"";
-            _hurstxtfld.text=@"";
-            _fueltxtfld.text=@"";
-            _condtntxtfld.text=@"";
-            _hurlytxtfld.text=@"";
-            _dailytxtfld.text=@"";
-            _shiftwisetxtfld.text=@"";
-            _weeklytxtfld.text=@"";
-            _monthlytxtfld.text=@"";
-            _yearlytxtfld.text=@"";
-            _stockinhandtxtfld.text=@"";
-            _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
-
-            //webtype=0;
+           
+            webtype=0;
             
         }
         else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
@@ -1409,12 +1389,13 @@ if([elementName isEqualToString:@"url"])
         [alert show];
     }
     
-
+    else{
     if (btntype==1) {
         [self Insertfleet];
     }
     if (btntype==2) {
         [self Updatefleet];
+    }
     }
 }
 

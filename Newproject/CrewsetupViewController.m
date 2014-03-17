@@ -294,6 +294,15 @@
 
 - (void)startDragging:(UIPanGestureRecognizer *)gestureRecognizer
 {
+    
+    if([_crewnametxtfld.text isEqualToString:@""]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter CrewName" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     CGPoint pointInSrc = [gestureRecognizer locationInView:_manpwrtable];
     CGPoint pointInDst = [gestureRecognizer locationInView:_crewnametable];
     
@@ -307,10 +316,13 @@
         [self startDraggingFromDstAtPoint:pointInDst];
         dragFromSource = NO;
     }
+    }
 }
 
 - (void)startDraggingFromSrcAtPoint:(CGPoint)point
 {
+    
+    
     NSIndexPath* indexPath = [_manpwrtable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_manpwrtable cellForRowAtIndexPath:indexPath];
     
@@ -335,6 +347,7 @@
         
        draggedData = manmdl1.itemcode;
             }
+    
 }
 
 - (void)startDraggingFromDstAtPoint:(CGPoint)point

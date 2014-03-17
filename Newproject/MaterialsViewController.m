@@ -171,7 +171,8 @@
     
     if(tableView==_popOverTableView){
         
-        _subtyptxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+        //_subtyptxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+        [_subsearchbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
 
@@ -282,7 +283,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -338,7 +339,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -970,8 +971,8 @@
         recordResults = FALSE;
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
-            _resultdispalylabel.hidden=NO;
-            _resultdispalylabel.text=_soapResults;
+            //_resultdispalylabel.hidden=NO;
+            //_resultdispalylabel.text=_soapResults;
             [self UploadAnyImage];
             webtype=0;
         }

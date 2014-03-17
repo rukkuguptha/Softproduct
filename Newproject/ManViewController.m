@@ -567,7 +567,7 @@
                    "<EducationReq>%@</EducationReq>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_searchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -696,7 +696,7 @@
                     "<EducationReq>%@</EducationReq>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_searchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     

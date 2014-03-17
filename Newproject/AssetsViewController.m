@@ -283,7 +283,8 @@ finishedSavingWithError:(NSError *)error
     
     if(tableView==_popOverTableView){
         
-        _subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+        //_subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+         [_suserachbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
     
@@ -458,7 +459,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -533,7 +534,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1272,27 +1273,7 @@ finishedSavingWithError:(NSError *)error
         if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
         {
             [self UploadAnyImage];
-            _updatelbl.hidden=NO;
-            _updatelbl.text=_soapResults;
-            _codetxtfld.text=@"";
-            _destxtfld.text=@"";
-            _subtypetxtfld.text=@"";
-            _purchasetxtfld.text=@"";
-            _serialtxtfld.text=@"";
-            _manufattxtfld.text =@"";
-            _insuredtxtfld.text=@"";
-            _hurstxtfld.text=@"";
-            _fueltxtfld.text=@"";
-            _condtntxtfld.text=@"";
-            _hurlytxtfld.text=@"";
-            _dailytxtfld.text=@"";
-            _shiftwisetxtfld.text=@"";
-            _weeklytxtfld.text=@"";
-            _monthlytxtfld.text=@"";
-            _yearlytxtfld.text=@"";
-            _stckinhandtxtfld.text=@"";
-            _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
-            //webtype=0;
+                     webtype=0;
            
         }
         else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {

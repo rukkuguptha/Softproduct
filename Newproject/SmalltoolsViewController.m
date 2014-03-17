@@ -175,7 +175,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtypetxtfld.text,[_costtxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[_costtxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -230,7 +230,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[[_costtxtfld.text substringFromIndex:1] doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[[_costtxtfld.text substringFromIndex:1] doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -664,8 +664,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if([elementName isEqualToString:@"result"])
     {
           recordResults = FALSE;
-        _resultdisplaylabel.hidden=NO;
-        _resultdisplaylabel.text=_soapResults;
+//        _resultdisplaylabel.hidden=NO;
+//        _resultdisplaylabel.text=_soapResults;
         
         _codetxtfld.text=@"";
         
@@ -739,7 +739,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
    if(tableView==_popOverTableView){
        
-       _subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+       //_subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+         [_subsearchbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
     
