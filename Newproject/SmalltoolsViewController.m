@@ -664,6 +664,8 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if([elementName isEqualToString:@"result"])
     {
           recordResults = FALSE;
+        _resultdisplaylabel.hidden=NO;
+        _resultdisplaylabel.text=_soapResults;
         
         _codetxtfld.text=@"";
         
@@ -806,7 +808,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 - (IBAction)addtoolbtn:(id)sender {
      butntype=1;
     _codetxtfld.text=@"";
-    
+    _resultdisplaylabel.hidden=YES;
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
@@ -850,18 +852,34 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 
 - (IBAction)updatebtn:(id)sender {
     if (butntype==1) {
+        if([_destxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+else
+{
         [self InsertSmallTools];
+}
         
     }
     else if (butntype==2){
+        if([_destxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+else
+{
         [self UpdateSmallTools];
+}
         
     }
 }
 
 - (IBAction)cancelbtn:(id)sender {
     _codetxtfld.text=@"";
-    
+    _resultdisplaylabel.hidden=YES;
     _destxtfld.text=@"";
     _subtypetxtfld.text=@"";
     _costtxtfld.text=@"";
@@ -883,6 +901,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 - (IBAction)editbtn:(id)sender {
     butntype=2;
     _cancelbtnlbl.enabled=NO;
+    _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.Tooltable];

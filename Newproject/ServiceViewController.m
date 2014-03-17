@@ -184,8 +184,9 @@
     
 
     [self InsertServices];
-    _servicetextfld.text=@"";
-    _abbreviatintextfld.text=@"";
+//    _servicetextfld.text=@"";
+//    _abbreviatintextfld.text=@"";
+    [_servicetextfld resignFirstResponder];
     }
 }
     else if(optionidentifier==2)
@@ -202,8 +203,9 @@
         {
 
         [self UpdateServices];
-        _servicetextfld.text=@"";
-        _abbreviatintextfld.text=@"";
+//        _servicetextfld.text=@"";
+//        _abbreviatintextfld.text=@"";
+        [_servicetextfld resignFirstResponder];
         }
     }
 }
@@ -690,6 +692,10 @@
         recordResults = FALSE;
         _resultdispalylabel.hidden=NO;
         _resultdispalylabel.text=_soapResults;
+//                _servicetextfld.text=@"";
+//                _abbreviatintextfld.text=@"";
+//        [_servicetextfld resignFirstResponder];
+
         _soapResults = nil;
     }
 
@@ -748,6 +754,12 @@
         [alert show];
         
     }
+    if([_abbreviatintextfld.text isEqualToString:@""])
+    {
+        [_servicetextfld resignFirstResponder];
+        
+    }
+
 }
 
 @end

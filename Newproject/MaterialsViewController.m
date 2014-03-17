@@ -282,7 +282,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],@"",[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -338,7 +338,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[[_unitcosttxtfld.text substringFromIndex:1]doubleValue],@"",[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -695,6 +695,16 @@
         }
         recordResults = TRUE;
     }
+//    if([elementName isEqualToString:@"entryid"])
+//    {
+//        
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+
     if([elementName isEqualToString:@"ItemCode"])
     {
         
@@ -868,6 +878,16 @@
         _materialmdl.entryid=[_soapResults integerValue];
         _soapResults = nil;
     }
+//    if([elementName isEqualToString:@"entryid"])
+//    {
+//        _materialmdl=[[Manpwr alloc]init];
+//        
+//        recordResults = FALSE;
+//        
+//        _materialmdl.entryid=[_soapResults integerValue];
+//        _soapResults = nil;
+//    }
+
     if([elementName isEqualToString:@"ItemCode"])
     { recordResults = FALSE;
  _materialmdl.itemcode=_soapResults;
@@ -949,7 +969,9 @@
     {
         recordResults = FALSE;
         
-        if ([_soapResults isEqualToString:@"insert"]||[_soapResults isEqualToString:@"update"]) {
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
+            _resultdispalylabel.hidden=NO;
+            _resultdispalylabel.text=_soapResults;
             [self UploadAnyImage];
             webtype=0;
         }
@@ -1038,13 +1060,29 @@
 
     
     if (butntype==1) {
+        if([_destxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
         [self InserteMaterials];
 
     }
-    else if (butntype==2){
-        [self UpdateMaterials];
     }
-   }
+    else if (butntype==2){
+        if([_destxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+else
+{
+        [self UpdateMaterials];
+}
+    }
+}
 
 - (IBAction)cancelbtn:(id)sender {
     _codetxtfld.text=@"";
@@ -1087,6 +1125,7 @@
 }
 -(IBAction)addmaterial:(id)sender
 {
+    _resultdispalylabel.hidden=YES;
     _codetxtfld.text=@"";
     
     _destxtfld.text=@"";
@@ -1102,6 +1141,7 @@
 -(IBAction)editmaterial:(id)sender
 {
     butntype=2;
+    _resultdispalylabel.hidden=YES;
     _cancelbtnlbl.enabled=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -1128,6 +1168,7 @@
 -(IBAction)closeaddview:(id)sender
 {
     _addmatView.hidden=YES;
+    _resultdispalylabel.hidden=YES;
 }
 
 #pragma mark-Textfield Delegate

@@ -60,6 +60,8 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 //outlets
+
+@property(strong,nonatomic)IBOutlet UILabel *resultdispalylabel;
 @property(strong,nonatomic)IBOutlet UITableView *materialTable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *materialCell;
 @property(strong,nonatomic)IBOutlet UIView *titleView;

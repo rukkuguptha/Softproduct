@@ -175,7 +175,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</InsertConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -211,7 +211,7 @@
     webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
-    NSString*unitcost=[_unitcosttxtfld.text substringFromIndex:1];
+    //NSString*unitcost=[_unitcosttxtfld.text substringFromIndex:1];
     Manpwr*pwrmdl=(Manpwr *)[_cnsumblearray objectAtIndex:butnpath];
     soapMessage = [NSString stringWithFormat:
                    
@@ -230,7 +230,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[unitcost doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -567,6 +567,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     
 }
@@ -652,7 +662,8 @@
     {  recordResults = FALSE;
         
         _codetxtfld.text=@"";
-        
+        _resultdisplaylabel.hidden=NO;
+        _resultdisplaylabel.text=_soapResults;
         _destxtfld.text=@"";
         _subtyptxtfld.text=@"";
         _unitcosttxtfld.text=@"";
@@ -715,7 +726,7 @@
         _typelbl=(UILabel *)[cell viewWithTag:3];
         _typelbl.text=materaialmdl.subtype;
         _costlbl=(UILabel *)[cell viewWithTag:4];
-        _costlbl.text=[NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
+        _costlbl.text=[NSString stringWithFormat:@"%@$",materaialmdl.unitcost];
         
     }
     return cell;
@@ -802,17 +813,35 @@
 
 - (IBAction)updatebtn:(id)sender{
     if (butntype==1) {
+        if([_destxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
         [self InsertConsumables];
+        }
         
     }
-    else  if (butntype==2){
+    else  if (butntype==2)
+    {
+        if([_destxtfld.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+        else
+        {
+
         [self UpdateConsumables];
+        }
         
     }
 }
 - (IBAction)cancelbtn:(id)sender{
     _codetxtfld.text=@"";
-    
+    _resultdisplaylabel.hidden=YES;
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
@@ -853,7 +882,7 @@
 {
     _addView.hidden=NO;
     _codetxtfld.text=@"";
-    
+    _resultdisplaylabel.hidden=YES;
     _destxtfld.text=@"";
     _subtyptxtfld.text=@"";
     _unitcosttxtfld.text=@"";
@@ -868,6 +897,7 @@
      butntype=2;
     button = (UIButton *)sender;
     CGPoint center= button.center;
+    _resultdisplaylabel.hidden=YES;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.consumbleTable];
     NSIndexPath *textFieldIndexPath = [self.consumbleTable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
@@ -877,7 +907,7 @@
     NSLog(@"toolmdl.itemcode%@",toolmdl.itemcode);
     _destxtfld.text=toolmdl.itemdescptn;
     _subtyptxtfld.text=toolmdl.subtype;
-    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"%@$",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
@@ -887,6 +917,7 @@
 
 -(IBAction)closeaddview:(id)sender{
     _addView.hidden=YES;
+    _resultdisplaylabel.hidden=YES;
     
 }
 #pragma mark-textfield delegate
