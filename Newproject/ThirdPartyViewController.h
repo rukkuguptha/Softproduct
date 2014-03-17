@@ -36,6 +36,7 @@
 @property(strong,nonatomic)NSString*picturelocation;
 @property(strong,nonatomic)NSString*uplodpiclctn;
 @property(strong,nonatomic)NSString*imgstring;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
 
 @property (strong, nonatomic)Equpmntmdl *thirdpartymdl;
@@ -73,6 +74,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *subtypetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *purchasetxtfld;
+@property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 
 @property (strong, nonatomic) IBOutlet UITextField *serialtxtfld;
 

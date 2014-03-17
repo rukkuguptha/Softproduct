@@ -30,8 +30,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    //_scroll_addview.frame=CGRectMake(0, 0, 619,713);
-   // [_scroll_addview setContentSize:CGSizeMake(619,820)];
+_scroll.frame=CGRectMake(0, 0, 619,713);
+   [_scroll setContentSize:CGSizeMake(619,1024)];
     _thirdprtyTable.layer.borderWidth = 2.0;
    _thirdprtyTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _view1.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -380,13 +380,13 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     NSString*picturelocatn=@"";
     NSString *soapMessage;
-     NSString*unitcost=[_unitcsttxtfld.text substringFromIndex:1];
-    NSString*HourlyRate=[_hurlytxtfld.text substringFromIndex:1];
-    NSString*DailyRate=[_dailytxtfld.text substringFromIndex:1];
-    NSString*ShiftwiseRate=[_shiftwisetxtfld.text substringFromIndex:1];
-    NSString*WeeklyRate=[_weeklytxtfld.text substringFromIndex:1];
-    NSString*MonthlyRate=[_monthlytxtfld.text substringFromIndex:1];
-    NSString*YearlyRate=[_yearlytxtfld.text substringFromIndex:1];
+     NSString*unitcost=_unitcsttxtfld.text ;
+    NSString*HourlyRate=_hurlytxtfld.text;
+    NSString*DailyRate=_dailytxtfld.text;
+    NSString*ShiftwiseRate=_shiftwisetxtfld.text ;
+    NSString*WeeklyRate=_weeklytxtfld.text ;
+    NSString*MonthlyRate=_monthlytxtfld.text ;
+    NSString*YearlyRate=_yearlytxtfld.text ;
    Equpmntmdl*Thrdprty=(Equpmntmdl *)[_thirdprtyarray objectAtIndex:path];
     
     soapMessage = [NSString stringWithFormat:
@@ -1197,7 +1197,29 @@ finishedSavingWithError:(NSError *)error
         if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
         {
             [self UploadAnyImage];
-            webtype=0;
+            _updatelbl.hidden=NO;
+            _updatelbl.text=_soapResults;
+            _codetxtfld.text=@"";
+            _destxtfld.text=@"";
+            _subtypetxtfld.text=@"";
+            _purchasetxtfld.text=@"";
+            _serialtxtfld.text=@"";
+            _manufattxtfld.text =@"";
+            _insuredtxtfld.text=@"";
+            _hurstxtfld.text=@"";
+            _fueltxtfld.text=@"";
+            _condtntxtfld.text=@"";
+            _hurlytxtfld.text=@"";
+            _dailytxtfld.text=@"";
+            _shiftwisetxtfld.text=@"";
+            _weeklytxtfld.text=@"";
+            _monthlytxtfld.text=@"";
+            _yearlytxtfld.text=@"";
+            _typetxtfld.text=@"";
+            _unitcsttxtfld.text=@"";
+            _stckinhandtxtdfld.text=@"";
+            _pictureimgvw.image=[UIImage imageNamed:@"ios7-camera-icon"];
+
             
         }
         else if ([_soapResults isEqualToString:@"ThirdParty Picture Updated"]) {
@@ -1422,6 +1444,8 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)Addclosebtn:(id)sender {
     _addview.hidden=YES;
+    _updatelbl.hidden=YES;
+
 }
 
 - (IBAction)updatebtn:(id)sender {
@@ -1433,6 +1457,14 @@ finishedSavingWithError:(NSError *)error
     
     _encodedString = [data base64EncodedString];
     NSLog(@"%@",_encodedString);
+
+    if([_destxtfld.text isEqualToString:@""]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+    
 
     if (btntype==1) {
         [self InsertThirdParty];

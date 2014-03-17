@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _scroll.frame=CGRectMake(0, 0, 619,713);
+    [_scroll setContentSize:CGSizeMake(619,1024)];
     _fleetTable.layer.borderWidth = 2.0;
     _fleetTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _view1.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -462,7 +464,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Updatefleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[[_hurlytxtfld.text substringFromIndex:1]doubleValue],[[_dailytxtfld.text substringFromIndex:1]doubleValue],[[_shiftwisetxtfld.text substringFromIndex:1]doubleValue],[[_weeklytxtfld.text substringFromIndex:1]doubleValue],[[_monthlytxtfld.text substringFromIndex:1]doubleValue],[[_yearlytxtfld.text substringFromIndex:1]doubleValue],eqmdl.entryid,[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1221,7 +1223,29 @@
         if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
         {
             [self UploadAnyImage];
-            webtype=0;
+            _updatelbl.hidden=NO;
+            _updatelbl.text=_soapResults;
+            
+            _codetxtfld.text=@"";
+            _destxtfld.text=@"";
+            _subtypetxtfld.text=@"";
+            _purchasetxtfld.text=@"";
+            _serialtxtfld.text=@"";
+            _manufattxtfld.text =@"";
+            _insuredtxtfld.text=@"";
+            _hurstxtfld.text=@"";
+            _fueltxtfld.text=@"";
+            _condtntxtfld.text=@"";
+            _hurlytxtfld.text=@"";
+            _dailytxtfld.text=@"";
+            _shiftwisetxtfld.text=@"";
+            _weeklytxtfld.text=@"";
+            _monthlytxtfld.text=@"";
+            _yearlytxtfld.text=@"";
+            _stockinhandtxtfld.text=@"";
+            _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+
+            //webtype=0;
             
         }
         else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
@@ -1324,6 +1348,7 @@ if([elementName isEqualToString:@"url"])
 
 {
     _addview.hidden=YES;
+      _updatelbl.hidden=YES;
     
 }
 - (IBAction)editbtn:(id)sender
@@ -1376,6 +1401,13 @@ if([elementName isEqualToString:@"url"])
     
     
     _encodedString = [data base64EncodedString];
+    
+    if([_destxtfld.text isEqualToString:@""]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
     
 
     if (btntype==1) {

@@ -37,6 +37,7 @@
 @property(strong,nonatomic)NSMutableArray *Equpntarray;
 @property(strong,nonatomic)NSMutableArray *Subtypearray;
 @property(strong,nonatomic)NSMutableArray *Searcharray;
+@property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 
 
 @property (strong, nonatomic) IBOutlet UITextField *stockinhndtxtfld;

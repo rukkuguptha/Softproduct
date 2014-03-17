@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -24,11 +24,13 @@
                 <outlet property="navbar" destination="Pi2-ZB-gEw" id="hqH-z2-CSZ"/>
                 <outlet property="pictureimgview" destination="7bL-8F-pdH" id="Px8-pd-gmN"/>
                 <outlet property="purchasetxtfld" destination="rfh-Li-yEi" id="coU-H0-sIl"/>
+                <outlet property="scroll" destination="N3w-9O-N3I" id="y0l-2O-uNb"/>
                 <outlet property="serialtxtfld" destination="THR-0Z-lh9" id="nLe-74-EM4"/>
                 <outlet property="shiftwisetxtfld" destination="SO8-db-SU0" id="t2O-Xf-SbD"/>
                 <outlet property="stckinhandtxtfld" destination="wEI-Nh-emq" id="xBK-Zs-cgg"/>
                 <outlet property="subtypetxtfld" destination="10M-hG-pRJ" id="Lpd-oY-FJ7"/>
                 <outlet property="suserachbtnlbl" destination="aG5-wL-S6p" id="BQJ-Xz-ZXg"/>
+                <outlet property="updatelbl" destination="fvz-rz-UiC" id="b0z-fy-Ubb"/>
                 <outlet property="view" destination="vyg-IP-iZe" id="gqL-iD-vqD"/>
                 <outlet property="view1" destination="R3l-CD-Nfe" id="K08-P3-NHQ"/>
                 <outlet property="weeklytxtfld" destination="XpC-Pd-FrO" id="ouB-tq-fkN"/>
@@ -44,10 +46,6 @@
                     <rect key="frame" x="0.0" y="-5" width="768" height="1029"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="3oE-4W-gxe">
-                            <rect key="frame" x="0.0" y="5" width="769" height="1026"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
                         <navigationBar contentMode="scaleToFill" id="Pi2-ZB-gEw">
                             <rect key="frame" x="2" y="7" width="765" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -134,10 +132,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="590" height="733"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="8kR-47-Jjl">
-                                            <rect key="frame" x="0.0" y="0.0" width="590" height="733"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </imageView>
                                         <navigationBar contentMode="scaleToFill" id="yKq-Fu-Ytd">
                                             <rect key="frame" x="0.0" y="0.0" width="590" height="44"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -457,15 +451,23 @@
                                                 <outlet property="delegate" destination="-1" id="NEs-GA-pgt"/>
                                             </connections>
                                         </textField>
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvz-rz-UiC">
+                                            <rect key="frame" x="239" y="692" width="160" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </scrollView>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
                     </subviews>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
     </objects>
@@ -476,6 +478,5 @@
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="rectangle3.png" width="551" height="327"/>
         <image name="search-button.png" width="30" height="30"/>
-        <image name="squareimage1.png" width="300" height="400"/>
     </resources>
 </document>
