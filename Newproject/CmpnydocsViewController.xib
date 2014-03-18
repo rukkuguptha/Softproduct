@@ -31,7 +31,7 @@
                         <navigationItem title="Company Documents" id="B3Q-ZU-D1D">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="3LG-pa-GgW">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HJb-FU-DRS">
-                                    <rect key="frame" x="710" y="6" width="42" height="31"/>
+                                    <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" backgroundImage="appbar.close.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>

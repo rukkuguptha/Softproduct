@@ -1091,7 +1091,7 @@
     {
         
         recordResults = FALSE;
-        _manpwrmdl.subtype=_soapResults;
+        _manpwrmdl.subtype=[_revskilldict objectForKey:_soapResults];;
         
         _soapResults = nil;
     }
@@ -1210,9 +1210,11 @@
             
           
         }
+        else{
+        msgstrg=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alert show];
-        
+        }
         
         _soapResults = nil;
     }

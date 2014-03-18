@@ -52,7 +52,7 @@
                                 <navigationItem title="Fleets" id="I6j-T7-5Yh">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="jk3-W6-cXm">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Urw-bm-HyB">
-                                            <rect key="frame" x="712" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -139,7 +139,7 @@
                                                 <navigationItem title="Title" id="qI5-MM-Mmh">
                                                     <barButtonItem key="rightBarButtonItem" style="plain" id="Qmy-ZO-PgD">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kbL-Nw-AEQ">
-                                                            <rect key="frame" x="560" y="2" width="40" height="40"/>
+                                                            <rect key="frame" x="555" y="2" width="50" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <state key="normal" image="appbar.close.png">

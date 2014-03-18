@@ -48,6 +48,7 @@
     pgr.delegate = (id)self;
     [_picimageview addGestureRecognizer:pgr];
 
+    [self AllSkills];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -1081,7 +1082,7 @@
     {
         
         recordResults = FALSE;
-       _materialmdl.subtype=_soapResults;
+       _materialmdl.subtype=[_revskilldict objectForKey:_soapResults];;
         
         _soapResults = nil;
     }
@@ -1265,6 +1266,14 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
         else
         {
         [self InserteMaterials];
@@ -1277,6 +1286,14 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
 else
 {
         [self UpdateMaterials];

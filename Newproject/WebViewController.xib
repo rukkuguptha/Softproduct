@@ -33,7 +33,7 @@
                         <navigationItem title="Documents" id="wHv-RB-VRm">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="RSK-KL-byL">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gcN-lU-H3q">
-                                    <rect key="frame" x="692" y="-2" width="60" height="47"/>
+                                    <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" backgroundImage="appbar.close.png">

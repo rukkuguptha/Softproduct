@@ -7,14 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ManViewController">
             <connections>
-                <outlet property="billabel" destination="q20-kS-g0S" id="7iH-KH-19X"/>
                 <outlet property="codelbl" destination="CGR-au-uYo" id="q0a-lh-OYZ"/>
                 <outlet property="costlbl" destination="jKi-aU-Bw1" id="pBD-P9-JT3"/>
                 <outlet property="craftlabel" destination="GNq-Z7-bJ3" id="KcX-k3-iWi"/>
                 <outlet property="deslbl" destination="I9r-Ac-U8T" id="bq4-PI-zlA"/>
                 <outlet property="manpowecell" destination="l6Q-Zs-rGS" id="fRz-1m-Wn8"/>
                 <outlet property="overhdchecklbl" destination="fFo-6O-xgQ" id="TF3-RY-wl0"/>
-                <outlet property="paylabel" destination="1Xy-Fy-7O5" id="qgs-rV-qic"/>
                 <outlet property="typelbl" destination="uzX-Jf-OBe" id="uEr-AD-tGJ"/>
             </connections>
         </placeholder>
@@ -68,18 +66,6 @@
                             <action selector="editmanpower:" destination="-1" eventType="touchUpInside" id="mN4-Y5-0Ci"/>
                         </connections>
                     </button>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Biling" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="q20-kS-g0S">
-                        <rect key="frame" x="758" y="14" width="72" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="7" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payrate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1Xy-Fy-7O5">
-                        <rect key="frame" x="851" y="14" width="81" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craft Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GNq-Z7-bJ3">
                         <rect key="frame" x="631" y="13" width="76" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -113,11 +99,6 @@
                     </view>
                     <view contentMode="scaleToFill" id="vb5-p4-gkp">
                         <rect key="frame" x="732" y="-3" width="1" height="50"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <view contentMode="scaleToFill" id="PMm-Vs-l1u">
-                        <rect key="frame" x="840" y="-3" width="1" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>

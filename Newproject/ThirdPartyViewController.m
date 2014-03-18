@@ -52,7 +52,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
                                    initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = (id)self;
     [_pictureimgvw addGestureRecognizer:pgr];
-
+[self AllSkills];
 }
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
@@ -1084,6 +1084,25 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ThirdpartyCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"UploadAnyImageResult"])
     {
         
@@ -1192,7 +1211,7 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-        _thirdpartymdl.subtype=_soapResults;
+        _thirdpartymdl.subtype=[_revskilldict objectForKey:_soapResults];;
         
         _soapResults = nil;    }
     
@@ -1327,7 +1346,12 @@ finishedSavingWithError:(NSError *)error
         _soapResults = nil;
         
     }
-    
+    if([elementName isEqualToString:@"ThirdpartyCode"])
+    {
+        recordResults = FALSE;
+        thirdpatrycode=_soapResults;
+     _soapResults = nil;
+    }
     
     if([elementName isEqualToString:@"result"])
     {  recordResults = FALSE;
@@ -1609,6 +1633,14 @@ finishedSavingWithError:(NSError *)error
         
         [alert show];
     }
+    else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+    }
+
     else{
 
     if (btntype==1) {
