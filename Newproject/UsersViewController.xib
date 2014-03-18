@@ -37,7 +37,7 @@
                                 <navigationItem title="Users" id="cM1-bE-MWt">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="QIs-0K-YbK">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sCu-ow-ruD">
-                                            <rect key="frame" x="711" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="701" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">

@@ -99,7 +99,7 @@
                                 <navigationItem title="Add Vendors" id="urz-t0-33U">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="h1P-Zl-e6s">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QrF-nk-CfS">
-                                            <rect key="frame" x="712" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
