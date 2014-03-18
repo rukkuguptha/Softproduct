@@ -24,9 +24,16 @@ NSInteger deltepath;
 NSInteger webtype;
 NSInteger btnpath;
 NSInteger popvr;
-
-
+    NSString *msgstrg;
+    NSString*skill;
+    NSString *fleetcode;
+    
 }
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
+
+
+
 @property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;

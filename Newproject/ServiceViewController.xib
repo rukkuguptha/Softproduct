@@ -10,7 +10,6 @@
                 <outlet property="abbreviatintextfld" destination="dly-FU-zUw" id="TlL-93-bTs"/>
                 <outlet property="addserview" destination="7Tk-Wh-cWs" id="Ze5-qb-voc"/>
                 <outlet property="navabar" destination="Rus-kJ-85g" id="Rdl-Vx-yO1"/>
-                <outlet property="resultdispalylabel" destination="mIe-LA-Sw9" id="S1F-Ew-mLa"/>
                 <outlet property="servicesTable" destination="LTX-1G-6o2" id="GU4-Xj-aZt"/>
                 <outlet property="servicetextfld" destination="FL8-EB-abT" id="mda-c5-aYn"/>
                 <outlet property="titleview" destination="sXb-kP-SIL" id="m6W-5M-Nol"/>
@@ -181,13 +180,6 @@
                                         <outlet property="delegate" destination="-1" id="Aoi-ZH-RmJ"/>
                                     </connections>
                                 </textField>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mIe-LA-Sw9">
-                                    <rect key="frame" x="120" y="242" width="229" height="21"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <color key="textColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </view>

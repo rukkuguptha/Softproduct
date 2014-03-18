@@ -690,11 +690,15 @@
     {
         
         recordResults = FALSE;
-        _resultdispalylabel.hidden=NO;
-        _resultdispalylabel.text=_soapResults;
-//                _servicetextfld.text=@"";
-//                _abbreviatintextfld.text=@"";
-//        [_servicetextfld resignFirstResponder];
+      //  _resultdispalylabel.hidden=NO;
+        //_resultdispalylabel.text=_soapResults;
+        
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+            _servicetextfld.text=@"";
+        _abbreviatintextfld.text=@"";
+       [_servicetextfld resignFirstResponder];
 
         _soapResults = nil;
     }
@@ -761,5 +765,6 @@
     }
 
 }
+
 
 @end

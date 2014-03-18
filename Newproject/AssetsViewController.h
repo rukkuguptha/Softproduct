@@ -24,10 +24,16 @@ NSInteger deltepath;
 NSInteger webtype;
 NSInteger btnpath;
 NSInteger popvr;
-
-
-
+    NSString *msgstrg;
+    NSString *OtherCode;
+    NSString*skill;
+    
 }
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
+
+
+
 /*cameraAction*/
 @property (nonatomic) BOOL newMedia;
 @property(strong,nonatomic)NSData*basedata;

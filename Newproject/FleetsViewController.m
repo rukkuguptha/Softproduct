@@ -396,7 +396,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Insertfleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -465,7 +465,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Updatefleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -598,6 +598,61 @@
     }
     
 }
+-(void)Insertanyimage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",fleetcode];
+    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *type=@"Fleets";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type,fleetcode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+}
 -(void)UploadAnyImage{
     recordResults = FALSE;
     NSString *soapMessage;
@@ -709,6 +764,58 @@
     }
     
 }
+-(void)AllSkills{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</AllSkills>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 
 
 #pragma mark - Connection
@@ -1018,7 +1125,17 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"InsertfleetResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+
 
     
     if([elementName isEqualToString:@"result"])
@@ -1030,7 +1147,16 @@
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"FleetCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"qtyinstock"])
     {
         
@@ -1042,6 +1168,36 @@
     }
 
    
+    if([elementName isEqualToString:@"AllSkillsResult"])
+    {
+        _skilldict=[[NSMutableDictionary alloc]init];
+        _subtypearray=[[NSMutableArray alloc]init];
+        _revskilldict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
     
     
@@ -1217,19 +1373,34 @@
          _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"FleetCode"])
+    {
+        recordResults = FALSE;
+        fleetcode=_soapResults;
+        _soapResults = nil;
+        
+    }
 
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
-        {
-            [self UploadAnyImage];
-           
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
+            
+            [self Insertanyimage];
             webtype=0;
+            msgstrg=_soapResults;
             
         }
-        else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            
+            [self UploadAnyImage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
+        }
+
+                else if ([_soapResults isEqualToString:@"Fleet Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
             [self SelectAllfleet];
@@ -1257,13 +1428,31 @@ if([elementName isEqualToString:@"url"])
     
     
 }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        recordResults = FALSE;
+        skill=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {        recordResults =FALSE;
+        
+        [_skilldict setObject:skill forKey:_soapResults];
+        [_revskilldict setObject:_soapResults forKey:skill];
+        [_subtypearray addObject:_soapResults];
+        _soapResults = nil;
+        
+        
+    }
+
 
 }
 #pragma mark-IBActions
 
 - (IBAction)subsearchbtn:(id)sender; {
     [self createpopover];
-    [self SelectAllSubtypefleet
+    [self AllSkills
      ];
 }
 
@@ -1301,6 +1490,7 @@ if([elementName isEqualToString:@"url"])
     _subtypetxtfld.text=@"";
     _purchasetxtfld.text=@"";
     _serialtxtfld.text=@"";
+     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     _manufattxtfld.text =@"";
     _insuredtxtfld.text=@"";
     _hurstxtfld.text=@"";
@@ -1353,6 +1543,7 @@ if([elementName isEqualToString:@"url"])
     _fueltxtfld.text=eqmdl.FuelConsumptionPerHour;
     _condtntxtfld.text=eqmdl.Condition;
     _hurlytxtfld.text= [NSString stringWithFormat:@"$%@",eqmdl.HourlyRate];
+    [_suserachbtnlbl setTitle:eqmdl.subtype forState:UIControlStateNormal];
 
     _dailytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.DailyRate];
     _shiftwisetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.ShiftwiseRate];
@@ -1418,6 +1609,8 @@ if([elementName isEqualToString:@"url"])
     _yearlytxtfld.text=@"";
     _stockinhandtxtfld.text=@"";
     _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+    [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
 
 }
 
@@ -1555,7 +1748,7 @@ if([elementName isEqualToString:@"url"])
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if ([alertView.message isEqualToString:@"Updated"])
+    if ([alertView.message isEqualToString:msgstrg])
     {
         _codetxtfld.text=@"";
         _destxtfld.text=@"";
@@ -1575,6 +1768,7 @@ if([elementName isEqualToString:@"url"])
         _yearlytxtfld.text=@"";
         _stockinhandtxtfld.text=@"";
         _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+        [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
     }
     if ([alertView.title isEqualToString:@"Invalid purchase value"]) {

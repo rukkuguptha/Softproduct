@@ -24,10 +24,17 @@
     NSInteger webtype;
     NSInteger btnpath;
     NSInteger popvr;
+    NSString *msgstrg;
    
-
+    NSString*skill;
+    NSString *thirdpatrycode;
     
 }
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
+
+    
+
 
 /*cameraAction*/
 @property (nonatomic) BOOL newMedia;
