@@ -228,6 +228,7 @@
     if (tableView==_manpowerTable) {
       
             }
+   [self.popOverController dismissPopoverAnimated:YES];
     
     
 }
@@ -567,7 +568,7 @@
                    "<EducationReq>%@</EducationReq>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                   "</soap:Envelope>\n",@"abc",_itemdestxtfld.text,_searchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -696,7 +697,7 @@
                     "<EducationReq>%@</EducationReq>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,_searchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -781,16 +782,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"entryid"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"EntryId"])
+     if([elementName isEqualToString:@"EntryId"])
     {
         
         if(!_soapResults)
@@ -800,7 +792,7 @@
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"Itemcode"])
+    if([elementName isEqualToString:@"ItemCode"])
     {
         
         if(!_soapResults)
@@ -809,7 +801,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"description"])
+    if([elementName isEqualToString:@"Description"])
     {
         
         if(!_soapResults)
@@ -988,7 +980,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"entryid"])
+    if([elementName isEqualToString:@"EntryId"])
     {
         _manpwrmdl=[[Manpwr alloc]init];
         
@@ -997,7 +989,7 @@
         _manpwrmdl.entryid=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"Itemcode"])
+    if([elementName isEqualToString:@"ItemCode"])
     {
         
         recordResults = FALSE;
@@ -1005,7 +997,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"description"])
+    if([elementName isEqualToString:@"Description"])
     {
         
         recordResults = FALSE;

@@ -82,6 +82,13 @@
     doubleTap7.numberOfTapsRequired=1;
     doubleTap7.delegate=(id)self;
     [self.cmpanyassetview addGestureRecognizer:doubleTap7];
+    UITapGestureRecognizer *doubleTap8 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(crewpage)];
+    doubleTap8.numberOfTapsRequired=1;
+    doubleTap8.delegate=(id)self;
+    [self.crewview addGestureRecognizer:doubleTap8];
+
 
 
 }
@@ -162,6 +169,16 @@
     
     _AssetVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController: _AssetVCtrl animated:YES completion:nil];
+}
+-(void)crewpage{
+    if (!self.crewVCtrl) {
+        self.crewVCtrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
+    }
+    _crewVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_crewVCtrl
+                       animated:YES completion:NULL];
+
+    
 }
 - (void)didReceiveMemoryWarning
 {

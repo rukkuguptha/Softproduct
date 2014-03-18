@@ -15,6 +15,7 @@
 #import "ThirdPartyViewController.h"
 #import "ConsumbleViewController.h"
 #import "AssetsViewController.h"
+#import "CrewsetupViewController.h"
 
 @interface ResViewController : UIViewController
 ///wwwwwww
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIView *thirdpartyview;
 @property (strong, nonatomic) IBOutlet UIView *consumbleview;
 @property (strong, nonatomic) IBOutlet UIView *cmpanyassetview;
+@property (strong, nonatomic) IBOutlet UIView *crewview;
 
 //ViewControllers
 
@@ -39,7 +41,7 @@
 @property(strong,nonatomic)ThirdPartyViewController*ThirdVCtrl;
 @property(strong,nonatomic)ConsumbleViewController*ConsuVCtrl;
 @property(strong,nonatomic)AssetsViewController*AssetVCtrl;
-
+@property(strong,nonatomic)CrewsetupViewController*crewVCtrl;
 - (IBAction)closebtnActn:(id)sender;
 
 @end

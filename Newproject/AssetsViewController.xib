@@ -28,9 +28,7 @@
                 <outlet property="serialtxtfld" destination="THR-0Z-lh9" id="nLe-74-EM4"/>
                 <outlet property="shiftwisetxtfld" destination="SO8-db-SU0" id="t2O-Xf-SbD"/>
                 <outlet property="stckinhandtxtfld" destination="wEI-Nh-emq" id="xBK-Zs-cgg"/>
-                <outlet property="subtypetxtfld" destination="10M-hG-pRJ" id="Lpd-oY-FJ7"/>
                 <outlet property="suserachbtnlbl" destination="aG5-wL-S6p" id="BQJ-Xz-ZXg"/>
-                <outlet property="updatelbl" destination="fvz-rz-UiC" id="b0z-fy-Ubb"/>
                 <outlet property="view" destination="vyg-IP-iZe" id="gqL-iD-vqD"/>
                 <outlet property="view1" destination="R3l-CD-Nfe" id="K08-P3-NHQ"/>
                 <outlet property="weeklytxtfld" destination="XpC-Pd-FrO" id="ouB-tq-fkN"/>
@@ -54,7 +52,7 @@
                                 <navigationItem title="Other Company Assets" id="VeE-jy-mXk">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="Y4m-wV-2I4">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C9O-x9-Du4">
-                                            <rect key="frame" x="709" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="701" y="2" width="48" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -125,11 +123,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <view hidden="YES" contentMode="scaleToFill" id="aA1-Fd-gca">
-                            <rect key="frame" x="107" y="63" width="590" height="733"/>
+                            <rect key="frame" x="107" y="63" width="570" height="733"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="N3w-9O-N3I">
-                                    <rect key="frame" x="0.0" y="0.0" width="590" height="733"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="570" height="733"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <subviews>
                                         <navigationBar contentMode="scaleToFill" id="yKq-Fu-Ytd">
@@ -156,7 +154,7 @@
                                             </items>
                                         </navigationBar>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vyb-ZY-tQg">
-                                            <rect key="frame" x="29" y="49" width="93" height="26"/>
+                                            <rect key="frame" x="30" y="49" width="93" height="26"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
@@ -281,14 +279,8 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="10M-hG-pRJ">
-                                            <rect key="frame" x="29" y="130" width="194" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sub Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fMU-Eq-NE3">
-                                            <rect key="frame" x="29" y="110" width="78" height="21"/>
+                                            <rect key="frame" x="31" y="110" width="78" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                             <nil key="highlightedColor"/>
@@ -427,9 +419,11 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aG5-wL-S6p">
-                                            <rect key="frame" x="234" y="138" width="19" height="22"/>
+                                            <rect key="frame" x="29" y="130" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" backgroundImage="search-button.png">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -451,13 +445,6 @@
                                                 <outlet property="delegate" destination="-1" id="NEs-GA-pgt"/>
                                             </connections>
                                         </textField>
-                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fvz-rz-UiC">
-                                            <rect key="frame" x="239" y="692" width="160" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </scrollView>
@@ -477,6 +464,6 @@
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="rectangle3.png" width="551" height="327"/>
-        <image name="search-button.png" width="30" height="30"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

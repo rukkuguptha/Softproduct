@@ -20,11 +20,9 @@
                 <outlet property="navitem" destination="OJw-41-uE8" id="SG6-Qi-KR1"/>
                 <outlet property="payratetextfield" destination="Udu-MT-vnX" id="x5a-aA-dSf"/>
                 <outlet property="qualificationview" destination="vij-ZC-t3E" id="Dv1-ft-rB4"/>
-                <outlet property="resultdisplaylabel" destination="vbK-gZ-JQp" id="mwb-ZH-5cT"/>
                 <outlet property="scrollforqualification" destination="9TQ-gh-Inn" id="NxT-EX-6wI"/>
                 <outlet property="scrollview" destination="ZIU-HP-3R2" id="uFX-Uf-9F3"/>
                 <outlet property="searchbtnlbl" destination="kCe-W2-qfa" id="bGO-bO-nYf"/>
-                <outlet property="subtypetxtfld" destination="LsQ-ad-LZd" id="st2-cD-SZS"/>
                 <outlet property="titleview" destination="Kpb-PR-Psi" id="3B0-Go-RXm"/>
                 <outlet property="trainingtextview" destination="i0v-g5-5yP" id="Iya-Sz-yTS"/>
                 <outlet property="unitcosttxtfld" destination="cPY-Mk-QzU" id="es7-tt-0cb"/>
@@ -174,13 +172,6 @@
                                         <action selector="cancel:" destination="-1" eventType="touchUpInside" id="fbb-2j-A7X"/>
                                     </connections>
                                 </button>
-                                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vbK-gZ-JQp">
-                                    <rect key="frame" x="57" y="92" width="166" height="23"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Lcs-6k-ovM">
                                     <rect key="frame" x="65" y="112" width="95" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -217,12 +208,6 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="LsQ-ad-LZd">
-                                    <rect key="frame" x="65" y="213" width="174" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="cPY-Mk-QzU">
                                     <rect key="frame" x="337" y="213" width="174" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -276,11 +261,12 @@
                                     </items>
                                 </navigationBar>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kCe-W2-qfa">
-                                    <rect key="frame" x="241" y="217" width="30" height="25"/>
+                                    <rect key="frame" x="65" y="215" width="174" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <state key="normal" backgroundImage="search-button.png">
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -457,6 +443,6 @@
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
-        <image name="search-button.png" width="30" height="30"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

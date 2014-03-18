@@ -280,10 +280,11 @@ finishedSavingWithError:(NSError *)error
     
     if(tableView==_popOverTableView){
         
-        _subtypetxtfld.text=[_Subtypearray objectAtIndex:indexPath.row];
+        //_subtypetxtfld.text=[_Subtypearray objectAtIndex:indexPath.row];
+        [_subsearchlbl setTitle:[_Subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
-    
+     [self.popOverController dismissPopoverAnimated:YES];
     
 }
 
@@ -456,7 +457,7 @@ finishedSavingWithError:(NSError *)error
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhndtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subsearchlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stockinhndtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -525,7 +526,7 @@ finishedSavingWithError:(NSError *)error
                      "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subtypetxtfld.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,_subsearchlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],eqmdl.entryid,[_stockinhndtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1259,26 +1260,7 @@ finishedSavingWithError:(NSError *)error
         
         if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"Updated Successfully"]) {
                [self UploadAnyImage];
-            _updatelbl.hidden=NO;
-            _updatelbl.text=_soapResults;
-            _codetxfld.text=@"";
-            _destxtfld.text=@"";
-            _subtypetxtfld.text=@"";
-            _purchasetxtfld.text=@"";
-            _serialtxtfld.text=@"";
-            _manufattxtfld.text =@"";
-            _insuredtxtfld.text=@"";
-            _hurstxtfld.text=@"";
-            _fueltxtfld.text=@"";
-            _condtntxtfld.text=@"";
-            _hurlytxtfld.text=@"";
-            _dailytxtfld.text=@"";
-            _shiftwisetxtfld.text=@"";
-            _weeklytxtfld.text=@"";
-            _monthlytxtfld.text=@"";
-            _yearlytxtfld.text=@"";
-            _stockinhndtxtfld.text=@"";
-            _picimageview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+            webtype=0;
             
 
                    }
@@ -1446,7 +1428,7 @@ _addequipmentview.hidden=NO;
         
         [alert show];
     }
-    
+    else{
     
     if (btntype==1) {
         [self InsertEquipment];
@@ -1456,7 +1438,7 @@ _addequipmentview.hidden=NO;
         [self UpdateEquipment];
        // [self UploadAnyImage];
     }
-    
+    }
     
 }
 
