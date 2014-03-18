@@ -230,7 +230,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[_unitcosttxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subtyptxtfld.text,[_unitcosttxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -820,7 +820,7 @@
     if (butntype==1) {
         if([_destxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -833,7 +833,7 @@
     {
         if([_destxtfld.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
         else
@@ -913,8 +913,7 @@
     _codetxtfld.text=toolmdl.itemcode;
     NSLog(@"toolmdl.itemcode%@",toolmdl.itemcode);
     _destxtfld.text=toolmdl.itemdescptn;
-   
-     [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
+    _subtyptxtfld.text=toolmdl.subtype;
     _unitcosttxtfld.text=[NSString stringWithFormat:@"%@$",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
     _stckinhandtxtfld.text=toolmdl.stckinhand;

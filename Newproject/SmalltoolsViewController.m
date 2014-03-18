@@ -664,11 +664,9 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if([elementName isEqualToString:@"result"])
     {
           recordResults = FALSE;
-//        _resultdisplaylabel.hidden=NO;
-//        _resultdisplaylabel.text=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-        [alert show];
-
+        _resultdisplaylabel.hidden=NO;
+        _resultdisplaylabel.text=_soapResults;
+        
         _codetxtfld.text=@"";
         
         _destxtfld.text=@"";
@@ -860,7 +858,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if (butntype==1) {
         if([_destxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 else
@@ -872,7 +870,7 @@ else
     else if (butntype==2){
         if([_destxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 else

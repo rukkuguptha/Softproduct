@@ -10,31 +10,31 @@
 	<string>Newproject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>3DDB90B2-74AE-4087-BBB3-8B65EECC75A0</key>
-		<string>ssh://github.com/Riagms/lmkontract.git</string>
+		<key>6FF6E253-D6D5-49A8-840A-5050B7F38CBB</key>
+		<string>ssh://github.com/rukkugms/lmkontract.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3DDB90B2-74AE-4087-BBB3-8B65EECC75A0</key>
+		<key>6FF6E253-D6D5-49A8-840A-5050B7F38CBB</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/Riagms/lmkontract.git</string>
+	<string>ssh://github.com/rukkugms/lmkontract.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3DDB90B2-74AE-4087-BBB3-8B65EECC75A0</string>
+	<string>6FF6E253-D6D5-49A8-840A-5050B7F38CBB</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3DDB90B2-74AE-4087-BBB3-8B65EECC75A0</string>
+			<string>6FF6E253-D6D5-49A8-840A-5050B7F38CBB</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Kontract</string>
+			<string>lmkontract</string>
 		</dict>
 	</array>
 </dict>
