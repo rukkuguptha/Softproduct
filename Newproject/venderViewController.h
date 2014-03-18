@@ -20,7 +20,7 @@
     NSInteger btnindex;
     NSString *phnnostring;
 }
-
+@property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *phnnofmtstring;
 @property(readwrite)NSInteger itemid;

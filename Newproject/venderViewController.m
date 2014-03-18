@@ -97,7 +97,7 @@
     int value1=[val isBlank:_nametextfld.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Name Is Required" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -114,7 +114,7 @@
         int value1=[val isBlank:_nametextfld.text];
         if(value1==0)
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Name Is Required" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -401,7 +401,7 @@
 
 
 -(void)Vendordelete
-{webtype=1;
+{webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -484,7 +484,7 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_vendelisttable reloadData];
-    if(webtype==1)
+    if(webtype==1||webtype==2)
     {
         [self Selectvendor];
         webtype=0;
@@ -701,12 +701,12 @@
     {
         
         recordResults = FALSE;
+        if (webtype==1) {
+            _soapstring=_soapresults;
+        
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapresults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-        _nametextfld.text=@"";
-        _addresstextfld.text=@"";
-        _phonetextfld.text=@"";
-        _ratetextfld.text=@"";
+               }
         _soapresults = nil;
     }
 
@@ -900,6 +900,17 @@
         _ratetextfld.text=@"";
         
     }
+    if ([alertView.message isEqualToString:_soapstring]) {
+        
+        
+        _nametextfld.text=@"";
+        _addresstextfld.text=@"";
+        _phonetextfld.text=@"";
+        _ratetextfld.text=@"";
+
+        
+    }
+
     if ([alertView.message isEqualToString:@"Invalid PhoneNumber"]) {
         
         
