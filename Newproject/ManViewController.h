@@ -21,7 +21,14 @@
     NSInteger btnidtfr;
     NSInteger checkbtnclick;
     NSInteger Newprimarykey;
+    NSString*skill;
+    NSString*msgstrg;
+    
+    
 }
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
+
 @property(strong,nonatomic)Manpwr *manpwrmdl;
 @property(strong,nonatomic)Validation *vald;
 

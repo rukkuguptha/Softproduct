@@ -21,8 +21,14 @@
     NSInteger butnpath;
     NSInteger path;
     NSInteger webtype;
+    NSString *msgstrg;
+    NSString *matealcode;
+    NSString*skill;
     
 }
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
+
 
 @property (strong, nonatomic) IBOutlet UIImageView *picimageview;
 

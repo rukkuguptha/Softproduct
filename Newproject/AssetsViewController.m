@@ -459,7 +459,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -534,7 +534,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,_suserachbtnlbl.titleLabel.text,[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -723,7 +723,61 @@ finishedSavingWithError:(NSError *)error
     }
     
 }
+-(void)InsertAnyImage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSString *imagename;
+    imagename=[NSString stringWithFormat:@"Photo_%@.jpg",OtherCode];
+    //NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *type=@"OtherSmall";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type,OtherCode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
 
+}
 -(void)FetchAnyImage{
     
     recordResults = FALSE;
@@ -778,6 +832,57 @@ finishedSavingWithError:(NSError *)error
     {
         ////NSLog(@"theConnection is NULL");
     }
+    
+}
+-(void)AllSkills{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</AllSkills>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
     
 }
 
@@ -1087,11 +1192,69 @@ finishedSavingWithError:(NSError *)error
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"InsertOtherResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"OtherCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
     
-    
-    
+    if([elementName isEqualToString:@"AllSkillsResult"])
+    {
+        _skilldict=[[NSMutableDictionary alloc]init];
+        _subtypearray=[[NSMutableArray alloc]init];
+        _revskilldict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     
     
 }
@@ -1264,44 +1427,39 @@ finishedSavingWithError:(NSError *)error
         [_Assetarray addObject:_Assetmdl];
         _soapResults = nil;
     }
-   
+    if([elementName isEqualToString:@"OtherCode"])
+    {
+recordResults = FALSE;
+        OtherCode=_soapResults;
+         _soapResults = nil;
+    }
     if([elementName isEqualToString:@"result"])
     {
         
         recordResults = FALSE;
         NSLog(@"%@",_soapResults);
-        if([_soapResults isEqualToString:@"Updated"]||[_soapResults isEqualToString:@"Inserted"])
-        {
-            [self UploadAnyImage];
-                     webtype=0;
-           
+        msgstrg=_soapResults;
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
+            
+            [self InsertAnyImage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
         }
-        else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            
+            [self UploadAnyImage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
+        }
+
+               else if ([_soapResults isEqualToString:@"Asset Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
             [self SelectAllOther];
         }
-//        else{
-//        _codetxtfld.text=@"";
-//        _destxtfld.text=@"";
-//        _subtypetxtfld.text=@"";
-//        _purchasetxtfld.text=@"";
-//        _serialtxtfld.text=@"";
-//        _manufattxtfld.text =@"";
-//        _insuredtxtfld.text=@"";
-//        _hurstxtfld.text=@"";
-//        _fueltxtfld.text=@"";
-//        _condtntxtfld.text=@"";
-//        _hurlytxtfld.text=@"";
-//        _dailytxtfld.text=@"";
-//        _shiftwisetxtfld.text=@"";
-//        _weeklytxtfld.text=@"";
-//        _monthlytxtfld.text=@"";
-//        _yearlytxtfld.text=@"";
-//        _stckinhandtxtfld.text=@"";
-//        _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
-//        }
         
                _soapResults = nil;
     }
@@ -1328,6 +1486,23 @@ finishedSavingWithError:(NSError *)error
     }
 
     
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        recordResults = FALSE;
+        skill=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {        recordResults =FALSE;
+        
+        [_skilldict setObject:skill forKey:_soapResults];
+        [_revskilldict setObject:_soapResults forKey:skill];
+        [_subtypearray addObject:_soapResults];
+        _soapResults = nil;
+        
+        
+    }
 
     
 }
@@ -1342,7 +1517,7 @@ finishedSavingWithError:(NSError *)error
 
 - (IBAction)subsearchbtn:(id)sender; {
     [self createpopover];
-    [self SelectAllSubtypeOther];
+    [self AllSkills];
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -1393,7 +1568,8 @@ finishedSavingWithError:(NSError *)error
     _stckinhandtxtfld.text=@"";
     _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
     _cancelbtn.enabled=YES;
-    
+    [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
     btntype=1;
     _addview.hidden=NO;
     _navItem.title=@"ADD";
@@ -1425,7 +1601,8 @@ finishedSavingWithError:(NSError *)error
     _codetxtfld.text=eqmdl.itemcode;
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;
-    _purchasetxtfld.text=eqmdl.PurchaseValue;
+     [_suserachbtnlbl setTitle:eqmdl.subtype forState:UIControlStateNormal];
+        _purchasetxtfld.text=eqmdl.PurchaseValue;
     _serialtxtfld.text=eqmdl.SerialNo;
     _manufattxtfld.text =eqmdl.ManufacturedYear;
     _insuredtxtfld.text=eqmdl.InsuredValue;
@@ -1492,6 +1669,7 @@ finishedSavingWithError:(NSError *)error
     _yearlytxtfld.text=@"";
     _stckinhandtxtfld.text=@"";
     _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+     [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 
 }
 #pragma mark-textfield delegate
@@ -1627,7 +1805,7 @@ finishedSavingWithError:(NSError *)error
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     
-    if ([alertView.message isEqualToString:@"Updated"])
+    if ([alertView.message isEqualToString:msgstrg])
  {
         
         
@@ -1652,6 +1830,7 @@ finishedSavingWithError:(NSError *)error
             _yearlytxtfld.text=@"";
             _stckinhandtxtfld.text=@"";
             _pictureimgview.image=[UIImage imageNamed:@"ios7-camera-icon"];
+      [_suserachbtnlbl setTitle:@"Select" forState:UIControlStateNormal];\
             
         }
     

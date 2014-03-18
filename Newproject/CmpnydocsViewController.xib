@@ -63,7 +63,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" id="e3o-eZ-XQW">
-                    <rect key="frame" x="75" y="172" width="576" height="43"/>
+                    <rect key="frame" x="96" y="167" width="576" height="43"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g3L-pY-Byz">
@@ -76,7 +76,7 @@
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tA4-jL-wUe">
-                    <rect key="frame" x="75" y="217" width="576" height="691"/>
+                    <rect key="frame" x="96" y="209" width="576" height="691"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>

@@ -175,7 +175,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[_costtxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_costtxtfld.text doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -230,7 +230,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,_subsearchbtnlbl.titleLabel.text,[[_costtxtfld.text substringFromIndex:1] doubleValue],[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[[_costtxtfld.text substringFromIndex:1] doubleValue],[_stockinhandtxtfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -411,6 +411,57 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     }
     
 }
+-(void)AllSkills{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</AllSkills>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -582,6 +633,38 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"AllSkillsResult"])
+    {
+        _skilldict=[[NSMutableDictionary alloc]init];
+        _subtypearray=[[NSMutableArray alloc]init];
+        _revskilldict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -664,20 +747,33 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if([elementName isEqualToString:@"result"])
     {
           recordResults = FALSE;
-        _resultdisplaylabel.hidden=NO;
-        _resultdisplaylabel.text=_soapResults;
+        msgstrg=_soapResults;
         
-        _codetxtfld.text=@"";
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults=nil;
         
-        _destxtfld.text=@"";
-        _subtypetxtfld.text=@"";
-        _costtxtfld.text=@"";
-        _stockinhandtxtfld.text=@"";
-
-         _soapResults = nil;
-        [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         
     }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        recordResults = FALSE;
+        skill=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {        recordResults =FALSE;
+        
+        [_skilldict setObject:skill forKey:_soapResults];
+        [_revskilldict setObject:_soapResults forKey:skill];
+        [_subtypearray addObject:_soapResults];
+        _soapResults = nil;
+        
+        
+    }
+    
+
 }
 
 #pragma mark - Table View datasource
@@ -896,7 +992,7 @@ else
 - (IBAction)subsearchbtn:(id)sender {
     butntype=1;
     [self createpopover];
-    [self SelectAllSubtypeSmallTools];
+    [self AllSkills];
 }
 
 - (IBAction)closeaddbtn:(id)sender {
@@ -957,6 +1053,21 @@ else
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:msgstrg]) {
+        
+        _codetxtfld.text=@"";
+        
+        _destxtfld.text=@"";
+        _subtypetxtfld.text=@"";
+        _costtxtfld.text=@"";
+        _stockinhandtxtfld.text=@"";
+        
+        _soapResults = nil;
+        [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    
+
     if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
         
                 _costtxtfld.text=@"";

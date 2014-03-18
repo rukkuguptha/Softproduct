@@ -20,9 +20,13 @@
     NSInteger path;
     NSInteger deltepath;
     NSInteger   webtype;
+    NSString * mesgstrg;
+    NSString *newequcode;
+    NSString*skill;
     
 }
-
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
 /*cameraAction*/
 @property (nonatomic) BOOL newMedia;
 @property(strong,nonatomic)NSData*basedata;

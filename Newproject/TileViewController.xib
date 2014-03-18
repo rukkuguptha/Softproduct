@@ -81,14 +81,14 @@
                     <color key="backgroundColor" red="1" green="0.43529412150000002" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <navigationBar contentMode="scaleToFill" id="565-f1-C1B">
-                    <rect key="frame" x="1" y="1" width="537" height="44"/>
+                    <rect key="frame" x="0.0" y="1" width="540" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Company" id="CdX-EY-sOS">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="JXZ-uV-xY3">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="h7V-ys-kpZ">
-                                    <rect key="frame" x="482" y="2" width="39" height="40"/>
+                                    <rect key="frame" x="473" y="-3" width="51" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.close.png">

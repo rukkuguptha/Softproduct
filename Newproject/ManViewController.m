@@ -729,6 +729,57 @@
     }
     
 }
+-(void)AllSkills{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</AllSkills>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -963,6 +1014,37 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"AllSkillsResult"])
+    {
+        _skilldict=[[NSMutableDictionary alloc]init];
+        _subtypearray=[[NSMutableArray alloc]init];
+        _revskilldict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1128,28 +1210,30 @@
             
           
         }
-         _resultdisplaylabel.hidden=NO;
-        _resultdisplaylabel.text=_soapResults;
-       
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
         
-        _itemcodetxtfld.text=@"";
         
-        _itemdestxtfld.text=@"";
-        _subtypetxtfld.text=@"";
-        _unitcosttxtfld.text=@"";
-                [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        checkbtnclick=0;
-        _eduactiontextview.text=@"";
-        _experiencetextview.text=@"";
-        _jobtasktextview.text=@"";
-        _trainingtextview.text=@"";
-        _craftcodetextfld.text=@"";
-        _payratetextfield.text=@"";
-        _billingratetextfield.text=@"";
-       
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        recordResults = FALSE;
+        skill=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {        recordResults =FALSE;
+        
+        [_skilldict setObject:skill forKey:_soapResults];
+        [_revskilldict setObject:_soapResults forKey:skill];
+        [_subtypearray addObject:_soapResults];
+        _soapResults = nil;
+        
+        
+    }
 
 }
 #pragma mark-Searchbar
@@ -1201,6 +1285,8 @@
     _billingratetextfield.text=@"";
     _craftcodetextfld.text=@"";
     [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_searchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
     checkbtnclick=0;
 }
 - (IBAction)clsebtn:(id)sender {
@@ -1225,6 +1311,7 @@
     
     _itemdestxtfld.text=pwrmdl.itemdescptn;
     _subtypetxtfld.text=pwrmdl.subtype;
+    [_searchbtnlbl setTitle:pwrmdl.subtype forState:UIControlStateNormal];
     _unitcosttxtfld.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
     _payratetextfield.text=[NSString stringWithFormat:@"%@$",pwrmdl.payrate];
     _billingratetextfield.text=[NSString stringWithFormat:@"%@$",pwrmdl.billingrate];
@@ -1274,7 +1361,7 @@
 
 - (IBAction)searchbtn:(id)sender {
     [self createpopover];
-    [self SelectAllSubtype];
+    [self AllSkills];
 }
 
 - (IBAction)update:(id)sender {
@@ -1330,6 +1417,8 @@
     _trainingtextview.text=@"";
     _experiencetextview.text=@"";
     _jobtasktextview.text=@"";
+    [_searchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
 
 }
 
@@ -1415,6 +1504,25 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+if ([alertView.message isEqualToString:msgstrg]) {
+    _itemcodetxtfld.text=@"";
+    
+    _itemdestxtfld.text=@"";
+    _subtypetxtfld.text=@"";
+    _unitcosttxtfld.text=@"";
+    [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    checkbtnclick=0;
+    _eduactiontextview.text=@"";
+    _experiencetextview.text=@"";
+    _jobtasktextview.text=@"";
+    _trainingtextview.text=@"";
+    _craftcodetextfld.text=@"";
+    _payratetextfield.text=@"";
+    _billingratetextfield.text=@"";
+    [_searchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    
+           }
+
     if ([alertView.title isEqualToString:@"Invalid Billing Rate"]) {
         
         

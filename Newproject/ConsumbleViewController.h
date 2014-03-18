@@ -18,7 +18,14 @@
     NSInteger butntype;
     UIButton *button;
     NSInteger webtype;
+    NSString *msgstrg;
+    NSString*skill;
+    
 }
+@property(strong,nonatomic)NSMutableDictionary *skilldict;
+@property(strong,nonatomic)NSMutableDictionary *revskilldict;
+
+
 
 @property (strong, nonatomic) IBOutlet UITextField *stckinhandtxtfld;
 @property(strong,nonatomic)Validation *vald;
