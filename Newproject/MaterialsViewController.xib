@@ -38,7 +38,7 @@
                                 <navigationItem title="Materials" id="xSm-5t-Spp">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="Z5s-06-txO">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9YI-Vu-Y2P">
-                                            <rect key="frame" x="721" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="711" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -125,7 +125,7 @@
                                         <navigationItem title="Title" id="aMt-1h-Qkm">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="ofD-uG-PDb">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MZm-6P-ElZ">
-                                                    <rect key="frame" x="593" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="588" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button" image="appbar.close.png">

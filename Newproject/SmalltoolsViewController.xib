@@ -39,7 +39,7 @@
                                 <navigationItem title="SmallTools" id="rgn-2U-FPY">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="9CR-lD-HMO">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="AB4-7N-aG6">
-                                            <rect key="frame" x="723" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="713" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -126,7 +126,7 @@
                                         <navigationItem title="Title" id="TlW-Bk-oFh">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="6iM-cI-FfN">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vxM-v5-j32">
-                                                    <rect key="frame" x="555" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="550" y="2" width="50" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" title="Button" image="appbar.close.png">

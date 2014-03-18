@@ -41,6 +41,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
+    [self AllSkills];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -711,7 +712,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     {
         
         recordResults = FALSE;
-      _Toolmdl.subtype=_soapResults;
+      _Toolmdl.subtype=[_revskilldict objectForKey:_soapResults];;
                   _soapResults = nil;
     }
     if([elementName isEqualToString:@"qtyinstock"])
@@ -957,6 +958,14 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
 else
 {
         [self InsertSmallTools];
@@ -969,6 +978,14 @@ else
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_subsearchbtnlbl.titleLabel.text isEqualToString:@""]||[_subsearchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
 else
 {
         [self UpdateSmallTools];

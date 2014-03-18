@@ -48,6 +48,7 @@
                                    initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = (id)self;
     [_pictureimgview addGestureRecognizer:pgr];
+    [self AllSkills];
 
 }
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
@@ -1310,7 +1311,7 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-        _Assetmdl.subtype=_soapResults;
+        _Assetmdl.subtype=[_revskilldict objectForKey:_soapResults];;
         
         _soapResults = nil;    }
     
@@ -1640,13 +1641,21 @@ recordResults = FALSE;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         
         [alert show];
+    } else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
     }
+    else{
 
     if (btntype==1) {
         [self InsertOther];
     }
     if (btntype==2) {
         [self UpdateOther];
+    }
     }
 }
 

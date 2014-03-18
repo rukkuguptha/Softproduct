@@ -50,6 +50,7 @@
     pgr.delegate = (id)self;
     [_picimageview addGestureRecognizer:pgr];
 
+    [self AllSkills];
 }
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
@@ -1256,7 +1257,7 @@
     {
         
         recordResults = FALSE;
-        _Fleetmdl.subtype=_soapResults;
+        _Fleetmdl.subtype=[_revskilldict objectForKey:_soapResults];;
         
         _soapResults = nil;    }
     
@@ -1579,7 +1580,14 @@ if([elementName isEqualToString:@"url"])
         
         [alert show];
     }
-    
+    else if ([_suserachbtnlbl.titleLabel.text isEqualToString:@""]||[_suserachbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+        
+    }
+
     else{
     if (btntype==1) {
         [self Insertfleet];

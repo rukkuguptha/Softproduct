@@ -122,7 +122,7 @@
     
     
     
-    [self.popOverController presentPopoverFromRect: CGRectMake(200, 150, 300, 500)
+    [self.popOverController presentPopoverFromRect: CGRectMake(230, 210, 300, 500)
                                             inView:self.view
                           permittedArrowDirections:nil
                                           animated:YES];

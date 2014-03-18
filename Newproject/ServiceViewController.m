@@ -172,7 +172,7 @@
    Validation*val=[[Validation alloc]init];
         int value1=[val isBlank:_servicetextfld.text];
         if (value1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter a Service Name" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Service name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         
@@ -193,7 +193,7 @@
     {   Validation*val=[[Validation alloc]init];
         int value1=[val isBlank:_servicetextfld.text];
         if (value1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Please Enter a Service Name" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Service name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -336,7 +336,7 @@
     
 }
 -(void)DeleteServices{
-    webtype=1;
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -526,7 +526,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if (webtype==1) {
+    if (webtype==1||webtype==2) {
         [self SelectAllServices];
         webtype=0;
     }
@@ -690,15 +690,16 @@
     {
         
         recordResults = FALSE;
-      //  _resultdispalylabel.hidden=NO;
-        //_resultdispalylabel.text=_soapResults;
+    
+        msgstr=_soapResults;
+        if (webtype==1) {
+            
         
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstr delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-            _servicetextfld.text=@"";
-        _abbreviatintextfld.text=@"";
-       [_servicetextfld resignFirstResponder];
+        }
+        
 
         _soapResults = nil;
     }
@@ -752,19 +753,15 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     
-    if([_servicetextfld.text isEqualToString:@""])
-    {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter a Service Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        
-    }
-    if([_abbreviatintextfld.text isEqualToString:@""])
-    {
-        [_servicetextfld resignFirstResponder];
-        
-    }
-
+   
 }
-
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:msgstr]) {
+        _servicetextfld.text=@"";
+        _abbreviatintextfld.text=@"";
+        [_servicetextfld resignFirstResponder];
+        [_abbreviatintextfld resignFirstResponder];
+    }
+}
 
 @end

@@ -53,6 +53,7 @@ _picimageview.userInteractionEnabled = YES;
     pgr.delegate = (id)self;
     [_picimageview addGestureRecognizer:pgr];
 
+    [self AllSkills];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -1309,7 +1310,8 @@ finishedSavingWithError:(NSError *)error
     {
         
         recordResults = FALSE;
-        _eqmdl.subtype=_soapResults;
+        
+        _eqmdl.subtype=[_revskilldict objectForKey:_soapResults];
         
         _soapResults = nil;    }
     
@@ -1638,7 +1640,16 @@ _addequipmentview.hidden=NO;
         
         [alert show];
     }
+    
+    else if ([_subsearchlbl.titleLabel.text isEqualToString:@""]||[_subsearchlbl.titleLabel.text isEqualToString:@"Select"]){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        
+        [alert show];
+
+    }
     else{
+        
     
     if (btntype==1) {
         [self InsertEquipment];

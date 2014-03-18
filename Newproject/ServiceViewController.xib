@@ -33,7 +33,7 @@
                                 <navigationItem title="Services Offered" id="F0P-Tz-2l5">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="04v-id-Qd6">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="CGR-gF-eMB">
-                                            <rect key="frame" x="968" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -150,7 +150,7 @@
                                         <navigationItem title="Title" id="Rus-kJ-85g">
                                             <barButtonItem key="rightBarButtonItem" style="plain" id="Gd0-gY-p8J">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ERW-ES-g2Z">
-                                                    <rect key="frame" x="380" y="2" width="45" height="40"/>
+                                                    <rect key="frame" x="377" y="-3" width="51" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.close.png">

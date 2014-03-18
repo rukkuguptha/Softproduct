@@ -19,6 +19,7 @@
     NSInteger webtype;
     UIButton *button;
      NSInteger btnindex;
+    NSString *msgstr;
 }
 @property(strong,nonatomic)Servicemdl *servmdl;
 @property(strong,nonatomic)Validation *val;

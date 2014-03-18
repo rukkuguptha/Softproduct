@@ -52,7 +52,7 @@
                                 <navigationItem title="Other Company Assets" id="VeE-jy-mXk">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="Y4m-wV-2I4">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C9O-x9-Du4">
-                                            <rect key="frame" x="701" y="2" width="48" height="40"/>
+                                            <rect key="frame" x="699" y="2" width="50" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
@@ -139,7 +139,7 @@
                                                 <navigationItem title="Title" id="fIA-02-YsI">
                                                     <barButtonItem key="rightBarButtonItem" style="plain" id="oL7-Za-PBi">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="jdy-ex-ShH">
-                                                            <rect key="frame" x="534" y="2" width="40" height="40"/>
+                                                            <rect key="frame" x="529" y="2" width="50" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <state key="normal" image="appbar.close.png">
