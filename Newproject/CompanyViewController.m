@@ -1068,7 +1068,7 @@
         if(value1==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter a valid state Employer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter a valid State Employer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -1077,7 +1077,7 @@
          if(value2==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter a valid state Unemployement ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter a valid State Unemployment ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -1086,7 +1086,7 @@
         if(value3==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter a valid federal Employer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please enter a valid Federal Employer ID" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
             
@@ -1219,7 +1219,7 @@
         }
 
     }
-    if ([alertView.message isEqualToString:@"Please enter a valid state Employer ID"])
+    if ([alertView.message isEqualToString:@"Please enter a valid State Employer ID"])
     {
         if (buttonIndex==0) {
             
@@ -1228,7 +1228,7 @@
         }
         
     }
-    if ([alertView.message isEqualToString:@"Please enter a valid state Unemployer ID"])
+    if ([alertView.message isEqualToString:@"Please enter a valid State Unemployer ID"])
     {
         if (buttonIndex==0) {
             
@@ -1237,7 +1237,7 @@
         }
         
     }
-    if ([alertView.message isEqualToString:@"Please enter a valid federal Employer ID"])
+    if ([alertView.message isEqualToString:@"Please enter a valid Federal Employer ID"])
     {
         if (buttonIndex==0) {
             
