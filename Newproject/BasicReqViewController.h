@@ -35,6 +35,7 @@
     
      
 }
+@property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIView *craftview;
 @property(strong,nonatomic)IBOutlet UIView *seperatorview;

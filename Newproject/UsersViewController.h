@@ -31,6 +31,7 @@
 @property(strong,nonatomic)NSMutableDictionary *custmrdict;
 @property(strong,nonatomic)NSArray *empyarry;
 @property(strong,nonatomic)NSMutableDictionary *empydict;
+@property(strong,nonatomic)NSString *resultstring;
 
 
 @property(strong,nonatomic)NSArray *Nametypeusrarry;

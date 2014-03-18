@@ -110,7 +110,7 @@
     if (textField==_ratetextfield) {
         int value2=[val isNumeric:_ratetextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -119,7 +119,7 @@
     if (textField==_hourstextfield) {
         int value2=[val isNumeric:_hourstextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Format" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Format" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -141,6 +141,23 @@
         _hourstextfield.text=@"";
         
     }
+    if ([alertView.message isEqualToString:_soapstring]) {
+        
+        
+        _itemnametextfield.text=@"";
+        _codetextfield.text=@"";
+        _hourstextfield.text=@"";
+        _vendertextfield.text=@"";
+        _ratetextfield.text=@"";
+        [_typebtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_jobbtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_craftbtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_expirycheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    }
+
 }
 
 - (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
@@ -586,13 +603,13 @@
     int value1=[val isBlank:_itemnametextfield.text];
     if(value1==0)
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Enter the ItemName" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     
-    if ([_typebtn.titleLabel.text isEqualToString:@"Select"])
+   else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a Type" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -611,13 +628,13 @@
         int value1=[val isBlank:_itemnametextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Enter the ItemName" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
-        if ([_typebtn.titleLabel.text isEqualToString:@"Select"])
+      else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Select a Type" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -991,7 +1008,7 @@
  
 }
 -(void)DeleteRequirements
-{   webtype=1;
+{   webtype=2;
     recordresults = FALSE;
     NSString *soapMessage;
     basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:path];
@@ -1562,7 +1579,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1)
+    if(webtype==1||webtype==2)
     {
         [self SelectAllRequirements];
         webtype=0;
@@ -2282,26 +2299,21 @@
 
     if([elementName isEqualToString:@"result"])
     {  recordresults = FALSE;
+        if (webtype==1) {
+            
+            _soapstring=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-        _itemnametextfield.text=@"";
-        _codetextfield.text=@"";
-        _hourstextfield.text=@"";
-        _vendertextfield.text=@"";
-        _ratetextfield.text=@"";
-        [_typebtn setTitle:@"Select" forState:UIControlStateNormal];
-        [_jobbtn setTitle:@"Select" forState:UIControlStateNormal];
-        [_craftbtn setTitle:@"Select" forState:UIControlStateNormal];
-         [_craftcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-         [_expirycheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-         [_defaultcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-         [_inhousecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+       
         _soapResults = nil;
         
     }
 
 
 }
+
+
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     

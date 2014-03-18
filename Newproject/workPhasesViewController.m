@@ -1158,13 +1158,10 @@
         recordresults = FALSE;
         if (webtype==1) {
             
-        
+            _soapstring=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
-        _phasetextfld.text=@"";
-        //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
-        [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+        
     }
          _soapResults = nil;
 
@@ -1179,6 +1176,18 @@
 
 
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if([alertView.message isEqualToString:_soapstring])
+    {
+        _phasetextfld.text=@"";
+        //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+}
+
 #pragma mark-Searchbar
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     

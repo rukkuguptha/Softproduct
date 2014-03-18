@@ -683,7 +683,7 @@
     {
         recordResults = FALSE;
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Updated" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
          _soapResults = nil;
     }
@@ -709,32 +709,32 @@
 - (IBAction)savebtn:(id)sender {
     
     if ([_addresstxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
    else if([_citytxtfld.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"City Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"City is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
    else if ([_statebtn.titleLabel.text isEqualToString:@""]||[_statebtn.titleLabel.text isEqualToString:@"Select"]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"State Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"State is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
   else  if ([_phonetxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
    else if (([_mailtxtfld.text isEqualToString:@""])) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
    else if ([_faxtxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Fax Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Fax is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
    else if ([_webtxtfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Website Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Website is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
