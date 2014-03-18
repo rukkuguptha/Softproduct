@@ -617,7 +617,7 @@
 }
 -(void)DeleteUsers
 {
-    webtype=1;
+    webtype=2;
     recordresults = FALSE;
     NSString *soapMessage;
     listusermdl*usrmdl=(listusermdl *)[_userlistarray objectAtIndex:path];
@@ -698,7 +698,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1)
+    if(webtype==1||webtype==2)
     {
         [self SelectAllUsers];
         webtype=0;
@@ -1042,8 +1042,16 @@
     if([elementName isEqualToString:@"result"])
     {
         recordresults = FALSE;
-        _resultdisplaylabel.hidden=NO;
-        _resultdisplaylabel.text=_soapResults;
+        if (webtype==1) {
+            
+        
+        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        _usrnametextfld.text=@"";
+        _pswdtextfld.text=@"";
+        [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        }
         _soapResults = nil;
         
     }
@@ -1173,27 +1181,27 @@
         if (value1==0||value2==0) {
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your UserName" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Name Is Required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert1 show];
             }
             else if(value2==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your Password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Password Is Required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert1 show];
             }
                    }
-     else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"])
+     else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"]||[_type1btnlbl.titleLabel.text isEqualToString:@""])
         
         
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Choose Your Usertype" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Type is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
             }
-    else if ([_type2btnlbl.titleLabel.text isEqualToString:@"Select"])
+    else if ([_type2btnlbl.titleLabel.text isEqualToString:@"Select"]||[_type2btnlbl.titleLabel.text isEqualToString:@""])
             {
                 
                     NSString *name=_titlenamelabel.text;
-                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:[NSString stringWithFormat:@"Please select a %@",name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"%@ Is Required",name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [alert1 show];
                 }
                 
@@ -1204,10 +1212,7 @@
         {
 
         [self InsertUsers];
-        _usrnametextfld.text=@"";
-        _pswdtextfld.text=@"";
-        [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
-        [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+       
             
         }
     }
@@ -1219,28 +1224,28 @@
         if (value1==0||value2==0) {
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your UserName" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Name Is Required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert1 show];
             }
             else if(value2==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Enter Your Password" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Password Is Required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                 [alert1 show];
             }
             
         }
-    else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"])
+    else if ([_type1btnlbl.titleLabel.text isEqualToString:@"Select"]||[_type1btnlbl.titleLabel.text isEqualToString:@""])
             
             
         {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Please Choose Your Usertype" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Type Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
         }
-     else  if ([_type2btnlbl.titleLabel.text isEqualToString:@"Select"])
+     else  if ([_type2btnlbl.titleLabel.text isEqualToString:@"Select"]||[_type2btnlbl.titleLabel.text isEqualToString:@""])
         {
            
             NSString *name=_titlenamelabel.text;
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:[NSString stringWithFormat:@"Please select a %@",name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:[NSString stringWithFormat:@"%@ Is Required",name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
 
         }

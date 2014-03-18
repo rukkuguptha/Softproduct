@@ -250,31 +250,45 @@
 }
 -(IBAction)update_phases:(id)sender
 {
+    if(optionIdentifier==1)
+{
     if ([_phasetextfld.text isEqualToString:@""]) {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Enter Phase" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase Is Required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
         [alert show];
         
     }
+    else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Service Name Is Required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
     else{
     
-    if(optionIdentifier==1)
-    {
+    
+    
     [self InsertPhases];
-        _phasetextfld.text=@"";
-         //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
-        [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+        
         
     }
+}
     else if(optionIdentifier==2)
     {
+        if ([_phasetextfld.text isEqualToString:@""]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase Is Required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+       else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Service Name Is Required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+            
+        }
+
         [self UpdatePhases];
-        _phasetextfld.text=@"";
-        // [_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
-         [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
-    }
-    }
+        }
+    
 }
 -(IBAction)cancel_phases:(id)sender
 {
@@ -698,7 +712,7 @@
     
 }
 -(void)DeletePhases{
-    webtype=1;
+    webtype=2;
     recordresults = FALSE;
     NSString *soapMessage;
      phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:path];
@@ -830,7 +844,7 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    if(webtype==1)
+    if(webtype==1||webtype==2)
     {
         [self SelectAllPhases];
         webtype=0;
@@ -1142,8 +1156,16 @@
     {
         
         recordresults = FALSE;
+        if (webtype==1) {
+            
         
-        _updatelbl.hidden=NO;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        _phasetextfld.text=@"";
+        //[_parentbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
+    }
          _soapResults = nil;
 
     }

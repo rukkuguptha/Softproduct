@@ -312,6 +312,8 @@
         butt.tag=indexPath.row;
         [butt addTarget:self
                    action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
+//        [butt addTarget:self
+//                 action:@selector(noaction:) forControlEvents:UIControlEventTouchUpOutside];
         //[butt setTitle:@"cellButton" forState:UIControlStateNormal];
         butt.frame = CGRectMake(150.0, 0.0, 50.0, 40.0);
         [cell.contentView addSubview:butt];
@@ -319,6 +321,16 @@
     }
     return cell;
 }
+//-(void)noaction:(UIButton*)sender
+//{
+//     self.openviewindex=NSNotFound;
+//    _venderlbl.hidden=YES;
+//    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+//        .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
+//    
+//    _animatedview.hidden=YES;
+//
+//}
 -(void)showaction:(UIButton*)sender{
    // [_animatedview removeFromSuperview];
     _venderlbl.hidden=YES;
@@ -627,6 +639,7 @@
 }
 -(IBAction)addbasicreq:(id)sender
 {   optionidentifier=1;
+     self.openviewindex=NSNotFound;
     [self SelectAllCourseVendor];
     _addreqview.hidden=NO;
     _navItem.title=@"ADD";
@@ -642,6 +655,7 @@
 {   optionidentifier=2;
     _addreqview.hidden=NO;
     _navItem.title=@"EDIT";
+     self.openviewindex=NSNotFound;
     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -1227,7 +1241,8 @@
     
 }
 -(void)insertrequirements
-{ webtype=1;
+{
+    webtype=1;
     NSInteger house;
     NSInteger def;
     NSInteger exp;
@@ -2267,10 +2282,9 @@
 
     if([elementName isEqualToString:@"result"])
     {  recordresults = FALSE;
-        _resultdisplaylabel.hidden=NO;
-        _resultdisplaylabel.text=_soapResults;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
         _itemnametextfield.text=@"";
-        
         _codetextfield.text=@"";
         _hourstextfield.text=@"";
         _vendertextfield.text=@"";
