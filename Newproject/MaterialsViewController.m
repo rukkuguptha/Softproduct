@@ -26,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-       [self AllSkills];
-    _materialTable.layer.borderWidth = 2.0;
+          _materialTable.layer.borderWidth = 2.0;
     _materialTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleView.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     /*searchbar*/
@@ -54,7 +53,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self SelectAllMaterials];
+    [self AllSkills];
+
+    //[self SelectAllMaterials];
 }
 
 - (void)didReceiveMemoryWarning
@@ -689,7 +690,7 @@
     }
 
 -(void)AllSkills{
-    
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -753,7 +754,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConenction" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1160,7 +1161,7 @@
         }
         else if ([_soapResults isEqualToString:@"Material Picture Updated"]){
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self SelectAllMaterials];
         }
@@ -1433,7 +1434,7 @@ else
         
     }
 
-    if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
+    if ([alertView.message isEqualToString:@"Invalid unit cost"]) {
         
         
         _unitcosttxtfld.text=@"";
@@ -1441,7 +1442,7 @@ else
     }
     
     
-    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
         
         
         _stockinhandtxtfld.text=@"";

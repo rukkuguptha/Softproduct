@@ -27,8 +27,8 @@
 {
     [super viewDidLoad];
   
-    [self AllSkills];
-    [self Checknetavailabilty];
+    
+  //  [self Checknetavailabilty];
     
     [[self.jobtasktextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.jobtasktextview layer] setBorderWidth:2];
@@ -67,7 +67,9 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  
+  [self AllSkills];
+  //  [self Selectallmanpower];
+
 //    NSTimer *timer;
 //    timer=[NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(Checknetavailabilty) userInfo:nil repeats:YES];
    
@@ -732,7 +734,7 @@
     
 }
 -(void)AllSkills{
-    
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -794,7 +796,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConenction" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
