@@ -1216,7 +1216,7 @@
         }
         else{
         msgstrg=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
         
@@ -1497,14 +1497,14 @@
     if (textField==_stockinhandtxtfld) {
         int value12=[val isNumeric:_stockinhandtxtfld.text];
         if (value12==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid stock in hand" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid stock in hand" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }}
     if (textField==_billingratetextfield) {
         int values=[val isNumeric:_billingratetextfield.text];
         if (values==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Billing Rate" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Billing Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1513,7 +1513,7 @@
     if (textField==_payratetextfield) {
         int values1=[val isNumeric:_payratetextfield.text];
         if (values1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil  message:@"Invalid Pay Rate" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil  message:@"Invalid Pay Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
