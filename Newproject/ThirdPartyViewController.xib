@@ -147,7 +147,7 @@
                                                 <navigationItem title="Title" id="aoK-Me-RXu">
                                                     <barButtonItem key="rightBarButtonItem" style="plain" id="n89-Dw-7qL">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vRT-8v-QUX">
-                                                            <rect key="frame" x="518" y="2" width="50" height="40"/>
+                                                            <rect key="frame" x="518" y="-3" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <state key="normal" image="appbar.close.png">
