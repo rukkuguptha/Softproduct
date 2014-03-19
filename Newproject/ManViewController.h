@@ -121,5 +121,6 @@
 @property(strong,nonatomic)IBOutlet UITextView *experiencetextview;
 @property(strong,nonatomic)IBOutlet UITextView *eduactiontextview;
 @property(strong,nonatomic)IBOutlet UIScrollView *scrollforqualification;
+@property (strong, nonatomic) IBOutlet UIScrollView *addscrollview;
 
 @end

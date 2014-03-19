@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+       [self AllSkills];
     _scroll.frame=CGRectMake(0, 0, 619,713);
     [_scroll setContentSize:CGSizeMake(619,1024)];
     _AssetTable.layer.borderWidth = 2.0;
@@ -48,8 +49,7 @@
                                    initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = (id)self;
     [_pictureimgview addGestureRecognizer:pgr];
-    [self AllSkills];
-
+   
 }
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
@@ -1579,10 +1579,7 @@ recordResults = FALSE;
 
 
 
-- (IBAction)Addclosebtn:(id)sender
-
-
-{
+- (IBAction)Addclosebtn:(id)sender{
     _addview.hidden=YES;
     _updatelbl.hidden=YES;
 

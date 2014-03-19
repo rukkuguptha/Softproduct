@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+       [self AllSkills];
     _Tooltable.layer.borderWidth = 2.0;
    _Tooltable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _view1.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -41,7 +42,7 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-    [self AllSkills];
+    
 
 }
 -(void)viewWillAppear:(BOOL)animated{

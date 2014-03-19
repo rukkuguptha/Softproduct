@@ -30,7 +30,6 @@
                 <outlet property="suserachbtnlbl" destination="73x-nl-RBP" id="VSO-eQ-xRi"/>
                 <outlet property="thirdprtyTable" destination="Cnf-ej-VNh" id="Icg-lv-QB8"/>
                 <outlet property="typesearchlbl" destination="Ob8-oy-4z0" id="cYG-da-UQt"/>
-                <outlet property="typetxtfld" destination="K6P-hA-REf" id="Loe-P9-wYK"/>
                 <outlet property="unitcsttxtfld" destination="5Gc-Xb-iO3" id="w28-nI-fWj"/>
                 <outlet property="view" destination="ekO-eU-pon" id="YoR-0w-VLG"/>
                 <outlet property="view1" destination="1h7-4f-Jph" id="jfj-Hf-zLQ"/>
@@ -48,7 +47,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ct-jO-JUx">
-                            <rect key="frame" x="0.0" y="3" width="768" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
@@ -448,12 +447,6 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K6P-hA-REf">
-                                            <rect key="frame" x="39" y="479" width="194" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Unit Cost" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCI-Tw-8Lm">
                                             <rect key="frame" x="340" y="461" width="70" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -470,9 +463,11 @@
                                             </connections>
                                         </textField>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ob8-oy-4z0">
-                                            <rect key="frame" x="247" y="479" width="26" height="25"/>
+                                            <rect key="frame" x="39" y="479" width="194" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" backgroundImage="search-button.png">
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                             <connections>
@@ -513,7 +508,6 @@
         <image name="appbar.delete.png" width="76" height="76"/>
         <image name="ios7-camera-icon.png" width="128" height="128"/>
         <image name="rectangle3.png" width="551" height="327"/>
-        <image name="search-button.png" width="30" height="30"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+       [self AllSkills];
 _scroll.frame=CGRectMake(0, 0, 619,713);
    [_scroll setContentSize:CGSizeMake(619,1024)];
     _thirdprtyTable.layer.borderWidth = 2.0;
@@ -52,7 +53,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
                                    initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = (id)self;
     [_pictureimgvw addGestureRecognizer:pgr];
-[self AllSkills];
+
 }
 - (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
@@ -343,7 +344,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",[_unitcsttxtfld.text doubleValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],_typetxtfld.text,[_stckinhandtxtdfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",[_unitcsttxtfld.text doubleValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -421,7 +422,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateThirdParty>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost doubleValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],_typetxtfld.text,[_stckinhandtxtdfld.text doubleValue]];
+                   "</soap:Envelope>\n",Thrdprty.entryid,_codetxtfld.text,[unitcost doubleValue],_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],_typesearchlbl.titleLabel.text,[_stckinhandtxtdfld.text doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

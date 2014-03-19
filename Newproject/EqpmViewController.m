@@ -28,7 +28,8 @@
 {
   
     [super viewDidLoad];
-    [self SelectAllEquipment];
+     [self AllSkills];
+   
     _scroll_addview.frame=CGRectMake(0, 0, 619,713);
     [_scroll_addview setContentSize:CGSizeMake(619,1024)];
     _equipmenttbl.layer.borderWidth = 2.0;
@@ -52,8 +53,8 @@ _picimageview.userInteractionEnabled = YES;
                                    initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = (id)self;
     [_picimageview addGestureRecognizer:pgr];
-
-    [self AllSkills];
+ [self SelectAllEquipment];
+   
     // Do any additional setup after loading the view from its nib.
 }
 
