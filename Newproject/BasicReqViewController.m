@@ -120,7 +120,7 @@
     if (textField==_ratetextfield) {
         int value2=[val isNumeric:_ratetextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -129,7 +129,7 @@
     if (textField==_hourstextfield) {
         int value2=[val isNumeric:_hourstextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Format" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -139,19 +139,19 @@
     return YES;
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if ([alertView.title isEqualToString:@"Invalid Rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid Rate"]) {
         
         
         _ratetextfield.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid Format"]) {
+    if ([alertView.message isEqualToString:@"Invalid Format"]) {
         
         
         _hourstextfield.text=@"";
         
     }
-    if ([alertView.title isEqualToString:_soapstring]) {
+    if ([alertView.message isEqualToString:_soapstring]) {
         
         
         _itemnametextfield.text=@"";
@@ -614,13 +614,13 @@
     int value1=[val isBlank:_itemnametextfield.text];
     if(value1==0)
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Item Name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     
    else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Type is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -639,13 +639,13 @@
         int value1=[val isBlank:_itemnametextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Item Name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
       else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Type is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -1570,7 +1570,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConnection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -2313,7 +2313,7 @@
         if (webtype==1) {
             
             _soapstring=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:_soapResults message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
        

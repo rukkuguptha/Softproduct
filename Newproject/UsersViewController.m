@@ -678,7 +678,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConnection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1189,12 +1189,12 @@
         if (value1==0||value2==0) {
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Name is required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
             }
             else if(value2==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Password is required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Password is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
             }
                    }
@@ -1232,12 +1232,12 @@
         if (value1==0||value2==0) {
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Name is required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"User Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
             }
             else if(value2==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Password is required" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Password is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
             }
             
