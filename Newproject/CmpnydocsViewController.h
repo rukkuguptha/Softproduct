@@ -20,7 +20,7 @@
 
 
 }
-
+@property(strong,nonatomic)NSString *msgstring;
 @property (strong, nonatomic)commentmdl *cmntmdl1;
 @property (strong, nonatomic)NSMutableArray*commentarray;
 @property (strong, nonatomic) IBOutlet UITableViewCell *cmntcell;

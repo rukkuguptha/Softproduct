@@ -1288,7 +1288,7 @@
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -1318,7 +1318,7 @@
         _popOverTableView.delegate=(id)self;
         _popOverTableView.dataSource=(id)self;
         _popOverTableView.rowHeight= 32;
-        _popOverTableView.separatorColor=[UIColor cyanColor];
+       
         
         [popoverView addSubview:_popOverTableView];
         popoverContent.view = popoverView;

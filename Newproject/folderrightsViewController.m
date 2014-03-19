@@ -635,22 +635,10 @@
     {
         
         recordResults=FALSE;
-//        if([_soapResults isEqualToString:@"updated"])
-//        {
-//            [_editcreatecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-//            [_editdwnldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-//            [_editupldcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-////            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-////            [alert show];
-//
-//
-//        }
-//        else
-//        {
             _soapstring=_soapResults;
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-        //}
+                _soapResults=nil;
     }
 }
 

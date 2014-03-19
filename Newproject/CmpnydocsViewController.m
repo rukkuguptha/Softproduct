@@ -638,14 +638,25 @@ return cell;
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        [self FileCommentsselect];
-        _cmmnttxtview.text=@"";
+        _msgstring=_soapResults;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles: nil,nil];
+        [alert show];
+        
+       
         _soapResults = nil;
 
 
     }
 
  }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:_msgstring]) {
+        
+        [self FileCommentsselect];
+        _cmmnttxtview.text=@"";
+        
+    }
+}
 
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
