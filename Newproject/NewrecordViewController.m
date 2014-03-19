@@ -59,7 +59,7 @@
                    "<planId>%@</planId>\n"
                    "</InsertSitevisitProductionRates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_ratetxtfld.text,_descptntxtfld.text,[_valuetxtfld.text doubleValue],_companyid];
+                   "</soap:Envelope>\n",_ratetxtfld.text,_descptntxtfld.text,[_valuetxtfld.text floatValue],_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -223,7 +223,7 @@
                    "<planId>%@</planId>\n"
                    "</SitevisitInsertequipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_equpnotxtfld.text,_equpdscptn.text,[_equpareatxtfld.text doubleValue],_equnittxtfld.text,_companyid];
+                   "</soap:Envelope>\n",_equpnotxtfld.text,_equpdscptn.text,[_equpareatxtfld.text floatValue],_equnittxtfld.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
