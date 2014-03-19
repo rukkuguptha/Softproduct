@@ -25,7 +25,7 @@
 }
 
 @property(strong,nonatomic)allfolderrights *fldrrights;
-
+@property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)IBOutlet UITableViewCell *folderrightscell;
 @property(strong,nonatomic)IBOutlet UITableView *folderrighttable;
 @property(strong,nonatomic)IBOutlet UIView *titleview;

@@ -14,6 +14,7 @@
 
 @implementation BasicReqViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,8 +56,17 @@
     _autotable.hidden = YES;
     
     [self.addreqview addSubview:_autotable];
+    //[self SelectAllRequirements];
 
     // Do any additional setup after loading the view from its nib.
+}
+-(void)newaction
+{
+    self.openviewindex=NSNotFound;
+
+    [self SelectAllRequirements];
+    [self SelectAllCraft];
+    [self SelectAllItemType];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -110,7 +120,7 @@
     if (textField==_ratetextfield) {
         int value2=[val isNumeric:_ratetextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Rate" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -119,7 +129,7 @@
     if (textField==_hourstextfield) {
         int value2=[val isNumeric:_hourstextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Format" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -129,13 +139,13 @@
     return YES;
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if ([alertView.title isEqualToString:@"Invalid Rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid Rate"]) {
         
         
         _ratetextfield.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid Format"]) {
+    if ([alertView.message isEqualToString:@"Invalid Format"]) {
         
         
         _hourstextfield.text=@"";
@@ -520,6 +530,7 @@
     {
         _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
     }
+    _venderVCtrl.delegate=self;
     _venderVCtrl.itemid=reqmdl.eid;
     _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_venderVCtrl animated:YES completion:NULL];
@@ -1559,7 +1570,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConnection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }

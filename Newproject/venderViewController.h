@@ -10,6 +10,12 @@
 #import "vendermodel.h"
 #import "Validation.h"
 
+@protocol myDelegate <NSObject>
+
+-(void)newaction;
+
+@end
+
 @interface venderViewController : UIViewController
 {
     NSInteger path;
@@ -19,7 +25,11 @@
     UIButton *button;
     NSInteger btnindex;
     NSString *phnnostring;
+    //id<myDelegate>delegate;
 }
+
+
+@property(nonatomic,weak)id<myDelegate>delegate;
 @property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *phnnofmtstring;
@@ -61,5 +71,4 @@
 @property(strong,nonatomic)IBOutlet UITextField *phonetextfld;;
 @property(strong,nonatomic)IBOutlet UITextField *ratetextfld;
 @property(strong,nonatomic)IBOutlet UILabel *resultdispaylabel;
-
 @end
