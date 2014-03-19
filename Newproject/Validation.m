@@ -79,9 +79,8 @@
 - (BOOL) validateUrl: (NSString *) candidate {
     
    // NSString *urlRegEx = @"((ftp|http|https):-//)?([a-zA-Z0-9]+(.[a-zA-Z0-9]+)+.*)$";
-   NSString *urlRegEx =@"(http|https|WWW)://((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
+    NSString *urlRegEx =@"((\\w)*|([0-9]*)|([-|_])*)+([\\.|/]((\\w)*|([0-9]*)|([-|_])*))+";
     NSPredicate *urlTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", urlRegEx];
-  
     if (![urlTest evaluateWithObject:candidate]) {
         return FALSE;
     }
