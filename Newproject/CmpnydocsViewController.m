@@ -655,6 +655,7 @@ return cell;
 }
 
 - (IBAction)clsebtn:(id)sender {
+    [_docutyebtn setTitle:@"Select" forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
