@@ -37,7 +37,7 @@
                                 <navigationItem title="Consumables" id="oNR-06-1QR">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="lKa-3y-KZ5">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="foO-KU-Pby">
-                                            <rect key="frame" x="702" y="2" width="50" height="40"/>
+                                            <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" image="appbar.close.png">
