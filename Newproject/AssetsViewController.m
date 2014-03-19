@@ -462,7 +462,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[_hurlytxtfld.text doubleValue],[_dailytxtfld.text doubleValue],[_shiftwisetxtfld.text doubleValue],[_weeklytxtfld.text doubleValue],[_monthlytxtfld.text doubleValue],[_yearlytxtfld.text doubleValue],[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[_hurlytxtfld.text floatValue],[_dailytxtfld.text floatValue],[_shiftwisetxtfld.text floatValue],[_weeklytxtfld.text floatValue],[_monthlytxtfld.text floatValue],[_yearlytxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -537,7 +537,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text doubleValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text doubleValue],[_hurstxtfld.text doubleValue],[_fueltxtfld.text doubleValue],_condtntxtfld.text,[HourlyRate doubleValue],[DailyRate doubleValue],[ShiftwiseRate doubleValue],[WeeklyRate doubleValue],[MonthlyRate doubleValue],[YearlyRate doubleValue],eqmdl.entryid,[_stckinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[HourlyRate floatValue],[DailyRate floatValue],[ShiftwiseRate floatValue],[WeeklyRate floatValue],[MonthlyRate floatValue],[YearlyRate floatValue],eqmdl.entryid,[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

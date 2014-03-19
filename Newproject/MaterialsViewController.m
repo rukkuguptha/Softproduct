@@ -285,7 +285,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text doubleValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

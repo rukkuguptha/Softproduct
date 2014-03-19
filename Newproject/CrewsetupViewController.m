@@ -881,7 +881,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"unitCost"])
+    if([elementName isEqualToString:@"UnitCost"])
     {
         
         if(!_soapResults)
@@ -960,6 +960,7 @@
         recordResults = FALSE;
         
         _manpwrmdl.itemdescptn=_soapResults;
+         _crewmdl1.mandescptn=_soapResults;
      
         _soapResults = nil;
     }
@@ -1004,12 +1005,12 @@
     }
     
     
-    if([elementName isEqualToString:@"Description"])
-    {
-        recordResults = FALSE;
-         _crewmdl1.mandescptn=_soapResults;
-        _soapResults = nil;
-    }
+//    if([elementName isEqualToString:@"Description"])
+//    {
+//        recordResults = FALSE;
+//        
+//        _soapResults = nil;
+//    }
     
     if([elementName isEqualToString:@"Type"])
     {

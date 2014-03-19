@@ -226,7 +226,8 @@
 {
     if (tableView==_popOverTableView) {
         
-        _subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+        //_subtypetxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
+          [_searchbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
     
     if (tableView==_manpowerTable) {
@@ -277,10 +278,10 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 120)];
+                           initWithFrame:CGRectMake(0, 0, 200, 120)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 120)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
@@ -294,7 +295,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 120);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
     
     //create a popover controller
     
@@ -500,7 +501,7 @@
                    "<overhead>%d</overhead>\n"
                    "</InsertManpower>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",manpwr1.itemcode,manpwr1.itemdescptn,manpwr1.subtype,[manpwr1.unitcost doubleValue],manpwr1.overhead];
+                   "</soap:Envelope>\n",manpwr1.itemcode,manpwr1.itemdescptn,manpwr1.subtype,[manpwr1.unitcost floatValue],manpwr1.overhead];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1671,7 +1672,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
 
     if (sqlite3_open(dbpath, &_newResourcesListDB) == SQLITE_OK)
     {
-        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ManpowerList(ItemCode,ItemDescrptn,Subtype,Unitcost,Overhead) VALUES (\"%@\",\"%@\",\"%@\",\"%f\",\"%d\")",_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text doubleValue],overhead];
+        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO ManpowerList(ItemCode,ItemDescrptn,Subtype,Unitcost,Overhead) VALUES (\"%@\",\"%@\",\"%@\",\"%f\",\"%d\")",_itemcodetxtfld.text,_itemdestxtfld.text,_subtypetxtfld.text,[_unitcosttxtfld.text floatValue],overhead];
         
         const char *insert_stmt = [InsertSQl UTF8String];
          sqlite3_prepare_v2(_newResourcesListDB, insert_stmt, -1, &statement, NULL);
