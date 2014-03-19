@@ -28,7 +28,7 @@
     [super viewDidLoad];
   
     
-  //  [self Checknetavailabilty];
+   [self Checknetavailabilty];
     
     [[self.jobtasktextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.jobtasktextview layer] setBorderWidth:2];
@@ -67,7 +67,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  [self AllSkills];
+  
   //  [self Selectallmanpower];
 
 //    NSTimer *timer;
@@ -91,7 +91,8 @@
              [self SynManpowertoserver];
         }
         else{
-        [self Selectallmanpower];
+        //[self Selectallmanpower];
+            [self AllSkills];
         }
     
         
