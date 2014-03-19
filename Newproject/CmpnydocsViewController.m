@@ -45,7 +45,13 @@
     _popoverArry=[[NSMutableArray alloc]initWithArray:[_popovrdict allKeys]];
 
 
-    
+   
+
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [_docutable reloadData];
 
 }
 
@@ -474,7 +480,7 @@ return cell;
         }
         recordResults = TRUE;
     }
-       if([elementName isEqualToString:@"FileCommentsselectResult"])
+       if([elementName isEqualToString:@"FileCommentsselectResponse"])
     {
         _commentarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -655,6 +661,7 @@ return cell;
 }
 
 - (IBAction)clsebtn:(id)sender {
+    _documntarray=[[NSMutableArray alloc]init];
     [_docutyebtn setTitle:@"Select" forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

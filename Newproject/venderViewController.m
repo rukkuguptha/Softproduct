@@ -744,7 +744,7 @@
     if(textField==_phonetextfld)
     {
         NSUInteger newLength = [_phonetextfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
+        return (newLength > 12) ? NO : YES;
     }
     
     
