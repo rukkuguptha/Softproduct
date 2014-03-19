@@ -11,7 +11,7 @@
 #import "Validation.h"
 #import "venderViewController.h"
 
-@interface BasicReqViewController : UIViewController
+@interface BasicReqViewController : UIViewController<myDelegate>
 {
     BOOL recordresults;
     NSInteger poptype;
@@ -35,6 +35,7 @@
     
      
 }
+-(void)newaction;
 @property(strong,nonatomic)NSString *soapstring;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIView *craftview;

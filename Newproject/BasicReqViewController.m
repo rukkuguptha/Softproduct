@@ -14,6 +14,7 @@
 
 @implementation BasicReqViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -55,8 +56,17 @@
     _autotable.hidden = YES;
     
     [self.addreqview addSubview:_autotable];
+    //[self SelectAllRequirements];
 
     // Do any additional setup after loading the view from its nib.
+}
+-(void)newaction
+{
+    self.openviewindex=NSNotFound;
+
+    [self SelectAllRequirements];
+    [self SelectAllCraft];
+    [self SelectAllItemType];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -141,7 +151,7 @@
         _hourstextfield.text=@"";
         
     }
-    if ([alertView.message isEqualToString:_soapstring]) {
+    if ([alertView.title isEqualToString:_soapstring]) {
         
         
         _itemnametextfield.text=@"";
@@ -520,6 +530,7 @@
     {
         _venderVCtrl=[[venderViewController alloc]initWithNibName:@"venderViewController" bundle:nil];
     }
+    _venderVCtrl.delegate=self;
     _venderVCtrl.itemid=reqmdl.eid;
     _venderVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_venderVCtrl animated:YES completion:NULL];
@@ -603,13 +614,13 @@
     int value1=[val isBlank:_itemnametextfield.text];
     if(value1==0)
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Item Name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     
    else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Type is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         
     }
@@ -628,13 +639,13 @@
         int value1=[val isBlank:_itemnametextfield.text];
         if(value1==0)
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Item Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Item Name is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
       else if ([_typebtn.titleLabel.text isEqualToString:@"Select"]||[_typebtn.titleLabel.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Type is required" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             
         }
@@ -2302,7 +2313,7 @@
         if (webtype==1) {
             
             _soapstring=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:_soapResults message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         }
        
