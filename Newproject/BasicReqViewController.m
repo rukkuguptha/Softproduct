@@ -677,6 +677,7 @@
     expiry=0;
     craft=0;
     defaultcheck=0;
+    [_typebtn setTitle:@"Select" forState:UIControlStateNormal];
     _resultdisplaylabel.hidden=YES;
 }
 -(IBAction)editBasicreq:(id)sender
