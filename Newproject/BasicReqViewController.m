@@ -129,7 +129,7 @@
     if (textField==_hourstextfield) {
         int value2=[val isNumeric:_hourstextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Duration" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -145,7 +145,7 @@
         _ratetextfield.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid Format"]) {
+    if ([alertView.message isEqualToString:@"Invalid Duration"]) {
         
         
         _hourstextfield.text=@"";
