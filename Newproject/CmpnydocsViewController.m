@@ -31,16 +31,16 @@
     _docutable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _docutable.layer.borderWidth=3.0f;
     _popovrdict=[[NSMutableDictionary alloc]init];
-    [_popovrdict setObject:@"1" forKey:@"CompanyValues"];
+    [_popovrdict setObject:@"1" forKey:@"Company Values"];
     [_popovrdict setObject:@"2" forKey:@"Quality"];
-    [_popovrdict setObject:@"3" forKey:@"SafetyManual"];
-    [_popovrdict setObject:@"4" forKey:@"EmployeeHandbook"];
-    [_popovrdict setObject:@"5" forKey:@"FleetManagement"];
-    [_popovrdict setObject:@"6" forKey:@"MSDSDatabase"];
-    [_popovrdict setObject:@"7" forKey:@"BidMaster"];
+    [_popovrdict setObject:@"3" forKey:@"Safety Manual"];
+    [_popovrdict setObject:@"4" forKey:@"Employee Handbook"];
+    [_popovrdict setObject:@"5" forKey:@"Fleet Management"];
+    [_popovrdict setObject:@"6" forKey:@"MSDS Database"];
+    [_popovrdict setObject:@"7" forKey:@"Bid Master"];
     [_popovrdict setObject:@"8" forKey:@"Plan"];
     [_popovrdict setObject:@"9" forKey:@"Estimates"];
-    [_popovrdict setObject:@"10" forKey:@"BidEstimates"];
+    [_popovrdict setObject:@"10" forKey:@"Bid Estimates"];
     [_popovrdict setObject:@"11" forKey:@"Contract"];
     _popoverArry=[[NSMutableArray alloc]initWithArray:[_popovrdict allKeys]];
 
@@ -288,7 +288,7 @@ return cell;
 -(void)FileCommentsselect
 {
     
-       recordResults = FALSE;
+    recordResults = FALSE;
     NSString *soapMessage;
     
     soapMessage = [NSString stringWithFormat:
@@ -438,10 +438,11 @@ return cell;
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     
-    if([elementName isEqualToString:@"AllDocumentsselectResult"])
+    if([elementName isEqualToString:@"AllDocumentsselectResponse"])
     {
         _documntarray=[[NSMutableArray alloc]init];
         _docdict=[[NSMutableDictionary alloc]init];
+          _fileiddict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -464,24 +465,16 @@ return cell;
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"ID"])
+    if([elementName isEqualToString:@"docID"])
     {
-        _fileiddict=[[NSMutableDictionary alloc]init];
+      
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"FileCommentsselectResult"])
-    {
-                if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"FileCommentsselectResult"])
+       if([elementName isEqualToString:@"FileCommentsselectResult"])
     {
         _commentarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -559,7 +552,7 @@ return cell;
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"ID"])
+    if([elementName isEqualToString:@"docID"])
     {
          recordResults = FALSE;
         fileid=_soapResults;
@@ -583,7 +576,10 @@ return cell;
     {
         
         recordResults = FALSE;
-        [_docdict setObject:_soapResults forKey:filename];
+        NSString *newstrg=@"\\";
+        NSString *urlname=[_soapResults stringByReplacingOccurrencesOfString:newstrg withString:@"/"];
+        
+        [_docdict setObject:urlname forKey:filename];
 
         
                _soapResults = nil;
@@ -673,7 +669,7 @@ return cell;
     NSIndexPath *textFieldIndexPath = [self.docutable indexPathForRowAtPoint:rootViewPoint];
     
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-     NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.1:443%@",[_documntarray objectAtIndex:textFieldIndexPath.row]]  ;
+     NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.1:443%@",[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]]];
     //_urlstring=[_docdict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
    // _urlstring=[NSString stringWithFormat:@"http://192.168.0.1:443/Folder/Root/EmployeeHandbook/accounts.xlsx"];
     
@@ -696,6 +692,7 @@ return cell;
      _newcmntview.hidden=YES;
 }
 - (IBAction)cmntbtn:(id)sender {
+    
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.docutable];
@@ -703,6 +700,8 @@ return cell;
     
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     newfieldid=[_fileiddict objectForKey:[_documntarray objectAtIndex:textFieldIndexPath.row]];
+     NSLog(@"bvb%@",[_documntarray objectAtIndex:textFieldIndexPath.row]);
+    
     [self FileCommentsselect];
 
     [self commentpopover];
