@@ -129,7 +129,7 @@
     if (textField==_hourstextfield) {
         int value2=[val isNumeric:_hourstextfield.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Format" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Duration" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -145,7 +145,7 @@
         _ratetextfield.text=@"";
         
     }
-    if ([alertView.message isEqualToString:@"Invalid Format"]) {
+    if ([alertView.message isEqualToString:@"Invalid Duration"]) {
         
         
         _hourstextfield.text=@"";
@@ -677,6 +677,7 @@
     expiry=0;
     craft=0;
     defaultcheck=0;
+    [_typebtn setTitle:@"Select" forState:UIControlStateNormal];
     _resultdisplaylabel.hidden=YES;
 }
 -(IBAction)editBasicreq:(id)sender
@@ -882,7 +883,7 @@
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -914,7 +915,7 @@
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -947,7 +948,7 @@
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
