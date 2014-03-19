@@ -24,6 +24,7 @@
 
    NSString*one=[NSString stringWithFormat:@"%@.%@", newstring , astring];
     NSLog(@"%@",one);
+    // self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning
