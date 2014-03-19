@@ -28,7 +28,8 @@
 {
   
     [super viewDidLoad];
-    [self SelectAllEquipment];
+    
+   
     _scroll_addview.frame=CGRectMake(0, 0, 619,713);
     [_scroll_addview setContentSize:CGSizeMake(619,1024)];
     _equipmenttbl.layer.borderWidth = 2.0;
@@ -52,9 +53,15 @@ _picimageview.userInteractionEnabled = YES;
                                    initWithTarget:self action:@selector(handlePinch:)];
     pgr.delegate = (id)self;
     [_picimageview addGestureRecognizer:pgr];
-
-    [self AllSkills];
+ 
+   
     // Do any additional setup after loading the view from its nib.
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    [self AllSkills];
+    //[self SelectAllEquipment];
 }
 
 
@@ -835,6 +842,7 @@ finishedSavingWithError:(NSError *)error
     
 }
 -(void)AllSkills{
+    webtype=1;
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -898,7 +906,7 @@ finishedSavingWithError:(NSError *)error
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConenction" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1458,7 +1466,7 @@ finishedSavingWithError:(NSError *)error
         }
         else if ([_soapResults isEqualToString:@"Eqp Picture Updated"]){
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:mesgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             [self SelectAllEquipment];
         }
@@ -1636,14 +1644,14 @@ _addequipmentview.hidden=NO;
     
     if([_destxtfld.text isEqualToString:@""]){
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
     }
     
     else if ([_subsearchlbl.titleLabel.text isEqualToString:@""]||[_subsearchlbl.titleLabel.text isEqualToString:@"Select"]){
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
 
@@ -1695,7 +1703,7 @@ _addequipmentview.hidden=NO;
     if (textField==_purchasetxtfld) {
           int value1=[val isNumeric:_purchasetxtfld.text];
         if (value1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid purchase value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid purchase value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
 
         }
@@ -1704,7 +1712,7 @@ _addequipmentview.hidden=NO;
     if (textField==_manufattxtfld) {
           int value2=[val isIntegerValue:_manufattxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid year" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid year"  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1713,7 +1721,7 @@ _addequipmentview.hidden=NO;
     if (textField==_insuredtxtfld) {
           int value3=[val isNumeric:_insuredtxtfld.text];
         if (value3==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid insured value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid insured value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1723,7 +1731,7 @@ _addequipmentview.hidden=NO;
     if (textField==_hurstxtfld) {
          int value4=[val isNumeric:_hurstxtfld.text];
         if (value4==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid used hours value" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid used hours value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1733,7 +1741,7 @@ _addequipmentview.hidden=NO;
     if (textField==_fueltxtfld) {
         int value5=[val isNumeric:_fueltxtfld.text];
         if (value5==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid fuel consumption" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid fuel consumption" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1743,7 +1751,7 @@ _addequipmentview.hidden=NO;
     if (textField==_hurlytxtfld) {
           int value6=[val isNumeric:_hurlytxtfld.text];
         if (value6==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid hourly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid hourly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1753,7 +1761,7 @@ _addequipmentview.hidden=NO;
     if (textField==_dailytxtfld) {
       int value7=[val isNumeric:_dailytxtfld.text];
         if (value7==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid daily rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid daily rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1763,7 +1771,7 @@ _addequipmentview.hidden=NO;
     if (textField==_shiftwisetxtfld) {
         int value8=[val isNumeric:_shiftwisetxtfld.text];
         if (value8==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid shiftwise rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid shiftwise rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1773,7 +1781,7 @@ _addequipmentview.hidden=NO;
     if (textField==_weeklytxtfld) {
        int value9=[val isNumeric:_weeklytxtfld.text];
         if (value9==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid weekly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid weekly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1784,7 +1792,7 @@ _addequipmentview.hidden=NO;
       if (textField==_monthlytxtfld) {
         int value10=[val isNumeric:_monthlytxtfld.text];
           if (value10==0) {
-              UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid monthly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+              UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid monthly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
               [alert1 show];
               
           }
@@ -1795,7 +1803,7 @@ _addequipmentview.hidden=NO;
     if (textField==_yearlytxtfld) {
          int value11=[val isNumeric:_yearlytxtfld.text];
         if (value11==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid yearly rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid yearly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1806,7 +1814,7 @@ _addequipmentview.hidden=NO;
     if (textField==_stockinhndtxtfld) {
         int value12=[val isNumeric:_stockinhndtxtfld.text];
         if (value12==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid stock in hand" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1841,58 +1849,58 @@ _addequipmentview.hidden=NO;
 
         
     }
-    if ([alertView.title isEqualToString:@"Invalid purchase value"]) {
+    if ([alertView.message isEqualToString:@"Invalid purchase value"]) {
         
         
         _purchasetxtfld.text=@"";
         
     }
     
-    if ([alertView.title isEqualToString:@"Invalid year"]) {
+    if ([alertView.message isEqualToString:@"Invalid year"]) {
         
         
         _manufattxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid insured value"]) {
+    if ([alertView.message isEqualToString:@"Invalid insured value"]) {
         
         
         _insuredtxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid used hours value"]) {
+    if ([alertView.message isEqualToString:@"Invalid used hours value"]) {
         
         
         _hurstxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid  hourly rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid  hourly rate"]) {
         
         
         _hurlytxtfld.text=@"";
         
     }
 
-    if ([alertView.title isEqualToString:@"Invalid daily rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid daily rate"]) {
         
         
         _dailytxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid shiftwise rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid shiftwise rate"]) {
         
         
 _shiftwisetxtfld.text=@"";
         
     }
 
-    if ([alertView.title isEqualToString:@"Invalid weekly rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid weekly rate"]) {
         
         
         _weeklytxtfld.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid monthly rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid monthly rate"]) {
         
         
         _monthlytxtfld.text=@"";
@@ -1900,14 +1908,14 @@ _shiftwisetxtfld.text=@"";
     }
     
 
-    if ([alertView.title isEqualToString:@"Invalid yearly rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid yearly rate"]) {
         
         
         _yearlytxtfld.text=@"";
         
     }
     
-    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
         
         
         _stockinhndtxtfld.text=@"";

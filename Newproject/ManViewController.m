@@ -27,7 +27,9 @@
 {
     [super viewDidLoad];
   
-    [self Checknetavailabilty];
+    
+  //  [self Checknetavailabilty];
+    
     [[self.jobtasktextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.jobtasktextview layer] setBorderWidth:2];
     [[self.jobtasktextview layer] setCornerRadius:10];
@@ -57,15 +59,17 @@
     searchController.delegate = (id)self;
 
     
-    _scrollforqualification.frame=CGRectMake(0, 0, 590,900);
-    [_scrollforqualification setContentSize:CGSizeMake(590,1200)];
+    _addscrollview.frame=CGRectMake(0, 44, 583,622);
+    [_addscrollview setContentSize:CGSizeMake(583,1200)];
     
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  
+  [self AllSkills];
+  //  [self Selectallmanpower];
+
 //    NSTimer *timer;
 //    timer=[NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(Checknetavailabilty) userInfo:nil repeats:YES];
    
@@ -308,7 +312,7 @@
     
     
     [self.popOverController presentPopoverFromRect:_searchbtnlbl.frame
-                                            inView:self.addview
+                                            inView:self.addscrollview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -730,7 +734,7 @@
     
 }
 -(void)AllSkills{
-    
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -792,7 +796,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConenction" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1268,7 +1272,7 @@
 
 #pragma mark-Action
 - (IBAction)addmanpwer:(id)sender {
-    _resultdisplaylabel.hidden=YES;
+  
     _itemcodetxtfld.text=@"";
     
     _itemdestxtfld.text=@"";
@@ -1293,7 +1297,6 @@
 }
 - (IBAction)clsebtn:(id)sender {
     _addview.hidden=YES;
-    _resultdisplaylabel.hidden=YES;
     
 }
 -(IBAction)editmanpower:(id)sender
@@ -1370,9 +1373,17 @@
     if (btnidtfr==11) {
         if([_itemdestxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
         else
         {
         [self UpdateManpower];
@@ -1381,9 +1392,17 @@
     else if (btnidtfr==22){
         if([_itemdestxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            
+            [alert show];
+            
+        }
+
         else
         {
             [self InsertManpower];
@@ -1448,11 +1467,11 @@
 }
 - (IBAction)selectQualificatin:(id)sender
 {
-    _qualificationview.hidden=NO;
+    //_qualificationview.hidden=NO;
 }
 - (IBAction)closeQualificatin:(id)sender
 {
-    _qualificationview.hidden=YES;
+    //_qualificationview.hidden=YES;
 }
 - (IBAction)saveQualificatin:(id)sender
 {
@@ -1478,14 +1497,14 @@
     if (textField==_stockinhandtxtfld) {
         int value12=[val isNumeric:_stockinhandtxtfld.text];
         if (value12==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid stock in hand" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid stock in hand" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }}
     if (textField==_billingratetextfield) {
         int values=[val isNumeric:_billingratetextfield.text];
         if (values==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Billing Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Billing Rate" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1494,7 +1513,7 @@
     if (textField==_payratetextfield) {
         int values1=[val isNumeric:_payratetextfield.text];
         if (values1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Pay Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil  message:@"Invalid Pay Rate" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1525,20 +1544,20 @@ if ([alertView.message isEqualToString:msgstrg]) {
     
            }
 
-    if ([alertView.title isEqualToString:@"Invalid Billing Rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid Billing Rate"]) {
         
         
         _billingratetextfield.text=@"";
         
     }
-    if ([alertView.title isEqualToString:@"Invalid Pay Rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid Pay Rate"]) {
         
         
         _payratetextfield.text=@"";
         
     }
 
-    if ([alertView.title isEqualToString:@"Invalid unit cost"]) {
+    if ([alertView.message isEqualToString:@"Invalid unit cost"]) {
         
         
         _unitcosttxtfld.text=@"";
@@ -1547,7 +1566,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
 
     
     
-    if ([alertView.title isEqualToString:@"Invalid stock in hand"]) {
+    if ([alertView.message isEqualToString:@"Invalid stock in hand"]) {
         
         
         _stockinhandtxtfld.text=@"";
