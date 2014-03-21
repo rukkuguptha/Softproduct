@@ -28,8 +28,9 @@
 {
     [super viewDidLoad];
   
-    
-  
+    [[self.prjctdscptntxtfld layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.prjctdscptntxtfld layer] setBorderWidth:2];
+    [[self.prjctdscptntxtfld layer] setCornerRadius:10];
 
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
@@ -76,7 +77,7 @@
     [super viewWillAppear:animated];
 
     [self getLeads];
-
+   
     
     
 
@@ -86,11 +87,12 @@
 -(IBAction)addnewlead:(id)sender
 {
     [self SelectAllCustomer];
+    
      self.navbaritem.title = @"ADD";
     
     butnidtfr=1;
     
-    _cmpnynametxtfld.text=@"";
+    [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
     _contactnametxtfld.text=@"";
     _phonetxtfld.text=@"";
     
@@ -106,12 +108,14 @@
     _locationtxtfld.text=@"";
     _contacttiletxtfld.text=@"";
     _emailidtxtfld.text=@"";
-    _statetxtfld.text=@"";
-    
+   
+    [_statebutton setTitle:@"Select" forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
+    _leadassigntotextfld.text=@"";
+    [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
     
-    //_view2.hidden=NO;
+   // _view2.hidden=NO;
     _view2.frame = CGRectMake(512, 384, 0, 0);
     //    CGPoint origin = _hidenview.frame.origin;
     [UIView animateWithDuration: 1.0f animations:^{
@@ -192,6 +196,9 @@
                 break;
             case 7:
                 return [_companylistArray count];
+                break;
+                case 8:
+                return [_statearray count];
                 break;
 
             default:
@@ -282,10 +289,13 @@ if (tableView==_leadTable) {
                 cell.textLabel.text=[_leadStatusArray objectAtIndex:indexPath.row];
                 
                 break;
-                break;
+                
             case 7:
                 cell.textLabel.text=[_companylistArray objectAtIndex:indexPath.row];
                 
+                break;
+                case 8:
+                cell.textLabel.text=[_statearray objectAtIndex:indexPath.row];
                 break;
 
                 
@@ -356,25 +366,25 @@ if (tableView==_leadTable) {
                  
                  [_leadtypebtnlbl setTitle:[_leadtypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                  
-                              
+                           [self.popOverController dismissPopoverAnimated:YES];
                  break;
              case 2:
                  
                  [_projecttype setTitle:[_projecttypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-
+ [self.popOverController dismissPopoverAnimated:YES];
                                 
                  
                  break;
              case 3:
                  [_industrytypetxtfld setTitle:[_industrytypeArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
 
-                
+                 [self.popOverController dismissPopoverAnimated:YES];
                  
                  break;
              case 4:
                  
                  [_prjctexcutntxtfld setTitle:[_prjctexcutnArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                
+                 [self.popOverController dismissPopoverAnimated:YES];
                  
                  
                  break;
@@ -396,6 +406,7 @@ if (tableView==_leadTable) {
                  }
                  
                  if (indexPath.row==1) {
+                     
                      [self.popOverController dismissPopoverAnimated:YES];
 
                      
@@ -417,7 +428,8 @@ if (tableView==_leadTable) {
                  
                  [_leadstatusBtn setTitle:[_leadStatusArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                  
-                 
+                 [self.popOverController dismissPopoverAnimated:YES];
+
                  
                  break;
 
@@ -425,7 +437,16 @@ if (tableView==_leadTable) {
                  
                  [_companybtn setTitle:[_companylistArray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
                  
+                 [self.popOverController dismissPopoverAnimated:YES];
+
                  
+                 break;
+             case 8:
+                 
+                 [_statebutton setTitle:[_statearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                 
+                 [self.popOverController dismissPopoverAnimated:YES];
+
                  
                  break;
 
@@ -436,14 +457,13 @@ if (tableView==_leadTable) {
 
          
          
-                
          
+
          
          
      }
     
     
-                
         
     
 
@@ -512,25 +532,27 @@ if (tableView==_leadTable) {
     _locationtxtfld.text=info1.location;
     _contacttiletxtfld.text=info1.contacttitle;
     _emailidtxtfld.text=info1.emailid;
-    _statetxtfld.text=info1.state;
+    [_statebutton setTitle:info1.state forState:UIControlStateNormal];
     _leadassigntotextfld.text=info1.leadassignto;
     [_leadstatusBtn setTitle:info1.leadstatus forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
     [_prjctexcutntxtfld setTitle:info1.projectexecution forState:UIControlStateNormal];
     [self SelectAllCustomer];
+     [self Stateselect];
 
 
    
 }
 - (IBAction)cancelbtn:(id)sender {
-    _cmpnynametxtfld.text=@"";
+    [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
     _contactnametxtfld.text=@"";    
     _phonetxtfld.text=@"";
     
     _citytxtfld.text=@"";
-    [_leadtypebtnlbl setTitle:@"" forState:UIControlStateNormal];
-    [_projecttype setTitle:@"" forState:UIControlStateNormal];
-    
+    [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
+    [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
+    _leadassigntotextfld.text=@"";
     
     _prjctyeartxtfld.text=@"";
     
@@ -539,10 +561,10 @@ if (tableView==_leadTable) {
     _locationtxtfld.text=@"";
     _contacttiletxtfld.text=@"";
     _emailidtxtfld.text=@"";
-    _statetxtfld.text=@"";
+     [_statebutton setTitle:@"Select" forState:UIControlStateNormal];
     
-    [_industrytypetxtfld setTitle:@"" forState:UIControlStateNormal];
-    [_prjctexcutntxtfld setTitle:@"" forState:UIControlStateNormal];
+    [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+    [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
 
     
     
@@ -581,7 +603,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
    
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -613,8 +635,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
-  
+    
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
@@ -644,8 +665,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
-   
+    
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
@@ -676,7 +696,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
    
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -708,7 +728,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
 
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -820,10 +840,34 @@ if (tableView==_leadTable) {
 
 - (IBAction)updatebtn:(id)sender {
     if (butnidtfr==1) {
+        if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if([_phonetxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
         [self Addlead];
+        }
 
     }
     else{
+        if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+       else if([_phonetxtfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
         [self updatelead];
         
     }
@@ -843,7 +887,7 @@ if (tableView==_leadTable) {
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+    
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
@@ -862,13 +906,72 @@ if (tableView==_leadTable) {
     
 
 }
+- (IBAction)selectstate:(id)sender
+{
+    [self Stateselect];
+
+    poptype=8;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    popoverview.backgroundColor=[UIColor lightTextColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight=32;
+    [popoverview addSubview:_popOverTableView];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(200, 250);
+    self.popOverController=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popOverController presentPopoverFromRect:_statebutton.frame inView:_view2 permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    
+}
 
 
 #pragma mark - arvinice
 /*arvinices*/
+-(void)Stateselect
+{
+    recordResults=FALSE;
+    NSString *soapmessage;
+    soapmessage=[NSString stringWithFormat:
+                 @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                 "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                 "<soap:Body>\n"
+                 "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                 "</Stateselect>\n"
+                 "</soap:Body>\n"
+                 "</soap:Envelope>\n"];
+    NSLog(@"soapmessage%@",soapmessage);
+    NSURL *url=[NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:url];
+    NSString *msglength=[NSString stringWithFormat:@"%d",[soapmessage length]];
+    [theRequest addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msglength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapmessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+    
+    
+}
+
 
 -(void)getLeads{
-    
     recordResults = FALSE;
     NSString *soapMessage;
       
@@ -920,6 +1023,9 @@ if (tableView==_leadTable) {
 -(void)updatelead{
      webtype=1;
     Infoleads*info2=(Infoleads*)[_leadinfoArray objectAtIndex:btnindex];
+    NSString *stid;
+    
+    stid=[_statedict objectForKey:_statebutton.titleLabel.text];
 
     recordResults = FALSE;
     NSString *soapMessage;
@@ -955,7 +1061,7 @@ if (tableView==_leadTable) {
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,_statetxtfld.text,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -998,6 +1104,11 @@ if (tableView==_leadTable) {
     NSInteger Leadid=0;
     NSString *bidstatus=@"0";
      NSString *idvalue=@"Bid-0000";
+    NSString *stid;
+   
+    stid=[_statedict objectForKey:_statebutton.titleLabel.text];
+    
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -1029,7 +1140,7 @@ if (tableView==_leadTable) {
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,_statetxtfld.text,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1579,16 +1690,16 @@ if (tableView==_leadTable) {
     }
 
     
+
+    if([elementName isEqualToString:@"SaveLeadResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 //
-//    if([elementName isEqualToString:@"SaveLeadResult"])
-//    {
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//    }
-//    
 //
 //    if([elementName isEqualToString:@"Column1"])
 //    {
@@ -1710,6 +1821,56 @@ if (tableView==_leadTable) {
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"UpdateCLMDemoResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StateselectResult"])
+    {
+        _statearray=[[NSMutableArray alloc]init];
+         _statedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"state_id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"state_name"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+
+
 
     
     
@@ -1898,13 +2059,20 @@ if (tableView==_leadTable) {
         _soapResults = nil;
     }
 
-//
-//    if([elementName isEqualToString:@"SaveLeadResult"])
-//    {
-//        
-//        recordResults = FALSE;
-//              _soapResults = nil;
-//    }
+
+    if([elementName isEqualToString:@"SaveLeadResult"])
+    {
+        
+        recordResults = FALSE;
+              _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"UpdateCLMDemoResult"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+
 //    if([elementName isEqualToString:@"Column1"])
 //    {
 //        
@@ -1993,12 +2161,90 @@ if (tableView==_leadTable) {
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults=FALSE;
+        _msgstring=_soapResults;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"StateselectResult"])
+    {
+        
+        recordResults = FALSE;
+       
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"state_id"])
+    {
+        
+        recordResults = FALSE;
+         _stateid=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"state_name"])
+    {
+        
+        recordResults = FALSE;
+        [_statearray addObject:_soapResults];
+         [_statedict setObject:_stateid forKey:_soapResults];
+        _soapResults = nil;
+    }
+    
+
 
     
 
     
 }
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+   if([alertView.message isEqualToString:_msgstring])
+   {
+       [_companybtn setTitle:@"Select" forState:UIControlStateNormal];
+       _contactnametxtfld.text=@"";
+       _phonetxtfld.text=@"";
+       
+       _citytxtfld.text=@"";
+       [_leadtypebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+       [_projecttype setTitle:@"Select" forState:UIControlStateNormal];
+       
+       
+       _prjctyeartxtfld.text=@"";
+       
+       _prjctdscptntxtfld.text=@"";
+       
+       _locationtxtfld.text=@"";
+       _contacttiletxtfld.text=@"";
+       _emailidtxtfld.text=@"";
+        [_statebutton setTitle:@"Select" forState:UIControlStateNormal];
+       [_industrytypetxtfld setTitle:@"Select" forState:UIControlStateNormal];
+       [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
+       _leadassigntotextfld.text=@"";
+       [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
+       
 
+   }
+    if([alertView.message isEqualToString:@"Invalid Email"])
+    {
+        _emailidtxtfld.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Invalid PhoneNumber"]) {
+    _phonetxtfld.text=@"";
+            
+    }
+    if ([alertView.message isEqualToString:@"Invalid Year"]) {
+           
+        {
+           _prjctyeartxtfld.text=@"";
+        }
+
+        
+    
+}
+    }
 
 #pragma mark - SearchBar
 
@@ -2032,7 +2278,7 @@ if (tableView==_leadTable) {
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 531, 544)];
+                           initWithFrame:CGRectMake(0, 0, 520, 530)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
    
@@ -2044,7 +2290,7 @@ if (tableView==_leadTable) {
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(531, 544);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(520, 530);
     
     //create a popover controller
     
@@ -2066,7 +2312,7 @@ if (tableView==_leadTable) {
     
   
     
-    [self.popOverController presentPopoverFromRect: CGRectMake(380, 120, 300, 500)                                        inView:self.view
+    [self.popOverController presentPopoverFromRect: CGRectMake(350, 120, 300, 500)                                        inView:self.view
                           permittedArrowDirections:nil
                                           animated:YES];
     
@@ -2094,11 +2340,6 @@ if (tableView==_leadTable) {
         return (newLength > 100) ? NO : YES;
     }
     
-    if(textField==_statetxtfld)
-    {
-        NSUInteger newLength = [_statetxtfld.text length] + [string length] - range.length;
-        return (newLength > 50) ? NO : YES;
-    }
     if(textField==_emailidtxtfld)
     {
         NSUInteger newLength = [_emailidtxtfld.text length] + [string length] - range.length;
@@ -2130,6 +2371,38 @@ if (tableView==_leadTable) {
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+     if(textField==_prjctyeartxtfld){
+         Validation *val=[[Validation alloc]init];
+         int value1=[val isNumeric:_prjctyeartxtfld.text];
+        
+         if(value1==0)
+         {
+             
+             UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert1 show];
+             
+             
+         }
+         
+     }
+    
+    if(textField==_emailidtxtfld){
+        
+        Validation *val=[[Validation alloc]init];
+        BOOL bEmailValid = [val validEmailAddress:_emailidtxtfld.text];
+        if(bEmailValid)
+        {
+            // email valid, other validations in the form
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        
+    }
+
     if(textField==_phonetxtfld)
     {
         
