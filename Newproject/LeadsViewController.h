@@ -25,6 +25,8 @@
     NSString *phonenostring;
     NSInteger fmt;
   }
+@property(strong,nonatomic)NSString *stateid;
+@property(strong,nonatomic)NSString *msgstring;
 @property(readwrite)  NSInteger leadID;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *phonenofmtstring;
@@ -83,7 +85,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *locationtxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *contacttiletxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *emailidtxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *statetxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *statebutton;
 @property (strong, nonatomic) IBOutlet UITextField *leadassigntotextfld;
 @property (strong, nonatomic) IBOutlet UIButton *industrytypetxtfld;
 @property (strong, nonatomic) IBOutlet UIButton *prjctexcutntxtfld;
@@ -96,6 +98,7 @@
 - (IBAction)industrytypetxtfld:(id)sender;
 -(IBAction)selectLeadStatus:(id)sender;
 - (IBAction)prjctexcnbtn:(id)sender;
+- (IBAction)selectstate:(id)sender;
 
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
@@ -115,8 +118,11 @@
 @property (strong, nonatomic)NSMutableArray*prjctexcutnArray;
 @property(strong,nonatomic)NSMutableArray *leadStatusArray;
 @property(strong,nonatomic)NSMutableArray *companylistArray;
+@property(strong,nonatomic)NSMutableArray *statearray;
 /*dict*/
 @property(strong,nonatomic)NSMutableDictionary *companydict;
+@property(strong,nonatomic)NSMutableDictionary *statedict;
+
 
 
 @property(strong,nonatomic)NSMutableString *companystring;

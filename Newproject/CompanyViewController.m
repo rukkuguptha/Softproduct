@@ -35,7 +35,10 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+
     [self Getbasicinfo];
+   
 }
 - (void)didReceiveMemoryWarning
 {
@@ -49,7 +52,7 @@
 -(void)Getbasicinfo{
     recordResults = FALSE;
     NSString *soapMessage;
-   
+
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -98,6 +101,13 @@
     recordResults = FALSE;
     NSString *soapMessage;
      NSString * letter=@"";
+    NSString *stid;
+    NSString *ctid;
+    stid=[_statedict objectForKey:_statebtn.titleLabel.text];
+    ctid=[_countrydict objectForKey:_coutryBtn.titleLabel.text];
+    NSLog(@"soapmsg%@",stid);
+     NSLog(@"soapmsg%@",ctid);
+    
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -123,7 +133,7 @@
                    "<LetterHead>%@</LetterHead>\n"
                    "</SaveBasicInfo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,_statebtn.titleLabel.text,_ziptextfld.text,_coutryBtn.titleLabel.text,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_addresstxtfld.text,_citytxtfld.text,stid,_ziptextfld.text,ctid,_phonetxtfld.text,_faxtxtfld.text,_mailtxtfld.text,_webtxtfld.text,_fedraltxtfld.text,_stateempIdtxtfld.text,_stateunempidtxtfld.text,letter];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -338,7 +348,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"State"])
+    if([elementName isEqualToString:@"State_Name"])
     {
         if(!_soapResults)
         {
@@ -354,7 +364,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Country"])
+    if([elementName isEqualToString:@"countryname"])
     {
         if(!_soapResults)
         {
@@ -438,7 +448,8 @@
 
 
     if([elementName isEqualToString:@"StateselectResult"])
-    {_statearray=[[NSMutableArray alloc]init];
+    {
+        _statearray=[[NSMutableArray alloc]init];
         _statedict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
@@ -562,7 +573,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"State"])
+    if([elementName isEqualToString:@"State_Name"])
     {
         
         recordResults = FALSE;
@@ -578,7 +589,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"Country"])
+    if([elementName isEqualToString:@"countryname"])
     {
         
         recordResults = FALSE;
@@ -698,13 +709,15 @@
     poptype=1;
     [self createpopover];
     [self Stateselect];
+    
+    
 }
 
 - (IBAction)cuntrybtn:(id)sender {
     poptype=2;
     [self createpopover];
     [self countryselect];
-}
+    }
 
 - (IBAction)savebtn:(id)sender {
     
