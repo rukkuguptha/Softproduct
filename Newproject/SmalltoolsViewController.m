@@ -119,7 +119,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllSmallTools xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "</SelectAllSmallTools>\n"
                    "</soap:Body>\n"
@@ -128,7 +128,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -136,7 +136,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllSmallTools" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SelectAllSmallTools" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -169,7 +169,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<InsertSmallTools xmlns=\"http://test1.kontract360.com/\">\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
                    "<subtype>%@</subtype>\n"
@@ -182,7 +182,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -190,7 +190,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/InsertSmallTools" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/InsertSmallTools" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -223,7 +223,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateSmallTools xmlns=\"http://test1.kontract360.com/\">\n"
                    "<entryid>%d</entryid>\n"
                    "<itemcode>%@</itemcode>\n"
                    "<description>%@</description>\n"
@@ -237,7 +237,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -245,7 +245,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateSmallTools" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/UpdateSmallTools" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -280,7 +280,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<DeleteSmallTools xmlns=\"http://test1.kontract360.com/\">\n"
                    "<Entryid>%d</Entryid>\n"
                    "</DeleteSmallTools >\n"
                    "</soap:Body>\n"
@@ -289,7 +289,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -297,7 +297,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DeleteSmallTools" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/DeleteSmallTools" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -330,7 +330,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
                    
                    "<soap:Body>\n"
                    
-                   "<SearchSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SearchSmallTools xmlns=\"http://test1.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchSmallTools>\n"
                    "</soap:Body>\n"
@@ -339,7 +339,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -347,7 +347,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchSmallTools" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SearchSmallTools" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -378,7 +378,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllSubtypeSmallTools xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllSubtypeSmallTools xmlns=\"http://test1.kontract360.com/\">\n"
                    "</SelectAllSubtypeSmallTools>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -386,7 +386,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -394,7 +394,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllSubtypeSmallTools" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SelectAllSubtypeSmallTools" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -426,7 +426,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -435,7 +435,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -443,7 +443,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

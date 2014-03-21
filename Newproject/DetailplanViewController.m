@@ -297,7 +297,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ScaffoldingSelectScaffoldtype xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ScaffoldingSelectScaffoldtype xmlns=\"http://test1.kontract360.com/\">\n"
                   "</ScaffoldingSelectScaffoldtype>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -305,7 +305,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -313,7 +313,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ScaffoldingSelectScaffoldtype" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/ScaffoldingSelectScaffoldtype" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -346,7 +346,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ScaffoldingSelectplan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ScaffoldingSelectplan xmlns=\"http://test1.kontract360.com/\">\n"
                     "<planid>%@</planid>\n"
                    "</ScaffoldingSelectplan>\n"
                    "</soap:Body>\n"
@@ -355,7 +355,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -363,7 +363,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ScaffoldingSelectplan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/ScaffoldingSelectplan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -395,7 +395,7 @@
 //                   
 //                   "<soap:Body>\n"
 //                   
-//                   "<Selectcheight xmlns=\"http://ios.kontract360.com/\">\n"
+//                   "<Selectcheight xmlns=\"http://test1.kontract360.com/\">\n"
 //                   "<ht>%d</ht>\n"
 //                   "</Selectcheight>\n"
 //                   "</soap:Body>\n"
@@ -404,7 +404,7 @@
 //    
 //    
 //    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+//    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
 //    
 //    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
 //    
@@ -412,7 +412,7 @@
 //    
 //    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
 //    
-//    [theRequest addValue: @"http://ios.kontract360.com/Selectcheight" forHTTPHeaderField:@"Soapaction"];
+//    [theRequest addValue: @"http://test1.kontract360.com/Selectcheight" forHTTPHeaderField:@"Soapaction"];
 //    
 //    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
 //    [theRequest setHTTPMethod:@"POST"];
@@ -451,7 +451,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Scaffoldinsert xmlns=\"http://test1.kontract360.com/\">\n"
                    "<id>%d</id>\n"
                    "<length>%@</length>\n"
                    "<width>%@</width>\n"
@@ -493,7 +493,7 @@
                        
                        "<soap:Body>\n"
                        
-                       "<Scaffoldinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                       "<Scaffoldinsert xmlns=\"http://test1.kontract360.com/\">\n"
                        "<id>%d</id>\n"
                        "<length>%@</length>\n"
                        "<width>%@</width>\n"
@@ -521,7 +521,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -529,7 +529,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Scaffoldinsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/Scaffoldinsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

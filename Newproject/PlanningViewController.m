@@ -299,6 +299,7 @@
     self.navabar.title = @"ADD";
     //[self SelectAllCustomer];
     _addplanview.hidden=NO;
+    _planselectionbtn.enabled=NO;
     [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -306,6 +307,7 @@
 -(IBAction)closeaddview:(id)sender
 {
     _addplanview.hidden=YES;
+     _selectionlabel.hidden=YES;
     
 }
 -(IBAction)deleteplan:(id)sender
@@ -334,9 +336,12 @@
         [_popovertableview reloadData];
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _planselectionbtn.enabled=YES;
 
         leadcheck=1;
-        _selectionlabel.text=@"Select Lead";
+          customercheck=0;
+          _selectionlabel.hidden=NO;
+        _selectionlabel.text=@"Lead";
         _planslectionarray=[[NSMutableArray alloc]init];
         [self SelectAllLeads];
         //_customerselectionBtn.enabled=NO;
@@ -357,7 +362,11 @@
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
          [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         customercheck=1;
-        _selectionlabel.text=@"Select Customer";
+        leadcheck=0;
+        _planselectionbtn.enabled=YES;
+
+        _selectionlabel.hidden=NO;
+        _selectionlabel.text=@"Customer";
         _planslectionarray=[[NSMutableArray alloc]init];
         [self SelectAllCustomer];
         //_leadselectionBtn.enabled=NO;
@@ -421,6 +430,15 @@
 
 -(IBAction)updateplanning:(id)sender
 {
+    
+    if([_planselectionbtn.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Service field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+        
   if(optionidentifier==1)
   {
       [self insertplans];
@@ -429,18 +447,28 @@
     {
         [self UpdatePlan];
     }
+    }
 }
 -(IBAction)cancelplanning:(id)sender
 {
     
+     _selectionlabel.hidden=YES;
+    [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
+
+
 }
 -(IBAction)Editaction:(id)sender
 {
     optionidentifier=2;
     self.navabar.title = @"Edit";
       _addplanview.hidden=NO;
+     _selectionlabel.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
+    _planselectionbtn.enabled=YES;
+
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
     NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
@@ -463,6 +491,7 @@
         [self SelectAllCustomer];
     }
     [_planselectionbtn setTitle:planmdl.customername forState:UIControlStateNormal];
+    
     
 
 
@@ -506,7 +535,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllPlans xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllPlans xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "</SelectAllPlans>\n"
                    "</soap:Body>\n"
@@ -515,7 +544,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -523,7 +552,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllPlans" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SelectAllPlans" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -556,7 +585,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCustomer xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllCustomer xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "</SelectAllCustomer>\n"
                    "</soap:Body>\n"
@@ -565,7 +594,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -573,7 +602,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -605,7 +634,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllLeads xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllLeads xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "</SelectAllLeads>\n"
                    "</soap:Body>\n"
@@ -614,7 +643,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -622,7 +651,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllLeads" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SelectAllLeads" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -675,7 +704,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<InsertPlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<InsertPlan xmlns=\"http://test1.kontract360.com/\">\n"
                    "<customer>%@</customer>\n"
                    "<lead>%d</lead>\n"
                    "<cusid>%d</cusid>\n"
@@ -686,7 +715,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -694,7 +723,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/InsertPlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -769,7 +798,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<UpdatePlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdatePlan xmlns=\"http://test1.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
                    "<customer>%@</customer>\n"
                    "<lead>%d</lead>\n"
@@ -781,7 +810,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -789,7 +818,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/UpdatePlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -824,7 +853,7 @@
                    
                    
                    "<soap:Body>\n"
-                   "<DeletePlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<DeletePlan xmlns=\"http://test1.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
                    "</DeletePlan>\n"
                    "</soap:Body>\n"
@@ -833,7 +862,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -841,7 +870,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DeletePlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/DeletePlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -874,7 +903,7 @@
                    
                    
                    "<soap:Body>\n"
-                   "<SearchPlan xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SearchPlan xmlns=\"http://test1.kontract360.com/\">\n"
                     "<searchtext>%@</searchtext>\n"
                    "</SearchPlan>\n"
                    "</soap:Body>\n"
@@ -883,7 +912,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -891,7 +920,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchPlan" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SearchPlan" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
