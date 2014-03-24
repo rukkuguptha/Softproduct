@@ -1429,6 +1429,7 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         
         if (tableView==_prdunratetble) {
              [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
@@ -2700,7 +2701,45 @@
 
     
 }
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if(textField==_ziptxtfld)
+    {
+        NSUInteger newLength = [_ziptxtfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    return YES;
 
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField==_ziptxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_ziptxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
+    
+}
+#pragma mark-Alertview Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([alertView.message isEqualToString:@"Invalid Zip"]) {
+        _ziptxtfld.text=@"";
+        
+        
+    }
+    
+    
+}
 #pragma mark-Barbuttonitems
 
 

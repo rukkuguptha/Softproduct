@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NewrecordViewController.h"
 #import "SitevistMdl.h"
-
+#import "Validation.h"
 
 @interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate>{
     BOOL recordResults;

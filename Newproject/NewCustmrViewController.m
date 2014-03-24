@@ -32,13 +32,17 @@
     _custmrtable.layer.borderWidth = 2.0;
     _custmrtable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     self.addnavbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _addresstxtview.layer.borderWidth = 2.0;
+    _addresstxtview.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+
 
     
     /*searchbar*/
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
     _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    
+    self.custmrtable.tableHeaderView=_SearchingBar;
+
     _popoverArry=[[NSMutableArray alloc]initWithObjects:@"Contact Info",@"Sales Rep Info", nil];
 
     
@@ -217,8 +221,9 @@
                     if (!self.cntctVctrl) {
                         self.cntctVctrl=[[ContactInfoViewController alloc]initWithNibName:@"ContactInfoViewController" bundle:nil];
                     }
-                    [self.navigationController pushViewController:self.cntctVctrl animated:YES];
                     
+                    [self presentViewController:_cntctVctrl
+                                       animated:YES completion:NULL];
                 }
                 
                 if (indexPath.row==1) {
@@ -226,8 +231,9 @@
                     if (!self.salesVCtrl) {
                         self.salesVCtrl=[[SalesRepInfoViewController alloc]initWithNibName:@"SalesRepInfoViewController" bundle:nil];
                     }
-                    [self.navigationController pushViewController:self.salesVCtrl animated:YES];
-                    
+                                      [self presentViewController:_salesVCtrl
+                                       animated:YES completion:NULL];
+
                     
                     
                 }
@@ -523,6 +529,56 @@
     }
 
 }
+-(void)CustomerMaster1Search{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerMaster1Search xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<searchtext>%@</searchtext>\n"
+                   "</CustomerMaster1Search>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMaster1Search" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -751,6 +807,25 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"CustomerMaster1SearchResponse"])
+    {  _customerarray=[[NSMutableArray alloc]init];
+
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+           }
 
 
 }
@@ -776,6 +851,14 @@
         _custmdl.customerid=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"Id"])
+    {
+        _custmdl=[[Custmermdl alloc]init];
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+
     if([elementName isEqualToString:@"CustomerCode"])
     {
         recordResults = FALSE;
@@ -945,7 +1028,7 @@
     
     _searchstring=_SearchingBar.text;
     //NSLog(@"search%@",searchstring);
-    //[self SearchManpower];
+    [self CustomerMaster1Search];
     [searchBar resignFirstResponder];
     
     
