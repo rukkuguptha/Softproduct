@@ -140,6 +140,7 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
+		D40DE4FD18DFF33600D51069 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DE4FC18DFF33600D51069 /* CKCalendarView.m */; };
 		D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41377C6187BD59200156A92 /* Equpmntmdl.m */; };
 		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
@@ -303,8 +304,6 @@
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		648D12FD17716C7F006BB41A /* rectangle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle3.png; sourceTree = "<group>"; };
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
-		648D13011771726E006BB41A /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CKCalendarView.h; path = /Users/macindia/Desktop/Kontract/Newproject/CKCalendarView.h; sourceTree = "<absolute>"; };
-		648D13021771726E006BB41A /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CKCalendarView.m; path = /Users/macindia/Desktop/Kontract/Newproject/CKCalendarView.m; sourceTree = "<absolute>"; };
 		64955C98180E52D5000A86A1 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		64955C99180E52D5000A86A1 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		64955C9A180E52D5000A86A1 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
@@ -451,6 +450,8 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
+		D40DE4FB18DFF33600D51069 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		D40DE4FC18DFF33600D51069 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		D41377C5187BD59200156A92 /* Equpmntmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equpmntmdl.h; sourceTree = "<group>"; };
 		D41377C6187BD59200156A92 /* Equpmntmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equpmntmdl.m; sourceTree = "<group>"; };
 		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
@@ -963,6 +964,8 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D40DE4FB18DFF33600D51069 /* CKCalendarView.h */,
+				D40DE4FC18DFF33600D51069 /* CKCalendarView.m */,
 				D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */,
 				D4C33EB9180FB43500C90728 /* PDFImageConverter.m */,
 				D4F7E2DF17856D4400F9545D /* NSData+Base64.h */,
@@ -975,8 +978,6 @@
 				D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */,
 				D4F61A5B18A8CAE20006093B /* Processsectionheaderview.h */,
 				D4F61A5C18A8CAE20006093B /* Processsectionheaderview.m */,
-				648D13011771726E006BB41A /* CKCalendarView.h */,
-				648D13021771726E006BB41A /* CKCalendarView.m */,
 				D4041F141779ACB400247373 /* followupmodel.h */,
 				D4041F151779ACB400247373 /* followupmodel.m */,
 				D4D7A29217F55B2400880E38 /* Empdetails.h */,
@@ -1358,6 +1359,7 @@
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */,
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
+				D40DE4FD18DFF33600D51069 /* CKCalendarView.m in Sources */,
 				D4F19DE218D03AD1007617F0 /* CKCalendarView.m in Sources */,
 				D42D8C2618D2DD79009D8085 /* ManViewController.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
