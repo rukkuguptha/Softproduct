@@ -80,7 +80,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ListAllApplicants xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<ListAllApplicants xmlns=\"http://test2.kontract360.com/\">\n"
                    
                    "</ListAllApplicants>\n"
                    "</soap:Body>\n"
@@ -89,7 +89,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -97,7 +97,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test2.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -131,7 +131,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://test2.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -140,7 +140,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -148,7 +148,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test2.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -182,7 +182,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchApplicants xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<SearchApplicants xmlns=\"http://test2.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchApplicants>\n"
                    "</soap:Body>\n"
@@ -191,7 +191,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -199,7 +199,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test2.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

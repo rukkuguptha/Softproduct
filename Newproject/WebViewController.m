@@ -47,7 +47,7 @@
     
     
      NSString*urls=[_urlstring stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-   // NSString*urls=[NSString stringWithFormat:@"http://test1.kontract360.com/Folder/Root/HR/1/17493136.jpg"];
+   // NSString*urls=[NSString stringWithFormat:@"http://test2.kontract360.com/Folder/Root/HR/1/17493136.jpg"];
     NSLog(@"url%@",urls);
     NSURL *targetURL = [NSURL URLWithString:urls];
     NSURLRequest *request = [NSURLRequest requestWithURL:targetURL];

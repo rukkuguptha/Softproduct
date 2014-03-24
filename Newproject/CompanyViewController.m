@@ -62,7 +62,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GetBasicInfo xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<GetBasicInfo xmlns=\"http://test2.kontract360.com/\">\n"
                    "</GetBasicInfo>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
@@ -70,7 +70,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -78,7 +78,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-     [theRequest addValue: @"http://test1.kontract360.com/GetBasicInfo" forHTTPHeaderField:@"Soapaction"];
+     [theRequest addValue: @"http://test2.kontract360.com/GetBasicInfo" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -116,7 +116,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SaveBasicInfo xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<SaveBasicInfo xmlns=\"http://test2.kontract360.com/\">\n"
                    "<CompanyName>%@</CompanyName>\n"
                    "<Address>%@</Address>\n"
                    "<City>%@</City>\n"
@@ -138,7 +138,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -146,7 +146,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/SaveBasicInfo" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test2.kontract360.com/SaveBasicInfo" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -179,7 +179,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Stateselect xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<Stateselect xmlns=\"http://test2.kontract360.com/\">\n"
                    
                    "</Stateselect>\n"
                    "</soap:Body>\n"
@@ -188,7 +188,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -196,7 +196,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test2.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -229,7 +229,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Countryselect xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<Countryselect xmlns=\"http://test2.kontract360.com/\">\n"
                    
                    "</Countryselect>\n"
                    "</soap:Body>\n"
@@ -238,7 +238,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -246,7 +246,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test2.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -721,7 +721,68 @@
 
 - (IBAction)savebtn:(id)sender {
     
-    if ([_addresstxtfld.text isEqualToString:@""]) {
+    Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_stateempIdtxtfld.text];
+        int value2=[val isNumeric:_stateunempidtxtfld.text];
+        int value3=[val isNumeric:_fedraltxtfld.text];
+         int value4=[val isNumeric:_ziptextfld.text];
+   int value5 = [val validEmailAddress:_mailtxtfld.text];
+    int value6=[val validateUrl:_webtxtfld.text];
+    
+    if(value6==0){
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Website" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+
+    }
+   else if(value5==0){
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+       }
+    
+
+       else if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid State Employer ID" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+        else if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid State Unemployment ID" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+       else if(value3==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Federal Employer ID" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+    
+       else  if(value4==0)
+    
+       {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        
+        
+    }
+
+    
+    
+    
+
+    
+   else if ([_addresstxtfld.text isEqualToString:@""]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
@@ -1169,18 +1230,18 @@
         }
     }
 
-
-        if(textField==_citytxtfld){
-            NSString *nameRegex = @"[A-Za-z]+";
-            NSPredicate *nameTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameRegex];
-            if(![nameTest evaluateWithObject:self.citytxtfld.text]){
-                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid City Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-                
-                           }
-        }
-        
-        
+//
+//        if(textField==_citytxtfld){
+//            NSString *nameRegex = @"[A-Za-z]+";
+//            NSPredicate *nameTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", nameRegex];
+//            if(![nameTest evaluateWithObject:self.citytxtfld.text]){
+//                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid City Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//                [alert show];
+//                
+//                           }
+//        }
+//        
+//        
     
     
     
@@ -1201,6 +1262,22 @@
         }
     }
 
+    if ([alertView.message isEqualToString:@"Invalid Fax Number"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _faxtxtfld.text=@"";
+            
+            
+        }
+    }
+    
+
+    
+    
     if ([alertView.message isEqualToString:@"Invalid Email"]) {
         
         
@@ -1213,9 +1290,6 @@
             
         }
     }
-    
-
-    
     
 
     if ([alertView.message isEqualToString:@"Invalid City Name"]) {

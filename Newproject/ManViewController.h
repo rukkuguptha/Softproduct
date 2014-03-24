@@ -23,7 +23,7 @@
     NSInteger Newprimarykey;
     NSString*skill;
     NSString*msgstrg;
-    
+      NSInteger newtype;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;

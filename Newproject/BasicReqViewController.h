@@ -130,6 +130,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *joblabel;
 @property(strong,nonatomic)IBOutlet UILabel *venderlabel;
 @property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
+- (IBAction)addcancelbtn:(id)sender;
 
 
 
