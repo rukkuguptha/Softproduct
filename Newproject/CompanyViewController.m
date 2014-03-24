@@ -1512,5 +1512,13 @@
 
 
 - (IBAction)Addadressbtn:(id)sender {
+    if(!self.addrsVCtrl){
+        self.addrsVCtrl=[[AddressViewController alloc]initWithNibName:@"AddressViewController" bundle:nil];
+    }
+    _addrsVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_addrsVCtrl
+                       animated:YES completion:NULL];
+
+   
 }
 @end
