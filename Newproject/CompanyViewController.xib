@@ -265,6 +265,16 @@
                             <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="STI-xR-tRJ">
+                            <rect key="frame" x="711" y="85" width="46" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" backgroundImage="appbar.addblack.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="Addadressbtn:" destination="-1" eventType="touchUpInside" id="fHw-T8-G1H"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.78902264030612246" green="0.78902264030612246" blue="0.78902264030612246" alpha="1" colorSpace="calibratedRGB"/>
                 </scrollView>
@@ -298,6 +308,7 @@
         </view>
     </objects>
     <resources>
+        <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>

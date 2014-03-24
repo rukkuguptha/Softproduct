@@ -1,18 +1,18 @@
 //
-//  AllfolderViewController.m
+//  AddressViewController.m
 //  Newproject
 //
-//  Created by GMSIndia 2 on 17/12/13.
-//  Copyright (c) 2013 GMSIndia1. All rights reserved.
+//  Created by GMSIndia1 on 3/24/14.
+//  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "AllfolderViewController.h"
+#import "AddressViewController.h"
 
-@interface AllfolderViewController ()
+@interface AddressViewController ()
 
 @end
 
-@implementation AllfolderViewController
+@implementation AddressViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,10 +34,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(IBAction)closefolderview:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
-
 
 @end
