@@ -110,7 +110,7 @@
     if (!self.branchVCtrl) {
         self.branchVCtrl=[[BranchViewController alloc]initWithNibName:@"BranchViewController" bundle:nil];
     }
-    _branchVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    //_branchVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_branchVCtrl
                        animated:YES completion:NULL];
 
