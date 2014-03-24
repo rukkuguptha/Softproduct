@@ -178,6 +178,8 @@
 		D44BEA7218E0252600719ED5 /* BranchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7018E0252600719ED5 /* BranchViewController.xib */; };
 		D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44BEA7418E0254900719ED5 /* TypeViewController.m */; };
 		D44BEA7718E0254900719ED5 /* TypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7518E0254900719ED5 /* TypeViewController.xib */; };
+		D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7918E0360F00719ED5 /* Addresscell.xib */; };
+		D44BEA8018E03C3100719ED5 /* Mdladdress.m in Sources */ = {isa = PBXBuildFile; fileRef = D44BEA7F18E03C3100719ED5 /* Mdladdress.m */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
 		D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA241873F1AF007EE3DC /* ConsumbleViewController.m */; };
@@ -503,6 +505,9 @@
 		D44BEA7318E0254900719ED5 /* TypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TypeViewController.h; sourceTree = "<group>"; };
 		D44BEA7418E0254900719ED5 /* TypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeViewController.m; sourceTree = "<group>"; };
 		D44BEA7518E0254900719ED5 /* TypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeViewController.xib; sourceTree = "<group>"; };
+		D44BEA7918E0360F00719ED5 /* Addresscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Addresscell.xib; sourceTree = "<group>"; };
+		D44BEA7E18E03C3100719ED5 /* Mdladdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mdladdress.h; sourceTree = "<group>"; };
+		D44BEA7F18E03C3100719ED5 /* Mdladdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mdladdress.m; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
 		D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdPartyViewController.xib; sourceTree = "<group>"; };
@@ -656,6 +661,7 @@
 				D44BEA6918E0243500719ED5 /* AddressViewController.h */,
 				D44BEA6A18E0243500719ED5 /* AddressViewController.m */,
 				D44BEA6B18E0243500719ED5 /* AddressViewController.xib */,
+				D44BEA7918E0360F00719ED5 /* Addresscell.xib */,
 				D43DAA3118D1B0A700280AA6 /* CmpnydocsViewController.h */,
 				D43DAA3218D1B0A700280AA6 /* CmpnydocsViewController.m */,
 				D43DAA3318D1B0A700280AA6 /* CmpnydocsViewController.xib */,
@@ -1048,6 +1054,8 @@
 				D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */,
 				D4F19E0718D044AE007617F0 /* Custmermdl.h */,
 				D4F19E0818D044AE007617F0 /* Custmermdl.m */,
+				D44BEA7E18E03C3100719ED5 /* Mdladdress.h */,
+				D44BEA7F18E03C3100719ED5 /* Mdladdress.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1302,6 +1310,7 @@
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
+				D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */,
 				6426F5E318C05C12002471AC /* bgmetro1.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */,
@@ -1407,6 +1416,7 @@
 				642FA79C18ACC9FB00372623 /* planmodel.m in Sources */,
 				64A07BD618C8321F00B2F9D5 /* vendermodel.m in Sources */,
 				642F930B1872B6A80059101A /* allfolderrights.m in Sources */,
+				D44BEA8018E03C3100719ED5 /* Mdladdress.m in Sources */,
 				D42D8C3A18D2E3F0009D8085 /* UsersViewController.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,

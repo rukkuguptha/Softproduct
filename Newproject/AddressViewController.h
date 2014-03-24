@@ -8,15 +8,35 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
-@interface AddressViewController : UIViewController
-
+#import "Mdladdress.h"
+@interface AddressViewController : UIViewController{
+     BOOL recordResults;
+}
+@property (strong, nonatomic)Mdladdress *addressmdl;
+@property (strong, nonatomic)NSMutableArray *addesslistarray;
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UITableView *addresstable;
 @property (strong, nonatomic) IBOutlet UIView *addview;
+@property (strong, nonatomic) IBOutlet UITextField *headrtxtfld;
+@property (strong, nonatomic) IBOutlet UITextView *adrsstxtview;
+@property (strong, nonatomic) IBOutlet UIView *titileview;
+@property (strong, nonatomic) IBOutlet UITableViewCell *addrscell;
+@property (strong, nonatomic) IBOutlet UILabel *headerlbl;
+@property (strong, nonatomic) IBOutlet UILabel *addresslbl;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 
 /*IBaction*/
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)addbtn:(id)sender;
 - (IBAction)deletebtn:(id)sender;
+- (IBAction)cancelbtn:(id)sender;
+- (IBAction)updatebtn:(id)sender;
+- (IBAction)addclsebtn:(id)sender;
+- (IBAction)editbtn:(id)sender;
 
 @end
