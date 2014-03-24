@@ -264,7 +264,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMasterselect xmlns=\"http://test2.kontract360.com/\">\n"
+                   "<CustomerMasterselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</CustomerMasterselect>\n"
                    "</soap:Body>\n"
@@ -273,7 +273,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -281,7 +281,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test2.kontract360.com/CustomerMasterselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMasterselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -314,7 +314,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Stateselect xmlns=\"http://test2.kontract360.com/\">\n"
+                   "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</Stateselect>\n"
                    "</soap:Body>\n"
@@ -323,7 +323,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -331,7 +331,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test2.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -364,7 +364,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Countryselect xmlns=\"http://test2.kontract360.com/\">\n"
+                   "<Countryselect xmlns=\"http://ios.kontract360.com/\">\n"
                    
                    "</Countryselect>\n"
                    "</soap:Body>\n"
@@ -373,7 +373,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -381,7 +381,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test2.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/Countryselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -415,7 +415,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMasterInsert xmlns=\"http://test2.kontract360.com/\">\n"
+                   "<CustomerMasterInsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<CustomerName>%@</CustomerName>\n"
                    "<Adress>%@</Adress>\n"
                    "<City>%@</City>\n"
@@ -434,7 +434,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -442,7 +442,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test2.kontract360.com/CustomerMasterInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMasterInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -476,7 +476,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CustomerMasterUpdate xmlns=\"http://test2.kontract360.com/\">\n"
+                   "<CustomerMasterUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
                    "<CustomerCode>%@</CustomerCode>\n"
                    "<CustomerName>%@</CustomerName>\n"
@@ -496,7 +496,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test2.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -504,7 +504,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test2.kontract360.com/CustomerMasterUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMasterUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
