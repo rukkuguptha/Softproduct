@@ -35,4 +35,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)Closebranchpage:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 @end

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BranchViewController : UIViewController
+/*IBActions*/
+- (IBAction)Closebranchpage:(id)sender;
 
 @end
