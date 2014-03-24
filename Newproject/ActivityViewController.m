@@ -69,6 +69,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    
 }
 -(void)viewWillAppear:(BOOL)animated{
+    self.openviewindex=NSNotFound;
     [super viewWillAppear:animated];
    
      [self getLeadActivity];
@@ -178,7 +179,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         [carbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
         carbtn.tag=indexPath.row;
         [carbtn addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
-        carbtn.frame = CGRectMake(270.0, 0.0, 50.0, 40.0);
+        carbtn.frame = CGRectMake(270.0, 1.0, 50.0, 40.0);
         [cell.contentView addSubview:carbtn];
 
     }
@@ -500,7 +501,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 #pragma mark - Buttons
 
 -(IBAction)addNewActivity:(id)sender
-{
+{ self.openviewindex=NSNotFound;
     butnidtfr=1;
     [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
     [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -527,7 +528,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 }
 -(IBAction)closetheView:(id)sender
-{
+{   self.openviewindex=NSNotFound;
     _dateBtn.enabled=YES;
     _activityTxtFld.userInteractionEnabled=YES;
     _employerTxtfld.userInteractionEnabled=YES;
@@ -639,7 +640,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 }
 - (IBAction)closeactivity:(id)sender
-{
+{self.openviewindex=NSNotFound;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
@@ -654,7 +655,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                    "<GetLeadActivity xmlns=\"http://test1.kontract360.com/\">\n"
+                    "<GetLeadActivity xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
                    "</GetLeadActivity>\n"
                    "</soap:Body>\n"
@@ -662,7 +663,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -670,7 +671,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -704,7 +705,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<ActivityCommentsList xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<ActivityCommentsList xmlns=\"http://ios.kontract360.com/\">\n"
                    "<activityid>%d</activityid>\n"
                    
                    "</ActivityCommentsList>\n"
@@ -714,14 +715,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -763,7 +764,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<SaveActivity xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<SaveActivity xmlns=\"http://ios.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
                    "<Activity>%@</Activity>\n"
@@ -779,7 +780,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -787,7 +788,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://test1.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://ios.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -830,7 +831,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<UpdateLeadActivity xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<UpdateLeadActivity xmlns=\"http://ios.kontract360.com/\">\n"
                    "<ActivityId>%d</ActivityId>\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
@@ -846,7 +847,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -854,7 +855,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/UpdateLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/UpdateLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -887,7 +888,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                    "<DeleteActivity xmlns=\"http://test1.kontract360.com/\">\n"
+                    "<DeleteActivity xmlns=\"http://ios.kontract360.com/\">\n"
                    "<activityid>%d</activityid>\n"
                    "</DeleteActivity>\n"
                    "</soap:Body>\n"
@@ -896,14 +897,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -948,7 +949,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<SaveActivityComment xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<SaveActivityComment xmlns=\"http://ios.kontract360.com/\">\n"
                       "<ActivityId>%d</ActivityId>\n"
                       "<Comments>%@</Comments>\n"
                       "<UserId>%d</UserId>\n"
@@ -960,14 +961,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://test1.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1000,16 +1001,17 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<SearchLeadActivity xmlns=\"http://test1.kontract360.com/\">\n"
+                   "<SearchLeadActivity xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
+                   "<LeadId>%d</LeadId>\n"
                    "</SearchLeadActivity>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_searchstring];
+                   "</soap:Envelope>\n",_searchstring,_leadid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1017,7 +1019,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://test1.kontract360.com/SearchLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://ios.kontract360.com/SearchLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1088,7 +1090,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
-    if([elementName isEqualToString:@"GetLeadActivityResult"])
+    if([elementName isEqualToString:@"GetLeadActivityResponse"])
     {
         _activityArray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -1163,30 +1165,18 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults = TRUE;
     }
 
-//    if ([elementName isEqualToString:@"SaveActivityResult"])
-//    {
-//        
-//        
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//        
-//        
-//    }
-//    if ([elementName isEqualToString:@"result"])
-//    {
-//        
-//        
-//        if(!_soapResults)
-//        {
-//            _soapResults = [[NSMutableString alloc] init];
-//        }
-//        recordResults = TRUE;
-//        
-//        
-//    }
+    if ([elementName isEqualToString:@"SaveActivityResult"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
     if([elementName isEqualToString:@"DeleteActivityResult"])
     {
         
@@ -1197,6 +1187,17 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults = TRUE;
 
     }
+    if([elementName isEqualToString:@"UpdateLeadActivityResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
     
     if([elementName isEqualToString:@"result"])
@@ -1295,6 +1296,18 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     }
 
   
+    if ([elementName isEqualToString:@"SaveActivityCommentResult"])
+    {
+        
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 
     
@@ -1322,7 +1335,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
   
-    if([elementName isEqualToString:@"GetLeadsResult"])
+    if([elementName isEqualToString:@"GetLeadActivityResponse"])
     {
         
         recordResults = FALSE;
@@ -1387,28 +1400,29 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _soapResults = nil;
     }
 
-//    if ([elementName isEqualToString:@"SaveActivityResult"])
-//    {
-//        
-//       
-//        recordResults = FALSE;
-//        _soapResults = nil;
-//        
-//
-//    }
-//    if([elementName isEqualToString:@"result"])
-//    {
-//        recordResults = FALSE;
-//        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
-//        [alert show];
-//        _soapResults = nil;
-//    }
-//    
-//
+    if ([elementName isEqualToString:@"SaveActivityCommentResult"])
+    {
+        
+       
+        recordResults = FALSE;
+        _soapResults = nil;
+        
+
+    }
+    if ([elementName isEqualToString:@"SaveActivityResult"])
+    {
+        
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+        
+        
+    }
+
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        if (webtype==1) {
+        if (webtype==1||butnidtfr==3) {
             _resultmsg=_soapResults;
         
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -1483,6 +1497,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _employerTxtfld.text=@"";
         _descptionTextview.text=@"";
         _statusTxtFld.text=@"";
+        _cmttxtbox.text=@"";
         
     }
 }
@@ -1490,14 +1505,45 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(IBAction)saveActivity:(id)sender
 {
     if(butnidtfr==1)
-{
-    [self saveActivity];
+    {
+        if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self
+        cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+       else if ([_activityTxtFld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self
+                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
+    
+      [self saveActivity];
+        }
 }
 else
     {
+        if ([_dateBtn.titleLabel.text isEqualToString:@"Select"]||[_dateBtn.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Date is required" delegate:self
+                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([_activityTxtFld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Activity is required" delegate:self
+                                               cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else{
+
          [self updateActivity];
+        }
     }
-    [self getLeadActivity];
+    //[self getLeadActivity];
 }
 #pragma mark;popover
 -(void)commentpopover{
