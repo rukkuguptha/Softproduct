@@ -47,7 +47,7 @@
     
     
     _scroll.frame=CGRectMake(0, 0, 768,1004);
-    [_scroll setContentSize:CGSizeMake(768,1500)];
+    [_scroll setContentSize:CGSizeMake(768,1125)];
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -847,7 +847,9 @@ if (tableView==_leadTable) {
 
 
 - (IBAction)updatebtn:(id)sender {
+    Validation *val=[[Validation alloc]init];
     if (butnidtfr==1) {
+        
         if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -858,6 +860,36 @@ if (tableView==_leadTable) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+        
+        else if(![_emailidtxtfld.text isEqualToString:@""])
+        {
+                    int value2 = [val validEmailAddress:_emailidtxtfld.text];
+                    if(value2==0)
+                   {
+            
+                        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [alert1 show];
+                   }
+
+            
+        }
+        else if(![_prjctyeartxtfld.text isEqualToString:@""])
+        {
+            int value1 = [val validEmailAddress:_prjctyeartxtfld.text];
+            if(value1==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+
+        
+
+
+
         else
         {
         [self Addlead];
@@ -875,8 +907,36 @@ if (tableView==_leadTable) {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
+       else if(![_emailidtxtfld.text isEqualToString:@""])
+       {
+           int value2 = [val validEmailAddress:_emailidtxtfld.text];
+           if(value2==0)
+           {
+               
+               UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+               [alert1 show];
+           }
+           
+           
+       }
+       else if(![_prjctyeartxtfld.text isEqualToString:@""])
+       {
+           int value1 = [val validEmailAddress:_prjctyeartxtfld.text];
+           if(value1==0)
+           {
+               
+               UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+               [alert1 show];
+           }
+           
+           
+       }
+
+        else
+        {
 
         [self updatelead];
+        }
         
     }
     
@@ -2434,7 +2494,7 @@ if (tableView==_leadTable) {
             else
             {
                 fmt=1;
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -2450,7 +2510,7 @@ if (tableView==_leadTable) {
             int value1=[val isdataformat:_phonetxtfld.text];
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
                 
                 
@@ -2473,7 +2533,7 @@ if (tableView==_leadTable) {
                     
                     
                     fmt=1;
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
@@ -2493,7 +2553,7 @@ if (tableView==_leadTable) {
                     }
                     else
                     { fmt=1;
-                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                         
                         [alert show];
                     }
@@ -2531,7 +2591,7 @@ if (tableView==_leadTable) {
                     
                     
                     fmt=1;
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
