@@ -27,6 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     _scrollview.frame=CGRectMake(0, 0,1004, 768);
     [_scrollview setContentSize:CGSizeMake(1004,850)];
     _commentArray=[[NSMutableArray alloc]init];

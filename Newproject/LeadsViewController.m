@@ -31,6 +31,7 @@
     [[self.prjctdscptntxtfld layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.prjctdscptntxtfld layer] setBorderWidth:2];
     [[self.prjctdscptntxtfld layer] setCornerRadius:10];
+    
 
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
@@ -50,7 +51,7 @@
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-    _leadTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
+//    _leadTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
     
    
     
@@ -115,15 +116,15 @@
     _leadassigntotextfld.text=@"";
     [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
     
-   // _view2.hidden=NO;
-    _view2.frame = CGRectMake(512, 384, 0, 0);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _view2.frame = CGRectMake(195, 100, 692, 816);
-        //        _hidenview.center = origin;
-        _view2.alpha = 1.0;
-        
-    }];
+    _view2.hidden=NO;
+//    _view2.frame = CGRectMake(512, 384, 0, 0);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//        _view2.frame = CGRectMake(195, 100, 692, 816);
+//        //        _hidenview.center = origin;
+//        _view2.alpha = 1.0;
+//        
+//    }];
     
 
 }
@@ -311,8 +312,12 @@ if (tableView==_leadTable) {
     if (tableView==_cmttable) {
     commentmdl*cmtmdl=(commentmdl *)[_CommentsArray  objectAtIndex:indexPath.row];
         
-      _commentlbl=(UILabel*)[cell viewWithTag:1];
-       _commentlbl.text=cmtmdl.comments;
+      _commenttextview=(UITextView*)[cell viewWithTag:1];
+        [[self.commenttextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+        [[self.commenttextview layer] setBorderWidth:2];
+        [[self.commenttextview layer] setCornerRadius:10];
+
+       _commenttextview.text=cmtmdl.comments;
         _titilelbl=(UILabel*)[cell viewWithTag:2];
         _titilelbl.text=cmtmdl.commentdate;
 
@@ -406,11 +411,12 @@ if (tableView==_leadTable) {
                  }
                  
                  if (indexPath.row==1) {
-                     
+                     _composecmtview.hidden=YES;
                      [self.popOverController dismissPopoverAnimated:YES];
 
                      
                      [self commentpopover];
+                     
                      [self LeadCommentsList];
                 
 
@@ -495,14 +501,15 @@ if (tableView==_leadTable) {
 - (IBAction)editcellbtn:(id)sender {
     butnidtfr=2;
      self.navbaritem.title = @"EDIT";
-    _view2.frame = CGRectMake(512, 384, 0, 0);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _view2.frame = CGRectMake(195, 100, 692, 816);
-        //        _hidenview.center = origin;
-        _view2.alpha = 1.0;
-        
-    }];
+    _view2.hidden=NO;
+//    _view2.frame = CGRectMake(512, 384, 0, 0);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//        _view2.frame = CGRectMake(195, 100, 692, 816);
+//        //        _hidenview.center = origin;
+//        _view2.alpha = 1.0;
+//        
+//    }];
 
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -579,15 +586,15 @@ if (tableView==_leadTable) {
 
 - (IBAction)clsebtn:(id)sender {
     butnidtfr=0;
-    //_view2.hidden=YES;
-    _view2.frame = CGRectMake(250, 250, 384, 356);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _view2.frame = CGRectMake(512, 384, 0, 0);
-        //        _hidenview.center = origin;
-        _view2.alpha = 0;
-        
-    }];
+    _view2.hidden=YES;
+//    _view2.frame = CGRectMake(250, 250, 384, 356);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//        _view2.frame = CGRectMake(512, 384, 0, 0);
+//        //        _hidenview.center = origin;
+//        _view2.alpha = 0;
+//        
+//    }];
 
     
 }
@@ -811,6 +818,7 @@ if (tableView==_leadTable) {
 
     _composecmtview.hidden=NO;
     
+    _cmttxtbox.text=@"";
 //   _composecmtview.frame = CGRectMake(512, 384, 0, 0);
 //    //    CGPoint origin = _hidenview.frame.origin;
 //    [UIView animateWithDuration: 1.0f animations:^{
@@ -938,17 +946,17 @@ if (tableView==_leadTable) {
                  @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                  "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                  "<soap:Body>\n"
-                 "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                 "<Stateselect xmlns=\"http://test1.kontract360.com/\">\n"
                  "</Stateselect>\n"
                  "</soap:Body>\n"
                  "</soap:Envelope>\n"];
     NSLog(@"soapmessage%@",soapmessage);
-    NSURL *url=[NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url=[NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:url];
     NSString *msglength=[NSString stringWithFormat:@"%d",[soapmessage length]];
     [theRequest addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msglength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -983,7 +991,7 @@ if (tableView==_leadTable) {
                                  
                    "<soap:Body>\n"
                    
-                   "<GetLeads xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<GetLeads xmlns=\"http://test1.kontract360.com/\">\n"
                   
                    "</GetLeads>\n"
                    "</soap:Body>\n"
@@ -992,7 +1000,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1000,7 +1008,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/GetLeads" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/GetLeads" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1038,7 +1046,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateCLMDemo xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateCLMDemo xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "<LeadId>%d</LeadId>\n"
                    "<CompanyName>%@</CompanyName>\n"
@@ -1067,7 +1075,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1075,7 +1083,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateCLMDemo" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/UpdateCLMDemo" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1117,7 +1125,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLead xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SaveLead xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "<leadid>%d</leadid>\n"
                    "<Companyname>%@</Companyname>\n"
@@ -1146,7 +1154,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1154,7 +1162,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SaveLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1189,7 +1197,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SearchLead1 xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SearchLead1 xmlns=\"http://test1.kontract360.com/\">\n"
                     "<searchtext>%@</searchtext>\n"
                    "</SearchLead1>\n"
                    "</soap:Body>\n"
@@ -1198,7 +1206,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1206,7 +1214,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://ios.kontract360.com/SearchLead1" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://test1.kontract360.com/SearchLead1" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1240,7 +1248,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SelectAllCustomer xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectAllCustomer xmlns=\"http://test1.kontract360.com/\">\n"
                    
                    "</SelectAllCustomer>\n"
                    "</soap:Body>\n"
@@ -1249,7 +1257,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1257,7 +1265,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SelectAllCustomer" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1291,7 +1299,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<DeleteLead xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<DeleteLead xmlns=\"http://test1.kontract360.com/\">\n"
                    "<leadid>%d</leadid>\n"
                   
                    "</DeleteLead>\n"
@@ -1301,7 +1309,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1309,7 +1317,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/DeleteLead" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1342,7 +1350,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<LeadCommentsList xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadCommentsList xmlns=\"http://test1.kontract360.com/\">\n"
                    "<leadId>%d</leadId>\n"
                    
                    "</LeadCommentsList>\n"
@@ -1352,7 +1360,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1360,7 +1368,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/LeadCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/LeadCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1406,7 +1414,7 @@ if (tableView==_leadTable) {
                    
                    "<soap:Body>\n"
                    
-                   "<SaveLeadComment xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SaveLeadComment xmlns=\"http://test1.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Comments>%@</Comments>\n"
                    "<UserId>%d</UserId>\n"
@@ -1418,7 +1426,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1426,7 +1434,7 @@ if (tableView==_leadTable) {
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SaveLeadComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1460,7 +1468,7 @@ if (tableView==_leadTable) {
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConnection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 	}
@@ -1868,6 +1876,15 @@ if (tableView==_leadTable) {
         recordResults = TRUE;
     }
 
+    if([elementName isEqualToString:@"SaveLeadCommentResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 
@@ -2224,6 +2241,7 @@ if (tableView==_leadTable) {
        [_prjctexcutntxtfld setTitle:@"Select" forState:UIControlStateNormal];
        _leadassigntotextfld.text=@"";
        [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
+       _cmttxtbox.text=@"";
        
 
    }
@@ -2310,7 +2328,6 @@ if (tableView==_leadTable) {
 //    NSIndexPath *IndexPath = [table indexPathForCell:cell];
 //    
     
-  
     
     [self.popOverController presentPopoverFromRect: CGRectMake(350, 120, 300, 500)                                        inView:self.view
                           permittedArrowDirections:nil
