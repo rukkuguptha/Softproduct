@@ -17,6 +17,8 @@
 #import "workPhasesViewController.h"
 #import "CrewsetupViewController.h"
 #import "CmpnydocsViewController.h"
+#import "TypeViewController.h"
+#import "BranchViewController.h"
 
 @interface TileViewController : UIViewController
 
@@ -50,7 +52,7 @@
 
 @property(strong,nonatomic)CmpnydocsViewController *cmpnyVCtrl;
 
-
-
+@property(strong,nonatomic)TypeViewController *typeVCtrl;
+@property(strong,nonatomic)BranchViewController *branchVCtrl;
 
 @end

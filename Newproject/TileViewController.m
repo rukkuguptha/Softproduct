@@ -39,7 +39,7 @@
     
     UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
-                                          action:@selector(documentPage)];
+                                          action:@selector(branchpage)];
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.Documentsview addGestureRecognizer:doubleTap1];
@@ -104,20 +104,14 @@
     [self presentViewController:_compVCtrl
                        animated:YES completion:NULL];
 }
--(void)documentPage
+-(void)branchpage
 {
-//    if (!self.docVCtrl) {
-//        self.docVCtrl=[[DocmntViewController alloc]initWithNibName:@"DocmntViewController" bundle:nil];
-//    }
-//    _docVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
-//    [self presentViewController:_docVCtrl
-//                       animated:YES completion:NULL];
     
-    if (!self.crewsetupVctrl) {
-        self.crewsetupVctrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
+    if (!self.branchVCtrl) {
+        self.branchVCtrl=[[BranchViewController alloc]initWithNibName:@"BranchViewController" bundle:nil];
     }
-    _crewsetupVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController: _crewsetupVctrl
+    _branchVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_branchVCtrl
                        animated:YES completion:NULL];
 
 }
@@ -171,11 +165,11 @@
 }
 -(void)jobsitereqPage
 {
-    if (!self.jobsitereqVctrl) {
-        self.jobsitereqVctrl=[[jobsitereqViewController alloc]initWithNibName:@"jobsitereqViewController" bundle:nil];
+    if (!self.typeVCtrl) {
+        self.typeVCtrl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
     }
-    _jobsitereqVctrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_jobsitereqVctrl
+    _typeVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_typeVCtrl
                        animated:YES completion:NULL];
 }
 -(void)basicReqPage

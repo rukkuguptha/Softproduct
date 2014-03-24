@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Validation.h"
-
+#import "AddressViewController.h"
 @interface CompanyViewController : UIViewController<UITextFieldDelegate>
 {
       BOOL recordResults;
@@ -23,7 +23,7 @@
   
     
 }
-
+@property(strong,nonatomic)AddressViewController *addrsVCtrl;
 @property(strong,nonatomic)Validation*validate;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 /*popover*/
@@ -74,5 +74,9 @@
 @property(strong,nonatomic)NSString *phnnofmtstring;
 
 @property (strong, nonatomic) IBOutlet UILabel *updatelbl;
+
+- (IBAction)Addadressbtn:(id)sender;
+
+
 
 @end
