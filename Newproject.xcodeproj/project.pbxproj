@@ -85,6 +85,7 @@
 		64A3B81F18DFEEC90015887F /* customcommentforactivitycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81B18DFEEC90015887F /* customcommentforactivitycell.xib */; };
 		64A3B82318DFEF0B0015887F /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B82118DFEF0B0015887F /* CommentsViewController.m */; };
 		64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82218DFEF0B0015887F /* CommentsViewController.xib */; };
+		64A3B82618E02FC90015887F /* branchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82518E02FC90015887F /* branchcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
@@ -377,6 +378,7 @@
 		64A3B82018DFEF0B0015887F /* CommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsViewController.h; sourceTree = "<group>"; };
 		64A3B82118DFEF0B0015887F /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		64A3B82218DFEF0B0015887F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
+		64A3B82518E02FC90015887F /* branchcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = branchcell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
@@ -686,6 +688,7 @@
 				D44BEA6E18E0252600719ED5 /* BranchViewController.h */,
 				D44BEA6F18E0252600719ED5 /* BranchViewController.m */,
 				D44BEA7018E0252600719ED5 /* BranchViewController.xib */,
+				64A3B82518E02FC90015887F /* branchcell.xib */,
 				D44BEA7318E0254900719ED5 /* TypeViewController.h */,
 				D44BEA7418E0254900719ED5 /* TypeViewController.m */,
 				D44BEA7518E0254900719ED5 /* TypeViewController.xib */,
@@ -1204,6 +1207,7 @@
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
 				64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
+				64A3B82618E02FC90015887F /* branchcell.xib in Resources */,
 				D42D8C1718D2D8FF009D8085 /* custombasicreqcell.xib in Resources */,
 				64A3B81F18DFEEC90015887F /* customcommentforactivitycell.xib in Resources */,
 				D49E056518C71B9300AF6330 /* Namecrewcell.xib in Resources */,
