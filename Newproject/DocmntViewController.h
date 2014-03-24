@@ -12,7 +12,7 @@
 @interface DocmntViewController : UIViewController
 
 
-//tiles
+/*tiles*/
 @property(strong,nonatomic)IBOutlet UIView *valuesphilosophyview;
 @property(strong,nonatomic)IBOutlet UIView *qualityAssuranceview;
 @property(strong,nonatomic)IBOutlet UIView *saftymanualview;
