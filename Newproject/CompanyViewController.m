@@ -46,7 +46,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - arvinice
+#pragma mark - webservice
 
 
 -(void)Getbasicinfo{
@@ -1515,7 +1515,7 @@
     if(!self.addrsVCtrl){
         self.addrsVCtrl=[[AddressViewController alloc]initWithNibName:@"AddressViewController" bundle:nil];
     }
-    _addrsVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    _addrsVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_addrsVCtrl
                        animated:YES completion:NULL];
 
