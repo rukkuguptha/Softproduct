@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     [self SelectBranches];
+    [[self.addresstextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.addresstextview layer] setBorderWidth:2];
+    [[self.addresstextview layer] setCornerRadius:10];
     _branchtable.layer.borderWidth = 3.0;
     _branchtable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _tabletitleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -80,11 +83,37 @@
 {
     _branchview.hidden=NO;
     optionidentifier=2;
+    _navbar.title=@"EDIT";
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.branchtable];
+    NSIndexPath *textFieldIndexPath = [self.branchtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:textFieldIndexPath.row];
+    
+    _branchnametextfld.text=bmdl.branchname;
+    _addresstextview.text=bmdl.branchaddress;
+    _phonetextfield.text=bmdl.phone;
+    _faxtextfield.text=bmdl.fax;
+    _emailtextfield.text=bmdl.email;
+
+    
 }
 
 -(IBAction)closebranch:(id)sender
 {
     _branchview.hidden=YES;
+}
+-(IBAction)savebranch:(id)sender
+{
+    if (optionidentifier==1) {
+        [self BranchInsert];
+    }
+    else
+    {
+        [self BranchUpdate];
+    }
 }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -110,6 +139,17 @@
         cell=_branchcell;
         //        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
+    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:indexPath.row];
+    _branchnamelabel=(UILabel*)[cell viewWithTag:1];
+    _branchnamelabel.text=bmdl.branchname;
+    _branchaddresslabel=(UILabel*)[cell viewWithTag:2];
+    _branchaddresslabel.text=bmdl.branchaddress;
+    _phonelabel=(UILabel*)[cell viewWithTag:3];
+    _phonelabel.text=bmdl.phone;
+    _faxlabel=(UILabel*)[cell viewWithTag:4];
+    _faxlabel.text=bmdl.fax;
+    _emaillabel=(UILabel*)[cell viewWithTag:5];
+    _emaillabel.text=bmdl.email;
     
     return cell;
 }
@@ -211,6 +251,121 @@
     
     
 }
+-(void)BranchInsert
+{  webtype=1;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<BranchInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BranchName>%@</BranchName>\n"
+                   "<BranchAddress>%@</BranchAddress>\n"
+                   "<Phone>%@</Phone>\n"
+                   "<Fax>%@</Fax>\n"
+                   "<Email>%@</Email>\n"
+                   "</BranchInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_branchnametextfld.text,_addresstextview.text,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BranchInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)BranchUpdate
+{
+    webtype=1;
+    recordResults = FALSE;
+    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:btnindex];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<BranchUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BranchId>%d</BranchId>\n"
+                   "<BranchName>%@</BranchName>\n"
+                   "<BranchAddress>%@</BranchAddress>\n"
+                   "<Phone>%@</Phone>\n"
+                   "<Fax>%@</Fax>\n"
+                   "<Email>%@</Email>\n"
+                   "</BranchUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",bmdl.branchid,_branchnametextfld.text,_addresstextview.text,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BranchUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -244,6 +399,10 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_branchtable reloadData];
+    if (webtype==1) {
+        [self SelectBranches];
+        webtype=0;
+    }
     
 }
 #pragma mark-xml parser
@@ -256,8 +415,62 @@
         {
             _soapResults=[[NSMutableString alloc]init];
         }
+         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"BranchId"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+         recordResults = TRUE;
+    }
+    if ([elementName isEqualToString:@"BranchName"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+         recordResults = TRUE;
+    }
+    if ([elementName isEqualToString:@"BranchAddress"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+         recordResults = TRUE;
+    }
+    if ([elementName isEqualToString:@"Phone"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+         recordResults = TRUE;
+    }if ([elementName isEqualToString:@"Fax"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+         recordResults = TRUE;
+    }
+    if ([elementName isEqualToString:@"Email"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+         recordResults = TRUE;
+        
+    }
+
+
+
+
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -275,6 +488,47 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    
+    if ([elementName isEqualToString:@"BranchId"]) {
+        _branchmodel=[[custbranchmodel alloc]init];
+        recordResults=FALSE;
+        _branchmodel.branchid=[_soapResults integerValue];
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"BranchName"]) {
+        recordResults=FALSE;
+        _branchmodel.branchname=_soapResults;
+        _soapResults=nil;
+    }
+
+    if ([elementName isEqualToString:@"BranchAddress"]) {
+        
+        recordResults=FALSE;
+        _branchmodel.branchaddress=_soapResults;
+        _soapResults=nil;
+    }
+
+    if ([elementName isEqualToString:@"Phone"]) {
+        
+        recordResults=FALSE;
+        _branchmodel.phone=_soapResults;
+        _soapResults=nil;
+    }
+
+    if ([elementName isEqualToString:@"Fax"]) {
+       
+        recordResults=FALSE;
+        _branchmodel.fax=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"Email"]) {
+        
+        recordResults=FALSE;
+        _branchmodel.email=_soapResults;
+        [_brancharray addObject:_branchmodel];
+        _soapResults=nil;
+    }
+
 }
 
 @end

@@ -7,19 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "custbranchmodel.h"
 
 @interface BranchViewController : UIViewController
 {
     NSInteger path;
     NSInteger optionidentifier;
     BOOL recordResults;
+    NSInteger webtype;
+    UIButton *button;
+    NSInteger btnindex;
 }
+
+@property(strong,nonatomic)custbranchmodel *branchmodel;
+
+
+
 /*IBActions*/
 - (IBAction)Closebranchpage:(id)sender;
 -(IBAction)addbranchaction:(id)sender;
 -(IBAction)deletebranchAction:(id)sender;
 -(IBAction)editbranchaction:(id)sender;
 -(IBAction)closebranch:(id)sender;
+-(IBAction)savebranch:(id)sender;
 
 
 /*IBOutlets*/
@@ -27,7 +37,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *branchtable;
 @property (strong, nonatomic) IBOutlet UIView *tabletitleview;
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
-@property(strong,nonatomic)IBOutlet UINavigationBar *navbar;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navbar;
 @property(strong,nonatomic)IBOutlet UIView *branchview;
 
 
@@ -40,5 +50,16 @@
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSXMLParser *xmlparser;
 @property(strong,nonatomic)NSMutableString *soapResults;
+@property (strong, nonatomic) IBOutlet UILabel *branchnamelabel;
+@property (strong, nonatomic) IBOutlet UILabel *branchaddresslabel;
+@property (strong, nonatomic) IBOutlet UILabel *phonelabel;
+@property (strong, nonatomic) IBOutlet UILabel *faxlabel;
+@property (strong, nonatomic) IBOutlet UILabel *emaillabel;
+
+@property (strong, nonatomic) IBOutlet UITextField *branchnametextfld;
+@property (strong, nonatomic) IBOutlet UITextField *phonetextfield;
+@property (strong, nonatomic) IBOutlet UITextField *emailtextfield;
+@property (strong, nonatomic) IBOutlet UITextView *addresstextview;
+@property (strong, nonatomic) IBOutlet UITextField *faxtextfield;
 
 @end
