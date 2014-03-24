@@ -10,4 +10,8 @@
 
 @interface AddressViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
+
+- (IBAction)clsebtn:(id)sender;
+
 @end
