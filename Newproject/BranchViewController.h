@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface BranchViewController : UIViewController
+{
+    NSInteger path;
+}
 /*IBActions*/
 - (IBAction)Closebranchpage:(id)sender;
 /*IBOutlets*/
 @property(strong,nonatomic)IBOutlet UITableViewCell *branchcell;
+@property (strong, nonatomic) IBOutlet UITableView *branchtable;
+
+/*array*/
+@property(strong,nonatomic)NSMutableArray *brancharray;
 
 @end

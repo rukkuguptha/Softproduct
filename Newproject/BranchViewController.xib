@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BranchViewController">
             <connections>
+                <outlet property="branchtable" destination="eod-Qd-ksO" id="5kR-Nu-MMa"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -19,6 +20,10 @@
                     <rect key="frame" x="20" y="123" width="723" height="859"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qhr-cc-e2z"/>
+                        <outlet property="delegate" destination="-1" id="hg4-nR-vLC"/>
+                    </connections>
                 </tableView>
                 <navigationBar contentMode="scaleToFill" id="Zmc-sQ-0Cl">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
