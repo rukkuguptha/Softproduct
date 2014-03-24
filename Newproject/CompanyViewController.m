@@ -1515,7 +1515,7 @@
     if(!self.addrsVCtrl){
         self.addrsVCtrl=[[AddressViewController alloc]initWithNibName:@"AddressViewController" bundle:nil];
     }
-    _addrsVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _addrsVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:_addrsVCtrl
                        animated:YES completion:NULL];
 
