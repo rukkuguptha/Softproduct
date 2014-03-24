@@ -140,7 +140,7 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
-		D40DE4FD18DFF33600D51069 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DE4FC18DFF33600D51069 /* CKCalendarView.m */; };
+		D40DE50018DFF4AC00D51069 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DE4FF18DFF4AC00D51069 /* CKCalendarView.m */; };
 		D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41377C6187BD59200156A92 /* Equpmntmdl.m */; };
 		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
@@ -233,7 +233,6 @@
 		D4F19DC518D0375F007617F0 /* commentmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DC418D0375F007617F0 /* commentmdl.m */; };
 		D4F19DC818D0376F007617F0 /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DC718D0376F007617F0 /* Infoleads.m */; };
 		D4F19DCB18D03784007617F0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DCA18D03784007617F0 /* activityInfo.m */; };
-		D4F19DE218D03AD1007617F0 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DCE18D03AD1007617F0 /* CKCalendarView.m */; };
 		D4F19DEB18D03AD1007617F0 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DDA18D03AD1007617F0 /* FollowupViewController.m */; };
 		D4F19DEC18D03AD1007617F0 /* FollowupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DDB18D03AD1007617F0 /* FollowupViewController.xib */; };
 		D4F19DED18D03AD1007617F0 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DDC18D03AD1007617F0 /* FollowupCell.xib */; };
@@ -450,8 +449,8 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
-		D40DE4FB18DFF33600D51069 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
-		D40DE4FC18DFF33600D51069 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		D40DE4FE18DFF4AC00D51069 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		D40DE4FF18DFF4AC00D51069 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		D41377C5187BD59200156A92 /* Equpmntmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equpmntmdl.h; sourceTree = "<group>"; };
 		D41377C6187BD59200156A92 /* Equpmntmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equpmntmdl.m; sourceTree = "<group>"; };
 		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
@@ -573,8 +572,6 @@
 		D4F19DC718D0376F007617F0 /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infoleads.m; sourceTree = "<group>"; };
 		D4F19DC918D03784007617F0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
 		D4F19DCA18D03784007617F0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
-		D4F19DCD18D03AD1007617F0 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
-		D4F19DCE18D03AD1007617F0 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
 		D4F19DD918D03AD1007617F0 /* FollowupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowupViewController.h; sourceTree = "<group>"; };
 		D4F19DDA18D03AD1007617F0 /* FollowupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowupViewController.m; sourceTree = "<group>"; };
 		D4F19DDB18D03AD1007617F0 /* FollowupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupViewController.xib; sourceTree = "<group>"; };
@@ -964,8 +961,8 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D40DE4FB18DFF33600D51069 /* CKCalendarView.h */,
-				D40DE4FC18DFF33600D51069 /* CKCalendarView.m */,
+				D40DE4FE18DFF4AC00D51069 /* CKCalendarView.h */,
+				D40DE4FF18DFF4AC00D51069 /* CKCalendarView.m */,
 				D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */,
 				D4C33EB9180FB43500C90728 /* PDFImageConverter.m */,
 				D4F7E2DF17856D4400F9545D /* NSData+Base64.h */,
@@ -1040,8 +1037,6 @@
 		D4F19DCC18D03AA4007617F0 /* Leads */ = {
 			isa = PBXGroup;
 			children = (
-				D4F19DCD18D03AD1007617F0 /* CKCalendarView.h */,
-				D4F19DCE18D03AD1007617F0 /* CKCalendarView.m */,
 				64A3B80E18DFEE980015887F /* LeadsViewController.h */,
 				64A3B80F18DFEE980015887F /* LeadsViewController.m */,
 				64A3B81018DFEE980015887F /* LeadsViewController.xib */,
@@ -1359,8 +1354,6 @@
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */,
 				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
-				D40DE4FD18DFF33600D51069 /* CKCalendarView.m in Sources */,
-				D4F19DE218D03AD1007617F0 /* CKCalendarView.m in Sources */,
 				D42D8C2618D2DD79009D8085 /* ManViewController.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
@@ -1370,6 +1363,7 @@
 				D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */,
 				D4F19DEB18D03AD1007617F0 /* FollowupViewController.m in Sources */,
 				D4F19DC818D0376F007617F0 /* Infoleads.m in Sources */,
+				D40DE50018DFF4AC00D51069 /* CKCalendarView.m in Sources */,
 				64A09DA2186023D2001F74E2 /* AllfolderViewController.m in Sources */,
 				649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */,
 				D4DD31BF18CDAF9800CA2A33 /* Empmdl.m in Sources */,
