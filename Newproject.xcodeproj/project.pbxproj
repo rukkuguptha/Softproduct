@@ -86,6 +86,7 @@
 		64A3B82318DFEF0B0015887F /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B82118DFEF0B0015887F /* CommentsViewController.m */; };
 		64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82218DFEF0B0015887F /* CommentsViewController.xib */; };
 		64A3B82618E02FC90015887F /* branchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82518E02FC90015887F /* branchcell.xib */; };
+		64A3B82918E03D8D0015887F /* custbranchmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B82818E03D8D0015887F /* custbranchmodel.m */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
@@ -381,6 +382,8 @@
 		64A3B82118DFEF0B0015887F /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		64A3B82218DFEF0B0015887F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		64A3B82518E02FC90015887F /* branchcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = branchcell.xib; sourceTree = "<group>"; };
+		64A3B82718E03D8D0015887F /* custbranchmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = custbranchmodel.h; sourceTree = "<group>"; };
+		64A3B82818E03D8D0015887F /* custbranchmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = custbranchmodel.m; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
@@ -1056,6 +1059,8 @@
 				D4F19E0818D044AE007617F0 /* Custmermdl.m */,
 				D44BEA7E18E03C3100719ED5 /* Mdladdress.h */,
 				D44BEA7F18E03C3100719ED5 /* Mdladdress.m */,
+				64A3B82718E03D8D0015887F /* custbranchmodel.h */,
+				64A3B82818E03D8D0015887F /* custbranchmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1428,6 +1433,7 @@
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
+				64A3B82918E03D8D0015887F /* custbranchmodel.m in Sources */,
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
 				64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
