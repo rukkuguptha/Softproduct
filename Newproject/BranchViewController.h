@@ -11,5 +11,7 @@
 @interface BranchViewController : UIViewController
 /*IBActions*/
 - (IBAction)Closebranchpage:(id)sender;
+/*IBOutlets*/
+@property(strong,nonatomic)IBOutlet UITableViewCell *branchcell;
 
 @end
