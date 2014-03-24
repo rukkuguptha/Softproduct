@@ -25,6 +25,7 @@
     NSInteger selectedcell;
     UIButton *carbtn;
 }
+@property(strong,nonatomic)NSString *resultmsg;
 @property(readwrite)NSInteger openviewindex;
 @property(readwrite)NSInteger previousopenviewindex;
 @property(strong,nonatomic)IBOutlet UIView *animatedview;
@@ -99,7 +100,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *cmtcell;
 @property (strong, nonatomic) IBOutlet UILabel *titilelbl;
 
-@property (strong, nonatomic) IBOutlet UILabel *commentlbl;
+@property (strong, nonatomic) IBOutlet UITextView *commentcellview;
 
 
 @property(strong,nonatomic)commentmdl *cmtmdl;

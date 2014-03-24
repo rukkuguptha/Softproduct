@@ -29,6 +29,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self.descptionTextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.descptionTextview layer] setBorderWidth:2];
+    [[self.descptionTextview layer] setCornerRadius:10];
+
     self.openviewindex=NSNotFound;
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
@@ -52,7 +56,7 @@
     [_scroll setContentSize:CGSizeMake(1024,760)];
     _activityTable.layer.borderWidth = 2.0;
     _activityTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-    _activityTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
+//    _activityTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
 self.navigationController.navigationBar.tintColor=[UIColor blackColor];
    // self.newviewactivity.hidden=YES;
      _view2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -174,15 +178,18 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         [carbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
         carbtn.tag=indexPath.row;
         [carbtn addTarget:self action:@selector(showactions:) forControlEvents:UIControlEventTouchUpInside];
-        carbtn.frame = CGRectMake(250.0, 0.0, 50.0, 40.0);
+        carbtn.frame = CGRectMake(270.0, 0.0, 50.0, 40.0);
         [cell.contentView addSubview:carbtn];
 
     }
     if (tableView==_cmttable) {
         commentmdl*cmtmdl=(commentmdl *)[_cmntarray  objectAtIndex:indexPath.row];
         
-        _commentlbl=(UILabel*)[cell viewWithTag:1];
-        _commentlbl.text=cmtmdl.comments;
+        _commentcellview=(UITextView*)[cell viewWithTag:1];
+        [[self.commentcellview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+        [[self.commentcellview layer] setBorderWidth:2];
+        [[self.commentcellview layer] setCornerRadius:10];
+        _commentcellview.text=cmtmdl.comments;
         _titilelbl=(UILabel*)[cell viewWithTag:2];
         _titilelbl.text=cmtmdl.commentdate;
         
@@ -196,7 +203,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     // [_animatedview removeFromSuperview];
     _commentlabel.hidden=YES;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(280, 10, 0, 0);} completion:nil];
+        .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
     
     _animatedview.hidden=YES;
     //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
@@ -215,7 +222,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(280, 10, 0, 25)];
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 10, 0, 25)];
     _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
     _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -231,7 +238,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     _animatedview.hidden=NO;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(280, 10, 70, 25);} completion:nil];
+        .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
     
     _commentlabel.hidden=NO;
 //    NSLog(@"%@",empmdl.badgeflag);
@@ -255,7 +262,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         if (carbtn.selected) {
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(280, 10, 70, 25);} completion:nil];
+                .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
             [self viewopened:btnindex];
             _commentlabel.hidden=NO;
             
@@ -264,7 +271,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         }
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(280, 10, 70, 25);} completion:nil];
+                .frame =  CGRectMake(300, 10, 70, 25);} completion:nil];
             [self viewclosed:btnindex];
             //_venderlbl.hidden=YES;
             
@@ -281,7 +288,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     if (previousOpenviewIndex != NSNotFound) {
         [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-            .frame =  CGRectMake(280, 10, 0, 0);} completion:nil];
+            .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
         
         _animatedview.hidden=YES;
         
@@ -384,20 +391,20 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
        UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 250)];
+                           initWithFrame:CGRectMake(0, 0, 150, 200)];
     
     popoverView.backgroundColor = [UIColor lightTextColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 250)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 150, 200)];
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+   
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 250);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(150, 200);
     
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
@@ -495,7 +502,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(IBAction)addNewActivity:(id)sender
 {
     butnidtfr=1;
-    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
+    [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
     
      self.activityNav.title = @"ADD";
     _employerTxtfld.text=@"";
@@ -506,16 +514,16 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _activityTxtFld.text=@"";
     
     
-    //_newviewactivity.hidden=NO;
-    //_view2.hidden=NO;
-    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _newviewactivity.frame = CGRectMake(195, 100, 663, 492);
-        //        _hidenview.center = origin;
-        _newviewactivity.alpha = 1.0;
-        
-    }];
+    _newviewactivity.hidden=NO;
+//    //_view2.hidden=NO;
+//    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//        _newviewactivity.frame = CGRectMake(195, 100, 663, 492);
+//        //        _hidenview.center = origin;
+//        _newviewactivity.alpha = 1.0;
+//        
+//    }];
 
 }
 -(IBAction)closetheView:(id)sender
@@ -524,7 +532,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _activityTxtFld.userInteractionEnabled=YES;
     _employerTxtfld.userInteractionEnabled=YES;
 
-    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
     
        _employerTxtfld.text=@"";
     
@@ -532,18 +540,18 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     _descptionTextview.text=@"";
     _activityTxtFld.text=@"";
-    [_activityTypeBtn setTitle:@"" forState:UIControlStateNormal];
+    [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
 
-    butnidtfr=0;
-   // self.newviewactivity.hidden=YES;
-    _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
-        //        _hidenview.center = origin;
-        _newviewactivity.alpha = 0;
-        
-    }];
+   butnidtfr=0;
+    self.newviewactivity.hidden=YES;
+//    _newviewactivity.frame = CGRectMake(195, 60, 663, 492);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//        _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+//        //        _hidenview.center = origin;
+//        _newviewactivity.alpha = 0;
+//        
+//    }];
 
 }
 
@@ -558,15 +566,16 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 - (IBAction)editcellbtn:(id)sender
 { self.activityNav.title = @"EDIT";
+    _newviewactivity.hidden=NO;
 
-    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
-    //    CGPoint origin = _hidenview.frame.origin;
-    [UIView animateWithDuration: 1.0f animations:^{
-        _newviewactivity.frame = CGRectMake(195, 100, 663, 492);
-        //        _hidenview.center = origin;
-        _newviewactivity.alpha = 1.0;
-        
-    }];
+//    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
+//    //    CGPoint origin = _hidenview.frame.origin;
+//    [UIView animateWithDuration: 1.0f animations:^{
+//        _newviewactivity.frame = CGRectMake(195, 100, 663, 492);
+//        //        _hidenview.center = origin;
+//        _newviewactivity.alpha = 1.0;
+//        
+//    }];
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.activityTable];
@@ -601,7 +610,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 -(IBAction)cancelaction:(id)sender
 {
-    [_dateBtn setTitle:@"" forState:UIControlStateNormal];
+    [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
     
     
     _employerTxtfld.text=@"";
@@ -645,7 +654,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                    "<GetLeadActivity xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<GetLeadActivity xmlns=\"http://test1.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
                    "</GetLeadActivity>\n"
                    "</soap:Body>\n"
@@ -653,7 +662,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -661,7 +670,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/GetLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -695,7 +704,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<ActivityCommentsList xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ActivityCommentsList xmlns=\"http://test1.kontract360.com/\">\n"
                    "<activityid>%d</activityid>\n"
                    
                    "</ActivityCommentsList>\n"
@@ -705,14 +714,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/ActivityCommentsList" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -754,7 +763,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<SaveActivity xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SaveActivity xmlns=\"http://test1.kontract360.com/\">\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
                    "<Activity>%@</Activity>\n"
@@ -770,7 +779,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -778,7 +787,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://ios.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://test1.kontract360.com/SaveActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -821,7 +830,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<UpdateLeadActivity xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateLeadActivity xmlns=\"http://test1.kontract360.com/\">\n"
                    "<ActivityId>%d</ActivityId>\n"
                    "<LeadId>%d</LeadId>\n"
                    "<Date>%@</Date>\n"
@@ -837,7 +846,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -845,7 +854,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/UpdateLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -868,7 +877,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 -(void)deleteActivity
 {
-    webtype=1;
+    webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
      activityInfo*info2=(activityInfo*)[_activityArray objectAtIndex:path];
@@ -878,7 +887,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                    "<DeleteActivity xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<DeleteActivity xmlns=\"http://test1.kontract360.com/\">\n"
                    "<activityid>%d</activityid>\n"
                    "</DeleteActivity>\n"
                    "</soap:Body>\n"
@@ -887,14 +896,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/DeleteActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -939,7 +948,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
                    "<soap:Body>\n"
-                   "<SaveActivityComment xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SaveActivityComment xmlns=\"http://test1.kontract360.com/\">\n"
                       "<ActivityId>%d</ActivityId>\n"
                       "<Comments>%@</Comments>\n"
                       "<UserId>%d</UserId>\n"
@@ -951,14 +960,14 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-     NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test1.kontract360.com/SaveActivityComment" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -991,7 +1000,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
                    
                    "<soap:Body>\n"
                    
-                   "<SearchLeadActivity xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SearchLeadActivity xmlns=\"http://test1.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchLeadActivity>\n"
                    "</soap:Body>\n"
@@ -1000,7 +1009,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test1.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1008,7 +1017,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue:@"http://ios.kontract360.com/SearchLeadActivity" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue:@"http://test1.kontract360.com/SearchLeadActivity" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1040,7 +1049,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:nil message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1062,9 +1071,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 	[_xmlParser parse];
     [_activityTable reloadData];
     [_cmttable reloadData];
-        if(webtype==1)
+        if(webtype==1||webtype==2)
     {
-        [self getLeadActivity];
+    [self getLeadActivity];
         webtype=0;
     }
     if (butnidtfr==3) {
@@ -1274,6 +1283,17 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"UpdateLeadActivityResult"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
   
 
 
@@ -1388,8 +1408,12 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        if (webtype==1) {
+            _resultmsg=_soapResults;
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        }
         _soapResults = nil;
     }
    
@@ -1450,6 +1474,18 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
 
 }
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.message isEqualToString:_resultmsg]) {
+        _activityTxtFld.text=@"";
+        [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
+        _employerTxtfld.text=@"";
+        _descptionTextview.text=@"";
+        _statusTxtFld.text=@"";
+        
+    }
+}
 #pragma mark;Actions
 -(IBAction)saveActivity:(id)sender
 {
@@ -1465,12 +1501,13 @@ else
 }
 #pragma mark;popover
 -(void)commentpopover{
+    _composecmtview.hidden=YES;
      [self getcomments];
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 531, 544)];
+                           initWithFrame:CGRectMake(0, 0, 520, 530)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
     
@@ -1482,7 +1519,7 @@ else
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(531, 544);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(520, 530);
     
     //create a popover controller
     
@@ -1504,7 +1541,7 @@ else
     
     
     
-    [self.popOverController presentPopoverFromRect: CGRectMake(380, 120, 300, 500)                                        inView:self.view
+    [self.popOverController presentPopoverFromRect: CGRectMake(350, 120, 300, 500)                                        inView:self.view
                           permittedArrowDirections:nil
                                           animated:YES];
     

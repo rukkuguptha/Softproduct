@@ -148,7 +148,7 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *cmtcell;
 @property (strong, nonatomic) IBOutlet UILabel *titilelbl;
 
-@property (strong, nonatomic) IBOutlet UILabel *commentlbl;
+@property (strong, nonatomic) IBOutlet UITextView *commenttextview;
 - (IBAction)Addcmtbtn:(id)sender;
 
 - (IBAction)savecmtbtn:(id)sender;
