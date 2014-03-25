@@ -256,6 +256,7 @@
 		D4F19E0618D03FE8007617F0 /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0518D03FE8007617F0 /* billingcell.xib */; };
 		D4F19E0918D044AE007617F0 /* Custmermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19E0818D044AE007617F0 /* Custmermdl.m */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
+		D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */; };
 		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
 		D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F61A5518A896D90006093B /* ProcesshrViewController.xib */; };
 		D4F61A5D18A8CAE20006093B /* Processsectionheaderview.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5C18A8CAE20006093B /* Processsectionheaderview.m */; };
@@ -610,6 +611,7 @@
 		D4F19E0718D044AE007617F0 /* Custmermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custmermdl.h; sourceTree = "<group>"; };
 		D4F19E0818D044AE007617F0 /* Custmermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custmermdl.m; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cinfocell.xib; sourceTree = "<group>"; };
 		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
 		D4F61A5418A896D90006093B /* ProcesshrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcesshrViewController.m; sourceTree = "<group>"; };
 		D4F61A5518A896D90006093B /* ProcesshrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcesshrViewController.xib; sourceTree = "<group>"; };
@@ -849,6 +851,7 @@
 				649AE87F1772DFDA00CAECE7 /* ContactInfoViewController.h */,
 				649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */,
 				649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */,
+				D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */,
 				649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */,
 				649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */,
 				649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */,
@@ -1261,6 +1264,7 @@
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				D42D8C2718D2DD79009D8085 /* ManViewController.xib in Resources */,
+				D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */,
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
