@@ -126,7 +126,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return [_salesarray count];
     // Return the number of rows in the section.
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -136,17 +136,31 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                if(tableView==_salesRepTable)
-                {
+        
                    [[NSBundle mainBundle]loadNibNamed:@"RepSalescell" owner:self options:nil];
                     cell=_salescell;
         
         
-               }
+        
     }
     
     
-    
+    Rsalesmdl*rmdl=(Rsalesmdl *)[_salesarray objectAtIndex:indexPath.row];
+    _custcodelabel=(UILabel*)[cell viewWithTag:1];
+    _custcodelabel.text=rmdl.CustomerCode;
+    _empidlabel=(UILabel*)[cell viewWithTag:2];
+    _empidlabel.text=rmdl.EmpId;
+    _namelabel=(UILabel*)[cell viewWithTag:3];
+    _namelabel.text=rmdl.EmpName;
+    _phonelabel=(UILabel*)[cell viewWithTag:4];
+    _phonelabel.text=rmdl.PhoneOffice;
+    _extensionlabel=(UILabel*)[cell viewWithTag:5];
+    _extensionlabel.text=rmdl.Extension;
+    _mobilelabel=(UILabel*)[cell viewWithTag:6];
+    _mobilelabel.text=rmdl.Mobile;
+    _email=(UILabel*)[cell viewWithTag:7];
+    _email.text=rmdl.Email;
+
     
     
     return cell;
@@ -270,6 +284,90 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict
 {
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoselectResult"]) {
+        _salesarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"EntryId"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if ([elementName isEqualToString:@"CustomerCode"]) {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if ([elementName isEqualToString:@"EmpId"]) {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if ([elementName isEqualToString:@"EmpName"]) {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if ([elementName isEqualToString:@"PhoneOffice"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"Extension"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"Mobile"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }if ([elementName isEqualToString:@"Email"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -286,15 +384,59 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if ([elementName isEqualToString:@"BranchselectResult"]) {
-        _salesarray=[[NSMutableArray alloc]init];
-        if(!_soapResults)
-        {
-            _soapResults=[[NSMutableString alloc]init];
-        }
-        recordResults = TRUE;
-        
+    
+    if ([elementName isEqualToString:@"EntryId"]) {
+        _rmodel=[[Rsalesmdl alloc]init];
+        recordResults=FALSE;
+        _rmodel.entryid=[_soapResults integerValue];
+        _soapResults=nil;
     }
+    if ([elementName isEqualToString:@"CustomerCode"]) {
+       
+        recordResults=FALSE;
+        _rmodel.CustomerCode=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"EmpId"]) {
+        
+        recordResults=FALSE;
+        _rmodel.EmpId=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"EmpName"]) {
+        
+        recordResults=FALSE;
+        _rmodel.EmpName=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"PhoneOffice"]) {
+       
+        recordResults=FALSE;
+        _rmodel.PhoneOffice=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"Extension"]) {
+        
+        recordResults=FALSE;
+        _rmodel.Extension=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"Mobile"]) {
+        recordResults=FALSE;
+        _rmodel.Mobile=_soapResults;
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"Email"]) {
+        recordResults=FALSE;
+        _rmodel.Email=_soapResults;
+        [_salesarray addObject:_rmodel];
+        _soapResults=nil;
+    }
+    
+
+
+
+
 
 }
 @end

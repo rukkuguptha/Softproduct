@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Rsalesmdl.h"
+#import "Validation.h"
 
 @interface SalesRepInfoViewController : UIViewController
 {
@@ -14,6 +16,12 @@
     NSInteger webtype;
     BOOL recordResults;
 }
+
+@property(strong,nonatomic)Rsalesmdl *rmodel;
+@property(strong,nonatomic)Validation *val;
+@property(strong,nonatomic)NSString *ccode;
+
+
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UITableView *salesRepTable;
 @property(strong,nonatomic)IBOutlet UIView *addView;
