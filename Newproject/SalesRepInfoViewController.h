@@ -9,9 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface SalesRepInfoViewController : UIViewController
+{
+    NSInteger optionidentifier;
+}
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UITableView *salesRepTable;
 @property(strong,nonatomic)IBOutlet UIView *addView;
-@property(strong,nonatomic)IBOutlet UINavigationBar *navbar;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navbar;
 @property(strong,nonatomic)IBOutlet UIView *infoview;
+- (IBAction)closesalesreppage:(id)sender;
+- (IBAction)addsalesaction:(id)sender;
+- (IBAction)deletesalesaction:(id)sender;
+- (IBAction)editsalesaction:(id)sender;
 @end
