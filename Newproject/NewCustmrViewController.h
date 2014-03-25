@@ -22,6 +22,8 @@
     NSInteger webtype;
     NSInteger btnindex;
 }
+@property(strong,nonatomic)NSString *custmrcode;
+
 @property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
 
 @property(strong,nonatomic)SalesRepInfoViewController *salesVCtrl;

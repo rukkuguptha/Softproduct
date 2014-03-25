@@ -55,7 +55,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="56">
-                                    <rect key="frame" x="33" y="11" width="57" height="21"/>
+                                    <rect key="frame" x="79" y="11" width="57" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -89,6 +89,26 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cyT-1p-beX">
+                                    <rect key="frame" x="3" y="2" width="40" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="appbar.addblack.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="addbtn:" destination="-1" eventType="touchUpInside" id="JuU-8z-fxC"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fhV-T2-69d">
+                                    <rect key="frame" x="39" y="2" width="40" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" backgroundImage="appbar.delete.png">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="deletbtn:" destination="-1" eventType="touchUpInside" id="Cnp-sl-i7H"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -240,6 +260,8 @@
         </view>
     </objects>
     <resources>
+        <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
+        <image name="appbar.delete.png" width="76" height="76"/>
     </resources>
 </document>
