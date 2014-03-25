@@ -168,7 +168,7 @@
     if (!self.typeVCtrl) {
         self.typeVCtrl=[[TypeViewController alloc]initWithNibName:@"TypeViewController" bundle:nil];
     }
-    _typeVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _typeVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:_typeVCtrl
                        animated:YES completion:NULL];
 }
