@@ -580,7 +580,7 @@
 		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
 		D4F036C618B70A38003A668C /* Wrkschdulecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Wrkschdulecell.xib; sourceTree = "<group>"; };
 		D4F036C818B71781003A668C /* Meetingnotesview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Meetingnotesview.xib; sourceTree = "<group>"; };
-		D4F19D9C18D01CDB007617F0 /* NewCustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCustmrViewController.h; sourceTree = "<group>"; };
+		D4F19D9C18D01CDB007617F0 /* NewCustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NewCustmrViewController.h; sourceTree = "<group>"; usesTabs = 0; };
 		D4F19D9D18D01CDB007617F0 /* NewCustmrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCustmrViewController.m; sourceTree = "<group>"; };
 		D4F19D9E18D01CDB007617F0 /* NewCustmrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCustmrViewController.xib; sourceTree = "<group>"; };
 		D4F19DC318D0375F007617F0 /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
