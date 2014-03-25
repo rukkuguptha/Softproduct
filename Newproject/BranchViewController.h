@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "custbranchmodel.h"
+#import "Cbranch.h"
 #import "Validation.h"
 
 @interface BranchViewController : UIViewController
@@ -22,7 +22,7 @@
     NSString *phonenostring;
 }
 
-@property(strong,nonatomic)custbranchmodel *branchmodel;
+@property(strong,nonatomic)Cbranch *branchmodel;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *phonenofmtstring;
 @property(strong,nonatomic)NSString *faxnofmtstring;

@@ -100,7 +100,7 @@
     NSIndexPath *textFieldIndexPath = [self.branchtable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:textFieldIndexPath.row];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:textFieldIndexPath.row];
     
     _branchnametextfld.text=bmdl.branchname;
     _addresstextview.text=bmdl.branchaddress;
@@ -206,7 +206,7 @@
         cell=_branchcell;
         //        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:indexPath.row];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:indexPath.row];
     _branchnamelabel=(UILabel*)[cell viewWithTag:1];
     _branchnamelabel.text=bmdl.branchname;
     _branchaddresslabel=(UILabel*)[cell viewWithTag:2];
@@ -377,7 +377,7 @@
 {
     webtype=1;
     recordResults = FALSE;
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:btnindex];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:btnindex];
     NSString *soapMessage;
     
     
@@ -436,7 +436,7 @@
     recordResults = FALSE;
     NSString *soapMessage;
     
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:path];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:path];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -698,7 +698,7 @@
 {
     
     if ([elementName isEqualToString:@"BranchId"]) {
-        _branchmodel=[[custbranchmodel alloc]init];
+        _branchmodel=[[Cbranch alloc]init];
         recordResults=FALSE;
         _branchmodel.branchid=[_soapResults integerValue];
         _soapResults=nil;
