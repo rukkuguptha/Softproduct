@@ -7,9 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressViewController">
             <connections>
+                <outlet property="addnavitem" destination="MOA-l6-pd5" id="6U7-Jv-F77"/>
                 <outlet property="addresstable" destination="bjr-Gc-4a0" id="ymZ-4Z-JoY"/>
                 <outlet property="addview" destination="qki-od-jAp" id="W3j-DA-l2W"/>
                 <outlet property="adrsstxtview" destination="hYX-1R-NJn" id="E3q-Xl-56A"/>
+                <outlet property="cancelbtn" destination="EXk-aL-x1t" id="Pxv-Oo-Lg8"/>
                 <outlet property="headrtxtfld" destination="l1i-hN-VuN" id="Q8O-bD-sQ8"/>
                 <outlet property="navbar" destination="OTz-Z8-I2P" id="Cgf-mp-Zjj"/>
                 <outlet property="titileview" destination="9vs-lC-kXn" id="x1i-vg-dlV"/>
@@ -22,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bjr-Gc-4a0">
-                    <rect key="frame" x="26" y="99" width="722" height="801"/>
+                    <rect key="frame" x="26" y="99" width="722" height="727"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -71,7 +73,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9j-41-fcB">
-                            <rect key="frame" x="0.0" y="0.0" width="45" height="34"/>
+                            <rect key="frame" x="3" y="-3" width="40" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" backgroundImage="appbar.addblack.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,7 +83,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tQK-vy-LZJ">
-                            <rect key="frame" x="39" y="-5" width="46" height="44"/>
+                            <rect key="frame" x="41" y="-4" width="42" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" backgroundImage="appbar.delete.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -137,7 +139,7 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" text="Lorem ipsum dolor sit er " translatesAutoresizingMaskIntoConstraints="NO" id="hYX-1R-NJn">
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYX-1R-NJn">
                             <rect key="frame" x="147" y="120" width="254" height="155"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

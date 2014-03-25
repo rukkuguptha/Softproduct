@@ -11,6 +11,10 @@
 #import "Mdladdress.h"
 @interface AddressViewController : UIViewController{
      BOOL recordResults;
+    NSInteger webtype;
+    NSInteger path;
+    UIButton *button;
+    NSInteger deletepath;
 }
 @property (strong, nonatomic)Mdladdress *addressmdl;
 @property (strong, nonatomic)NSMutableArray *addesslistarray;
@@ -23,11 +27,13 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *addrscell;
 @property (strong, nonatomic) IBOutlet UILabel *headerlbl;
 @property (strong, nonatomic) IBOutlet UILabel *addresslbl;
+@property (strong, nonatomic) IBOutlet UINavigationItem *addnavitem;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
 
 
 /*IBaction*/

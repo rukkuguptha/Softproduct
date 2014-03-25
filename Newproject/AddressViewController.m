@@ -93,6 +93,21 @@
 {
     
     }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        deletepath=indexPath.row;
+        
+        [self AdressMasterDelete];
+        [_addesslistarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
 
 #pragma mark - webservice
 -(void)Addressmasterselect{
@@ -142,6 +157,156 @@
     }
     
 }
+-(void)AddressmasterInsert{
+      recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AddressmasterInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AddHeader>%@</AddHeader>\n"
+                   "<AddAddress>%@</AddAddress>\n"
+                   "</AddressmasterInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_headrtxtfld.text,_adrsstxtview.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AddressmasterInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)AddressMasterUpdate{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Mdladdress*ad1=(Mdladdress*)[_addesslistarray objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AddressMasterUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<AddEntryId>%d</AddEntryId>\n"
+                    "<AddCode>%@</AddCode>\n"
+                   "<AddHeader>%@</AddHeader>\n"
+                   "<AddAddress>%@</AddAddress>\n"
+                   "</AddressMasterUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[ad1.entryid integerValue],ad1.code,_headrtxtfld.text,_adrsstxtview.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AddressMasterUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)AdressMasterDelete{
+    webtype=3;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Mdladdress*ad1=(Mdladdress*)[_addesslistarray objectAtIndex:deletepath];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<AdressMasterDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AddEntryId>%d</AddEntryId>\n"
+                   
+                   "</AdressMasterDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[ad1.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/AdressMasterDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -174,7 +339,13 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
+    if(webtype==1||webtype==2||webtype==3){
+        [self Addressmasterselect];
+        webtype=0;
+    }
     [_addresstable reloadData];
+    
+        
      
     
 }
@@ -224,6 +395,24 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"AddressmasterInsertResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+
+    }
+
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -274,6 +463,20 @@
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        if(webtype==1||webtype==2){
+            
+      
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+           
+            [alert show];
+        }
+          _soapResults = nil;
+    }
+
 }
 
 - (IBAction)clsebtn:(id)sender {
@@ -282,15 +485,93 @@
 
 - (IBAction)addbtn:(id)sender {
     _addview.hidden=NO;
+     _addnavitem.title=@"ADD";
+    webtype=1;
+    _headrtxtfld.text=@"";
+    _adrsstxtview.text=@"";
 }
 
 - (IBAction)deletebtn:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_addresstable setEditing:NO animated:NO];
+        [_addresstable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_addresstable setEditing:YES animated:YES];
+        [_addresstable reloadData];
+        
+        
+        
+        
+    }
+
+    
 }
 - (IBAction)cancelbtn:(id)sender {
+    _headrtxtfld.text=@"";
+    _adrsstxtview.text=@"";
 }
 
 - (IBAction)updatebtn:(id)sender {
+    if ([_headrtxtfld.text isEqualToString:@""]){
+    
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Header is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+    else if([_adrsstxtview.text isEqualToString:@""]){
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+
+        
+    }
+    else if(webtype==1){
+        [self AddressmasterInsert];
+    }
+    else if(webtype==2){
+        [self AddressMasterUpdate];
+    }
+    
+
+    
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:@"Header is required"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _headrtxtfld.text=@"";
+            
+            
+        }
+    }
+    
+    if ([alertView.message isEqualToString:@"Address is required"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _adrsstxtview.text=@"";
+            
+            
+        }
+    }
+}
+
 
 - (IBAction)addclsebtn:(id)sender {
     _addview.hidden=YES;
@@ -298,5 +579,19 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+   // _.enabled=NO;
+     _addview.hidden=NO;
+    _addnavitem.title=@"EDIT";
+ webtype=2;
+      button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.addresstable];
+    NSIndexPath *textFieldIndexPath = [self.addresstable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    path=textFieldIndexPath.row;
+    Mdladdress *addmdl=(Mdladdress *)[_addesslistarray objectAtIndex:path];
+    _headrtxtfld.text=addmdl.header;
+    _adrsstxtview.text=addmdl.address;
+
 }
 @end
