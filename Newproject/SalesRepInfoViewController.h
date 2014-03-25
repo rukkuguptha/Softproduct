@@ -15,13 +15,23 @@
     NSInteger optionidentifier;
     NSInteger webtype;
     BOOL recordResults;
+    NSInteger btnindex;
+    UIButton *button;
+    NSInteger path;
+    NSString *phonenostring;
+     NSString *mobilestring;
+    
 }
 
 @property(strong,nonatomic)Rsalesmdl *rmodel;
 @property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NSString *ccode;
+@property(strong,nonatomic)NSString *resultstring;
+@property(strong,nonatomic)NSString *searchstring;
+@property(strong,nonatomic)NSString *phonenofmtstring;
+@property(strong,nonatomic)NSString *mobilefmtstring;
 
-
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UITableView *salesRepTable;
 @property(strong,nonatomic)IBOutlet UIView *addView;
@@ -49,5 +59,17 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 /*array*/
 @property(strong,nonatomic)NSMutableArray *salesarray;
+
+/*outlet in add view*/
+@property (strong, nonatomic) IBOutlet UITextField *custcodetextfield;
+@property (strong, nonatomic) IBOutlet UITextField *empidtextfield;
+@property (strong, nonatomic) IBOutlet UITextField *nametextfield;
+@property (strong, nonatomic) IBOutlet UITextField *emailtextfield;
+@property (strong, nonatomic) IBOutlet UITextField *extensiontextfield;
+@property (strong, nonatomic) IBOutlet UITextField *phoneofficetextfield;
+@property (strong, nonatomic) IBOutlet UITextField *mobiletextfield;
+- (IBAction)update:(id)sender;
+- (IBAction)cancel:(id)sender;
+
 
 @end

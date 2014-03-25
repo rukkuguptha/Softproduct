@@ -26,12 +26,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        _scroll.frame=CGRectMake(0, 0, 1024,708);
-    [_scroll setContentSize:CGSizeMake(1024,760)];
+//        _scroll.frame=CGRectMake(0, 0, 1024,708);
+//    [_scroll setContentSize:CGSizeMake(1024,760)];
     _infoview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
    // self.navbar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
     _salesRepTable.layer.borderWidth=2;
     _salesRepTable.layer.borderColor= [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate = (id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    self.salesRepTable.tableHeaderView =_searchbar;
+    
+    UISearchDisplayController* searchController = [[UISearchDisplayController alloc] initWithSearchBar:_searchbar contentsController:self];
+    searchController.searchResultsDataSource = (id)self;
+    searchController.searchResultsDelegate =(id)self;
+    searchController.delegate = (id)self;
+
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -83,6 +94,13 @@
 -(IBAction)closetheView:(id)sender
 {
     self.addView.hidden=YES;
+    _custcodetextfield.text=@"";
+    _emailtextfield.text=@"";
+    _extensiontextfield.text=@"";
+    _mobiletextfield.text=@"";
+    _phoneofficetextfield.text=@"";
+    _nametextfield.text=@"";
+    _empidtextfield.text=@"";
    
 }
 - (IBAction)editsalesaction:(id)sender
@@ -90,12 +108,36 @@
     _addView.hidden=NO;
     _navbar.title=@"EDIT";
     optionidentifier=2;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.salesRepTable];
+    NSIndexPath *textFieldIndexPath = [self.salesRepTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    Rsalesmdl*rmdl=(Rsalesmdl *)[_salesarray objectAtIndex:textFieldIndexPath.row];
+    
+    _custcodetextfield.text=rmdl.CustomerCode;
+    _empidtextfield.text=rmdl.EmpId;
+    _nametextfield.text=rmdl.EmpName;
+    _phoneofficetextfield.text=rmdl.PhoneOffice;
+    _emailtextfield.text=rmdl.Email;
+    _mobiletextfield.text=rmdl.Mobile;
+    _extensiontextfield.text=rmdl.Extension;
+
 }
 - (IBAction)addsalesaction:(id)sender
 {
     _addView.hidden=NO;
      _navbar.title=@"ADD";
     optionidentifier=1;
+    _custcodetextfield.text=@"";
+    _emailtextfield.text=@"";
+    _extensiontextfield.text=@"";
+    _mobiletextfield.text=@"";
+    _phoneofficetextfield.text=@"";
+    _nametextfield.text=@"";
+    _empidtextfield.text=@"";
+
 }
 - (IBAction)deletesalesaction:(id)sender
 {
@@ -167,10 +209,7 @@
     
     
 }
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath{
-    
-    
-}
+
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
     if (indexPath.row%2 == 0) {
@@ -184,7 +223,21 @@
         [cell setBackgroundColor:[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f]];
     }
 }
-
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+        [self CustomerSalesRepInfodelete];
+        [_salesarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
 
 - (IBAction)closesalesreppage:(id)sender {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -205,10 +258,10 @@
                    "<soap:Body>\n"
                    
                    "<CustomerSalesRepInfoselect xmlns=\"http://ios.kontract360.com/\">\n"
-                   
+                   "<CustomerCode>%@</CustomerCode>\n"
                    "</CustomerSalesRepInfoselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",_ccode];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -241,223 +294,230 @@
     
     
 }
-//-(void)BranchInsert
-//{  webtype=1;
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<BranchInsert xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<BranchName>%@</BranchName>\n"
-//                   "<BranchAddress>%@</BranchAddress>\n"
-//                   "<Phone>%@</Phone>\n"
-//                   "<Fax>%@</Fax>\n"
-//                   "<Email>%@</Email>\n"
-//                   "</BranchInsert>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",_branchnametextfld.text,_addresstextview.text,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/BranchInsert" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//    
-//}
-//-(void)BranchUpdate
-//{
-//    webtype=1;
-//    recordResults = FALSE;
-//    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:btnindex];
-//    NSString *soapMessage;
-//    
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<BranchUpdate xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<BranchId>%d</BranchId>\n"
-//                   "<BranchName>%@</BranchName>\n"
-//                   "<BranchAddress>%@</BranchAddress>\n"
-//                   "<Phone>%@</Phone>\n"
-//                   "<Fax>%@</Fax>\n"
-//                   "<Email>%@</Email>\n"
-//                   "</BranchUpdate>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",bmdl.branchid,_branchnametextfld.text,_addresstextview.text,_phonetextfield.text,_faxtextfield.text,_emailtextfield.text];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/BranchUpdate" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//    
-//}
-//-(void)Branchdelete
-//{    webtype=2;
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:path];
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<Branchdelete xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<BranchId>%d</BranchId>\n"
-//                   "</Branchdelete>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",bmdl.branchid];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/Branchdelete" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//    
-//}
-//
-//
-//-(void)SearchBranch
-//{
-//    
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<SearchBranch xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<searchtext>%@</searchtext>\n"
-//                   "</SearchBranch>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",_searchstring];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/SearchBranch" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
-//
+-(void)CustomerSalesRepInfoInsert
+{  webtype=1;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerSalesRepInfoInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CustomerCode>%@</CustomerCode>\n"
+                   "<EmpId>%@</EmpId>\n"
+                   "<EmpName>%@</EmpName>\n"
+                   "<PhoneOffice>%@</PhoneOffice>\n"
+                   "<Extension>%@</Extension>\n"
+                   "<Mobile>%@</Mobile>\n"
+                   "<Email>%@</Email>\n"
+                   "</CustomerSalesRepInfoInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_ccode,_empidtextfield.text,_nametextfield.text,_phoneofficetextfield.text,_extensiontextfield.text,_mobiletextfield.text,_emailtextfield.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerSalesRepInfoInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)CustomerSalesRepInfoUpdate
+{
+    webtype=1;
+    recordResults = FALSE;
+    Rsalesmdl*rmdl=(Rsalesmdl *)[_salesarray objectAtIndex:btnindex];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerSalesRepInfoUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "<CustomerCode>%@</CustomerCode>\n"
+                   "<EmpId>%@</EmpId>\n"
+                   "<EmpName>%@</EmpName>\n"
+                   "<PhoneOffice>%@</PhoneOffice>\n"
+                   "<Extension>%@</Extension>\n"
+                   "<Mobile>%@</Mobile>\n"
+                   "<Email>%@</Email>\n"
+                   "</CustomerSalesRepInfoUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",rmdl.entryid,rmdl.CustomerCode,_empidtextfield.text,_nametextfield.text,_phoneofficetextfield.text,_extensiontextfield.text,_mobiletextfield.text,_emailtextfield.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerSalesRepInfoUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)CustomerSalesRepInfodelete
+{
+    
+    webtype=2;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Rsalesmdl*rmdl=(Rsalesmdl *)[_salesarray objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerSalesRepInfodelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "</CustomerSalesRepInfodelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",rmdl.entryid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerSalesRepInfodelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+
+-(void)CustomerSalesRepInfoSearch
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerSalesRepInfoSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<CustomerCode>%@</CustomerCode>\n"
+                   "</CustomerSalesRepInfoSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_ccode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerSalesRepInfoSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 
 #pragma mark - Connection
@@ -511,6 +571,16 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoSearchResponse"]) {
+        _salesarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if ([elementName isEqualToString:@"EntryId"]) {
         
         if(!_soapResults)
@@ -583,6 +653,36 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoInsertResult"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoUpdateResult"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if ([elementName isEqualToString:@"result"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+
     
     
 
@@ -650,6 +750,30 @@
         [_salesarray addObject:_rmodel];
         _soapResults=nil;
     }
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoInsertResult"]) {
+        recordResults=FALSE;
+        
+        _soapResults=nil;
+    }
+    if ([elementName isEqualToString:@"CustomerSalesRepInfoUpdateResult"]) {
+        recordResults=FALSE;
+        
+        _soapResults=nil;
+    }
+
+
+    if ([elementName isEqualToString:@"result"]) {
+        recordResults=FALSE;
+        _resultstring=_soapResults;
+        if (webtype==1) {
+            
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        }
+        _soapResults=nil;
+    }
+
     
 
 
@@ -657,4 +781,459 @@
 
 
 }
+-(void)alertView:(UIAlertView*)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if ([alertView.message isEqualToString:_resultstring]) {
+        _custcodetextfield.text=@"";
+        _emailtextfield.text=@"";
+        _extensiontextfield.text=@"";
+        _mobiletextfield.text=@"";
+        _phoneofficetextfield.text=@"";
+        _nametextfield.text=@"";
+        _empidtextfield.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Invalid PhoneNumber"]) {
+        _phoneofficetextfield.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Invalid MobileNumber"]) {
+        _mobiletextfield.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Invalid Extension"]) {
+        _extensiontextfield.text=@"";
+    }
+    if ([alertView.message isEqualToString:@"Invalid Email"]) {
+        _emailtextfield.text=@"";
+    }
+
+
+}
+- (IBAction)update:(id)sender {
+    if (optionidentifier==1) {
+        Validation *val=[[Validation alloc]init];
+        if([_nametextfield.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if([_mobiletextfield.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"MobileNumber is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if(![_emailtextfield.text isEqualToString:@""])
+        {
+            int value2 = [val validEmailAddress:_emailtextfield.text];
+            if(value2==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+        
+
+        else{
+            
+        [self CustomerSalesRepInfoInsert];
+        }
+    }
+    else
+    {
+        Validation *val=[[Validation alloc]init];
+        if([_nametextfield.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if([_mobiletextfield.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"MobileNumber is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if(![_emailtextfield.text isEqualToString:@""])
+        {
+            int value2 = [val validEmailAddress:_emailtextfield.text];
+            if(value2==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+        else{
+
+        [self CustomerSalesRepInfoUpdate];
+        }
+    }
+}
+
+- (IBAction)cancel:(id)sender {
+    _custcodetextfield.text=@"";
+    _emailtextfield.text=@"";
+    _extensiontextfield.text=@"";
+    _mobiletextfield.text=@"";
+    _phoneofficetextfield.text=@"";
+    _nametextfield.text=@"";
+    _empidtextfield.text=@"";
+
+}
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self CustomerSalesRepInfoSearch];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self CustomerSalesRepInfoselect];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self CustomerSalesRepInfoselect];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    //[searchBar resignFirstResponder];
+    
+    
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+        if(textField==_phoneofficetextfield)
+    {
+        
+        phonenostring=_phoneofficetextfield.text;
+        
+        
+        if ([phonenostring length]<10) {
+            if([phonenostring isEqualToString:@""])
+            {
+                
+            }
+            else
+            {
+                //fmt=1;
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                
+                [alert show];
+                
+            }
+            
+            
+            
+        }
+        else
+        {
+            
+            Validation*val=[[Validation alloc]init];
+            int value1=[val isdataformat:_phoneofficetextfield.text];
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+                
+                
+            }
+            else
+            {
+                
+                phonenostring=_phoneofficetextfield.text;
+                //checking a particular charector
+                // NSString *connectstring;
+                NSString*new=[phonenostring substringWithRange:NSMakeRange(3, 1)];
+                NSString*new1=[phonenostring substringWithRange:NSMakeRange(7, 1)];
+                
+                
+                
+                NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                NSString *resultString = [[phonenostring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                NSLog (@"Result: %@", resultString);
+                if ([resultString length]==9){
+                    
+                    
+                    //fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+                
+                if ([phonenostring length]==12) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                        _phonenofmtstring=phonenostring;
+                        // fmt=2;
+                    }
+                    else
+                    {
+                        //fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                    }
+                    
+                }
+                
+                
+                
+                if ([resultString length]==10){
+                    
+                    
+                    //fmt=2;
+                    
+                    NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                    NSLog(@"%@",subString);
+                    NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                    NSLog(@"%@",substring2);
+                    NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                    NSLog(@"%@",substring3);
+                    _phonenofmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                    NSLog(@"%@",_phonenofmtstring);
+                    
+                    
+                    
+                    
+                    _phoneofficetextfield.text=_phonenofmtstring;
+                    
+                }
+                
+                
+                
+                
+                
+                if ([resultString length]==11){
+                    
+                    
+                    //fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+            }
+        }
+    }
+    if (textField==_mobiletextfield) {
+        
+    
+    
+        
+        mobilestring=_mobiletextfield.text;
+        
+        
+        if ([mobilestring length]<10) {
+            if([mobilestring isEqualToString:@""])
+            {
+                
+            }
+            else
+            {
+                //fmt=1;
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid MobileNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                
+                [alert show];
+                
+            }
+            
+            
+            
+        }
+        else
+        {
+            
+            Validation*val=[[Validation alloc]init];
+            int value1=[val isdataformat:_mobiletextfield.text];
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid MobileNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+                
+                
+            }
+            else
+            {
+                
+                mobilestring=_mobiletextfield.text;
+                //checking a particular charector
+                // NSString *connectstring;
+                NSString*new=[mobilestring substringWithRange:NSMakeRange(3, 1)];
+                NSString*new1=[mobilestring substringWithRange:NSMakeRange(7, 1)];
+                
+                
+                
+                NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                NSString *resultString = [[mobilestring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                NSLog (@"Result: %@", resultString);
+                if ([resultString length]==9){
+                    
+                    
+                    //fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid MobileNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+                
+                if ([mobilestring length]==12) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                        _mobilefmtstring=mobilestring;
+                        // fmt=2;
+                    }
+                    else
+                    {
+                        //fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid MobileNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                    }
+                    
+                }
+                
+                
+                
+                if ([resultString length]==10){
+                    
+                    
+                    //fmt=2;
+                    
+                    NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                    NSLog(@"%@",subString);
+                    NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                    NSLog(@"%@",substring2);
+                    NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                    NSLog(@"%@",substring3);
+                    _mobilefmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                    NSLog(@"%@",_mobilefmtstring);
+                    
+                    
+                    
+                    
+                    _mobiletextfield.text=_mobilefmtstring;
+                    
+                }
+                
+                
+                
+                
+                
+                if ([resultString length]==11){
+                    
+                    
+                    //fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid MobileNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+            }
+        }
+    }
+    
+    
+if(textField==_emailtextfield){
+        
+        Validation *val=[[Validation alloc]init];
+        if(![_emailtextfield.text isEqualToString:@""])
+        {
+            int value2 = [val validEmailAddress:_emailtextfield.text];
+            if(value2==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+        
+        
+    }
+    if(textField==_extensiontextfield){
+        
+        Validation *val=[[Validation alloc]init];
+        if(![_extensiontextfield.text isEqualToString:@""])
+        {
+            int value2 = [val isNumeric:_extensiontextfield.text];
+            if(value2==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Extension" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+    
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_mobiletextfield)
+    {
+        NSUInteger newLength = [_mobiletextfield.text length] + [string length] - range.length;
+        return (newLength > 12) ? NO : YES;
+    }
+    if(textField==_phoneofficetextfield)
+    {
+        NSUInteger newLength = [_phoneofficetextfield.text length] + [string length] - range.length;
+        return (newLength > 12) ? NO : YES;
+    }
+    
+    if(textField==_empidtextfield)
+    {
+        NSUInteger newLength = [_empidtextfield.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_emailtextfield)
+    {
+        NSUInteger newLength = [_emailtextfield.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    if(textField==_nametextfield)
+    {
+        NSUInteger newLength = [_nametextfield.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    return YES;
+    
+}
+
+
+
 @end
