@@ -14,7 +14,30 @@
 @property(strong,nonatomic)IBOutlet UINavigationBar *navbar;
 @property(strong,nonatomic)IBOutlet UIView *addview;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navitem;
+
+@property (strong, nonatomic) IBOutlet UITextField *nametextfield;
+@property (strong, nonatomic) IBOutlet UITextField *emailtextfield;
+@property (strong, nonatomic) IBOutlet UITextField *phonetextfield;
+@property (strong, nonatomic) IBOutlet UITextField *mobiletextfld;
+@property (strong, nonatomic) IBOutlet UITextField *faxtxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *pstntxtfld;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *cntactcell;
+@property (strong, nonatomic) IBOutlet UILabel *namelbl;
+@property (strong, nonatomic) IBOutlet UILabel *emaillbl;
+@property (strong, nonatomic) IBOutlet UILabel *phnelbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *mblelbl;
+@property (strong, nonatomic) IBOutlet UILabel *faxlbl;
+
+
 - (IBAction)editcellbtn:(id)sender;
 -(IBAction)closetheView:(id)sender;
+- (IBAction)clsebtn:(id)sender;
+- (IBAction)updatebtn:(id)sender;
+- (IBAction)cancelbtn:(id)sender;
+- (IBAction)editbtn:(id)sender;
+
 
 @end

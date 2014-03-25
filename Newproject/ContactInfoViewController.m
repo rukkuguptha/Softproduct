@@ -82,6 +82,20 @@
     self.addview.hidden=YES;
 }
 
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (IBAction)updatebtn:(id)sender {
+}
+
+- (IBAction)cancelbtn:(id)sender {
+}
+
+- (IBAction)editbtn:(id)sender {
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -102,28 +116,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-//        if(tableView==_customertable)
-//        {
-//            [[NSBundle mainBundle]loadNibNamed:@"Customercell" owner:self options:nil];
-//            cell=_customercell;
-//            
-//            
-//        }
+        [[NSBundle mainBundle]loadNibNamed:@"Cinfocell" owner:self options:nil];
+        cell=_cntactcell;
+    
     }
-    //cell.textLabel.text=@"Customer Name";
-//    if(tableView==_popOverTableView)
-//    {  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-//        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-//        cell.textLabel.text=[_popoverArry objectAtIndex:indexPath.row];
-//    }
-//    if(tableView==_customertable)
-//    {
-//        
-//    }
-    
-    
-    
-    
     
     return cell;
     
