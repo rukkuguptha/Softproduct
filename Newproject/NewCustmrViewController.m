@@ -221,7 +221,7 @@
                     if (!self.cntctVctrl) {
                         self.cntctVctrl=[[ContactInfoViewController alloc]initWithNibName:@"ContactInfoViewController" bundle:nil];
                     }
-                    
+                    _cntctVctrl.custmrcode=_custmrcode;
                     [self presentViewController:_cntctVctrl
                                        animated:YES completion:NULL];
                 }
@@ -1171,7 +1171,8 @@
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
     
-    
+    Custmermdl *custmd=(Custmermdl *)[_customerarray objectAtIndex:textFieldIndexPath.row];
+    _custmrcode=custmd.customercode;
     [self.popOverController presentPopoverFromRect:_disclurebtnlbl.frame inView:cell permittedArrowDirections:UIPopoverArrowDirectionLeft animated:YES];
     
 

@@ -94,6 +94,63 @@
     
     
 }
+-(void)CustomerContactInfoInsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerContactInfoInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CustomerCode>%@</CustomerCode>\n"
+                   "<ContactName>%@</ContactName>\n"
+                   "<ContactEmail>%@</ContactEmail>\n"
+                   "<ContactMobile>%@</ContactMobile>\n"
+                   "<ContactPhone>%@</ContactPhone>\n"
+                   "<ContactFax>%@</ContactFax>\n"
+                   "<PositionCode>%@</PositionCode>\n"
+                   "</CustomerContactInfoInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_custmrcode,_nametextfield.text,_emailtextfield.text,_mobiletextfld.text,_phonetextfield.text,_faxtxtfld.text,_pstntxtfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerContactInfoInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -135,7 +192,7 @@
     
     if([elementName isEqualToString:@"CustomercontactInfoselectResult"])
     {
-        //_customerarray=[[NSMutableArray alloc]init];
+        _infoarray=[[NSMutableArray alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -158,6 +215,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ContactEmail"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"ContactName"])
     {
         if(!_soapResults)
@@ -220,61 +286,79 @@
     if([elementName isEqualToString:@"EntryId"])
     {
         recordResults = FALSE;
+        _infomdl=[[Infomdl alloc]init];
+        _infomdl.entryid=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"CustomerCode"])
     {
         recordResults = FALSE;
+         _infomdl.code=_soapResults;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ContactName"])
     {
         recordResults = FALSE;
+         _infomdl.infoname=_soapResults;
         _soapResults = nil;
 
     }
     if([elementName isEqualToString:@"ContactMobile"])
     {
         recordResults = FALSE;
+         _infomdl.mobile=_soapResults;
         _soapResults = nil;
 
     }
     if([elementName isEqualToString:@"ContactPhone"])
     {
         recordResults = FALSE;
+         _infomdl.phone=_soapResults;
         _soapResults = nil;
 
     }
-    
+    if([elementName isEqualToString:@"ContactEmail"])
+    {
+        recordResults = FALSE;
+        _infomdl.email=_soapResults;
+        _soapResults = nil;
+    }
     if([elementName isEqualToString:@"ContactFax"])
     {
         recordResults = FALSE;
+         _infomdl.fax=_soapResults;
         _soapResults = nil;
     }
     
     if([elementName isEqualToString:@"PositionCode"])
     {
         recordResults = FALSE;
+         _infomdl.position=_soapResults;
+        [_infoarray addObject:_infomdl];
         _soapResults = nil;
     }
     
   
 }
-- (IBAction)editcellbtn:(id)sender
-{
+
+#pragma mark-Button
+- (IBAction)addbtn:(id)sender {
+    webtype=1;
     _addview.hidden=NO;
 }
+
+
 -(IBAction)closetheView:(id)sender
 {
     self.addview.hidden=YES;
 }
 
-- (IBAction)clsebtn:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
 - (IBAction)updatebtn:(id)sender {
+    if(webtype==1){
+        [self CustomerContactInfoInsert];
+    }
+        
+    
 }
 
 - (IBAction)cancelbtn:(id)sender {
@@ -282,6 +366,15 @@
 
 - (IBAction)editbtn:(id)sender {
 }
+
+
+- (IBAction)deletbtn:(id)sender {
+}
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 #pragma mark-Tableview Delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -293,7 +386,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return [_infoarray count];
     // Return the number of rows in the section.
    }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -307,6 +400,19 @@
         cell=_cntactcell;
     
     }
+    Infomdl*infmdl=(Infomdl *)[_infoarray objectAtIndex:indexPath.row];
+    _namelbl=(UILabel *)[cell viewWithTag:1];
+    _namelbl.text=infmdl.infoname;
+    _emaillbl= (UILabel *)[cell viewWithTag:2];
+    _emaillbl.text=infmdl.email;
+    _phnelbl=(UILabel *)[cell viewWithTag:3];
+    _phnelbl.text=infmdl.phone;
+    _mblelbl=(UILabel *)[cell viewWithTag:4];
+    _mblelbl.text=infmdl.mobile;
+    _faxlbl=(UILabel *)[cell viewWithTag:5];
+    _faxlbl.text=infmdl.fax;
+    
+
     
     return cell;
     

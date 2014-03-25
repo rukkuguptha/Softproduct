@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Infomdl.h"
 
 @interface ContactInfoViewController : UIViewController{
     BOOL recordResults;
+    NSInteger webtype;
     
 }
 
+@property(strong,nonatomic)Infomdl *infomdl;
+@property(strong,nonatomic)NSString *custmrcode;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -50,6 +54,8 @@
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
+- (IBAction)addbtn:(id)sender;
 
+- (IBAction)deletbtn:(id)sender;
 
 @end
