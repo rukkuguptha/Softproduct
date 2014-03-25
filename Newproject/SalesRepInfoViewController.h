@@ -11,6 +11,8 @@
 @interface SalesRepInfoViewController : UIViewController
 {
     NSInteger optionidentifier;
+    NSInteger webtype;
+    BOOL recordResults;
 }
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UITableView *salesRepTable;
@@ -32,5 +34,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *extensionlabel;
 @property (strong, nonatomic) IBOutlet UILabel *mobilelabel;
 @property (strong, nonatomic) IBOutlet UILabel *email;
+
+/*xmlparser*/
+@property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSXMLParser *xmlparser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+/*array*/
+@property(strong,nonatomic)NSMutableArray *salesarray;
 
 @end
