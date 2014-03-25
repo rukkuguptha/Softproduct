@@ -58,10 +58,10 @@
                    "<soap:Body>\n"
                    
                    "<CustomercontactInfoselect xmlns=\"http://ios.kontract360.com/\">\n"
-                   
+                    "<CustomerCode>%@</CustomerCode>\n"
                    "</CustomercontactInfoselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
+                   "</soap:Envelope>\n",_custmrcode];
     NSLog(@"soapmsg%@",soapMessage);
     
     
