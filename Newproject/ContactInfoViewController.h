@@ -8,15 +8,29 @@
 
 #import <UIKit/UIKit.h>
 #import "Infomdl.h"
+#import "Validation.h"
 
 @interface ContactInfoViewController : UIViewController{
     BOOL recordResults;
     NSInteger webtype;
+    NSString *msgstrg;
+    UIButton *button;
+    NSInteger path;
+    NSInteger deletepath;
+    NSString *faxnoString;
+    NSInteger fmt;
+    //phoneno format
+    NSString *phnnostring;
+      NSString *mobilestrg;
     
 }
 
 @property(strong,nonatomic)Infomdl *infomdl;
 @property(strong,nonatomic)NSString *custmrcode;
+@property (strong, nonatomic)NSString*searchstring;
+
+@property (strong, nonatomic) IBOutlet UISearchBar * SearchingBar;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -46,6 +60,10 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *mblelbl;
 @property (strong, nonatomic) IBOutlet UILabel *faxlbl;
+@property(strong,nonatomic)NSString *faxfmtstring;
+@property(strong,nonatomic)NSString *phnnofmtstring;
+@property(strong,nonatomic)NSString *mblenofmtstring;
+
 
 
 - (IBAction)editcellbtn:(id)sender;
