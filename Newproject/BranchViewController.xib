@@ -77,7 +77,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="deletebranchAction:" destination="-1" eventType="touchDragInside" id="zMQ-TX-3L6"/>
+                                <action selector="deletebranchAction:" destination="-1" eventType="touchUpInside" id="yGJ-87-X1N"/>
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Branch Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ajw-14-vAU">

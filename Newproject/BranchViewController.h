@@ -40,7 +40,7 @@
 @property(strong,nonatomic)IBOutlet UINavigationItem *navbar;
 @property(strong,nonatomic)IBOutlet UIView *branchview;
 
-
+@property(strong,nonatomic)NSString *searchstring;
 
 
 /*array*/
