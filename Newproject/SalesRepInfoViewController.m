@@ -137,7 +137,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-                   [[NSBundle mainBundle]loadNibNamed:@"RepSalescell" owner:self options:nil];
+                   [[NSBundle mainBundle]loadNibNamed:@"Srepcell" owner:self options:nil];
                     cell=_salescell;
         
         
