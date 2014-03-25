@@ -75,6 +75,7 @@
 		64A14D82187573B50028B43A /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D81187573B50028B43A /* basicreqmdl.m */; };
 		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
+		64A27C1E18E149D300D184BF /* Cbranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A27C1D18E149D300D184BF /* Cbranch.m */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
 		64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81018DFEE980015887F /* LeadsViewController.xib */; };
 		64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81118DFEE980015887F /* CustomLeadCell.xib */; };
@@ -86,7 +87,6 @@
 		64A3B82318DFEF0B0015887F /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B82118DFEF0B0015887F /* CommentsViewController.m */; };
 		64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82218DFEF0B0015887F /* CommentsViewController.xib */; };
 		64A3B82618E02FC90015887F /* branchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82518E02FC90015887F /* branchcell.xib */; };
-		64A3B82918E03D8D0015887F /* custbranchmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B82818E03D8D0015887F /* custbranchmodel.m */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
 		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
@@ -369,6 +369,8 @@
 		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
 		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
+		64A27C1C18E149D300D184BF /* Cbranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cbranch.h; sourceTree = "<group>"; };
+		64A27C1D18E149D300D184BF /* Cbranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cbranch.m; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		64A3B80F18DFEE980015887F /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		64A3B81018DFEE980015887F /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
@@ -383,8 +385,6 @@
 		64A3B82118DFEF0B0015887F /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		64A3B82218DFEF0B0015887F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		64A3B82518E02FC90015887F /* branchcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = branchcell.xib; sourceTree = "<group>"; };
-		64A3B82718E03D8D0015887F /* custbranchmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = custbranchmodel.h; sourceTree = "<group>"; };
-		64A3B82818E03D8D0015887F /* custbranchmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = custbranchmodel.m; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
 		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
 		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
@@ -1062,8 +1062,8 @@
 				D4F19E0818D044AE007617F0 /* Custmermdl.m */,
 				D44BEA7E18E03C3100719ED5 /* Mdladdress.h */,
 				D44BEA7F18E03C3100719ED5 /* Mdladdress.m */,
-				64A3B82718E03D8D0015887F /* custbranchmodel.h */,
-				64A3B82818E03D8D0015887F /* custbranchmodel.m */,
+				64A27C1C18E149D300D184BF /* Cbranch.h */,
+				64A27C1D18E149D300D184BF /* Cbranch.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1379,6 +1379,7 @@
 				D4F19DFA18D03F60007617F0 /* MarkupViewController.m in Sources */,
 				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
+				64A27C1E18E149D300D184BF /* Cbranch.m in Sources */,
 				D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */,
 				D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */,
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
@@ -1437,7 +1438,6 @@
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
-				64A3B82918E03D8D0015887F /* custbranchmodel.m in Sources */,
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
 				64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,

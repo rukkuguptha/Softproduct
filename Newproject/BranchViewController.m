@@ -62,6 +62,13 @@
 {
     _branchview.hidden=NO;
     optionidentifier=1;
+    _navbar.title=@"ADD";
+    _branchnametextfld.text=@"";
+    _addresstextview.text=@"";
+    _phonetextfield.text=@"";
+    _faxtextfield.text=@"";
+    _emailtextfield.text=@"";
+
     
 }
 -(IBAction)deletebranchAction:(id)sender
@@ -71,12 +78,15 @@
         [_branchtable setEditing:NO animated:NO];
         [_branchtable reloadData];
         
+        
+        
     }
-    else
-    {
+    
+    else{
         [super setEditing:YES animated:YES];
         [_branchtable setEditing:YES animated:YES];
         [_branchtable reloadData];
+        
     }
 }
 -(IBAction)editbranchaction:(id)sender
@@ -90,7 +100,7 @@
     NSIndexPath *textFieldIndexPath = [self.branchtable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:textFieldIndexPath.row];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:textFieldIndexPath.row];
     
     _branchnametextfld.text=bmdl.branchname;
     _addresstextview.text=bmdl.branchaddress;
@@ -107,12 +117,69 @@
 }
 -(IBAction)savebranch:(id)sender
 {
+    Validation *val=[[Validation alloc]init];
     if (optionidentifier==1) {
+        
+
+        
+    if([_branchnametextfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Branch Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else  if ([_phonetextfield.text isEqualToString:@""]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+       
+        else if(![_emailtextfield.text isEqualToString:@""])
+        {
+            int value2 = [val validEmailAddress:_emailtextfield.text];
+            if(value2==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+
+        else
+        {
+        
         [self BranchInsert];
+        }
     }
     else
     {
+        
+         if([_branchnametextfld.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Branch Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else  if ([_phonetextfield.text isEqualToString:@""]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if(![_emailtextfield.text isEqualToString:@""])
+        {
+            int value2 = [val validEmailAddress:_emailtextfield.text];
+            if(value2==0)
+            {
+                
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+            }
+            
+            
+        }
+        else
+        {
+
         [self BranchUpdate];
+        }
     }
 }
 #pragma mark-tableview datasource
@@ -139,7 +206,7 @@
         cell=_branchcell;
         //        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:indexPath.row];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:indexPath.row];
     _branchnamelabel=(UILabel*)[cell viewWithTag:1];
     _branchnamelabel.text=bmdl.branchname;
     _branchaddresslabel=(UILabel*)[cell viewWithTag:2];
@@ -171,7 +238,7 @@
     if (editingStyle==UITableViewCellEditingStyleDelete) {
         path=indexPath.row;
         
-        //[self Vendordelete];
+        [self Branchdelete];
         [_brancharray removeObject:indexPath];
         
         
@@ -310,7 +377,7 @@
 {
     webtype=1;
     recordResults = FALSE;
-    custbranchmodel*bmdl=(custbranchmodel *)[_brancharray objectAtIndex:btnindex];
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:btnindex];
     NSString *soapMessage;
     
     
@@ -364,7 +431,109 @@
     
     
 }
+-(void)Branchdelete
+{    webtype=2;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Cbranch*bmdl=(Cbranch *)[_brancharray objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Branchdelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BranchId>%d</BranchId>\n"
+                   "</Branchdelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",bmdl.branchid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Branchdelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
+
+-(void)SearchBranch
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SearchBranch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "</SearchBranch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SearchBranch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 
 #pragma mark - Connection
@@ -399,7 +568,7 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_branchtable reloadData];
-    if (webtype==1) {
+    if (webtype==1||webtype==2) {
         [self SelectBranches];
         webtype=0;
     }
@@ -418,6 +587,16 @@
          recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"SearchBranchResponse"]) {
+        _brancharray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if ([elementName isEqualToString:@"BranchId"]) {
         
         if(!_soapResults)
@@ -466,7 +645,36 @@
          recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"BranchUpdateResult"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"BranchInsertResult"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
 
+
+
+    if ([elementName isEqualToString:@"result"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 
 
@@ -490,7 +698,7 @@
 {
     
     if ([elementName isEqualToString:@"BranchId"]) {
-        _branchmodel=[[custbranchmodel alloc]init];
+        _branchmodel=[[Cbranch alloc]init];
         recordResults=FALSE;
         _branchmodel.branchid=[_soapResults integerValue];
         _soapResults=nil;
@@ -528,7 +736,413 @@
         [_brancharray addObject:_branchmodel];
         _soapResults=nil;
     }
+    if ([elementName isEqualToString:@"result"]) {
+        
+        recordResults=FALSE;
+        _displaystring=_soapResults;
+        if (webtype==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        _soapResults=nil;
+    }
+
 
 }
+#pragma mark-Searchbar
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    _searchstring=_searchbar.text;
+    //NSLog(@"search%@",searchstring);
+    [self SearchBranch];
+    [searchBar resignFirstResponder];
+    
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self SelectBranches];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    if ([_searchbar.text length]==0) {
+        
+        [self SelectBranches];
+        // [searchBar resignFirstResponder];
+        
+        
+    }
+    //[searchBar resignFirstResponder];
+    
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    if(textField==_faxtextfield)
+    {
+        faxnostring=_faxtextfield.text;
+        if ([faxnostring length]<10) {
+            if([faxnostring isEqualToString:@""])
+            {
+                
+            }
+            else
+            {
+                //fmt=1;
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                
+                [alert show];
+                
+            }
+            
+        }
+        else
+        {
+            
+            
+            Validation*val=[[Validation alloc]init];
+            int value1=[val isdataformat:_faxtextfield.text];
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+                
+                
+            }
+            else
+                
+            {
+                faxnostring=_faxtextfield.text;
+                
+                //checking a particular charector
+                // NSString *connectstring;
+                NSString*new=[faxnostring substringWithRange:NSMakeRange(3, 1)];
+                NSString*new1=[faxnostring substringWithRange:NSMakeRange(7, 1)];
+                
+                
+                
+                NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                NSString *resultString = [[faxnostring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                NSLog (@"Result: %@", resultString);
+                if ([resultString length]==9){
+                    
+                   // fmt=1;
+                    
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+                
+                if ([faxnostring length]==12) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                        _faxnofmtstring=faxnostring;
+                        //fmt=2;
+                    }
+                    else
+                    {
+                       // fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                    }
+                    
+                }
+                
+                
+                
+                if ([resultString length]==10){
+                    
+                    
+                    //fmt=2;
+                    
+                    NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                    NSLog(@"%@",subString);
+                    NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                    NSLog(@"%@",substring2);
+                    NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                    NSLog(@"%@",substring3);
+                    _faxnofmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                    NSLog(@"%@",_faxnofmtstring);
+                    
+                    
+                    
+                    
+                    _faxtextfield.text=_faxnofmtstring;
+                    
+                }
+                
+                
+                
+                
+                
+                if ([resultString length]==11){
+                    
+                   // fmt=1;
+                    
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+            }
+        }
+        
+    }
+    if(textField==_phonetextfield)
+    {
+        
+        phonenostring=_phonetextfield.text;
+        
+        
+        if ([phonenostring length]<10) {
+            if([phonenostring isEqualToString:@""])
+            {
+                
+            }
+            else
+            {
+                //fmt=1;
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                
+                [alert show];
+                
+            }
+            
+            
+            
+        }
+        else
+        {
+            
+            Validation*val=[[Validation alloc]init];
+            int value1=[val isdataformat:_phonetextfield.text];
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+                
+                
+            }
+            else
+            {
+                
+                phonenostring=_phonetextfield.text;
+                //checking a particular charector
+                // NSString *connectstring;
+                NSString*new=[phonenostring substringWithRange:NSMakeRange(3, 1)];
+                NSString*new1=[phonenostring substringWithRange:NSMakeRange(7, 1)];
+                
+                
+                
+                NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                NSString *resultString = [[phonenostring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                NSLog (@"Result: %@", resultString);
+                if ([resultString length]==9){
+                    
+                    
+                    //fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+                
+                if ([phonenostring length]==12) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                        _phonenofmtstring=phonenostring;
+                       // fmt=2;
+                    }
+                    else
+                    {
+                        //fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                    }
+                    
+                }
+                
+                
+                
+                if ([resultString length]==10){
+                    
+                    
+                    //fmt=2;
+                    
+                    NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                    NSLog(@"%@",subString);
+                    NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                    NSLog(@"%@",substring2);
+                    NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                    NSLog(@"%@",substring3);
+                    _phonenofmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                    NSLog(@"%@",_phonenofmtstring);
+                    
+                    
+                    
+                    
+                    _phonetextfield.text=_phonenofmtstring;
+                    
+                }
+                
+                
+                
+                
+                
+                if ([resultString length]==11){
+                    
+                    
+                    //fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+            }
+        }
+    }
+
+    
+if(textField==_emailtextfield){
+        
+        Validation *val=[[Validation alloc]init];
+    if(![_emailtextfield.text isEqualToString:@""])
+    {
+        int value2 = [val validEmailAddress:_emailtextfield.text];
+        if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+        }
+        
+        
+    }
+    
+    
+    }
+    
+    
+    
+    
+
+    
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    
+    if ([alertView.message isEqualToString:@"Invalid Fax Number"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _faxtextfield.text=@"";
+            
+            
+        }
+    }
+    if ([alertView.message isEqualToString:_displaystring]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _branchnametextfld.text=@"";
+            _addresstextview.text=@"";
+            _phonetextfield.text=@"";
+            _faxtextfield.text=@"";
+            _emailtextfield.text=@"";
+
+            
+            
+        }
+    }
+
+    
+    
+    
+    
+if ([alertView.message isEqualToString:@"Invalid Email"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _emailtextfield.text=@"";
+            
+            
+        }
+    }
+    
+    
+    
+    
+if ([alertView.message isEqualToString:@"Invalid PhoneNumber"])
+    {
+        if (buttonIndex==0) {
+            
+            _phonetextfield.text=@"";
+            
+        }
+        
+    }
+    
+    
+    
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_branchnametextfld)
+    {
+        NSUInteger newLength = [_branchnametextfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+        if(textField==_phonetextfield)
+    {
+        NSUInteger newLength = [_phonetextfield.text length] + [string length] - range.length;
+        return (newLength > 12) ? NO : YES;
+    }
+    
+    if(textField==_faxtextfield)
+    {
+        NSUInteger newLength = [_faxtextfield.text length] + [string length] - range.length;
+        return (newLength > 12) ? NO : YES;
+    }
+    if(textField==_emailtextfield)
+    {
+        NSUInteger newLength = [_emailtextfield.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    return YES;
+    
+}
+
+
+
 
 @end
