@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "custbranchmodel.h"
+#import "Validation.h"
 
 @interface BranchViewController : UIViewController
 {
@@ -17,9 +18,16 @@
     NSInteger webtype;
     UIButton *button;
     NSInteger btnindex;
+    NSString *faxnostring;
+    NSString *phonenostring;
 }
 
 @property(strong,nonatomic)custbranchmodel *branchmodel;
+@property(strong,nonatomic)Validation *val;
+@property(strong,nonatomic)NSString *phonenofmtstring;
+@property(strong,nonatomic)NSString *faxnofmtstring;
+@property(strong,nonatomic)NSString *displaystring;
+
 
 
 
