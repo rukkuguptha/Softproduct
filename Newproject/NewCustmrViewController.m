@@ -231,12 +231,14 @@
                     if (!self.salesVCtrl) {
                         self.salesVCtrl=[[SalesRepInfoViewController alloc]initWithNibName:@"SalesRepInfoViewController" bundle:nil];
                     }
+                    _salesVCtrl.ccode=_custmrcode;
                                       [self presentViewController:_salesVCtrl
                                        animated:YES completion:NULL];
 
                     
                     
                 }
+                
                 
                 [self.popOverController dismissPopoverAnimated:YES];
                 
