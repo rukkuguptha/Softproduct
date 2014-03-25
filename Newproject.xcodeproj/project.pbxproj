@@ -76,6 +76,7 @@
 		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64A27C1E18E149D300D184BF /* Cbranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A27C1D18E149D300D184BF /* Cbranch.m */; };
+		64A27C2018E1640000D184BF /* RepSalescell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* RepSalescell.xib */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
 		64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81018DFEE980015887F /* LeadsViewController.xib */; };
 		64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81118DFEE980015887F /* CustomLeadCell.xib */; };
@@ -372,6 +373,7 @@
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
 		64A27C1C18E149D300D184BF /* Cbranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cbranch.h; sourceTree = "<group>"; };
 		64A27C1D18E149D300D184BF /* Cbranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cbranch.m; sourceTree = "<group>"; };
+		64A27C1F18E1640000D184BF /* RepSalescell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepSalescell.xib; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		64A3B80F18DFEE980015887F /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		64A3B81018DFEE980015887F /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
@@ -855,6 +857,7 @@
 				649AE8841772DFF200CAECE7 /* SalesRepInfoViewController.h */,
 				649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */,
 				649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */,
+				64A27C1F18E1640000D184BF /* RepSalescell.xib */,
 				D4F19DF218D03F47007617F0 /* ContractViewController.h */,
 				D4F19DF318D03F47007617F0 /* ContractViewController.m */,
 				D4F19DF418D03F47007617F0 /* ContractViewController.xib */,
@@ -1204,6 +1207,7 @@
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				6426F5F918C06824002471AC /* fleet.png in Resources */,
 				649EDEC618BB04EC00B78D97 /* addworkscheduleview.xib in Resources */,
+				64A27C2018E1640000D184BF /* RepSalescell.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,

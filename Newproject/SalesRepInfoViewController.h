@@ -17,8 +17,20 @@
 @property(strong,nonatomic)IBOutlet UIView *addView;
 @property(strong,nonatomic)IBOutlet UINavigationItem *navbar;
 @property(strong,nonatomic)IBOutlet UIView *infoview;
+@property(strong,nonatomic)IBOutlet UITableViewCell *salescell;
+
 - (IBAction)closesalesreppage:(id)sender;
 - (IBAction)addsalesaction:(id)sender;
 - (IBAction)deletesalesaction:(id)sender;
 - (IBAction)editsalesaction:(id)sender;
+
+/*Outlets in cell*/
+@property (strong, nonatomic) IBOutlet UILabel *custcodelabel;
+@property (strong, nonatomic) IBOutlet UILabel *empidlabel;
+@property (strong, nonatomic) IBOutlet UILabel *namelabel;
+@property (strong, nonatomic) IBOutlet UILabel *phonelabel;
+@property (strong, nonatomic) IBOutlet UILabel *extensionlabel;
+@property (strong, nonatomic) IBOutlet UILabel *mobilelabel;
+@property (strong, nonatomic) IBOutlet UILabel *email;
+
 @end
