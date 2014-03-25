@@ -24,6 +24,7 @@
       NSString *mobilestrg;
     
 }
+@property (strong, nonatomic) IBOutlet UINavigationBar *titlenav;
 
 @property(strong,nonatomic)Infomdl *infomdl;
 @property(strong,nonatomic)NSString *custmrcode;

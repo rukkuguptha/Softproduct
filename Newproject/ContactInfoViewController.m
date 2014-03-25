@@ -28,8 +28,9 @@
     [super viewDidLoad];
     _scroll.frame=CGRectMake(0, 0, 1024,708);
     [_scroll setContentSize:CGSizeMake(1024,760)];
+  
     _infoview.backgroundColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
-     self.navbar.tintColor=[UIColor colorWithRed:227.0/255.0f green:240.0/255.0f blue:247.0/255.0f alpha:1.0f];
+     _titlenav.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
     _contactinfoTable.layer.borderWidth = 2.0;
     _contactinfoTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
