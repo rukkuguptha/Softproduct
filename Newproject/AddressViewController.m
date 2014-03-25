@@ -30,11 +30,12 @@
     
     _addresstable.layer.borderWidth=3.0;
     _addresstable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _titileview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
+    
     [[self.adrsstxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.adrsstxtview layer] setBorderWidth:2];
     [[self.adrsstxtview layer] setCornerRadius:10];
-    _titileview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
-
+   
 }
 
 - (void)didReceiveMemoryWarning
@@ -467,10 +468,11 @@
     {
         
         recordResults = FALSE;
+        msgstrg=_soapResults;
         if(webtype==1||webtype==2){
             
       
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
            
             [alert show];
         }
@@ -544,6 +546,21 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     ////NSLog(@"buttonIndex%d",buttonIndex);
+    if ([alertView.message isEqualToString:msgstrg]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _headrtxtfld.text=@"";
+            _adrsstxtview.text=@"";
+
+            
+            
+        }
+    }
+
     
     if ([alertView.message isEqualToString:@"Header is required"]) {
         

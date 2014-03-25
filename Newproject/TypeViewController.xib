@@ -26,6 +26,10 @@
                     <rect key="frame" x="37" y="116" width="466" height="424"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="dS0-TZ-SQt"/>
+                        <outlet property="delegate" destination="-1" id="PhX-v1-Mlo"/>
+                    </connections>
                 </tableView>
                 <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WCo-Zm-BDl">
                     <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
@@ -73,8 +77,8 @@
                                 <action selector="deltebtn:" destination="-1" eventType="touchUpInside" id="j8a-YY-EZP"/>
                             </connections>
                         </button>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8x-Kf-odL">
-                            <rect key="frame" x="163" y="7" width="60" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Type Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8x-Kf-odL">
+                            <rect key="frame" x="141" y="7" width="92" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
@@ -99,6 +103,9 @@
                                             <state key="normal" backgroundImage="appbar.close.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="addclsebtn:" destination="-1" eventType="touchUpInside" id="ycD-13-YWo"/>
+                                            </connections>
                                         </button>
                                     </barButtonItem>
                                 </navigationItem>
@@ -134,6 +141,9 @@
                             <state key="normal" title="Cancel">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="cancelbtn:" destination="-1" eventType="touchUpInside" id="cxi-yE-5Qf"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
