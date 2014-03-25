@@ -387,7 +387,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
-       [[NSBundle mainBundle]loadNibNamed:@"typecell" owner:self options:nil];
+       [[NSBundle mainBundle]loadNibNamed:@"cTypecell" owner:self options:nil];
         cell=_typecell;
     }
     

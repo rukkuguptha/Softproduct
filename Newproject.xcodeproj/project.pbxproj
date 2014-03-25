@@ -181,7 +181,7 @@
 		D44BEA7718E0254900719ED5 /* TypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7518E0254900719ED5 /* TypeViewController.xib */; };
 		D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7918E0360F00719ED5 /* Addresscell.xib */; };
 		D44BEA8018E03C3100719ED5 /* Mdladdress.m in Sources */ = {isa = PBXBuildFile; fileRef = D44BEA7F18E03C3100719ED5 /* Mdladdress.m */; };
-		D44BEA8218E04D5100719ED5 /* typecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA8118E04D5100719ED5 /* typecell.xib */; };
+		D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA8118E04D5100719ED5 /* cTypecell.xib */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
 		D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA241873F1AF007EE3DC /* ConsumbleViewController.m */; };
@@ -512,7 +512,7 @@
 		D44BEA7918E0360F00719ED5 /* Addresscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Addresscell.xib; sourceTree = "<group>"; };
 		D44BEA7E18E03C3100719ED5 /* Mdladdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mdladdress.h; sourceTree = "<group>"; };
 		D44BEA7F18E03C3100719ED5 /* Mdladdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mdladdress.m; sourceTree = "<group>"; };
-		D44BEA8118E04D5100719ED5 /* typecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = typecell.xib; sourceTree = "<group>"; };
+		D44BEA8118E04D5100719ED5 /* cTypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cTypecell.xib; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
 		D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThirdPartyViewController.xib; sourceTree = "<group>"; };
@@ -580,7 +580,7 @@
 		D4F0008718D2C478005A50A9 /* CompanyCmntscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompanyCmntscell.xib; sourceTree = "<group>"; };
 		D4F036C618B70A38003A668C /* Wrkschdulecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Wrkschdulecell.xib; sourceTree = "<group>"; };
 		D4F036C818B71781003A668C /* Meetingnotesview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Meetingnotesview.xib; sourceTree = "<group>"; };
-		D4F19D9C18D01CDB007617F0 /* NewCustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCustmrViewController.h; sourceTree = "<group>"; };
+		D4F19D9C18D01CDB007617F0 /* NewCustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NewCustmrViewController.h; sourceTree = "<group>"; usesTabs = 0; };
 		D4F19D9D18D01CDB007617F0 /* NewCustmrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCustmrViewController.m; sourceTree = "<group>"; };
 		D4F19D9E18D01CDB007617F0 /* NewCustmrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCustmrViewController.xib; sourceTree = "<group>"; };
 		D4F19DC318D0375F007617F0 /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
@@ -703,7 +703,7 @@
 				D44BEA7318E0254900719ED5 /* TypeViewController.h */,
 				D44BEA7418E0254900719ED5 /* TypeViewController.m */,
 				D44BEA7518E0254900719ED5 /* TypeViewController.xib */,
-				D44BEA8118E04D5100719ED5 /* typecell.xib */,
+				D44BEA8118E04D5100719ED5 /* cTypecell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -1294,7 +1294,7 @@
 				D4F19E0618D03FE8007617F0 /* billingcell.xib in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D42D8C2D18D2E126009D8085 /* customservicescell.xib in Resources */,
-				D44BEA8218E04D5100719ED5 /* typecell.xib in Resources */,
+				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
 				D43DAA3518D1B0A800280AA6 /* CmpnydocsViewController.xib in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
