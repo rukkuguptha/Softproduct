@@ -106,7 +106,8 @@
     if (!self.tileVCtrl) {
         self.tileVCtrl=[[TileViewController alloc]initWithNibName:@"TileViewController" bundle:nil];
     }
-    _tileVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    _tileVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    
     [self presentViewController:_tileVCtrl
                        animated:YES completion:NULL];
     
