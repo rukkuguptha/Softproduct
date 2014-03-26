@@ -117,12 +117,9 @@
 }
 -(IBAction)savebranch:(id)sender
 {
-    Validation *val=[[Validation alloc]init];
-    if (optionidentifier==1) {
-        
-
-        
-    if([_branchnametextfld.text isEqualToString:@""])
+    
+    
+        if([_branchnametextfld.text isEqualToString:@""])
         {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Branch Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
@@ -132,39 +129,35 @@
             [alert show];
         }
        
-        else if(![_emailtextfield.text isEqualToString:@""])
-        {
-            int value2 = [val validEmailAddress:_emailtextfield.text];
-            if(value2==0)
-            {
-                
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert1 show];
-            }
-            
-            
-        }
+    
+       else if (optionidentifier==1) {
 
-        else
-        {
-        
+           if(![_emailtextfield.text isEqualToString:@""])
+           {
+               Validation *val=[[Validation alloc]init];
+               int value2 = [val validEmailAddress:_emailtextfield.text];
+               if(value2==0)
+               {
+                   
+                   UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                   [alert1 show];
+               }
+               
+               
+           
+           else
+           {
+
         [self BranchInsert];
+           }
+           }
         }
-    }
-    else
+    
+      else if(optionidentifier==2)
     {
-        
-         if([_branchnametextfld.text isEqualToString:@""])
+        if(![_emailtextfield.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Branch Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else  if ([_phonetextfield.text isEqualToString:@""]) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else if(![_emailtextfield.text isEqualToString:@""])
-        {
+            Validation *val=[[Validation alloc]init];
             int value2 = [val validEmailAddress:_emailtextfield.text];
             if(value2==0)
             {
@@ -174,13 +167,16 @@
             }
             
             
-        }
-        else
-        {
+            else{
+        
 
-        [self BranchUpdate];
+        
+       [self BranchUpdate];
+            }
         }
-    }
+    
+        }
+    
 }
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -719,15 +715,13 @@
     if ([elementName isEqualToString:@"Phone"]) {
         
         recordResults=FALSE;
-        _branchmodel.phone=_soapResults;
-        _soapResults=nil;
+        _branchmodel.phone=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];        _soapResults=nil;
     }
 
     if ([elementName isEqualToString:@"Fax"]) {
        
         recordResults=FALSE;
-        _branchmodel.fax=_soapResults;
-        _soapResults=nil;
+        _branchmodel.fax=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];        _soapResults=nil;
     }
     if ([elementName isEqualToString:@"Email"]) {
         
