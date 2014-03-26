@@ -38,6 +38,7 @@
 -(IBAction)editbranchaction:(id)sender;
 -(IBAction)closebranch:(id)sender;
 -(IBAction)savebranch:(id)sender;
+-(IBAction)cancel:(id)sender;
 
 
 /*IBOutlets*/

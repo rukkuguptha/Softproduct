@@ -236,6 +236,9 @@
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="ql8-UR-N6H"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </scrollView>

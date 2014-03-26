@@ -115,6 +115,14 @@
 {
     _branchview.hidden=YES;
 }
+-(IBAction)cancel:(id)sender
+{
+    _branchnametextfld.text=@"";
+    _addresstextview.text=@"";
+    _phonetextfield.text=@"";
+    _faxtextfield.text=@"";
+    _emailtextfield.text=@"";
+}
 -(IBAction)savebranch:(id)sender
 {
     
