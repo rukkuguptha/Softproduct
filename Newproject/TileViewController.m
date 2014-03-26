@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+       
     }
     return self;
 }
@@ -101,6 +102,7 @@
         self.compVCtrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
     }
     _compVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+
     [self presentViewController:_compVCtrl
                        animated:YES completion:NULL];
 }

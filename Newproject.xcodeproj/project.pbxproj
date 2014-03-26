@@ -121,6 +121,7 @@
 		D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99CA18C5A9B5005384F9 /* EmplyhrmgntViewController.m */; };
 		D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */; };
 		D40A99D018C5E3C3005384F9 /* NewscfldDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */; };
+		D40ACBF918E29D09009497F6 /* comp.png in Resources */ = {isa = PBXBuildFile; fileRef = D40ACBF818E29D09009497F6 /* comp.png */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
 		D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAC176B086F00379DD5 /* Foundation.framework */; };
 		D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */; };
@@ -432,6 +433,7 @@
 		D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmplyhrmgntViewController.xib; sourceTree = "<group>"; };
 		D40A99CE18C5E3C3005384F9 /* NewscfldDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewscfldDetails.h; sourceTree = "<group>"; };
 		D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewscfldDetails.m; sourceTree = "<group>"; };
+		D40ACBF818E29D09009497F6 /* comp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = comp.png; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -943,6 +945,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D40ACBF818E29D09009497F6 /* comp.png */,
 				D4E6156318D971C500D7EAA0 /* logo.png */,
 				6426F5FA18C0685C002471AC /* SasteyPicture.png */,
 				6426F5F818C06824002471AC /* fleet.png */,
@@ -1290,6 +1293,7 @@
 				D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */,
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
+				D40ACBF918E29D09009497F6 /* comp.png in Resources */,
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
