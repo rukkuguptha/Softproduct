@@ -93,7 +93,12 @@
     doubleTap8.delegate=(id)self;
     [self.basicreqview addGestureRecognizer:doubleTap8];
 
-
+    UITapGestureRecognizer *doubleTap9 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(serailnumpage)];
+    doubleTap9.numberOfTapsRequired=1;
+    doubleTap9.delegate=(id)self;
+    [self.serialview addGestureRecognizer:doubleTap9];
 }
 
 -(void)companyPage
@@ -183,6 +188,18 @@
     [self presentViewController:_basicreqVctrl
                        animated:YES completion:NULL];
 }
+
+-(void)serailnumpage{
+    if (!self.SerialVCtrl) {
+        self.SerialVCtrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
+    }
+     _SerialVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_SerialVCtrl
+                       animated:YES completion:NULL];
+}
+
+    
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

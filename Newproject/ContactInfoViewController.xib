@@ -133,7 +133,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="t6t-L1-S9F">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="2P1-PV-brW">
+                                            <barButtonItem key="rightBarButtonItem" id="2P1-PV-brW">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="169-rd-yvW">
                                                     <rect key="frame" x="547" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
