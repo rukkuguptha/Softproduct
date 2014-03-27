@@ -546,7 +546,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"skillid"])
+    if([elementName isEqualToString:@"SkillId"])
     {
                 if(!_soapResults)
         {
@@ -554,7 +554,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"skillname"])
+    if([elementName isEqualToString:@"SkillName"])
     {
         if(!_soapResults)
         {
@@ -638,7 +638,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"skillid"])
+    if([elementName isEqualToString:@"SkillId"])
     {
         _servmdl=[[Servicemdl alloc]init];
         
@@ -647,7 +647,7 @@
         _servmdl.servid=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"skillname"])
+    if([elementName isEqualToString:@"SkillName"])
     {
         
         
