@@ -12,6 +12,7 @@
                 <outlet property="companyinfoview" destination="ePK-YM-E9k" id="Reb-1W-cYy"/>
                 <outlet property="foldersview" destination="pQg-uw-7aJ" id="z6l-OS-B6G"/>
                 <outlet property="jobsitereqview" destination="gRy-U0-QsY" id="ef4-1o-WJC"/>
+                <outlet property="serialview" destination="V66-QV-RNi" id="zUG-Bt-E47"/>
                 <outlet property="servicesview" destination="yYv-UH-Zb5" id="y0s-fb-pem"/>
                 <outlet property="usersview" destination="Pye-b3-Mex" id="wZr-td-iHh"/>
                 <outlet property="view" destination="2" id="3"/>

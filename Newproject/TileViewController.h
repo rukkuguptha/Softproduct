@@ -19,6 +19,7 @@
 #import "CmpnydocsViewController.h"
 #import "TypeViewController.h"
 #import "BranchViewController.h"
+#import "SerialViewController.h"
 
 @interface TileViewController : UIViewController
 
@@ -33,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet UIView *workphaseview;
 @property(strong,nonatomic)IBOutlet UIView *jobsitereqview;
 @property(strong,nonatomic)IBOutlet UIView *basicreqview;
+@property (strong, nonatomic) IBOutlet UIView *serialview;
 
 //close Actions
 -(IBAction)closethetile:(id)sender;
@@ -54,5 +56,6 @@
 
 @property(strong,nonatomic)TypeViewController *typeVCtrl;
 @property(strong,nonatomic)BranchViewController *branchVCtrl;
+@property(strong,nonatomic)SerialViewController *SerialVCtrl;
 
 @end

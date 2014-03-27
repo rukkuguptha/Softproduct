@@ -102,6 +102,10 @@
 		D400406B185B180200C38E12 /* ResViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004069185B180200C38E12 /* ResViewController.xib */; };
 		D4004074185B183600C38E12 /* EqpmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004072185B183600C38E12 /* EqpmViewController.m */; };
 		D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004073185B183600C38E12 /* EqpmViewController.xib */; };
+		D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF118E3E05B00DB825A /* SerialViewController.m */; };
+		D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF218E3E05B00DB825A /* SerialViewController.xib */; };
+		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
+		D4014FF918E3EF0000DB825A /* NumbrSerMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */; };
 		D40313B618B5E34300C27F2F /* SitevistMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D40313B518B5E34300C27F2F /* SitevistMdl.m */; };
 		D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B718B6036300C27F2F /* SaftyCell.xib */; };
 		D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */; };
@@ -410,6 +414,12 @@
 		D4004071185B183600C38E12 /* EqpmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqpmViewController.h; sourceTree = "<group>"; };
 		D4004072185B183600C38E12 /* EqpmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqpmViewController.m; sourceTree = "<group>"; };
 		D4004073185B183600C38E12 /* EqpmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqpmViewController.xib; sourceTree = "<group>"; };
+		D4014FF018E3E05B00DB825A /* SerialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerialViewController.h; sourceTree = "<group>"; };
+		D4014FF118E3E05B00DB825A /* SerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialViewController.m; sourceTree = "<group>"; };
+		D4014FF218E3E05B00DB825A /* SerialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialViewController.xib; sourceTree = "<group>"; };
+		D4014FF518E3E34000DB825A /* Snumcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Snumcell.xib; sourceTree = "<group>"; };
+		D4014FF718E3EEFF00DB825A /* NumbrSerMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumbrSerMdl.h; sourceTree = "<group>"; };
+		D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumbrSerMdl.m; sourceTree = "<group>"; };
 		D40313B418B5E34300C27F2F /* SitevistMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitevistMdl.h; sourceTree = "<group>"; };
 		D40313B518B5E34300C27F2F /* SitevistMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevistMdl.m; sourceTree = "<group>"; };
 		D40313B718B6036300C27F2F /* SaftyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaftyCell.xib; sourceTree = "<group>"; };
@@ -716,6 +726,10 @@
 				D44BEA7418E0254900719ED5 /* TypeViewController.m */,
 				D44BEA7518E0254900719ED5 /* TypeViewController.xib */,
 				D44BEA8118E04D5100719ED5 /* cTypecell.xib */,
+				D4014FF018E3E05B00DB825A /* SerialViewController.h */,
+				D4014FF118E3E05B00DB825A /* SerialViewController.m */,
+				D4014FF218E3E05B00DB825A /* SerialViewController.xib */,
+				D4014FF518E3E34000DB825A /* Snumcell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -1083,6 +1097,8 @@
 				D4F5BD5818E167EF0045DBE3 /* Infomdl.m */,
 				D4F5BD5A18E168570045DBE3 /* Rsalesmdl.h */,
 				D4F5BD5B18E168570045DBE3 /* Rsalesmdl.m */,
+				D4014FF718E3EEFF00DB825A /* NumbrSerMdl.h */,
+				D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1325,6 +1341,7 @@
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D42D8C0818D2D8AC009D8085 /* folderrightsViewController.xib in Resources */,
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
+				D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */,
 				6426F5EB18C06062002471AC /* leads.png in Resources */,
 				D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
@@ -1350,6 +1367,7 @@
 				D49EB4BB18C0AA07009249A9 /* DetailplanViewController.xib in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				6426F5F518C062F6002471AC /* payroll.png in Resources */,
+				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
@@ -1431,6 +1449,7 @@
 				649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */,
 				D4DD31BF18CDAF9800CA2A33 /* Empmdl.m in Sources */,
 				D4F19DFF18D03F77007617F0 /* BillingViewController.m in Sources */,
+				D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */,
 				D42D8C4018D2E442009D8085 /* ServiceViewController.m in Sources */,
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */,
@@ -1453,6 +1472,7 @@
 				D44BEA8018E03C3100719ED5 /* Mdladdress.m in Sources */,
 				D42D8C3A18D2E3F0009D8085 /* UsersViewController.m in Sources */,
 				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
+				D4014FF918E3EF0000DB825A /* NumbrSerMdl.m in Sources */,
 				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
