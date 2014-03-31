@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -35,19 +35,15 @@
                     <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="YJk-uS-JBe">
-                            <rect key="frame" x="0.0" y="1" width="1024" height="767"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
                         <navigationBar contentMode="scaleToFill" id="FkJ-Il-DCD">
-                            <rect key="frame" x="2" y="1" width="1019" height="44"/>
+                            <rect key="frame" x="0.0" y="15" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Plan" id="nUE-6U-sAD">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="d3V-68-WqR">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Zg-tS-lEl">
-                                            <rect key="frame" x="963" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="968" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="Button" image="appbar.close.png">
@@ -66,7 +62,7 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="cUd-Yi-D2O">
-                                    <rect key="frame" x="3" y="67" width="1017" height="583"/>
+                                    <rect key="frame" x="3" y="75" width="1017" height="583"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
@@ -75,7 +71,7 @@
                                     </connections>
                                 </tableView>
                                 <view contentMode="scaleToFill" id="BYS-GS-17Y">
-                                    <rect key="frame" x="3" y="28" width="1017" height="40"/>
+                                    <rect key="frame" x="3" y="36" width="1017" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="W6b-J2-Z5o">
@@ -154,7 +150,7 @@
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 </view>
                                 <view hidden="YES" contentMode="scaleToFill" id="z9i-cr-h5a" userLabel="AddNewRecordview">
-                                    <rect key="frame" x="141" y="87" width="771" height="443"/>
+                                    <rect key="frame" x="141" y="95" width="771" height="443"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="l0h-iy-shE">
@@ -316,7 +312,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="KXL-ug-lIl">
-                            <rect key="frame" x="2" y="45" width="1020" height="44"/>
+                            <rect key="frame" x="0.0" y="59" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <barButtonItem title="Scaffolding" width="87" id="2a9-lu-Atn">

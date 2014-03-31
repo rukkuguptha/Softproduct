@@ -34,7 +34,7 @@
 @property(strong,nonatomic)DetailproHrViewController *DetailproVCtrl;
 
 /*views*/
-@property (strong, nonatomic) IBOutlet UINavigationBar *titleview;
+@property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic) IBOutlet UIView *jobviews;
 
 /*strings*/
