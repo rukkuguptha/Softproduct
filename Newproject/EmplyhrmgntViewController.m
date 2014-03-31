@@ -48,6 +48,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
       [self SelectAllJobSites];
+    self.openviewindex=NSNotFound;
+
    
    
     
@@ -60,6 +62,8 @@
 }
 -(IBAction)closeempmgmt:(id)sender
 {
+    self.openviewindex=NSNotFound;
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 #pragma mark-tableview datasources
@@ -179,7 +183,7 @@
     _badgelbl.hidden=NO;
     NSLog(@"%@",empmdl.badgeflag);
     if ([empmdl.badgeflag isEqualToString:@"true"]) {
-        //_badgelbl.enabled=NO;
+        _badgelbl.enabled=NO;
         _animatedview.userInteractionEnabled=NO;
         //_animatedview.
         

@@ -72,15 +72,15 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="OIv-Fh-kb9">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <rect key="frame" x="0.0" y="19" width="1024" height="749"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="HdY-na-9EV">
-                            <rect key="frame" x="0.0" y="142" width="1026" height="626"/>
+                            <rect key="frame" x="0.0" y="141" width="1026" height="608"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </imageView>
                         <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="7Sa-15-2Ih">
-                            <rect key="frame" x="0.0" y="147" width="1024" height="621"/>
+                            <rect key="frame" x="0.0" y="141" width="1024" height="621"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" id="Gcq-hx-B5r" userLabel="Generalview">
@@ -954,7 +954,7 @@
                             </subviews>
                         </scrollView>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="YfS-a4-0AR">
-                            <rect key="frame" x="0.0" y="48" width="1026" height="44"/>
+                            <rect key="frame" x="0.0" y="45" width="1026" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
@@ -1013,7 +1013,7 @@
                             <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </toolbar>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="d7c-jc-gXd">
-                            <rect key="frame" x="0.0" y="92" width="1024" height="44"/>
+                            <rect key="frame" x="0.0" y="89" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem width="30" style="plain" systemItem="fixedSpace" id="qCr-Mg-i2V"/>
@@ -1083,14 +1083,14 @@
                     </subviews>
                 </scrollView>
                 <navigationBar contentMode="scaleToFill" id="EAY-jM-RTh">
-                    <rect key="frame" x="2" y="2" width="1021" height="44"/>
+                    <rect key="frame" x="0.0" y="19" width="1023" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Site Visit" id="aQr-wE-3Kc">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="70O-6h-kbk">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="oUF-R6-mt9">
-                                    <rect key="frame" x="965" y="2" width="40" height="40"/>
+                                    <rect key="frame" x="967" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.close.png">

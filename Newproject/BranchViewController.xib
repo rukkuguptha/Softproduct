@@ -34,7 +34,7 @@
                     </connections>
                 </tableView>
                 <navigationBar contentMode="scaleToFill" id="Zmc-sQ-0Cl">
-                    <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                    <rect key="frame" x="0.0" y="21" width="1024" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
