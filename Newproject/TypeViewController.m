@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self Itemrequirementselect];
     // Do any additional setup after loading the view from its nib.
     _typetable.layer.borderWidth=3.0;
     _typetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
@@ -188,6 +189,7 @@
     
 }
 -(void)ItemrequirementDelete{
+     webtype=3;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -428,7 +430,7 @@
 - (IBAction)updatebtn:(id)sender {
     if ([_typetxtfld.text isEqualToString:@""]){
         
-        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"TypeName is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         
         [alert show];
     }

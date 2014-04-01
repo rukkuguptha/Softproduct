@@ -370,7 +370,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         
     
     }
-    
+   [self.popOverController dismissPopoverAnimated:YES];
     
     
     }
@@ -612,6 +612,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 -(IBAction)cancelaction:(id)sender
 {
     [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
+     [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
     
     
     _employerTxtfld.text=@"";
