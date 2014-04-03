@@ -950,7 +950,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"skillid"])
+    if([elementName isEqualToString:@"SkillId"])
     {
         
         if(!_soapResults)
@@ -959,7 +959,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"skillname"])
+    if([elementName isEqualToString:@"SkillName"])
     {
                 if(!_soapResults)
         {
@@ -1116,7 +1116,7 @@
         [_workphasesarray addObject:_phasemdl];
         _soapResults = nil;
     }
-        if([elementName isEqualToString:@"skillid"])
+        if([elementName isEqualToString:@"SkillId"])
     {
         
         
@@ -1125,7 +1125,7 @@
         //_phasemdl.idvalue=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"skillname"])
+    if([elementName isEqualToString:@"SkillName"])
     {
         
         

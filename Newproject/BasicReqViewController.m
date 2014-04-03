@@ -1388,7 +1388,7 @@
     
 }
 -(void)SearchRequirements{
-    webtype=2;
+    //webtype=2;
     recordresults = FALSE;
     NSString *soapMessage;
     
