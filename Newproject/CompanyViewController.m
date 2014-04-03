@@ -26,8 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _scroll.frame=CGRectMake(0, 0,768, 1024);
-    [_scroll setContentSize:CGSizeMake(768,1400)];
+   
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
     // Do any additional setup after loading the view from its nib.
@@ -35,11 +34,14 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+  
+    _scroll.frame=CGRectMake(0, 0,768, 1024);
+    [_scroll setContentSize:CGSizeMake(768,1400)];
 
-    [self Getbasicinfo];
+   [self Getbasicinfo];
    
 }
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -826,6 +828,7 @@
 -(IBAction)closethecompany:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    [_scroll setContentOffset:CGPointZero animated:YES];
       _updatelbl.hidden=YES;
 }
 #pragma mark-textfld delegates

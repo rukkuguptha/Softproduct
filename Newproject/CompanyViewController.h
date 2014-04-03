@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Validation.h"
 #import "AddressViewController.h"
-@interface CompanyViewController : UIViewController<UITextFieldDelegate>
+@interface CompanyViewController : UIViewController<UITextFieldDelegate,UIScrollViewDelegate>
 {
       BOOL recordResults;
     //fax format

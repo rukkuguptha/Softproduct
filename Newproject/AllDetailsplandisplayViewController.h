@@ -14,6 +14,10 @@
 #import "Scaffoldsubtypemodel.h"
 
 
+@protocol animatndelegate <NSObject>
+-(void)navgteanimtn;
+@end
+
 
 @interface AllDetailsplandisplayViewController : UIViewController<UIGestureRecognizerDelegate>{
     
@@ -44,6 +48,7 @@
     NSInteger firstscfldid;
 
   }
+@property(weak,nonatomic)id<animatndelegate>delegate;
 @property(strong,nonatomic)Scaffoldsubtypemodel *scfldsubtypemdl;
 
 @property(strong,nonatomic)NewscfldDetails * newscflddetails;
