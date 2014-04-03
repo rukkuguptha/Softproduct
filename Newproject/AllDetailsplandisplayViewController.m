@@ -209,7 +209,8 @@ return cell;
 
 
 -(IBAction)clsebtn:(id)sender{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    //[self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
     _lengthfld.text=@"";
     _widthfld.text=@"";
     _hightfld.text=@"";
