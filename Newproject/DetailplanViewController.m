@@ -1299,11 +1299,21 @@
                     break;
             }
 
-        _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-        _allctrlr.modalTransitionStyle=UIModalTransitionStylePartialCurl;
+//        _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+//        _allctrlr.modalTransitionStyle=UIModalTransitionStylePartialCurl;
+            _allctrlr.delegate=self;
+
+            [UIView transitionFromView:self.addscaffoldrecordview
+                                toView:self.allctrlr.view
+                              duration:1
+                               options:UIViewAnimationOptionTransitionFlipFromRight
+                            completion:nil];
+            
+            [self.navigationController pushViewController:_allctrlr animated:NO];
+
             _addscaffoldrecordview.hidden=YES;
-                 [self presentViewController:_allctrlr
-                           animated:YES completion:NULL];
+//                 [self presentViewController:_allctrlr
+//                           animated:YES completion:NULL];
         }
        
         _soapresults = nil;
@@ -1363,17 +1373,19 @@
 
 //            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
 //            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+            _allctrlr.delegate=self;
            
             //[self presentViewController:_allctrlr
                                //animated:YES completion:NULL];
             
                       [UIView transitionFromView:self.addscaffoldrecordview
-                                toView:_allctrlr.view
+                                toView:self.allctrlr.view
                               duration:1
                                options:UIViewAnimationOptionTransitionFlipFromRight
                             completion:nil];
             
             [self.navigationController pushViewController:_allctrlr animated:NO];
+            
            // [self presentViewController:_allctrlr
             //animated:NO completion:NULL];
 
@@ -1403,6 +1415,15 @@
         _soapresults = nil;
     }
 
+
+}
+
+-(void)navgteanimtn{
+    [UIView transitionFromView:self.allctrlr.view
+                        toView:self.addscaffoldrecordview
+                      duration:1
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    completion:nil];
 
 }
 

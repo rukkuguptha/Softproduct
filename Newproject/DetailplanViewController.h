@@ -11,7 +11,7 @@
 #import "Scaffoldtypemdl.h"
 #import "AllDetailsplandisplayViewController.h"
 
-@interface DetailplanViewController : UIViewController
+@interface DetailplanViewController : UIViewController<animatndelegate>
 {
     BOOL recordResults;
     NSInteger webtype;
@@ -94,4 +94,6 @@
 @property(strong,nonatomic)NSString *scaffoldtypestring;
 @property(strong,nonatomic)NSString *insertresultvalue;
 
+
+-(void)navgteanimtn;
 @end

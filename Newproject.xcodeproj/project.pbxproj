@@ -109,6 +109,8 @@
 		D40313B618B5E34300C27F2F /* SitevistMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D40313B518B5E34300C27F2F /* SitevistMdl.m */; };
 		D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B718B6036300C27F2F /* SaftyCell.xib */; };
 		D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */; };
+		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
+		D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */; };
 		D4041F161779ACB500247373 /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4041F151779ACB400247373 /* followupmodel.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
@@ -423,6 +425,9 @@
 		D40313B518B5E34300C27F2F /* SitevistMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevistMdl.m; sourceTree = "<group>"; };
 		D40313B718B6036300C27F2F /* SaftyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaftyCell.xib; sourceTree = "<group>"; };
 		D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = siteEqupmtntcell.xib; sourceTree = "<group>"; };
+		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
+		D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangmntdetailsViewController.m; sourceTree = "<group>"; };
+		D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MangmntdetailsViewController.xib; sourceTree = "<group>"; };
 		D4041F141779ACB400247373 /* followupmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = followupmodel.h; sourceTree = "<group>"; };
 		D4041F151779ACB400247373 /* followupmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = followupmodel.m; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
@@ -882,6 +887,9 @@
 				D4F19DF318D03F47007617F0 /* ContractViewController.m */,
 				D4F19DF418D03F47007617F0 /* ContractViewController.xib */,
 				D4F19E0118D03FBA007617F0 /* Contractcell.xib */,
+				D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */,
+				D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */,
+				D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */,
 				D4F19DF718D03F60007617F0 /* MarkupViewController.h */,
 				D4F19DF818D03F60007617F0 /* MarkupViewController.m */,
 				D4F19DF918D03F60007617F0 /* MarkupViewController.xib */,
@@ -1278,6 +1286,7 @@
 				64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */,
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */,
+				D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
 				D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */,
 				D4E15794177416D9002764AB /* icon-disclosure.png in Resources */,
@@ -1487,6 +1496,7 @@
 				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
 				D4F19E0918D044AE007617F0 /* Custmermdl.m in Sources */,
 				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
+				D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */,
 				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
 				D4FFBD181855A01F0007851D /* Section.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,

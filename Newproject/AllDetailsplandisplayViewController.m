@@ -209,8 +209,18 @@ return cell;
 
 
 -(IBAction)clsebtn:(id)sender{
-    //[self dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+//    //[self dismissViewControllerAnimated:YES completion:nil];
+//    [UIView transitionWithView:self.view duration:1 options:UIViewAnimationOptionTransitionFlipFromRight animations:nil completion:nil];
+////    [UIView transitionFromView:self.view
+////                        toView:self.allctrlr.view
+////                      duration:1
+////                       options:UIViewAnimationOptionTransitionFlipFromRight
+////                    completion:nil];
+
+    if ([self.delegate respondsToSelector:@selector(navgteanimtn)]) {
+        [self.delegate navgteanimtn];
+    }
+    [self.navigationController popViewControllerAnimated:NO];
     _lengthfld.text=@"";
     _widthfld.text=@"";
     _hightfld.text=@"";
