@@ -39,6 +39,7 @@
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
 		649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */; };
+		649CAD0318ED3B46002915F5 /* subcontract.m in Sources */ = {isa = PBXBuildFile; fileRef = 649CAD0218ED3B46002915F5 /* subcontract.m */; };
 		649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7B18615A240010CBD8 /* customequipcell.xib */; };
 		649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */; };
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
@@ -331,6 +332,8 @@
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
 		649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendEmployeeview.xib; sourceTree = "<group>"; };
+		649CAD0118ED3B46002915F5 /* subcontract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subcontract.h; sourceTree = "<group>"; };
+		649CAD0218ED3B46002915F5 /* subcontract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subcontract.m; sourceTree = "<group>"; };
 		649E1F7B18615A240010CBD8 /* customequipcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = customequipcell.xib; path = ../customequipcell.xib; sourceTree = "<group>"; };
 		649E1F7D18617ECD0010CBD8 /* MaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsViewController.h; sourceTree = "<group>"; };
 		649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsViewController.m; sourceTree = "<group>"; };
@@ -1104,6 +1107,8 @@
 				D4F5BD5B18E168570045DBE3 /* Rsalesmdl.m */,
 				D4014FF718E3EEFF00DB825A /* NumbrSerMdl.h */,
 				D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */,
+				649CAD0118ED3B46002915F5 /* subcontract.h */,
+				649CAD0218ED3B46002915F5 /* subcontract.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1424,6 +1429,7 @@
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
 				D4F19DFA18D03F60007617F0 /* MarkupViewController.m in Sources */,
 				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,
+				649CAD0318ED3B46002915F5 /* subcontract.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				64A27C1E18E149D300D184BF /* Cbranch.m in Sources */,
 				D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */,

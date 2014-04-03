@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "MangmntdetailsViewController.h"
 
 @interface ContractViewController : UIViewController
 
+
+
+@property(strong,nonatomic)MangmntdetailsViewController *mgmtdetails;
 
 /*IBActions*/
 -(IBAction)closethecontractpage:(id)sender;
