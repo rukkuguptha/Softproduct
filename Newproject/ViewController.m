@@ -24,6 +24,10 @@
 
    NSString*one=[NSString stringWithFormat:@"%@.%@", newstring , astring];
     NSLog(@"%@",one);
+    [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    [self prefersStatusBarHidden];
+    [self setNeedsStatusBarAppearanceUpdate];
+ 
     // self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 
@@ -33,10 +37,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+//-(BOOL)prefersStatusBarHidden{
+//    return YES;
+//}
+
 - (IBAction)loginbtn:(id)sender {
     if (!self.hmeVCtrl) {
         self.hmeVCtrl=[[HomeViewController alloc]initWithNibName:@"HomeViewController" bundle:nil];
     }
     [self.navigationController pushViewController:_hmeVCtrl animated:YES];
-}
+    
+  }
 @end

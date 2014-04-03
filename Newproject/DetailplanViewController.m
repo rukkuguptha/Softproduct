@@ -1300,9 +1300,9 @@
             }
 
         _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-        _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        _allctrlr.modalTransitionStyle=UIModalTransitionStylePartialCurl;
             _addscaffoldrecordview.hidden=YES;
-        [self presentViewController:_allctrlr           
+                 [self presentViewController:_allctrlr
                            animated:YES completion:NULL];
         }
        
@@ -1314,10 +1314,10 @@
         recordResults = FALSE;
         if([_soapresults isEqualToString:@"updatedscaffold"])
         {
-                if (!self.allctrlr)
-                        {
-                            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
-                        }
+//                if (!self.allctrlr)
+//                        {
+//                            self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
+//                        }
             self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
             _allctrlr.Scafldarry=_scaffoldingplanlistarray;
             _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
@@ -1361,12 +1361,41 @@
                     break;
             }
 
-            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
-            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
+//            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+           
+            //[self presentViewController:_allctrlr
+                               //animated:YES completion:NULL];
+            
+                      [UIView transitionFromView:self.addscaffoldrecordview
+                                toView:_allctrlr.view
+                              duration:1
+                               options:UIViewAnimationOptionTransitionFlipFromRight
+                            completion:nil];
+            
+            [self.navigationController pushViewController:_allctrlr animated:NO];
+           // [self presentViewController:_allctrlr
+            //animated:NO completion:NULL];
+
             _addscaffoldrecordview.hidden=YES;
 
-            [self presentViewController:_allctrlr
-                               animated:YES completion:NULL];
+//            CATransition *animation = [CATransition animation];
+//            [animation setDelegate:self];
+//            [animation setDuration:1.0f];
+//            animation.startProgress = 0;
+//            animation.endProgress   = 1;
+//            [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+//            animation.type = @"pageCurl";
+//            animation.subtype=@"fromRight";
+//            animation.fillMode = kCAFillModeForwards;
+//            
+//            [animation setRemovedOnCompletion:NO];
+//            [animation setFillMode: @"extended"];
+//            [animation setRemovedOnCompletion: NO];
+//            //[lyr addAnimation:animation forKey:@"WebPageCurl"];
+//            
+//            [self.navigationController.view.layer addAnimation:animation forKey:@"WebPageCurl"];
+//            [self.navigationController pushViewController:_allctrlr animated:NO];
         }
         
 

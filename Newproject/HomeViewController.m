@@ -85,6 +85,7 @@
         self.custmrVCtrl=[[TilecustmrViewController alloc]initWithNibName:@"TilecustmrViewController" bundle:nil];
     }
     _custmrVCtrl.modalPresentationStyle = UIModalPresentationFormSheet;
+  
 
     [self presentViewController:_custmrVCtrl
                        animated:YES completion:NULL];
