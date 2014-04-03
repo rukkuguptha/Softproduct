@@ -18,5 +18,5 @@
 /*IBOutlets*/
 @property(strong,nonatomic)IBOutlet UITableView *contracttable;
 @property(strong,nonatomic)IBOutlet UIView *contracttitleview;
-
+-(IBAction)tomgmt:(id)sender;
 @end

@@ -22,6 +22,10 @@
     }
     return self;
 }
+-(IBAction)tomgmt:(id)sender
+{
+    
+}
 
 - (void)viewDidLoad
 {
