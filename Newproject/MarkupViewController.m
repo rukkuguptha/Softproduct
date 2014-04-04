@@ -77,6 +77,9 @@
     if (tableView==_popovertableview) {
         return [_markuparray count];
     }
+    if (tableView==_markuptable) {
+        return [_markuptablearray count];
+    }
        return YES;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,7 +90,10 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    if (tableView==_markuptable) {
+        [[NSBundle mainBundle]loadNibNamed:@"markupcell" owner:self options:nil];
+        cell=_markupcell;
+    }
     
     
     

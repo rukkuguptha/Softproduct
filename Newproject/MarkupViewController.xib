@@ -41,6 +41,10 @@
                             <rect key="frame" x="20" y="158" width="713" height="134"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="-1" id="Yth-ZQ-sPD"/>
+                                <outlet property="delegate" destination="-1" id="zMh-oh-zy7"/>
+                            </connections>
                         </tableView>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KTM-6k-KgU">
                             <rect key="frame" x="20" y="370" width="713" height="417"/>
