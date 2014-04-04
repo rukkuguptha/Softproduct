@@ -269,6 +269,7 @@
     if (!self.mgmtdetails) {
         self.mgmtdetails=[[MangmntdetailsViewController alloc]initWithNibName:@"MangmntdetailsViewController" bundle:nil];
     }
+    _mgmtdetails.detailsarray=_passingarray;
     //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
     [self presentViewController:_mgmtdetails
