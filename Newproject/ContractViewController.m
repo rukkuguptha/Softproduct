@@ -284,20 +284,20 @@
     
     _searchstring=_searchbar.text;
     //NSLog(@"search%@",searchstring);
-    //[self SearchBranch];
+    [self ContractManagementSearch];
     [searchBar resignFirstResponder];
     
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    //[self SelectBranches];
+    [self SelectContractManagement];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if ([_searchbar.text length]==0) {
         
-        //[self SelectBranches];
+        [self SelectContractManagement];
         // [searchBar resignFirstResponder];
         
         
@@ -358,7 +358,7 @@
     
     
 }
--(void)SearchBranch
+-(void)ContractManagementSearch
 {
     
     recordResults = FALSE;
@@ -372,9 +372,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchBranch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractManagementSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
-                   "</SearchBranch>\n"
+                   "</ContractManagementSearch>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_searchstring];
     NSLog(@"soapmsg%@",soapMessage);
@@ -389,7 +389,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchBranch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ContractManagementSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -456,6 +456,15 @@
         }
         recordResults = TRUE;
     }
+    if ([elementName isEqualToString:@"ContractManagementSearchResponse"]) {
+        _contractlistarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+    }
+
     if ([elementName isEqualToString:@"ContactEntryId"])
     {
         

@@ -26,6 +26,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+      self.markuptableviewtitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:251.0/255.0f alpha:1.0f];
+    _markuptable.layer.borderWidth=2;
+    _markuptable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:251.0/255.0f alpha:1.0f].CGColor;
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -68,9 +71,16 @@
 #pragma mark-Tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    
+    if (tableView==_popovertableview) {
+        return 1;
+    }
     // Return the number of sections.
-    return 1;
+  
+    if (tableView==_markuptable) {
+        return 5;
+    }
+    return YES;
+
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -79,6 +89,9 @@
     }
     if (tableView==_markuptable) {
         return [_markuptablearray count];
+    }
+    if (tableView==_markuptable) {
+        return 5;
     }
        return YES;
 }
@@ -104,6 +117,21 @@
         cell.textLabel.text=[NSString stringWithFormat:@"%@",[_markuparray objectAtIndex:indexPath.row]];
         
     }
+    if (tableView==_markuptable)
+    {
+        
+//        _namelabel=(UILabel*)[cell viewWithTag:1];
+//        _namelabel.text=submdl.CustomerName;
+//        _numberlabel=(UILabel*)[cell viewWithTag:2];
+//        _numberlabel.text=submdl.Number;
+//        _datelabel=(UILabel*)[cell viewWithTag:3];
+//        _billingdayslabel=(UILabel*)[cell viewWithTag:4];
+//        _billingdayslabel.text=submdl.NetDays;
+//        _weeklyhourslabel=(UILabel*)[cell viewWithTag:5];
+//        _weeklyhourslabel.text=submdl.WeeklyHours;
+
+    }
+
     
     
     
@@ -114,8 +142,11 @@
     if (tableView==_popovertableview)
     {
         [_markupbutton setTitle:[_markuparray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+        mark=[_markuparray objectAtIndex:indexPath.row];
     }
     [self.popovercontroller dismissPopoverAnimated:YES];
+    [self Markupmain];
+    
 }
 
 #pragma mark-Webservices
@@ -170,6 +201,61 @@
     
     
 }
+-(void)Markupmain
+{
+    
+    NSString *markupid=[_markupdict objectForKey:mark];
+    NSLog(@"%@",mark);
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Markupmain xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MarkupID>%d</MarkupID>\n"
+                   "</Markupmain>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[markupid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Markupmain" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webdata = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -250,6 +336,104 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"MarkupmainResult"])
+    {
+        _markuptablearray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"EntryId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"MarkupId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"MainHeader"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"VeriablePercent"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"FixedDollar"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"STPer"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if ([elementName isEqualToString:@"OTPer"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"OTPer"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+
+
+
+
+
+
     
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -285,12 +469,69 @@
         
         _soapresults=nil;
     }
+    if ([elementName isEqualToString:@"MarkupmainResult"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"EntryId"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"MarkupId"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"MainHeader"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"VeriablePercent"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"FixedDollar"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"STPer"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+
+    if ([elementName isEqualToString:@"OTPer"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+    if ([elementName isEqualToString:@"OTDoll"]) {
+        
+        recordResults=FALSE;
+        
+        _soapresults=nil;
+    }
+
     
     
     
     
     
 }
+
 
 
 @end

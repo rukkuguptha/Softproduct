@@ -11,6 +11,7 @@
 @interface MarkupViewController : UIViewController
 {
     BOOL recordResults;
+    NSString *mark;
 }
 
 
