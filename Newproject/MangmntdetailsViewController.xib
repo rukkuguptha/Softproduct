@@ -218,6 +218,9 @@
                                     <state key="normal" backgroundImage="appbar.close.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="clsebtn:" destination="-1" eventType="touchUpInside" id="W7N-yS-Va8"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>

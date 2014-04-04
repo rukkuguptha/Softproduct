@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "subcontract.h"
 
 @interface MangmntdetailsViewController : UIViewController
 
@@ -14,7 +15,7 @@
 
 
 @property(strong,nonatomic)NSMutableArray *detailsarray;
-
+@property(strong,nonatomic)subcontract *subcntrct;
 /*tabbarbuttons*/
 - (IBAction)paymntbtn:(id)sender;
 - (IBAction)volumebtn:(id)sender;
@@ -134,6 +135,8 @@
 @property (strong, nonatomic) IBOutlet UITableView *docutable;
 
 @property (strong, nonatomic) IBOutlet UIView *docuview;
+
+- (IBAction)clsebtn:(id)sender;
 
 
 @end
