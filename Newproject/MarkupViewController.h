@@ -9,5 +9,32 @@
 #import <UIKit/UIKit.h>
 
 @interface MarkupViewController : UIViewController
+{
+    BOOL recordResults;
+}
 
+
+/*IBActions*/
+-(IBAction)closemarkuppage:(id)sender;
+-(IBAction)markupselection:(id)sender;
+/*IBOutlets*/
+@property(strong,nonatomic)IBOutlet UIButton *markupbutton;
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
+@property(strong,nonatomic)IBOutlet UIPopoverController *popovercontroller;
+
+
+@property(strong,nonatomic)UITableView *popovertableview;
+
+/*array*/
+@property(strong,nonatomic)NSMutableArray *markuparray;
+/*dict*/
+@property(strong,nonatomic)NSMutableDictionary *markupdict;
+@property(strong,nonatomic)NSString *markupstring;
+
+
+
+/*xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlparser;
+@property(strong,nonatomic)NSMutableString *soapresults;
+@property(strong,nonatomic)NSMutableData *webdata;
 @end
