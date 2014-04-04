@@ -101,13 +101,250 @@
     _deliveryclausetxtview.text=_subcntrct.DeliveryRatesClause;
     _srstxtview.text=_subcntrct.SpecialRatesStructure;
     
-    // NSLog(@"%@",_subcntrct.EquipmentClause);
+    NSLog(@"%@",_subcntrct.Payementclause);
     
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark-webservice
+-(void)VolumeDiscountselect{
+    tabletype=1;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<VolumeDiscountselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractId>%d</ContractId>\n"
+                   "</VolumeDiscountselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_subcntrct.contractid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/VolumeDiscountselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+#pragma mark - Connection
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	[_webData setLength: 0];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+   	[_webData appendData:data];
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with theConnection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [Alert show];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"DONE. Received Bytes: %d", [_webData length]);
+	NSString *theXML = [[NSString alloc] initWithBytes: [_webData mutableBytes] length:[_webData length] encoding:NSUTF8StringEncoding];
+	NSLog(@"xml===== %@",theXML);
+	
+	
+	if( _xmlParser )
+	{
+		
+	}
+	
+	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
+	[_xmlParser setDelegate:(id)self];
+	[_xmlParser setShouldResolveExternalEntities: YES];
+	[_xmlParser parse];
+    
+    [_vlumetable reloadData];
+}
+#pragma mark - XMLParser
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    if ([elementName isEqualToString:@"VolumeDiscountselectResult"])
+    {
+        _volumearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ContractID"])
+    {
+                if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"AmtFrom"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"AmtTo"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if ([elementName isEqualToString:@"Percentage"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        
+        
+		[_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if ([elementName isEqualToString:@"ContractID"])
+    {
+        _vlumemdl=[[Vlumedismdl alloc]init];
+               recordResults = FALSE;
+        _vlumemdl.contractid=_soapResults;
+        _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"AmtFrom"])
+    {
+        recordResults = FALSE;
+          _vlumemdl.amountfrom=_soapResults;
+        _soapResults=nil;
+
+        
+    }
+    if ([elementName isEqualToString:@"AmtTo"])
+    {
+        recordResults = FALSE;
+          _vlumemdl.amountto=_soapResults;
+        _soapResults=nil;
+
+        
+    }
+    
+    if ([elementName isEqualToString:@"Percentage"])
+    {
+        recordResults = FALSE;
+          _vlumemdl.percentage=_soapResults;
+        [_volumearray addObject:_vlumemdl];
+        _soapResults=nil;
+
+        
+    }
+
+}
+
+
+#pragma mark-Tableview Delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (tabletype) {
+        case 1:
+             return [_volumearray count];
+            break;
+            
+        default:
+            break;
+    }
+    return YES;
+    // Return the number of rows in the section.
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [[NSBundle mainBundle]loadNibNamed:@"volumediscountcell" owner:self options:nil];
+        cell=_volumecell;
+        
+    }
+    Vlumedismdl *vlmdl=(Vlumedismdl *)[_volumearray objectAtIndex:indexPath.row];
+    _amuntfrmlbl=(UILabel *)[cell viewWithTag:1];
+    _amuntfrmlbl.text=vlmdl.amountfrom;
+    _amunttolbl=(UILabel *)[cell viewWithTag:2];
+    _amunttolbl.text=vlmdl.amountto;
+    _percentagelbl=(UILabel *)[cell viewWithTag:3];
+    _percentagelbl.text=vlmdl.percentage;
+
+    
+    return cell;
+    
+    
 }
 
 - (IBAction)paymntbtn:(id)sender {
@@ -130,6 +367,7 @@
 }
 
 - (IBAction)volumebtn:(id)sender {
+    [self VolumeDiscountselect];
     _volumeview.hidden=NO;
     _paymentview.hidden=YES;
   

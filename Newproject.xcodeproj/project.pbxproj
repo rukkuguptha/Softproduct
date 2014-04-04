@@ -213,6 +213,8 @@
 		D49E056518C71B9300AF6330 /* Namecrewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49E056418C71B9300AF6330 /* Namecrewcell.xib */; };
 		D49EB4BA18C0AA07009249A9 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */; };
 		D49EB4BB18C0AA07009249A9 /* DetailplanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */; };
+		D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */; };
+		D49F86D218EE6E9A00413CAD /* Vlumedismdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */; };
 		D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */; };
 		D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */; };
 		D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */; };
@@ -566,6 +568,9 @@
 		D49EB4B718C0AA07009249A9 /* DetailplanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailplanViewController.h; sourceTree = "<group>"; };
 		D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
 		D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailplanViewController.xib; sourceTree = "<group>"; };
+		D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = volumediscountcell.xib; sourceTree = "<group>"; };
+		D49F86D018EE6E9A00413CAD /* Vlumedismdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vlumedismdl.h; sourceTree = "<group>"; };
+		D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vlumedismdl.m; sourceTree = "<group>"; };
 		D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilehrViewController.h; sourceTree = "<group>"; };
 		D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilehrViewController.m; sourceTree = "<group>"; };
 		D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilehrViewController.xib; sourceTree = "<group>"; };
@@ -893,6 +898,7 @@
 				D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */,
 				D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */,
 				D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */,
+				D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */,
 				D4F19DF718D03F60007617F0 /* MarkupViewController.h */,
 				D4F19DF818D03F60007617F0 /* MarkupViewController.m */,
 				D4F19DF918D03F60007617F0 /* MarkupViewController.xib */,
@@ -1109,6 +1115,8 @@
 				D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */,
 				649CAD0118ED3B46002915F5 /* subcontract.h */,
 				649CAD0218ED3B46002915F5 /* subcontract.m */,
+				D49F86D018EE6E9A00413CAD /* Vlumedismdl.h */,
+				D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1345,6 +1353,7 @@
 				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
 				D43DAA3518D1B0A800280AA6 /* CmpnydocsViewController.xib in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
+				D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
@@ -1494,6 +1503,7 @@
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
+				D49F86D218EE6E9A00413CAD /* Vlumedismdl.m in Sources */,
 				64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */,
