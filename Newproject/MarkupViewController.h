@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Mastermarkmodel.h"
 
 @interface MarkupViewController : UIViewController
 {
     BOOL recordResults;
+    NSString *mark;
 }
+@property(strong,nonatomic)Mastermarkmodel *master;
 
 
 /*IBActions*/
@@ -47,4 +50,11 @@
 @property(strong,nonatomic)NSXMLParser *xmlparser;
 @property(strong,nonatomic)NSMutableString *soapresults;
 @property(strong,nonatomic)NSMutableData *webdata;
+
+@property(strong,nonatomic)IBOutlet UILabel *markupnamelabel;
+@property(strong,nonatomic)IBOutlet UILabel *stpercentlabel;
+@property(strong,nonatomic)IBOutlet UILabel *stdollerlabel;
+@property(strong,nonatomic)IBOutlet UILabel *otpercentlabel;
+@property(strong,nonatomic)IBOutlet UILabel *otdollerlabel;
+
 @end

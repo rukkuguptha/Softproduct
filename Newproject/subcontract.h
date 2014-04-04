@@ -15,6 +15,8 @@
 
 @property(readwrite)NSInteger custid;
 
+@property(strong,nonatomic)NSString *CustomerName;
+
 @property(strong,nonatomic)NSString *AgreementorContract;
 
 @property(strong,nonatomic)NSString *Number;

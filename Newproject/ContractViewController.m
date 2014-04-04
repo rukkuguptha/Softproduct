@@ -95,8 +95,8 @@
         
     }
     subcontract*submdl=(subcontract *)[_contractlistarray objectAtIndex:indexPath.row];
-//    _custcodelabel=(UILabel*)[cell viewWithTag:1];
-//    _custcodelabel.text=rmdl.CustomerCode;
+    _namelabel=(UILabel*)[cell viewWithTag:1];
+    _namelabel.text=submdl.CustomerName;
     _numberlabel=(UILabel*)[cell viewWithTag:2];
     _numberlabel.text=submdl.Number;
     _datelabel=(UILabel*)[cell viewWithTag:3];
@@ -284,20 +284,20 @@
     
     _searchstring=_searchbar.text;
     //NSLog(@"search%@",searchstring);
-    //[self SearchBranch];
+    [self ContractManagementSearch];
     [searchBar resignFirstResponder];
     
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    //[self SelectBranches];
+    [self SelectContractManagement];
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     
     if ([_searchbar.text length]==0) {
         
-        //[self SelectBranches];
+        [self SelectContractManagement];
         // [searchBar resignFirstResponder];
         
         
@@ -358,7 +358,7 @@
     
     
 }
--(void)SearchBranch
+-(void)ContractManagementSearch
 {
     
     recordResults = FALSE;
@@ -372,9 +372,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchBranch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractManagementSearch xmlns=\"http://ios.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
-                   "</SearchBranch>\n"
+                   "</ContractManagementSearch>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_searchstring];
     NSLog(@"soapmsg%@",soapMessage);
@@ -389,7 +389,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchBranch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/ContractManagementSearch" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -456,6 +456,15 @@
         }
         recordResults = TRUE;
     }
+    if ([elementName isEqualToString:@"ContractManagementSearchResponse"]) {
+        _contractlistarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+    }
+
     if ([elementName isEqualToString:@"ContactEntryId"])
     {
         
@@ -476,6 +485,17 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"CustomerName"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if ([elementName isEqualToString:@"AgreementorContract"])
     {
         
@@ -812,6 +832,12 @@
         _sub.custid=[_soapresults integerValue];
         _soapresults=nil;
     }
+    if ([elementName isEqualToString:@"CustomerName"]) {
+        recordResults=FALSE;
+        _sub.CustomerName=_soapresults;
+        _soapresults=nil;
+    }
+
     if ([elementName isEqualToString:@"AgreementorContract"]) {
         recordResults=FALSE;
         _sub.AgreementorContract=_soapresults;
