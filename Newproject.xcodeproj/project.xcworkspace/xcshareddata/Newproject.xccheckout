@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>ABA4C844-B05D-4CE4-82C1-13BE78D4CF5E</string>
+	<string>D68FE5B5-1763-4D1C-877A-44A4F1E531F1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Newproject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C35B2E91-193C-404F-8459-5D5299B98F28</key>
-		<string>ssh://github.com/rukkugms/nokntrct.git</string>
+		<key>4263D9BA-2470-4F18-B705-1D86CEA79274</key>
+		<string>ssh://github.com/Riagms/nokntrct.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C35B2E91-193C-404F-8459-5D5299B98F28</key>
+		<key>4263D9BA-2470-4F18-B705-1D86CEA79274</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/rukkugms/nokntrct.git</string>
+	<string>ssh://github.com/Riagms/nokntrct.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C35B2E91-193C-404F-8459-5D5299B98F28</string>
+	<string>4263D9BA-2470-4F18-B705-1D86CEA79274</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C35B2E91-193C-404F-8459-5D5299B98F28</string>
+			<string>4263D9BA-2470-4F18-B705-1D86CEA79274</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Kontract360</string>
+			<string>Kontract</string>
 		</dict>
 	</array>
 </dict>

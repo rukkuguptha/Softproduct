@@ -217,6 +217,7 @@
 		D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */; };
 		D49F86D218EE6E9A00413CAD /* Vlumedismdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */; };
 		D49F86D518EE8B2E00413CAD /* discuntvlummdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D418EE8B2E00413CAD /* discuntvlummdl.m */; };
+		D49F86D818EE8FF900413CAD /* Matrixmark.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D718EE8FF900413CAD /* Matrixmark.m */; };
 		D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */; };
 		D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */; };
 		D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */; };
@@ -575,6 +576,8 @@
 		D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vlumedismdl.m; sourceTree = "<group>"; };
 		D49F86D318EE8B2E00413CAD /* discuntvlummdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discuntvlummdl.h; sourceTree = "<group>"; };
 		D49F86D418EE8B2E00413CAD /* discuntvlummdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = discuntvlummdl.m; sourceTree = "<group>"; };
+		D49F86D618EE8FF300413CAD /* Matrixmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrixmark.h; sourceTree = "<group>"; };
+		D49F86D718EE8FF900413CAD /* Matrixmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrixmark.m; sourceTree = "<group>"; };
 		D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilehrViewController.h; sourceTree = "<group>"; };
 		D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilehrViewController.m; sourceTree = "<group>"; };
 		D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilehrViewController.xib; sourceTree = "<group>"; };
@@ -1121,6 +1124,8 @@
 				649CAD0218ED3B46002915F5 /* subcontract.m */,
 				D49F86D318EE8B2E00413CAD /* discuntvlummdl.h */,
 				D49F86D418EE8B2E00413CAD /* discuntvlummdl.m */,
+				D49F86D618EE8FF300413CAD /* Matrixmark.h */,
+				D49F86D718EE8FF900413CAD /* Matrixmark.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1505,6 +1510,7 @@
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
+				D49F86D818EE8FF900413CAD /* Matrixmark.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
