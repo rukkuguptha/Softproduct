@@ -958,6 +958,14 @@
         _sub.OvertimeMarkupPer=_soapresults;
         _soapresults=nil;
     }
+    if ([elementName isEqualToString:@"EquipmentClause"]) {
+        
+        recordResults=FALSE;
+        _sub.EquipmentClause=_soapresults;
+        _soapresults=nil;
+    }
+    
+
 
     
     if ([elementName isEqualToString:@"ThirdPartyequipmentMarkup"]) {

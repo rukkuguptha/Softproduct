@@ -21,15 +21,25 @@
 @property(strong,nonatomic)IBOutlet UIButton *markupbutton;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIPopoverController *popovercontroller;
+@property(strong,nonatomic)IBOutlet UITableView *markuptable;
+@property(strong,nonatomic)IBOutlet UITableView *recordtable;
+@property(strong,nonatomic)IBOutlet UITableViewCell *markupcell;
+@property(strong,nonatomic)IBOutlet UITableViewCell *recordcell;
+@property(strong,nonatomic)IBOutlet UIView *markuptableviewtitle;
+
 
 
 @property(strong,nonatomic)UITableView *popovertableview;
 
 /*array*/
 @property(strong,nonatomic)NSMutableArray *markuparray;
+@property(strong,nonatomic)NSMutableArray *markuptablearray;
+@property(strong,nonatomic)NSMutableArray *detailmarkuparray;
+
 /*dict*/
 @property(strong,nonatomic)NSMutableDictionary *markupdict;
 @property(strong,nonatomic)NSString *markupstring;
+
 
 
 
