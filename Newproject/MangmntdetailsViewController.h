@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "subcontract.h"
-#import "Vlumedismdl.h"
+#import "discuntvlummdl.h"
 @interface MangmntdetailsViewController : UIViewController{
     
     BOOL recordResults;
@@ -54,7 +54,7 @@
 
 /*volume*/
 @property (strong, nonatomic)NSMutableArray *volumearray;
-@property (strong, nonatomic)Vlumedismdl *vlumemdl;
+@property (strong, nonatomic)discuntvlummdl *vlumemdl;
 @property (strong, nonatomic) IBOutlet UIView *volumeview;
 @property (strong, nonatomic) IBOutlet UITextView *vlumeclautxtview;
 @property (strong, nonatomic) IBOutlet UITableView *vlumetable;

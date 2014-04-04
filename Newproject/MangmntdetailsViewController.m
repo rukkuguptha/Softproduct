@@ -317,7 +317,7 @@
 {
     if ([elementName isEqualToString:@"ContractID"])
     {
-        _vlumemdl=[[Vlumedismdl alloc]init];
+        _vlumemdl=[[discuntvlummdl alloc]init];
                recordResults = FALSE;
         _vlumemdl.contractid=_soapResults;
         _soapResults=nil;
@@ -385,7 +385,7 @@
         cell=_volumecell;
         
     }
-    Vlumedismdl *vlmdl=(Vlumedismdl *)[_volumearray objectAtIndex:indexPath.row];
+    discuntvlummdl *vlmdl=(discuntvlummdl *)[_volumearray objectAtIndex:indexPath.row];
     _amuntfrmlbl=(UILabel *)[cell viewWithTag:1];
     _amuntfrmlbl.text=vlmdl.amountfrom;
     _amunttolbl=(UILabel *)[cell viewWithTag:2];
