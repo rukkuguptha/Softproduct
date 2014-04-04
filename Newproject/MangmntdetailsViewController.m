@@ -84,8 +84,24 @@
     [super viewWillAppear:animated];
     _subcntrct=(subcontract *)[_detailsarray objectAtIndex:0];
     _clausetxtview.text=_subcntrct.Payementclause;
-    NSLog(@"%@",_subcntrct.Payementclause);
+    _nettextfld.text=_subcntrct.NetDays;
+    _vlumeclautxtview.text=_subcntrct.VolumeDisClause;
+    _lbrclaustxtview.text=_subcntrct.LabourClause;
+    _weekhrstxtfld.text=_subcntrct.WeeklyHours;
+    _subcntrctbtn.text=_subcntrct.SubContractorMarkup;
+    _equpclause.text=_subcntrct.EquipmentClause;
+   
+    _othrtermsclause.text=_subcntrct.OtherClause;
+    _overtimetextfield.text=_subcntrct.OvertimeMarkupPer;
+   // _premiumtimetxtfld.text=_subcntrct.
+    _temtxtfld.text=_subcntrct.ThirdPartyequipmentMarkup;
+    _leasemarkuptxtfld.text=_subcntrct.LeaseMarkup;
+    _rentalmarkuptxtfld.text=_subcntrct.RentalMarkup;
+    _materialpurchasetxtfld.text=_subcntrct.MaterialPurchaseMarkup;
+    _deliveryclausetxtview.text=_subcntrct.DeliveryRatesClause;
+    _srstxtview.text=_subcntrct.SpecialRatesStructure;
     
+    // NSLog(@"%@",_subcntrct.EquipmentClause);
     
 }
 - (void)didReceiveMemoryWarning
