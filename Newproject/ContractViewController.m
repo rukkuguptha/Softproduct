@@ -264,8 +264,11 @@
 }
 -(void)gotomanagementdetails
 {
+    
+    _passingarray=[[NSMutableArray alloc]init];
     subcontract*smdl=(subcontract *)[_contractlistarray objectAtIndex:selectedcell];
     [_passingarray addObject:smdl];
+
     if (!self.mgmtdetails) {
         self.mgmtdetails=[[MangmntdetailsViewController alloc]initWithNibName:@"MangmntdetailsViewController" bundle:nil];
     }
