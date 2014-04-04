@@ -8,9 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "subcontract.h"
+#import "Vlumedismdl.h"
+@interface MangmntdetailsViewController : UIViewController{
+    
+    BOOL recordResults;
+    NSInteger tabletype;
+}
 
-@interface MangmntdetailsViewController : UIViewController
 
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 
 
@@ -43,10 +53,21 @@
 @property (strong, nonatomic) IBOutlet UITextField *nettextfld;
 
 /*volume*/
+@property (strong, nonatomic)NSMutableArray *volumearray;
+@property (strong, nonatomic)Vlumedismdl *vlumemdl;
 @property (strong, nonatomic) IBOutlet UIView *volumeview;
 @property (strong, nonatomic) IBOutlet UITextView *vlumeclautxtview;
 @property (strong, nonatomic) IBOutlet UITableView *vlumetable;
 @property (strong, nonatomic) IBOutlet UIView *volumetitle;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *volumecell;
+@property (strong, nonatomic) IBOutlet UILabel *amuntfrmlbl;
+@property (strong, nonatomic) IBOutlet UILabel *amunttolbl;
+@property (strong, nonatomic) IBOutlet UILabel *percentagelbl;
+
+
+
+
 
 /*labor*/
 
