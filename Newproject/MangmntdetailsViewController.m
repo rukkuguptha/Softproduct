@@ -79,6 +79,15 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    _subcntrct=(subcontract *)[_detailsarray objectAtIndex:0];
+    _clausetxtview.text=_subcntrct.Payementclause;
+    NSLog(@"%@",_subcntrct.Payementclause);
+    
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -379,5 +388,8 @@
 - (IBAction)smalltoolbtn:(id)sender {
 }
 - (IBAction)selectmarkupbtn:(id)sender {
+}
+- (IBAction)clsebtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end
