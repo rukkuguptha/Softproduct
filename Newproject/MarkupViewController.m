@@ -113,7 +113,7 @@
     }
     if (tableView==_markuptable)
     {
-        Mastermarkmodel *markmdl=(Mastermarkmodel*)[_markuptablearray objectAtIndex:indexPath.row];
+        Matrixmark *markmdl=(Matrixmark*)[_markuptablearray objectAtIndex:indexPath.row];
         _markupnamelabel=(UILabel*)[cell viewWithTag:1];
         _markupnamelabel.text=markmdl.MainHeader;
         _stpercentlabel=(UILabel*)[cell viewWithTag:2];
@@ -124,6 +124,10 @@
         _otpercentlabel.text=markmdl.OTPer;
         _otdollerlabel=(UILabel*)[cell viewWithTag:5];
         _otdollerlabel.text=markmdl.OTDoll;
+        _fixeddollerlabel=(UILabel*)[cell viewWithTag:4];
+        _fixeddollerlabel.text=markmdl.FixedDollar;
+        _variablepercentlabel=(UILabel*)[cell viewWithTag:5];
+        _variablepercentlabel.text=markmdl.VeriablePercent;
 
     }
 
@@ -472,7 +476,7 @@
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"EntryId"]) {
-        _master=[[Mastermarkmodel alloc]init];
+        _master=[[Matrixmark alloc]init];
         recordResults=FALSE;
         _master.EntryId=[_soapresults integerValue];
         _soapresults=nil;

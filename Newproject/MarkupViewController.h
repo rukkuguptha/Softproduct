@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Mastermarkmodel.h"
+#import "Matrixmark.h"
 
 @interface MarkupViewController : UIViewController
 {
     BOOL recordResults;
     NSString *mark;
 }
-@property(strong,nonatomic)Mastermarkmodel *master;
+@property(strong,nonatomic)Matrixmark *master;
 
 
 /*IBActions*/
@@ -56,5 +56,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *stdollerlabel;
 @property(strong,nonatomic)IBOutlet UILabel *otpercentlabel;
 @property(strong,nonatomic)IBOutlet UILabel *otdollerlabel;
+@property(strong,nonatomic)IBOutlet UILabel *variablepercentlabel;
+@property(strong,nonatomic)IBOutlet UILabel *fixeddollerlabel;
 
 @end
