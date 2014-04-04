@@ -124,6 +124,10 @@
         _otpercentlabel.text=markmdl.OTPer;
         _otdollerlabel=(UILabel*)[cell viewWithTag:5];
         _otdollerlabel.text=markmdl.OTDoll;
+        _fixeddollerlabel=(UILabel*)[cell viewWithTag:4];
+        _fixeddollerlabel.text=markmdl.FixedDollar;
+        _variablepercentlabel=(UILabel*)[cell viewWithTag:5];
+        _variablepercentlabel.text=markmdl.VeriablePercent;
 
     }
 
