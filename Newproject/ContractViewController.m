@@ -95,8 +95,8 @@
         
     }
     subcontract*submdl=(subcontract *)[_contractlistarray objectAtIndex:indexPath.row];
-//    _custcodelabel=(UILabel*)[cell viewWithTag:1];
-//    _custcodelabel.text=rmdl.CustomerCode;
+    _namelabel=(UILabel*)[cell viewWithTag:1];
+    _namelabel.text=submdl.CustomerName;
     _numberlabel=(UILabel*)[cell viewWithTag:2];
     _numberlabel.text=submdl.Number;
     _datelabel=(UILabel*)[cell viewWithTag:3];
@@ -476,6 +476,17 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"CustomerName"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if ([elementName isEqualToString:@"AgreementorContract"])
     {
         
@@ -812,6 +823,12 @@
         _sub.custid=[_soapresults integerValue];
         _soapresults=nil;
     }
+    if ([elementName isEqualToString:@"CustomerName"]) {
+        recordResults=FALSE;
+        _sub.CustomerName=_soapresults;
+        _soapresults=nil;
+    }
+
     if ([elementName isEqualToString:@"AgreementorContract"]) {
         recordResults=FALSE;
         _sub.AgreementorContract=_soapresults;
