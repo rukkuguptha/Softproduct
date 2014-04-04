@@ -1,5 +1,5 @@
 //
-//  Mastermarkmodel.h
+//  Matrixmark.h
 //  Newproject
 //
 //  Created by GMSIndia 2 on 04/04/14.
@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Mastermarkmodel : NSObject
-
+@interface Matrixmark : NSObject
 
 @property(readwrite)NSInteger EntryId;
 
@@ -27,9 +26,6 @@
 @property(strong,nonatomic)NSString *OTPer;
 
 @property(strong,nonatomic)NSString *OTDoll;
-
-
-
 
 
 @end

@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Mastermarkmodel.h"
+#import "Matrixmark.h"
 
 @interface MarkupViewController : UIViewController
 {
     BOOL recordResults;
     NSString *mark;
 }
-@property(strong,nonatomic)Mastermarkmodel *master;
+@property(strong,nonatomic)Matrixmark *master;
 
 
 /*IBActions*/
