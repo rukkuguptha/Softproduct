@@ -8,6 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MarkupViewController">
             <connections>
                 <outlet property="markupcell" destination="qjU-aG-2OT" id="sdC-RN-2Yo"/>
+                <outlet property="markupnamelabel" destination="DFi-2u-mHW" id="2Zz-PK-lhK"/>
+                <outlet property="otdollerlabel" destination="q78-91-3GA" id="PT4-GJ-cAh"/>
+                <outlet property="otpercentlabel" destination="ZJG-0M-giy" id="9ic-8J-SDZ"/>
+                <outlet property="stdollerlabel" destination="Doa-O6-z5s" id="7qJ-GN-ZDv"/>
+                <outlet property="stpercentlabel" destination="Dl3-aL-saO" id="x4P-ZQ-CzI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

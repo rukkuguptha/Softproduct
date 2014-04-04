@@ -76,10 +76,7 @@
     }
     // Return the number of sections.
   
-    if (tableView==_markuptable) {
-        return 5;
-    }
-    return YES;
+       return YES;
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -90,10 +87,7 @@
     if (tableView==_markuptable) {
         return [_markuptablearray count];
     }
-    if (tableView==_markuptable) {
-        return 5;
-    }
-       return YES;
+           return YES;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -119,16 +113,17 @@
     }
     if (tableView==_markuptable)
     {
-        
-//        _namelabel=(UILabel*)[cell viewWithTag:1];
-//        _namelabel.text=submdl.CustomerName;
-//        _numberlabel=(UILabel*)[cell viewWithTag:2];
-//        _numberlabel.text=submdl.Number;
-//        _datelabel=(UILabel*)[cell viewWithTag:3];
-//        _billingdayslabel=(UILabel*)[cell viewWithTag:4];
-//        _billingdayslabel.text=submdl.NetDays;
-//        _weeklyhourslabel=(UILabel*)[cell viewWithTag:5];
-//        _weeklyhourslabel.text=submdl.WeeklyHours;
+        Mastermarkmodel *markmdl=(Mastermarkmodel*)[_markuptablearray objectAtIndex:indexPath.row];
+        _markupnamelabel=(UILabel*)[cell viewWithTag:1];
+        _markupnamelabel.text=markmdl.MainHeader;
+        _stpercentlabel=(UILabel*)[cell viewWithTag:2];
+        _stpercentlabel.text=markmdl.STPer;
+        _stdollerlabel=(UILabel*)[cell viewWithTag:3];
+        _stdollerlabel.text=markmdl.VeriablePercent;
+        _otpercentlabel=(UILabel*)[cell viewWithTag:4];
+        _otpercentlabel.text=markmdl.OTPer;
+        _otdollerlabel=(UILabel*)[cell viewWithTag:5];
+        _otdollerlabel.text=markmdl.OTDoll;
 
     }
 
@@ -288,6 +283,7 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_popovertableview reloadData];
+    [_markuptable reloadData];
     
 }
 #pragma mark-xml parser
@@ -470,58 +466,59 @@
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"MarkupmainResult"]) {
-        
+       
         recordResults=FALSE;
         
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"EntryId"]) {
-        
+        _master=[[Mastermarkmodel alloc]init];
         recordResults=FALSE;
-        
+        _master.EntryId=[_soapresults integerValue];
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"MarkupId"]) {
         
         recordResults=FALSE;
-        
+        _master.MarkupId=[_soapresults integerValue];
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"MainHeader"]) {
         
         recordResults=FALSE;
-        
+        _master.MainHeader=_soapresults;
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"VeriablePercent"]) {
         
         recordResults=FALSE;
-        
+        _master.VeriablePercent=_soapresults;
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"FixedDollar"]) {
         
         recordResults=FALSE;
-        
+        _master.FixedDollar=_soapresults;
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"STPer"]) {
         
         recordResults=FALSE;
-        
+        _master.STPer=_soapresults;
         _soapresults=nil;
     }
 
     if ([elementName isEqualToString:@"OTPer"]) {
         
         recordResults=FALSE;
-        
+        _master.OTPer=_soapresults;
         _soapresults=nil;
     }
     if ([elementName isEqualToString:@"OTDoll"]) {
         
         recordResults=FALSE;
-        
+        _master.OTDoll=_soapresults;
+        [_markuptablearray addObject:_master];
         _soapresults=nil;
     }
 

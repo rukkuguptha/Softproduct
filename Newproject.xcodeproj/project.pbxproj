@@ -76,6 +76,7 @@
 		64A14D82187573B50028B43A /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D81187573B50028B43A /* basicreqmdl.m */; };
 		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
+		64A1FA9018EE815400D2AD2A /* Mastermarkmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A1FA8F18EE815400D2AD2A /* Mastermarkmodel.m */; };
 		64A27C1E18E149D300D184BF /* Cbranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A27C1D18E149D300D184BF /* Cbranch.m */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
@@ -382,6 +383,8 @@
 		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
 		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
+		64A1FA8E18EE815400D2AD2A /* Mastermarkmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mastermarkmodel.h; sourceTree = "<group>"; };
+		64A1FA8F18EE815400D2AD2A /* Mastermarkmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mastermarkmodel.m; sourceTree = "<group>"; };
 		64A27C1C18E149D300D184BF /* Cbranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cbranch.h; sourceTree = "<group>"; };
 		64A27C1D18E149D300D184BF /* Cbranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cbranch.m; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
@@ -1109,6 +1112,8 @@
 				D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */,
 				649CAD0118ED3B46002915F5 /* subcontract.h */,
 				649CAD0218ED3B46002915F5 /* subcontract.m */,
+				64A1FA8E18EE815400D2AD2A /* Mastermarkmodel.h */,
+				64A1FA8F18EE815400D2AD2A /* Mastermarkmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1419,6 +1424,7 @@
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
 				D41404CA187294700067F71A /* Servicemdl.m in Sources */,
 				D40313B618B5E34300C27F2F /* SitevistMdl.m in Sources */,
+				64A1FA9018EE815400D2AD2A /* Mastermarkmodel.m in Sources */,
 				D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */,
 				D4F19DC518D0375F007617F0 /* commentmdl.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,

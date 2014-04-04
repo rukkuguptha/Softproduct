@@ -49,10 +49,10 @@
                                 <outlet property="delegate" destination="-1" id="zMh-oh-zy7"/>
                             </connections>
                         </tableView>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="KTM-6k-KgU">
-                            <rect key="frame" x="30" y="338" width="703" height="607"/>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KTM-6k-KgU">
+                            <rect key="frame" x="30" y="338" width="703" height="488"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="V7v-u7-0pf"/>
                                 <outlet property="delegate" destination="-1" id="oP9-lv-zjD"/>
