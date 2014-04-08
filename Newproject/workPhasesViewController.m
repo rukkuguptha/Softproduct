@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self WorkTypeSelect];
     _phasetable.layer.borderWidth = 2.0;
     _phasetable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -300,6 +301,15 @@
     
 }
 
+- (IBAction)wrkphasebtn:(id)sender {
+    if (!self.worktypeVCtrl) {
+        self.worktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
+    }
+    _worktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_worktypeVCtrl animated:YES completion:nil];
+    
+}
+
 //-(IBAction)parentbtn:(id)sender
 //{ checkstring=@"clicked";
 //    if (parentcheck==0) {
@@ -373,7 +383,7 @@
 
 -(IBAction)selectservice:(id)sender
 {
-    [self SelectAllServices];
+    [self WorkTypeSelect];
     poptype=2;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
@@ -427,8 +437,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.1/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -477,7 +487,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -530,7 +540,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -562,18 +572,11 @@
 {
     webtype=1;
     NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
-    NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+    NSString *phid=@"0";
     NSInteger parnt;
     
-    if([phid isEqualToString:@"0"])
-    {
-        parnt=0;
-    }
-    else
-    {
-        parnt=1;
-    }
-
+          parnt=0;
+   
     recordresults = FALSE;
     NSString *soapMessage;
     
@@ -598,7 +601,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -628,10 +631,16 @@
 -(void)UpdatePhases
 {
     webtype=1;
-    NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
-    NSString *phid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+
+   // NSString *serid=[_servicedict objectForKey:_servicebtn.titleLabel.text];
+  NSString *phid=@"0";
     NSInteger parnt;
     phasesmodel*phmdl=(phasesmodel *)[_workphasesarray objectAtIndex:btnindex];
+      NSString *serid=[_servicedict objectForKey:phmdl.servicename];
+   // NSLog(@"ser%@",phmdl.servicename);
+   // NSLog(@"ser%@",_servicedict);
+
+    
 //    if([checkstring isEqualToString:@"clicked"])
 //    {
 //        if (parentcheck==0) {
@@ -650,15 +659,15 @@
 //    {
 //        parnt=phmdl.parent;
 //    }
-    if([phid isEqualToString:@"0"])
-    {
-        parnt=0;
-    }
-    else
-    {
-        parnt=1;
-    }
-    
+//    if([phid isEqualToString:@"0"])
+//    {
+//        parnt=0;
+//    }
+//    else
+//    {
+//        parnt=1;
+//    }
+     parnt=0;
     recordresults = FALSE;
     NSString *soapMessage;
     
@@ -684,7 +693,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -734,7 +743,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -784,7 +793,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -794,6 +803,54 @@
     
     [theRequest addValue: @"http://ios.kontract360.com/SearchPhases" forHTTPHeaderField:@"Soapaction"];
     
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)WorkTypeSelect{
+    
+    recordresults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<WorkTypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "</WorkTypeSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/WorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -940,7 +997,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"SelectAllServicesResult"])
+    if([elementName isEqualToString:@"WorkTypeSelectResult"])
     {
         _servicesarray=[[NSMutableArray alloc]init];
         _servicedict=[[NSMutableDictionary alloc]init];
@@ -950,7 +1007,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"SkillId"])
+    if([elementName isEqualToString:@"ID"])
     {
         
         if(!_soapResults)
@@ -959,7 +1016,7 @@
         }
         recordresults = TRUE;
     }
-    if([elementName isEqualToString:@"SkillName"])
+    if([elementName isEqualToString:@"WorkType"])
     {
                 if(!_soapResults)
         {
@@ -1079,6 +1136,7 @@
         recordresults = FALSE;
         
         _phasemdl.servicename=_soapResults;
+         [_workphasesarray addObject:_phasemdl];
         _soapResults = nil;
     }
 
@@ -1113,10 +1171,10 @@
         recordresults = FALSE;
         
         _phasemdl.underof=_soapResults;
-        [_workphasesarray addObject:_phasemdl];
+       
         _soapResults = nil;
     }
-        if([elementName isEqualToString:@"SkillId"])
+        if([elementName isEqualToString:@"ID"])
     {
         
         
@@ -1125,7 +1183,7 @@
         //_phasemdl.idvalue=[_soapResults integerValue];
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SkillName"])
+    if([elementName isEqualToString:@"WorkType"])
     {
         
         

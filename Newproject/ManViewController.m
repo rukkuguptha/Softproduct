@@ -28,7 +28,7 @@
     [super viewDidLoad];
   
     
-   [self Checknetavailabilty];
+  // [self Checknetavailabilty];
     
     [[self.jobtasktextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.jobtasktextview layer] setBorderWidth:2];
@@ -41,13 +41,18 @@
     [[self.trainingtextview layer] setCornerRadius:10];
     [[self.experiencetextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];    [[self.experiencetextview layer] setBorderWidth:2.3];
     [[self.experiencetextview layer] setCornerRadius:10];
+    
     _manpowerTable.layer.borderWidth = 2.0;
     _manpowerTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    
     /*searchbar*/
+    
     _SearchingBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _SearchingBar.delegate = (id)self;
     _SearchingBar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
    // _navitem.titleView.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
 
     
@@ -67,7 +72,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-  
+    [self AllSkills];
+
   //  [self Selectallmanpower];
 
 //    NSTimer *timer;
@@ -80,6 +86,7 @@
 
 -(void)Checknetavailabilty{
     /* for checking Connectivity*/
+    
     NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
     _Availablityresult = [[NSString alloc] init];
     _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
@@ -125,14 +132,17 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_manpowerTable) {
+        return [_Allmanpwrarry count];
         
-        if ([_Availablityresult isEqualToString:@"Yes"]) {
-            
-            return [_Allmanpwrarry count];
-        }
-        else if([_Availablityresult isEqualToString:@"No"]){
-             return [_Sqlitearry count];
-        }}
+//        if ([_Availablityresult isEqualToString:@"Yes"]) {
+//            
+//            return [_Allmanpwrarry count];
+//        }
+//        else if([_Availablityresult isEqualToString:@"No"]){
+//             return [_Sqlitearry count];
+//        }
+        
+    }
     
     else if (tableView==_popOverTableView) {
         return [_subtypearray count];
@@ -162,7 +172,7 @@
     }
      if(tableView==_manpowerTable){
          Manpwr*pwrmdl;
-         if ([_Availablityresult isEqualToString:@"Yes"]) {
+         //if ([_Availablityresult isEqualToString:@"Yes"]) {
              
                pwrmdl=(Manpwr *)[_Allmanpwrarry objectAtIndex:indexPath.row];
              _codelbl=(UILabel *)[cell viewWithTag:1];
@@ -191,30 +201,30 @@
                  
              }
 
-         }
-         else if([_Availablityresult isEqualToString:@"No"]){
-              pwrmdl=(Manpwr *)[_Sqlitearry objectAtIndex:indexPath.row];
-             _codelbl=(UILabel *)[cell viewWithTag:1];
-             _codelbl.text=pwrmdl.itemcode;
-             _deslbl=(UILabel *)[cell viewWithTag:2];
-             _deslbl.text=pwrmdl.itemdescptn;
-             _typelbl=(UILabel *)[cell viewWithTag:3];
-             _typelbl.text=pwrmdl.subtype;
-             _costlbl=(UILabel *)[cell viewWithTag:4];
-             _costlbl.text=pwrmdl.unitcost;
-             
-             NSLog(@"OVERHEAD%d",pwrmdl.overhead);
-             
-             if (pwrmdl.overhead==0) {
-                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-                 
-             }
-             else if(pwrmdl.overhead==1){
-                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-                 
-             }
-
-         }
+        // }
+//         else if([_Availablityresult isEqualToString:@"No"]){
+//              pwrmdl=(Manpwr *)[_Sqlitearry objectAtIndex:indexPath.row];
+//             _codelbl=(UILabel *)[cell viewWithTag:1];
+//             _codelbl.text=pwrmdl.itemcode;
+//             _deslbl=(UILabel *)[cell viewWithTag:2];
+//             _deslbl.text=pwrmdl.itemdescptn;
+//             _typelbl=(UILabel *)[cell viewWithTag:3];
+//             _typelbl.text=pwrmdl.subtype;
+//             _costlbl=(UILabel *)[cell viewWithTag:4];
+//             _costlbl.text=pwrmdl.unitcost;
+//             
+//             NSLog(@"OVERHEAD%d",pwrmdl.overhead);
+//             
+//             if (pwrmdl.overhead==0) {
+//                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//                 
+//             }
+//             else if(pwrmdl.overhead==1){
+//                 [_overhdchecklbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//                 
+//             }
+//
+//         }
 
   
       
@@ -345,7 +355,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -394,7 +404,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -444,7 +454,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -507,7 +517,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -579,7 +589,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -631,7 +641,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -709,7 +719,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -758,7 +768,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1579,7 +1589,7 @@ if ([alertView.message isEqualToString:msgstrg]) {
         _stockinhandtxtfld.text=@"";
         
     }}
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
     if(textField==_itemcodetxtfld)
     {
         NSUInteger newLength = [_itemcodetxtfld.text length] + [string length] - range.length;

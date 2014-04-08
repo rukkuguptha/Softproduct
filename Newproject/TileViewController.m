@@ -99,6 +99,13 @@
     doubleTap9.numberOfTapsRequired=1;
     doubleTap9.delegate=(id)self;
     [self.serialview addGestureRecognizer:doubleTap9];
+    UITapGestureRecognizer *doubleTap10 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(worktypepage)];
+    doubleTap10.numberOfTapsRequired=1;
+    doubleTap10.delegate=(id)self;
+    [self.worktypeview addGestureRecognizer:doubleTap10];
+
 }
 
 -(void)companyPage
@@ -199,7 +206,14 @@
 }
 
     
-
+-(void)worktypepage{
+    
+    if (!self.wrktypeVCtrl) {
+        self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
+    }
+    _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

@@ -23,8 +23,6 @@
 
 @property(strong,nonatomic)NSString *STPer;
 
-@property(strong,nonatomic)NSString *STDoll;
-
 @property(strong,nonatomic)NSString *OTPer;
 
 @property(strong,nonatomic)NSString *OTDoll;

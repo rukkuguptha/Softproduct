@@ -22,16 +22,12 @@
 		6426F5F918C06824002471AC /* fleet.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5F818C06824002471AC /* fleet.png */; };
 		6426F5FB18C0685C002471AC /* SasteyPicture.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5FA18C0685C002471AC /* SasteyPicture.png */; };
 		642F93011872870E0059101A /* customjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642F93001872870E0059101A /* customjobcell.xib */; };
-		642F930B1872B6A80059101A /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = 642F930A1872B6A80059101A /* allfolderrights.m */; };
 		642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA78718AC927F00372623 /* AddserviceViewController.m */; };
 		642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA78818AC927F00372623 /* AddserviceViewController.xib */; };
 		642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA78C18AC945C00372623 /* SitevisitViewController.m */; };
 		642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 642FA78D18AC945C00372623 /* SitevisitViewController.xib */; };
-		642FA79C18ACC9FB00372623 /* planmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 642FA79B18ACC9FB00372623 /* planmodel.m */; };
-		643118A618C737560061A276 /* Crewmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 643118A518C737560061A276 /* Crewmodel.m */; };
 		6437578518BC554B003691E6 /* Subtypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578418BC554B003691E6 /* Subtypecell.xib */; };
 		6437578718BC5572003691E6 /* maintablecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578618BC5572003691E6 /* maintablecell.xib */; };
-		64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64481EC81873EBFD007D66E7 /* phasesmodel.m */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
@@ -39,12 +35,10 @@
 		64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64955C9A180E52D5000A86A1 /* WebViewController.xib */; };
 		649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8781772DB8C00CAECE7 /* appbar.edit.png */; };
 		649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */; };
-		649CAD0318ED3B46002915F5 /* subcontract.m in Sources */ = {isa = PBXBuildFile; fileRef = 649CAD0218ED3B46002915F5 /* subcontract.m */; };
 		649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7B18615A240010CBD8 /* customequipcell.xib */; };
 		649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */; };
 		649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */; };
 		649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649E1F82186193790010CBD8 /* custommaterialcell.xib */; };
-		649EA38618769D96006651E6 /* jobsitemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EA38518769D96006651E6 /* jobsitemodel.m */; };
 		649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EB48918A8DF4700CDBE28 /* DetailproHrViewController.m */; };
 		649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48A18A8DF4700CDBE28 /* DetailproHrViewController.xib */; };
 		649EB48E18A8DF8400CDBE28 /* proHRDetailcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EB48D18A8DF8400CDBE28 /* proHRDetailcell.xib */; };
@@ -57,13 +51,9 @@
 		649EDECC18BB055E00B78D97 /* Outlookrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */; };
 		649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */; };
 		649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */; };
-		649EDED318BB25E000B78D97 /* Customscaffoldingplan.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDED218BB25E000B78D97 /* Customscaffoldingplan.m */; };
 		649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */; };
 		649EDED818BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */; };
-		649EDEDB18BB4E5E00B78D97 /* Scaffoldtypemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */; };
 		64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A00F3018C5B115002F607E /* empmgmtcell.xib */; };
-		64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */; };
-		64A07BD618C8321F00B2F9D5 /* vendermodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A07BD518C8321F00B2F9D5 /* vendermodel.m */; };
 		64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DAC1860549E001F74E2 /* appbar.checkmark.thick.png */; };
 		64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DAD1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png */; };
 		64A09DB118605711001F74E2 /* appbar.delete.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DB018605711001F74E2 /* appbar.delete.png */; };
@@ -73,11 +63,8 @@
 		64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7A187546D20028B43A /* jobdetailsViewController.m */; };
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
-		64A14D82187573B50028B43A /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D81187573B50028B43A /* basicreqmdl.m */; };
 		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
-		64A1FA9018EE815400D2AD2A /* Mastermarkmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A1FA8F18EE815400D2AD2A /* Mastermarkmodel.m */; };
-		64A27C1E18E149D300D184BF /* Cbranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A27C1D18E149D300D184BF /* Cbranch.m */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
 		64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81018DFEE980015887F /* LeadsViewController.xib */; };
@@ -92,7 +79,6 @@
 		64A3B82618E02FC90015887F /* branchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82518E02FC90015887F /* branchcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
-		64F4DB67187E77A200AD1C83 /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F4DB66187E77A200AD1C83 /* Validation.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
 		64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F97990185EF8B000E7722B /* jobsitereqViewController.xib */; };
@@ -107,13 +93,10 @@
 		D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF118E3E05B00DB825A /* SerialViewController.m */; };
 		D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF218E3E05B00DB825A /* SerialViewController.xib */; };
 		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
-		D4014FF918E3EF0000DB825A /* NumbrSerMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */; };
-		D40313B618B5E34300C27F2F /* SitevistMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D40313B518B5E34300C27F2F /* SitevistMdl.m */; };
 		D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B718B6036300C27F2F /* SaftyCell.xib */; };
 		D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */; };
 		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
 		D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */; };
-		D4041F161779ACB500247373 /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4041F151779ACB400247373 /* followupmodel.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
 		D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BC18BB1E9B00C5DB30 /* right_arrow.png */; };
@@ -125,10 +108,8 @@
 		D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A6639187131CA00AB7496 /* cb_mono_on.png */; };
 		D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A663A187131CA00AB7496 /* cb_mono_off.png */; };
 		D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40A99C418C5A334005384F9 /* Editplanview.xib */; };
-		D40A99C818C5A956005384F9 /* Scfflddetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99C718C5A956005384F9 /* Scfflddetails.m */; };
 		D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99CA18C5A9B5005384F9 /* EmplyhrmgntViewController.m */; };
 		D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */; };
-		D40A99D018C5E3C3005384F9 /* NewscfldDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */; };
 		D40D1EAB176B086F00379DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAA176B086F00379DD5 /* UIKit.framework */; };
 		D40D1EAD176B086F00379DD5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAC176B086F00379DD5 /* Foundation.framework */; };
 		D40D1EAF176B086F00379DD5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40D1EAE176B086F00379DD5 /* CoreGraphics.framework */; };
@@ -147,9 +128,6 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
-		D40DE50018DFF4AC00D51069 /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DE4FF18DFF4AC00D51069 /* CKCalendarView.m */; };
-		D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41377C6187BD59200156A92 /* Equpmntmdl.m */; };
-		D41404CA187294700067F71A /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41404C9187294700067F71A /* Servicemdl.m */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D415486318ADF64900351248 /* Ratecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D415486218ADF64900351248 /* Ratecellview.xib */; };
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
@@ -173,8 +151,6 @@
 		D42D8C3D18D2E411009D8085 /* usercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C3C18D2E411009D8085 /* usercell.xib */; };
 		D42D8C4018D2E442009D8085 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C3F18D2E442009D8085 /* ServiceViewController.m */; };
 		D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C4118D2E450009D8085 /* ServiceViewController.xib */; };
-		D42D8C4518D2E535009D8085 /* listusermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C4418D2E535009D8085 /* listusermdl.m */; };
-		D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = D4399EB9186D74BB00A693F7 /* Manpwr.m */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
 		D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBD186D7BBF00A693F7 /* search-button.png */; };
 		D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A395C18C993B00099EF7B /* NVerificationViewController.xib */; };
@@ -189,7 +165,6 @@
 		D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44BEA7418E0254900719ED5 /* TypeViewController.m */; };
 		D44BEA7718E0254900719ED5 /* TypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7518E0254900719ED5 /* TypeViewController.xib */; };
 		D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA7918E0360F00719ED5 /* Addresscell.xib */; };
-		D44BEA8018E03C3100719ED5 /* Mdladdress.m in Sources */ = {isa = PBXBuildFile; fileRef = D44BEA7F18E03C3100719ED5 /* Mdladdress.m */; };
 		D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D44BEA8118E04D5100719ED5 /* cTypecell.xib */; };
 		D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */; };
 		D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA201873F18C007EE3DC /* ThirdPartyViewController.xib */; };
@@ -200,11 +175,9 @@
 		D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA2D1873F1F3007EE3DC /* Thirdpartycell.xib */; };
 		D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA2F1873F206007EE3DC /* Consumblecell.xib */; };
 		D453DA321873F215007EE3DC /* Assetcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453DA311873F215007EE3DC /* Assetcell.xib */; };
-		D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D484359917F595CD00098AA1 /* Verfymdl.m */; };
 		D48A34701876901B00898913 /* FleetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D48A346F1876901B00898913 /* FleetCell.xib */; };
 		D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */; };
 		D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */; };
-		D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D48B608317F98CFC001A53C8 /* Coursemdl.m */; };
 		D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */ = {isa = PBXBuildFile; fileRef = D48F436518A2335400AFDDC2 /* vertical blue.png */; };
 		D49DE838185EB391006F1CDA /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE836185EB391006F1CDA /* closebutton.png */; };
 		D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D49DE837185EB391006F1CDA /* closebutton@2x.png */; };
@@ -215,24 +188,80 @@
 		D49EB4BA18C0AA07009249A9 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */; };
 		D49EB4BB18C0AA07009249A9 /* DetailplanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */; };
 		D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */; };
-		D49F86D218EE6E9A00413CAD /* Vlumedismdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */; };
-		D49F86D518EE8B2E00413CAD /* discuntvlummdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D418EE8B2E00413CAD /* discuntvlummdl.m */; };
-		D49F86D818EE8FF900413CAD /* Matrixmark.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86D718EE8FF900413CAD /* Matrixmark.m */; };
+		D49F874518EEA36B00413CAD /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86F218EEA36B00413CAD /* CKCalendarView.m */; };
+		D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86F418EEA36B00413CAD /* PDFImageConverter.m */; };
+		D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86F618EEA36B00413CAD /* NSData+Base64.m */; };
+		D49F874818EEA36B00413CAD /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86F818EEA36B00413CAD /* Base64.m */; };
+		D49F874918EEA36B00413CAD /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86FA18EEA36B00413CAD /* Section.m */; };
+		D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86FC18EEA36B00413CAD /* SectionHeaderView.m */; };
+		D49F874B18EEA36B00413CAD /* Processsectionheaderview.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86FE18EEA36B00413CAD /* Processsectionheaderview.m */; };
+		D49F874C18EEA36B00413CAD /* followupmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870018EEA36B00413CAD /* followupmodel.m */; };
+		D49F874D18EEA36B00413CAD /* Empdetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870218EEA36B00413CAD /* Empdetails.m */; };
+		D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870418EEA36B00413CAD /* Verfymdl.m */; };
+		D49F874F18EEA36B00413CAD /* Coursemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870618EEA36B00413CAD /* Coursemdl.m */; };
+		D49F875018EEA36B00413CAD /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870818EEA36B00413CAD /* activityInfo.m */; };
+		D49F875118EEA36B00413CAD /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870A18EEA36B00413CAD /* Infoleads.m */; };
+		D49F875218EEA36B00413CAD /* commentmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870C18EEA36B00413CAD /* commentmdl.m */; };
+		D49F875318EEA36B00413CAD /* Manpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F870E18EEA36B00413CAD /* Manpwr.m */; };
+		D49F875418EEA36B00413CAD /* Servicemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871018EEA36B00413CAD /* Servicemdl.m */; };
+		D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871218EEA36B00413CAD /* allfolderrights.m */; };
+		D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871418EEA36B00413CAD /* phasesmodel.m */; };
+		D49F875718EEA36B00413CAD /* listusermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871618EEA36B00413CAD /* listusermdl.m */; };
+		D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871818EEA36B00413CAD /* basicreqmdl.m */; };
+		D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871A18EEA36B00413CAD /* jobsitemodel.m */; };
+		D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871C18EEA36B00413CAD /* Equpmntmdl.m */; };
+		D49F875B18EEA36B00413CAD /* Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F871E18EEA36B00413CAD /* Validation.m */; };
+		D49F875C18EEA36B00413CAD /* planmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872018EEA36B00413CAD /* planmodel.m */; };
+		D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872218EEA36B00413CAD /* SitevistMdl.m */; };
+		D49F875E18EEA36B00413CAD /* Customscaffoldingplan.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872418EEA36B00413CAD /* Customscaffoldingplan.m */; };
+		D49F875F18EEA36B00413CAD /* Scaffoldtypemdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872618EEA36B00413CAD /* Scaffoldtypemdl.m */; };
+		D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872818EEA36B00413CAD /* Scfflddetails.m */; };
+		D49F876118EEA36B00413CAD /* Scaffoldsubtypemodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872A18EEA36B00413CAD /* Scaffoldsubtypemodel.m */; };
+		D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872C18EEA36B00413CAD /* NewscfldDetails.m */; };
+		D49F876318EEA36B00413CAD /* Crewmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F872E18EEA36B00413CAD /* Crewmodel.m */; };
+		D49F876418EEA36B00413CAD /* vendermodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873018EEA36B00413CAD /* vendermodel.m */; };
+		D49F876518EEA36B00413CAD /* Empmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873218EEA36B00413CAD /* Empmdl.m */; };
+		D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873418EEA36B00413CAD /* Custmermdl.m */; };
+		D49F876718EEA36B00413CAD /* Mdladdress.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873618EEA36B00413CAD /* Mdladdress.m */; };
+		D49F876818EEA36B00413CAD /* Cbranch.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873818EEA36B00413CAD /* Cbranch.m */; };
+		D49F876918EEA36B00413CAD /* Infomdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873A18EEA36B00413CAD /* Infomdl.m */; };
+		D49F876A18EEA36B00413CAD /* Rsalesmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873C18EEA36B00413CAD /* Rsalesmdl.m */; };
+		D49F876B18EEA36B00413CAD /* NumbrSerMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F873E18EEA36B00413CAD /* NumbrSerMdl.m */; };
+		D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F874018EEA36B00413CAD /* Matrixmark.m */; };
+		D49F876D18EEA36B00413CAD /* subcontract.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F874218EEA36B00413CAD /* subcontract.m */; };
+		D49F876E18EEA36B00413CAD /* Vlumedismdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F874418EEA36B00413CAD /* Vlumedismdl.m */; };
+		D49F8A4D18EEBAD700413CAD /* Basewagecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F8A4C18EEBAD700413CAD /* Basewagecell.xib */; };
+		D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F8A4F18EEBEA400413CAD /* Wagesmdl.m */; };
+		D49F8A5318EECA6E00413CAD /* fuelmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F8A5218EECA6E00413CAD /* fuelmdl.m */; };
+		D49F8A5518EECD3800413CAD /* fuelcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F8A5418EECD3800413CAD /* fuelcell.xib */; };
+		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
+		D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338C718F3BD1900E53FAC /* WorktypeViewController.m */; };
+		D4A338CA18F3BD1900E53FAC /* WorktypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338C818F3BD1900E53FAC /* WorktypeViewController.xib */; };
+		D4A338CC18F3C22C00E53FAC /* worktypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338CB18F3C22C00E53FAC /* worktypecell.xib */; };
+		D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338CE18F3EE8700E53FAC /* Mastermarkmodel.m */; };
+		D4A338D418F3EE8700E53FAC /* Markupmainmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338D018F3EE8700E53FAC /* Markupmainmodel.m */; };
+		D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338D218F3EE8700E53FAC /* subheadermarkmodel.m */; };
+		D4A338E318F3EEEF00E53FAC /* MarkupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338D718F3EEEF00E53FAC /* MarkupViewController.m */; };
+		D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338D818F3EEEF00E53FAC /* MarkupViewController.xib */; };
+		D4A338E518F3EEEF00E53FAC /* DetailmarkupsectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338DA18F3EEEF00E53FAC /* DetailmarkupsectionViewController.m */; };
+		D4A338E618F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338DB18F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib */; };
+		D4A338E718F3EEEF00E53FAC /* custmarkdetailcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338DC18F3EEEF00E53FAC /* custmarkdetailcell.xib */; };
+		D4A338E818F3EEEF00E53FAC /* markupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338DD18F3EEEF00E53FAC /* markupcell.xib */; };
+		D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338DE18F3EEEF00E53FAC /* Recordcustomcell.xib */; };
+		D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338E018F3EEEF00E53FAC /* BillingViewController.m */; };
+		D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */; };
+		D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338E218F3EEEF00E53FAC /* billingcell.xib */; };
 		D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */; };
 		D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */; };
 		D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B0386918B3699F00F9DE04 /* cellfordocumnt.xib */; };
 		D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B0386B18B36FBD00F9DE04 /* Jobsitecellview.xib */; };
 		D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */; };
 		D4B7018118AB3EAB0060BE0A /* PlanningViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */; };
-		D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C33EB9180FB43500C90728 /* PDFImageConverter.m */; };
 		D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4CA2FD8176EC33E007EEF7D /* Customercell.xib */; };
 		D4CA2FDB176ED128007EEF7D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */; };
 		D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A28C17F5401000880E38 /* profilepicture.png */; };
 		D4D7A29117F5422000880E38 /* Untitled.png in Resources */ = {isa = PBXBuildFile; fileRef = D4D7A29017F5422000880E38 /* Untitled.png */; };
-		D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D7A29317F55B2400880E38 /* Empdetails.m */; };
 		D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */; };
-		D4DC425B178568BB0035A873 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DC425A178568BB0035A873 /* Base64.m */; };
-		D4DD31BF18CDAF9800CA2A33 /* Empmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */; };
 		D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */; };
 		D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */; };
 		D4DEEDDD17F428D40096A908 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DEEDDC17F428D40096A908 /* MobileCoreServices.framework */; };
@@ -250,9 +279,6 @@
 		D4F036C918B71781003A668C /* Meetingnotesview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F036C818B71781003A668C /* Meetingnotesview.xib */; };
 		D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19D9D18D01CDB007617F0 /* NewCustmrViewController.m */; };
 		D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19D9E18D01CDB007617F0 /* NewCustmrViewController.xib */; };
-		D4F19DC518D0375F007617F0 /* commentmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DC418D0375F007617F0 /* commentmdl.m */; };
-		D4F19DC818D0376F007617F0 /* Infoleads.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DC718D0376F007617F0 /* Infoleads.m */; };
-		D4F19DCB18D03784007617F0 /* activityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DCA18D03784007617F0 /* activityInfo.m */; };
 		D4F19DEB18D03AD1007617F0 /* FollowupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DDA18D03AD1007617F0 /* FollowupViewController.m */; };
 		D4F19DEC18D03AD1007617F0 /* FollowupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DDB18D03AD1007617F0 /* FollowupViewController.xib */; };
 		D4F19DED18D03AD1007617F0 /* FollowupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DDC18D03AD1007617F0 /* FollowupCell.xib */; };
@@ -260,22 +286,11 @@
 		D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DE118D03AD1007617F0 /* newCommentCell.xib */; };
 		D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF318D03F47007617F0 /* ContractViewController.m */; };
 		D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF418D03F47007617F0 /* ContractViewController.xib */; };
-		D4F19DFA18D03F60007617F0 /* MarkupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF818D03F60007617F0 /* MarkupViewController.m */; };
-		D4F19DFB18D03F60007617F0 /* MarkupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF918D03F60007617F0 /* MarkupViewController.xib */; };
-		D4F19DFF18D03F77007617F0 /* BillingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DFD18D03F77007617F0 /* BillingViewController.m */; };
-		D4F19E0018D03F77007617F0 /* BillingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DFE18D03F77007617F0 /* BillingViewController.xib */; };
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
-		D4F19E0418D03FD8007617F0 /* markupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0318D03FD8007617F0 /* markupcell.xib */; };
-		D4F19E0618D03FE8007617F0 /* billingcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0518D03FE8007617F0 /* billingcell.xib */; };
-		D4F19E0918D044AE007617F0 /* Custmermdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19E0818D044AE007617F0 /* Custmermdl.m */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */; };
-		D4F5BD5918E167EF0045DBE3 /* Infomdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5BD5818E167EF0045DBE3 /* Infomdl.m */; };
-		D4F5BD5C18E168570045DBE3 /* Rsalesmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5BD5B18E168570045DBE3 /* Rsalesmdl.m */; };
 		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
 		D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F61A5518A896D90006093B /* ProcesshrViewController.xib */; };
-		D4F61A5D18A8CAE20006093B /* Processsectionheaderview.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5C18A8CAE20006093B /* Processsectionheaderview.m */; };
-		D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F7E2E017856D5E00F9545D /* NSData+Base64.m */; };
 		D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */; };
 		D4FED40817F15B07004BE242 /* HRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FED40617F15B07004BE242 /* HRViewController.m */; };
 		D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FED40717F15B07004BE242 /* HRViewController.xib */; };
@@ -285,8 +300,6 @@
 		D4FED41417F18E28004BE242 /* tabbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41317F18E28004BE242 /* tabbtn.png */; };
 		D4FED41617F1A047004BE242 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41517F1A046004BE242 /* 1.png */; };
 		D4FED41817F1A04E004BE242 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41717F1A04D004BE242 /* 2.png */; };
-		D4FFBD181855A01F0007851D /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFBD171855A01F0007851D /* Section.m */; };
-		D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */; };
 		D4FFBD201855B7830007851D /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FFBD1F1855B7830007851D /* carat.png */; };
 		D4FFBD221855B7880007851D /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FFBD211855B7880007851D /* carat-open.png */; };
 /* End PBXBuildFile section */
@@ -307,22 +320,14 @@
 		6426F5F818C06824002471AC /* fleet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fleet.png; sourceTree = "<group>"; };
 		6426F5FA18C0685C002471AC /* SasteyPicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SasteyPicture.png; sourceTree = "<group>"; };
 		642F93001872870E0059101A /* customjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customjobcell.xib; sourceTree = "<group>"; };
-		642F93091872B6A80059101A /* allfolderrights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfolderrights.h; sourceTree = "<group>"; };
-		642F930A1872B6A80059101A /* allfolderrights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allfolderrights.m; sourceTree = "<group>"; };
 		642FA78618AC927F00372623 /* AddserviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddserviceViewController.h; sourceTree = "<group>"; };
 		642FA78718AC927F00372623 /* AddserviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddserviceViewController.m; sourceTree = "<group>"; };
 		642FA78818AC927F00372623 /* AddserviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddserviceViewController.xib; sourceTree = "<group>"; };
 		642FA78B18AC945C00372623 /* SitevisitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitevisitViewController.h; sourceTree = "<group>"; };
 		642FA78C18AC945C00372623 /* SitevisitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevisitViewController.m; sourceTree = "<group>"; };
 		642FA78D18AC945C00372623 /* SitevisitViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SitevisitViewController.xib; sourceTree = "<group>"; };
-		642FA79A18ACC9FB00372623 /* planmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planmodel.h; sourceTree = "<group>"; };
-		642FA79B18ACC9FB00372623 /* planmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = planmodel.m; sourceTree = "<group>"; };
-		643118A418C737560061A276 /* Crewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crewmodel.h; sourceTree = "<group>"; };
-		643118A518C737560061A276 /* Crewmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crewmodel.m; sourceTree = "<group>"; };
 		6437578418BC554B003691E6 /* Subtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subtypecell.xib; sourceTree = "<group>"; };
 		6437578618BC5572003691E6 /* maintablecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = maintablecell.xib; sourceTree = "<group>"; };
-		64481EC71873EBFD007D66E7 /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
-		64481EC81873EBFD007D66E7 /* phasesmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phasesmodel.m; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		648D12FD17716C7F006BB41A /* rectangle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle3.png; sourceTree = "<group>"; };
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
@@ -337,15 +342,11 @@
 		649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalesRepInfoViewController.m; sourceTree = "<group>"; };
 		649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SalesRepInfoViewController.xib; sourceTree = "<group>"; };
 		649B1F8A18C9CE800081B1F1 /* SendEmployeeview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendEmployeeview.xib; sourceTree = "<group>"; };
-		649CAD0118ED3B46002915F5 /* subcontract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subcontract.h; sourceTree = "<group>"; };
-		649CAD0218ED3B46002915F5 /* subcontract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subcontract.m; sourceTree = "<group>"; };
 		649E1F7B18615A240010CBD8 /* customequipcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = customequipcell.xib; path = ../customequipcell.xib; sourceTree = "<group>"; };
 		649E1F7D18617ECD0010CBD8 /* MaterialsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialsViewController.h; sourceTree = "<group>"; };
 		649E1F7E18617ECD0010CBD8 /* MaterialsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialsViewController.m; sourceTree = "<group>"; };
 		649E1F7F18617ECD0010CBD8 /* MaterialsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaterialsViewController.xib; sourceTree = "<group>"; };
 		649E1F82186193790010CBD8 /* custommaterialcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custommaterialcell.xib; sourceTree = "<group>"; };
-		649EA38418769D96006651E6 /* jobsitemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitemodel.h; sourceTree = "<group>"; };
-		649EA38518769D96006651E6 /* jobsitemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitemodel.m; sourceTree = "<group>"; };
 		649EB48818A8DF4700CDBE28 /* DetailproHrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailproHrViewController.h; sourceTree = "<group>"; };
 		649EB48918A8DF4700CDBE28 /* DetailproHrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailproHrViewController.m; sourceTree = "<group>"; };
 		649EB48A18A8DF4700CDBE28 /* DetailproHrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailproHrViewController.xib; sourceTree = "<group>"; };
@@ -360,18 +361,10 @@
 		649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Outlookrecordaddview.xib; sourceTree = "<group>"; };
 		649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Addnoterecordview.xib; sourceTree = "<group>"; };
 		649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Roolsrecordaddview.xib; sourceTree = "<group>"; };
-		649EDED118BB25E000B78D97 /* Customscaffoldingplan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customscaffoldingplan.h; sourceTree = "<group>"; };
-		649EDED218BB25E000B78D97 /* Customscaffoldingplan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customscaffoldingplan.m; sourceTree = "<group>"; };
 		649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllDetailsplandisplayViewController.h; sourceTree = "<group>"; };
 		649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllDetailsplandisplayViewController.m; sourceTree = "<group>"; };
 		649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllDetailsplandisplayViewController.xib; sourceTree = "<group>"; };
-		649EDED918BB4E5E00B78D97 /* Scaffoldtypemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldtypemdl.h; sourceTree = "<group>"; };
-		649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldtypemdl.m; sourceTree = "<group>"; };
 		64A00F3018C5B115002F607E /* empmgmtcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = empmgmtcell.xib; sourceTree = "<group>"; };
-		64A00F3218C5C854002F607E /* Scaffoldsubtypemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldsubtypemodel.h; sourceTree = "<group>"; };
-		64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldsubtypemodel.m; sourceTree = "<group>"; };
-		64A07BD418C8321F00B2F9D5 /* vendermodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vendermodel.h; sourceTree = "<group>"; };
-		64A07BD518C8321F00B2F9D5 /* vendermodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vendermodel.m; sourceTree = "<group>"; };
 		64A09DAC1860549E001F74E2 /* appbar.checkmark.thick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.checkmark.thick.png; sourceTree = "<group>"; };
 		64A09DAD1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.checkmark.thick.unchecked.png; sourceTree = "<group>"; };
 		64A09DB018605711001F74E2 /* appbar.delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.delete.png; sourceTree = "<group>"; };
@@ -383,13 +376,8 @@
 		64A14D7A187546D20028B43A /* jobdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobdetailsViewController.m; sourceTree = "<group>"; };
 		64A14D7B187546D20028B43A /* jobdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobdetailsViewController.xib; sourceTree = "<group>"; };
 		64A14D7E18755B910028B43A /* customdetlcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdetlcell.xib; sourceTree = "<group>"; };
-		64A14D80187573B50028B43A /* basicreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basicreqmdl.h; sourceTree = "<group>"; };
-		64A14D81187573B50028B43A /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
 		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
-		64A1FA8F18EE815400D2AD2A /* Mastermarkmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mastermarkmodel.m; sourceTree = "<group>"; };
-		64A27C1C18E149D300D184BF /* Cbranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cbranch.h; sourceTree = "<group>"; };
-		64A27C1D18E149D300D184BF /* Cbranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cbranch.m; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		64A3B80F18DFEE980015887F /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
@@ -406,8 +394,6 @@
 		64A3B82218DFEF0B0015887F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		64A3B82518E02FC90015887F /* branchcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = branchcell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
-		64F4DB65187E77A200AD1C83 /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
-		64F4DB66187E77A200AD1C83 /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
 		64F9798E185EF8B000E7722B /* jobsitereqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitereqViewController.h; sourceTree = "<group>"; };
 		64F9798F185EF8B000E7722B /* jobsitereqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitereqViewController.m; sourceTree = "<group>"; };
@@ -428,17 +414,11 @@
 		D4014FF118E3E05B00DB825A /* SerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialViewController.m; sourceTree = "<group>"; };
 		D4014FF218E3E05B00DB825A /* SerialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialViewController.xib; sourceTree = "<group>"; };
 		D4014FF518E3E34000DB825A /* Snumcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Snumcell.xib; sourceTree = "<group>"; };
-		D4014FF718E3EEFF00DB825A /* NumbrSerMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumbrSerMdl.h; sourceTree = "<group>"; };
-		D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumbrSerMdl.m; sourceTree = "<group>"; };
-		D40313B418B5E34300C27F2F /* SitevistMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitevistMdl.h; sourceTree = "<group>"; };
-		D40313B518B5E34300C27F2F /* SitevistMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevistMdl.m; sourceTree = "<group>"; };
 		D40313B718B6036300C27F2F /* SaftyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaftyCell.xib; sourceTree = "<group>"; };
 		D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = siteEqupmtntcell.xib; sourceTree = "<group>"; };
 		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
 		D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangmntdetailsViewController.m; sourceTree = "<group>"; };
 		D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MangmntdetailsViewController.xib; sourceTree = "<group>"; };
-		D4041F141779ACB400247373 /* followupmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = followupmodel.h; sourceTree = "<group>"; };
-		D4041F151779ACB400247373 /* followupmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = followupmodel.m; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		D40736BE18BB1E9B00C5DB30 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -449,13 +429,9 @@
 		D40A6639187131CA00AB7496 /* cb_mono_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_on.png; sourceTree = "<group>"; };
 		D40A663A187131CA00AB7496 /* cb_mono_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_off.png; sourceTree = "<group>"; };
 		D40A99C418C5A334005384F9 /* Editplanview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editplanview.xib; sourceTree = "<group>"; };
-		D40A99C618C5A956005384F9 /* Scfflddetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scfflddetails.h; sourceTree = "<group>"; };
-		D40A99C718C5A956005384F9 /* Scfflddetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scfflddetails.m; sourceTree = "<group>"; };
 		D40A99C918C5A9B5005384F9 /* EmplyhrmgntViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmplyhrmgntViewController.h; sourceTree = "<group>"; };
 		D40A99CA18C5A9B5005384F9 /* EmplyhrmgntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmplyhrmgntViewController.m; sourceTree = "<group>"; };
 		D40A99CB18C5A9B5005384F9 /* EmplyhrmgntViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmplyhrmgntViewController.xib; sourceTree = "<group>"; };
-		D40A99CE18C5E3C3005384F9 /* NewscfldDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewscfldDetails.h; sourceTree = "<group>"; };
-		D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewscfldDetails.m; sourceTree = "<group>"; };
 		D40D1EA7176B086F00379DD5 /* Newproject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Newproject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40D1EAA176B086F00379DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D40D1EAC176B086F00379DD5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -482,12 +458,6 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
-		D40DE4FE18DFF4AC00D51069 /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
-		D40DE4FF18DFF4AC00D51069 /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
-		D41377C5187BD59200156A92 /* Equpmntmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equpmntmdl.h; sourceTree = "<group>"; };
-		D41377C6187BD59200156A92 /* Equpmntmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equpmntmdl.m; sourceTree = "<group>"; };
-		D41404C8187294700067F71A /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
-		D41404C9187294700067F71A /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D415486218ADF64900351248 /* Ratecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ratecellview.xib; sourceTree = "<group>"; };
 		D418B61818B4A5620043644A /* NewrecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewrecordViewController.h; sourceTree = "<group>"; };
@@ -518,10 +488,6 @@
 		D42D8C3E18D2E433009D8085 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
 		D42D8C3F18D2E442009D8085 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		D42D8C4118D2E450009D8085 /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
-		D42D8C4318D2E535009D8085 /* listusermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listusermdl.h; sourceTree = "<group>"; };
-		D42D8C4418D2E535009D8085 /* listusermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listusermdl.m; sourceTree = "<group>"; };
-		D4399EB8186D74BB00A693F7 /* Manpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manpwr.h; sourceTree = "<group>"; };
-		D4399EB9186D74BB00A693F7 /* Manpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manpwr.m; sourceTree = "<group>"; };
 		D4399EBB186D7BB000A693F7 /* search-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button@2x.png"; sourceTree = "<group>"; };
 		D4399EBD186D7BBF00A693F7 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
 		D43A395C18C993B00099EF7B /* NVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NVerificationViewController.xib; sourceTree = "<group>"; };
@@ -539,8 +505,6 @@
 		D44BEA7418E0254900719ED5 /* TypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeViewController.m; sourceTree = "<group>"; };
 		D44BEA7518E0254900719ED5 /* TypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TypeViewController.xib; sourceTree = "<group>"; };
 		D44BEA7918E0360F00719ED5 /* Addresscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Addresscell.xib; sourceTree = "<group>"; };
-		D44BEA7E18E03C3100719ED5 /* Mdladdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mdladdress.h; sourceTree = "<group>"; };
-		D44BEA7F18E03C3100719ED5 /* Mdladdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mdladdress.m; sourceTree = "<group>"; };
 		D44BEA8118E04D5100719ED5 /* cTypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cTypecell.xib; sourceTree = "<group>"; };
 		D453DA1E1873F18C007EE3DC /* ThirdPartyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdPartyViewController.h; sourceTree = "<group>"; };
 		D453DA1F1873F18C007EE3DC /* ThirdPartyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdPartyViewController.m; sourceTree = "<group>"; };
@@ -554,13 +518,9 @@
 		D453DA2D1873F1F3007EE3DC /* Thirdpartycell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thirdpartycell.xib; sourceTree = "<group>"; };
 		D453DA2F1873F206007EE3DC /* Consumblecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Consumblecell.xib; sourceTree = "<group>"; };
 		D453DA311873F215007EE3DC /* Assetcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Assetcell.xib; sourceTree = "<group>"; };
-		D484359817F595CD00098AA1 /* Verfymdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verfymdl.h; sourceTree = "<group>"; };
-		D484359917F595CD00098AA1 /* Verfymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verfymdl.m; sourceTree = "<group>"; };
 		D48A346F1876901B00898913 /* FleetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FleetCell.xib; sourceTree = "<group>"; };
 		D48B607E17F941A5001A53C8 /* RadioButton-Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Selected.png"; sourceTree = "<group>"; };
 		D48B608017F941AE001A53C8 /* RadioButton-Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RadioButton-Unselected.png"; sourceTree = "<group>"; };
-		D48B608217F98CEC001A53C8 /* Coursemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coursemdl.h; sourceTree = "<group>"; };
-		D48B608317F98CFC001A53C8 /* Coursemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coursemdl.m; sourceTree = "<group>"; };
 		D48F436518A2335400AFDDC2 /* vertical blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vertical blue.png"; sourceTree = "<group>"; };
 		D49DE836185EB391006F1CDA /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		D49DE837185EB391006F1CDA /* closebutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closebutton@2x.png"; sourceTree = "<group>"; };
@@ -573,11 +533,120 @@
 		D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
 		D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailplanViewController.xib; sourceTree = "<group>"; };
 		D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = volumediscountcell.xib; sourceTree = "<group>"; };
-		D49F86D118EE6E9A00413CAD /* Vlumedismdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vlumedismdl.m; sourceTree = "<group>"; };
-		D49F86D318EE8B2E00413CAD /* discuntvlummdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = discuntvlummdl.h; sourceTree = "<group>"; };
-		D49F86D418EE8B2E00413CAD /* discuntvlummdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = discuntvlummdl.m; sourceTree = "<group>"; };
-		D49F86D618EE8FF300413CAD /* Matrixmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrixmark.h; sourceTree = "<group>"; };
-		D49F86D718EE8FF900413CAD /* Matrixmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrixmark.m; sourceTree = "<group>"; };
+		D49F86F118EEA36B00413CAD /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
+		D49F86F218EEA36B00413CAD /* CKCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CKCalendarView.m; sourceTree = "<group>"; };
+		D49F86F318EEA36B00413CAD /* PDFImageConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDFImageConverter.h; sourceTree = "<group>"; };
+		D49F86F418EEA36B00413CAD /* PDFImageConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDFImageConverter.m; sourceTree = "<group>"; };
+		D49F86F518EEA36B00413CAD /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		D49F86F618EEA36B00413CAD /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		D49F86F718EEA36B00413CAD /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		D49F86F818EEA36B00413CAD /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		D49F86F918EEA36B00413CAD /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		D49F86FA18EEA36B00413CAD /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
+		D49F86FB18EEA36B00413CAD /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
+		D49F86FC18EEA36B00413CAD /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
+		D49F86FD18EEA36B00413CAD /* Processsectionheaderview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processsectionheaderview.h; sourceTree = "<group>"; };
+		D49F86FE18EEA36B00413CAD /* Processsectionheaderview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Processsectionheaderview.m; sourceTree = "<group>"; };
+		D49F86FF18EEA36B00413CAD /* followupmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = followupmodel.h; sourceTree = "<group>"; };
+		D49F870018EEA36B00413CAD /* followupmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = followupmodel.m; sourceTree = "<group>"; };
+		D49F870118EEA36B00413CAD /* Empdetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empdetails.h; sourceTree = "<group>"; };
+		D49F870218EEA36B00413CAD /* Empdetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empdetails.m; sourceTree = "<group>"; };
+		D49F870318EEA36B00413CAD /* Verfymdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Verfymdl.h; sourceTree = "<group>"; };
+		D49F870418EEA36B00413CAD /* Verfymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Verfymdl.m; sourceTree = "<group>"; };
+		D49F870518EEA36B00413CAD /* Coursemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coursemdl.h; sourceTree = "<group>"; };
+		D49F870618EEA36B00413CAD /* Coursemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coursemdl.m; sourceTree = "<group>"; };
+		D49F870718EEA36B00413CAD /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
+		D49F870818EEA36B00413CAD /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
+		D49F870918EEA36B00413CAD /* Infoleads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infoleads.h; sourceTree = "<group>"; };
+		D49F870A18EEA36B00413CAD /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infoleads.m; sourceTree = "<group>"; };
+		D49F870B18EEA36B00413CAD /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
+		D49F870C18EEA36B00413CAD /* commentmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentmdl.m; sourceTree = "<group>"; };
+		D49F870D18EEA36B00413CAD /* Manpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manpwr.h; sourceTree = "<group>"; };
+		D49F870E18EEA36B00413CAD /* Manpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manpwr.m; sourceTree = "<group>"; };
+		D49F870F18EEA36B00413CAD /* Servicemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Servicemdl.h; sourceTree = "<group>"; };
+		D49F871018EEA36B00413CAD /* Servicemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Servicemdl.m; sourceTree = "<group>"; };
+		D49F871118EEA36B00413CAD /* allfolderrights.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allfolderrights.h; sourceTree = "<group>"; };
+		D49F871218EEA36B00413CAD /* allfolderrights.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = allfolderrights.m; sourceTree = "<group>"; };
+		D49F871318EEA36B00413CAD /* phasesmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = phasesmodel.h; sourceTree = "<group>"; };
+		D49F871418EEA36B00413CAD /* phasesmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = phasesmodel.m; sourceTree = "<group>"; };
+		D49F871518EEA36B00413CAD /* listusermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = listusermdl.h; sourceTree = "<group>"; };
+		D49F871618EEA36B00413CAD /* listusermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = listusermdl.m; sourceTree = "<group>"; };
+		D49F871718EEA36B00413CAD /* basicreqmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basicreqmdl.h; sourceTree = "<group>"; };
+		D49F871818EEA36B00413CAD /* basicreqmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = basicreqmdl.m; sourceTree = "<group>"; };
+		D49F871918EEA36B00413CAD /* jobsitemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitemodel.h; sourceTree = "<group>"; };
+		D49F871A18EEA36B00413CAD /* jobsitemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitemodel.m; sourceTree = "<group>"; };
+		D49F871B18EEA36B00413CAD /* Equpmntmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Equpmntmdl.h; sourceTree = "<group>"; };
+		D49F871C18EEA36B00413CAD /* Equpmntmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Equpmntmdl.m; sourceTree = "<group>"; };
+		D49F871D18EEA36B00413CAD /* Validation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Validation.h; sourceTree = "<group>"; };
+		D49F871E18EEA36B00413CAD /* Validation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Validation.m; sourceTree = "<group>"; };
+		D49F871F18EEA36B00413CAD /* planmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planmodel.h; sourceTree = "<group>"; };
+		D49F872018EEA36B00413CAD /* planmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = planmodel.m; sourceTree = "<group>"; };
+		D49F872118EEA36B00413CAD /* SitevistMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitevistMdl.h; sourceTree = "<group>"; };
+		D49F872218EEA36B00413CAD /* SitevistMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitevistMdl.m; sourceTree = "<group>"; };
+		D49F872318EEA36B00413CAD /* Customscaffoldingplan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Customscaffoldingplan.h; sourceTree = "<group>"; };
+		D49F872418EEA36B00413CAD /* Customscaffoldingplan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Customscaffoldingplan.m; sourceTree = "<group>"; };
+		D49F872518EEA36B00413CAD /* Scaffoldtypemdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldtypemdl.h; sourceTree = "<group>"; };
+		D49F872618EEA36B00413CAD /* Scaffoldtypemdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldtypemdl.m; sourceTree = "<group>"; };
+		D49F872718EEA36B00413CAD /* Scfflddetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scfflddetails.h; sourceTree = "<group>"; };
+		D49F872818EEA36B00413CAD /* Scfflddetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scfflddetails.m; sourceTree = "<group>"; };
+		D49F872918EEA36B00413CAD /* Scaffoldsubtypemodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scaffoldsubtypemodel.h; sourceTree = "<group>"; };
+		D49F872A18EEA36B00413CAD /* Scaffoldsubtypemodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scaffoldsubtypemodel.m; sourceTree = "<group>"; };
+		D49F872B18EEA36B00413CAD /* NewscfldDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewscfldDetails.h; sourceTree = "<group>"; };
+		D49F872C18EEA36B00413CAD /* NewscfldDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewscfldDetails.m; sourceTree = "<group>"; };
+		D49F872D18EEA36B00413CAD /* Crewmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crewmodel.h; sourceTree = "<group>"; };
+		D49F872E18EEA36B00413CAD /* Crewmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crewmodel.m; sourceTree = "<group>"; };
+		D49F872F18EEA36B00413CAD /* vendermodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vendermodel.h; sourceTree = "<group>"; };
+		D49F873018EEA36B00413CAD /* vendermodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = vendermodel.m; sourceTree = "<group>"; };
+		D49F873118EEA36B00413CAD /* Empmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empmdl.h; sourceTree = "<group>"; };
+		D49F873218EEA36B00413CAD /* Empmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empmdl.m; sourceTree = "<group>"; };
+		D49F873318EEA36B00413CAD /* Custmermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custmermdl.h; sourceTree = "<group>"; };
+		D49F873418EEA36B00413CAD /* Custmermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custmermdl.m; sourceTree = "<group>"; };
+		D49F873518EEA36B00413CAD /* Mdladdress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mdladdress.h; sourceTree = "<group>"; };
+		D49F873618EEA36B00413CAD /* Mdladdress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mdladdress.m; sourceTree = "<group>"; };
+		D49F873718EEA36B00413CAD /* Cbranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cbranch.h; sourceTree = "<group>"; };
+		D49F873818EEA36B00413CAD /* Cbranch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cbranch.m; sourceTree = "<group>"; };
+		D49F873918EEA36B00413CAD /* Infomdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infomdl.h; sourceTree = "<group>"; };
+		D49F873A18EEA36B00413CAD /* Infomdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infomdl.m; sourceTree = "<group>"; };
+		D49F873B18EEA36B00413CAD /* Rsalesmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rsalesmdl.h; sourceTree = "<group>"; };
+		D49F873C18EEA36B00413CAD /* Rsalesmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rsalesmdl.m; sourceTree = "<group>"; };
+		D49F873D18EEA36B00413CAD /* NumbrSerMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumbrSerMdl.h; sourceTree = "<group>"; };
+		D49F873E18EEA36B00413CAD /* NumbrSerMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NumbrSerMdl.m; sourceTree = "<group>"; };
+		D49F873F18EEA36B00413CAD /* Matrixmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Matrixmark.h; sourceTree = "<group>"; };
+		D49F874018EEA36B00413CAD /* Matrixmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Matrixmark.m; sourceTree = "<group>"; };
+		D49F874118EEA36B00413CAD /* subcontract.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subcontract.h; sourceTree = "<group>"; };
+		D49F874218EEA36B00413CAD /* subcontract.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subcontract.m; sourceTree = "<group>"; };
+		D49F874318EEA36B00413CAD /* Vlumedismdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vlumedismdl.h; sourceTree = "<group>"; };
+		D49F874418EEA36B00413CAD /* Vlumedismdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vlumedismdl.m; sourceTree = "<group>"; };
+		D49F8A4C18EEBAD700413CAD /* Basewagecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Basewagecell.xib; sourceTree = "<group>"; };
+		D49F8A4E18EEBEA400413CAD /* Wagesmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wagesmdl.h; sourceTree = "<group>"; };
+		D49F8A4F18EEBEA400413CAD /* Wagesmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wagesmdl.m; sourceTree = "<group>"; };
+		D49F8A5118EECA6E00413CAD /* fuelmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fuelmdl.h; sourceTree = "<group>"; };
+		D49F8A5218EECA6E00413CAD /* fuelmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fuelmdl.m; sourceTree = "<group>"; };
+		D49F8A5418EECD3800413CAD /* fuelcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fuelcell.xib; sourceTree = "<group>"; };
+		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
+		D4A338C618F3BD1800E53FAC /* WorktypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorktypeViewController.h; sourceTree = "<group>"; };
+		D4A338C718F3BD1900E53FAC /* WorktypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorktypeViewController.m; sourceTree = "<group>"; };
+		D4A338C818F3BD1900E53FAC /* WorktypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorktypeViewController.xib; sourceTree = "<group>"; };
+		D4A338CB18F3C22C00E53FAC /* worktypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = worktypecell.xib; sourceTree = "<group>"; };
+		D4A338CD18F3EE8700E53FAC /* Mastermarkmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mastermarkmodel.h; sourceTree = "<group>"; };
+		D4A338CE18F3EE8700E53FAC /* Mastermarkmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mastermarkmodel.m; sourceTree = "<group>"; };
+		D4A338CF18F3EE8700E53FAC /* Markupmainmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Markupmainmodel.h; sourceTree = "<group>"; };
+		D4A338D018F3EE8700E53FAC /* Markupmainmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Markupmainmodel.m; sourceTree = "<group>"; };
+		D4A338D118F3EE8700E53FAC /* subheadermarkmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subheadermarkmodel.h; sourceTree = "<group>"; };
+		D4A338D218F3EE8700E53FAC /* subheadermarkmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = subheadermarkmodel.m; sourceTree = "<group>"; };
+		D4A338D618F3EEEF00E53FAC /* MarkupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupViewController.h; sourceTree = "<group>"; };
+		D4A338D718F3EEEF00E53FAC /* MarkupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupViewController.m; sourceTree = "<group>"; };
+		D4A338D818F3EEEF00E53FAC /* MarkupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkupViewController.xib; sourceTree = "<group>"; };
+		D4A338D918F3EEEF00E53FAC /* DetailmarkupsectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailmarkupsectionViewController.h; sourceTree = "<group>"; };
+		D4A338DA18F3EEEF00E53FAC /* DetailmarkupsectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailmarkupsectionViewController.m; sourceTree = "<group>"; };
+		D4A338DB18F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailmarkupsectionViewController.xib; sourceTree = "<group>"; };
+		D4A338DC18F3EEEF00E53FAC /* custmarkdetailcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = custmarkdetailcell.xib; sourceTree = "<group>"; };
+		D4A338DD18F3EEEF00E53FAC /* markupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markupcell.xib; sourceTree = "<group>"; };
+		D4A338DE18F3EEEF00E53FAC /* Recordcustomcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Recordcustomcell.xib; sourceTree = "<group>"; };
+		D4A338DF18F3EEEF00E53FAC /* BillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingViewController.h; sourceTree = "<group>"; };
+		D4A338E018F3EEEF00E53FAC /* BillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingViewController.m; sourceTree = "<group>"; };
+		D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillingViewController.xib; sourceTree = "<group>"; };
+		D4A338E218F3EEEF00E53FAC /* billingcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = billingcell.xib; sourceTree = "<group>"; };
 		D4A85B3E18A0E866004E9C8B /* TilehrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilehrViewController.h; sourceTree = "<group>"; };
 		D4A85B3F18A0E866004E9C8B /* TilehrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilehrViewController.m; sourceTree = "<group>"; };
 		D4A85B4018A0E866004E9C8B /* TilehrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilehrViewController.xib; sourceTree = "<group>"; };
@@ -586,19 +655,11 @@
 		D4B7017D18AB3EAB0060BE0A /* PlanningViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanningViewController.h; sourceTree = "<group>"; };
 		D4B7017E18AB3EAB0060BE0A /* PlanningViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanningViewController.m; sourceTree = "<group>"; };
 		D4B7017F18AB3EAB0060BE0A /* PlanningViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanningViewController.xib; sourceTree = "<group>"; };
-		D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PDFImageConverter.h; path = ../PDFImageConverter.h; sourceTree = "<group>"; };
-		D4C33EB9180FB43500C90728 /* PDFImageConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PDFImageConverter.m; path = ../PDFImageConverter.m; sourceTree = "<group>"; };
 		D4CA2FD8176EC33E007EEF7D /* Customercell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Customercell.xib; sourceTree = "<group>"; };
 		D4CA2FDA176ED128007EEF7D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D4D7A28C17F5401000880E38 /* profilepicture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilepicture.png; sourceTree = "<group>"; };
 		D4D7A29017F5422000880E38 /* Untitled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Untitled.png; sourceTree = "<group>"; };
-		D4D7A29217F55B2400880E38 /* Empdetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empdetails.h; sourceTree = "<group>"; };
-		D4D7A29317F55B2400880E38 /* Empdetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empdetails.m; sourceTree = "<group>"; };
 		D4D8D7A417FA817C006B6CE3 /* requirmentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = requirmentcell.xib; sourceTree = "<group>"; };
-		D4DC4259178568B40035A873 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Base64.h; path = ../Base64.h; sourceTree = "<group>"; };
-		D4DC425A178568BB0035A873 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Base64.m; path = ../Base64.m; sourceTree = "<group>"; };
-		D4DD31BD18CDAF9800CA2A33 /* Empmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Empmdl.h; sourceTree = "<group>"; };
-		D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Empmdl.m; sourceTree = "<group>"; };
 		D4DEEDD717F40BE70096A908 /* UploadDocViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDocViewController.h; sourceTree = "<group>"; };
 		D4DEEDD817F40BE70096A908 /* UploadDocViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadDocViewController.m; sourceTree = "<group>"; };
 		D4DEEDD917F40BE70096A908 /* UploadDocViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadDocViewController.xib; sourceTree = "<group>"; };
@@ -618,12 +679,6 @@
 		D4F19D9C18D01CDB007617F0 /* NewCustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = NewCustmrViewController.h; sourceTree = "<group>"; usesTabs = 0; };
 		D4F19D9D18D01CDB007617F0 /* NewCustmrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCustmrViewController.m; sourceTree = "<group>"; };
 		D4F19D9E18D01CDB007617F0 /* NewCustmrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCustmrViewController.xib; sourceTree = "<group>"; };
-		D4F19DC318D0375F007617F0 /* commentmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentmdl.h; sourceTree = "<group>"; };
-		D4F19DC418D0375F007617F0 /* commentmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentmdl.m; sourceTree = "<group>"; };
-		D4F19DC618D0376F007617F0 /* Infoleads.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infoleads.h; sourceTree = "<group>"; };
-		D4F19DC718D0376F007617F0 /* Infoleads.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infoleads.m; sourceTree = "<group>"; };
-		D4F19DC918D03784007617F0 /* activityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activityInfo.h; sourceTree = "<group>"; };
-		D4F19DCA18D03784007617F0 /* activityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = activityInfo.m; sourceTree = "<group>"; };
 		D4F19DD918D03AD1007617F0 /* FollowupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowupViewController.h; sourceTree = "<group>"; };
 		D4F19DDA18D03AD1007617F0 /* FollowupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowupViewController.m; sourceTree = "<group>"; };
 		D4F19DDB18D03AD1007617F0 /* FollowupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FollowupViewController.xib; sourceTree = "<group>"; };
@@ -633,30 +688,12 @@
 		D4F19DF218D03F47007617F0 /* ContractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContractViewController.h; sourceTree = "<group>"; };
 		D4F19DF318D03F47007617F0 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		D4F19DF418D03F47007617F0 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
-		D4F19DF718D03F60007617F0 /* MarkupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkupViewController.h; sourceTree = "<group>"; };
-		D4F19DF818D03F60007617F0 /* MarkupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarkupViewController.m; sourceTree = "<group>"; };
-		D4F19DF918D03F60007617F0 /* MarkupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkupViewController.xib; sourceTree = "<group>"; };
-		D4F19DFC18D03F77007617F0 /* BillingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BillingViewController.h; sourceTree = "<group>"; };
-		D4F19DFD18D03F77007617F0 /* BillingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BillingViewController.m; sourceTree = "<group>"; };
-		D4F19DFE18D03F77007617F0 /* BillingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BillingViewController.xib; sourceTree = "<group>"; };
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
-		D4F19E0318D03FD8007617F0 /* markupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = markupcell.xib; sourceTree = "<group>"; };
-		D4F19E0518D03FE8007617F0 /* billingcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = billingcell.xib; sourceTree = "<group>"; };
-		D4F19E0718D044AE007617F0 /* Custmermdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Custmermdl.h; sourceTree = "<group>"; };
-		D4F19E0818D044AE007617F0 /* Custmermdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Custmermdl.m; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cinfocell.xib; sourceTree = "<group>"; };
-		D4F5BD5718E167EF0045DBE3 /* Infomdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Infomdl.h; sourceTree = "<group>"; };
-		D4F5BD5818E167EF0045DBE3 /* Infomdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Infomdl.m; sourceTree = "<group>"; };
-		D4F5BD5A18E168570045DBE3 /* Rsalesmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rsalesmdl.h; sourceTree = "<group>"; };
-		D4F5BD5B18E168570045DBE3 /* Rsalesmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rsalesmdl.m; sourceTree = "<group>"; };
 		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
 		D4F61A5418A896D90006093B /* ProcesshrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcesshrViewController.m; sourceTree = "<group>"; };
 		D4F61A5518A896D90006093B /* ProcesshrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcesshrViewController.xib; sourceTree = "<group>"; };
-		D4F61A5B18A8CAE20006093B /* Processsectionheaderview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Processsectionheaderview.h; sourceTree = "<group>"; };
-		D4F61A5C18A8CAE20006093B /* Processsectionheaderview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Processsectionheaderview.m; sourceTree = "<group>"; };
-		D4F7E2DF17856D4400F9545D /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64.h"; path = "../NSData+Base64.h"; sourceTree = "<group>"; };
-		D4F7E2E017856D5E00F9545D /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64.m"; path = "../NSData+Base64.m"; sourceTree = "<group>"; };
 		D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-camera-icon.png"; sourceTree = "<group>"; };
 		D4FED40517F15B07004BE242 /* HRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRViewController.h; sourceTree = "<group>"; };
 		D4FED40617F15B07004BE242 /* HRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRViewController.m; sourceTree = "<group>"; };
@@ -668,10 +705,6 @@
 		D4FED41317F18E28004BE242 /* tabbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbtn.png; sourceTree = "<group>"; };
 		D4FED41517F1A046004BE242 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		D4FED41717F1A04D004BE242 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
-		D4FFBD161855A00C0007851D /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
-		D4FFBD171855A01F0007851D /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		D4FFBD191855A0280007851D /* SectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionHeaderView.h; sourceTree = "<group>"; };
-		D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
 		D4FFBD1F1855B7830007851D /* carat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carat.png; sourceTree = "<group>"; };
 		D4FFBD211855B7880007851D /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -748,6 +781,10 @@
 				D4014FF118E3E05B00DB825A /* SerialViewController.m */,
 				D4014FF218E3E05B00DB825A /* SerialViewController.xib */,
 				D4014FF518E3E34000DB825A /* Snumcell.xib */,
+				D4A338C618F3BD1800E53FAC /* WorktypeViewController.h */,
+				D4A338C718F3BD1900E53FAC /* WorktypeViewController.m */,
+				D4A338C818F3BD1900E53FAC /* WorktypeViewController.xib */,
+				D4A338CB18F3C22C00E53FAC /* worktypecell.xib */,
 			);
 			name = Company;
 			sourceTree = "<group>";
@@ -906,14 +943,22 @@
 				D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */,
 				D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */,
 				D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */,
-				D4F19DF718D03F60007617F0 /* MarkupViewController.h */,
-				D4F19DF818D03F60007617F0 /* MarkupViewController.m */,
-				D4F19DF918D03F60007617F0 /* MarkupViewController.xib */,
-				D4F19E0318D03FD8007617F0 /* markupcell.xib */,
-				D4F19DFC18D03F77007617F0 /* BillingViewController.h */,
-				D4F19DFD18D03F77007617F0 /* BillingViewController.m */,
-				D4F19DFE18D03F77007617F0 /* BillingViewController.xib */,
-				D4F19E0518D03FE8007617F0 /* billingcell.xib */,
+				D49F8A4C18EEBAD700413CAD /* Basewagecell.xib */,
+				D49F8A5418EECD3800413CAD /* fuelcell.xib */,
+				D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */,
+				D4A338D618F3EEEF00E53FAC /* MarkupViewController.h */,
+				D4A338D718F3EEEF00E53FAC /* MarkupViewController.m */,
+				D4A338D818F3EEEF00E53FAC /* MarkupViewController.xib */,
+				D4A338D918F3EEEF00E53FAC /* DetailmarkupsectionViewController.h */,
+				D4A338DA18F3EEEF00E53FAC /* DetailmarkupsectionViewController.m */,
+				D4A338DB18F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib */,
+				D4A338DC18F3EEEF00E53FAC /* custmarkdetailcell.xib */,
+				D4A338DD18F3EEEF00E53FAC /* markupcell.xib */,
+				D4A338DE18F3EEEF00E53FAC /* Recordcustomcell.xib */,
+				D4A338DF18F3EEEF00E53FAC /* BillingViewController.h */,
+				D4A338E018F3EEEF00E53FAC /* BillingViewController.m */,
+				D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */,
+				D4A338E218F3EEEF00E53FAC /* billingcell.xib */,
 			);
 			name = Customer;
 			sourceTree = "<group>";
@@ -1042,90 +1087,100 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				D40DE4FE18DFF4AC00D51069 /* CKCalendarView.h */,
-				D40DE4FF18DFF4AC00D51069 /* CKCalendarView.m */,
-				D4C33EB8180FB42B00C90728 /* PDFImageConverter.h */,
-				D4C33EB9180FB43500C90728 /* PDFImageConverter.m */,
-				D4F7E2DF17856D4400F9545D /* NSData+Base64.h */,
-				D4F7E2E017856D5E00F9545D /* NSData+Base64.m */,
-				D4DC4259178568B40035A873 /* Base64.h */,
-				D4DC425A178568BB0035A873 /* Base64.m */,
-				D4FFBD161855A00C0007851D /* Section.h */,
-				D4FFBD171855A01F0007851D /* Section.m */,
-				D4FFBD191855A0280007851D /* SectionHeaderView.h */,
-				D4FFBD1A1855A02F0007851D /* SectionHeaderView.m */,
-				D4F61A5B18A8CAE20006093B /* Processsectionheaderview.h */,
-				D4F61A5C18A8CAE20006093B /* Processsectionheaderview.m */,
-				D4041F141779ACB400247373 /* followupmodel.h */,
-				D4041F151779ACB400247373 /* followupmodel.m */,
-				D4D7A29217F55B2400880E38 /* Empdetails.h */,
-				D4D7A29317F55B2400880E38 /* Empdetails.m */,
-				D484359817F595CD00098AA1 /* Verfymdl.h */,
-				D484359917F595CD00098AA1 /* Verfymdl.m */,
-				D48B608217F98CEC001A53C8 /* Coursemdl.h */,
-				D48B608317F98CFC001A53C8 /* Coursemdl.m */,
-				D4F19DC918D03784007617F0 /* activityInfo.h */,
-				D4F19DCA18D03784007617F0 /* activityInfo.m */,
-				D4F19DC618D0376F007617F0 /* Infoleads.h */,
-				D4F19DC718D0376F007617F0 /* Infoleads.m */,
-				D4F19DC318D0375F007617F0 /* commentmdl.h */,
-				D4F19DC418D0375F007617F0 /* commentmdl.m */,
-				D4399EB8186D74BB00A693F7 /* Manpwr.h */,
-				D4399EB9186D74BB00A693F7 /* Manpwr.m */,
-				D41404C8187294700067F71A /* Servicemdl.h */,
-				D41404C9187294700067F71A /* Servicemdl.m */,
-				642F93091872B6A80059101A /* allfolderrights.h */,
-				642F930A1872B6A80059101A /* allfolderrights.m */,
-				64481EC71873EBFD007D66E7 /* phasesmodel.h */,
-				64481EC81873EBFD007D66E7 /* phasesmodel.m */,
-				D42D8C4318D2E535009D8085 /* listusermdl.h */,
-				D42D8C4418D2E535009D8085 /* listusermdl.m */,
-				64A14D80187573B50028B43A /* basicreqmdl.h */,
-				64A14D81187573B50028B43A /* basicreqmdl.m */,
-				649EA38418769D96006651E6 /* jobsitemodel.h */,
-				649EA38518769D96006651E6 /* jobsitemodel.m */,
-				D41377C5187BD59200156A92 /* Equpmntmdl.h */,
-				D41377C6187BD59200156A92 /* Equpmntmdl.m */,
-				64F4DB65187E77A200AD1C83 /* Validation.h */,
-				64F4DB66187E77A200AD1C83 /* Validation.m */,
-				642FA79A18ACC9FB00372623 /* planmodel.h */,
-				642FA79B18ACC9FB00372623 /* planmodel.m */,
-				D40313B418B5E34300C27F2F /* SitevistMdl.h */,
-				D40313B518B5E34300C27F2F /* SitevistMdl.m */,
-				649EDED118BB25E000B78D97 /* Customscaffoldingplan.h */,
-				649EDED218BB25E000B78D97 /* Customscaffoldingplan.m */,
-				649EDED918BB4E5E00B78D97 /* Scaffoldtypemdl.h */,
-				649EDEDA18BB4E5E00B78D97 /* Scaffoldtypemdl.m */,
-				D40A99C618C5A956005384F9 /* Scfflddetails.h */,
-				D40A99C718C5A956005384F9 /* Scfflddetails.m */,
-				64A00F3218C5C854002F607E /* Scaffoldsubtypemodel.h */,
-				64A00F3318C5C854002F607E /* Scaffoldsubtypemodel.m */,
-				D40A99CE18C5E3C3005384F9 /* NewscfldDetails.h */,
-				D40A99CF18C5E3C3005384F9 /* NewscfldDetails.m */,
-				643118A418C737560061A276 /* Crewmodel.h */,
-				643118A518C737560061A276 /* Crewmodel.m */,
-				64A07BD418C8321F00B2F9D5 /* vendermodel.h */,
-				64A07BD518C8321F00B2F9D5 /* vendermodel.m */,
-				D4DD31BD18CDAF9800CA2A33 /* Empmdl.h */,
-				D4DD31BE18CDAF9800CA2A33 /* Empmdl.m */,
-				D4F19E0718D044AE007617F0 /* Custmermdl.h */,
-				D4F19E0818D044AE007617F0 /* Custmermdl.m */,
-				D44BEA7E18E03C3100719ED5 /* Mdladdress.h */,
-				D44BEA7F18E03C3100719ED5 /* Mdladdress.m */,
-				64A27C1C18E149D300D184BF /* Cbranch.h */,
-				64A27C1D18E149D300D184BF /* Cbranch.m */,
-				D4F5BD5718E167EF0045DBE3 /* Infomdl.h */,
-				D4F5BD5818E167EF0045DBE3 /* Infomdl.m */,
-				D4F5BD5A18E168570045DBE3 /* Rsalesmdl.h */,
-				D4F5BD5B18E168570045DBE3 /* Rsalesmdl.m */,
-				D4014FF718E3EEFF00DB825A /* NumbrSerMdl.h */,
-				D4014FF818E3EF0000DB825A /* NumbrSerMdl.m */,
-				649CAD0118ED3B46002915F5 /* subcontract.h */,
-				649CAD0218ED3B46002915F5 /* subcontract.m */,
-				D49F86D318EE8B2E00413CAD /* discuntvlummdl.h */,
-				D49F86D418EE8B2E00413CAD /* discuntvlummdl.m */,
-				D49F86D618EE8FF300413CAD /* Matrixmark.h */,
-				D49F86D718EE8FF900413CAD /* Matrixmark.m */,
+				D49F86F118EEA36B00413CAD /* CKCalendarView.h */,
+				D49F86F218EEA36B00413CAD /* CKCalendarView.m */,
+				D49F86F318EEA36B00413CAD /* PDFImageConverter.h */,
+				D49F86F418EEA36B00413CAD /* PDFImageConverter.m */,
+				D49F86F518EEA36B00413CAD /* NSData+Base64.h */,
+				D49F86F618EEA36B00413CAD /* NSData+Base64.m */,
+				D49F86F718EEA36B00413CAD /* Base64.h */,
+				D49F86F818EEA36B00413CAD /* Base64.m */,
+				D49F86F918EEA36B00413CAD /* Section.h */,
+				D49F86FA18EEA36B00413CAD /* Section.m */,
+				D49F86FB18EEA36B00413CAD /* SectionHeaderView.h */,
+				D49F86FC18EEA36B00413CAD /* SectionHeaderView.m */,
+				D49F86FD18EEA36B00413CAD /* Processsectionheaderview.h */,
+				D49F86FE18EEA36B00413CAD /* Processsectionheaderview.m */,
+				D49F86FF18EEA36B00413CAD /* followupmodel.h */,
+				D49F870018EEA36B00413CAD /* followupmodel.m */,
+				D49F870118EEA36B00413CAD /* Empdetails.h */,
+				D49F870218EEA36B00413CAD /* Empdetails.m */,
+				D49F870318EEA36B00413CAD /* Verfymdl.h */,
+				D49F870418EEA36B00413CAD /* Verfymdl.m */,
+				D49F870518EEA36B00413CAD /* Coursemdl.h */,
+				D49F870618EEA36B00413CAD /* Coursemdl.m */,
+				D49F870718EEA36B00413CAD /* activityInfo.h */,
+				D49F870818EEA36B00413CAD /* activityInfo.m */,
+				D49F870918EEA36B00413CAD /* Infoleads.h */,
+				D49F870A18EEA36B00413CAD /* Infoleads.m */,
+				D49F870B18EEA36B00413CAD /* commentmdl.h */,
+				D49F870C18EEA36B00413CAD /* commentmdl.m */,
+				D49F870D18EEA36B00413CAD /* Manpwr.h */,
+				D49F870E18EEA36B00413CAD /* Manpwr.m */,
+				D49F870F18EEA36B00413CAD /* Servicemdl.h */,
+				D49F871018EEA36B00413CAD /* Servicemdl.m */,
+				D49F871118EEA36B00413CAD /* allfolderrights.h */,
+				D49F871218EEA36B00413CAD /* allfolderrights.m */,
+				D49F871318EEA36B00413CAD /* phasesmodel.h */,
+				D49F871418EEA36B00413CAD /* phasesmodel.m */,
+				D49F871518EEA36B00413CAD /* listusermdl.h */,
+				D49F871618EEA36B00413CAD /* listusermdl.m */,
+				D49F871718EEA36B00413CAD /* basicreqmdl.h */,
+				D49F871818EEA36B00413CAD /* basicreqmdl.m */,
+				D49F871918EEA36B00413CAD /* jobsitemodel.h */,
+				D49F871A18EEA36B00413CAD /* jobsitemodel.m */,
+				D49F871B18EEA36B00413CAD /* Equpmntmdl.h */,
+				D49F871C18EEA36B00413CAD /* Equpmntmdl.m */,
+				D49F871D18EEA36B00413CAD /* Validation.h */,
+				D49F871E18EEA36B00413CAD /* Validation.m */,
+				D49F871F18EEA36B00413CAD /* planmodel.h */,
+				D49F872018EEA36B00413CAD /* planmodel.m */,
+				D49F872118EEA36B00413CAD /* SitevistMdl.h */,
+				D49F872218EEA36B00413CAD /* SitevistMdl.m */,
+				D49F872318EEA36B00413CAD /* Customscaffoldingplan.h */,
+				D49F872418EEA36B00413CAD /* Customscaffoldingplan.m */,
+				D49F872518EEA36B00413CAD /* Scaffoldtypemdl.h */,
+				D49F872618EEA36B00413CAD /* Scaffoldtypemdl.m */,
+				D49F872718EEA36B00413CAD /* Scfflddetails.h */,
+				D49F872818EEA36B00413CAD /* Scfflddetails.m */,
+				D49F872918EEA36B00413CAD /* Scaffoldsubtypemodel.h */,
+				D49F872A18EEA36B00413CAD /* Scaffoldsubtypemodel.m */,
+				D49F872B18EEA36B00413CAD /* NewscfldDetails.h */,
+				D49F872C18EEA36B00413CAD /* NewscfldDetails.m */,
+				D49F872D18EEA36B00413CAD /* Crewmodel.h */,
+				D49F872E18EEA36B00413CAD /* Crewmodel.m */,
+				D49F872F18EEA36B00413CAD /* vendermodel.h */,
+				D49F873018EEA36B00413CAD /* vendermodel.m */,
+				D49F873118EEA36B00413CAD /* Empmdl.h */,
+				D49F873218EEA36B00413CAD /* Empmdl.m */,
+				D49F873318EEA36B00413CAD /* Custmermdl.h */,
+				D49F873418EEA36B00413CAD /* Custmermdl.m */,
+				D49F873518EEA36B00413CAD /* Mdladdress.h */,
+				D49F873618EEA36B00413CAD /* Mdladdress.m */,
+				D49F873718EEA36B00413CAD /* Cbranch.h */,
+				D49F873818EEA36B00413CAD /* Cbranch.m */,
+				D49F873918EEA36B00413CAD /* Infomdl.h */,
+				D49F873A18EEA36B00413CAD /* Infomdl.m */,
+				D49F873B18EEA36B00413CAD /* Rsalesmdl.h */,
+				D49F873C18EEA36B00413CAD /* Rsalesmdl.m */,
+				D49F873D18EEA36B00413CAD /* NumbrSerMdl.h */,
+				D49F873E18EEA36B00413CAD /* NumbrSerMdl.m */,
+				D49F873F18EEA36B00413CAD /* Matrixmark.h */,
+				D49F874018EEA36B00413CAD /* Matrixmark.m */,
+				D49F874118EEA36B00413CAD /* subcontract.h */,
+				D49F874218EEA36B00413CAD /* subcontract.m */,
+				D49F874318EEA36B00413CAD /* Vlumedismdl.h */,
+				D49F874418EEA36B00413CAD /* Vlumedismdl.m */,
+				D49F8A4E18EEBEA400413CAD /* Wagesmdl.h */,
+				D49F8A4F18EEBEA400413CAD /* Wagesmdl.m */,
+				D49F8A5118EECA6E00413CAD /* fuelmdl.h */,
+				D49F8A5218EECA6E00413CAD /* fuelmdl.m */,
+				D4A338CD18F3EE8700E53FAC /* Mastermarkmodel.h */,
+				D4A338CE18F3EE8700E53FAC /* Mastermarkmodel.m */,
+				D4A338CF18F3EE8700E53FAC /* Markupmainmodel.h */,
+				D4A338D018F3EE8700E53FAC /* Markupmainmodel.m */,
+				D4A338D118F3EE8700E53FAC /* subheadermarkmodel.h */,
+				D4A338D218F3EE8700E53FAC /* subheadermarkmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1248,6 +1303,7 @@
 			files = (
 				6426F5EF18C06100002471AC /* estimation.png in Resources */,
 				D40D1EB5176B086F00379DD5 /* InfoPlist.strings in Resources */,
+				D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */,
 				D400406B185B180200C38E12 /* ResViewController.xib in Resources */,
 				64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */,
 				D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */,
@@ -1259,6 +1315,7 @@
 				D49DE838185EB391006F1CDA /* closebutton.png in Resources */,
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
 				6426F5FB18C0685C002471AC /* SasteyPicture.png in Resources */,
+				D4A338E718F3EEEF00E53FAC /* custmarkdetailcell.xib in Resources */,
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				6426F5F918C06824002471AC /* fleet.png in Resources */,
@@ -1267,17 +1324,17 @@
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,
+				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
 				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
 				6437578518BC554B003691E6 /* Subtypecell.xib in Resources */,
 				64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */,
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
-				D4F19E0418D03FD8007617F0 /* markupcell.xib in Resources */,
 				D4F19DEE18D03AD1007617F0 /* FollowCommentcell.xib in Resources */,
 				649EDECC18BB055E00B78D97 /* Outlookrecordaddview.xib in Resources */,
-				D4F19E0018D03F77007617F0 /* BillingViewController.xib in Resources */,
 				6426F5E518C05D2B002471AC /* res.png in Resources */,
 				D453DA221873F18C007EE3DC /* ThirdPartyViewController.xib in Resources */,
+				D49F8A5518EECD3800413CAD /* fuelcell.xib in Resources */,
 				D4CA2FD9176EC33E007EEF7D /* Customercell.xib in Resources */,
 				D44BEA7718E0254900719ED5 /* TypeViewController.xib in Resources */,
 				649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */,
@@ -1288,8 +1345,10 @@
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				64A3B82618E02FC90015887F /* branchcell.xib in Resources */,
 				D42D8C1718D2D8FF009D8085 /* custombasicreqcell.xib in Resources */,
+				D4A338E818F3EEEF00E53FAC /* markupcell.xib in Resources */,
 				64A3B81F18DFEEC90015887F /* customcommentforactivitycell.xib in Resources */,
 				D49E056518C71B9300AF6330 /* Namecrewcell.xib in Resources */,
+				D4A338CC18F3C22C00E53FAC /* worktypecell.xib in Resources */,
 				6426F5F118C06157002471AC /* hr.png in Resources */,
 				D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */,
 				D453DA2C1873F1D0007EE3DC /* AssetsViewController.xib in Resources */,
@@ -1300,6 +1359,7 @@
 				649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */,
 				D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */,
 				D453DA321873F215007EE3DC /* Assetcell.xib in Resources */,
+				D4A338CA18F3BD1900E53FAC /* WorktypeViewController.xib in Resources */,
 				D42D8C3D18D2E411009D8085 /* usercell.xib in Resources */,
 				D4149F28177186C100738AAC /* squareimage1.png in Resources */,
 				64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */,
@@ -1326,6 +1386,7 @@
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				D42D8C2718D2DD79009D8085 /* ManViewController.xib in Resources */,
 				D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */,
+				D49F8A4D18EEBAD700413CAD /* Basewagecell.xib in Resources */,
 				642F93011872870E0059101A /* customjobcell.xib in Resources */,
 				649B1F8B18C9CE800081B1F1 /* SendEmployeeview.xib in Resources */,
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
@@ -1338,8 +1399,10 @@
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
+				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
+				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
 				D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */,
 				64F97983185ED60000E7722B /* appbar.addblack.png in Resources */,
@@ -1356,7 +1419,6 @@
 				D4E658C017F2A54F00202B14 /* I9view.xib in Resources */,
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
 				6426F5ED18C060CF002471AC /* planning.png in Resources */,
-				D4F19E0618D03FE8007617F0 /* billingcell.xib in Resources */,
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				D42D8C2D18D2E126009D8085 /* customservicescell.xib in Resources */,
 				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
@@ -1391,10 +1453,12 @@
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */,
 				649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */,
+				D4A338E618F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib in Resources */,
 				D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */,
 				D49EB4BB18C0AA07009249A9 /* DetailplanViewController.xib in Resources */,
 				D400405C185B178F00C38E12 /* DocmntViewController.xib in Resources */,
 				6426F5F518C062F6002471AC /* payroll.png in Resources */,
+				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
@@ -1404,7 +1468,6 @@
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
-				D4F19DFB18D03F60007617F0 /* MarkupViewController.xib in Resources */,
 				6426F5F718C067F3002471AC /* accounting.png in Resources */,
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
@@ -1433,104 +1496,109 @@
 			files = (
 				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
+				D49F876918EEA36B00413CAD /* Infomdl.m in Sources */,
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
+				D49F876818EEA36B00413CAD /* Cbranch.m in Sources */,
+				D49F874718EEA36B00413CAD /* NSData+Base64.m in Sources */,
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
-				D41404CA187294700067F71A /* Servicemdl.m in Sources */,
-				D40313B618B5E34300C27F2F /* SitevistMdl.m in Sources */,
-				64A1FA9018EE815400D2AD2A /* Mastermarkmodel.m in Sources */,
-				D4FFBD1B1855A02F0007851D /* SectionHeaderView.m in Sources */,
-				D4F19DC518D0375F007617F0 /* commentmdl.m in Sources */,
+				D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */,
+				D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
-				D4F5BD5C18E168570045DBE3 /* Rsalesmdl.m in Sources */,
-				643118A618C737560061A276 /* Crewmodel.m in Sources */,
-				D4F19DCB18D03784007617F0 /* activityInfo.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
+				D49F874F18EEA36B00413CAD /* Coursemdl.m in Sources */,
 				D40D1EC4176B086F00379DD5 /* ViewController.m in Sources */,
-				D4F19DFA18D03F60007617F0 /* MarkupViewController.m in Sources */,
+				D49F875018EEA36B00413CAD /* activityInfo.m in Sources */,
 				D49E056018C7022800AF6330 /* CrewsetupViewController.m in Sources */,
-				649CAD0318ED3B46002915F5 /* subcontract.m in Sources */,
+				D49F874D18EEA36B00413CAD /* Empdetails.m in Sources */,
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
-				64A27C1E18E149D300D184BF /* Cbranch.m in Sources */,
-				D4399EBA186D74BB00A693F7 /* Manpwr.m in Sources */,
+				D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */,
 				D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */,
+				D49F876718EEA36B00413CAD /* Mdladdress.m in Sources */,
+				D49F875318EEA36B00413CAD /* Manpwr.m in Sources */,
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
 				D49EB4BA18C0AA07009249A9 /* DetailplanViewController.m in Sources */,
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
-				D4F61A5D18A8CAE20006093B /* Processsectionheaderview.m in Sources */,
-				D49F86D518EE8B2E00413CAD /* discuntvlummdl.m in Sources */,
-				649EDEDB18BB4E5E00B78D97 /* Scaffoldtypemdl.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
-				D40A99C818C5A956005384F9 /* Scfflddetails.m in Sources */,
+				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
+				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
-				64A14D82187573B50028B43A /* basicreqmdl.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
-				D4F5BD5918E167EF0045DBE3 /* Infomdl.m in Sources */,
 				642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */,
-				64481EC91873EBFD007D66E7 /* phasesmodel.m in Sources */,
 				D42D8C2618D2DD79009D8085 /* ManViewController.m in Sources */,
+				D49F875B18EEA36B00413CAD /* Validation.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
-				D42D8C4518D2E535009D8085 /* listusermdl.m in Sources */,
+				D49F876D18EEA36B00413CAD /* subcontract.m in Sources */,
 				64A3B82318DFEF0B0015887F /* CommentsViewController.m in Sources */,
 				D42D8C1C18D2D91C009D8085 /* venderViewController.m in Sources */,
+				D49F875C18EEA36B00413CAD /* planmodel.m in Sources */,
 				D453DA211873F18C007EE3DC /* ThirdPartyViewController.m in Sources */,
 				D4F19DEB18D03AD1007617F0 /* FollowupViewController.m in Sources */,
-				D4F19DC818D0376F007617F0 /* Infoleads.m in Sources */,
-				D40DE50018DFF4AC00D51069 /* CKCalendarView.m in Sources */,
+				D49F874518EEA36B00413CAD /* CKCalendarView.m in Sources */,
+				D49F875118EEA36B00413CAD /* Infoleads.m in Sources */,
 				649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */,
-				D4DD31BF18CDAF9800CA2A33 /* Empmdl.m in Sources */,
-				D4F19DFF18D03F77007617F0 /* BillingViewController.m in Sources */,
 				D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */,
+				D49F876318EEA36B00413CAD /* Crewmodel.m in Sources */,
+				D49F875E18EEA36B00413CAD /* Customscaffoldingplan.m in Sources */,
+				D49F876A18EEA36B00413CAD /* Rsalesmdl.m in Sources */,
+				D4A338D418F3EE8700E53FAC /* Markupmainmodel.m in Sources */,
 				D42D8C4018D2E442009D8085 /* ServiceViewController.m in Sources */,
+				D4A338E318F3EEEF00E53FAC /* MarkupViewController.m in Sources */,
+				D49F8A5318EECA6E00413CAD /* fuelmdl.m in Sources */,
 				64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */,
 				642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */,
 				D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */,
+				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
+				D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */,
+				D49F876E18EEA36B00413CAD /* Vlumedismdl.m in Sources */,
+				D49F875218EEA36B00413CAD /* commentmdl.m in Sources */,
+				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
+				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
+				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
-				D41377C7187BD59200156A92 /* Equpmntmdl.m in Sources */,
 				D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */,
+				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
+				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
+				D49F876518EEA36B00413CAD /* Empmdl.m in Sources */,
+				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
+				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
 				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,
+				D49F875F18EEA36B00413CAD /* Scaffoldtypemdl.m in Sources */,
 				D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */,
-				D4041F161779ACB500247373 /* followupmodel.m in Sources */,
-				64F4DB67187E77A200AD1C83 /* Validation.m in Sources */,
 				D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */,
-				D40A99D018C5E3C3005384F9 /* NewscfldDetails.m in Sources */,
-				642FA79C18ACC9FB00372623 /* planmodel.m in Sources */,
-				64A07BD618C8321F00B2F9D5 /* vendermodel.m in Sources */,
-				642F930B1872B6A80059101A /* allfolderrights.m in Sources */,
-				D44BEA8018E03C3100719ED5 /* Mdladdress.m in Sources */,
 				D42D8C3A18D2E3F0009D8085 /* UsersViewController.m in Sources */,
-				D4DC425B178568BB0035A873 /* Base64.m in Sources */,
-				D4014FF918E3EF0000DB825A /* NumbrSerMdl.m in Sources */,
-				D4F7E2E117856D5E00F9545D /* NSData+Base64.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
+				D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */,
+				D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */,
+				D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
-				D49F86D818EE8FF900413CAD /* Matrixmark.m in Sources */,
+				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
+				D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
+				D49F874918EEA36B00413CAD /* Section.m in Sources */,
+				D49F874B18EEA36B00413CAD /* Processsectionheaderview.m in Sources */,
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
-				D49F86D218EE6E9A00413CAD /* Vlumedismdl.m in Sources */,
-				64A00F3418C5C854002F607E /* Scaffoldsubtypemodel.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
+				D49F876118EEA36B00413CAD /* Scaffoldsubtypemodel.m in Sources */,
+				D4A338E518F3EEEF00E53FAC /* DetailmarkupsectionViewController.m in Sources */,
+				D49F874C18EEA36B00413CAD /* followupmodel.m in Sources */,
+				D49F876B18EEA36B00413CAD /* NumbrSerMdl.m in Sources */,
+				D49F874818EEA36B00413CAD /* Base64.m in Sources */,
 				D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */,
+				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
-				D4D7A29417F55B2400880E38 /* Empdetails.m in Sources */,
-				D4F19E0918D044AE007617F0 /* Custmermdl.m in Sources */,
-				D484359A17F595CD00098AA1 /* Verfymdl.m in Sources */,
+				D49F875418EEA36B00413CAD /* Servicemdl.m in Sources */,
 				D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */,
-				D48B608417F98CFC001A53C8 /* Coursemdl.m in Sources */,
-				D4FFBD181855A01F0007851D /* Section.m in Sources */,
 				64955C9B180E52D5000A86A1 /* WebViewController.m in Sources */,
-				649EA38618769D96006651E6 /* jobsitemodel.m in Sources */,
-				649EDED318BB25E000B78D97 /* Customscaffoldingplan.m in Sources */,
-				D4C33EBA180FB43600C90728 /* PDFImageConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

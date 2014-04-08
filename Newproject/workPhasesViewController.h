@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "phasesmodel.h"
-
+#import "WorktypeViewController.h"
 @interface workPhasesViewController : UIViewController<UITextFieldDelegate>
 {
     NSInteger webtype;
@@ -22,6 +22,7 @@
     NSString *checkstring;
     
 }
+@property (strong, nonatomic)WorktypeViewController *worktypeVCtrl;
 
 @property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 @property(strong,nonatomic)NSString *soapstring;
@@ -56,6 +57,9 @@
 -(IBAction)parentbtn:(id)sender;
 -(IBAction)update_phases:(id)sender;
 -(IBAction)cancel_phases:(id)sender;
+
+- (IBAction)wrkphasebtn:(id)sender;
+
 
 /*outlet in view*/
 @property(strong,nonatomic)IBOutlet UIButton *servicebtn;

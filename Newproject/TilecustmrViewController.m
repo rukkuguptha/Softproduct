@@ -103,7 +103,7 @@
     if (!self.billgVCtrl) {
         self.billgVCtrl=[[BillingViewController alloc]initWithNibName:@"BillingViewController" bundle:nil];
     }
-    //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _billgVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
     [self presentViewController:_billgVCtrl
                        animated:YES completion:NULL];

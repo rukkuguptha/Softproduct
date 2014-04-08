@@ -20,6 +20,7 @@
 #import "TypeViewController.h"
 #import "BranchViewController.h"
 #import "SerialViewController.h"
+#import "WorktypeViewController.h"
 
 @interface TileViewController : UIViewController
 
@@ -35,6 +36,8 @@
 @property(strong,nonatomic)IBOutlet UIView *jobsitereqview;
 @property(strong,nonatomic)IBOutlet UIView *basicreqview;
 @property (strong, nonatomic) IBOutlet UIView *serialview;
+@property (strong, nonatomic) IBOutlet UIView *worktypeview;
+
 
 //close Actions
 -(IBAction)closethetile:(id)sender;
@@ -57,5 +60,6 @@
 @property(strong,nonatomic)TypeViewController *typeVCtrl;
 @property(strong,nonatomic)BranchViewController *branchVCtrl;
 @property(strong,nonatomic)SerialViewController *SerialVCtrl;
+@property(strong,nonatomic)WorktypeViewController *wrktypeVCtrl;
 
 @end

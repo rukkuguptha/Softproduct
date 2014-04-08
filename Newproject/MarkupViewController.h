@@ -7,14 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Matrixmark.h"
+#import "Mastermarkmodel.h"
+#import "Markupmainmodel.h"
+#import "DetailmarkupsectionViewController.h"
+
 
 @interface MarkupViewController : UIViewController
 {
     BOOL recordResults;
     NSString *mark;
+    UIButton *carbutton;
+    UIButton *button;
+    NSInteger btnindex;
+    NSInteger selectedcell;
 }
-@property(strong,nonatomic)Matrixmark *master;
+@property(strong,nonatomic)Mastermarkmodel *master;
+@property(strong,nonatomic)Markupmainmodel *mainmarkmodel;
+@property(strong,nonatomic)DetailmarkupsectionViewController *markVctrlr;
 
 
 /*IBActions*/
@@ -29,8 +38,10 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *markupcell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *recordcell;
 @property(strong,nonatomic)IBOutlet UIView *markuptableviewtitle;
+@property(strong,nonatomic)IBOutlet UIView *recordtableviewtitle;
 
-
+/*section*/
+@property(strong,nonatomic)UILabel *sectionheaderlabel;
 
 @property(strong,nonatomic)UITableView *popovertableview;
 
@@ -56,7 +67,19 @@
 @property(strong,nonatomic)IBOutlet UILabel *stdollerlabel;
 @property(strong,nonatomic)IBOutlet UILabel *otpercentlabel;
 @property(strong,nonatomic)IBOutlet UILabel *otdollerlabel;
+
+@property(strong,nonatomic)IBOutlet UILabel *mainheaderlabel;
+@property(strong,nonatomic)IBOutlet UILabel *STPERlabel;
+@property(strong,nonatomic)IBOutlet UILabel *STDOLLlabel;
+@property(strong,nonatomic)IBOutlet UILabel *OTPERlabel;
+@property(strong,nonatomic)IBOutlet UILabel *OTDOLLlabel;
 @property(strong,nonatomic)IBOutlet UILabel *variablepercentlabel;
 @property(strong,nonatomic)IBOutlet UILabel *fixeddollerlabel;
+
+@property(readwrite)NSInteger openviewindex;
+@property(readwrite)NSInteger previousopenviewindex;
+@property(strong,nonatomic)IBOutlet UIView *animatedview;
+@property(strong,nonatomic)IBOutlet UILabel *detaillabel;
+
 
 @end
