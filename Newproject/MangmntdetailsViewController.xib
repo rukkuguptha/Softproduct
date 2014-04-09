@@ -57,7 +57,6 @@
                 <outlet property="premiumtimetxtfld" destination="Dhp-gZ-ZcF" id="k6s-eL-mbe"/>
                 <outlet property="rentalmarkuptxtfld" destination="2QZ-SZ-lEs" id="wHc-pi-glx"/>
                 <outlet property="smalltoolbillingbtn" destination="9LF-sq-wXn" id="hEc-89-7XI"/>
-                <outlet property="smrbtnlbl" destination="2xn-3T-I3m" id="Pbq-ga-l6q"/>
                 <outlet property="smrtable" destination="AD3-kk-ilO" id="cvY-GB-c7a"/>
                 <outlet property="smrtitle" destination="jkb-HM-PPP" id="83j-dz-efW"/>
                 <outlet property="smrview" destination="0Mx-0b-otk" id="pRf-gr-MQx"/>
@@ -172,12 +171,6 @@
                         </barButtonItem>
                         <barButtonItem width="17" style="plain" systemItem="fixedSpace" id="WYi-mW-4VW">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                        <barButtonItem title="Scaffold Materials Rates" id="2xn-3T-I3m">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="SMRbtn:" destination="-1" id="dtJ-XJ-BOe"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem width="20" style="plain" systemItem="fixedSpace" id="XSN-cS-iAy">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -306,7 +299,7 @@
                             <rect key="frame" x="180" y="208" width="665" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AmountTo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H9u-DJ-Cuc">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount To" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="H9u-DJ-Cuc">
                                     <rect key="frame" x="265" y="6" width="81" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
@@ -318,7 +311,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AmountFrom" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3rg-Wr-j3R">
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount From" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3rg-Wr-j3R">
                                     <rect key="frame" x="38" y="6" width="108" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
@@ -640,7 +633,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="FOv-pg-CCD">
-                            <rect key="frame" x="45" y="39" width="934" height="36"/>
+                            <rect key="frame" x="45" y="46" width="934" height="36"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Craft Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HuL-Rf-KPQ">

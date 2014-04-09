@@ -33,6 +33,8 @@
 /*IBOutlets*/
 @property(strong,nonatomic)IBOutlet UITableView *contracttable;
 @property(strong,nonatomic)IBOutlet UIView *contracttitleview;
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
+
 @property(strong,nonatomic)IBOutlet UITableViewCell *contrctcell;
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 
