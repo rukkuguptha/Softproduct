@@ -851,20 +851,22 @@ if (tableView==_leadTable) {
 
 - (IBAction)updatebtn:(id)sender {
     Validation *val=[[Validation alloc]init];
-    if (butnidtfr==1) {
+    if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_phonetxtfld.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+    
+    else if (butnidtfr==1) {
         
-        if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else if([_phonetxtfld.text isEqualToString:@""])
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
         
-        else if(![_emailidtxtfld.text isEqualToString:@""])
+        if(![_emailidtxtfld.text isEqualToString:@""])
         {
                     int value2 = [val validEmailAddress:_emailidtxtfld.text];
                     if(value2==0)
@@ -873,44 +875,35 @@ if (tableView==_leadTable) {
                         UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                         [alert1 show];
                    }
+        }
+                    if(![_prjctyeartxtfld.text isEqualToString:@""])
+                    {
+                        int value1 = [val validEmailAddress:_prjctyeartxtfld.text];
+                        if(value1==0)
+                        {
+                            
+                            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                            [alert1 show];
+                        }
+                        
+                        
+                    }
+
+                    else
+                    {
+                        
+                        [self Addlead];
+                    }
+
 
             
-        }
-        else if(![_prjctyeartxtfld.text isEqualToString:@""])
-        {
-            int value1 = [val validEmailAddress:_prjctyeartxtfld.text];
-            if(value1==0)
-            {
-                
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert1 show];
-            }
-            
-            
-        }
-
+        
         
 
-
-
-        else
-        {
-        [self Addlead];
-        }
-
-    }
-    else{
-        if([_companybtn.titleLabel.text isEqualToString:@""]||[_companybtn.titleLabel.text isEqualToString:@"Select"])
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Company Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-       else if([_phonetxtfld.text isEqualToString:@""])
-        {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-       else if(![_emailidtxtfld.text isEqualToString:@""])
+}
+    else if(butnidtfr==1)
+    {
+        if(![_emailidtxtfld.text isEqualToString:@""])
        {
            int value2 = [val validEmailAddress:_emailidtxtfld.text];
            if(value2==0)
@@ -1119,7 +1112,7 @@ if (tableView==_leadTable) {
                    "<Phone>%@</Phone>\n"
                    "<EmailId>%@</EmailId>\n"
                    "<City>%@</City>\n"
-                   "<State>%@</State>\n"
+                   "<State>%d</State>\n"
                    "<TypeOfLead>%@</TypeOfLead>\n"
                    "<IndustryType>%@</IndustryType>\n"
                    "<ProjectType>%@</ProjectType>\n"
@@ -1132,7 +1125,7 @@ if (tableView==_leadTable) {
                    "<ID>%@</ID>\n"
                    "</UpdateCLMDemo>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
+                   "</soap:Envelope>\n",info2.leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,[stid integerValue],_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[info2.bidstatus integerValue ],info2.idvalue];
                                                                                                                                                                                                                                     
     NSLog(@"soapmsg%@",soapMessage);
     
