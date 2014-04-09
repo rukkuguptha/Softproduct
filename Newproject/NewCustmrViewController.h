@@ -10,7 +10,7 @@
 #import "Custmermdl.h"
 #import "ContactInfoViewController.h"
 #import "SalesRepInfoViewController.h"
-
+#import "Validation.h"
 
 @interface NewCustmrViewController : UIViewController{
     BOOL recordResults;
@@ -21,12 +21,19 @@
     NSInteger path;
     NSInteger webtype;
     NSInteger btnindex;
+    NSString *faxnoString;
+    NSInteger fmt;
+    //phoneno format
+    NSString *phnnostring;
+
 }
 @property(strong,nonatomic)NSString *custmrcode;
 
 @property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
 
 @property(strong,nonatomic)SalesRepInfoViewController *salesVCtrl;
+@property(strong,nonatomic)NSString *faxfmtstring;
+@property(strong,nonatomic)NSString *phnnofmtstring;
 
 
 @property (strong, nonatomic)NSString*searchstring;
