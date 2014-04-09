@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self Stateselect];
+    [self countryselect];
      self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226.0/255.0f blue:226.0/255.0f alpha:1.0f];
     self.addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226.0/255.0f blue:226.0/255.0f alpha:1.0f];
 
@@ -203,6 +205,22 @@
         
     }
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        deletepath=indexPath.row;
+        
+        [self CustomerMaster1Delete];
+        [_customerarray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==_custmrtable) {
@@ -415,8 +433,7 @@
     
 }
 -(void)CustomerMasterInsert{
-    webtype=1;
-    recordResults = FALSE;
+      recordResults = FALSE;
     NSString *soapMessage;
     
     
@@ -432,7 +449,7 @@
                    "<CustomerName>%@</CustomerName>\n"
                    "<Adress>%@</Adress>\n"
                    "<City>%@</City>\n"
-                   "<State>%@</State>\n"
+                   "<State>%d</State>\n"
                    "<Zip>%@</Zip>\n"
                    "<Country>%d</Country>\n"
                    "<Phone>%@</Phone>\n"
@@ -442,7 +459,7 @@
                   
                    "</CustomerMasterInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n", _nametextfld.text,_addresstxtview.text,_citytxtfld.text,_statebtnlbl.titleLabel.text,_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
+                   "</soap:Envelope>\n", _nametextfld.text,_addresstxtview.text,_citytxtfld.text,[[_statedict objectForKey:_statebtnlbl.titleLabel.text]integerValue ],_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -476,7 +493,7 @@
     
 }
 -(void)CustomerMasterUpdate{
-    webtype=2;
+   
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -493,9 +510,9 @@
                    "<Id>%d</Id>\n"
                    "<CustomerCode>%@</CustomerCode>\n"
                    "<CustomerName>%@</CustomerName>\n"
-                   "<Adress>%@</Adress>\n"
+                   "<Address>%@</Address>\n"
                    "<City>%@</City>\n"
-                   "<State>%@</State>\n"
+                   "<State>%d</State>\n"
                    "<Zip>%@</Zip>\n"
                    "<Country>%d</Country>\n"
                    "<Phone>%@</Phone>\n"
@@ -504,7 +521,7 @@
                    "<Website>%@</Website>\n"
                     "</CustomerMasterUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n", [custmd.customerid integerValue],custmd.customercode,_nametextfld.text,_addresstxtview.text,_citytxtfld.text,_statebtnlbl.titleLabel.text,_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
+                   "</soap:Envelope>\n", [custmd.customerid integerValue],custmd.customercode,_nametextfld.text,_addresstxtview.text,_citytxtfld.text,[[_statedict objectForKey:_statebtnlbl.titleLabel.text]integerValue],_zipbtnlbl.text,[[_countrydict objectForKey:_cuntrybtnlbl.titleLabel.text]integerValue],_phonetxtfld.text, _faxtxtfld.text, _emailtxtfld.text,_websitetxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -586,6 +603,57 @@
     
     
 }
+-(void)CustomerMaster1Delete{
+    webtype=3;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+     Custmermdl *custmd=(Custmermdl *)[_customerarray objectAtIndex:deletepath];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CustomerMaster1Delete xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<Id>%d</Id>\n"
+                   "</CustomerMaster1Delete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[custmd.customerid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CustomerMaster1Delete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -619,6 +687,10 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
+    if(webtype==1||webtype==2||webtype==3){
+        [self CustomerMasterselect];
+        webtype=0;
+    }
     
     [_custmrtable reloadData];
     
@@ -755,6 +827,7 @@
     if([elementName isEqualToString:@"StateselectResult"])
     {_statearray=[[NSMutableArray alloc]init];
         _statedict=[[NSMutableDictionary alloc]init];
+        _revstatedict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -833,6 +906,16 @@
         recordResults = TRUE;
 
            }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 
 }
@@ -967,6 +1050,7 @@
         recordResults = FALSE;
         [_statearray addObject:_soapResults];
         [_statedict setObject:stateid forKey:_soapResults];
+        [_revstatedict setObject:_soapResults forKey:stateid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"CountryCode"])
@@ -982,6 +1066,20 @@
         [_countrydict setObject:cuntryid forKey:_soapResults];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+      recordResults = FALSE;
+        if (webtype==1||webtype==2) {
+            msgstrg=_soapResults;
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
+        _soapResults = nil;
+        
+    }
+
 
 
 }
@@ -1065,6 +1163,8 @@
 }
 
 - (IBAction)addcustmrbtn:(id)sender {
+    webtype=1;
+       _navtitle.title=@"ADD";
     _nametextfld.text=@"";
     _addresstxtview.text=@"";
     _citytxtfld.text=@"";
@@ -1080,18 +1180,40 @@
    }
 
 - (IBAction)deletecustmrbtn:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_custmrtable setEditing:NO animated:NO];
+        [_custmrtable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_custmrtable setEditing:YES animated:YES];
+        [_custmrtable reloadData];
+        
+        
+        
+        
+    }
+
 }
 
 - (IBAction)statebtn:(id)sender {
     poptype=1;
     [self createpopover];
-    [self Stateselect];
+    //[self Stateselect];
+    [_popOverTableView reloadData];
 }
 
 - (IBAction)cuntrybtn:(id)sender {
     poptype=2;
     [self createpopover];
-    [self countryselect];
+   // [self countryselect];
+    [_popOverTableView reloadData];
+
 }
 
 - (IBAction)updatebtn:(id)sender {
@@ -1113,11 +1235,12 @@
         [alert show];
     }
        else{
+           
         if (webtype==1) {
         [self CustomerMasterInsert];
 
     }
-    else{
+    else  if (webtype==2){
         [self CustomerMasterUpdate];
     }
     }
@@ -1144,6 +1267,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    webtype=2;
+    _navtitle.title=@"EDIT";
      _addview.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -1155,7 +1280,7 @@
     _nametextfld.text=custmd.customername;
     _addresstxtview.text=custmd.custmraddress;
     _citytxtfld.text=custmd.city;
-    [_statebtnlbl setTitle:custmd.state forState:UIControlStateNormal];
+    [_statebtnlbl setTitle:[_revstatedict objectForKey:custmd.state] forState:UIControlStateNormal];
     [_cuntrybtnlbl setTitle:custmd.country forState:UIControlStateNormal];
     _websitetxtfld.text=custmd.website;
     _zipbtnlbl.text=custmd.zip;
@@ -1523,8 +1648,10 @@
     
         if(textField==_emailtxtfld){
         
+            if(![_emailtxtfld.text isEqualToString:@""]){
         Validation *val=[[Validation alloc]init];
         BOOL bEmailValid = [val validEmailAddress:_emailtxtfld.text];
+            
         if(bEmailValid)
         {
             // email valid, other validations in the form
@@ -1534,7 +1661,7 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-        
+            }
         
     }
     
@@ -1561,6 +1688,28 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     ////NSLog(@"buttonIndex%d",buttonIndex);
+    if ([alertView.message isEqualToString:msgstrg]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _nametextfld.text=@"";
+            _addresstxtview.text=@"";
+            _citytxtfld.text=@"";
+            [_statebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            [_cuntrybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+            _websitetxtfld.text=@"";
+            _zipbtnlbl.text=@"";
+            _emailtxtfld.text=@"";
+            _phonetxtfld.text=@"";
+            _faxtxtfld.text=@"";
+            
+            
+        }
+    }
+
     
     if ([alertView.message isEqualToString:@"Invalid Website"]) {
         

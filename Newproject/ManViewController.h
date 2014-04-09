@@ -10,6 +10,7 @@
 #import "Manpwr.h"
 #import"Validation.h"
 #import "sqlite3.h"
+#import "ServiceViewController.h"
 
 @interface ManViewController : UIViewController{
     
@@ -26,11 +27,13 @@
       NSInteger newtype;
     
 }
+@property(strong,nonatomic)ServiceViewController *serviceVCtrl;
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 
 @property(strong,nonatomic)Manpwr *manpwrmdl;
 @property(strong,nonatomic)Validation *vald;
+- (IBAction)servicebtn:(id)sender;
 
 /*For Sqlite Database*/
 

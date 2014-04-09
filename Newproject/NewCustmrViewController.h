@@ -25,9 +25,12 @@
     NSInteger fmt;
     //phoneno format
     NSString *phnnostring;
+    NSInteger deletepath;
+    NSString *msgstrg;
 
 }
 @property(strong,nonatomic)NSString *custmrcode;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navtitle;
 
 @property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
 
@@ -44,6 +47,7 @@
 @property(strong,nonatomic)NSMutableArray *customerarray;
 @property(strong,nonatomic)NSMutableArray *statearray;
 @property(strong,nonatomic)NSMutableDictionary *statedict;
+@property(strong,nonatomic)NSMutableDictionary *revstatedict;
 @property(strong,nonatomic)NSMutableArray *countryarray;
 @property(strong,nonatomic)NSMutableDictionary *countrydict;
 
