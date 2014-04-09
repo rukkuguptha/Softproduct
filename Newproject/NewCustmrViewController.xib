@@ -17,6 +17,7 @@
                 <outlet property="faxtxtfld" destination="Um8-h0-m54" id="qY1-oD-M0C"/>
                 <outlet property="nametextfld" destination="J6c-Y6-sYx" id="Mfh-aO-iik"/>
                 <outlet property="navgtnbar" destination="ajf-6q-HFo" id="TIm-LA-zHi"/>
+                <outlet property="navtitle" destination="aeG-4l-7ZM" id="5aM-mp-5LD"/>
                 <outlet property="phonetxtfld" destination="fxn-ve-ZlM" id="qUb-Az-AFB"/>
                 <outlet property="statebtnlbl" destination="Ssw-H4-tDO" id="dM3-aS-yXq"/>
                 <outlet property="titleview" destination="qu7-cd-mjl" id="kta-M0-3TN"/>
@@ -150,7 +151,7 @@
                                     </connections>
                                 </button>
                                 <button clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBT-XK-oa6" userLabel="Button - Update">
-                                    <rect key="frame" x="264" y="406" width="111" height="36"/>
+                                    <rect key="frame" x="257" y="406" width="111" height="36"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update ">
@@ -162,7 +163,7 @@
                                     </connections>
                                 </button>
                                 <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-iv-bbM">
-                                    <rect key="frame" x="376" y="407" width="82" height="35"/>
+                                    <rect key="frame" x="385" y="406" width="82" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -352,7 +353,7 @@
                                     </items>
                                 </navigationBar>
                             </subviews>
-                            <color key="backgroundColor" red="0.78902264030000002" green="0.78902264030000002" blue="0.78902264030000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                     </subviews>
                 </scrollView>

@@ -25,9 +25,12 @@
     NSInteger fmt;
     //phoneno format
     NSString *phnnostring;
+    NSInteger deletepath;
+    NSString *msgstrg;
 
 }
 @property(strong,nonatomic)NSString *custmrcode;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navtitle;
 
 @property(strong,nonatomic)ContactInfoViewController *cntctVctrl;
 
