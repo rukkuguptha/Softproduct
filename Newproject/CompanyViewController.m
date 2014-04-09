@@ -28,6 +28,8 @@
     [super viewDidLoad];
    
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+    
+ 
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -37,6 +39,8 @@
   
     _scroll.frame=CGRectMake(0, 0,768, 1024);
     [_scroll setContentSize:CGSizeMake(768,1400)];
+       self.view.backgroundColor=[UIColor colorWithRed:255.0/255.0f green:204.0/255.0f blue:204.0/255.0f alpha:1.0f];
+      self.scroll.backgroundColor=[UIColor colorWithRed:255.0/255.0f green:204.0/255.0f blue:204.0/255.0f alpha:1.0f];
 
    [self Getbasicinfo];
    

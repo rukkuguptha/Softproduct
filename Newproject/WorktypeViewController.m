@@ -277,7 +277,7 @@
                    "<ID>%d</ID>\n"
                    "</WorkTypeDelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[[_worktypedict objectForKey:[_worktypearray objectAtIndex:path]]integerValue]];
+                   "</soap:Envelope>\n",[[_worktypedict objectForKey:[_worktypearray objectAtIndex:deletepath]]integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -506,11 +506,20 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
+    if ([_typetxtfld.text isEqualToString:@""]){
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Type Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+    else{
+
     if (webtype==1) {
         [self WorkTypeInsert];
     }
     else if (webtype==2){
         [self WorkTypeupdate];
+    }
     }
 }
 

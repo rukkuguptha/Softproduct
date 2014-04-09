@@ -27,14 +27,19 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226.0/255.0f blue:226.0/255.0f alpha:1.0f];
+    self.addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226.0/255.0f blue:226.0/255.0f alpha:1.0f];
+
+    
+        _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.navgtnbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _custmrtable.layer.borderWidth = 2.0;
     _custmrtable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     self.addnavbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _addresstxtview.layer.borderWidth = 2.0;
     _addresstxtview.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-
+  [[self.addresstxtview layer] setCornerRadius:10];
 
     
     /*searchbar*/
@@ -1060,6 +1065,17 @@
 }
 
 - (IBAction)addcustmrbtn:(id)sender {
+    _nametextfld.text=@"";
+    _addresstxtview.text=@"";
+    _citytxtfld.text=@"";
+    [_statebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_cuntrybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _websitetxtfld.text=@"";
+    _zipbtnlbl.text=@"";
+    _emailtxtfld.text=@"";
+    _phonetxtfld.text=@"";
+    _faxtxtfld.text=@"";
+
     _addview.hidden=NO;
    }
 
@@ -1079,12 +1095,31 @@
 }
 
 - (IBAction)updatebtn:(id)sender {
-    if (webtype==1) {
+    if ([_nametextfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
+   else  if ([_addresstxtview.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Address is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+          else  if ([_phonetxtfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if (([_emailtxtfld.text isEqualToString:@""])) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Email is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+       else{
+        if (webtype==1) {
         [self CustomerMasterInsert];
 
     }
     else{
         [self CustomerMasterUpdate];
+    }
     }
   
 }
@@ -1179,4 +1214,423 @@
     
 
 }
+
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_nametextfld)
+    {
+        NSUInteger newLength = [_nametextfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+//    if(textField==_addresstxtview)
+//    {
+//        NSUInteger newLength = [_addresstxtview.text length] + [string length] - range.length;
+//        return (newLength > 200) ? NO : YES;
+//    }
+    if(textField==_citytxtfld)
+    {
+        NSUInteger newLength = [_citytxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    
+       if(textField==_zipbtnlbl)
+    {
+        NSUInteger newLength = [_zipbtnlbl.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    
+    if(textField==_faxtxtfld)
+    {
+        NSUInteger newLength = [_faxtxtfld.text length] + [string length] - range.length;
+        return (newLength > 12) ? NO : YES;
+    }
+       if(textField==_phonetxtfld)
+    {
+        NSUInteger newLength = [_phonetxtfld.text length] + [string length] - range.length;
+        return (newLength > 12) ? NO : YES;
+    }
+    if(textField==_emailtxtfld)
+    {
+        NSUInteger newLength = [_emailtxtfld.text length] + [string length] - range.length;
+        return (newLength > 100) ? NO : YES;
+    }
+    
+    if(textField==_websitetxtfld)
+    {
+        NSUInteger newLength = [_websitetxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+      
+    return YES;
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    
+    if(textField==_faxtxtfld)
+    {
+        faxnoString=_faxtxtfld.text;
+        if ([faxnoString length]<10) {
+            if([faxnoString isEqualToString:@""])
+            {
+                
+            }
+            else
+            {
+                fmt=1;
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                
+                [alert show];
+                
+            }
+            
+        }
+        else
+        {
+            
+            
+            Validation*val=[[Validation alloc]init];
+            int value1=[val isdataformat:_faxtxtfld.text];
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+                
+                
+            }
+            else
+                
+            {
+                faxnoString=_faxtxtfld.text;
+                
+                //checking a particular charector
+                // NSString *connectstring;
+                NSString*new=[faxnoString substringWithRange:NSMakeRange(3, 1)];
+                NSString*new1=[faxnoString substringWithRange:NSMakeRange(7, 1)];
+                
+                
+                
+                NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                NSString *resultString = [[faxnoString componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                NSLog (@"Result: %@", resultString);
+                if ([resultString length]==9){
+                    
+                    fmt=1;
+                    
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+                
+                if ([faxnoString length]==12) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                        _faxfmtstring=faxnoString;
+                        fmt=2;
+                    }
+                    else
+                    {
+                        fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                    }
+                    
+                }
+                
+                
+                
+                if ([resultString length]==10){
+                    
+                    
+                    fmt=2;
+                    
+                    NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                    NSLog(@"%@",subString);
+                    NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                    NSLog(@"%@",substring2);
+                    NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                    NSLog(@"%@",substring3);
+                    _faxfmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                    NSLog(@"%@",_faxfmtstring);
+                    
+                    
+                    
+                    
+                    _faxtxtfld.text=_faxfmtstring;
+                    
+                }
+                
+                
+                
+                
+                
+                if ([resultString length]==11){
+                    
+                    fmt=1;
+                    
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Fax Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+            }
+        }
+        
+    }
+    if(textField==_phonetxtfld)
+    {
+        
+        phnnostring=_phonetxtfld.text;
+        
+        
+        if ([phnnostring length]<10) {
+            if([phnnostring isEqualToString:@""])
+            {
+                
+            }
+            else
+            {
+                fmt=1;
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                
+                [alert show];
+                
+            }
+            
+            
+            
+        }
+        else
+        {
+            
+            Validation*val=[[Validation alloc]init];
+            int value1=[val isdataformat:_phonetxtfld.text];
+            if(value1==0)
+            {
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
+                
+                
+            }
+            else
+            {
+                
+                phnnostring=_phonetxtfld.text;
+                //checking a particular charector
+                // NSString *connectstring;
+                NSString*new=[phnnostring substringWithRange:NSMakeRange(3, 1)];
+                NSString*new1=[phnnostring substringWithRange:NSMakeRange(7, 1)];
+                
+                
+                
+                NSCharacterSet *notAllowedChars = [[NSCharacterSet characterSetWithCharactersInString:@"1234567890"] invertedSet];
+                NSString *resultString = [[phnnostring componentsSeparatedByCharactersInSet:notAllowedChars] componentsJoinedByString:@""];
+                NSLog (@"Result: %@", resultString);
+                if ([resultString length]==9){
+                    
+                    
+                    fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+                
+                if ([phnnostring length]==12) {
+                    
+                    
+                    
+                    
+                    
+                    
+                    if ([new  isEqualToString:@"-"]&&[new1  isEqualToString:@"-"]) {
+                        _phnnofmtstring=phnnostring;
+                        fmt=2;
+                    }
+                    else
+                    { fmt=1;
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        
+                        [alert show];
+                    }
+                    
+                }
+                
+                
+                
+                if ([resultString length]==10){
+                    
+                    
+                    fmt=2;
+                    
+                    NSString *subString = [resultString substringWithRange:NSMakeRange(0,3)];
+                    NSLog(@"%@",subString);
+                    NSString *substring2=[resultString  substringWithRange:NSMakeRange(3,3)];
+                    NSLog(@"%@",substring2);
+                    NSString *substring3=[resultString  substringWithRange:NSMakeRange(6,4)];
+                    NSLog(@"%@",substring3);
+                    _phnnofmtstring=[NSString stringWithFormat:@"%@-%@-%@",subString,substring2,substring3];
+                    NSLog(@"%@",_phnnofmtstring);
+                    
+                    
+                    
+                    
+                    _phonetxtfld.text=_phnnofmtstring;
+                    
+                }
+                
+                
+                
+                
+                
+                if ([resultString length]==11){
+                    
+                    
+                    fmt=1;
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    
+                    [alert show];
+                    
+                }
+                
+            }
+        }
+    }
+    if(textField==_zipbtnlbl)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_zipbtnlbl.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    
+    
+        if(textField==_emailtxtfld){
+        
+        Validation *val=[[Validation alloc]init];
+        BOOL bEmailValid = [val validEmailAddress:_emailtxtfld.text];
+        if(bEmailValid)
+        {
+            // email valid, other validations in the form
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        
+    }
+    
+    if(textField==_websitetxtfld){
+        
+        
+        
+        Validation *val=[[Validation alloc]init];
+        BOOL webval=[val validateUrl:_websitetxtfld.text];
+        if(webval)
+        {
+            // email valid, other validations in the form
+            
+        }
+        else
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Website" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+    }
+    
+    
+    
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+    if ([alertView.message isEqualToString:@"Invalid Website"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _websitetxtfld.text=@"";
+            
+            
+        }
+    }
+    
+    if ([alertView.message isEqualToString:@"Invalid Fax Number"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _faxtxtfld.text=@"";
+            
+            
+        }
+    }
+    
+    
+    
+    
+    if ([alertView.message isEqualToString:@"Invalid Email"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _emailtxtfld.text=@"";
+            
+            
+        }
+    }
+    
+    
+    
+    if ([alertView.message isEqualToString:@"Invalid Zip"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _zipbtnlbl.text=@"";
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Invalid PhoneNumber"])
+    {
+        if (buttonIndex==0) {
+            
+            _phonetxtfld.text=@"";
+            
+        }
+        
+    }
+        
+    
+    
+    
+}
+
+
 @end
