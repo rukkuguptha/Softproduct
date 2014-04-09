@@ -1813,4 +1813,11 @@ if ([alertView.message isEqualToString:msgstrg]) {
 
 }
 
+- (IBAction)servicebtn:(id)sender {
+    if(!self.serviceVCtrl){
+        _serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
+    }
+    _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    [self presentViewController:_serviceVCtrl
+                       animated:YES completion:NULL];}
 @end
