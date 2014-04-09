@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Manpwr.h"
+#import "Base64.h"
 #import "Validation.h"
+#import <AssetsLibrary/AssetsLibrary.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+
+
 
 @interface SmalltoolsViewController : UIViewController{
      BOOL recordResults;
@@ -21,6 +26,12 @@
     NSString*skill;
       
 }
+@property (strong, nonatomic) IBOutlet UIImageView *picimageview;
+@property (nonatomic) BOOL newMedia;
+@property(strong,nonatomic)NSData*basedata;
+@property(strong,nonatomic)NSString*encodedString;
+
+
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
 @property(strong,nonatomic)NSMutableDictionary *revskilldict;
 

@@ -43,8 +43,39 @@
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
     
+    _picimageview.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(handlePinch:)];
+    pgr.delegate = (id)self;
+    [_picimageview addGestureRecognizer:pgr];
+
 
 }
+- (void)handlePinch:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
+    //handle pinch...
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate =(id) self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.showsCameraControls=YES;
+        
+        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+                                  (NSString *) kUTTypeImage,
+                                  nil];
+        imagePicker.allowsEditing = NO;
+        // imagePicker.cameraCaptureMode=YES;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        _newMedia = YES;
+    }
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
      [self AllSkills];
@@ -959,6 +990,16 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 }
 
 - (IBAction)updatebtn:(id)sender {
+    
+    UIImage *imagename =_picimageview.image;
+    // NSData *data = UIImagePNGRepresentation(imagename);
+    
+    NSData *data = UIImageJPEGRepresentation(imagename, 1.0);
+    
+    
+    _encodedString = [data base64EncodedString];
+
+    
     if (butntype==1) {
         if([_destxtfld.text isEqualToString:@""])
         {
@@ -1132,5 +1173,64 @@ else
     return YES;
 }
 
+#pragma mark-ImagePicker
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // [self.popoverController dismissPopoverAnimated:true];
+    NSString *mediaType = [info
+                           objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = [info
+                          objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"dict%@",info);
+        _picimageview.image=nil;
+        
+        
+        
+       _picimageview.image =image;
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    
+    
+    
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
 
 @end
