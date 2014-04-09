@@ -24,6 +24,7 @@
 
    NSString*one=[NSString stringWithFormat:@"%@.%@", newstring , astring];
     NSLog(@"%@",one);
+    
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self prefersStatusBarHidden];
     [self setNeedsStatusBarAppearanceUpdate];
