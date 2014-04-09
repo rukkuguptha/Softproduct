@@ -42,7 +42,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Basic Requirement" id="xd6-sH-ZPD">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="nUi-d1-OTy">
+                                    <barButtonItem key="rightBarButtonItem" id="nUi-d1-OTy">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Oiy-hN-sUS">
                                             <rect key="frame" x="961" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -165,7 +165,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="u1m-4q-wag">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="jlD-Zy-xNr">
+                                            <barButtonItem key="rightBarButtonItem" id="jlD-Zy-xNr">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vxT-Wz-0Pr">
                                                     <rect key="frame" x="778" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

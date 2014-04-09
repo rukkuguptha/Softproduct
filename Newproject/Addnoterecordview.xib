@@ -27,7 +27,7 @@
                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Add New Record" id="e5m-dt-fnq">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="RfO-So-VbO">
+                            <barButtonItem key="rightBarButtonItem" id="RfO-So-VbO">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nvt-xi-uMf">
                                     <rect key="frame" x="480" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

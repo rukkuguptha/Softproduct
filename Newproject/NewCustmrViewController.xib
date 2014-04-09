@@ -35,14 +35,14 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ajf-6q-HFo">
-                            <rect key="frame" x="0.0" y="15" width="1024" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Customer Management" id="AtM-iv-8e6">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="xjr-MC-rJY">
+                                    <barButtonItem key="rightBarButtonItem" id="xjr-MC-rJY">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ICr-Fk-4Wj">
-                                            <rect key="frame" x="973" y="3" width="35" height="37"/>
+                                            <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" backgroundImage="appbar.close.png">
@@ -310,7 +310,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Edit" id="aeG-4l-7ZM">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="niC-ab-TXS">
+                                            <barButtonItem key="rightBarButtonItem" id="niC-ab-TXS">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rmb-eC-kvR">
                                                     <rect key="frame" x="676" y="4" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

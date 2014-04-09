@@ -51,7 +51,7 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Leads" id="VIT-wE-gFF">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="kAz-Dj-0K4">
+                                    <barButtonItem key="rightBarButtonItem" id="kAz-Dj-0K4">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="cFb-Eh-AbO">
                                             <rect key="frame" x="982" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -463,7 +463,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="cDU-51-CbL">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="zab-Fj-lqN">
+                                            <barButtonItem key="rightBarButtonItem" id="zab-Fj-lqN">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="82">
                                                     <rect key="frame" x="636" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

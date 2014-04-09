@@ -233,7 +233,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="V0h-b0-cSf">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="CAt-CC-KY8">
+                                            <barButtonItem key="rightBarButtonItem" id="CAt-CC-KY8">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="59">
                                                     <rect key="frame" x="610" y="3" width="37" height="37"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -346,7 +346,7 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Lead Activity" id="dsq-zn-npG">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="c8f-6J-QGO">
+                                    <barButtonItem key="rightBarButtonItem" id="c8f-6J-QGO">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="eHe-SR-Qlz">
                                             <rect key="frame" x="968" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

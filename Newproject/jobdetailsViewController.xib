@@ -34,7 +34,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Job Details" id="coa-ik-7OH">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="DFi-Sz-9On">
+                                    <barButtonItem key="rightBarButtonItem" id="DFi-Sz-9On">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZBD-AL-Xus">
                                             <rect key="frame" x="699" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -134,7 +134,7 @@
                                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Edit" id="acs-A2-ak4">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="yR4-6z-bGM">
+                                            <barButtonItem key="rightBarButtonItem" id="yR4-6z-bGM">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Rtq-b7-OGL">
                                                     <rect key="frame" x="582" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -26,7 +26,7 @@
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Customer&amp;Contract" id="7H7-RH-pNR">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="j5Z-4N-pAd">
+                            <barButtonItem key="rightBarButtonItem" id="j5Z-4N-pAd">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FkB-Bg-ukV">
                                     <rect key="frame" x="484" y="1" width="40" height="41"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

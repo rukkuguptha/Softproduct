@@ -67,7 +67,7 @@
 
 
 
-- (IBAction)editcellbtn:(id)sender;
+//- (IBAction)editcellbtn:(id)sender;
 -(IBAction)closetheView:(id)sender;
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)updatebtn:(id)sender;

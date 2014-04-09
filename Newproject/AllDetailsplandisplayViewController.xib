@@ -34,7 +34,7 @@
                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Title" id="t9C-FE-E9t">
-                            <barButtonItem key="rightBarButtonItem" image="appbar.close.png" style="plain" id="fcO-aP-MjL">
+                            <barButtonItem key="rightBarButtonItem" image="appbar.close.png" id="fcO-aP-MjL">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="71b-9g-y2A">
                                     <rect key="frame" x="969" y="2" width="39" height="39"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

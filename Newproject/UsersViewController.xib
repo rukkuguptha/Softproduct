@@ -35,7 +35,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Users" id="cM1-bE-MWt">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="QIs-0K-YbK">
+                                    <barButtonItem key="rightBarButtonItem" id="QIs-0K-YbK">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sCu-ow-ruD">
                                             <rect key="frame" x="701" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -106,7 +106,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="xnW-6t-5D1">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="dcd-lP-ZEX">
+                                            <barButtonItem key="rightBarButtonItem" id="dcd-lP-ZEX">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="36E-dL-7oO">
                                                     <rect key="frame" x="563" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

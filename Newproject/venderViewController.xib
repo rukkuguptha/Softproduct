@@ -97,7 +97,7 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Add Vendors" id="urz-t0-33U">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="h1P-Zl-e6s">
+                                    <barButtonItem key="rightBarButtonItem" id="h1P-Zl-e6s">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QrF-nk-CfS">
                                             <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,7 +124,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="ADD" id="gv0-xR-CCy">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="fGJ-YJ-Fpi">
+                                            <barButtonItem key="rightBarButtonItem" id="fGJ-YJ-Fpi">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PcI-2i-f35">
                                                     <rect key="frame" x="546" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

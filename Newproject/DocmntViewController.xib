@@ -119,7 +119,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Company Documents" id="9dy-8m-bVX">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="HVn-XJ-s40">
+                                    <barButtonItem key="rightBarButtonItem" id="HVn-XJ-s40">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="G5w-n3-g2u">
                                             <rect key="frame" x="964" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

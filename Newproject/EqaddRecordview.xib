@@ -82,7 +82,7 @@
                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Add New Record" id="fRs-Hf-Tve">
-                            <barButtonItem key="rightBarButtonItem" image="appbar.close.png" style="plain" id="3QJ-SM-4g9">
+                            <barButtonItem key="rightBarButtonItem" image="appbar.close.png" id="3QJ-SM-4g9">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ymv-mR-Gr1">
                                     <rect key="frame" x="480" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -77,7 +77,7 @@
 -(IBAction)craftcheckaction:(id)sender;
 -(IBAction)selectcraft:(id)sender;
 -(IBAction)selecttype:(id)sender;
--(IBAction)selectallvender:(id)sender;
+//-(IBAction)selectallvender:(id)sender;
 -(IBAction)updateaction:(id)sender;
 -(IBAction)selectreqvender:(id)sender;
 
