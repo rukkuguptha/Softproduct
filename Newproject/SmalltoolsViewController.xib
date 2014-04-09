@@ -15,6 +15,7 @@
                 <outlet property="destxtfld" destination="LfS-2o-ba2" id="LJC-3d-nbT"/>
                 <outlet property="navbar" destination="qXt-r3-Qxm" id="iko-vf-OAV"/>
                 <outlet property="navtitle" destination="TlW-Bk-oFh" id="B2U-OF-1tY"/>
+                <outlet property="picimageview" destination="St6-P0-Hvp" id="xgW-Iw-kfV"/>
                 <outlet property="resultdisplaylabel" destination="FNS-yA-DTH" id="ahB-2b-nCU"/>
                 <outlet property="stockinhandtxtfld" destination="0l4-wj-wMA" id="Zfv-ib-eKw"/>
                 <outlet property="subsearchbtnlbl" destination="p51-kM-tTJ" id="XGz-2R-8if"/>
@@ -53,7 +54,7 @@
                                 </navigationItem>
                             </items>
                         </navigationBar>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="vQ6-0w-lwp">
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="vQ6-0w-lwp">
                             <rect key="frame" x="20" y="112" width="728" height="624"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
