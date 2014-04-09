@@ -173,7 +173,7 @@
                         <barButtonItem width="17" style="plain" systemItem="fixedSpace" id="WYi-mW-4VW">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
-                        <barButtonItem title="Scffold Materials Rates" id="2xn-3T-I3m">
+                        <barButtonItem title="Scaffold Materials Rates" id="2xn-3T-I3m">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="SMRbtn:" destination="-1" id="dtJ-XJ-BOe"/>
