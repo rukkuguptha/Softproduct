@@ -18,8 +18,7 @@
 #import "CrewsetupViewController.h"
 
 @interface ResViewController : UIViewController
-///wwwwwww
-//Tiles
+
 
 @property (strong, nonatomic) IBOutlet UIView *manpwrview;
 @property(strong,nonatomic)IBOutlet UIView *eqpView;
