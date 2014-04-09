@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self Stateselect];
+    [self countryselect];
      self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226.0/255.0f blue:226.0/255.0f alpha:1.0f];
     self.addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226.0/255.0f blue:226.0/255.0f alpha:1.0f];
 
@@ -825,6 +827,7 @@
     if([elementName isEqualToString:@"StateselectResult"])
     {_statearray=[[NSMutableArray alloc]init];
         _statedict=[[NSMutableDictionary alloc]init];
+        _revstatedict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1047,6 +1050,7 @@
         recordResults = FALSE;
         [_statearray addObject:_soapResults];
         [_statedict setObject:stateid forKey:_soapResults];
+        [_revstatedict setObject:_soapResults forKey:stateid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"CountryCode"])
@@ -1200,13 +1204,16 @@
 - (IBAction)statebtn:(id)sender {
     poptype=1;
     [self createpopover];
-    [self Stateselect];
+    //[self Stateselect];
+    [_popOverTableView reloadData];
 }
 
 - (IBAction)cuntrybtn:(id)sender {
     poptype=2;
     [self createpopover];
-    [self countryselect];
+   // [self countryselect];
+    [_popOverTableView reloadData];
+
 }
 
 - (IBAction)updatebtn:(id)sender {
@@ -1273,7 +1280,7 @@
     _nametextfld.text=custmd.customername;
     _addresstxtview.text=custmd.custmraddress;
     _citytxtfld.text=custmd.city;
-    [_statebtnlbl setTitle:[_statedict objectForKey:custmd.state] forState:UIControlStateNormal];
+    [_statebtnlbl setTitle:[_revstatedict objectForKey:custmd.state] forState:UIControlStateNormal];
     [_cuntrybtnlbl setTitle:custmd.country forState:UIControlStateNormal];
     _websitetxtfld.text=custmd.website;
     _zipbtnlbl.text=custmd.zip;

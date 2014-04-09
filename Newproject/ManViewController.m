@@ -65,9 +65,7 @@
 
     
     _addscrollview.frame=CGRectMake(0, 44, 583,622);
-    [_addscrollview setContentSize:CGSizeMake(583,1200)];
-    
-    // Do any additional setup after loading the view from its nib.
+    [_addscrollview setContentSize:CGSizeMake(583,1200)];          // Do any additional setup after loading the view from its nib.
 }
 
 -(void)viewWillAppear:(BOOL)animated{
