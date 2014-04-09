@@ -122,6 +122,7 @@
 /*dict*/
 @property(strong,nonatomic)NSMutableDictionary *companydict;
 @property(strong,nonatomic)NSMutableDictionary *statedict;
+@property(strong,nonatomic)NSMutableDictionary *reversedict;
 
 
 

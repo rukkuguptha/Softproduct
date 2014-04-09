@@ -79,7 +79,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-
+   [self Stateselect];
     [self getLeads];
    
     
@@ -542,7 +542,7 @@ if (tableView==_leadTable) {
     _locationtxtfld.text=info1.location;
     _contacttiletxtfld.text=info1.contacttitle;
     _emailidtxtfld.text=info1.emailid;
-    [_statebutton setTitle:info1.state forState:UIControlStateNormal];
+    [_statebutton setTitle:[_reversedict objectForKey:info1.state]forState:UIControlStateNormal];
     _leadassigntotextfld.text=info1.leadassignto;
     [_leadstatusBtn setTitle:info1.leadstatus forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
@@ -861,82 +861,41 @@ if (tableView==_leadTable) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
-
-    
-    else if (butnidtfr==1) {
-        
-        
-        if(![_emailidtxtfld.text isEqualToString:@""])
-        {
-                    int value2 = [val validEmailAddress:_emailidtxtfld.text];
-                    if(value2==0)
-                   {
-            
-                        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [alert1 show];
-                   }
-        }
-                    if(![_prjctyeartxtfld.text isEqualToString:@""])
-                    {
-                        int value1 = [val validEmailAddress:_prjctyeartxtfld.text];
-                        if(value1==0)
-                        {
-                            
-                            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                            [alert1 show];
-                        }
-                        
-                        
-                    }
-
-                    else
-                    {
-                        
-                        [self Addlead];
-                    }
-
-
-            
-        
-        
-
-}
-    else if(butnidtfr==1)
+    else if(![_prjctyeartxtfld.text isEqualToString:@""]||![_emailidtxtfld.text isEqualToString:@""])
     {
-        if(![_emailidtxtfld.text isEqualToString:@""])
-       {
-           int value2 = [val validEmailAddress:_emailidtxtfld.text];
-           if(value2==0)
-           {
-               
-               UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-               [alert1 show];
-           }
-           
-           
-       }
-       else if(![_prjctyeartxtfld.text isEqualToString:@""])
-       {
-           int value1 = [val validEmailAddress:_prjctyeartxtfld.text];
-           if(value1==0)
-           {
-               
-               UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-               [alert1 show];
-           }
-           
-           
-       }
-
+        int value1 = [val isNumeric:_prjctyeartxtfld.text];
+        int value2 = [val validEmailAddress:_emailidtxtfld.text];
+        if(value1==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Year" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+        }
+        else if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+        }
         else
         {
+            if (butnidtfr==1) {
+                [self Addlead];
+            }
+            else  if(butnidtfr==2)
+            {
+                
+                [self updatelead];
+            }
 
-        [self updatelead];
         }
+
         
+        
+        
+    
+    
     }
-    
-    
 }
 - (IBAction)selectcompany:(id)sender
 {
@@ -972,7 +931,7 @@ if (tableView==_leadTable) {
 }
 - (IBAction)selectstate:(id)sender
 {
-    [self Stateselect];
+    
 
     poptype=8;
     UIViewController *popovercontent=[[UIViewController alloc]init];
@@ -1191,7 +1150,7 @@ if (tableView==_leadTable) {
                    "<Phone>%@</Phone>\n"
                    "<MailId>%@</MailId>\n"
                    "<City>%@</City>\n"
-                   "<State>%@</State>\n"
+                   "<State>%d</State>\n"
                    "<LeadType>%@</LeadType>\n"
                    "<IndustryType>%@</IndustryType>\n"
                    "<ProjectType>%@</ProjectType>\n"
@@ -1204,7 +1163,7 @@ if (tableView==_leadTable) {
                    "<ID>%@</ID>\n"
                    "</SaveLead>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,stid,_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
+                   "</soap:Envelope>\n",Leadid,_companybtn.titleLabel.text,_locationtxtfld.text,_contactnametxtfld.text,_contacttiletxtfld.text,_phonetxtfld.text,_emailidtxtfld.text,_citytxtfld.text,[stid integerValue],_leadtypebtnlbl.titleLabel.text,_industrytypetxtfld.titleLabel.text,_projecttype.titleLabel.text,_prjctdscptntxtfld.text,_prjctexcutntxtfld.titleLabel.text,[_prjctyeartxtfld.text  integerValue],_leadassigntotextfld.text,_leadstatusBtn.titleLabel.text,[bidstatus integerValue],idvalue];
     
     NSLog(@"soapmsg%@",soapMessage);
     
@@ -1907,6 +1866,7 @@ if (tableView==_leadTable) {
     {
         _statearray=[[NSMutableArray alloc]init];
          _statedict=[[NSMutableDictionary alloc]init];
+        _reversedict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -2263,6 +2223,7 @@ if (tableView==_leadTable) {
         recordResults = FALSE;
         [_statearray addObject:_soapResults];
          [_statedict setObject:_stateid forKey:_soapResults];
+        [_reversedict setObject:_soapResults forKey:_stateid];
         _soapResults = nil;
     }
     
