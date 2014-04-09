@@ -36,7 +36,7 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *contrctcell;
 @property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 
--(IBAction)tomgmt:(id)sender;
+
 
 @property(strong,nonatomic)IBOutlet UIView *animatedview;
 @property(strong,nonatomic)IBOutlet UILabel *detailslabel;

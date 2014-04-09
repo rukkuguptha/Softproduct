@@ -37,7 +37,7 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Employee Management" id="3Eg-EZ-x9L">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="NYM-39-cKb">
+                                    <barButtonItem key="rightBarButtonItem" id="NYM-39-cKb">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MjI-gq-eWj">
                                             <rect key="frame" x="708" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,7 +132,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Badge" id="P2n-68-Rv0">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="Fcb-pX-TM8">
+                                            <barButtonItem key="rightBarButtonItem" id="Fcb-pX-TM8">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ASS-Aa-W4a">
                                                     <rect key="frame" x="553" y="0.0" width="39" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

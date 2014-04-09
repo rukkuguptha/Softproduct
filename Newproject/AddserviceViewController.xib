@@ -90,7 +90,7 @@
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Services" id="eVs-t8-Zlv">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="lTR-nn-sAv">
+                            <barButtonItem key="rightBarButtonItem" id="lTR-nn-sAv">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MsM-Zv-gQf">
                                     <rect key="frame" x="708" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -73,7 +73,7 @@
                                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="HR" id="RMb-PU-3Zb">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="dOA-3K-itl">
+                                            <barButtonItem key="rightBarButtonItem" id="dOA-3K-itl">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IAm-bV-TmV">
                                                     <rect key="frame" x="968" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,7 +122,7 @@
                                             <color key="barTintColor" red="0.1951047242" green="0.8248648864" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <items>
                                                 <navigationItem title="Process Applicant" id="mzz-K0-uab">
-                                                    <barButtonItem key="rightBarButtonItem" style="plain" id="Bp4-nR-Z0b">
+                                                    <barButtonItem key="rightBarButtonItem" id="Bp4-nR-Z0b">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TW7-TD-QGz">
                                                             <rect key="frame" x="454" y="2" width="42" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

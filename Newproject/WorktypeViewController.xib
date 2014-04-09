@@ -26,7 +26,7 @@
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Work Type" id="gSK-DO-cHg">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="MFk-P0-cP5">
+                            <barButtonItem key="rightBarButtonItem" id="MFk-P0-cP5">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="mMk-P9-tlM">
                                     <rect key="frame" x="474" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -61,7 +61,7 @@
                             <color key="barTintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Title" id="tWW-jN-bAR">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="d1I-fc-RGX">
+                                    <barButtonItem key="rightBarButtonItem" id="d1I-fc-RGX">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tpN-Gx-H8N">
                                             <rect key="frame" x="285" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

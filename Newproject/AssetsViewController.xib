@@ -50,7 +50,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Other Company Assets" id="VeE-jy-mXk">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="Y4m-wV-2I4">
+                                    <barButtonItem key="rightBarButtonItem" id="Y4m-wV-2I4">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="C9O-x9-Du4">
                                             <rect key="frame" x="706" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,7 +137,7 @@
                                             <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <items>
                                                 <navigationItem title="Title" id="fIA-02-YsI">
-                                                    <barButtonItem key="rightBarButtonItem" style="plain" id="jJa-d2-Dsd">
+                                                    <barButtonItem key="rightBarButtonItem" id="jJa-d2-Dsd">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zfI-bq-kHS">
                                                             <rect key="frame" x="536" y="-3" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

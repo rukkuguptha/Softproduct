@@ -45,17 +45,17 @@
     searchController.delegate = (id)self;
     _autocompletearray=[[NSMutableArray alloc]init];
     //_vendertextfield.delegate=(id)self;
-    _autotable = [[UITableView alloc] initWithFrame:CGRectMake(490, 400, 200, 100) style:UITableViewStylePlain];
-    _autotable.delegate = self;
-    _autotable.dataSource = self;
-    _autotable.rowHeight= 32;
-    _basicreqtable.layer.borderWidth = 1.0;
-    _autotable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
-    _autotable.separatorColor=[UIColor cyanColor];
-    _autotable.scrollEnabled = YES;
-    _autotable.hidden = YES;
-    
-    [self.addreqview addSubview:_autotable];
+//    _autotable = [[UITableView alloc] initWithFrame:CGRectMake(490, 400, 200, 100) style:UITableViewStylePlain];
+//    _autotable.delegate = self;
+//    _autotable.dataSource = self;
+//    _autotable.rowHeight= 32;
+//    _basicreqtable.layer.borderWidth = 1.0;
+//    _autotable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+//    _autotable.separatorColor=[UIColor cyanColor];
+//    _autotable.scrollEnabled = YES;
+//    _autotable.hidden = YES;
+//    
+//    [self.addreqview addSubview:_autotable];
     //[self SelectAllRequirements];
 
     // Do any additional setup after loading the view from its nib.
@@ -205,10 +205,10 @@
 {
     return [_allrequirementarray count];
 }
-    if(tableView==_autotable)
-    {
-        return [_autocompletearray count];
-    }
+//    if(tableView==_autotable)
+//    {
+//        return [_autocompletearray count];
+//    }
     if(tableView==_popOverTableView)
     {
         switch (poptype) {
@@ -270,13 +270,13 @@
             }
            
         }
-    if(tableView==_autotable)
-    {
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-
-         cell.textLabel.text=[_autocompletearray objectAtIndex:indexPath.row];
-    }
+//    if(tableView==_autotable)
+//    {
+//        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+//        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+//
+//         cell.textLabel.text=[_autocompletearray objectAtIndex:indexPath.row];
+//    }
     if (tableView==_basicreqtable)
     {
         basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:indexPath.row];
@@ -854,7 +854,7 @@
 -(IBAction)selectreqvender:(id)sender
 {
     button = (UIButton *)sender;
-    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    //UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.basicreqtable];
     NSIndexPath *textFieldIndexPath = [self.basicreqtable indexPathForRowAtPoint:rootViewPoint];

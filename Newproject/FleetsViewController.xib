@@ -50,7 +50,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Fleet" id="I6j-T7-5Yh">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="jk3-W6-cXm">
+                                    <barButtonItem key="rightBarButtonItem" id="jk3-W6-cXm">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Urw-bm-HyB">
                                             <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,7 +137,7 @@
                                             <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <items>
                                                 <navigationItem title="Title" id="qI5-MM-Mmh">
-                                                    <barButtonItem key="rightBarButtonItem" style="plain" id="Qmy-ZO-PgD">
+                                                    <barButtonItem key="rightBarButtonItem" id="Qmy-ZO-PgD">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kbL-Nw-AEQ">
                                                             <rect key="frame" x="550" y="-3" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

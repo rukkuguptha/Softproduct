@@ -54,7 +54,7 @@
 /*IBAction in view*/
 -(IBAction)selectphases:(id)sender;
 -(IBAction)selectservice:(id)sender;
--(IBAction)parentbtn:(id)sender;
+//-(IBAction)parentbtn:(id)sender;
 -(IBAction)update_phases:(id)sender;
 -(IBAction)cancel_phases:(id)sender;
 

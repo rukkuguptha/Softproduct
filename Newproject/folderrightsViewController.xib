@@ -32,7 +32,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Folder Rights" id="OCU-Ts-kKV">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="4a5-Ge-IFU">
+                                    <barButtonItem key="rightBarButtonItem" id="4a5-Ge-IFU">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="V0h-g9-LvT">
                                             <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -179,7 +179,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Edit" id="8UP-FQ-7hl">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="yrb-2M-TDH">
+                                            <barButtonItem key="rightBarButtonItem" id="yrb-2M-TDH">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1A8-da-hea">
                                                     <rect key="frame" x="373" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

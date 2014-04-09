@@ -131,7 +131,7 @@
                     </textAttributes>
                     <items>
                         <navigationItem title="Resources" id="Gl2-LG-g16">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="1br-OI-l5M">
+                            <barButtonItem key="rightBarButtonItem" id="1br-OI-l5M">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="l2h-I9-Qyb">
                                     <rect key="frame" x="481" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

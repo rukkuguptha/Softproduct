@@ -37,7 +37,7 @@
                             <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Planning" id="ZqP-95-Xa7">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="rn0-vB-C2f">
+                                    <barButtonItem key="rightBarButtonItem" id="rn0-vB-C2f">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YPJ-Qy-4W4">
                                             <rect key="frame" x="964" y="2" width="40" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -152,7 +152,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Edit" id="wMZ-FX-GhQ">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="P2Y-Sc-0OX">
+                                            <barButtonItem key="rightBarButtonItem" id="P2Y-Sc-0OX">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="haq-o6-L2J">
                                                     <rect key="frame" x="456" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

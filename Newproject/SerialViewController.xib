@@ -90,7 +90,7 @@
                             <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="EDIT" id="GxZ-Ir-9rg">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="O9h-IH-l3T">
+                                    <barButtonItem key="rightBarButtonItem" id="O9h-IH-l3T">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZHF-wL-SiF">
                                             <rect key="frame" x="318" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

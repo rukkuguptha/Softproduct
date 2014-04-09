@@ -31,7 +31,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Phases" id="fEE-7W-9LT">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="TR5-gL-ksW">
+                                    <barButtonItem key="rightBarButtonItem" id="TR5-gL-ksW">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FSZ-9N-0Vq">
                                             <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -108,7 +108,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="irM-BC-LkF">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="EAs-IA-qmy">
+                                            <barButtonItem key="rightBarButtonItem" id="EAs-IA-qmy">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ues-7Y-QiA">
                                                     <rect key="frame" x="487" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -38,7 +38,7 @@
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Add Address" id="rlE-vD-ege">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="AIU-xa-W5I">
+                            <barButtonItem key="rightBarButtonItem" id="AIU-xa-W5I">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="djR-xQ-R96">
                                     <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -105,7 +105,7 @@
                             <color key="barTintColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="ADD" id="MOA-l6-pd5">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="Jhf-xF-r85">
+                                    <barButtonItem key="rightBarButtonItem" id="Jhf-xF-r85">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="pTr-tY-ilL">
                                             <rect key="frame" x="374" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

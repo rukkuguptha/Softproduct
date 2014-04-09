@@ -39,7 +39,7 @@
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Branch" id="aNn-FW-LdO">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="DJD-3W-qXa">
+                            <barButtonItem key="rightBarButtonItem" id="DJD-3W-qXa">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Jzv-T7-Ijz">
                                     <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -129,7 +129,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="Bns-FW-wGL">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="hIk-2D-esy">
+                                            <barButtonItem key="rightBarButtonItem" id="hIk-2D-esy">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fVN-gb-ewI">
                                                     <rect key="frame" x="541" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

@@ -36,7 +36,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Materials" id="xSm-5t-Spp">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="Z5s-06-txO">
+                                    <barButtonItem key="rightBarButtonItem" id="Z5s-06-txO">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9YI-Vu-Y2P">
                                             <rect key="frame" x="711" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -123,7 +123,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="aMt-1h-Qkm">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="ofD-uG-PDb">
+                                            <barButtonItem key="rightBarButtonItem" id="ofD-uG-PDb">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MZm-6P-ElZ">
                                                     <rect key="frame" x="583" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

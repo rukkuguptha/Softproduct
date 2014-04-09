@@ -33,7 +33,7 @@
                     <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Title" id="AAl-Ev-4Qo">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="MMM-sP-KnF">
+                            <barButtonItem key="rightBarButtonItem" id="MMM-sP-KnF">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="t5D-Nn-bQ7">
                                     <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

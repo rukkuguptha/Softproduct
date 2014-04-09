@@ -176,10 +176,10 @@
 
 - (IBAction)editbtn:(id)sender {
     _addview.hidden=NO;
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.resurcetable];
-    NSIndexPath *textFieldIndexPath = [self.resurcetable indexPathForRowAtPoint:rootViewPoint];
+//    button = (UIButton *)sender;
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.resurcetable];
+//    NSIndexPath *textFieldIndexPath = [self.resurcetable indexPathForRowAtPoint:rootViewPoint];
 }
 
 - (IBAction)clsebtn:(id)sender {

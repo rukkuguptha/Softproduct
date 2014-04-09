@@ -93,7 +93,7 @@
                                             <color key="barTintColor" red="0.1951047242" green="0.8248648864" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <items>
                                                 <navigationItem title="Process Applicant" id="M3e-ER-tAW">
-                                                    <barButtonItem key="rightBarButtonItem" style="plain" id="Qu0-ud-oT0">
+                                                    <barButtonItem key="rightBarButtonItem" id="Qu0-ud-oT0">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yka-5F-Wjg">
                                                             <rect key="frame" x="454" y="2" width="42" height="40"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -157,7 +157,7 @@
                     <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="HRInProcess" id="IZQ-Aw-K01">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="dXd-4w-Y4L">
+                            <barButtonItem key="rightBarButtonItem" id="dXd-4w-Y4L">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7eT-48-xbL">
                                     <rect key="frame" x="968" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

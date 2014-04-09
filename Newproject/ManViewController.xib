@@ -41,7 +41,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Man Power" id="Soc-1e-dDE">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="KsN-Sl-V14">
+                                    <barButtonItem key="rightBarButtonItem" id="KsN-Sl-V14">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="FnF-Hu-TzE">
                                             <rect key="frame" x="954" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -317,7 +317,7 @@
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Title" id="OJw-41-uE8">
-                                            <barButtonItem key="rightBarButtonItem" style="plain" id="LYh-FM-YVG">
+                                            <barButtonItem key="rightBarButtonItem" id="LYh-FM-YVG">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="i8d-nD-txV">
                                                     <rect key="frame" x="516" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

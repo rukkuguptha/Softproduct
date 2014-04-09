@@ -22,17 +22,6 @@
     }
     return self;
 }
--(IBAction)tomgmt:(id)sender
-{
-    if (!self.mgmtdetails) {
-        self.mgmtdetails=[[MangmntdetailsViewController alloc]initWithNibName:@"MangmntdetailsViewController" bundle:nil];
-    }
-    //_custmrVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    
-    [self presentViewController:_mgmtdetails
-                       animated:YES completion:NULL];
-
-}
 
 - (void)viewDidLoad
 {

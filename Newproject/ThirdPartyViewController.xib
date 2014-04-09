@@ -52,7 +52,7 @@
                             <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
                                 <navigationItem title="Third Party" id="iQq-L6-IQG">
-                                    <barButtonItem key="rightBarButtonItem" style="plain" id="7hT-bT-cBW">
+                                    <barButtonItem key="rightBarButtonItem" id="7hT-bT-cBW">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="lbn-YY-Url">
                                             <rect key="frame" x="702" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -145,7 +145,7 @@
                                             <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <items>
                                                 <navigationItem title="Title" id="aoK-Me-RXu">
-                                                    <barButtonItem key="rightBarButtonItem" style="plain" id="n89-Dw-7qL">
+                                                    <barButtonItem key="rightBarButtonItem" id="n89-Dw-7qL">
                                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vRT-8v-QUX">
                                                             <rect key="frame" x="518" y="-3" width="50" height="50"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
