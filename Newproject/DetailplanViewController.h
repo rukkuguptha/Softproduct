@@ -44,6 +44,7 @@
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *fireproofingbtn;
 
 @property(strong,nonatomic)IBOutlet UIView *scaffoldview;
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIView *addscaffoldrecordview;
 //@property(strong,nonatomic)IBOutlet UIView *insulationview;
 //@property(strong,nonatomic)IBOutlet UIView *fireproofingview;

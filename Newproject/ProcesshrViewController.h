@@ -36,6 +36,7 @@
 /*views*/
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic) IBOutlet UIView *jobviews;
+@property (strong, nonatomic) IBOutlet UIView *view1;
 
 /*strings*/
 @property (strong, nonatomic)NSString *imgString;

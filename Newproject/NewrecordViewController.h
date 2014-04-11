@@ -25,7 +25,9 @@
 @property(nonatomic, weak)id<newrecordDelgate>delegate;
 @property(nonatomic, weak) CKCalendarView *calendar;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
-
+@property(strong,nonatomic)IBOutlet UIView *view1;
+@property(strong,nonatomic)IBOutlet UIView *view2;
+@property(strong,nonatomic)IBOutlet UIView *view3;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;

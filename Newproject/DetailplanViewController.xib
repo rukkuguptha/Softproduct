@@ -21,6 +21,7 @@
                 <outlet property="scaffoldtabletitleview" destination="BYS-GS-17Y" id="W3j-9A-4qp"/>
                 <outlet property="scaffoldtyprbtn" destination="BcL-6k-moZ" id="pWN-y7-nWL"/>
                 <outlet property="scaffoldview" destination="mlq-3k-5yR" id="GNH-70-WbS"/>
+                <outlet property="scroll" destination="pJk-Xx-lAC" id="mg5-RX-iEk"/>
                 <outlet property="unittextfield" destination="b79-Q9-Gku" id="YbU-PX-1Te"/>
                 <outlet property="view" destination="2" id="3"/>
                 <outlet property="widthtextfield" destination="Bjf-J5-a0U" id="hv2-HJ-TEZ"/>
@@ -153,7 +154,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="KXL-ug-lIl">
-                            <rect key="frame" x="0.0" y="59" width="1024" height="44"/>
+                            <rect key="frame" x="0.0" y="45" width="1024" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <barButtonItem title="Scaffolding" width="87" id="2a9-lu-Atn">
@@ -178,10 +179,6 @@
                             <rect key="frame" x="142" y="26" width="771" height="443"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="l0h-iy-shE">
-                                    <rect key="frame" x="0.0" y="0.0" width="771" height="443"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                </imageView>
                                 <navigationBar contentMode="scaleToFill" id="xsT-pB-pwZ">
                                     <rect key="frame" x="2" y="1" width="766" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -344,7 +341,6 @@
     <resources>
         <image name="appbar.addblack.png" width="76" height="76"/>
         <image name="appbar.close.png" width="76" height="76"/>
-        <image name="squareimage1.png" width="300" height="400"/>
         <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

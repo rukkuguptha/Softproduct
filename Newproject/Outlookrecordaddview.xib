@@ -18,19 +18,15 @@
             <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareimage1.png" id="J2Z-AF-4Aj">
-                    <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                </imageView>
                 <navigationBar contentMode="scaleToFill" id="0rQ-EM-CiM">
-                    <rect key="frame" x="2" y="1" width="536" height="44"/>
+                    <rect key="frame" x="0.0" y="-1" width="540" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Add New Record" id="7mg-R9-1Fu">
                             <barButtonItem key="rightBarButtonItem" id="4Bd-to-iNz">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Q31-EO-KgX">
-                                    <rect key="frame" x="480" y="2" width="40" height="40"/>
+                                    <rect key="frame" x="484" y="2" width="40" height="40"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" title="Button" image="appbar.close.png">

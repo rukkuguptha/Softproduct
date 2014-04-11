@@ -27,7 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-   
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
          _scroll.frame=CGRectMake(0, 0, 619,713);
     [_scroll setContentSize:CGSizeMake(619,1024)];
     _AssetTable.layer.borderWidth = 2.0;

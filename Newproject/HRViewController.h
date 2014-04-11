@@ -104,6 +104,8 @@
 
 
 @property (strong, nonatomic) IBOutlet UIView *applicantprocessview;
+@property (strong, nonatomic) IBOutlet UIView *view1;
+
 
 
 
