@@ -25,6 +25,7 @@
                 <outlet property="picimageview" destination="12P-nf-m7Z" id="oRs-eQ-o77"/>
                 <outlet property="purchasetxtfld" destination="9Rb-V5-Fvj" id="t8q-JG-SXE"/>
                 <outlet property="scroll" destination="SNG-9f-K6g" id="5ib-0Y-2K8"/>
+                <outlet property="scroll1" destination="Bq7-W6-9hv" id="lmT-bN-pZT"/>
                 <outlet property="serialtxtfld" destination="aaH-K5-TUU" id="bZv-P9-k0e"/>
                 <outlet property="shiftwisetxtfld" destination="cFd-a1-8Je" id="fds-85-uld"/>
                 <outlet property="stockinhandtxtfld" destination="GiE-wu-zSl" id="Kro-T7-R3w"/>

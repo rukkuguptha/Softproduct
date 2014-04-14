@@ -12,6 +12,7 @@
                 <outlet property="ratetxtfld" destination="D3w-BH-0Tf" id="wyJ-Eg-meY"/>
                 <outlet property="valuetxtfld" destination="GdL-k2-pxW" id="0eR-On-cOj"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="view1" destination="tk6-fQ-mga" id="2Lk-OT-rjb"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -23,10 +24,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareimage1.png" translatesAutoresizingMaskIntoConstraints="NO" id="j5x-Xz-fiu">
-                            <rect key="frame" x="0.0" y="8" width="540" height="612"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="squareimage1.png" translatesAutoresizingMaskIntoConstraints="NO" id="GBF-71-pEk">
                             <rect key="frame" x="33" y="103" width="475" height="435"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

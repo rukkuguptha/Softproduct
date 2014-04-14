@@ -28,8 +28,9 @@
 {
   
     [super viewDidLoad];
-    
-   
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _addequipmentview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+_scroll_addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _scroll_addview.frame=CGRectMake(0, 0, 619,713);
     [_scroll_addview setContentSize:CGSizeMake(619,1024)];
     _equipmenttbl.layer.borderWidth = 2.0;

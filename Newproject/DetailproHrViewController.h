@@ -56,6 +56,7 @@
 
 /*Detailsview*/
 @property(strong,nonatomic)IBOutlet UIView *detailsaddview;
+@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UITableView *detailstablview;
 @property(strong,nonatomic)IBOutlet UIView *detailstabletitleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *detailscell;

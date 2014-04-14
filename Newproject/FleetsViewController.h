@@ -37,6 +37,8 @@ NSInteger popvr;
 @property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll1;
+
 
 @property (strong, nonatomic)Equpmntmdl *Fleetmdl;
 @property(strong,nonatomic)Validation *val;
