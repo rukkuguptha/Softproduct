@@ -57,7 +57,7 @@
 -(IBAction)addnewworkaction:(id)sender
 {
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
-    
+    _generalworkctrlr.Planid=_planid;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
@@ -66,7 +66,7 @@
 -(IBAction)editgeneralaction:(id)sender
 {
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
-    
+    _generalworkctrlr.Planid=_planid;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
