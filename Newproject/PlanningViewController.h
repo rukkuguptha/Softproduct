@@ -28,8 +28,10 @@
     NSString *typestrg;
     NSInteger newpoptype;
     
+    
 }
 
+/* newcomment*/
 
 
 @property(strong,nonatomic)planmodel *plnmdl;
