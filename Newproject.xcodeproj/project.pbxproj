@@ -300,6 +300,8 @@
 		D4FED41417F18E28004BE242 /* tabbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41317F18E28004BE242 /* tabbtn.png */; };
 		D4FED41617F1A047004BE242 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41517F1A046004BE242 /* 1.png */; };
 		D4FED41817F1A04E004BE242 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FED41717F1A04D004BE242 /* 2.png */; };
+		D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FEF52118FE85560047E6BD /* Fmodel.m */; };
+		D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FEF52318FE895E0047E6BD /* Matrixcell.xib */; };
 		D4FFBD201855B7830007851D /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FFBD1F1855B7830007851D /* carat.png */; };
 		D4FFBD221855B7880007851D /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FFBD211855B7880007851D /* carat-open.png */; };
 /* End PBXBuildFile section */
@@ -705,6 +707,9 @@
 		D4FED41317F18E28004BE242 /* tabbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbtn.png; sourceTree = "<group>"; };
 		D4FED41517F1A046004BE242 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		D4FED41717F1A04D004BE242 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		D4FEF52018FE85550047E6BD /* Fmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fmodel.h; sourceTree = "<group>"; };
+		D4FEF52118FE85560047E6BD /* Fmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fmodel.m; sourceTree = "<group>"; };
+		D4FEF52318FE895E0047E6BD /* Matrixcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Matrixcell.xib; sourceTree = "<group>"; };
 		D4FFBD1F1855B7830007851D /* carat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carat.png; sourceTree = "<group>"; };
 		D4FFBD211855B7880007851D /* carat-open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "carat-open.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -959,6 +964,7 @@
 				D4A338E018F3EEEF00E53FAC /* BillingViewController.m */,
 				D4A338E118F3EEEF00E53FAC /* BillingViewController.xib */,
 				D4A338E218F3EEEF00E53FAC /* billingcell.xib */,
+				D4FEF52318FE895E0047E6BD /* Matrixcell.xib */,
 			);
 			name = Customer;
 			sourceTree = "<group>";
@@ -1181,6 +1187,8 @@
 				D4A338D018F3EE8700E53FAC /* Markupmainmodel.m */,
 				D4A338D118F3EE8700E53FAC /* subheadermarkmodel.h */,
 				D4A338D218F3EE8700E53FAC /* subheadermarkmodel.m */,
+				D4FEF52018FE85550047E6BD /* Fmodel.h */,
+				D4FEF52118FE85560047E6BD /* Fmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1481,6 +1489,7 @@
 				64A3B81618DFEE980015887F /* CommentsCells.xib in Resources */,
 				D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */,
 				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
+				D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
@@ -1594,6 +1603,7 @@
 				D49F874818EEA36B00413CAD /* Base64.m in Sources */,
 				D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */,
 				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
+				D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D49F875418EEA36B00413CAD /* Servicemdl.m in Sources */,
