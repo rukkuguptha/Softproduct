@@ -10,7 +10,7 @@
 
 @interface Generalmodel : NSObject
 
-@property(readwrite)NSInteger gid;
+@property(strong,nonatomic)NSString *gid;
 
 
 @property(strong,nonatomic)NSString *Unit;
