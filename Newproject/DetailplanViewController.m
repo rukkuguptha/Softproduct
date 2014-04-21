@@ -65,8 +65,18 @@
 }
 -(IBAction)editgeneralaction:(id)sender
 {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
+    NSIndexPath *textFieldIndexPath = [self.scaffoldtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    Generalmodel*gmodel=(Generalmodel *)[_generallistarray objectAtIndex:btnindex];
+
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
+    _generalworkctrlr.genralid=gmodel.gid;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
@@ -1654,7 +1664,7 @@
         
         recordResults = FALSE;
         _gmodel=[[Generalmodel alloc]init];
-        _gmodel.gid=[_soapresults integerValue];
+        _gmodel.gid=_soapresults;
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"Unit"])
