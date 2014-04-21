@@ -10,6 +10,7 @@
 #import "Customscaffoldingplan.h"
 #import "Scaffoldtypemdl.h"
 #import "AllDetailsplandisplayViewController.h"
+#import "AddGeneralworkViewController.h"
 
 @interface DetailplanViewController : UIViewController<animatndelegate>
 {
@@ -19,31 +20,40 @@
     NSInteger btnindex;
     NSInteger optionidentifier;
     NSInteger scaffoldtypeindex;
+    NSInteger poptype;
 }
 
 @property(strong,nonatomic)NSString *planid;
 @property(strong,nonatomic)Customscaffoldingplan *scfldmdl;
 @property(strong,nonatomic)Scaffoldtypemdl *typemdl;
 @property(strong,nonatomic)AllDetailsplandisplayViewController *allctrlr;
+@property(strong,nonatomic)AddGeneralworkViewController *generalworkctrlr;
 
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;
 - (IBAction)Scaffoldslection:(id)sender;
 - (IBAction)InsulationSelection:(id)sender;
 - (IBAction)fireproofingselection:(id)sender;
+- (IBAction)generalselection:(id)sender;
 -(IBAction)editscaffoldaction:(id)sender;
 -(IBAction)addplan:(id)sender;
 -(IBAction)closescaffoldview:(id)sender;
 -(IBAction)nextbtnaction:(id)sender;
 -(IBAction)selectscaffoldtype:(id)sender;
+-(IBAction)addnewworkaction:(id)sender;
 
 
 /*IBOutlets in main view*/
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *scaffoldbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *insulationbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *fireproofingbtn;
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *generalbtn;
 
+@property(strong,nonatomic)IBOutlet UIView *genearaltabletitleview;
+@property(strong,nonatomic)IBOutlet UITableView *generaltable;
+@property(strong,nonatomic)IBOutlet UITableViewCell *generalcell;
 @property(strong,nonatomic)IBOutlet UIView *scaffoldview;
+@property(strong,nonatomic)IBOutlet UIView *generalview;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UIView *addscaffoldrecordview;
 //@property(strong,nonatomic)IBOutlet UIView *insulationview;
@@ -55,6 +65,19 @@
 /*popovercontroller*/
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
+
+
+
+/*outlets in generalcell*/
+@property(strong,nonatomic)IBOutlet UILabel *generalunitlabel;
+@property(strong,nonatomic)IBOutlet UILabel *generalsubunitlabel;
+@property(strong,nonatomic)IBOutlet UILabel *generalequiplabel;
+@property(strong,nonatomic)IBOutlet UILabel *generalphlabel;
+@property(strong,nonatomic)IBOutlet UILabel *generalquanitylabel;
+@property(strong,nonatomic)IBOutlet UILabel *generalphaselabel;
+@property(strong,nonatomic)IBOutlet UILabel *generalseqlabel;
+
+
 
 /*outlets in cell*/
 @property(strong,nonatomic)IBOutlet UILabel *unitcelllabel;
@@ -92,8 +115,13 @@
 @property(strong,nonatomic)NSMutableArray *scaffoldtyperesultarray;
 @property(strong,nonatomic)NSMutableDictionary *scaffoldtypeDict;
 @property(strong,nonatomic)NSMutableDictionary *scaffoldidDict;
+@property(strong,nonatomic)NSMutableArray *generallistarray;
+@property(strong,nonatomic)NSMutableArray *newworkarray;
+
 @property(strong,nonatomic)NSString *scaffoldtypestring;
 @property(strong,nonatomic)NSString *insertresultvalue;
+
+
 
 
 -(void)navgteanimtn;

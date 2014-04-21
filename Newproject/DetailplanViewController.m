@@ -27,13 +27,20 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.generalview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.scaffoldview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _scaffoldview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
      _addscaffoldrecordview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _scaffoldtable.layer.borderWidth=4.0f;
     _scaffoldtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _generaltable.layer.borderWidth=4.0f;
+    _generaltable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _scaffoldtabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _genearaltabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
+    _generalview.hidden=NO;
+     _generalbtn.tintColor=[UIColor whiteColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,6 +53,15 @@
     [super viewWillAppear:animated];
     [self ScaffoldingSelectScaffoldtype];
     //[self ScaffoldingSelectplan];
+}
+-(IBAction)addnewworkaction:(id)sender
+{
+    self.generalworkctrlr=[[AddGeneralworkViewController alloc]initWithNibName:@"AddGeneralworkViewController" bundle:nil];
+    
+    self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_generalworkctrlr
+                       animated:YES completion:NULL];
+
 }
 #pragma mark-Actions
 -(IBAction)addplan:(id)sender
@@ -95,18 +111,28 @@
 {
    _addscaffoldrecordview.hidden=YES;
 }
+- (IBAction)generalselection:(id)sender
+{
+    _generalview.hidden=NO;
+    _scaffoldview.hidden=YES;
+    _generalbtn.tintColor=[UIColor whiteColor];
+    _scaffoldbtn.tintColor=[UIColor blackColor];
+
+}
 - (IBAction)Scaffoldslection:(id)sender
 {
     _scaffoldbtn.tintColor=[UIColor whiteColor];
      _fireproofingbtn.tintColor=[UIColor blackColor];
        _insulationbtn.tintColor=[UIColor blackColor];
+    _generalbtn.tintColor=[UIColor blackColor];
     _scaffoldview.hidden=NO;
+    _generalview.hidden=YES;
 //    _fireproofingview.hidden=YES;
 //    _insulationview.hidden=YES;
 }
 -(IBAction)selectscaffoldtype:(id)sender
 {
-    UIViewController *popovercontent=[[UIViewController alloc]init];
+       UIViewController *popovercontent=[[UIViewController alloc]init];
     UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
     popoverview.backgroundColor=[UIColor whiteColor];
     _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
@@ -210,8 +236,16 @@
     }
     if(tableView==_popovertableview)
     {
-        return [_scaffoldtyperesultarray count];
+        
+            return [_scaffoldtyperesultarray count];
+        
+        
     }
+    if(tableView==_generaltable)
+    {
+        return 5;
+    }
+
        return YES;
     
 }
@@ -227,6 +261,12 @@
             [[NSBundle mainBundle]loadNibNamed:@"scaffoldcell" owner:self options:nil];
             cell=_scaffoldcell;
         }
+        if(tableView==_generaltable)
+        {
+            [[NSBundle mainBundle]loadNibNamed:@"Generalcell" owner:self options:nil];
+            cell=_generalcell;
+        }
+
         
         
     }
@@ -265,12 +305,14 @@
      }
     if(tableView==_popovertableview)
     {
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-
-        Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
-
-        cell.textLabel.text=typmdl.typeName;
+       
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+            cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+            
+            Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
+            
+            cell.textLabel.text=typmdl.typeName;
+        
     }
     
     return cell;
