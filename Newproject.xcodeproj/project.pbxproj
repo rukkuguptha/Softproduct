@@ -79,6 +79,7 @@
 		64A3B82618E02FC90015887F /* branchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82518E02FC90015887F /* branchcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
+		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
 		64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F97990185EF8B000E7722B /* jobsitereqViewController.xib */; };
@@ -399,6 +400,8 @@
 		64A3B82218DFEF0B0015887F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		64A3B82518E02FC90015887F /* branchcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = branchcell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
+		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
+		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
 		64F9798E185EF8B000E7722B /* jobsitereqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitereqViewController.h; sourceTree = "<group>"; };
 		64F9798F185EF8B000E7722B /* jobsitereqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitereqViewController.m; sourceTree = "<group>"; };
@@ -1200,6 +1203,8 @@
 				D4A338D218F3EE8700E53FAC /* subheadermarkmodel.m */,
 				D4FEF52018FE85550047E6BD /* Fmodel.h */,
 				D4FEF52118FE85560047E6BD /* Fmodel.m */,
+				64D23F7B1905103000DEA64A /* Generalmodel.h */,
+				64D23F7C1905103000DEA64A /* Generalmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1584,6 +1589,7 @@
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
 				D49F876518EEA36B00413CAD /* Empmdl.m in Sources */,
+				64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */,
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,

@@ -46,13 +46,13 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    [self GeneralSelect];
     // Dispose of any resources that can be recreated.
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self ScaffoldingSelectScaffoldtype];
-    //[self ScaffoldingSelectplan];
+      [self GeneralSelect];
 }
 -(IBAction)addnewworkaction:(id)sender
 {
@@ -63,6 +63,16 @@
                        animated:YES completion:NULL];
 
 }
+-(IBAction)editgeneralaction:(id)sender
+{
+    self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
+    
+    self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_generalworkctrlr
+                       animated:YES completion:NULL];
+    
+}
+
 #pragma mark-Actions
 -(IBAction)addplan:(id)sender
 {
@@ -112,15 +122,19 @@
    _addscaffoldrecordview.hidden=YES;
 }
 - (IBAction)generalselection:(id)sender
-{
+{   [self GeneralSelect];
+
     _generalview.hidden=NO;
     _scaffoldview.hidden=YES;
     _generalbtn.tintColor=[UIColor whiteColor];
     _scaffoldbtn.tintColor=[UIColor blackColor];
-
+    _insulationbtn.tintColor=[UIColor blackColor];
+    _fireproofingbtn.tintColor=[UIColor blackColor];
 }
 - (IBAction)Scaffoldslection:(id)sender
 {
+    [self ScaffoldingSelectScaffoldtype];
+
     _scaffoldbtn.tintColor=[UIColor whiteColor];
      _fireproofingbtn.tintColor=[UIColor blackColor];
        _insulationbtn.tintColor=[UIColor blackColor];
@@ -206,6 +220,7 @@
     _insulationbtn.tintColor=[UIColor whiteColor];
      _scaffoldbtn.tintColor=[UIColor blackColor];
      _fireproofingbtn.tintColor=[UIColor blackColor];
+     _generalbtn.tintColor=[UIColor blackColor];
    
 //    _scaffoldview.hidden=YES;
 //    _fireproofingview.hidden=YES;
@@ -216,6 +231,7 @@
     _fireproofingbtn.tintColor=[UIColor whiteColor];
     _insulationbtn.tintColor=[UIColor blackColor];
      _scaffoldbtn.tintColor=[UIColor blackColor];
+    _generalbtn.tintColor=[UIColor blackColor];
 //    _fireproofingview.hidden=NO;
 //    _scaffoldview.hidden=YES;
 //    _insulationview.hidden=YES;
@@ -243,7 +259,7 @@
     }
     if(tableView==_generaltable)
     {
-        return 5;
+        return [_generallistarray count];
     }
 
        return YES;
@@ -263,7 +279,7 @@
         }
         if(tableView==_generaltable)
         {
-            [[NSBundle mainBundle]loadNibNamed:@"Generalcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"PGcell" owner:self options:nil];
             cell=_generalcell;
         }
 
@@ -303,6 +319,32 @@
 
 
      }
+    if(tableView==_generaltable)
+    {
+        Generalmodel*genmdl=(Generalmodel *)[_generallistarray objectAtIndex:indexPath.row];
+        _generalunitlabel=(UILabel*)[cell viewWithTag:1];
+        _generalunitlabel.text=genmdl.Unit;
+        _generalsubunitlabel=(UILabel*)[cell viewWithTag:2];
+        _generalsubunitlabel.text=genmdl.SubUnit;
+        
+        _generalequiplabel=(UILabel*)[cell viewWithTag:3];
+        _generalequiplabel.text=genmdl.Equipment;
+        
+        _generalphlabel=(UILabel*)[cell viewWithTag:4];
+        _generalphlabel.text=genmdl.ProjectHeader;
+        //[NSString stringWithFormat:@"%d",scaffmdl.typescaffold];
+        
+        _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
+        _generalquanitylabel.text=genmdl.Quantity;
+        
+        _generalphaselabel=(UILabel*)[cell viewWithTag:6];
+        _generalphaselabel.text=genmdl.Phase;
+        _generalseqlabel=(UILabel*)[cell viewWithTag:7];
+        _generalseqlabel.text=genmdl.sequence;
+        
+        
+    }
+
     if(tableView==_popovertableview)
     {
        
@@ -428,6 +470,58 @@
     }
     
 }
+
+-(void)GeneralSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</GeneralSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+
 //-(void)Selectcheight{
 //    recordResults = FALSE;
 //    NSString *soapMessage;
@@ -986,32 +1080,119 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"GeneralSelectResponse"])
+    {
+        _generallistarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Unit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SubUnit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Equipment"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ProjectHeader"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Phase"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
+    if([elementName isEqualToString:@"Quantity"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"TotalHoures"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    if([elementName isEqualToString:@"PlanId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
-
-
+    if([elementName isEqualToString:@"SequenceId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
-
-    
-
-
-    
-
-    
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1460,6 +1641,101 @@
         
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"GeneralSelectResult"])
+    {
+        
+        recordResults = FALSE;
+       
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel=[[Generalmodel alloc]init];
+        _gmodel.gid=[_soapresults integerValue];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"Unit"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.Unit=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"SubUnit"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.SubUnit=_soapresults;
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"Equipment"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.Equipment=_soapresults;
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"ProjectHeader"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.ProjectHeader=_soapresults;
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"Phase"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.Phase=_soapresults;
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.genDescription=_soapresults;
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"Quantity"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.Quantity=_soapresults;
+        _soapresults = nil;
+    }
+
+    if([elementName isEqualToString:@"TotalHoures"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.TotalHoures=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"PlanId"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.PlanId=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"SequenceId"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.sequence=_soapresults;
+        [_generallistarray addObject:_gmodel];
+        _soapresults = nil;
+    }
+
+
+
 
 
 }

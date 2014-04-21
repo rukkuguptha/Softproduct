@@ -11,6 +11,7 @@
 #import "Scaffoldtypemdl.h"
 #import "AllDetailsplandisplayViewController.h"
 #import "GeneralViewController.h"
+#import "Generalmodel.h"
 
 @interface DetailplanViewController : UIViewController<animatndelegate>
 {
@@ -28,6 +29,7 @@
 @property(strong,nonatomic)Scaffoldtypemdl *typemdl;
 @property(strong,nonatomic)AllDetailsplandisplayViewController *allctrlr;
 @property(strong,nonatomic)GeneralViewController *generalworkctrlr;
+@property(strong,nonatomic)Generalmodel *gmodel;
 
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;
@@ -41,6 +43,7 @@
 -(IBAction)nextbtnaction:(id)sender;
 -(IBAction)selectscaffoldtype:(id)sender;
 -(IBAction)addnewworkaction:(id)sender;
+-(IBAction)editgeneralaction:(id)sender;
 
 
 /*IBOutlets in main view*/
