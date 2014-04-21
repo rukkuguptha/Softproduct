@@ -32,6 +32,58 @@
     [[self.destextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.destextview layer] setBorderWidth:2];
     [[self.destextview layer] setCornerRadius:10];
+    _autocompletearray=[[NSMutableArray alloc]init];
+    _autotable = [[UITableView alloc] initWithFrame:CGRectMake(58, 138, 266, 100) style:UITableViewStylePlain];
+    
+    _autotable.delegate = (id)self;
+    _autotable.dataSource =(id) self;
+    _autotable.scrollEnabled = YES;
+    _autotable.hidden = YES;
+    _autotable.layer.borderColor=[UIColor blackColor].CGColor ;
+    _autotable.layer.borderWidth=2.0f;
+    _autotable.rowHeight=30;
+    [self.view addSubview:_autotable];
+    
+    _autotable1 = [[UITableView alloc] initWithFrame:CGRectMake(448, 138, 266, 100) style:UITableViewStylePlain];
+    
+    _autotable1.delegate = (id)self;
+    _autotable1.dataSource =(id) self;
+    _autotable1.scrollEnabled = YES;
+    _autotable1.hidden = YES;
+    _autotable1.layer.borderColor=[UIColor blackColor].CGColor ;
+    _autotable1.layer.borderWidth=2.0f;
+    _autotable1.rowHeight=30;
+    [self.view addSubview:_autotable1];
+    
+    _autotable2 = [[UITableView alloc] initWithFrame:CGRectMake(58, 210, 266, 100) style:UITableViewStylePlain];
+    
+    _autotable2.delegate = (id)self;
+    _autotable2.dataSource =(id) self;
+    _autotable2.scrollEnabled = YES;
+    _autotable2.hidden = YES;
+    _autotable2.layer.borderColor=[UIColor blackColor].CGColor ;
+    _autotable2.layer.borderWidth=2.0f;
+    _autotable2.rowHeight=30;
+    [self.view addSubview:_autotable2];
+    _autotable3 = [[UITableView alloc] initWithFrame:CGRectMake(448, 210, 266, 100) style:UITableViewStylePlain];
+    
+    _autotable3.delegate = (id)self;
+    _autotable3.dataSource =(id) self;
+    _autotable3.scrollEnabled = YES;
+    _autotable3.hidden = YES;
+    _autotable3.layer.borderColor=[UIColor blackColor].CGColor ;
+    _autotable3.layer.borderWidth=2.0f;
+    _autotable3.rowHeight=30;
+    [self.view addSubview:_autotable3];
+
+
+
+      [self UnitSelect];
+    [self SubUnitSelect];
+    [self GeneralEquipmentSelect];
+    [self ProjectHeaderselect];
+    [self SelectAllPhases];
+    [self JobsequenceSelect];
 
 }
 
@@ -40,9 +92,871 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)searchAutocompleteEntriesWithSubstring:(NSString *)substring {
+    
+    // Put anything that starts with this substring into the autocompleteUrls array
+    // The items in this array is what will show up in the table view
+    if (txtfldtype==1) {
+    
+    
+    [_autocompletearray removeAllObjects];
+    for(NSString * curString in _unitarray) {
+        NSRange substringRange = [curString rangeOfString:substring];
+        if (substringRange.location == 0) {
+            
+            [_autocompletearray addObject:curString];
+            NSLog(@"%@",_autocompletearray);
+            
+        }
+    }
+    [_autotable reloadData];
+    }
+    
+    if (txtfldtype==2) {
+        
+        
+        [_autocompletearray removeAllObjects];
+        for(NSString * curString in _subunitarray) {
+            NSRange substringRange = [curString rangeOfString:substring];
+            if (substringRange.location == 0) {
+                
+                [_autocompletearray addObject:curString];
+                NSLog(@"%@",_autocompletearray);
+                
+            }
+        }
+        [_autotable1 reloadData];
+    }
+
+    if (txtfldtype==3) {
+        
+        
+        [_autocompletearray removeAllObjects];
+        for(NSString * curString in _equipmentarray) {
+            NSRange substringRange = [curString rangeOfString:substring];
+            if (substringRange.location == 0) {
+                
+                [_autocompletearray addObject:curString];
+                NSLog(@"%@",_autocompletearray);
+                
+            }
+        }
+        [_autotable2 reloadData];
+    }
+    if (txtfldtype==4) {
+        
+        
+        [_autocompletearray removeAllObjects];
+        for(NSString * curString in _projectheaderarray) {
+            NSRange substringRange = [curString rangeOfString:substring];
+            if (substringRange.location == 0) {
+                
+                [_autocompletearray addObject:curString];
+                NSLog(@"%@",_autocompletearray);
+                
+            }
+        }
+        [_autotable3 reloadData];
+    }
+
+
+}
+
+#pragma mark-webservice
+-(void)SelectAllPhases{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectAllPhases xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectAllPhases>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectAllPhases" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UnitSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UnitSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</UnitSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Pl-00020"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UnitSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SubUnitSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SubUnitSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</SubUnitSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Pl-00020"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SubUnitSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralEquipmentSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralEquipmentSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</GeneralEquipmentSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Pl-00020"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)ProjectHeaderselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ProjectHeaderselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</ProjectHeaderselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Pl-00020"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ProjectHeaderselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)JobsequenceSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobsequenceSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                 
+                   "</JobsequenceSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JobsequenceSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+
+#pragma mark - Connection
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	[_webData setLength: 0];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+   	[_webData appendData:data];
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [Alert show];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"DONE. Received Bytes: %d", [_webData length]);
+	NSString *theXML = [[NSString alloc] initWithBytes: [_webData mutableBytes] length:[_webData length] encoding:NSUTF8StringEncoding];
+	NSLog(@"xml===== %@",theXML);
+	
+	
+	if( _xmlParser )
+	{
+		
+	}
+	
+	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
+	[_xmlParser setDelegate:(id)self];
+	[_xmlParser setShouldResolveExternalEntities: YES];
+	[_xmlParser parse];
+    [_popovertableview reloadData];
+        
+}
+#pragma mark-xml parser
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict{
+    if([elementName isEqualToString:@"ProjectHeaderselectResult"])
+    {
+        _projectheaderarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"ProjectHeader"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"UnitSelectResult"])
+    {
+           _unitarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Unit"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"SubUnitSelectResult"])
+    {
+        _subunitarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SubUnit"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"GeneralEquipmentSelectResult"])
+    {
+        _equipmentarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Equipment"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"SelectAllPhasesResult"])
+    {
+        _phasearray=[[NSMutableArray alloc]init];
+        _phasedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"JobsequenceSelectResult"])
+    {
+        _sequencearray=[[NSMutableArray alloc]init];
+          _sequncedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"JobSequenceId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        [_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"ProjectHeader"])
+    {
+        
+        recordResults = FALSE;
+        
+        [_projectheaderarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Unit"])
+    {
+        recordResults = FALSE;
+        
+        [_unitarray addObject:_soapResults];
+        _soapResults = nil;
+
+
+    }
+    if([elementName isEqualToString:@"SubUnit"])
+    {
+        
+        recordResults = FALSE;
+        [_subunitarray addObject:_soapResults];
+        _soapResults = nil;
+
+
+        
+    }
+    if([elementName isEqualToString:@"Equipment"])
+    {
+        
+        recordResults = FALSE;
+        [_equipmentarray addObject:_soapResults];
+        _soapResults = nil;
+        
+        }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        recordResults = FALSE;
+        phasestrg=_soapResults;
+        _soapResults = nil;
+
+        
+    }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        
+        recordResults = FALSE;
+        [_phasearray addObject:_soapResults];
+        [_phasedict setObject:phasestrg forKey:_soapResults];
+        _soapResults = nil;
+
+        
+    }
+    if([elementName isEqualToString:@"JobSequenceId"])
+    {
+        
+        recordResults = FALSE;
+        jobsequnce=_soapResults;
+        _soapResults = nil;
+
+        
+    }
+    
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        recordResults = FALSE;
+        [_sequencearray addObject:_soapResults];
+        [_sequncedict setObject:jobsequnce forKey:_soapResults];
+        _soapResults = nil;
+        
+    }
+
+
+
+}
+#pragma mark-Tableview
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView==_autotable||tableView==_autotable1||tableView==_autotable2||tableView==_autotable3)
+    {
+               return [_autocompletearray count];
+    }
+    if (tableView==_popovertableview) {
+        switch (poptype) {
+            case 1:
+                  return [_phasearray count];
+                break;
+            case 2:
+                return [_sequencearray count];
+                break;
+
+            default:
+                break;
+        }
+        
+      
+    }
+   
+     return YES;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+   
+
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+    }
+    if (tableView==_autotable||tableView==_autotable1||tableView==_autotable2||tableView==_autotable3) {
+      
+        cell.textLabel.text=[_autocompletearray objectAtIndex:indexPath.row];
+    }
+    if (tableView==_popovertableview) {
+        switch (poptype) {
+            case 1:
+               cell.textLabel.text=[_phasearray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                 cell.textLabel.text=[_sequencearray objectAtIndex:indexPath.row];
+               
+                break;
+                
+            default:
+                break;
+        }
+
+        
+        
+    }
+    return cell;
+}
+
+#pragma mark UITableViewDelegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (tableView==_autotable) {
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        _unittxtfld.text = selectedCell.textLabel.text;
+       
+        _autotable.hidden = YES;
+    }
+    if (tableView==_autotable1) {
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        _subunittxtfld.text = selectedCell.textLabel.text;
+        
+        _autotable1.hidden = YES;
+    }
+    if (tableView==_autotable2) {
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        _equipmnttxtfld.text = selectedCell.textLabel.text;
+        
+        _autotable2.hidden = YES;
+    }
+
+    if (tableView==_autotable3) {
+        UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+        _prjcthdrtxtfld.text = selectedCell.textLabel.text;
+        
+        _autotable3.hidden = YES;
+    }
+    if (tableView==_popovertableview) {
+        switch (poptype) {
+            case 1:
+                [_phasebtnlbl setTitle:[_phasearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                break;
+            case 2:
+                [_projectheaderbtnlbl setTitle:[_sequencearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+
+                
+                break;
+                
+            default:
+                break;
+        }
+
+     
+    }
+    
+
+    }
+
+
+
+
+#pragma mark-Textfield Delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(textField==_unittxtfld)
+    {
+         txtfldtype=1;
+        
+        _autotable.hidden = NO;
+       
+        NSString *substring = [NSString stringWithString:_unittxtfld.text];
+        substring = [substring stringByReplacingCharactersInRange:range withString:string];
+        [self searchAutocompleteEntriesWithSubstring:substring];
+        
+      
+    }
+    
+    if(textField==_subunittxtfld)
+    {
+        txtfldtype=2;
+        
+        _autotable1.hidden = NO;
+        
+        
+    
+        NSString *substring = [NSString stringWithString:_subunittxtfld.text];
+        substring = [substring stringByReplacingCharactersInRange:range withString:string];
+        [self searchAutocompleteEntriesWithSubstring:substring];
+    }
+    
+    if(textField==_equipmnttxtfld)
+    {
+        txtfldtype=3;
+        
+        _autotable2.hidden = NO;
+                     
+        
+        NSString *substring = [NSString stringWithString:_equipmnttxtfld.text];
+        substring = [substring stringByReplacingCharactersInRange:range withString:string];
+        [self searchAutocompleteEntriesWithSubstring:substring];
+    }
+    if(textField==_prjcthdrtxtfld)
+    {
+        txtfldtype=4;
+        
+        _autotable3.hidden = NO;
+        
+        
+        
+        NSString *substring = [NSString stringWithString:_prjcthdrtxtfld.text];
+        substring = [substring stringByReplacingCharactersInRange:range withString:string];
+        [self searchAutocompleteEntriesWithSubstring:substring];
+    }
+
+
+    return YES;
+}
+#pragma mark- Button Action
 -(IBAction)closegeneralpage:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)phasebtn:(id)sender {
+    poptype=1;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_phasebtnlbl.frame inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+   
+}
+
+- (IBAction)projcthdrbtn:(id)sender {
+    poptype=2;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_projectheaderbtnlbl.frame inView:self.scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+ 
+
+   }
+
+- (IBAction)updatebtn:(id)sender {
+}
 @end
