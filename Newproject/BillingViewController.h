@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Mastermarkmodel.h"
 #import "Manpwr.h"
+#import "Fmodel.h"
 
 @interface BillingViewController : UIViewController
 {
@@ -20,6 +21,7 @@
 @property(strong,nonatomic)NSString *mark;
 @property(strong,nonatomic)Mastermarkmodel *mastermark;
 @property(strong,nonatomic)Manpwr *manpwr;
+@property(strong,nonatomic)Fmodel *fmdl;
 
 @property(strong,nonatomic)IBOutlet UITableView *billingtable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *billcell;
@@ -44,6 +46,7 @@
 @property(strong,nonatomic)NSMutableArray *poparray;
 @property(strong,nonatomic)NSMutableArray *totalmarkuparray;
 @property(strong,nonatomic)NSMutableArray *manpowerarray;
+@property(strong,nonatomic)NSMutableArray *fArray;
 
 /*Dictionary*/
 @property(strong,nonatomic)NSMutableDictionary *popdict;
@@ -59,5 +62,33 @@
 @property(strong,nonatomic)IBOutlet UILabel *unitcostlabel;
 @property(strong,nonatomic)IBOutlet UILabel *stratelabel;
 @property(strong,nonatomic)IBOutlet UILabel *otratelabel;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *fcell;
+
+@property (strong, nonatomic) IBOutlet UILabel *filbl;
+@property (strong, nonatomic) IBOutlet UILabel *f2lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f3labl;
+
+@property (strong, nonatomic) IBOutlet UILabel *f4lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f5lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f6lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f7lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f8lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f9lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f10lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f11lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f12lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f13lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f14lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f15lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f16lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f17lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f18lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f19lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f20lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f21lbl;
+@property (strong, nonatomic) IBOutlet UILabel *f22lbl;
+
+
 
 @end
