@@ -55,9 +55,10 @@
       [self GeneralSelect];
 }
 -(IBAction)addnewworkaction:(id)sender
-{
+{   optionidentifier=1;
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
+    _generalworkctrlr.optionidentfr=optionidentifier;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
@@ -65,6 +66,7 @@
 }
 -(IBAction)editgeneralaction:(id)sender
 {
+    optionidentifier=2;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
@@ -77,6 +79,8 @@
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
     _generalworkctrlr.genralid=gmodel.gid;
+    _generalworkctrlr.optionidentfr=optionidentifier;
+     NSLog(@"textFieldIndexPath%d",_generalworkctrlr.optionidentfr);
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
