@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GeneralViewController">
             <connections>
                 <outlet property="destextview" destination="637-QI-js0" id="84p-AZ-pkK"/>
-                <outlet property="destxtview" destination="637-QI-js0" id="H2r-cI-wcJ"/>
                 <outlet property="equipmnttxtfld" destination="oCL-uU-M4y" id="8xM-sh-OzB"/>
                 <outlet property="phasebtnlbl" destination="5QA-pi-fj7" id="pCC-yp-EEX"/>
                 <outlet property="prjcthdrtxtfld" destination="B1o-cX-vxo" id="c0Z-jF-VyQ"/>
