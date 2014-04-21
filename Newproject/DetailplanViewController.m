@@ -56,7 +56,7 @@
 }
 -(IBAction)addnewworkaction:(id)sender
 {
-    self.generalworkctrlr=[[AddGeneralworkViewController alloc]initWithNibName:@"AddGeneralworkViewController" bundle:nil];
+    self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr

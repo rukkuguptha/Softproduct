@@ -82,9 +82,6 @@
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
 		64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64F97990185EF8B000E7722B /* jobsitereqViewController.xib */; };
-		64FFD5D01904DDC200B317DC /* Generalcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64FFD5CF1904DDC200B317DC /* Generalcell.xib */; };
-		64FFD5D61904E8BE00B317DC /* AddGeneralworkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64FFD5D41904E8BE00B317DC /* AddGeneralworkViewController.m */; };
-		64FFD5D71904E8BE00B317DC /* AddGeneralworkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64FFD5D51904E8BE00B317DC /* AddGeneralworkViewController.xib */; };
 		D4004056185B174A00C38E12 /* TileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004054185B174A00C38E12 /* TileViewController.m */; };
 		D4004057185B174A00C38E12 /* TileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4004055185B174A00C38E12 /* TileViewController.xib */; };
 		D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4004059185B178F00C38E12 /* DocmntViewController.m */; };
@@ -290,6 +287,9 @@
 		D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF318D03F47007617F0 /* ContractViewController.m */; };
 		D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF418D03F47007617F0 /* ContractViewController.xib */; };
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
+		D4F557701904F7EF00EFDAF4 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */; };
+		D4F557711904F7EF00EFDAF4 /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */; };
+		D4F557731904F89600EFDAF4 /* PGcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F557721904F89600EFDAF4 /* PGcell.xib */; };
 		D4F59E4C1887A25500430B17 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */; };
 		D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */; };
 		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
@@ -403,10 +403,6 @@
 		64F9798E185EF8B000E7722B /* jobsitereqViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsitereqViewController.h; sourceTree = "<group>"; };
 		64F9798F185EF8B000E7722B /* jobsitereqViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsitereqViewController.m; sourceTree = "<group>"; };
 		64F97990185EF8B000E7722B /* jobsitereqViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobsitereqViewController.xib; sourceTree = "<group>"; };
-		64FFD5CF1904DDC200B317DC /* Generalcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Generalcell.xib; sourceTree = "<group>"; };
-		64FFD5D31904E8BE00B317DC /* AddGeneralworkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddGeneralworkViewController.h; sourceTree = "<group>"; };
-		64FFD5D41904E8BE00B317DC /* AddGeneralworkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddGeneralworkViewController.m; sourceTree = "<group>"; };
-		64FFD5D51904E8BE00B317DC /* AddGeneralworkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGeneralworkViewController.xib; sourceTree = "<group>"; };
 		D4004053185B174A00C38E12 /* TileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileViewController.h; sourceTree = "<group>"; };
 		D4004054185B174A00C38E12 /* TileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileViewController.m; sourceTree = "<group>"; };
 		D4004055185B174A00C38E12 /* TileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TileViewController.xib; sourceTree = "<group>"; };
@@ -698,6 +694,10 @@
 		D4F19DF318D03F47007617F0 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		D4F19DF418D03F47007617F0 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
+		D4F5576D1904F7EF00EFDAF4 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
+		D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
+		D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
+		D4F557721904F89600EFDAF4 /* PGcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PGcell.xib; sourceTree = "<group>"; };
 		D4F59E4B1887A25500430B17 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cinfocell.xib; sourceTree = "<group>"; };
 		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
@@ -1025,10 +1025,10 @@
 				D49EB4B718C0AA07009249A9 /* DetailplanViewController.h */,
 				D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */,
 				D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */,
-				64FFD5D31904E8BE00B317DC /* AddGeneralworkViewController.h */,
-				64FFD5D41904E8BE00B317DC /* AddGeneralworkViewController.m */,
-				64FFD5D51904E8BE00B317DC /* AddGeneralworkViewController.xib */,
-				64FFD5CF1904DDC200B317DC /* Generalcell.xib */,
+				D4F557721904F89600EFDAF4 /* PGcell.xib */,
+				D4F5576D1904F7EF00EFDAF4 /* GeneralViewController.h */,
+				D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */,
+				D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */,
 				64AD76C618AE12B100089A0F /* scaffoldcell.xib */,
 				649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */,
 				649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */,
@@ -1402,6 +1402,7 @@
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
+				D4F557731904F89600EFDAF4 /* PGcell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				D42D8C2718D2DD79009D8085 /* ManViewController.xib in Resources */,
 				D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */,
@@ -1420,7 +1421,6 @@
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
-				64FFD5D71904E8BE00B317DC /* AddGeneralworkViewController.xib in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
 				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
@@ -1459,6 +1459,7 @@
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
+				D4F557711904F7EF00EFDAF4 /* GeneralViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
@@ -1472,7 +1473,6 @@
 				6426F5E318C05C12002471AC /* bgmetro1.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
 				D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */,
-				64FFD5D01904DDC200B317DC /* Generalcell.xib in Resources */,
 				649EDECE18BB058D00B78D97 /* Addnoterecordview.xib in Resources */,
 				D4A338E618F3EEEF00E53FAC /* DetailmarkupsectionViewController.xib in Resources */,
 				D40A99CD18C5A9B5005384F9 /* EmplyhrmgntViewController.xib in Resources */,
@@ -1572,7 +1572,6 @@
 				D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */,
 				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
 				D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */,
-				64FFD5D61904E8BE00B317DC /* AddGeneralworkViewController.m in Sources */,
 				D49F876E18EEA36B00413CAD /* Vlumedismdl.m in Sources */,
 				D49F875218EEA36B00413CAD /* commentmdl.m in Sources */,
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
@@ -1619,6 +1618,7 @@
 				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
 				D4FEF52218FE85560047E6BD /* Fmodel.m in Sources */,
 				D4FED40F17F16EEE004BE242 /* VerificationViewController.m in Sources */,
+				D4F557701904F7EF00EFDAF4 /* GeneralViewController.m in Sources */,
 				D4DEEDDA17F40BE70096A908 /* UploadDocViewController.m in Sources */,
 				D49F875418EEA36B00413CAD /* Servicemdl.m in Sources */,
 				D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */,

@@ -10,7 +10,7 @@
 #import "Customscaffoldingplan.h"
 #import "Scaffoldtypemdl.h"
 #import "AllDetailsplandisplayViewController.h"
-#import "AddGeneralworkViewController.h"
+#import "GeneralViewController.h"
 
 @interface DetailplanViewController : UIViewController<animatndelegate>
 {
@@ -27,7 +27,7 @@
 @property(strong,nonatomic)Customscaffoldingplan *scfldmdl;
 @property(strong,nonatomic)Scaffoldtypemdl *typemdl;
 @property(strong,nonatomic)AllDetailsplandisplayViewController *allctrlr;
-@property(strong,nonatomic)AddGeneralworkViewController *generalworkctrlr;
+@property(strong,nonatomic)GeneralViewController *generalworkctrlr;
 
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;

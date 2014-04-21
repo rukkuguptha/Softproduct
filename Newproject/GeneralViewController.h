@@ -1,19 +1,17 @@
 //
-//  AddGeneralworkViewController.h
+//  GeneralViewController.h
 //  Newproject
 //
-//  Created by GMSIndia 2 on 21/04/14.
+//  Created by GMSIndia1 on 4/21/14.
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface AddGeneralworkViewController : UIViewController
-
+@interface GeneralViewController : UIViewController
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;
 @property(strong,nonatomic)IBOutlet UITextView *destextview;
 
 
 -(IBAction)closegeneralpage:(id)sender;
-
 @end
