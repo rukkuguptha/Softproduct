@@ -45,6 +45,7 @@
 }
 -(IBAction)closeservices:(id)sender
 {
+    [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)deleteservices:(id)sender
