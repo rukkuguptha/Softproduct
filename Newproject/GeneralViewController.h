@@ -17,7 +17,7 @@
     
     
 }
-@property(readonly) NSInteger optionidentfr;
+@property(readwrite) NSInteger optionidentfr;
 @property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
 /* xmlparser*/
