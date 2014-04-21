@@ -27,6 +27,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    NSLog(@"%d",_optionidentfr);
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     [[self.destextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
@@ -1106,6 +1107,12 @@
    }
 
 - (IBAction)updatebtn:(id)sender {
-    [self GeneralInsert];
+    if (_optionidentfr==1) {
+          [self GeneralInsert];
+    }
+    else if (_optionidentfr==2){
+        [self GeneralUpdates];
+    }
+  
 }
 @end
