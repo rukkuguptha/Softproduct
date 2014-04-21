@@ -55,7 +55,7 @@
       [self GeneralSelect];
 }
 -(IBAction)addnewworkaction:(id)sender
-{
+{ optionidentifier=1;
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
@@ -65,6 +65,7 @@
 }
 -(IBAction)editgeneralaction:(id)sender
 {
+    optionidentifier=2;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
