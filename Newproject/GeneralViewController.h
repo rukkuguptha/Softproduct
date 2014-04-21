@@ -17,7 +17,7 @@
     
     
 }
-
+@property(strong,nonatomic)NSString *optionidentfr;
 @property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
 /* xmlparser*/

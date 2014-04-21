@@ -544,7 +544,7 @@
                    "<SequenceId>%d</SequenceId>\n"
                    "</GeneralUpdates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,_quantytxtfld.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,_quantytxtfld.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
