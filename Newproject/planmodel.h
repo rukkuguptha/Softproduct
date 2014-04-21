@@ -15,5 +15,8 @@
 @property(readwrite)NSInteger leadid;
 @property(readwrite)NSInteger customerid;
 @property(readwrite)NSInteger idvalue;
+@property(strong,nonatomic)NSString *worktypeid;
+@property(strong,nonatomic)NSString *sitefactor;
+
 
 @end

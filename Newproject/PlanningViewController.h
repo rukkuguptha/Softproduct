@@ -25,7 +25,13 @@
     NSInteger btnindex;
     NSString *customerclicked;
     NSString *leadclicked;
+    NSString *typestrg;
+    NSInteger newpoptype;
+    
 }
+
+
+
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
 @property(strong,nonatomic)SitevisitViewController *sitevisitVctrl;
@@ -82,13 +88,24 @@
 @property(strong,nonatomic)NSMutableArray *planslectionarray;
 @property(strong,nonatomic)NSMutableArray *disclosurearry;
 @property(strong,nonatomic)NSMutableArray *planlistarray;
+@property(strong,nonatomic)NSMutableArray *typelistarray;
+
 
 /*Dict*/
 @property(strong,nonatomic)NSMutableDictionary *leaddict;
 @property(strong,nonatomic)NSMutableDictionary *customerdict;
+@property(strong,nonatomic)NSMutableDictionary *typelistdict;
+@property(strong,nonatomic)NSMutableDictionary *revtypelistdict;
+
 
 @property(strong,nonatomic)NSString *leadstring;
 @property(strong,nonatomic)NSString *customerstring;
+
+@property (strong, nonatomic) IBOutlet UIButton *typebtnlbl;
+
+- (IBAction)typebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UITextField *sitefactortxtfld;
+
 
 
 

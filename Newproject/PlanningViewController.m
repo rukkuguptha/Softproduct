@@ -43,6 +43,7 @@
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
 
+    [self WorkTypeSelect];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -74,14 +75,20 @@
     {
         switch (poptype) {
                 case 1:
-                return [_planslectionarray count];
+                if (newpoptype==2) {
+                      return [_planslectionarray count];
+                }
+                else if (newpoptype==3){
+                    return [_typelistarray count];
+                }
+              
                 break;
                 case 2:
                 return[_disclosurearry count];
                 break;
-//                case 3:
-//               return[_disclosurearry count];
-//                break;
+//               case 3:
+//              return[_typelistarray count];
+//               break;
                 
             default:
                 break;
@@ -114,14 +121,18 @@
 
         switch (poptype) {
             case 1:
-                cell.textLabel.text=[_planslectionarray objectAtIndex:indexPath.row];
-                break;
+                if (newpoptype==2) {
+                      cell.textLabel.text=[_planslectionarray objectAtIndex:indexPath.row];
+                }
+                else if (newpoptype==3){
+                    cell.textLabel.text=[_typelistarray objectAtIndex:indexPath.row];
+
+                }
+             break;
             case 2:
                 cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
                 break;
-//            case 3:
-//                cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
-//                break;
+           
             default:
                 break;
         }
@@ -151,10 +162,18 @@
         switch (poptype) {
                 
             case 1:
-                
+                if (newpoptype==2) {
+                     [_planselectionbtn setTitle:[_planslectionarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                }
+                else if (newpoptype==3){
+                     [_typebtnlbl setTitle:[_typelistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                 
+                    
+                }
+
 
                // [_customerselectionBtn setTitle:[_customerlistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
-                [_planselectionbtn setTitle:[_planslectionarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+               
                 
 
                 
@@ -386,6 +405,7 @@
     //[self SelectAllLeads];
    
     poptype=1;
+    newpoptype=2;
     UIViewController *popovercontent=[[UIViewController alloc]init];
     UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
     popoverview.backgroundColor=[UIColor whiteColor];
@@ -493,6 +513,12 @@
         [self SelectAllCustomer];
     }
     [_planselectionbtn setTitle:planmdl.customername forState:UIControlStateNormal];
+    
+    _sitefactortxtfld.text=planmdl.sitefactor;
+    NSLog(@"%@",_revtypelistdict);
+      NSLog(@"%@",planmdl.worktypeid);
+    
+    [_typebtnlbl setTitle:[_revtypelistdict objectForKey:planmdl.worktypeid] forState:UIControlStateNormal];
     
     
 
@@ -710,9 +736,13 @@
                    "<customer>%@</customer>\n"
                    "<lead>%d</lead>\n"
                    "<cusid>%d</cusid>\n"
+                   "<id>%d</id>\n"
+                   "<Fold_ID>%d</Fold_ID>\n"
+                   "<WorkType>%d</WorkType>\n"
+                   "<SiteFactor>%f</SiteFactor>\n"
                    "</InsertPlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue]];
+                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -805,9 +835,12 @@
                    "<customer>%@</customer>\n"
                    "<lead>%d</lead>\n"
                    "<cusid>%d</cusid>\n"
+                   "<Fold_ID>%d</Fold_ID>\n"
+                   "<WorkType>%d</WorkType>\n"
+                   "<SiteFactor>%f</SiteFactor>\n"
                    "</UpdatePlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust];
+                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -842,7 +875,7 @@
 
 -(void)DeletePlan
 {
-    webtype=1;
+    webtype=3;
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -941,6 +974,54 @@
     }
     
 }
+-(void)WorkTypeSelect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<WorkTypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "</WorkTypeSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/WorkTypeSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 
 
@@ -977,7 +1058,7 @@
 	[_xmlParser parse];
     [_popovertableview reloadData];
     [_plangtable reloadData];
-    if(webtype==1)
+    if(webtype==1||webtype==3)
     {
         [self SelectAllPlans];
         webtype=0;
@@ -1103,6 +1184,27 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"PlanWorkType"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SiteFactor"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"DeletePlanResult"])
     {
 
@@ -1150,6 +1252,40 @@
         recordResults = TRUE;
 
     }
+    if([elementName isEqualToString:@"WorkTypeSelectResult"])
+    {
+        _typelistarray=[[NSMutableArray alloc]init];
+        _typelistdict=[[NSMutableDictionary alloc]init];
+        _revtypelistdict=[[NSMutableDictionary alloc]init];
+
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"ID"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"WorkType"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
 }
 
@@ -1254,17 +1390,48 @@
         
         recordResults = FALSE;
         _plnmdl.idvalue=[_soapResults integerValue];
-        [_planlistarray addObject:_plnmdl];
+        
         _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Fold_ID"])
+    {
+        
+        
+        recordResults = FALSE;
+       
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"PlanWorkType"])
+    {
+        
+        
+       recordResults = FALSE;
+        _plnmdl.worktypeid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SiteFactor"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.sitefactor=_soapResults;
+        [_planlistarray addObject:_plnmdl];
+
+        _soapResults = nil;
+
     }
 
     if([elementName isEqualToString:@"Column1"])
     {
         
         recordResults = FALSE;
+        if (webtype!=3) {
+            
         
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        }
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"result"])
@@ -1272,11 +1439,60 @@
         
         
         recordResults = FALSE;
+        if (webtype!=3) {
+            
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+
         _soapResults = nil;
 
         
     }
+    
+    
+    if([elementName isEqualToString:@"ID"])
+    {
+        
+        recordResults = FALSE;
+        typestrg=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"WorkType"])
+    {
+        
+        recordResults = FALSE;
+        [_typelistarray addObject:_soapResults];
+        [_typelistdict setObject:typestrg forKey:_soapResults];
+        [_revtypelistdict setObject:_soapResults forKey:typestrg];
+        _soapResults = nil;
+        
+    }
+
 }
 
 
+- (IBAction)typebtn:(id)sender {
+    poptype=1;
+    newpoptype=3;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_typebtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+
+     [self WorkTypeSelect];
+    
+    
+}
 @end
