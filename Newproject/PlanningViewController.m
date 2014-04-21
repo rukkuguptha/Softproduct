@@ -324,6 +324,8 @@
     [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
+     [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _sitefactortxtfld.text=@"";
 }
 -(IBAction)closeaddview:(id)sender
 {
@@ -478,6 +480,9 @@
     [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
+      [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _sitefactortxtfld.text=@"";
+
 
 
 }
