@@ -39,6 +39,7 @@
 @property(strong,nonatomic)NSMutableArray *equipmentarray;
 @property(strong,nonatomic)NSMutableArray *phasearray;
 @property(strong,nonatomic)NSMutableArray *sequencearray;
+@property(strong,nonatomic)NSMutableArray *generalarray;
 
 /*dicts*/
 @property(strong,nonatomic)NSMutableDictionary *phasedict;
