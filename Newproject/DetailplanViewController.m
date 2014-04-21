@@ -723,6 +723,7 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     [_scaffoldtable reloadData];
+    [_generaltable reloadData];
     if (webtype==1) {
         [self ScaffoldingSelectplan];
         webtype=0;
@@ -1183,7 +1184,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SequenceId"])
+    if([elementName isEqualToString:@"sequence"])
     {
         
         if(!_soapresults)
@@ -1725,7 +1726,7 @@
         _gmodel.PlanId=_soapresults;
         _soapresults = nil;
     }
-    if([elementName isEqualToString:@"SequenceId"])
+    if([elementName isEqualToString:@"sequence"])
     {
         
         recordResults = FALSE;
