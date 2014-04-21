@@ -18,7 +18,7 @@
     
 }
 
-
+@property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

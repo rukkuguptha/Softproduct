@@ -230,7 +230,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</UnitSelect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"Pl-00020"];
+                   "</soap:Envelope>\n",_Planid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -279,7 +279,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</SubUnitSelect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"Pl-00020"];
+                   "</soap:Envelope>\n",_Planid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -328,7 +328,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</GeneralEquipmentSelect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"Pl-00020"];
+                   "</soap:Envelope>\n",_Planid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -378,7 +378,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</ProjectHeaderselect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"Pl-00020"];
+                   "</soap:Envelope>\n",_Planid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -441,6 +441,123 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/JobsequenceSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralInsert{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *totalhrs=0;
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Unit>%@</Unit>\n"
+                   "<SubUnit>%@</SubUnit>\n"
+                   "<Equipment>%@</Equipment>\n"
+                   "<ProjectHeader>%@</ProjectHeader>\n"
+                   "<Phase>%d</Phase>\n"
+                   "<Description>%@</Description>\n"
+                   "<Quantity>%@</Quantity>\n"
+                   "<TotalHoures>%f</TotalHoures>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<SequenceId>%d</SequenceId>\n"
+                   "</GeneralInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,_quantytxtfld.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralUpdates{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *totalhrs=0;
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralUpdates xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Id>%d</Id>\n"
+                   "<Unit>%@</Unit>\n"
+                   "<SubUnit>%@</SubUnit>\n"
+                   "<Equipment>%@</Equipment>\n"
+                   "<ProjectHeader>%@</ProjectHeader>\n"
+                   "<Phase>%d</Phase>\n"
+                   "<Description>%@</Description>\n"
+                   "<Quantity>%@</Quantity>\n"
+                   "<TotalHoures>%f</TotalHoures>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<SequenceId>%d</SequenceId>\n"
+                   "</GeneralUpdates>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,_quantytxtfld.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralUpdates" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -643,6 +760,28 @@
         recordResults = TRUE;
         
     }
+    
+    if([elementName isEqualToString:@"GeneralInsertResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -732,6 +871,15 @@
         
     }
 
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+                _soapResults = nil;
+        
+    }
 
 
 }
@@ -958,5 +1106,6 @@
    }
 
 - (IBAction)updatebtn:(id)sender {
+    [self GeneralInsert];
 }
 @end
