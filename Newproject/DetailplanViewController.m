@@ -55,7 +55,7 @@
       [self GeneralSelect];
 }
 -(IBAction)addnewworkaction:(id)sender
-{ optionidentifier=1;
+{   optionidentifier=1;
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
     _generalworkctrlr.optionidentfr=optionidentifier;
@@ -80,6 +80,7 @@
     _generalworkctrlr.Planid=_planid;
     _generalworkctrlr.genralid=gmodel.gid;
     _generalworkctrlr.optionidentfr=optionidentifier;
+     NSLog(@"textFieldIndexPath%d",_generalworkctrlr.optionidentfr);
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
