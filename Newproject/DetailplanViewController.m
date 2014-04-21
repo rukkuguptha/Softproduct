@@ -78,6 +78,7 @@
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
     _generalworkctrlr.genralid=gmodel.gid;
+    
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
