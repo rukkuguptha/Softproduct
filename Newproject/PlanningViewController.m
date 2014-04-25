@@ -1429,7 +1429,7 @@
 
     if([elementName isEqualToString:@"Column1"])
     {
-        
+        _result=_soapResults;
         recordResults = FALSE;
         if (webtype!=3) {
             
@@ -1442,12 +1442,12 @@
     if([elementName isEqualToString:@"result"])
     {
         
-        
+        _result=_soapResults;
         recordResults = FALSE;
         if (webtype!=3) {
             
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 
@@ -1500,4 +1500,19 @@
     
     
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([alertView.message isEqualToString:_result]) {
+       
+        _sitefactortxtfld.text=@"";
+        [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
+        [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    
+    
+}
+
 @end
