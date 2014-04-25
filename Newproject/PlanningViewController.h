@@ -33,7 +33,7 @@
 
 /* newcomment*/
 
-
+@property(strong,nonatomic)NSString *result;
 @property(strong,nonatomic)planmodel *plnmdl;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
 @property(strong,nonatomic)SitevisitViewController *sitevisitVctrl;

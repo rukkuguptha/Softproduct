@@ -1193,9 +1193,17 @@
         recordResults = FALSE;
         _result=_soapResults;
         if (webtype==1) {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_result delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
+            dcheck=0;
+            mcheck=0;
+            hcheck=0;
+            wcheck=0;
+            [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            _equipitemcodetextfield.text=@"";
+            _equipitemdesctextfield.text=@"";
+            _equipqtytextfield.text=@"";
         }
         
         _soapResults = nil;
@@ -1204,26 +1212,26 @@
     
     
 }
-#pragma mark-Alertview Delegate
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    if ([alertView.message isEqualToString:_result]) {
-        dcheck=0;
-        mcheck=0;
-        hcheck=0;
-        wcheck=0;
-        [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        _equipitemcodetextfield.text=@"";
-        _equipitemdesctextfield.text=@"";
-        _equipqtytextfield.text=@"";
-        
-    }
-    
-    
-}
+//#pragma mark-Alertview Delegate
+//-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    
+//    if ([alertView.message isEqualToString:_result]) {
+//        dcheck=0;
+//        mcheck=0;
+//        hcheck=0;
+//        wcheck=0;
+//        [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        _equipitemcodetextfield.text=@"";
+//        _equipitemdesctextfield.text=@"";
+//        _equipqtytextfield.text=@"";
+//        
+//    }
+//    
+//    
+//}
 
 #pragma mark UIGestureRecognizer
 
