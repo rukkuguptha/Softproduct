@@ -10,11 +10,13 @@
                 <outlet property="descptntxtfld" destination="Inm-xX-j3S" id="thb-Ir-Q2U"/>
                 <outlet property="editview" destination="VvZ-52-xnM" id="1G0-9F-gr1"/>
                 <outlet property="generaltable" destination="Opk-lZ-8ZR" id="5F8-hv-1TW"/>
+                <outlet property="genraltabletitle" destination="hGD-M6-qat" id="tPP-FT-PHN"/>
                 <outlet property="hourstxtfld" destination="JhC-ZW-5N1" id="hRA-tj-7TA"/>
                 <outlet property="manpowerview" destination="2" id="rFB-uu-2ju"/>
                 <outlet property="manpwrdragview" destination="9b8-9S-704" id="n4v-4O-tX7"/>
                 <outlet property="manpwrtable" destination="2TM-8j-II1" id="mas-8b-hCA"/>
                 <outlet property="manpwrtxtfld" destination="xXe-8h-Lzp" id="AAS-hP-xoz"/>
+                <outlet property="mantabletitle" destination="hyy-u3-gwr" id="sKg-Bk-zB5"/>
                 <outlet property="numbertxtfld" destination="KEi-et-95i" id="N5Y-KG-cAB"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>

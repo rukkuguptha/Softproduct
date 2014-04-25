@@ -13,8 +13,10 @@
                 <outlet property="materleditview" destination="ePv-bo-2vL" id="34f-gE-tuY"/>
                 <outlet property="matraltouchview" destination="zVU-Ab-hUx" id="lId-oP-qj9"/>
                 <outlet property="matrldesctxtfld" destination="VCc-mG-FnX" id="Dxf-qK-35y"/>
+                <outlet property="matrltabletitle" destination="cfX-Vp-sAA" id="Nwa-3m-lc3"/>
                 <outlet property="quantitytxtfld" destination="VcV-YO-0t4" id="S7g-la-gdl"/>
                 <outlet property="resourcegenraltable" destination="3rK-tP-P9d" id="6Pb-vt-PII"/>
+                <outlet property="resurcetabletitle" destination="K5A-fg-Eoa" id="4iF-4K-u15"/>
                 <outlet property="view" destination="1" id="77z-zc-xF6"/>
             </connections>
         </placeholder>

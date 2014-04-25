@@ -39,7 +39,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _manpowerarray=[[NSMutableArray alloc]init];
+    _fArray=[[NSMutableArray alloc]init];
     [self SelectMarkupMaster];
 }
 
