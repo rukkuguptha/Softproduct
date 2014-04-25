@@ -413,14 +413,26 @@
             NSIndexPath* indexPath = [_crewnametable indexPathForRowAtPoint:[gestureRecognizer locationInView:_crewnametable]];
             if(indexPath != nil)
             {
-                [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
+                Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+                crewmdl1.manpower=draggedData;
+                [_crewmembersarray addObject:crewmdl1];
+
+              //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
                 [_crewnametable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else
             {
+                if ([_crewmembersarray count]==0) {
+                    Crewmodel *crewmdl1=[[Crewmodel alloc]init];
+                    crewmdl1.manpower=draggedData;
+                    [_crewmembersarray addObject:crewmdl1];
+                    
+                }
+                else{
             Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
                 crewmdl1.manpower=draggedData;
                 [_crewmembersarray addObject:crewmdl1];
+                }
                 
                 [self crewinsert];
                           }

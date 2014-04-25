@@ -13,7 +13,7 @@
 @end
 
 @implementation GeneralViewController
-
+@synthesize delegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -28,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     if (_optionidentfr==1) {
-        
+        _navitm.title=@"ADD";
         
               _unittxtfld.text=@"";
         _subunittxtfld.text=@"";
@@ -42,7 +42,7 @@
     }
 
    else if (_optionidentfr==2) {
-        
+          _navitm.title=@"EDIT";
         
         _generalmdl=(Generalmodel *)[_generalarray objectAtIndex:0];
         _unittxtfld.text=_generalmdl.Unit;
@@ -1039,6 +1039,7 @@
                 break;
         }
 
+        [self.popovercontroller dismissPopoverAnimated:YES];
      
     }
     
@@ -1059,6 +1060,9 @@
         NSString *substring = [NSString stringWithString:_unittxtfld.text];
         substring = [substring stringByReplacingCharactersInRange:range withString:string];
         [self searchAutocompleteEntriesWithSubstring:substring];
+        NSUInteger newLength = [_unittxtfld.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+
         
       
     }
@@ -1074,6 +1078,9 @@
         NSString *substring = [NSString stringWithString:_subunittxtfld.text];
         substring = [substring stringByReplacingCharactersInRange:range withString:string];
         [self searchAutocompleteEntriesWithSubstring:substring];
+        NSUInteger newLength = [_subunittxtfld.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
+
     }
     
     if(textField==_equipmnttxtfld)
@@ -1086,6 +1093,10 @@
         NSString *substring = [NSString stringWithString:_equipmnttxtfld.text];
         substring = [substring stringByReplacingCharactersInRange:range withString:string];
         [self searchAutocompleteEntriesWithSubstring:substring];
+        NSUInteger newLength = [_equipmnttxtfld.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+
+        
     }
     if(textField==_prjcthdrtxtfld)
     {
@@ -1098,13 +1109,25 @@
         NSString *substring = [NSString stringWithString:_prjcthdrtxtfld.text];
         substring = [substring stringByReplacingCharactersInRange:range withString:string];
         [self searchAutocompleteEntriesWithSubstring:substring];
+        NSUInteger newLength = [_prjcthdrtxtfld.text length] + [string length] - range.length;
+        return (newLength > 30) ? NO : YES;
     }
+    if(textField==_quantytxtfld)
+    {
+        NSUInteger newLength = [_quantytxtfld.text length] + [string length] - range.length;
+        return (newLength > 3) ? NO : YES;
 
+
+    }
+    
+
+    
 
     return YES;
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
+    Validation*val=[[Validation alloc]init];
     if(textField==_unittxtfld)
     {
         
@@ -1123,12 +1146,38 @@
     {
          _autotable3.hidden = YES;
     }
+    if (textField==_quantytxtfld) {
+        
+        int value1=[val isNumeric:_quantytxtfld.text];
+        if (value1==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Qunatity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }}
+
     
+}
+#pragma mark-textview Delegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    return _destextview.text.length + (text.length - range.length) <= 100;
+}
+#pragma mark-AlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Invalid Qunatity"]) {
+        _quantytxtfld.text=@"";
+        
+    }
 }
 #pragma mark- Button Action
 -(IBAction)closegeneralpage:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
+        [self.delegate toaddnewdata];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
+   
 }
 
 - (IBAction)manpowerbtn:(id)sender {
