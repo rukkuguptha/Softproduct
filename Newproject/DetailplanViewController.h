@@ -129,4 +129,5 @@
 
 
 -(void)navgteanimtn;
+-(void)updatedata;
 @end

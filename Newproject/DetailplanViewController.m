@@ -223,6 +223,7 @@
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
     _generalworkctrlr.optionidentfr=optionidentifier;
+    //_generalworkctrlr.delegate=self;
     self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_generalworkctrlr
                        animated:YES completion:NULL];
@@ -1766,6 +1767,10 @@
                        options:UIViewAnimationOptionTransitionFlipFromRight
                     completion:nil];
 
+}
+-(void)updatedata
+{
+    [self GeneralSelect];
 }
 
 @end

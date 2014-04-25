@@ -57,6 +57,8 @@
 @property(strong,nonatomic)NSString *dratecheck;
 @property(strong,nonatomic)NSString *wratecheck;
 @property(strong,nonatomic)NSString *mratecheck;
+@property(strong,nonatomic)IBOutlet UIView *equipsrctitleview;
+@property(strong,nonatomic)IBOutlet UIView *equipdesttitleview;
 
 
 @property(strong,nonatomic)IBOutlet UIView *equipeditview;
