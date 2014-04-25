@@ -1172,8 +1172,8 @@
 #pragma mark- Button Action
 -(IBAction)closegeneralpage:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
-        [self.delegate toaddnewdata];
+    if ([self.delegate respondsToSelector:@selector(updatedata)]) {
+        [self.delegate updatedata];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 
