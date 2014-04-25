@@ -11,7 +11,11 @@
 #import "GdargViewController.h"
 #import "DequipViewController.h"
 #import "Validation.h"
-@protocol newgenral <NSObject>
+
+
+@protocol newgenralDelgate <NSObject>
+
+
 -(void)updatedata;
 
 @end
@@ -24,7 +28,7 @@
      NSString *jobsequnce;
     NSInteger dragbutnindx;
     }
-@property(nonatomic, weak)id<newgenral>delegate;
+@property(nonatomic, weak)id<newgenralDelgate> delegate;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navitm;
 @property(strong,nonatomic) DequipViewController *deqctrl;
 @property(strong,nonatomic) GdargViewController *gdVCtrl;

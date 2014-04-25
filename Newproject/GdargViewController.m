@@ -112,8 +112,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -162,8 +162,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -217,8 +217,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -267,8 +267,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -322,8 +322,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -372,7 +372,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -421,8 +421,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -471,19 +471,19 @@
                    "<Type>%@</Type>\n"
                    "<Name>%@</Name>\n"
                    "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%f</HourlyRate>\n"
-                   "<DailyRate>%f</DailyRate>\n"
-                   "<WeeklyRate>%f</WeeklyRate>\n"
-                   "<MonthlyRate>%f</MonthlyRate>\n"
-                   "<YearlyRate>%f</YearlyRate>\n"
+                   "<HourlyRate>%d</HourlyRate>\n"
+                   "<DailyRate>%d</DailyRate>\n"
+                   "<WeeklyRate>%d</WeeklyRate>\n"
+                   "<MonthlyRate>%d</MonthlyRate>\n"
+                   "<YearlyRate>%d</YearlyRate>\n"
                    "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,manmdl1.itemcode,manmdl1.itemdescptn,@"MT",@"Materials",1,[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue]];
+                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,manmdl1.itemcode,manmdl1.itemdescptn,@"MT",@"Materials",1,[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -535,19 +535,19 @@
                    "<Type>%@</Type>\n"
                    "<Name>%@</Name>\n"
                    "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%f</HourlyRate>\n"
-                   "<DailyRate>%f</DailyRate>\n"
-                   "<WeeklyRate>%f</WeeklyRate>\n"
-                   "<MonthlyRate>%f</MonthlyRate>\n"
-                   "<YearlyRate>%f</YearlyRate>\n"
+                   "<HourlyRate>%d</HourlyRate>\n"
+                   "<DailyRate>%d</DailyRate>\n"
+                   "<WeeklyRate>%d</WeeklyRate>\n"
+                   "<MonthlyRate>%d</MonthlyRate>\n"
+                   "<YearlyRate>%d</YearlyRate>\n"
                    "</GeneralResourceDetailUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[matmdl2.matgenid integerValue],_generalid,[matmdl2.SubGeneralResourceId integerValue],matmdl2.itemcode,matmdl2.itemdesc,@"MT",@"Materials",[_quantitytxtfld.text integerValue],[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue]];
+                   "</soap:Envelope>\n",[matmdl2.matgenid integerValue],_generalid,[matmdl2.SubGeneralResourceId integerValue],matmdl2.itemcode,matmdl2.itemdesc,@"MT",@"Materials",[_quantitytxtfld.text integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -597,8 +597,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -637,7 +637,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1230,6 +1230,21 @@
     
     
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+           if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+
 
 
 #pragma mark -MANPOWER DRAG &DROP
