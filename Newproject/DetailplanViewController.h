@@ -13,7 +13,7 @@
 #import "GeneralViewController.h"
 #import "Generalmodel.h"
 
-@interface DetailplanViewController : UIViewController<animatndelegate>
+@interface DetailplanViewController : UIViewController<animatndelegate,newgenral>
 {
     BOOL recordResults;
     NSInteger webtype;
@@ -129,4 +129,5 @@
 
 
 -(void)navgteanimtn;
+-(void)updatedata;
 @end

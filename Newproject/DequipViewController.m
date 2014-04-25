@@ -30,6 +30,8 @@
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.equiptouchview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+   _equipsrctitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+   _equipdesttitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.equipeditview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     
     // Do any additional setup after loading the view from its nib.
@@ -99,39 +101,36 @@
     _equipitemcodetextfield.text=dmodel.eqitemcode;
     _equipitemdesctextfield.text=dmodel.eqdesc;
     _equipqtytextfield.text=dmodel.qty;
-    NSInteger h1=[dmodel.hrate integerValue];
-    NSInteger d1=[dmodel.drate integerValue];
-    NSInteger w1=[dmodel.wrate integerValue];
-    NSInteger m1=[dmodel.mrate integerValue];
-    if (h1==0) {
+   
+    if (dmodel.hrate==0) {
         [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
     }
-    else if(h1==1){
+    else if(dmodel.hrate==1){
         [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
     }
-    if (d1==0) {
+    if (dmodel.drate==0) {
         [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
     }
-    else if(d1==1){
+    else if(dmodel.drate==1){
         [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
     }
-    if (w1==0) {
+    if (dmodel.wrate==0) {
         [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
     }
-    else if(w1==1){
+    else if(dmodel.wrate==1){
         [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
     }
-    if (m1==0) {
+    if (dmodel.mrate==0) {
         [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
     }
-    else if(m1==1){
+    else if(dmodel.mrate==1){
         [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
     }
@@ -307,47 +306,47 @@
         _equipdescdestlabel.text=dmodel.eqdesc;
         _equipquantdestlabel=(UILabel *)[cell viewWithTag:3];
         _equipquantdestlabel.text=dmodel.qty;
-        _equiphratedestlabel=(UILabel *)[cell viewWithTag:4];
-        _equiphratedestlabel.text=dmodel.hrate;
-        _equipdratedestlabel=(UILabel *)[cell viewWithTag:5];
-        _equipdratedestlabel.text=dmodel.drate;
-        _equipwratedestlabel=(UILabel *)[cell viewWithTag:6];
-        _equipwratedestlabel.text=dmodel.wrate;
-        _equipmratedestlabel=(UILabel *)[cell viewWithTag:7];
-        _equipmratedestlabel.text=dmodel.mrate;
-        NSInteger h1=[dmodel.hrate integerValue];
-        NSInteger d1=[dmodel.drate integerValue];
-        NSInteger w1=[dmodel.wrate integerValue];
-        NSInteger m1=[dmodel.mrate integerValue];
-        if (h1==0) {
+//        _equiphratedestlabel=(UILabel *)[cell viewWithTag:4];
+//        _equiphratedestlabel.text=dmodel.hrate;
+//        _equipdratedestlabel=(UILabel *)[cell viewWithTag:5];
+//        _equipdratedestlabel.text=dmodel.drate;
+//        _equipwratedestlabel=(UILabel *)[cell viewWithTag:6];
+//        _equipwratedestlabel.text=dmodel.wrate;
+//        _equipmratedestlabel=(UILabel *)[cell viewWithTag:7];
+//        _equipmratedestlabel.text=dmodel.mrate;
+//        NSInteger h1=[dmodel.hrate integerValue];
+//        NSInteger d1=[dmodel.drate integerValue];
+//        NSInteger w1=[dmodel.wrate integerValue];
+//        NSInteger m1=[dmodel.mrate integerValue];
+        if (dmodel.hrate ==0) {
             [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
         }
-        else if(h1==1){
+        else if(dmodel.hrate ==1){
             [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             
         }
-        if (d1==0) {
+        if (dmodel.drate==0) {
             [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
         }
-        else if(d1==1){
+        else if(dmodel.drate==1){
             [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             
         }
-        if (w1==0) {
+        if (dmodel.wrate==0) {
             [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
         }
-        else if(w1==1){
+        else if(dmodel.wrate==1){
             [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             
         }
-        if (m1==0) {
+        if (dmodel.mrate==0) {
             [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
         }
-        else if(m1==1){
+        else if(dmodel.mrate==1){
             [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
             
         }
@@ -478,14 +477,14 @@
     recordResults = FALSE;
     NSString *soapMessage;
     Equpmntmdl *emodel=(Equpmntmdl *)[_equipsrcarray objectAtIndex:equippath];
-    NSString *etype=@"Eq";
+    NSString *etype=@"EQ";
     NSString *ename=@"Equipments";
     NSString *quantity=@"1";
-    NSString *hrate=@"0";
-    NSString *drate=@"0";
-    NSString *wrate=@"0";
-    NSString *mrate=@"0";
-    NSString *yrate=@"0";
+    NSInteger hrate=0;
+    NSInteger drate=0;
+    NSInteger wrate=0;
+    NSInteger mrate=0;
+    NSInteger yrate=0;
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -502,14 +501,14 @@
                    "<Type>%@</Type>\n"
                    "<Name>%@</Name>\n"
                    "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%f</HourlyRate>\n"
-                   "<DailyRate>%f</DailyRate>\n"
-                   "<WeeklyRate>%f</WeeklyRate>\n"
-                   "<MonthlyRate>%f</MonthlyRate>\n"
-                   "<YearlyRate>%f</YearlyRate>\n"
+                   "<HourlyRate>%d</HourlyRate>\n"
+                   "<DailyRate>%d</DailyRate>\n"
+                   "<WeeklyRate>%d</WeeklyRate>\n"
+                   "<MonthlyRate>%d</MonthlyRate>\n"
+                   "<YearlyRate>%d</YearlyRate>\n"
                    "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_generalid integerValue],emodel.entryid,emodel.itemcode,emodel.itemdescptn,etype,ename,[quantity integerValue],[hrate floatValue],[drate  floatValue],[wrate  floatValue],[mrate  floatValue],[yrate floatValue]];
+                   "</soap:Envelope>\n",[_generalid integerValue],emodel.entryid,emodel.itemcode,emodel.itemdescptn,etype,ename,[quantity integerValue],hrate,drate,wrate,mrate,yrate];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -546,14 +545,15 @@
     recordResults = FALSE;
     NSString *soapMessage;
     Drageqmodel *dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:btnindex];
-    NSString *etype=@"Eq";
+    NSString *etype=@"EQ";
     NSString *ename=@"Equipments";
     NSString *quantity=_equipqtytextfield.text;
-    NSString *hrate;
-    NSString *drate;
-    NSString *wrate;
-    NSString *mrate;
-    NSString *yrate;
+    NSInteger hrate;
+    NSInteger drate;
+    NSInteger wrate;
+    NSInteger mrate;
+    NSInteger yrate;
+    yrate=0;
     NSLog(@"%@",_hratecheck);
     if([_hratecheck isEqualToString:@""]&&[_dratecheck isEqualToString:@""]&&[_mratecheck isEqualToString:@""]&&[_wratecheck isEqualToString:@""])
     {
@@ -568,13 +568,13 @@
 //    if([_hratecheck isEqualToString:@"h"])
 //    {
         if (hcheck==0) {
-            hrate=@"0";
+            hrate=0;
         }
         else{
-            hrate=@"1";
-            drate=@"0";
-            wrate=@"0";
-            mrate=@"0";
+            hrate=1;
+            drate=0;
+            wrate=0;
+            mrate=0;
         }
 //        _hratecheck=@"";
 //    }
@@ -586,13 +586,13 @@
 //    if([_dratecheck isEqualToString:@"d"])
 //   {
         if (dcheck==0) {
-            drate=@"0";
+            drate=0;
         }
         else{
-            drate=@"1";
-            mrate=@"0";
-            wrate=@"0";
-            hrate=@"0";
+            drate=1;
+            mrate=0;
+            wrate=0;
+            hrate=0;
             
         }
 //        _dratecheck=@"";
@@ -607,13 +607,13 @@
     {
         if (wcheck==0) {
             
-            wrate=@"0";
+            wrate=0;
         }
         else{
-            wrate=@"1";
-            drate=@"0";
-            hrate=@"0";
-            mrate=@"0";
+            wrate=1;
+            drate=0;
+            hrate=0;
+            mrate=0;
             
         }
 //        _wratecheck=@"";
@@ -626,13 +626,13 @@
     
 //   if([_mratecheck isEqualToString:@"m"])    {
         if (mcheck==0) {
-            mrate=@"0";
+            mrate=0;
         }
         else{
-            mrate=@"1";
-            drate=@"0";
-            wrate=@"0";
-            hrate=@"0";
+            mrate=1;
+            drate=0;
+            wrate=0;
+            hrate=0;
             
 //        }
 //        _mratecheck=@"";
@@ -660,14 +660,14 @@
                    "<Type>%@</Type>\n"
                    "<Name>%@</Name>\n"
                    "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%f</HourlyRate>\n"
-                   "<DailyRate>%f</DailyRate>\n"
-                   "<WeeklyRate>%f</WeeklyRate>\n"
-                   "<MonthlyRate>%f</MonthlyRate>\n"
-                   "<YearlyRate>%f</YearlyRate>\n"
+                   "<HourlyRate>%d</HourlyRate>\n"
+                   "<DailyRate>%d</DailyRate>\n"
+                   "<WeeklyRate>%d</WeeklyRate>\n"
+                   "<MonthlyRate>%d</MonthlyRate>\n"
+                   "<YearlyRate>%d</YearlyRate>\n"
                    "</GeneralResourceDetailUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",dmodel.idvalue,dmodel.mainGeneralId,dmodel.SubGeneralResourceId,dmodel.eqitemcode,dmodel.eqdesc,etype,ename,[quantity integerValue],[hrate floatValue],[drate floatValue],[wrate floatValue],[mrate floatValue],[yrate floatValue]];
+                   "</soap:Envelope>\n",dmodel.idvalue,dmodel.mainGeneralId,dmodel.SubGeneralResourceId,dmodel.eqitemcode,dmodel.eqdesc,etype,ename,[quantity integerValue],hrate,drate,wrate ,mrate ,yrate];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -944,15 +944,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"YearlyRate"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"GeneralResourceDetailUpdateResult"])
+        if([elementName isEqualToString:@"GeneralResourceDetailUpdateResult"])
     {
         if(!_soapResults)
         {
@@ -1100,7 +1092,16 @@
         
         recordResults = FALSE;
         
-        _dmdl.hrate=_soapResults;
+        if ([_soapResults isEqualToString:@"false"]) {
+            _dmdl.hrate=0;
+            //checkbtnclick=0;
+            
+        }
+        else{
+            _dmdl.hrate=1;
+            //checkbtnclick=1;
+        }
+
         
         _soapResults = nil;    }
     if([elementName isEqualToString:@"DailyRate"])
@@ -1109,7 +1110,16 @@
         
         recordResults = FALSE;
         
-        _dmdl.drate=_soapResults;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _dmdl.drate=0;
+            //checkbtnclick=0;
+            
+        }
+        else{
+            _dmdl.drate=1;
+            //checkbtnclick=1;
+        }
         
         _soapResults = nil;    }
     
@@ -1119,7 +1129,16 @@
         
         recordResults = FALSE;
         
-        _dmdl.wrate=_soapResults;
+        if ([_soapResults isEqualToString:@"false"]) {
+            _dmdl.wrate=0;
+            //checkbtnclick=0;
+            
+        }
+        else{
+            _dmdl.wrate=1;
+            //checkbtnclick=1;
+        }
+
         
         _soapResults = nil;    }
     if([elementName isEqualToString:@"MonthlyRate"])
@@ -1128,20 +1147,30 @@
         
         recordResults = FALSE;
         
-        _dmdl.mrate=_soapResults;
+        if ([_soapResults isEqualToString:@"false"]) {
+            _dmdl.mrate=0;
+            //checkbtnclick=0;
+            
+        }
+        else{
+            _dmdl.mrate=1;
+            //checkbtnclick=1;
+        }
+
+        [_equipdestarray addObject:_dmdl];
         
         _soapResults = nil;    }
-    
-    if([elementName isEqualToString:@"YearlyRate"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        _dmdl.yrate=_soapResults;
-        [_equipdestarray addObject:_dmdl];
-        _soapResults = nil;
-    }
+//    
+//    if([elementName isEqualToString:@"YearlyRate"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        _dmdl.yrate=_soapResults;
+//        [_equipdestarray addObject:_dmdl];
+//        _soapResults = nil;
+//    }
     if([elementName isEqualToString:@"result"])
     {
         
@@ -1168,7 +1197,13 @@
         mcheck=0;
         hcheck=0;
         wcheck=0;
-        
+        [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _equipitemcodetextfield.text=@"";
+        _equipitemdesctextfield.text=@"";
+        _equipqtytextfield.text=@"";
         
     }
     
@@ -1267,14 +1302,28 @@
             NSIndexPath* indexPath = [_equipdesttable indexPathForRowAtPoint:[gestureRecognizer locationInView:_equipdesttable]];
             if(indexPath != nil)
             {
-                [_equipdestarray insertObject:equipdraggedData atIndex:indexPath.row];
+                Drageqmodel *dmdl=(Drageqmodel *)[_equipdestarray objectAtIndex:indexPath.row];
+                dmdl.eqitemcode=equipdraggedData;
+                [_equipdestarray addObject:dmdl];
+
+                //[_equipdestarray insertObject:equipdraggedData atIndex:indexPath.row];
                 [_equipdesttable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else
             {
+                if ([_equipdestarray count]==0) {
+                    Drageqmodel *dmdl=[[Drageqmodel alloc]init];
+                    dmdl.eqitemcode=equipdraggedData;
+                    [_equipdestarray addObject:dmdl];
+
+                }
+                else
+                {
+                
                 Drageqmodel *dmdl=(Drageqmodel *)[_equipdestarray objectAtIndex:indexPath.row];
                 dmdl.eqitemcode=equipdraggedData;
                 [_equipdestarray addObject:dmdl];
+                }
                 
                 [self GeneralResourceDetailInsert];
             }
@@ -1357,8 +1406,8 @@
     equipdropAreaFrame.origin.y = kNavBarHeight;
     equipdropAreaFrame.size.height -= kNavBarHeight;
     
-    equipdropArea = [[UIView alloc] initWithFrame:CGRectMake(307, 47, 682, 530)];
-    [equipdropArea setBackgroundColor:[UIColor whiteColor]];
+    equipdropArea = [[UIView alloc] initWithFrame:CGRectMake(305, 35, 688, 700)];
+    [equipdropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
     [self.equiptouchview addSubview:equipdropArea];
     
     CGRect contentFrame = equipdropAreaFrame;

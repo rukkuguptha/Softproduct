@@ -18,10 +18,10 @@
 @property(strong,nonatomic)NSString *ename;
 
 @property(strong,nonatomic)NSString *qty;
-@property(strong,nonatomic)NSString *hrate;
-@property(strong,nonatomic)NSString *mrate;
-@property(strong,nonatomic)NSString *drate;
-@property(strong,nonatomic)NSString *wrate;
-@property(strong,nonatomic)NSString *yrate;
+@property(readwrite)NSInteger hrate;
+@property(readwrite)NSInteger mrate;
+@property(readwrite)NSInteger drate;
+@property(readwrite)NSInteger wrate;
+
 
 @end
