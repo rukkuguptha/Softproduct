@@ -14,6 +14,7 @@
 
 @implementation GeneralViewController
 @synthesize delegate;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -217,8 +218,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -266,8 +267,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -315,8 +316,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -364,8 +365,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -414,8 +415,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -463,8 +464,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -521,8 +522,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -580,8 +581,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -621,7 +622,7 @@
 }
 -(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     
     [Alert show];
 }
@@ -1175,8 +1176,11 @@
     if ([self.delegate respondsToSelector:@selector(updatedata)]) {
         [self.delegate updatedata];
         [self dismissViewControllerAnimated:YES completion:nil];
+
     }
 
+   
+    
    
 }
 
@@ -1254,10 +1258,13 @@
 - (IBAction)updatebtn:(id)sender {
     if (_optionidentfr==1) {
           [self GeneralInsert];
-    }
+       
+                   }
+
+    
     else if (_optionidentfr==2){
         [self GeneralUpdates];
+     
     }
-  
 }
 @end
