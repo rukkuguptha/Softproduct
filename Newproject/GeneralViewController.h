@@ -12,7 +12,7 @@
 #import "DequipViewController.h"
 #import "Validation.h"
 @protocol newgenral <NSObject>
--(void)toaddnewdata;
+-(void)updatedata;
 
 @end
 
