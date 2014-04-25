@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="codetxtfld" destination="cFA-XO-LEg" id="29O-Yi-gEp"/>
                 <outlet property="materialtable" destination="thO-QN-JeI" id="dPa-03-upe"/>
+                <outlet property="materialview" destination="1" id="Lje-iq-vEn"/>
                 <outlet property="materleditview" destination="ePv-bo-2vL" id="34f-gE-tuY"/>
                 <outlet property="matraltouchview" destination="zVU-Ab-hUx" id="lId-oP-qj9"/>
                 <outlet property="matrldesctxtfld" destination="VCc-mG-FnX" id="Dxf-qK-35y"/>
@@ -26,7 +27,7 @@
                     <rect key="frame" x="0.0" y="-6" width="768" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <items>
-                        <navigationItem title="Title" id="1kF-W7-Kpx">
+                        <navigationItem title="Materials" id="1kF-W7-Kpx">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="MmW-iW-MLP">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qmE-DS-Svd">
                                     <rect key="frame" x="702" y="-3" width="50" height="50"/>

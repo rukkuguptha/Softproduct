@@ -11,6 +11,7 @@
 #import "Gmandrgmdl.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Metgenmdl.h"
+#import "Validation.h"
 
 @interface GdargViewController : UIViewController<UIGestureRecognizerDelegate>{
      BOOL recordResults;
@@ -43,6 +44,10 @@
     
     
 }
+
+@property (strong, nonatomic) IBOutlet UIView *materialview;
+@property (strong, nonatomic) IBOutlet UIView *manpowerview;
+
 @property (strong, nonatomic) IBOutlet UIView *editview;
 @property(readwrite)NSInteger dragbtnindx;
 @property(readwrite)NSInteger  generalid;

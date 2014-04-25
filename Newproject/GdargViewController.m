@@ -50,6 +50,12 @@
     _materialtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _resourcegenraltable.layer.borderWidth=2.0f;
     _resourcegenraltable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+  _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+      _materleditview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+      _manpowerview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _materialview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     _manpwrdragview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     _matraltouchview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -813,7 +819,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"GeneralResourceMaterialDetailselectResult"])
+    if([elementName isEqualToString:@"GeneralResourceMaterialDetailselectResponse"])
     {
         _resourcearray=[[NSMutableArray alloc]init];
         if(!_soapResults)
@@ -980,7 +986,7 @@
             
         }
        else if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"deleted"]) {
-            [self GeneralDetailselect];
+            [self GeneralResourceMaterialDetailselect];
             
         }
 
@@ -1264,7 +1270,7 @@
     dropAreaFrame.size.height -= kNavBarHeight;
     
     mandropArea = [[UIView alloc] initWithFrame:CGRectMake(315, 40, 448, 742)];
-    [mandropArea setBackgroundColor:[UIColor whiteColor]];
+    [mandropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
     [self.manpwrdragview addSubview:mandropArea];
     
     CGRect contentFrame = dropAreaFrame;
@@ -1430,19 +1436,33 @@
             NSIndexPath* indexPath = [_generaltable indexPathForRowAtPoint:[gestureRecognizer locationInView:_generaltable]];
             if(indexPath != nil)
             {
-                [_generaldetailarray insertObject:mandraggedData atIndex:indexPath.row];
+                Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:indexPath.row];
+                gendtdlmdl.itemcode=mandraggedData;
+                [_generaldetailarray addObject:gendtdlmdl];
+               
+                
+                 // [self GeneralDetailInsert];
+
+               // [_generaldetailarray insertObject:mandraggedData atIndex:indexPath.row];
                 [_generaltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+           
             }
             else
             {
+                if ([_generaldetailarray count]==0) {
+                    Gmandrgmdl *gendtdlmdl=[[Gmandrgmdl alloc]init];
+                    gendtdlmdl.itemcode=mandraggedData;
+                    [_generaldetailarray addObject:gendtdlmdl];
+                    
+                }
+                else{
+
                 NSLog(@"index%d",indexPath.row);
                 Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:indexPath.row];
                 gendtdlmdl.itemcode=mandraggedData;
                 [_generaldetailarray addObject:gendtdlmdl];
+                }
                 
-               // Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
-               // crewmdl1.manpower=draggedData;
-             //   [_crewmembersarray addObject:crewmdl1];
                 
                 [self GeneralDetailInsert];
             }
@@ -1511,7 +1531,7 @@
     matraldropAreaFrame.size.height -= kNavBarHeight;
     
     materldropArea = [[UIView alloc] initWithFrame:CGRectMake(340, 45, 397, 600)];
-    [materldropArea setBackgroundColor:[UIColor whiteColor]];
+    [materldropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
     [self.matraltouchview addSubview:materldropArea];
     
     CGRect contentFrame = matraldropAreaFrame;
@@ -1676,7 +1696,10 @@
             NSIndexPath* indexPath = [_resourcegenraltable indexPathForRowAtPoint:[gestureRecognizer locationInView:_resourcegenraltable]];
             if(indexPath != nil)
             {
-                [_resourcearray insertObject:materldraggedData atIndex:indexPath.row];
+                Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:indexPath.row];
+                matmdl1.itemcode=materldraggedData;
+                [_resourcearray addObject:matmdl1];
+                
                 [_resourcegenraltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else
@@ -1690,9 +1713,18 @@
                 // crewmdl1.manpower=draggedData;
                 //   [_crewmembersarray addObject:crewmdl1];
                 
-                   Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:indexPath.row];
+                if ([_resourcearray count]==0) {
+                    Metgenmdl *matmdl1=[[Metgenmdl alloc]init];
+                    matmdl1.itemcode=materldraggedData;
+                    [_resourcearray addObject:matmdl1];
+                    
+                }
+                else{
+                
+                Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:indexPath.row];
                 matmdl1.itemcode=materldraggedData;
                 [_resourcearray addObject:matmdl1];
+                }
                 [self GeneralResourceDetailInsert];
             }
         }
@@ -1828,4 +1860,43 @@
     }
 
 }
+#pragma mark-Textfield Delegate
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_numbertxtfld) {
+        int value2=[val isNumeric:_numbertxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Number" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    if (textField==_hourstxtfld) {
+        int value2=[val isNumeric:_hourstxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Hours" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    return YES;
+}
+#pragma mark-AlertView
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if ([alertView.message isEqualToString:@"Invalid Number"]) {
+        _numbertxtfld.text=@"";
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Hours"]) {
+        _hourstxtfld.text=@"";
+        
+    }
+
+}
+
 @end

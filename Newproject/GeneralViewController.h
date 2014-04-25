@@ -10,6 +10,11 @@
 #import "Generalmodel.h"
 #import "GdargViewController.h"
 #import "DequipViewController.h"
+#import "Validation.h"
+@protocol newgenral <NSObject>
+-(void)toaddnewdata;
+
+@end
 
 @interface GeneralViewController : UIViewController{
      BOOL recordResults;
@@ -19,6 +24,8 @@
      NSString *jobsequnce;
     NSInteger dragbutnindx;
     }
+@property(nonatomic, weak)id<newgenral>delegate;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navitm;
 @property(strong,nonatomic) DequipViewController *deqctrl;
 @property(strong,nonatomic) GdargViewController *gdVCtrl;
 /*variables*/
