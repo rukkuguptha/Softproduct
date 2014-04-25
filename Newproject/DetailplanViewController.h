@@ -24,7 +24,7 @@
     NSInteger poptype;
 }
 
-@property(strong,nonatomic)NSString *planid;
+
 @property(strong,nonatomic)Customscaffoldingplan *scfldmdl;
 @property(strong,nonatomic)Scaffoldtypemdl *typemdl;
 @property(strong,nonatomic)AllDetailsplandisplayViewController *allctrlr;
@@ -51,7 +51,6 @@
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *insulationbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *fireproofingbtn;
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *generalbtn;
-
 @property(strong,nonatomic)IBOutlet UIView *genearaltabletitleview;
 @property(strong,nonatomic)IBOutlet UITableView *generaltable;
 @property(strong,nonatomic)IBOutlet UITableViewCell *generalcell;
@@ -82,7 +81,7 @@
 
 
 
-/*outlets in cell*/
+/*outlets in scaffoldingcell*/
 @property(strong,nonatomic)IBOutlet UILabel *unitcelllabel;
 @property(strong,nonatomic)IBOutlet UILabel *equipcelllabel;
 @property(strong,nonatomic)IBOutlet UILabel *pjctheadercelllabel;
@@ -93,6 +92,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *quantitycelllabel;
 @property(strong,nonatomic)IBOutlet UILabel *elevationcelllabel;
 @property(strong,nonatomic)IBOutlet UILabel *manhourslabel;
+
 
 /*outlets in addrecordview*/
 @property(strong,nonatomic)IBOutlet UITextField *unittextfield;
@@ -121,9 +121,10 @@
 @property(strong,nonatomic)NSMutableArray *generallistarray;
 @property(strong,nonatomic)NSMutableArray *newworkarray;
 
+/*strings*/
 @property(strong,nonatomic)NSString *scaffoldtypestring;
 @property(strong,nonatomic)NSString *insertresultvalue;
-
+@property(strong,nonatomic)NSString *planid;
 
 
 

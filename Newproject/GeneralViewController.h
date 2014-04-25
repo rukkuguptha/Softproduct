@@ -7,23 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Generalmodel.h"
+#import "GdargViewController.h"
+#import "DequipViewController.h"
 
 @interface GeneralViewController : UIViewController{
-      BOOL recordResults;
-    NSInteger txtfldtype;
-    NSString *phasestrg;
+     BOOL recordResults;
+     NSInteger txtfldtype;
+     NSString *phasestrg;
      NSInteger poptype;
      NSString *jobsequnce;
-    
-    
-}
-@property(readwrite) NSInteger optionidentfr;
+    NSInteger dragbutnindx;
+    }
+@property(strong,nonatomic) DequipViewController *deqctrl;
+@property(strong,nonatomic) GdargViewController *gdVCtrl;
+/*variables*/
+@property(strong,nonatomic)Generalmodel *generalmdl;
+@property(readwrite) NSInteger  optionidentfr;
 @property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
+
 /* xmlparser*/
-@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSXMLParser     *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
-@property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSMutableData   * webData;
 
 
 /*popover*/
@@ -32,44 +39,42 @@
 
 
 /*Arrays*/
-@property(strong,nonatomic)NSMutableArray *projectheaderarray;
+@property(strong,nonatomic)NSMutableArray * projectheaderarray;
 @property(strong,nonatomic)NSMutableArray * unitarray;
-@property(strong,nonatomic)NSMutableArray *autocompletearray;
+@property(strong,nonatomic)NSMutableArray * autocompletearray;
 @property(strong,nonatomic)NSMutableArray * subunitarray;
-@property(strong,nonatomic)NSMutableArray *equipmentarray;
-@property(strong,nonatomic)NSMutableArray *phasearray;
-@property(strong,nonatomic)NSMutableArray *sequencearray;
-@property(strong,nonatomic)NSMutableArray *generalarray;
+@property(strong,nonatomic)NSMutableArray * equipmentarray;
+@property(strong,nonatomic)NSMutableArray * phasearray;
+@property(strong,nonatomic)NSMutableArray * sequencearray;
+@property(strong,nonatomic)NSMutableArray * generalarray;
 
 /*dicts*/
-@property(strong,nonatomic)NSMutableDictionary *phasedict;
-@property(strong,nonatomic)NSMutableDictionary *sequncedict;
+@property(strong,nonatomic)NSMutableDictionary * phasedict;
+@property(strong,nonatomic)NSMutableDictionary * sequncedict;
 
 /*Outlets*/
-@property(strong,nonatomic)UITableView *autotable;
-@property(strong,nonatomic)UITableView *autotable1;
-@property(strong,nonatomic)UITableView *autotable2;
-@property(strong,nonatomic)UITableView *autotable3;
- 
-@property(strong,nonatomic)IBOutlet UIScrollView *scroll;
-@property(strong,nonatomic)IBOutlet UITextView *destextview;
+@property(strong,nonatomic)UITableView * autotable;
+@property(strong,nonatomic)UITableView * autotable1;
+@property(strong,nonatomic)UITableView * autotable2;
+@property(strong,nonatomic)UITableView * autotable3;
+@property(strong,nonatomic)IBOutlet UIScrollView   * scroll;
+@property(strong,nonatomic)IBOutlet UITextView     * destextview;
+@property (strong, nonatomic) IBOutlet UITextField * unittxtfld;
+@property (strong, nonatomic) IBOutlet UITextField * subunittxtfld;
+@property (strong, nonatomic) IBOutlet UITextField * equipmnttxtfld;
+@property (strong, nonatomic) IBOutlet UITextField * prjcthdrtxtfld;
+@property (strong, nonatomic) IBOutlet UITextField * quantytxtfld;
+@property (strong, nonatomic) IBOutlet UIButton    * phasebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton    * projectheaderbtnlbl;
 
-
--(IBAction)closegeneralpage:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UITextField *unittxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *subunittxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *equipmnttxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *prjcthdrtxtfld;
-@property (strong, nonatomic) IBOutlet UITextField *quantytxtfld;
-
-@property (strong, nonatomic) IBOutlet UIButton *phasebtnlbl;
-@property (strong, nonatomic) IBOutlet UIButton *projectheaderbtnlbl;
-@property (strong, nonatomic) IBOutlet UITextView *destxtview;
-
+/*Actions*/
 - (IBAction)phasebtn:(id)sender;
 - (IBAction)projcthdrbtn:(id)sender;
 - (IBAction)updatebtn:(id)sender;
+- (IBAction)closegeneralpage:(id)sender;
+- (IBAction)manpowerbtn:(id)sender;
+- (IBAction)equpmntbtn:(id)sender;
+- (IBAction)matreialbtn:(id)sender;
 
 
 @end

@@ -54,38 +54,6 @@
     [super viewWillAppear:animated];
       [self GeneralSelect];
 }
--(IBAction)addnewworkaction:(id)sender
-{   optionidentifier=1;
-    self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
-    _generalworkctrlr.Planid=_planid;
-    _generalworkctrlr.optionidentfr=optionidentifier;
-    self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
-    [self presentViewController:_generalworkctrlr
-                       animated:YES completion:NULL];
-
-}
--(IBAction)editgeneralaction:(id)sender
-{
-    optionidentifier=2;
-    button = (UIButton *)sender;
-    CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
-    NSIndexPath *textFieldIndexPath = [self.scaffoldtable indexPathForRowAtPoint:rootViewPoint];
-    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-    btnindex=textFieldIndexPath.row;
-    
-    Generalmodel*gmodel=(Generalmodel *)[_generallistarray objectAtIndex:btnindex];
-
-    self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
-    _generalworkctrlr.Planid=_planid;
-    _generalworkctrlr.genralid=gmodel.gid;
-    _generalworkctrlr.optionidentfr=optionidentifier;
-     NSLog(@"textFieldIndexPath%d",_generalworkctrlr.optionidentfr);
-    self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
-    [self presentViewController:_generalworkctrlr
-                       animated:YES completion:NULL];
-    
-}
 
 #pragma mark-Actions
 -(IBAction)addplan:(id)sender
@@ -250,6 +218,40 @@
 //    _scaffoldview.hidden=YES;
 //    _insulationview.hidden=YES;
 }
+-(IBAction)addnewworkaction:(id)sender
+{   optionidentifier=1;
+    self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
+    _generalworkctrlr.Planid=_planid;
+    _generalworkctrlr.optionidentfr=optionidentifier;
+    self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_generalworkctrlr
+                       animated:YES completion:NULL];
+    
+}
+-(IBAction)editgeneralaction:(id)sender
+{
+    optionidentifier=2;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.generaltable];
+    NSIndexPath *textFieldIndexPath = [self.generaltable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    Generalmodel*gmodel=(Generalmodel *)[_generallistarray objectAtIndex:btnindex];
+    NSMutableArray *garray=[[NSMutableArray alloc]initWithObjects:gmodel, nil];
+    self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
+    _generalworkctrlr.Planid=_planid;
+    _generalworkctrlr.genralid=gmodel.gid;
+    _generalworkctrlr.optionidentfr=optionidentifier;
+    _generalworkctrlr.generalarray=garray;
+    NSLog(@"textFieldIndexPath%d",_generalworkctrlr.optionidentfr);
+    self.generalworkctrlr.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_generalworkctrlr
+                       animated:YES completion:NULL];
+    
+}
+
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -407,7 +409,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -457,7 +460,8 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -507,7 +511,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -675,7 +679,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1615,7 +1619,7 @@
 
 //            _allctrlr.modalPresentationStyle=UIModalPresentationFullScreen;
 //            _allctrlr.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-            _allctrlr.delegate=self;
+             _allctrlr.delegate=self;
            
             //[self presentViewController:_allctrlr
                                //animated:YES completion:NULL];
@@ -1754,7 +1758,7 @@
 
 
 }
-
+#pragma mark-delegate
 -(void)navgteanimtn{
     [UIView transitionFromView:self.allctrlr.view
                         toView:self.addscaffoldrecordview

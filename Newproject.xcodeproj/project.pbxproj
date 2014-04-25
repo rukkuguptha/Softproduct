@@ -94,6 +94,9 @@
 		D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4014FF118E3E05B00DB825A /* SerialViewController.m */; };
 		D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF218E3E05B00DB825A /* SerialViewController.xib */; };
 		D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4014FF518E3E34000DB825A /* Snumcell.xib */; };
+		D402029D1907A076003DED36 /* Gmateralview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D402029C1907A076003DED36 /* Gmateralview.xib */; };
+		D402029F1907BCBC003DED36 /* Gnmatlfirstcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D402029E1907BCBC003DED36 /* Gnmatlfirstcell.xib */; };
+		D40202A11907BCE2003DED36 /* MatrlGnsecondcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40202A01907BCE2003DED36 /* MatrlGnsecondcell.xib */; };
 		D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B718B6036300C27F2F /* SaftyCell.xib */; };
 		D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */; };
 		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
@@ -152,6 +155,7 @@
 		D42D8C3D18D2E411009D8085 /* usercell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C3C18D2E411009D8085 /* usercell.xib */; };
 		D42D8C4018D2E442009D8085 /* ServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C3F18D2E442009D8085 /* ServiceViewController.m */; };
 		D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C4118D2E450009D8085 /* ServiceViewController.xib */; };
+		D42E73DE1907E26300F7C99A /* Metgenmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D42E73DD1907E26300F7C99A /* Metgenmdl.m */; };
 		D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBB186D7BB000A693F7 /* search-button@2x.png */; };
 		D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */ = {isa = PBXBuildFile; fileRef = D4399EBD186D7BBF00A693F7 /* search-button.png */; };
 		D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D43A395C18C993B00099EF7B /* NVerificationViewController.xib */; };
@@ -186,7 +190,6 @@
 		D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */; };
 		D49E056318C71B7100AF6330 /* Cmanpwrcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49E056218C71B7100AF6330 /* Cmanpwrcell.xib */; };
 		D49E056518C71B9300AF6330 /* Namecrewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49E056418C71B9300AF6330 /* Namecrewcell.xib */; };
-		D49EB4BA18C0AA07009249A9 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */; };
 		D49EB4BB18C0AA07009249A9 /* DetailplanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */; };
 		D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */; };
 		D49F874518EEA36B00413CAD /* CKCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F86F218EEA36B00413CAD /* CKCalendarView.m */; };
@@ -236,6 +239,11 @@
 		D49F8A5318EECA6E00413CAD /* fuelmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F8A5218EECA6E00413CAD /* fuelmdl.m */; };
 		D49F8A5518EECD3800413CAD /* fuelcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F8A5418EECD3800413CAD /* fuelcell.xib */; };
 		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
+		D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A21FFD190A1D790065840D /* DequipViewController.m */; };
+		D4A22002190A1D890065840D /* Dragequip.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A21FFF190A1D890065840D /* Dragequip.xib */; };
+		D4A22003190A1D890065840D /* Srcequcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A22000190A1D890065840D /* Srcequcell.xib */; };
+		D4A22004190A1D890065840D /* Destequcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A22001190A1D890065840D /* Destequcell.xib */; };
+		D4A22007190A1DA90065840D /* Drageqmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A22006190A1DA90065840D /* Drageqmodel.m */; };
 		D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A338C718F3BD1900E53FAC /* WorktypeViewController.m */; };
 		D4A338CA18F3BD1900E53FAC /* WorktypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338C818F3BD1900E53FAC /* WorktypeViewController.xib */; };
 		D4A338CC18F3C22C00E53FAC /* worktypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A338CB18F3C22C00E53FAC /* worktypecell.xib */; };
@@ -288,6 +296,12 @@
 		D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF318D03F47007617F0 /* ContractViewController.m */; };
 		D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF418D03F47007617F0 /* ContractViewController.xib */; };
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
+		D4F4B0A7190671CC0026C8B6 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0A6190671CC0026C8B6 /* DetailplanViewController.m */; };
+		D4F4B0AB190678460026C8B6 /* GdargViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0A9190678460026C8B6 /* GdargViewController.m */; };
+		D4F4B0AC190678460026C8B6 /* GdargViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F4B0AA190678460026C8B6 /* GdargViewController.xib */; };
+		D4F4B0AE1906810D0026C8B6 /* FirstMdragcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F4B0AD1906810D0026C8B6 /* FirstMdragcell.xib */; };
+		D4F4B0B01906812B0026C8B6 /* SecondMdragcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F4B0AF1906812B0026C8B6 /* SecondMdragcell.xib */; };
+		D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */; };
 		D4F557701904F7EF00EFDAF4 /* GeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */; };
 		D4F557711904F7EF00EFDAF4 /* GeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */; };
 		D4F557731904F89600EFDAF4 /* PGcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F557721904F89600EFDAF4 /* PGcell.xib */; };
@@ -422,6 +436,9 @@
 		D4014FF118E3E05B00DB825A /* SerialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SerialViewController.m; sourceTree = "<group>"; };
 		D4014FF218E3E05B00DB825A /* SerialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SerialViewController.xib; sourceTree = "<group>"; };
 		D4014FF518E3E34000DB825A /* Snumcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Snumcell.xib; sourceTree = "<group>"; };
+		D402029C1907A076003DED36 /* Gmateralview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Gmateralview.xib; sourceTree = "<group>"; };
+		D402029E1907BCBC003DED36 /* Gnmatlfirstcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Gnmatlfirstcell.xib; sourceTree = "<group>"; };
+		D40202A01907BCE2003DED36 /* MatrlGnsecondcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatrlGnsecondcell.xib; sourceTree = "<group>"; };
 		D40313B718B6036300C27F2F /* SaftyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SaftyCell.xib; sourceTree = "<group>"; };
 		D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = siteEqupmtntcell.xib; sourceTree = "<group>"; };
 		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
@@ -496,6 +513,8 @@
 		D42D8C3E18D2E433009D8085 /* ServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceViewController.h; sourceTree = "<group>"; };
 		D42D8C3F18D2E442009D8085 /* ServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceViewController.m; sourceTree = "<group>"; };
 		D42D8C4118D2E450009D8085 /* ServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceViewController.xib; sourceTree = "<group>"; };
+		D42E73DC1907E26300F7C99A /* Metgenmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metgenmdl.h; sourceTree = "<group>"; };
+		D42E73DD1907E26300F7C99A /* Metgenmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metgenmdl.m; sourceTree = "<group>"; };
 		D4399EBB186D7BB000A693F7 /* search-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button@2x.png"; sourceTree = "<group>"; };
 		D4399EBD186D7BBF00A693F7 /* search-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-button.png"; sourceTree = "<group>"; };
 		D43A395C18C993B00099EF7B /* NVerificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NVerificationViewController.xib; sourceTree = "<group>"; };
@@ -537,8 +556,6 @@
 		D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CrewsetupViewController.xib; sourceTree = "<group>"; };
 		D49E056218C71B7100AF6330 /* Cmanpwrcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cmanpwrcell.xib; sourceTree = "<group>"; };
 		D49E056418C71B9300AF6330 /* Namecrewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Namecrewcell.xib; sourceTree = "<group>"; };
-		D49EB4B718C0AA07009249A9 /* DetailplanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailplanViewController.h; sourceTree = "<group>"; };
-		D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
 		D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailplanViewController.xib; sourceTree = "<group>"; };
 		D49F86CE18EE6C5700413CAD /* volumediscountcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = volumediscountcell.xib; sourceTree = "<group>"; };
 		D49F86F118EEA36B00413CAD /* CKCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CKCalendarView.h; sourceTree = "<group>"; };
@@ -632,6 +649,13 @@
 		D49F8A5218EECA6E00413CAD /* fuelmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fuelmdl.m; sourceTree = "<group>"; };
 		D49F8A5418EECD3800413CAD /* fuelcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fuelcell.xib; sourceTree = "<group>"; };
 		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
+		D4A21FFC190A1D790065840D /* DequipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DequipViewController.h; sourceTree = "<group>"; };
+		D4A21FFD190A1D790065840D /* DequipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DequipViewController.m; sourceTree = "<group>"; };
+		D4A21FFF190A1D890065840D /* Dragequip.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Dragequip.xib; sourceTree = "<group>"; };
+		D4A22000190A1D890065840D /* Srcequcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srcequcell.xib; sourceTree = "<group>"; };
+		D4A22001190A1D890065840D /* Destequcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Destequcell.xib; sourceTree = "<group>"; };
+		D4A22005190A1DA90065840D /* Drageqmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Drageqmodel.h; sourceTree = "<group>"; };
+		D4A22006190A1DA90065840D /* Drageqmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Drageqmodel.m; sourceTree = "<group>"; };
 		D4A338C618F3BD1800E53FAC /* WorktypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorktypeViewController.h; sourceTree = "<group>"; };
 		D4A338C718F3BD1900E53FAC /* WorktypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorktypeViewController.m; sourceTree = "<group>"; };
 		D4A338C818F3BD1900E53FAC /* WorktypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorktypeViewController.xib; sourceTree = "<group>"; };
@@ -697,6 +721,15 @@
 		D4F19DF318D03F47007617F0 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		D4F19DF418D03F47007617F0 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
+		D4F4B0A5190671CC0026C8B6 /* DetailplanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailplanViewController.h; sourceTree = "<group>"; };
+		D4F4B0A6190671CC0026C8B6 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
+		D4F4B0A8190678460026C8B6 /* GdargViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdargViewController.h; sourceTree = "<group>"; };
+		D4F4B0A9190678460026C8B6 /* GdargViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GdargViewController.m; sourceTree = "<group>"; };
+		D4F4B0AA190678460026C8B6 /* GdargViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GdargViewController.xib; sourceTree = "<group>"; };
+		D4F4B0AD1906810D0026C8B6 /* FirstMdragcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstMdragcell.xib; sourceTree = "<group>"; };
+		D4F4B0AF1906812B0026C8B6 /* SecondMdragcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondMdragcell.xib; sourceTree = "<group>"; };
+		D4F4B0B119068ED50026C8B6 /* Gmandrgmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gmandrgmdl.h; sourceTree = "<group>"; };
+		D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gmandrgmdl.m; sourceTree = "<group>"; };
 		D4F5576D1904F7EF00EFDAF4 /* GeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralViewController.h; sourceTree = "<group>"; };
 		D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneralViewController.m; sourceTree = "<group>"; };
 		D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GeneralViewController.xib; sourceTree = "<group>"; };
@@ -1025,14 +1058,27 @@
 				649EDEC918BB053E00B78D97 /* otherbiddrecordaddview.xib */,
 				649EDECB18BB055E00B78D97 /* Outlookrecordaddview.xib */,
 				649EDECD18BB058D00B78D97 /* Addnoterecordview.xib */,
-				D49EB4B718C0AA07009249A9 /* DetailplanViewController.h */,
-				D49EB4B818C0AA07009249A9 /* DetailplanViewController.m */,
+				D4F4B0A5190671CC0026C8B6 /* DetailplanViewController.h */,
+				D4F4B0A6190671CC0026C8B6 /* DetailplanViewController.m */,
 				D49EB4B918C0AA07009249A9 /* DetailplanViewController.xib */,
 				D4F557721904F89600EFDAF4 /* PGcell.xib */,
 				D4F5576D1904F7EF00EFDAF4 /* GeneralViewController.h */,
 				D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */,
 				D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */,
 				64AD76C618AE12B100089A0F /* scaffoldcell.xib */,
+				D4F4B0A8190678460026C8B6 /* GdargViewController.h */,
+				D4F4B0A9190678460026C8B6 /* GdargViewController.m */,
+				D4F4B0AA190678460026C8B6 /* GdargViewController.xib */,
+				D402029C1907A076003DED36 /* Gmateralview.xib */,
+				D4F4B0AD1906810D0026C8B6 /* FirstMdragcell.xib */,
+				D4F4B0AF1906812B0026C8B6 /* SecondMdragcell.xib */,
+				D402029E1907BCBC003DED36 /* Gnmatlfirstcell.xib */,
+				D40202A01907BCE2003DED36 /* MatrlGnsecondcell.xib */,
+				D4A21FFC190A1D790065840D /* DequipViewController.h */,
+				D4A21FFD190A1D790065840D /* DequipViewController.m */,
+				D4A21FFF190A1D890065840D /* Dragequip.xib */,
+				D4A22000190A1D890065840D /* Srcequcell.xib */,
+				D4A22001190A1D890065840D /* Destequcell.xib */,
 				649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */,
 				649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */,
 				649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */,
@@ -1205,6 +1251,12 @@
 				D4FEF52118FE85560047E6BD /* Fmodel.m */,
 				64D23F7B1905103000DEA64A /* Generalmodel.h */,
 				64D23F7C1905103000DEA64A /* Generalmodel.m */,
+				D4F4B0B119068ED50026C8B6 /* Gmandrgmdl.h */,
+				D4F4B0B219068ED50026C8B6 /* Gmandrgmdl.m */,
+				D42E73DC1907E26300F7C99A /* Metgenmdl.h */,
+				D42E73DD1907E26300F7C99A /* Metgenmdl.m */,
+				D4A22005190A1DA90065840D /* Drageqmodel.h */,
+				D4A22006190A1DA90065840D /* Drageqmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1340,6 +1392,7 @@
 				D40D1EC1176B086F00379DD5 /* Default-568h@2x.png in Resources */,
 				6426F5FB18C0685C002471AC /* SasteyPicture.png in Resources */,
 				D4A338E718F3EEEF00E53FAC /* custmarkdetailcell.xib in Resources */,
+				D402029D1907A076003DED36 /* Gmateralview.xib in Resources */,
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				6426F5F918C06824002471AC /* fleet.png in Resources */,
@@ -1347,6 +1400,7 @@
 				64A27C2018E1640000D184BF /* Srepcell.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
+				D40202A11907BCE2003DED36 /* MatrlGnsecondcell.xib in Resources */,
 				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
@@ -1365,6 +1419,7 @@
 				D42D8C1D18D2D91C009D8085 /* venderViewController.xib in Resources */,
 				D49E056318C71B7100AF6330 /* Cmanpwrcell.xib in Resources */,
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
+				D4A22003190A1D890065840D /* Srcequcell.xib in Resources */,
 				64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				64A3B82618E02FC90015887F /* branchcell.xib in Resources */,
@@ -1379,6 +1434,7 @@
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
 				D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */,
+				D4F4B0AE1906810D0026C8B6 /* FirstMdragcell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
 				649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */,
 				D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */,
@@ -1409,6 +1465,7 @@
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
 				D4F557731904F89600EFDAF4 /* PGcell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
+				D4A22002190A1D890065840D /* Dragequip.xib in Resources */,
 				D42D8C2718D2DD79009D8085 /* ManViewController.xib in Resources */,
 				D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */,
 				D49F8A4D18EEBAD700413CAD /* Basewagecell.xib in Resources */,
@@ -1493,10 +1550,12 @@
 				6437578718BC5572003691E6 /* maintablecell.xib in Resources */,
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
+				D402029F1907BCBC003DED36 /* Gnmatlfirstcell.xib in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
 				6426F5F718C067F3002471AC /* accounting.png in Resources */,
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,
 				D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */,
+				D4F4B0B01906812B0026C8B6 /* SecondMdragcell.xib in Resources */,
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				649EDEC418BB011A00B78D97 /* EqaddRecordview.xib in Resources */,
 				D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */,
@@ -1505,7 +1564,9 @@
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 				64A3B81618DFEE980015887F /* CommentsCells.xib in Resources */,
+				D4F4B0AC190678460026C8B6 /* GdargViewController.xib in Resources */,
 				D4F0008818D2C478005A50A9 /* CompanyCmntscell.xib in Resources */,
+				D4A22004190A1D890065840D /* Destequcell.xib in Resources */,
 				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
 				D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
@@ -1521,6 +1582,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */,
 				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
 				D49F876918EEA36B00413CAD /* Infomdl.m in Sources */,
@@ -1540,12 +1602,14 @@
 				D40DD25C1873D26100E7BC2C /* FleetsViewController.m in Sources */,
 				D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */,
 				D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */,
+				D4F4B0AB190678460026C8B6 /* GdargViewController.m in Sources */,
 				D49F876718EEA36B00413CAD /* Mdladdress.m in Sources */,
 				D49F875318EEA36B00413CAD /* Manpwr.m in Sources */,
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
-				D49EB4BA18C0AA07009249A9 /* DetailplanViewController.m in Sources */,
+				D4F4B0A7190671CC0026C8B6 /* DetailplanViewController.m in Sources */,
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
+				D42E73DE1907E26300F7C99A /* Metgenmdl.m in Sources */,
 				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
@@ -1606,6 +1670,7 @@
 				D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */,
 				D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
+				D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */,
 				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
 				D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
@@ -1619,6 +1684,7 @@
 				D4A338E518F3EEEF00E53FAC /* DetailmarkupsectionViewController.m in Sources */,
 				D49F874C18EEA36B00413CAD /* followupmodel.m in Sources */,
 				D49F876B18EEA36B00413CAD /* NumbrSerMdl.m in Sources */,
+				D4A22007190A1DA90065840D /* Drageqmodel.m in Sources */,
 				D49F874818EEA36B00413CAD /* Base64.m in Sources */,
 				D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */,
 				D49F875718EEA36B00413CAD /* listusermdl.m in Sources */,
@@ -1719,6 +1785,7 @@
 		D40D1ECB176B086F00379DD5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Newproject/Newproject-Prefix.pch";
 				INFOPLIST_FILE = "Newproject/Newproject-Info.plist";
@@ -1730,6 +1797,7 @@
 		D40D1ECC176B086F00379DD5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Newproject/Newproject-Prefix.pch";
 				INFOPLIST_FILE = "Newproject/Newproject-Info.plist";

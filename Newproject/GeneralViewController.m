@@ -27,6 +27,37 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    if (_optionidentfr==1) {
+        
+        
+              _unittxtfld.text=@"";
+        _subunittxtfld.text=@"";
+        _equipmnttxtfld.text=@"";
+        _prjcthdrtxtfld.text=@"";
+        _quantytxtfld.text=@"";
+         _destextview.text=@"";
+        [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+
+   else if (_optionidentfr==2) {
+        
+        
+        _generalmdl=(Generalmodel *)[_generalarray objectAtIndex:0];
+        _unittxtfld.text=_generalmdl.Unit;
+        _subunittxtfld.text=_generalmdl.SubUnit;
+        _equipmnttxtfld.text=_generalmdl.Equipment;
+        _prjcthdrtxtfld.text=_generalmdl.ProjectHeader;
+        _quantytxtfld.text=_generalmdl.Quantity;
+        _destextview.text=_generalmdl.genDescription;
+        [_phasebtnlbl setTitle:_generalmdl.Phase forState:UIControlStateNormal];
+        [_projectheaderbtnlbl setTitle:_generalmdl.sequence forState:UIControlStateNormal];
+
+        }
+    
+    
+    
     NSLog(@"%d",_optionidentfr);
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -187,7 +218,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -236,7 +267,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -285,7 +316,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -334,7 +365,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -384,7 +415,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -433,7 +464,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -491,7 +522,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -550,7 +581,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -879,6 +910,15 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
                 _soapResults = nil;
+        _unittxtfld.text=@"";
+        _subunittxtfld.text=@"";
+        _equipmnttxtfld.text=@"";
+        _prjcthdrtxtfld.text=@"";
+        _quantytxtfld.text=@"";
+        _destextview.text=@"";
+
+        [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         
     }
 
@@ -1063,10 +1103,66 @@
 
     return YES;
 }
+- (void)textFieldDidEndEditing:(UITextField *)textField{
+    
+    if(textField==_unittxtfld)
+    {
+        
+        _autotable.hidden = YES;
+    }
+    if(textField==_subunittxtfld)
+    {
+        _autotable1.hidden = YES;
+        
+    }
+    if(textField==_equipmnttxtfld)
+    {
+         _autotable2.hidden = YES;
+    }
+    if(textField==_prjcthdrtxtfld)
+    {
+         _autotable3.hidden = YES;
+    }
+    
+}
 #pragma mark- Button Action
 -(IBAction)closegeneralpage:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)manpowerbtn:(id)sender {
+    dragbutnindx=1;
+    //if (!_gdVCtrl) {
+        self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"GdargViewController" bundle:nil];
+    //}
+    _generalmdl.gid=_genralid;
+    _gdVCtrl.dragbtnindx=dragbutnindx;
+    self.gdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_gdVCtrl
+                       animated:YES completion:NULL];
+
+}
+
+- (IBAction)equpmntbtn:(id)sender {
+    self.deqctrl=[[DequipViewController alloc]initWithNibName:@"Dragequip" bundle:nil];
+    _deqctrl.generalid=_genralid;
+    [self presentViewController:_deqctrl
+                       animated:YES completion:NULL];
+    
+
+}
+
+- (IBAction)matreialbtn:(id)sender {
+     dragbutnindx=2;
+    //if (!_gdVCtrl) {
+        self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"Gmateralview" bundle:nil];
+   // }
+    _generalmdl.gid=_genralid;
+    _gdVCtrl.dragbtnindx=dragbutnindx;
+    self.gdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    [self presentViewController:_gdVCtrl
+                       animated:YES completion:NULL];
 }
 
 - (IBAction)phasebtn:(id)sender {

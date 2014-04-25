@@ -1,0 +1,1831 @@
+//
+//  GdargViewController.m
+//  Newproject
+//
+//  Created by GMSIndia1 on 4/22/14.
+//  Copyright (c) 2014 GMSIndia1. All rights reserved.
+//
+
+#import "GdargViewController.h"
+
+@interface GdargViewController ()
+
+@end
+
+@implementation GdargViewController
+#define kCellHeight 44
+#define kNavBarHeight 30
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // Do any additional setup after loading the view from its nib.
+ 
+    _scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _scroll.frame=CGRectMake(0, 0, 768,955);
+    [_scroll setContentSize:CGSizeMake(768,1024)];
+    
+    UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
+    panGesture.delegate=self;
+    [self.manpwrdragview addGestureRecognizer:panGesture];
+    UIPanGestureRecognizer* panGesture1 = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(materialhandlePanning:)];
+    panGesture1.delegate=self;
+    [self.matraltouchview addGestureRecognizer:panGesture1];
+   // [_generaltable setContentOffset:CGPointMake(0, 700)];
+    
+    _manpwrtable.layer.borderWidth=2.0f;
+    _manpwrtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _generaltable.layer.borderWidth=2.0f;
+    _generaltable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _materialtable.layer.borderWidth=2.0f;
+    _materialtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _resourcegenraltable.layer.borderWidth=2.0f;
+    _resourcegenraltable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    switch (_dragbtnindx) {
+        case 1:
+            [self setupSourceTableWithFrame:CGRectMake(0, 0, 257,742)];
+            [self setupDestinationTableWithFrame:CGRectMake(0, 0, 433, 742)];
+            break;
+        case 2:
+            [self materialsetupSourceTableWithFrame:CGRectMake(0, 0, 257,460)];
+            [self materialsetupDestinationTableWithFrame:CGRectMake(0, 0, 397, 460)];
+            
+
+            break;
+
+        default:
+            break;
+    }
+  
+    
+    [self SelectGeneralManpower];
+    [self GeneralDetailselect];
+    [self GeneralMaterialSelect];
+   [self GeneralResourceMaterialDetailselect];
+    
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+#pragma mark-web services
+-(void)SelectGeneralManpower{
+      
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SelectGeneralManpower xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</SelectGeneralManpower>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SelectGeneralManpower" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralDetailselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralDetailselect xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<MainGeneralId>%d</MainGeneralId>\n"
+                   "</GeneralDetailselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_generalid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralDetailselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralDetailInsert{
+    
+    recordResults = FALSE;
+     Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:path];
+    NSString *houres=@"0";
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralDetailInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "<SubGeneralId>%d</SubGeneralId>\n"
+                   "<Number>%d</Number>\n"
+                   "<Houres>%f</Houres>\n"
+                   "</GeneralDetailInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,1,[houres floatValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralDetailInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralDetailDelete{
+     Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:deletepath];
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Id>%d</Id>\n"
+                   "</GeneralDetailDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[gendtdlmdl.manid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralDetailDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralDetailUpdate{
+    
+    recordResults = FALSE;
+    Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:path];
+       NSString *soapMessage;
+       Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:editpath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralDetailUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Id>%d</Id>\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "<SubGeneralId>%d</SubGeneralId>\n"
+                   "<Number>%d</Number>\n"
+                   "<Houres>%f</Houres>\n"
+                   "</GeneralDetailUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[gendtdlmdl.manid integerValue],_generalid,manmdl1.entryid,[_numbertxtfld.text integerValue],[_hourstxtfld.text floatValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralDetailUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralMaterialSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralMaterialSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</GeneralMaterialSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralMaterialSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralResourceMaterialDetailselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralResourceMaterialDetailselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "</GeneralResourceMaterialDetailselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_generalid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceMaterialDetailselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralResourceDetailInsert{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSString*rate=@"0";
+     Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:materialpath];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralResourceDetailInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "<SubGeneralResourceId>%d</SubGeneralResourceId>\n"
+                   "<ManPower>%@</ManPower>\n"
+                   "<Description>%@</Description>\n"
+                   "<Type>%@</Type>\n"
+                   "<Name>%@</Name>\n"
+                   "<Qty>%d</Qty>\n"
+                   "<HourlyRate>%f</HourlyRate>\n"
+                   "<DailyRate>%f</DailyRate>\n"
+                   "<WeeklyRate>%f</WeeklyRate>\n"
+                   "<MonthlyRate>%f</MonthlyRate>\n"
+                   "<YearlyRate>%f</YearlyRate>\n"
+                   "</GeneralResourceDetailInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,manmdl1.itemcode,manmdl1.itemdescptn,@"MT",@"Materials",1,[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceDetailInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)GeneralResourceDetailUpdate{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    NSString*rate=@"0";
+    //Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:materialpath];
+       Metgenmdl * matmdl2=(Metgenmdl *)[_resourcearray objectAtIndex:meteditpath];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralResourceDetailUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                     "<Id>%d</Id>\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "<SubGeneralResourceId>%d</SubGeneralResourceId>\n"
+                   "<ManPower>%@</ManPower>\n"
+                   "<Description>%@</Description>\n"
+                   "<Type>%@</Type>\n"
+                   "<Name>%@</Name>\n"
+                   "<Qty>%d</Qty>\n"
+                   "<HourlyRate>%f</HourlyRate>\n"
+                   "<DailyRate>%f</DailyRate>\n"
+                   "<WeeklyRate>%f</WeeklyRate>\n"
+                   "<MonthlyRate>%f</MonthlyRate>\n"
+                   "<YearlyRate>%f</YearlyRate>\n"
+                   "</GeneralResourceDetailUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[matmdl2.matgenid integerValue],_generalid,[matmdl2.SubGeneralResourceId integerValue],matmdl2.itemcode,matmdl2.itemdesc,@"MT",@"Materials",[_quantitytxtfld.text integerValue],[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue],[rate floatValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceDetailUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralResourceDetailDelete{
+    Metgenmdl * matmdl2=(Metgenmdl *)[_resourcearray objectAtIndex:metdeletepath];
+
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralResourceDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Id>%d</Id>\n"
+                   "</GeneralResourceDetailDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[matmdl2.matgenid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    // NSURL *url = [NSURL URLWithString:@"http://ios.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceDetailDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+#pragma mark - Connection
+-(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
+	[_webData setLength: 0];
+}
+-(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+   	[_webData appendData:data];
+}
+-(void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *  Alert=[[UIAlertView alloc]initWithTitle:@"Alert" message:@"ERROR with the Connection" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [Alert show];
+}
+-(void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"DONE. Received Bytes: %d", [_webData length]);
+	NSString *theXML = [[NSString alloc] initWithBytes: [_webData mutableBytes] length:[_webData length] encoding:NSUTF8StringEncoding];
+	NSLog(@"xml===== %@",theXML);
+	
+	
+	if( _xmlParser )
+	{
+		
+	}
+	
+	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
+	[_xmlParser setDelegate:(id)self];
+	[_xmlParser setShouldResolveExternalEntities: YES];
+	[_xmlParser parse];
+    
+    [_manpwrtable reloadData];
+    [_generaltable reloadData];
+    [_materialtable reloadData];
+    [_resourcegenraltable reloadData];
+ 
+    
+}
+#pragma mark-xml parser
+-(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
+   attributes: (NSDictionary *)attributeDict
+{
+    if([elementName isEqualToString:@"SelectGeneralManpowerResponse"])
+    {
+        _manpowerarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"PlanItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PlanDescription"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"GeneralDetailselectResponse"])
+    {_generaldetailarray=[[NSMutableArray alloc]init];
+             if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"ItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"Description"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Number"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"Houres"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"GeneralMaterialSelectResponse"])
+    {_materialarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MaterialEntryId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"MaterialItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MaterialDescription"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"GeneralResourceMaterialDetailselectResult"])
+    {
+        _resourcearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MaterialId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SubGeneralResourceId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"MateItemCode"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"DetailDescription"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+    if([elementName isEqualToString:@"Materialqty"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    
+
+
+
+}
+-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    
+    
+    
+	if( recordResults )
+        
+	{
+        [_soapResults appendString: string];
+    }
+}
+-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+{
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        
+        _manpwr1=[[Manpwr alloc]init];
+        recordResults = FALSE;
+        _manpwr1.entryid=[_soapResults integerValue];
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"PlanItemCode"])
+    {
+     
+        recordResults = FALSE;
+        _manpwr1.itemcode=_soapResults;
+     
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"PlanDescription"])
+    {
+        recordResults = FALSE;
+         _manpwr1.itemdescptn=_soapResults;
+        [_manpowerarray addObject:_manpwr1];
+       
+        _soapResults = nil;
+        
+        }
+    if([elementName isEqualToString:@"Id"])
+    {
+
+        _gmdl=[[Gmandrgmdl alloc]init];
+        recordResults = FALSE;
+        
+        _gmdl.manid=_soapResults;
+        _soapResults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"ItemCode"])
+    {
+        
+         recordResults = FALSE;
+        _gmdl.itemcode=_soapResults;
+
+        _soapResults = nil;
+
+        
+    }
+        if([elementName isEqualToString:@"Description"])
+    {
+        
+        recordResults = FALSE;
+          _gmdl.itemdescptn=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"Number"])
+    {
+        
+        recordResults = FALSE;
+        _gmdl.numbers=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Houres"])
+    {
+        
+        recordResults = FALSE;
+         _gmdl.hours=_soapResults;
+        [_generaldetailarray addObject:_gmdl];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        
+         if ([_soapResults isEqualToString:@"Insert Successfully"]||[_soapResults isEqualToString:@"delete"]) {
+               [self GeneralDetailselect];
+             
+         }
+        else if ([_soapResults isEqualToString:@"Update Successfully"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _manpwrtxtfld.text=@"";
+            _descptntxtfld.text=@"";
+            _numbertxtfld.text=@"";
+            _hourstxtfld.text=@"";
+             [self GeneralDetailselect];
+            
+        }
+       else if ([_soapResults isEqualToString:@"Inserted Successfully"]||[_soapResults isEqualToString:@"deleted"]) {
+            [self GeneralDetailselect];
+            
+        }
+
+       else if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _codetxtfld.text=@"";
+            _matrldesctxtfld.text=@"";
+            _quantitytxtfld.text=@"";
+             [self GeneralResourceMaterialDetailselect];
+            
+        }
+
+       
+        
+              _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"MaterialEntryId"])
+    {
+        
+       recordResults = FALSE;
+        _manpwr1=[[Manpwr alloc]init];
+        _manpwr1.entryid=[_soapResults integerValue];
+         _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"MaterialItemCode"])
+    {
+        
+        recordResults = FALSE;
+        _manpwr1.itemcode=_soapResults;
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"MaterialDescription"])
+    {
+        
+        recordResults = FALSE;
+          _manpwr1.itemdescptn=_soapResults;
+        [_materialarray addObject:_manpwr1];
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"MaterialId"])
+    {
+        
+        recordResults = FALSE;
+             _matrlmdl=[[Metgenmdl alloc]init];
+        _matrlmdl.matgenid=_soapResults;
+       
+             _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SubGeneralResourceId"])
+    {
+        
+      recordResults = FALSE;
+         _matrlmdl.SubGeneralResourceId=_soapResults;
+         _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"MateItemCode"])
+    {
+        
+        recordResults = FALSE;
+   
+        _matrlmdl.itemcode=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"DetailDescription"])
+    {
+        
+        recordResults = FALSE;
+        _matrlmdl.itemdesc=_soapResults;
+
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Name"])
+    {
+        
+        recordResults = FALSE;
+        _soapResults = nil;
+    }
+
+    
+    
+    if([elementName isEqualToString:@"Materialqty"])
+    {
+        
+        recordResults = FALSE;
+        _matrlmdl.itmqunty=_soapResults;
+        [_resourcearray addObject:_matrlmdl];
+
+        _soapResults = nil;
+    }
+
+
+}
+
+#pragma mark-tableview datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView==_manpwrtable){
+        return [_manpowerarray count];
+    }
+    if (tableView==_generaltable){
+        return [_generaldetailarray count];
+    }
+    if (tableView==_materialtable){
+        return [_materialarray count];
+    }
+    if (tableView==_resourcegenraltable){
+        return [_resourcearray count];
+        //return 2;
+    }
+
+    return YES;
+    
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        if (tableView==_manpwrtable) {
+            [[NSBundle mainBundle]loadNibNamed:@"FirstMdragcell" owner:self options:nil];
+            cell=_firstcell;
+            
+        }
+        if (tableView==_generaltable) {
+            [[NSBundle mainBundle]loadNibNamed:@"SecondMdragcell" owner:self options:nil];
+            
+            cell=_secondcell;
+        }
+        if (tableView==_materialtable) {
+            [[NSBundle mainBundle]loadNibNamed:@"Gnmatlfirstcell" owner:self options:nil];
+            
+            cell=_materialcell;
+        }
+        if (tableView==_resourcegenraltable) {
+            [[NSBundle mainBundle]loadNibNamed:@"MatrlGnsecondcell" owner:self options:nil];
+            
+            cell=_resurcecell;
+        }
+
+
+        
+        cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+        
+    }
+    
+    if (tableView==_manpwrtable) {
+        Manpwr *manpwr=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+        _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
+        _manpwr1lbl.text=manpwr.itemcode;
+        _mandesc1lbl=(UILabel *)[cell viewWithTag:2];
+        _mandesc1lbl.text=manpwr.itemdescptn;
+        
+    }
+    
+    if (tableView==_generaltable) {
+        
+        Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:indexPath.row];
+       
+        _manpwr2lbl=(UILabel *)[cell viewWithTag:1];
+        _manpwr2lbl.text=gendtdlmdl.itemcode;
+        _mandesptn2lbl=(UILabel *)[cell viewWithTag:2];
+        _mandesptn2lbl.text=gendtdlmdl.itemdescptn;
+        _numberlbl=(UILabel *)[cell viewWithTag:3];
+        _numberlbl.text=gendtdlmdl.numbers;
+        _hurslbl=(UILabel *)[cell viewWithTag:4];
+        _hurslbl.text=gendtdlmdl.hours;
+
+        }
+    if (tableView==_materialtable){
+        
+           Manpwr *manpwr1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+        _codelbl1=(UILabel *)[cell viewWithTag:1];
+        _codelbl1.text=manpwr1.itemcode;
+        _matrldesc1lbl=(UILabel *)[cell viewWithTag:2];
+        _matrldesc1lbl.text=manpwr1.itemdescptn;
+
+        
+        
+    }
+    if (tableView==_resourcegenraltable){
+        
+        Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:indexPath.row];
+        _code2lbl2=(UILabel *)[cell viewWithTag:1];
+        _code2lbl2.text=matmdl1.itemcode;
+        _matrldesc1lbl=(UILabel *)[cell viewWithTag:2];
+        _matrldesc1lbl.text=matmdl1.itemdesc;
+        _quantylbl=(UILabel *)[cell viewWithTag:3];
+        _quantylbl.text=matmdl1.itmqunty;
+
+        
+        
+    }
+
+    return cell;
+}
+
+#pragma mark-tableview Delegate
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        if (tableView==_generaltable) {
+            
+        deletepath=indexPath.row;
+        
+        [self GeneralDetailDelete];
+        [_generaldetailarray removeObject:indexPath];
+        }
+        
+        
+        if (tableView==_resourcegenraltable) {
+            
+            metdeletepath=indexPath.row;
+            
+            [self GeneralResourceDetailDelete];
+            [_resourcearray removeObject:indexPath];
+        }
+
+        
+        
+    }
+    
+    
+    
+}
+
+
+#pragma mark -MANPOWER DRAG &DROP
+#pragma mark UIGestureRecognizer
+
+- (void)handlePanning:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    switch ([gestureRecognizer state]) {
+        case UIGestureRecognizerStateBegan:
+            [self startDragging:gestureRecognizer];
+            break;
+        case UIGestureRecognizerStateChanged:
+            [self doDrag:gestureRecognizer];
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed:
+            [self stopDragging:gestureRecognizer];
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark -
+#pragma mark Helper methods for initialization
+
+- (void)setupSourceTableWithFrame:(CGRect)frame
+{
+    
+    [self.manpwrdragview addSubview:_manpwrtable];
+}
+
+- (void)setupDestinationTableWithFrame:(CGRect)frame
+{
+    
+    CGRect dropAreaFrame = frame;
+    dropAreaFrame.origin.y = kNavBarHeight;
+    dropAreaFrame.size.height -= kNavBarHeight;
+    
+    mandropArea = [[UIView alloc] initWithFrame:CGRectMake(315, 40, 448, 742)];
+    [mandropArea setBackgroundColor:[UIColor whiteColor]];
+    [self.manpwrdragview addSubview:mandropArea];
+    
+    CGRect contentFrame = dropAreaFrame;
+    contentFrame.origin = CGPointMake(0, 0);
+    
+    UILabel* dropAreaLabel = [[UILabel alloc] initWithFrame:contentFrame];
+    dropAreaLabel.backgroundColor = [UIColor clearColor];
+    dropAreaLabel.font = [UIFont boldSystemFontOfSize:12];
+    dropAreaLabel.textAlignment = NSTextAlignmentCenter;
+    dropAreaLabel.textColor = [UIColor whiteColor];
+    // dropAreaLabel.text = @"Drop items here...";
+    [mandropArea addSubview:dropAreaLabel];
+    
+    [mandropArea addSubview:_generaltable
+     ];
+}
+
+- (void)initDraggedCellWithCell:(UITableViewCell*)cell AtPoint:(CGPoint)point
+{
+    NSIndexPath* indexPath = [_manpwrtable indexPathForRowAtPoint:point];
+    NSLog(@"ind%d",indexPath.row);
+    //UITableViewCell* cell = [_subtypetable cellForRowAtIndexPath:indexPath];
+    // get rid of old cell, if it wasn't disposed already
+    if(mandraggedCell != nil)
+    {
+        [mandraggedCell removeFromSuperview];
+        // [draggedCell release];
+        mandraggedCell = nil;
+    }
+    
+    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+   
+    mandraggedCell = [[UITableViewCell alloc] init];
+    mandraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
+    Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+    mandraggedCell.textLabel.text =manmdl1.itemcode;
+    mandraggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    
+    mandraggedCell.textLabel.textColor = cell.textLabel.textColor;
+    mandraggedCell.highlighted = YES;
+    mandraggedCell.frame = frame;
+    mandraggedCell.alpha = 0.8;
+    
+    [self.manpwrdragview addSubview:mandraggedCell];
+}
+
+
+#pragma mark Helper methods for dragging
+
+- (void)startDragging:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    
+    
+        CGPoint pointInSrc = [gestureRecognizer locationInView:_manpwrtable];
+        CGPoint pointInDst = [gestureRecognizer locationInView:_generaltable];
+        
+        if([_manpwrtable pointInside:pointInSrc withEvent:nil])
+        {
+            [self startDraggingFromSrcAtPoint:pointInSrc];
+            mandragFromSource = YES;
+        }
+        else if([_generaltable pointInside:pointInDst withEvent:nil])
+        {
+            [self startDraggingFromDstAtPoint:pointInDst];
+            mandragFromSource = NO;
+        }
+    }
+
+
+
+- (void)startDraggingFromSrcAtPoint:(CGPoint)point
+{
+    
+    
+    NSIndexPath* indexPath = [_manpwrtable indexPathForRowAtPoint:point];
+    UITableViewCell* cell = [_manpwrtable cellForRowAtIndexPath:indexPath];
+    
+    if(cell != nil)
+    {
+        CGPoint origin = cell.frame.origin;
+        origin.x += _manpwrtable.frame.origin.x;
+        origin.y += _manpwrtable.frame.origin.y;
+        
+        [self initDraggedCellWithCell:cell AtPoint:origin];
+        cell.highlighted = NO;
+        
+        if(mandraggedData != nil)
+        {
+            //[draggedData release];
+           mandraggedData = nil;
+        }
+        
+       path=indexPath.row;
+        
+        Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+        
+        mandraggedData = manmdl1.itemcode;
+    }
+    
+}
+
+- (void)startDraggingFromDstAtPoint:(CGPoint)point
+{
+    NSIndexPath* indexPath = [_generaltable indexPathForRowAtPoint:point];
+    UITableViewCell* cell = [_generaltable cellForRowAtIndexPath:indexPath];
+    if(cell != nil)
+    {
+        CGPoint origin = cell.frame.origin;
+        origin.x += mandropArea.frame.origin.x;
+        origin.y += mandropArea.frame.origin.y;
+        
+        [self initDraggedCellWithCell:cell AtPoint:origin];
+        cell.highlighted = NO;
+        
+        if(mandraggedData != nil)
+        {
+            //[draggedData release];
+            mandraggedData = nil;
+        }
+        Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+        mandraggedData = manmdl1.itemcode;
+        
+        // remove old cell
+        [_generaldetailarray removeObjectAtIndex:indexPath.row];
+        [_generaltable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+        manpathFromDstTable = indexPath;
+        
+        [UIView animateWithDuration:0.2 animations:^
+         {
+             CGRect frame = _generaltable.frame;
+             //frame.size.height = kCellHeight * [dstData count];
+             _generaltable
+             
+             .frame = frame;
+         }];
+        
+    }
+}
+
+- (void)doDrag:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if(mandraggedCell != nil && mandraggedData != nil)
+    {
+        CGPoint translation = [gestureRecognizer translationInView:[mandraggedCell superview]];
+        [mandraggedCell setCenter:CGPointMake([mandraggedCell center].x + translation.x,
+                                           [mandraggedCell center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[mandraggedCell superview]];
+    }
+}
+
+- (void)stopDragging:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if(mandraggedCell != nil && mandraggedData != nil)
+    {
+        
+        //NSLog(@"%d",[gestureRecognizer state]);
+        //NSLog(@"%hhd",[dropArea pointInside:[gestureRecognizer locationInView:dropArea] withEvent:nil]);
+        
+        
+        if([gestureRecognizer state] == UIGestureRecognizerStateEnded
+           && [mandropArea pointInside:[gestureRecognizer locationInView:mandropArea] withEvent:nil])
+        {
+            NSIndexPath* indexPath = [_generaltable indexPathForRowAtPoint:[gestureRecognizer locationInView:_generaltable]];
+            if(indexPath != nil)
+            {
+                [_generaldetailarray insertObject:mandraggedData atIndex:indexPath.row];
+                [_generaltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+            }
+            else
+            {
+                NSLog(@"index%d",indexPath.row);
+                Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:indexPath.row];
+                gendtdlmdl.itemcode=mandraggedData;
+                [_generaldetailarray addObject:gendtdlmdl];
+                
+               // Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+               // crewmdl1.manpower=draggedData;
+             //   [_crewmembersarray addObject:crewmdl1];
+                
+                [self GeneralDetailInsert];
+            }
+        }
+        else if(!mandragFromSource && manpathFromDstTable != nil)
+        {
+            // insert cell back where it came from
+            [_generaldetailarray insertObject:mandraggedData atIndex:manpathFromDstTable.row];
+            [_generaltable insertRowsAtIndexPaths:[NSArray arrayWithObject:manpathFromDstTable] withRowAnimation:UITableViewRowAnimationMiddle];
+            
+            //[pathFromDstTable release];
+            manpathFromDstTable = nil;
+        }
+        
+        [UIView animateWithDuration:0.3 animations:^
+         {
+             CGRect frame = _generaltable.frame;
+             //frame.size.height = kCellHeight * [_Maintablescflddetailsarray count];
+             _generaltable.frame = frame;
+         }];
+        
+        [mandraggedCell removeFromSuperview];
+        //[draggedCell release];
+        mandraggedCell = nil;
+        
+        //[draggedData release];
+        mandraggedData = nil;
+    }
+}
+
+#pragma mark -MATERIAL DRAG &DROP
+#pragma mark UIGestureRecognizer
+
+- (void)materialhandlePanning:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    switch ([gestureRecognizer state]) {
+        case UIGestureRecognizerStateBegan:
+            [self materialstartDragging:gestureRecognizer];
+            break;
+        case UIGestureRecognizerStateChanged:
+            [self materialdoDrag:gestureRecognizer];
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateCancelled:
+        case UIGestureRecognizerStateFailed:
+            [self materialstopDragging:gestureRecognizer];
+            break;
+        default:
+            break;
+    }
+}
+#pragma mark -
+#pragma mark Helper methods for initialization
+
+- (void)materialsetupSourceTableWithFrame:(CGRect)frame
+{
+    
+    [self.matraltouchview addSubview:_materialtable];
+}
+
+- (void)materialsetupDestinationTableWithFrame:(CGRect)frame
+{
+    
+    CGRect matraldropAreaFrame = frame;
+    matraldropAreaFrame.origin.y = kNavBarHeight;
+    matraldropAreaFrame.size.height -= kNavBarHeight;
+    
+    materldropArea = [[UIView alloc] initWithFrame:CGRectMake(340, 45, 397, 600)];
+    [materldropArea setBackgroundColor:[UIColor whiteColor]];
+    [self.matraltouchview addSubview:materldropArea];
+    
+    CGRect contentFrame = matraldropAreaFrame;
+    contentFrame.origin = CGPointMake(0, 0);
+    
+    UILabel* dropAreaLabel = [[UILabel alloc] initWithFrame:contentFrame];
+    dropAreaLabel.backgroundColor = [UIColor clearColor];
+    dropAreaLabel.font = [UIFont boldSystemFontOfSize:12];
+    dropAreaLabel.textAlignment = NSTextAlignmentCenter;
+    dropAreaLabel.textColor = [UIColor whiteColor];
+    // dropAreaLabel.text = @"Drop items here...";
+    [materldropArea addSubview:dropAreaLabel];
+    
+    [materldropArea addSubview:_resourcegenraltable];
+}
+
+- (void)materialinitDraggedCellWithCell:(UITableViewCell*)cell AtPoint:(CGPoint)point
+{
+    NSIndexPath* indexPath = [_materialtable indexPathForRowAtPoint:point];
+    NSLog(@"ind%d",indexPath.row);
+    //UITableViewCell* cell = [_subtypetable cellForRowAtIndexPath:indexPath];
+    // get rid of old cell, if it wasn't disposed already
+    if(materldraggedCell != nil)
+    {
+        [materldraggedCell removeFromSuperview];
+        // [draggedCell release];
+        materldraggedCell = nil;
+    }
+    
+    CGRect frame = CGRectMake(point.x, point.y, cell.frame.size.width-5, cell.frame.size.height-10);
+    
+    materldraggedCell = [[UITableViewCell alloc] init];
+    materldraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
+    Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+    materldraggedCell.textLabel.text =manmdl1.itemcode;
+    materldraggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    
+    materldraggedCell.textLabel.textColor = cell.textLabel.textColor;
+    materldraggedCell.highlighted = YES;
+    materldraggedCell.frame = frame;
+    materldraggedCell.alpha = 0.8;
+    
+    [self.matraltouchview addSubview:materldraggedCell];
+}
+
+
+#pragma mark Helper methods for dragging
+
+- (void)materialstartDragging:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    
+    
+    CGPoint pointInSrc = [gestureRecognizer locationInView:_materialtable];
+    CGPoint pointInDst = [gestureRecognizer locationInView:_resourcegenraltable];
+    
+    if([_materialtable pointInside:pointInSrc withEvent:nil])
+    {
+        [self materialstartDraggingFromSrcAtPoint:pointInSrc];
+        materldragFromSource = YES;
+    }
+    else if([_resourcegenraltable pointInside:pointInDst withEvent:nil])
+    {
+        [self materialstartDraggingFromDstAtPoint:pointInDst];
+        materldragFromSource = NO;
+    }
+}
+
+
+
+- (void)materialstartDraggingFromSrcAtPoint:(CGPoint)point
+{
+    
+    
+    NSIndexPath* indexPath = [_materialtable indexPathForRowAtPoint:point];
+    UITableViewCell* cell = [_materialtable cellForRowAtIndexPath:indexPath];
+    
+    if(cell != nil)
+    {
+        CGPoint origin = cell.frame.origin;
+        origin.x += _materialtable.frame.origin.x;
+        origin.y += _materialtable.frame.origin.y;
+        
+        [self materialinitDraggedCellWithCell:cell AtPoint:origin];
+        cell.highlighted = NO;
+        
+        if(materldraggedData != nil)
+        {
+            //[draggedData release];
+            materldraggedData = nil;
+        }
+        
+        materialpath=indexPath.row;
+        
+        Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+        
+        materldraggedData = manmdl1.itemcode;
+    }
+    
+}
+
+- (void)materialstartDraggingFromDstAtPoint:(CGPoint)point
+{
+    NSIndexPath* indexPath = [_resourcegenraltable indexPathForRowAtPoint:point];
+    UITableViewCell* cell = [_resourcegenraltable cellForRowAtIndexPath:indexPath];
+    if(cell != nil)
+    {
+        CGPoint origin = cell.frame.origin;
+        origin.x += materldropArea.frame.origin.x;
+        origin.y += materldropArea.frame.origin.y;
+        
+        [self materialinitDraggedCellWithCell:cell AtPoint:origin];
+        cell.highlighted = NO;
+        
+        if(materldraggedData != nil)
+        {
+            //[draggedData release];
+            materldraggedData = nil;
+        }
+        Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+        materldraggedData = manmdl1.itemcode;
+        
+        // remove old cell
+        [_resourcearray removeObjectAtIndex:indexPath.row];
+        [_resourcegenraltable deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+        materlpathFromDstTable = indexPath;
+        
+        [UIView animateWithDuration:0.2 animations:^
+         {
+             CGRect frame = _generaltable.frame;
+             //frame.size.height = kCellHeight * [dstData count];
+             _generaltable
+             
+             .frame = frame;
+         }];
+        
+    }
+}
+
+- (void)materialdoDrag:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if(materldraggedCell != nil && materldraggedData != nil)
+    {
+        CGPoint translation = [gestureRecognizer translationInView:[materldraggedCell superview]];
+        [materldraggedCell setCenter:CGPointMake([materldraggedCell center].x + translation.x,
+                                              [materldraggedCell center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[materldraggedCell superview]];
+    }
+}
+
+- (void)materialstopDragging:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if(materldraggedCell != nil && materldraggedData != nil)
+    {
+        
+        //NSLog(@"%d",[gestureRecognizer state]);
+        //NSLog(@"%hhd",[dropArea pointInside:[gestureRecognizer locationInView:dropArea] withEvent:nil]);
+        
+        
+        if([gestureRecognizer state] == UIGestureRecognizerStateEnded
+           && [materldropArea pointInside:[gestureRecognizer locationInView:materldropArea] withEvent:nil])
+        {
+            NSIndexPath* indexPath = [_resourcegenraltable indexPathForRowAtPoint:[gestureRecognizer locationInView:_resourcegenraltable]];
+            if(indexPath != nil)
+            {
+                [_resourcearray insertObject:materldraggedData atIndex:indexPath.row];
+                [_resourcegenraltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+            }
+            else
+            {
+                NSLog(@"index%d",indexPath.row);
+              //  Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:indexPath.row];
+                //gendtdlmdl.itemcode=materldraggedData;
+                //[_generaldetailarray addObject:gendtdlmdl];
+                
+                // Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+                // crewmdl1.manpower=draggedData;
+                //   [_crewmembersarray addObject:crewmdl1];
+                
+                   Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:indexPath.row];
+                matmdl1.itemcode=materldraggedData;
+                [_resourcearray addObject:matmdl1];
+                [self GeneralResourceDetailInsert];
+            }
+        }
+        else if(!materldragFromSource && materlpathFromDstTable != nil)
+        {
+            // insert cell back where it came from
+            [_resourcearray insertObject:materldraggedData atIndex:materlpathFromDstTable.row];
+            [_resourcegenraltable insertRowsAtIndexPaths:[NSArray arrayWithObject:materlpathFromDstTable] withRowAnimation:UITableViewRowAnimationMiddle];
+            
+            //[pathFromDstTable release];
+            materlpathFromDstTable = nil;
+        }
+        
+        [UIView animateWithDuration:0.3 animations:^
+         {
+             CGRect frame = _generaltable.frame;
+             //frame.size.height = kCellHeight * [_Maintablescflddetailsarray count];
+             _resourcegenraltable.frame = frame;
+         }];
+        
+        [materldraggedCell removeFromSuperview];
+        //[draggedCell release];
+        materldraggedCell = nil;
+        
+        //[draggedData release];
+        materldraggedData = nil;
+    }
+}
+
+#pragma mark-Button
+- (IBAction)clsbtn:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)deletebtn:(id)sender {
+
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_generaltable setEditing:NO animated:NO];
+        [_generaltable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_generaltable setEditing:YES animated:YES];
+        [_generaltable reloadData];
+        
+        
+        
+        
+    }
+
+}
+
+- (IBAction)editclsebtn:(id)sender {
+    
+    
+    _editview.hidden=YES;
+    
+   }
+
+- (IBAction)updatebtn:(id)sender {
+    [self GeneralDetailUpdate];
+    
+}
+
+- (IBAction)editbtn:(id)sender {
+    
+      _editview.hidden=NO;
+       button = (UIButton *)sender;
+       CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.generaltable];
+        NSIndexPath *textFieldIndexPath = [self.generaltable indexPathForRowAtPoint:rootViewPoint];
+       NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+       editpath=textFieldIndexPath.row;
+        Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:textFieldIndexPath.row];
+       _manpwrtxtfld.text=gendtdlmdl.itemcode;
+        _descptntxtfld.text=gendtdlmdl.itemdescptn;
+       _numbertxtfld.text=gendtdlmdl.numbers;
+       _hourstxtfld.text=gendtdlmdl.hours;
+    
+    
+    
+}
+
+- (IBAction)matrlupdatebtn:(id)sender {
+    [self GeneralResourceDetailUpdate];
+}
+
+- (IBAction)editmatrlbtn:(id)sender {
+    _materleditview.hidden=NO;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.resourcegenraltable];
+    NSIndexPath *textFieldIndexPath = [self.resourcegenraltable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    meteditpath=textFieldIndexPath.row;
+    Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:textFieldIndexPath.row];
+
+    _codetxtfld.text=matmdl1.itemcode;
+    _matrldesctxtfld.text=matmdl1.itemdesc;
+    _quantitytxtfld.text=matmdl1.itmqunty;
+  
+
+}
+
+- (IBAction)mateditbtn:(id)sender {
+    _materleditview.hidden=YES;
+
+}
+
+- (IBAction)metdeltebtn:(id)sender {
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_resourcegenraltable setEditing:NO animated:NO];
+        [_resourcegenraltable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_resourcegenraltable setEditing:YES animated:YES];
+        [_resourcegenraltable reloadData];
+        
+        
+        
+        
+    }
+
+}
+@end

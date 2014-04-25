@@ -179,9 +179,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (tableView==_autocompleteTableView) {
         UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    _crewnametxtfld.text = selectedCell.textLabel.text;
-      [self Selectcrewname];
-    _autocompleteTableView.hidden = YES;
+        _crewnametxtfld.text = selectedCell.textLabel.text;
+          [self Selectcrewname];
+        _autocompleteTableView.hidden = YES;
     }
   
     
