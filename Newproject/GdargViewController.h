@@ -45,6 +45,12 @@
     
 }
 
+@property (strong, nonatomic) IBOutlet UIView *mantabletitle;
+@property (strong, nonatomic) IBOutlet UIView *genraltabletitle;
+
+@property (strong, nonatomic) IBOutlet UIView *matrltabletitle;
+@property (strong, nonatomic) IBOutlet UIView *resurcetabletitle;
+
 @property (strong, nonatomic) IBOutlet UIView *materialview;
 @property (strong, nonatomic) IBOutlet UIView *manpowerview;
 

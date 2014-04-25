@@ -42,6 +42,12 @@
     [self.matraltouchview addGestureRecognizer:panGesture1];
    // [_generaltable setContentOffset:CGPointMake(0, 700)];
     
+    _mantabletitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _genraltabletitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _matrltabletitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _resurcetabletitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+
+
     _manpwrtable.layer.borderWidth=2.0f;
     _manpwrtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _generaltable.layer.borderWidth=2.0f;
