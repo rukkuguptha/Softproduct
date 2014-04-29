@@ -576,7 +576,7 @@
 
     }
     else if ([_mobiletextfld.text isEqualToString:@""]){
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Mobilenumber is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Mobile Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
         

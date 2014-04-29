@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+     _cmpxtyofwrk=[[NSMutableArray alloc]initWithObjects:@"Easy",@"Moderate",@"Difficult", nil];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _addplanview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
@@ -81,6 +83,10 @@
                 else if (newpoptype==3){
                     return [_typelistarray count];
                 }
+                else if (newpoptype==4){
+                    return [_cmpxtyofwrk count];
+                }
+
               
                 break;
                 case 2:
@@ -128,6 +134,11 @@
                     cell.textLabel.text=[_typelistarray objectAtIndex:indexPath.row];
 
                 }
+                else if (newpoptype==4){
+                    cell.textLabel.text=[_cmpxtyofwrk objectAtIndex:indexPath.row];
+                    
+                }
+
              break;
             case 2:
                 cell.textLabel.text=[_disclosurearry objectAtIndex:indexPath.row];
@@ -170,6 +181,12 @@
                  
                     
                 }
+                else if (newpoptype==4){
+                    [_cmplexitybtnlbl setTitle:[_cmpxtyofwrk objectAtIndex:indexPath.row]forState:UIControlStateNormal];
+                    
+                    
+                }
+                
 
 
                // [_customerselectionBtn setTitle:[_customerlistarray objectAtIndex:indexPath.row]forState:UIControlStateNormal];
@@ -524,11 +541,34 @@
       NSLog(@"%@",planmdl.worktypeid);
     
     [_typebtnlbl setTitle:[_revtypelistdict objectForKey:planmdl.worktypeid] forState:UIControlStateNormal];
+    _loctntxtfld.text=planmdl.location;
+    _ziptxtfld.text=planmdl.zip;
+      [_cmplexitybtnlbl setTitle:planmdl.complexity forState:UIControlStateNormal];
     
     
 
 
 }
+- (IBAction)cmplxitywrkbtn:(id)sender {
+    poptype=1;
+    newpoptype=4;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 120);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_cmplexitybtnlbl.frame inView:_addplanview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [_popovertableview reloadData];
+
+}
+
 #pragma mark - SearchBar
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
@@ -576,8 +616,9 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
+    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -745,14 +786,17 @@
                    "<Fold_ID>%d</Fold_ID>\n"
                    "<WorkType>%d</WorkType>\n"
                    "<SiteFactor>%f</SiteFactor>\n"
+                   "<Location>%@</Location>\n"
+                   "<Zip>%@</Zip>\n"
+                   "<Complexity>%@</Complexity>\n"
                    "</InsertPlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue]];
+                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -843,9 +887,12 @@
                    "<Fold_ID>%d</Fold_ID>\n"
                    "<WorkType>%d</WorkType>\n"
                    "<SiteFactor>%f</SiteFactor>\n"
+                   "<Location>%@</Location>\n"
+                   "<Zip>%@</Zip>\n"
+                   "<Complexity>%@</Complexity>\n"
                    "</UpdatePlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue]];
+                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1209,6 +1256,36 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Location"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Zip"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Complexity"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     if([elementName isEqualToString:@"DeletePlanResult"])
     {
@@ -1421,11 +1498,53 @@
         
         recordResults = FALSE;
         _plnmdl.sitefactor=_soapResults;
-        [_planlistarray addObject:_plnmdl];
+      
 
         _soapResults = nil;
 
     }
+    if([elementName isEqualToString:@"Location"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.location=_soapResults;
+      
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Zip"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.zip=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Complexity"])
+    {
+        
+        
+        recordResults = FALSE;
+        _plnmdl.complexity=_soapResults;
+          [_planlistarray addObject:_plnmdl];
+        
+        _soapResults = nil;
+    }
+    
+    if([elementName isEqualToString:@"DeletePlanResult"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+        
+    }
+
 
     if([elementName isEqualToString:@"Column1"])
     {
@@ -1509,6 +1628,9 @@
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
         [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _loctntxtfld.text=@"";
+        _ziptxtfld.text=@"";
+        [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         
     }
     

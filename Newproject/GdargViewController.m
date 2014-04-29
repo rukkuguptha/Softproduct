@@ -1551,7 +1551,7 @@
     matraldropAreaFrame.origin.y = kNavBarHeight;
     matraldropAreaFrame.size.height -= kNavBarHeight;
     
-    materldropArea = [[UIView alloc] initWithFrame:CGRectMake(340, 45, 397, 600)];
+    materldropArea = [[UIView alloc] initWithFrame:CGRectMake(340, 45, 397, 700)];
     [materldropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
     [self.matraltouchview addSubview:materldropArea];
     

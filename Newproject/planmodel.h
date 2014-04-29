@@ -17,6 +17,10 @@
 @property(readwrite)NSInteger idvalue;
 @property(strong,nonatomic)NSString *worktypeid;
 @property(strong,nonatomic)NSString *sitefactor;
+@property(strong,nonatomic)NSString *location;
+@property(strong,nonatomic)NSString *zip;
+
+@property(strong,nonatomic)NSString *complexity;
 
 
 @end
