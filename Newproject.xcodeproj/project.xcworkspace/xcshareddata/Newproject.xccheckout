@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>53B6C557-0650-42E3-9E56-1A7BAF69B88A</string>
+	<string>294052FA-676C-4B63-8242-912F40EFF980</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Newproject</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>FCCA2382-C20D-4616-9062-4DE2F5E9E8E1</key>
-		<string>ssh://github.com/Riagms/pqkontract.git</string>
+		<key>34CDE4EC-EEA4-4D02-9D2E-95E2E0344A95</key>
+		<string>ssh://github.com/Riagms/Rskntrct.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Newproject.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>FCCA2382-C20D-4616-9062-4DE2F5E9E8E1</key>
+		<key>34CDE4EC-EEA4-4D02-9D2E-95E2E0344A95</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/Riagms/pqkontract.git</string>
+	<string>ssh://github.com/Riagms/Rskntrct.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>FCCA2382-C20D-4616-9062-4DE2F5E9E8E1</string>
+	<string>34CDE4EC-EEA4-4D02-9D2E-95E2E0344A95</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>FCCA2382-C20D-4616-9062-4DE2F5E9E8E1</string>
+			<string>34CDE4EC-EEA4-4D02-9D2E-95E2E0344A95</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Kontract</string>
 		</dict>
