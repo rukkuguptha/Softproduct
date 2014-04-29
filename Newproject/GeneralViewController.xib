@@ -8,12 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GeneralViewController">
             <connections>
                 <outlet property="destextview" destination="637-QI-js0" id="84p-AZ-pkK"/>
+                <outlet property="eqmntbtn" destination="CVB-69-2E4" id="Do1-Tg-Ijc"/>
                 <outlet property="equipmnttxtfld" destination="oCL-uU-M4y" id="8xM-sh-OzB"/>
+                <outlet property="manbtn" destination="VBv-MD-gGa" id="1za-L9-Y4G"/>
+                <outlet property="matbtn" destination="xXD-Mo-SSO" id="k8A-8h-v7O"/>
                 <outlet property="navitm" destination="i63-4Z-Qes" id="cAm-dr-hiB"/>
                 <outlet property="phasebtnlbl" destination="5QA-pi-fj7" id="pCC-yp-EEX"/>
                 <outlet property="prjcthdrtxtfld" destination="B1o-cX-vxo" id="c0Z-jF-VyQ"/>
                 <outlet property="projectheaderbtnlbl" destination="G2m-qq-wLS" id="a7c-Fc-v2b"/>
-                <outlet property="quantytxtfld" destination="Lad-wN-bV2" id="oOV-3m-kAY"/>
                 <outlet property="scroll" destination="E5Q-av-DHl" id="c04-kb-pF3"/>
                 <outlet property="subunittxtfld" destination="AaG-dQ-q9d" id="Kb9-MT-uBq"/>
                 <outlet property="unittxtfld" destination="Szb-ZO-QPb" id="iqf-6K-DnM"/>
@@ -90,18 +92,6 @@
                                 <outlet property="delegate" destination="-1" id="dnF-WK-QA0"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CS7-Oc-jtJ">
-                            <rect key="frame" x="57" y="181" width="63" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lad-wN-bV2">
-                            <rect key="frame" x="57" y="201" width="266" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
-                        </textField>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phase" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nHe-cl-Upb">
                             <rect key="frame" x="446" y="182" width="42" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -121,13 +111,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sequence" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OtZ-Am-VUJ">
-                            <rect key="frame" x="57" y="250" width="96" height="21"/>
+                            <rect key="frame" x="57" y="182" width="96" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2m-qq-wLS">
-                            <rect key="frame" x="57" y="270" width="266" height="34"/>
+                            <rect key="frame" x="57" y="199" width="266" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Select" backgroundImage="textbox.png">
@@ -139,13 +129,13 @@
                             </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVo-mC-uqc">
-                            <rect key="frame" x="57" y="360" width="90" height="21"/>
+                            <rect key="frame" x="57" y="283" width="90" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="637-QI-js0">
-                            <rect key="frame" x="57" y="383" width="655" height="75"/>
+                            <rect key="frame" x="57" y="306" width="655" height="75"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -155,7 +145,7 @@
                             </connections>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPo-ua-EO2">
-                            <rect key="frame" x="361" y="481" width="46" height="30"/>
+                            <rect key="frame" x="361" y="409" width="46" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Update">
@@ -165,8 +155,8 @@
                                 <action selector="updatebtn:" destination="-1" eventType="touchUpInside" id="oqr-fj-CGE"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBv-MD-gGa">
-                            <rect key="frame" x="103" y="591" width="88" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBv-MD-gGa">
+                            <rect key="frame" x="57" y="512" width="88" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Manpower" backgroundImage="textbox.png">
@@ -176,8 +166,8 @@
                                 <action selector="manpowerbtn:" destination="-1" eventType="touchUpInside" id="aqx-AS-iAf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-69-2E4">
-                            <rect key="frame" x="216" y="591" width="88" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-69-2E4">
+                            <rect key="frame" x="170" y="512" width="88" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Equipment" backgroundImage="textbox.png">
@@ -187,8 +177,8 @@
                                 <action selector="equpmntbtn:" destination="-1" eventType="touchUpInside" id="J76-Wo-uOu"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXD-Mo-SSO">
-                            <rect key="frame" x="333" y="591" width="88" height="30"/>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xXD-Mo-SSO">
+                            <rect key="frame" x="287" y="512" width="88" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Material" backgroundImage="textbox.png">

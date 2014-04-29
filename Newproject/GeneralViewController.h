@@ -74,9 +74,13 @@
 @property (strong, nonatomic) IBOutlet UITextField * subunittxtfld;
 @property (strong, nonatomic) IBOutlet UITextField * equipmnttxtfld;
 @property (strong, nonatomic) IBOutlet UITextField * prjcthdrtxtfld;
-@property (strong, nonatomic) IBOutlet UITextField * quantytxtfld;
+//@property (strong, nonatomic) IBOutlet UITextField * quantytxtfld;
 @property (strong, nonatomic) IBOutlet UIButton    * phasebtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton    * projectheaderbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton    * manbtn;
+@property (strong, nonatomic) IBOutlet UIButton    * eqmntbtn;
+@property (strong, nonatomic) IBOutlet UIButton    * matbtn;
 
 /*Actions*/
 - (IBAction)phasebtn:(id)sender;
