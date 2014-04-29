@@ -91,6 +91,7 @@
 @property(strong,nonatomic)NSMutableArray *disclosurearry;
 @property(strong,nonatomic)NSMutableArray *planlistarray;
 @property(strong,nonatomic)NSMutableArray *typelistarray;
+@property(strong,nonatomic)NSMutableArray *cmpxtyofwrk;
 
 
 /*Dict*/
@@ -108,6 +109,11 @@
 - (IBAction)typebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *sitefactortxtfld;
 
+@property (strong, nonatomic) IBOutlet UITextField *loctntxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *ziptxtfld;
+@property (strong, nonatomic) IBOutlet UIButton *cmplexitybtnlbl;
+
+- (IBAction)cmplxitywrkbtn:(id)sender;
 
 
 

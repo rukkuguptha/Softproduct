@@ -8,8 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlanningViewController">
             <connections>
                 <outlet property="addplanview" destination="1sr-eH-f7a" id="Rsr-Pb-MWk"/>
+                <outlet property="cmplexitybtnlbl" destination="cH2-Vi-3mK" id="f9R-sM-azl"/>
                 <outlet property="custcheckbtn" destination="FlS-2L-LZz" id="9Q2-cQ-O3L"/>
                 <outlet property="leadcheckbtn" destination="N0w-R8-PPz" id="DUX-eh-ztV"/>
+                <outlet property="loctntxtfld" destination="AVH-RM-59x" id="8yw-9Z-DdE"/>
                 <outlet property="navabar" destination="wMZ-FX-GhQ" id="xeo-xw-hom"/>
                 <outlet property="plangtable" destination="847-Xa-wgb" id="WNR-6a-a8j"/>
                 <outlet property="planselectionbtn" destination="kgV-3x-YWU" id="Mq6-eN-OLc"/>
@@ -18,6 +20,7 @@
                 <outlet property="tabletitleview" destination="ldd-qP-mZc" id="130-0m-aYu"/>
                 <outlet property="typebtnlbl" destination="t7T-uN-JHF" id="Hws-mf-k2h"/>
                 <outlet property="view" destination="2" id="3"/>
+                <outlet property="ziptxtfld" destination="oX5-ZR-hL5" id="fhC-Ni-o1h"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -103,7 +106,7 @@
                             </connections>
                         </tableView>
                         <view hidden="YES" contentMode="scaleToFill" id="1sr-eH-f7a" userLabel="ADD view">
-                            <rect key="frame" x="100" y="171" width="571" height="346"/>
+                            <rect key="frame" x="100" y="171" width="571" height="430"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="N0w-R8-PPz">
@@ -182,7 +185,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0xA-8o-8iB">
-                                    <rect key="frame" x="359" y="272" width="59" height="30"/>
+                                    <rect key="frame" x="319" y="352" width="59" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Cancel">
@@ -193,7 +196,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="BHl-H8-Vf1">
-                                    <rect key="frame" x="222" y="272" width="78" height="30"/>
+                                    <rect key="frame" x="182" y="352" width="78" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Update">
@@ -229,11 +232,56 @@
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site Factor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ePw-px-gSK">
-                                    <rect key="frame" x="20" y="176" width="76" height="21"/>
+                                    <rect key="frame" x="15" y="176" width="76" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="AVH-RM-59x">
+                                    <rect key="frame" x="303" y="196" width="247" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="oX5-ZR-hL5">
+                                    <rect key="frame" x="15" y="263" width="247" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WoY-ar-UuY">
+                                    <rect key="frame" x="303" y="176" width="75" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zip" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KXc-M1-1dX">
+                                    <rect key="frame" x="15" y="242" width="75" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Complexity of Work" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LMn-99-koR">
+                                    <rect key="frame" x="303" y="242" width="125" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cH2-Vi-3mK">
+                                    <rect key="frame" x="303" y="263" width="248" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                    <state key="normal" title="Select" backgroundImage="textbox.png">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="cmplxitywrkbtn:" destination="-1" eventType="touchUpInside" id="LYi-0k-swY"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.64528858420000001" green="0.1049218921" blue="0.01033548552" alpha="1" colorSpace="calibratedRGB"/>
                         </view>

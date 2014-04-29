@@ -827,7 +827,8 @@
 
         else if (optionidentifier==1) {
             
-            if(![_emailtextfield.text isEqualToString:@""])
+            
+            if([_emailtextfield.text isEqualToString:@""])
             {
                 Validation *val=[[Validation alloc]init];
                 int value2 = [val validEmailAddress:_emailtextfield.text];
@@ -842,15 +843,26 @@
                 
                 else
                 {
-                    
+            
                     [self CustomerSalesRepInfoInsert];
                 }
             }
+            
+            else
+            {
+                
+                [self CustomerSalesRepInfoInsert];
+            }
+
         }
     
         else if(optionidentifier==2)
         {
-            if(![_emailtextfield.text isEqualToString:@""])
+            
+            
+            [self CustomerSalesRepInfoUpdate];
+            
+            if([_emailtextfield.text isEqualToString:@""])
             {
                 Validation *val=[[Validation alloc]init];
                 int value2 = [val validEmailAddress:_emailtextfield.text];
@@ -869,6 +881,13 @@
                     [self CustomerSalesRepInfoUpdate];
                 }
             }
+            else{
+                
+                
+                
+                [self CustomerSalesRepInfoUpdate];
+            }
+
             
         }
 }

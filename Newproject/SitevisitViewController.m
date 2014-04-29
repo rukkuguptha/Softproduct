@@ -80,6 +80,13 @@
     _cmpxtyofwrk=[[NSMutableArray alloc]initWithObjects:@"Easy",@"Moderate",@"Difficult", nil];
     
     _gernalbtnlbl.tintColor=[UIColor whiteColor];
+    [[self.facilitytxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.facilitytxtview layer] setBorderWidth:2];
+    [[self.facilitytxtview layer] setCornerRadius:10];
+    [[self.scpeofwrktxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.scpeofwrktxtview layer] setBorderWidth:2];
+    [[self.scpeofwrktxtview layer] setCornerRadius:10];
+
 
     }
 
