@@ -353,8 +353,8 @@
         _generalphlabel.text=genmdl.ProjectHeader;
         //[NSString stringWithFormat:@"%d",scaffmdl.typescaffold];
         
-        _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
-        _generalquanitylabel.text=genmdl.Quantity;
+//        _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
+//        _generalquanitylabel.text=genmdl.Quantity;
         
         _generalphaselabel=(UILabel*)[cell viewWithTag:6];
         _generalphaselabel.text=genmdl.Phase;

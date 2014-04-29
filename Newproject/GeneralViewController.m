@@ -35,7 +35,7 @@
         _subunittxtfld.text=@"";
         _equipmnttxtfld.text=@"";
         _prjcthdrtxtfld.text=@"";
-        _quantytxtfld.text=@"";
+        //_quantytxtfld.text=@"";
          _destextview.text=@"";
         [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
@@ -43,6 +43,9 @@
     }
 
    else if (_optionidentfr==2) {
+       _manbtn.hidden=NO;
+       _matbtn.hidden=NO;
+       _eqmntbtn.hidden=NO;
           _navitm.title=@"EDIT";
         
         _generalmdl=(Generalmodel *)[_generalarray objectAtIndex:0];
@@ -50,7 +53,7 @@
         _subunittxtfld.text=_generalmdl.SubUnit;
         _equipmnttxtfld.text=_generalmdl.Equipment;
         _prjcthdrtxtfld.text=_generalmdl.ProjectHeader;
-        _quantytxtfld.text=_generalmdl.Quantity;
+        //_quantytxtfld.text=_generalmdl.Quantity;
         _destextview.text=_generalmdl.genDescription;
         [_phasebtnlbl setTitle:_generalmdl.Phase forState:UIControlStateNormal];
         [_projectheaderbtnlbl setTitle:_generalmdl.sequence forState:UIControlStateNormal];
@@ -497,6 +500,7 @@
     NSString *soapMessage;
     
     NSString *totalhrs=0;
+     NSString *qty=0;
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -518,7 +522,7 @@
                    "<SequenceId>%d</SequenceId>\n"
                    "</GeneralInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,_quantytxtfld.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,qty,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -555,6 +559,7 @@
     NSString *soapMessage;
     
     NSString *totalhrs=0;
+    NSString *qty=0;
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -577,7 +582,7 @@
                    "<SequenceId>%d</SequenceId>\n"
                    "</GeneralUpdates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,_quantytxtfld.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,qty,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -915,9 +920,11 @@
         _subunittxtfld.text=@"";
         _equipmnttxtfld.text=@"";
         _prjcthdrtxtfld.text=@"";
-        _quantytxtfld.text=@"";
+        //_quantytxtfld.text=@"";
         _destextview.text=@"";
-
+        _manbtn.hidden=NO;
+        _matbtn.hidden=NO;
+        _eqmntbtn.hidden=NO;
         [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         
@@ -1113,13 +1120,13 @@
         NSUInteger newLength = [_prjcthdrtxtfld.text length] + [string length] - range.length;
         return (newLength > 30) ? NO : YES;
     }
-    if(textField==_quantytxtfld)
-    {
-        NSUInteger newLength = [_quantytxtfld.text length] + [string length] - range.length;
-        return (newLength > 3) ? NO : YES;
-
-
-    }
+//    if(textField==_quantytxtfld)
+//    {
+//        NSUInteger newLength = [_quantytxtfld.text length] + [string length] - range.length;
+//        return (newLength > 3) ? NO : YES;
+//
+//
+//    }
     
 
     
@@ -1128,7 +1135,7 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     
-    Validation*val=[[Validation alloc]init];
+    //Validation*val=[[Validation alloc]init];
     if(textField==_unittxtfld)
     {
         
@@ -1147,14 +1154,14 @@
     {
          _autotable3.hidden = YES;
     }
-    if (textField==_quantytxtfld) {
-        
-        int value1=[val isNumeric:_quantytxtfld.text];
-        if (value1==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Qunatity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-            
-        }}
+//    if (textField==_quantytxtfld) {
+//        
+//        int value1=[val isNumeric:_quantytxtfld.text];
+//        if (value1==0) {
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Qunatity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//        }}
 
     
 }
@@ -1166,7 +1173,7 @@
 #pragma mark-AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:@"Invalid Qunatity"]) {
-        _quantytxtfld.text=@"";
+        //_quantytxtfld.text=@"";
         
     }
 }
@@ -1263,6 +1270,9 @@
 
     
     else if (_optionidentfr==2){
+        _manbtn.hidden=NO;
+        _matbtn.hidden=NO;
+        _eqmntbtn.hidden=NO;
         [self GeneralUpdates];
      
     }
