@@ -113,9 +113,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Selectcrew xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanCrewSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</Selectcrew>\n"
+                   "</PlanCrewSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -130,7 +130,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Selectcrew" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/PlanCrewSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -253,8 +253,7 @@
 -(void)GeneralDetailInsert{
     
     recordResults = FALSE;
-     Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:path];
-    NSString *houres=@"0";
+       NSString *houres=@"1";
     NSString *soapMessage;
     
     
@@ -273,7 +272,7 @@
                    "<Houres>%f</Houres>\n"
                    "</GeneralDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,1,[houres floatValue]];
+                   "</soap:Envelope>\n",_generalid,[[_crewdict objectForKey:[_manpowerarray objectAtIndex:path]] integerValue],1,[houres floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -358,7 +357,7 @@
 -(void)GeneralDetailUpdate{
     
     recordResults = FALSE;
-    Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:path];
+  //  Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:path];
        NSString *soapMessage;
        Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:editpath];
     
@@ -378,7 +377,7 @@
                    "<Houres>%f</Houres>\n"
                    "</GeneralDetailUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[gendtdlmdl.manid integerValue],_generalid,manmdl1.entryid,[_numbertxtfld.text integerValue],[_hourstxtfld.text floatValue]];
+                   "</soap:Envelope>\n",[gendtdlmdl.manid integerValue],_generalid,[gendtdlmdl.itemdescptn integerValue],[_numbertxtfld.text integerValue],[_hourstxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -790,7 +789,7 @@
         
     }
 
-    if([elementName isEqualToString:@"ItemCode"])
+    if([elementName isEqualToString:@"CrewName"])
     {
         
         if(!_soapResults)
@@ -801,7 +800,7 @@
         
     }
     
-    if([elementName isEqualToString:@"Description"])
+    if([elementName isEqualToString:@"SubgeneralId"])
     {
         
         if(!_soapResults)
@@ -937,8 +936,9 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"SelectcrewResponse"])
+    if([elementName isEqualToString:@"PlanCrewSelectResponse"])
     {  _manpowerarray=[[NSMutableArray alloc]init];
+        _crewdict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -947,7 +947,16 @@
         recordResults = TRUE;
     }
     
-    
+    if([elementName isEqualToString:@"crewid"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"crewname"])
     {
         
@@ -1013,7 +1022,7 @@
         
     }
 
-    if([elementName isEqualToString:@"ItemCode"])
+    if([elementName isEqualToString:@"CrewName"])
     {
         
          recordResults = FALSE;
@@ -1023,7 +1032,7 @@
 
         
     }
-        if([elementName isEqualToString:@"Description"])
+        if([elementName isEqualToString:@"SubgeneralId"])
     {
         
         recordResults = FALSE;
@@ -1162,11 +1171,19 @@
 
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"crewid"])
+    {
+        recordResults = FALSE;
+        crewid=_soapResults;
+        
+        _soapResults = nil;}
+
     if([elementName isEqualToString:@"crewname"])
     {
         recordResults = FALSE;
 
        [_manpowerarray addObject:_soapResults];
+      [_crewdict setObject:crewid forKey:_soapResults];
      _soapResults = nil;}
 
 
@@ -1409,8 +1426,9 @@
    
     mandraggedCell = [[UITableViewCell alloc] init];
     mandraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
-    mandraggedCell.textLabel.text =manmdl1.itemcode;
+   // Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+    //mandraggedCell.textLabel.text =manmdl1.itemcode;
+     mandraggedCell.textLabel.text=[_manpowerarray objectAtIndex:indexPath.row];
     mandraggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
     mandraggedCell.textLabel.textColor = cell.textLabel.textColor;
@@ -1469,9 +1487,11 @@
         
        path=indexPath.row;
         
-        Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+//        Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+//        
+//        mandraggedData = manmdl1.itemcode;
         
-        mandraggedData = manmdl1.itemcode;
+        mandraggedData = [_manpowerarray objectAtIndex:indexPath.row];
     }
     
 }

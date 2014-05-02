@@ -41,6 +41,7 @@
     UIButton *button;
     
     NSInteger metdeletepath;
+    NSString *crewid;
     
     
 }
@@ -70,7 +71,7 @@
 @property(strong,nonatomic)NSMutableArray *generaldetailarray;
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *resourcearray;
-
+@property(strong,nonatomic)NSMutableDictionary *crewdict;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
 @property (strong, nonatomic) IBOutlet UITableView *manpwrtable;
