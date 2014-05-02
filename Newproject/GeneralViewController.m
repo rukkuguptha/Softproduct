@@ -221,8 +221,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -270,8 +270,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -319,8 +319,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -368,8 +368,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -418,8 +418,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -467,8 +467,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -500,7 +500,7 @@
     NSString *soapMessage;
     
     NSString *totalhrs=0;
-     NSString *qty=0;
+    
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -516,18 +516,19 @@
                    "<ProjectHeader>%@</ProjectHeader>\n"
                    "<Phase>%d</Phase>\n"
                    "<Description>%@</Description>\n"
-                   "<Quantity>%@</Quantity>\n"
                    "<TotalHoures>%f</TotalHoures>\n"
                    "<PlanId>%@</PlanId>\n"
                    "<SequenceId>%d</SequenceId>\n"
+                   "<Quantity>%d</Quantity>\n"
+
                    "</GeneralInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,qty,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -559,7 +560,7 @@
     NSString *soapMessage;
     
     NSString *totalhrs=0;
-    NSString *qty=0;
+ 
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -576,18 +577,19 @@
                    "<ProjectHeader>%@</ProjectHeader>\n"
                    "<Phase>%d</Phase>\n"
                    "<Description>%@</Description>\n"
-                   "<Quantity>%@</Quantity>\n"
+                   
                    "<TotalHoures>%f</TotalHoures>\n"
                    "<PlanId>%@</PlanId>\n"
                    "<SequenceId>%d</SequenceId>\n"
+                   "<Quantity>%d</Quantity>\n"
                    "</GeneralUpdates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,qty,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ]];
+                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
