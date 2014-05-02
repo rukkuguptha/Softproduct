@@ -66,6 +66,8 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    
+    [self Selectcrew];
     switch (_dragbtnindx) {
         case 1:
             [self setupSourceTableWithFrame:CGRectMake(0, 0, 257,742)];
@@ -96,6 +98,58 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark-web services
+
+-(void)Selectcrew{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Selectcrew xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</Selectcrew>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Selectcrew" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)SelectGeneralManpower{
       
     recordResults = FALSE;
@@ -118,8 +172,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -168,8 +222,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -223,8 +277,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -273,8 +327,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -328,8 +382,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -378,7 +432,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -427,8 +481,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -488,8 +542,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -552,8 +606,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -603,8 +657,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -677,7 +731,7 @@
 {
     if([elementName isEqualToString:@"SelectGeneralManpowerResponse"])
     {
-        _manpowerarray=[[NSMutableArray alloc]init];
+      
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -883,7 +937,27 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"SelectcrewResponse"])
+    {  _manpowerarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+    
+    if([elementName isEqualToString:@"crewname"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 
@@ -923,7 +997,7 @@
     {
         recordResults = FALSE;
          _manpwr1.itemdescptn=_soapResults;
-        [_manpowerarray addObject:_manpwr1];
+      //  [_manpowerarray addObject:_manpwr1];
        
         _soapResults = nil;
         
@@ -1088,6 +1162,12 @@
 
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"crewname"])
+    {
+        recordResults = FALSE;
+
+       [_manpowerarray addObject:_soapResults];
+     _soapResults = nil;}
 
 
 }
@@ -1158,11 +1238,14 @@
     }
     
     if (tableView==_manpwrtable) {
-        Manpwr *manpwr=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
         _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
-        _manpwr1lbl.text=manpwr.itemcode;
-        _mandesc1lbl=(UILabel *)[cell viewWithTag:2];
-        _mandesc1lbl.text=manpwr.itemdescptn;
+             _manpwr1lbl.text=[_manpowerarray objectAtIndex:indexPath.row]     ;
+        
+//        Manpwr *manpwr=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
+//        _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
+//        _manpwr1lbl.text=manpwr.itemcode;
+//        _mandesc1lbl=(UILabel *)[cell viewWithTag:2];
+//        _mandesc1lbl.text=manpwr.itemdescptn;
         
     }
     

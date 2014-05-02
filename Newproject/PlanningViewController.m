@@ -618,7 +618,7 @@
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
 
-    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -668,7 +668,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -717,7 +717,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -748,6 +748,8 @@
 {  webtype=1;
     NSString *ledid;
     NSString *custid;
+    NSInteger lead=0;
+    NSInteger customer=0;
     
     recordResults = FALSE;
     NSString *soapMessage;
@@ -755,18 +757,23 @@
     if (leadcheck==0)
     {
         ledid=0;
+        lead=0;
     }
     else if(leadcheck==1)
     {
         ledid=[_leaddict objectForKey:_planselectionbtn.titleLabel.text];
+        lead=1;
     }
     if(customercheck==0)
     {
         custid=0;
+        customer=0;
     }
     else if(customercheck==1)
     {
         custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
+         customer=1;
+        
     }
    
     
@@ -779,8 +786,8 @@
                    "<soap:Body>\n"
                    
                    "<InsertPlan xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<customer>%@</customer>\n"
-                   "<lead>%d</lead>\n"
+                   "<customername>%@</customername>\n"
+                   "<leadid>%d</leadid>\n"
                    "<cusid>%d</cusid>\n"
                    "<id>%d</id>\n"
                    "<Fold_ID>%d</Fold_ID>\n"
@@ -789,14 +796,16 @@
                    "<Location>%@</Location>\n"
                    "<Zip>%@</Zip>\n"
                    "<Complexity>%@</Complexity>\n"
+                   "<lead>%d</lead>\n"
+                   "<customer>%d</customer>\n"
                    "</InsertPlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",_planselectionbtn.titleLabel.text,[ledid integerValue],[custid integerValue],0,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text,lead,customer];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-   // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+//NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -823,12 +832,19 @@
     }
 
 }
+
+
+
+
 -(void)UpdatePlan
 {
     webtype=1;
     NSInteger lead;
     NSInteger cust;
     
+    NSInteger newlead;
+    NSInteger newcust;
+
     recordResults = FALSE;
     NSString *soapMessage;
      planmodel*plmdl=(planmodel *)[_planlistarray objectAtIndex:btnindex];
@@ -839,17 +855,20 @@
     if (leadcheck==0)
     {
         ledid=0;
+        newlead=0;
         lead=[ledid integerValue];
     }
     else //if(leadcheck==1)
     {
         ledid=[_leaddict objectForKey:_planselectionbtn.titleLabel.text];
         lead=[ledid integerValue];
+        newlead=1;
     }
 }
     else
     {
         lead=plmdl.leadid;
+         newlead=1;
     }
     if([customerclicked isEqualToString:@"Clicked"])
     {
@@ -858,16 +877,19 @@
     {
         custid=0;
         cust=[custid integerValue];
+        newcust=0;
     }
     else //if(customercheck==1)
     {
         custid=[_customerdict objectForKey:_planselectionbtn.titleLabel.text];
         cust=[custid integerValue];
+        newcust=1;
     }
     }
     else
     {
         cust=plmdl.customerid;
+         newcust=1;
     }
     
     
@@ -881,8 +903,8 @@
                    
                    "<UpdatePlan xmlns=\"http://ios.kontract360.com/\">\n"
                    "<planid>%@</planid>\n"
-                   "<customer>%@</customer>\n"
-                   "<lead>%d</lead>\n"
+                   "<customername>%@</customername>\n"
+                   "<leadid>%d</leadid>\n"
                    "<cusid>%d</cusid>\n"
                    "<Fold_ID>%d</Fold_ID>\n"
                    "<WorkType>%d</WorkType>\n"
@@ -890,14 +912,16 @@
                    "<Location>%@</Location>\n"
                    "<Zip>%@</Zip>\n"
                    "<Complexity>%@</Complexity>\n"
+                   "<lead>%d</lead>\n"
+                   "<customer>%d</customer>\n"
                    "</UpdatePlan>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",plmdl.planid,_planselectionbtn.titleLabel.text,lead,cust,0,[[_typelistdict objectForKey:_typebtnlbl.titleLabel.text]integerValue ],[_sitefactortxtfld.text floatValue],_loctntxtfld.text,_ziptxtfld.text,_cmplexitybtnlbl.titleLabel.text,newlead,newcust];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -949,7 +973,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -999,7 +1023,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1048,7 +1072,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
