@@ -64,6 +64,8 @@
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
 		64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A15E1518AB7C1B008112EA /* customplancell.xib */; };
+		64A17922191765D400C3EABA /* WrksetngViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A17920191765D400C3EABA /* WrksetngViewController.m */; };
+		64A17923191765D400C3EABA /* WrksetngViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A17921191765D400C3EABA /* WrksetngViewController.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
@@ -397,6 +399,9 @@
 		64A14D7B187546D20028B43A /* jobdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobdetailsViewController.xib; sourceTree = "<group>"; };
 		64A14D7E18755B910028B43A /* customdetlcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdetlcell.xib; sourceTree = "<group>"; };
 		64A15E1518AB7C1B008112EA /* customplancell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customplancell.xib; sourceTree = "<group>"; };
+		64A1791F191765D300C3EABA /* WrksetngViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WrksetngViewController.h; sourceTree = "<group>"; };
+		64A17920191765D400C3EABA /* WrksetngViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WrksetngViewController.m; sourceTree = "<group>"; };
+		64A17921191765D400C3EABA /* WrksetngViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WrksetngViewController.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
@@ -781,6 +786,9 @@
 				D4004053185B174A00C38E12 /* TileViewController.h */,
 				D4004054185B174A00C38E12 /* TileViewController.m */,
 				D4004055185B174A00C38E12 /* TileViewController.xib */,
+				64A1791F191765D300C3EABA /* WrksetngViewController.h */,
+				64A17920191765D400C3EABA /* WrksetngViewController.m */,
+				64A17921191765D400C3EABA /* WrksetngViewController.xib */,
 				649ED79B187FB8260086CDDE /* CompanyViewController.h */,
 				649ED79C187FB8260086CDDE /* CompanyViewController.m */,
 				649ED79D187FB8260086CDDE /* CompanyViewController.xib */,
@@ -1524,6 +1532,7 @@
 				D4F557711904F7EF00EFDAF4 /* GeneralViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */,
+				64A17923191765D400C3EABA /* WrksetngViewController.xib in Resources */,
 				D48F436618A2335500AFDDC2 /* vertical blue.png in Resources */,
 				D4399EBE186D7BBF00A693F7 /* search-button.png in Resources */,
 				649EB48E18A8DF8400CDBE28 /* proHRDetailcell.xib in Resources */,
@@ -1659,6 +1668,7 @@
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
 				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,
 				D49F875F18EEA36B00413CAD /* Scaffoldtypemdl.m in Sources */,
+				64A17922191765D400C3EABA /* WrksetngViewController.m in Sources */,
 				D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */,
 				D453DA261873F1AF007EE3DC /* ConsumbleViewController.m in Sources */,
 				D42D8C3A18D2E3F0009D8085 /* UsersViewController.m in Sources */,

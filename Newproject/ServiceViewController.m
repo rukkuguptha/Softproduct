@@ -42,12 +42,13 @@
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-
+    self.openviewindex=NSNotFound;
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+     self.openviewindex=NSNotFound;
     [self SelectAllServices];
 }
 
@@ -58,6 +59,7 @@
 }
 -(IBAction)closetheservicesview:(id)sender
 {
+     self.openviewindex=NSNotFound;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 #pragma mark-tableview datasources
@@ -88,10 +90,143 @@
     _servicelabel.text=semdl.servname;
     _abbrvtnlabel=(UILabel*)[cell viewWithTag:2];
     _abbrvtnlabel.text=semdl.abbrevtn;
-
+     disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+    disbtn.tag=indexPath.row;
+    [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
+    disbtn.frame = CGRectMake(270.0, 1.0, 50.0, 40.0);
+    [cell.contentView addSubview:disbtn];
     
        return cell;
 }
+-(void)disaction:(UIButton*)sender{
+    // [_animatedview removeFromSuperview];
+    _commentlabel.hidden=YES;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+        .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
+    
+    _animatedview.hidden=YES;
+    //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
+    
+    
+    
+    
+    button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.servicesTable];
+    NSIndexPath *textFieldIndexPath = [self.servicesTable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    
+    
+    
+    //create uiview
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 10, 0, 25)];
+    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+    _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+    _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    _commentlabel.textColor=[UIColor blackColor];
+    _commentlabel.text=@"Job Sequence";
+    [self.animatedview addSubview:_commentlabel];
+    
+    _commentlabel.hidden=YES;
+    
+    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tothejobsequence)];
+    [self.animatedview addGestureRecognizer:tap];
+    [cell addSubview:_animatedview];
+    
+    _animatedview.hidden=NO;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+        .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
+    
+    _commentlabel.hidden=NO;
+    //    NSLog(@"%@",empmdl.badgeflag);
+    //    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+    //        //_badgelbl.enabled=NO;
+    //        _animatedview.userInteractionEnabled=NO;
+    //        //_animatedview.
+    //
+    //    }
+    
+    [self showviewWithUserAction:YES];
+}
+-(void)tothejobsequence
+{   Servicemdl*smdl=(Servicemdl *)[_servicelistarray objectAtIndex:btnindex];
+
+    if (!self.jobseqctrl) {
+        self.jobseqctrl=[[SerialViewController alloc]initWithNibName:@"SerialViewController" bundle:nil];
+    }
+    _jobseqctrl.skillid=smdl.servid;
+    _jobseqctrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_jobseqctrl animated:YES completion:nil];
+ self.openviewindex=NSNotFound;
+}
+
+-(void)showviewWithUserAction:(BOOL)userAction{
+    
+    // Toggle the disclosure button state.
+    
+    disbtn.selected = !disbtn.selected;
+    
+    if (userAction) {
+        if (disbtn.selected) {
+            _animatedview.hidden=NO;
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+                .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
+            [self viewopened:btnindex];
+            _commentlabel.hidden=NO;
+            
+            
+            
+        }
+        else{
+            [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+                .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
+            [self viewclosed:btnindex];
+            //_venderlbl.hidden=YES;
+            
+        }
+        
+        
+    }
+}
+-(void)viewopened:(NSInteger)viewopened{
+    
+    
+    selectedcell=viewopened;
+    NSInteger previousOpenviewIndex = self.openviewindex;
+    
+    if (previousOpenviewIndex != NSNotFound) {
+        [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
+            .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
+        
+        _animatedview.hidden=YES;
+        
+        
+        // }
+        
+        
+    }
+    
+    self.openviewindex=viewopened;
+    
+    
+    
+    
+    
+    
+}
+-(void)viewclosed:(NSInteger)viewclosed
+{
+    
+    viewclosed=btnindex;
+    
+    self.openviewindex = NSNotFound;
+    
+    
+}
+
 
 #pragma mark - Table View delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,7 +276,8 @@
     _addserview.hidden=NO;
     _servicetextfld.text=@"";
     _abbreviatintextfld.text=@"";
-
+ self.openviewindex=NSNotFound;
+     _animatedview.hidden=YES;
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
@@ -159,12 +295,14 @@
     _servicetextfld.text=servmdl.servname;
     _abbreviatintextfld.text=servmdl.abbrevtn;
     NSLog(@"%@",servmdl.abbrevtn);
-
+   self.openviewindex=NSNotFound;
+    _animatedview.hidden=YES;
 }
 -(IBAction)closeaddview:(id)sender
 {
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=YES;
+     self.openviewindex=NSNotFound;
 }
 -(IBAction)updateservice:(id)sender
 {

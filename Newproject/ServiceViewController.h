@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Servicemdl.h"
 #import "Validation.h"
+#import "SerialViewController.h"
 
 @interface ServiceViewController : UIViewController<UITextFieldDelegate>
 
@@ -20,7 +21,11 @@
     UIButton *button;
      NSInteger btnindex;
     NSString *msgstr;
+    UIButton *disbtn;
+    NSInteger selectedcell;
+    
 }
+@property(strong,nonatomic)SerialViewController *jobseqctrl;
 @property(strong,nonatomic)Servicemdl *servmdl;
 @property(strong,nonatomic)Validation *val;
 
@@ -61,5 +66,10 @@
 
 /*arrays*/
 @property(strong,nonatomic)NSMutableArray *servicelistarray;
+
+@property(readwrite)NSInteger openviewindex;
+@property(readwrite)NSInteger previousopenviewindex;
+@property(strong,nonatomic)IBOutlet UIView *animatedview;
+@property(strong,nonatomic)IBOutlet UILabel *commentlabel;
 
 @end

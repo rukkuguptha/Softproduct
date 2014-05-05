@@ -27,10 +27,17 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _resurcetable.layer.borderWidth=3.0;
-    _resurcetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _sequencetable.layer.borderWidth=3.0;
+    _sequencetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self JobsequenceSelect];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -52,7 +59,7 @@
     
     // Return the number of rows in the section.
     //return [_resurcearray count];
-    return 5;
+    return [_sequencearray count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -66,10 +73,12 @@
         cell=_resurcecell;
     }
     
+    NumbrSerMdl*seqmdl=(NumbrSerMdl *)[_sequencearray objectAtIndex:indexPath.row];
     
-    //_typelbl=(UILabel *)[cell viewWithTag:1];
-    //_typelbl.text=[_typelistarray objectAtIndex:indexPath.row];
-    
+    _seqnolabel=(UILabel *)[cell viewWithTag:1];
+    _seqnolabel.text=seqmdl.SequenceNumber;
+    _jobtask=(UILabel*)[cell viewWithTag:2];
+    _jobtask.text=seqmdl.JobTask;
     
     return cell;
     
@@ -88,10 +97,239 @@
         [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f]];
     }
 }
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (editingStyle==UITableViewCellEditingStyleDelete) {
+        path=indexPath.row;
+        
+        [self JobSequenceDelete];
+        [_sequencearray removeObject:indexPath];
+        
+        
+        
+        
+        
+    }
+    
+}
+
+
+#pragma mark - webservice
+-(void)JobsequenceSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ServiceJobSequenceselect xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<SkillId>%d</SkillId>\n"
+                   "</ServiceJobSequenceselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_skillid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ServiceJobSequenceselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
+-(void)JobSequenceInsert
+{
+    webtype=1;
+    recordResults = FALSE;
+    NSString *seqno=_seqnotextfld.text;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobSequenceInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<JobTask>%@</JobTask>\n"
+                   "<SkillId>%d</SkillId>\n"
+                   "<SequenceNumber>%d</SequenceNumber>\n"
+                   "</JobSequenceInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_jobtasktextfld.text,_skillid,[seqno integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JobSequenceInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)JobSequenceUpdate
+{
+    webtype=1;
+    recordResults = FALSE;
+    NumbrSerMdl*smdl=(NumbrSerMdl *)[_sequencearray objectAtIndex:btnindex];
+    NSString *seqno=_seqnotextfld.text;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobSequenceUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<JobSequenceId>%d</JobSequenceId>\n"
+                   "<JobTask>%@</JobTask>\n"
+                   "<SkillId>%d</SkillId>\n"
+                   "<SequenceNumber>%d</SequenceNumber>\n"
+                   "</JobSequenceUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",smdl.JobSequenceId,_jobtasktextfld.text,_skillid,[seqno integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JobSequenceUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)JobSequenceDelete
+{    webtype=3;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NumbrSerMdl*smdl=(NumbrSerMdl *)[_sequencearray objectAtIndex:path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JobSequenceDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<JobSequenceId>%d</JobSequenceId>\n"
+                   "</JobSequenceDelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",smdl.JobSequenceId];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JobSequenceDelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 
-#pragma mark-Webservice
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -124,13 +362,26 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    [_resurcetable reloadData];
+    [_sequencetable reloadData];
+    if (webtype==1||webtype==3) {
+        [self JobsequenceSelect];
+        webtype=0;
+    }
     
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
-    if([elementName isEqualToString:@"ItemrequirementselectResult"])
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
+    {
+        _sequencearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobSequenceId"])
     {
         
         if(!_soapResults)
@@ -139,6 +390,68 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SequenceNumber"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if ([elementName isEqualToString:@"JobSequenceInsertResult"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"JobSequenceUpdate"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    
+    
+    if ([elementName isEqualToString:@"result"]) {
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+
+
+
     
     
 }
@@ -157,7 +470,7 @@
 }
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
-    if([elementName isEqualToString:@"EntryId"])
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
     {
         
         recordResults = FALSE;
@@ -165,6 +478,55 @@
        
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"JobSequenceId"])
+    {
+        
+        recordResults = FALSE;
+        _seqmdl=[[NumbrSerMdl alloc]init];
+        _seqmdl.JobSequenceId=[_soapResults integerValue];
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        recordResults = FALSE;
+        _seqmdl.JobTask=_soapResults;
+        
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        
+        recordResults = FALSE;
+        _seqmdl.SkillId=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SequenceNumber"])
+    {
+        
+        recordResults = FALSE;
+        
+        _seqmdl.SequenceNumber=_soapResults;
+        [_sequencearray addObject:_seqmdl];
+        _soapResults = nil;
+    }
+    if ([elementName isEqualToString:@"result"]) {
+        
+        recordResults=FALSE;
+        _displaystring=_soapResults;
+        if (webtype==1) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        _soapResults=nil;
+    }
+
+
+
+
 }
 
 
@@ -176,16 +538,89 @@
 
 - (IBAction)editbtn:(id)sender {
     _addview.hidden=NO;
-//    button = (UIButton *)sender;
-//    CGPoint center= button.center;
-//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.resurcetable];
-//    NSIndexPath *textFieldIndexPath = [self.resurcetable indexPathForRowAtPoint:rootViewPoint];
-}
+    optionidentifier=2;
+    _navbar.title=@"EDIT";
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.sequencetable];
+    NSIndexPath *textFieldIndexPath = [self.sequencetable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    NumbrSerMdl*smdl=(NumbrSerMdl *)[_sequencearray objectAtIndex:textFieldIndexPath.row];
+    
+    _seqnotextfld.text=smdl.SequenceNumber;
+    _jobtasktextfld.text=smdl.JobTask;
 
+}
+-(IBAction)addsequence:(id)sender
+{
+    _addview.hidden=NO;
+    optionidentifier=1;
+    _navbar.title=@"ADD";
+    _seqnotextfld.text=@"";
+    _jobtasktextfld.text=@"";
+    
+}
 - (IBAction)clsebtn:(id)sender {
+    _seqnotextfld.text=@"";
+    _jobtasktextfld.text=@"";
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)updatebtn:(id)sender {
+    if (optionidentifier==1) {
+        [self JobSequenceInsert];
+    }
+    else if (optionidentifier==2)
+    {
+        [self JobSequenceUpdate];
+
+    }
 }
+-(IBAction)deleteAction:(id)sender
+{
+    if (self.editing) {
+        [super setEditing:NO animated:NO];
+        [_sequencetable setEditing:NO animated:NO];
+        [_sequencetable reloadData];
+        
+        
+        
+    }
+    
+    else{
+        [super setEditing:YES animated:YES];
+        [_sequencetable setEditing:YES animated:YES];
+        [_sequencetable reloadData];
+        
+    }
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    ////NSLog(@"buttonIndex%d",buttonIndex);
+    
+       if ([alertView.message isEqualToString:_displaystring]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _seqnotextfld.text=@"";
+            _jobtasktextfld.text=@"";
+            
+            
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+}
+
+
 @end
