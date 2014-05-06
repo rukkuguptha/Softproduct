@@ -284,7 +284,9 @@
           _crwdeslbl1=(UILabel *)[cell viewWithTag:2];
           _crwdeslbl1.text=crewmdl1.mandescptn;
           _crwdeslbl2=(UILabel *)[cell viewWithTag:3];
-          _crwdeslbl2.text=crewmdl1.crewname;
+          
+       
+          _crwdeslbl2.text=[_revcrewdict objectForKey:crewmdl1.crewname];
 
 
       }
@@ -1180,6 +1182,7 @@
     if([elementName isEqualToString:@"CrewSetUpSelectResponse"])
     {_crenamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
+        _revcrewdict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -1410,6 +1413,7 @@
         recordResults = FALSE;
         [_crenamearray addObject:_soapResults];
         [_crewdict setObject:crewid forKey:_soapResults];
+        [_revcrewdict setObject:_soapResults forKey:crewid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ID"])
