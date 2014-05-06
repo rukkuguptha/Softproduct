@@ -1,18 +1,18 @@
 //
-//  WrksetngViewController.m
+//  SettngsViewController.m
 //  Newproject
 //
-//  Created by GMSIndia 2 on 05/05/14.
+//  Created by GMSIndia 2 on 06/05/14.
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "WrksetngViewController.h"
+#import "SettngsViewController.h"
 
-@interface WrksetngViewController ()
+@interface SettngsViewController ()
 
 @end
 
-@implementation WrksetngViewController
+@implementation SettngsViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -39,8 +39,8 @@
 {
     [super viewWillAppear:animated];
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(servicesPage)];
+                                         initWithTarget:self
+                                         action:@selector(servicesPage)];
     doubleTap.numberOfTapsRequired=1;
     doubleTap.delegate=(id)self;
     [self.serviceview addGestureRecognizer:doubleTap];
@@ -52,14 +52,14 @@
     doubleTap1.delegate=(id)self;
     [self.workphaseview addGestureRecognizer:doubleTap1];
     UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
-                                           initWithTarget:self
-                                           action:@selector(worktypepage)];
+                                          initWithTarget:self
+                                          action:@selector(worktypepage)];
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.worktypeview addGestureRecognizer:doubleTap2];
-
-
-
+    
+    
+    
 }
 -(void)servicesPage
 {
@@ -92,7 +92,6 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
-
 
 
 @end
