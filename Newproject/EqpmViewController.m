@@ -1550,6 +1550,7 @@ finishedSavingWithError:(NSError *)error
 
 -(IBAction)closeEqupment:(id)sender
 {
+    _addequipmentview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addEquipment:(id)sender

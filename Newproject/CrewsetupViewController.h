@@ -22,9 +22,15 @@
     NSInteger path;
     NSInteger Deletepath;
     int webpath;
+    NSString *skill;
+    NSInteger poptype;
+     NSString * crewid;
 
 }
 
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
 
 
 @property (strong, nonatomic)Manpwr *manpwrmdl;
@@ -33,8 +39,9 @@
 @property (strong, nonatomic)NSMutableArray *manpwrarray;
 @property (strong, nonatomic)NSMutableArray *autocompltearray;
 @property (strong, nonatomic)NSMutableArray *crenamearray;
-
-
+@property (strong, nonatomic)NSMutableArray *skillarray;
+@property (strong, nonatomic)NSMutableDictionary *skilldict;
+@property (strong, nonatomic)NSMutableDictionary *crewdict;
 /*Outlets*/
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UIView *touchview;
@@ -53,16 +60,26 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *manpwrcell;
 @property (nonatomic, retain) UITableView *autocompleteTableView;
 
+@property (strong, nonatomic) IBOutlet UILabel *hurlyratelbl;
+
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *servicebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *crewbtnlbl;
 
 /*buttons*/
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)clearbtn:(id)sender;
 
 - (IBAction)deletebtn:(id)sender;
+- (IBAction)servicebtn:(id)sender;
+- (IBAction)savebtn:(id)sender;
 
+- (IBAction)crewbtn:(id)sender;
+- (IBAction)alldeletebtn:(id)sender;
 
 @end

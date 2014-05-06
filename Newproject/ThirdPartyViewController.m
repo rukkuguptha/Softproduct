@@ -1615,6 +1615,7 @@ finishedSavingWithError:(NSError *)error
 }
 
 - (IBAction)closebtn:(id)sender {
+      _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

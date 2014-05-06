@@ -1552,7 +1552,8 @@ recordResults = FALSE;
 }
 
 - (IBAction)closebtn:(id)sender
-{
+{ _addview.hidden=YES;
+    
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 - (IBAction)addbtn:(id)sender{
