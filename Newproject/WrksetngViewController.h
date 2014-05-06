@@ -13,7 +13,7 @@
 
 @interface WrksetngViewController : UIViewController
 
-
+//
 
 @property (strong, nonatomic) IBOutlet UIView *serviceview;
 @property (strong, nonatomic) IBOutlet UIView *worktypeview;
