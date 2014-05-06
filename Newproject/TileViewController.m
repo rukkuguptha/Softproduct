@@ -46,12 +46,12 @@
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.Documentsview addGestureRecognizer:doubleTap1];
-    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(servicesPage)];
-    doubleTap2.numberOfTapsRequired=1;
-    doubleTap2.delegate=(id)self;
-    [self.servicesview addGestureRecognizer:doubleTap2];
+//    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
+//                                          initWithTarget:self
+//                                          action:@selector(servicesPage)];
+//    doubleTap2.numberOfTapsRequired=1;
+//    doubleTap2.delegate=(id)self;
+//    [self.servicesview addGestureRecognizer:doubleTap2];
     
     
     UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
@@ -75,12 +75,12 @@
     doubleTap5.delegate=(id)self;
     [self.workprocedureview addGestureRecognizer:doubleTap5];
 
-    UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(workphasePage)];
-    doubleTap6.numberOfTapsRequired=1;
-    doubleTap6.delegate=(id)self;
-    [self.workphaseview addGestureRecognizer:doubleTap6];
+//    UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
+//                                          initWithTarget:self
+//                                          action:@selector(workphasePage)];
+//    doubleTap6.numberOfTapsRequired=1;
+//    doubleTap6.delegate=(id)self;
+//    [self.workphaseview addGestureRecognizer:doubleTap6];
     
     UITapGestureRecognizer *doubleTap7= [[UITapGestureRecognizer alloc]
                                           initWithTarget:self
@@ -101,12 +101,18 @@
     doubleTap9.numberOfTapsRequired=1;
     doubleTap9.delegate=(id)self;
     [self.serialview addGestureRecognizer:doubleTap9];
-    UITapGestureRecognizer *doubleTap10 = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(worktypepage)];
-    doubleTap10.numberOfTapsRequired=1;
-    doubleTap10.delegate=(id)self;
-    [self.worktypeview addGestureRecognizer:doubleTap10];
+//    UITapGestureRecognizer *doubleTap10 = [[UITapGestureRecognizer alloc]
+//                                          initWithTarget:self
+//                                          action:@selector(worktypepage)];
+//    doubleTap10.numberOfTapsRequired=1;
+//    doubleTap10.delegate=(id)self;
+//    [self.worktypeview addGestureRecognizer:doubleTap10];
+    UITapGestureRecognizer *doubleTap11 = [[UITapGestureRecognizer alloc]
+                                           initWithTarget:self
+                                           action:@selector(wrksetngpage)];
+    doubleTap11.numberOfTapsRequired=1;
+    doubleTap11.delegate=(id)self;
+    [self.wrksetngview addGestureRecognizer:doubleTap11];
 
 }
 
@@ -131,15 +137,15 @@
                        animated:YES completion:NULL];
 
 }
--(void)servicesPage
-{
-    if (!self.serviceVCtrl) {
-        self.serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
-    }
-    _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_serviceVCtrl
-                       animated:YES completion:NULL];
-}
+//-(void)servicesPage
+//{
+//    if (!self.serviceVCtrl) {
+//        self.serviceVCtrl=[[ServiceViewController alloc]initWithNibName:@"ServiceViewController" bundle:nil];
+//    }
+//    _serviceVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+//    [self presentViewController:_serviceVCtrl
+//                       animated:YES completion:NULL];
+//}
 -(void)foldersPage
 {
     if (!self.folderVCtrl) {
@@ -169,16 +175,16 @@
 
     
 }
--(void)workphasePage
-{
-    if (!self.workVCtrl) {
-        self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
-    }
-    _workVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_workVCtrl
-                       animated:YES completion:NULL];
-
-}
+//-(void)workphasePage
+//{
+//    if (!self.workVCtrl) {
+//        self.workVCtrl=[[workPhasesViewController alloc]initWithNibName:@"workPhasesViewController" bundle:nil];
+//    }
+//    _workVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+//    [self presentViewController:_workVCtrl
+//                       animated:YES completion:NULL];
+//
+//}
 -(void)jobsitereqPage
 {
     if (!self.typeVCtrl) {
@@ -208,13 +214,21 @@
 }
 
     
--(void)worktypepage{
+//-(void)worktypepage{
+//    
+//    if (!self.wrktypeVCtrl) {
+//        self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
+//    }
+//    _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+//    [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
+//}
+-(void)wrksetngpage{
     
-    if (!self.wrktypeVCtrl) {
-        self.wrktypeVCtrl=[[WorktypeViewController alloc]initWithNibName:@"WorktypeViewController" bundle:nil];
+    if (!self.wrkstngVCtrlr) {
+        self.wrkstngVCtrlr=[[WrksetngViewController alloc]initWithNibName:@"WrksetngViewController" bundle:nil];
     }
-    _wrktypeVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
-    [self presentViewController:_wrktypeVCtrl animated:YES completion:nil];
+    _wrkstngVCtrlr.modalPresentationStyle=UIModalPresentationFormSheet;
+    [self presentViewController:_wrkstngVCtrlr animated:YES completion:nil];
 }
 - (void)didReceiveMemoryWarning
 {

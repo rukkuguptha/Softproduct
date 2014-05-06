@@ -21,6 +21,7 @@
 #import "BranchViewController.h"
 #import "SerialViewController.h"
 #import "WorktypeViewController.h"
+#import "WrksetngViewController.h"
 
 @interface TileViewController : UIViewController
 
@@ -37,6 +38,7 @@
 @property(strong,nonatomic)IBOutlet UIView *basicreqview;
 @property (strong, nonatomic) IBOutlet UIView *serialview;
 @property (strong, nonatomic) IBOutlet UIView *worktypeview;
+@property (strong, nonatomic) IBOutlet UIView *wrksetngview;
 
 
 //close Actions
@@ -61,5 +63,6 @@
 @property(strong,nonatomic)BranchViewController *branchVCtrl;
 @property(strong,nonatomic)SerialViewController *SerialVCtrl;
 @property(strong,nonatomic)WorktypeViewController *wrktypeVCtrl;
+@property(strong,nonatomic)WrksetngViewController *wrkstngVCtrlr;
 
 @end

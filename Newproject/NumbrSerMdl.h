@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface NumbrSerMdl : NSObject
-@property(strong,nonatomic)NSString *entryid;
-@property(strong,nonatomic)NSString *resurcename;
-@property(strong,nonatomic)NSString *code;
-@property(strong,nonatomic)NSString *digit;
+@property(readwrite)NSInteger JobSequenceId;
+@property(strong,nonatomic)NSString *JobTask;
+@property(strong,nonatomic)NSString *SkillId;
+@property(strong,nonatomic)NSString *SequenceNumber;
 
 
 @end
