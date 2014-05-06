@@ -90,7 +90,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self AllSkills];
+    [self FleetSubTypeSelect];
 
     //[self SelectAllfleet];
 }
@@ -771,7 +771,7 @@
     }
     
 }
--(void)AllSkills{
+-(void)FleetSubTypeSelect{
     webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
@@ -784,9 +784,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<FleetSubTypeSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</AllSkills>\n"
+                   "</FleetSubTypeSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -801,7 +801,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/FleetSubTypeSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1175,7 +1175,7 @@
     }
 
    
-    if([elementName isEqualToString:@"AllSkillsResult"])
+    if([elementName isEqualToString:@"FleetSubTypeSelectResponse"])
     {
         _skilldict=[[NSMutableDictionary alloc]init];
         _subtypearray=[[NSMutableArray alloc]init];
@@ -1187,7 +1187,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SkillId"])
+    if([elementName isEqualToString:@"SubTypeId"])
     {
         if(!_soapResults)
         {
@@ -1196,7 +1196,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"SkillName"])
+    if([elementName isEqualToString:@"SubTypeName"])
     {
         if(!_soapResults)
         {
@@ -1435,14 +1435,14 @@ if([elementName isEqualToString:@"url"])
     
     
 }
-    if([elementName isEqualToString:@"SkillId"])
+    if([elementName isEqualToString:@"SubTypeId"])
     {
         recordResults = FALSE;
         skill=_soapResults;
         _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"SkillName"])
+    if([elementName isEqualToString:@"SubTypeName"])
     {        recordResults =FALSE;
         
         [_skilldict setObject:skill forKey:_soapResults];
@@ -1459,8 +1459,7 @@ if([elementName isEqualToString:@"url"])
 
 - (IBAction)subsearchbtn:(id)sender; {
     [self createpopover];
-    [self AllSkills
-     ];
+    [self FleetSubTypeSelect];
 }
 
 - (IBAction)deletebtn:(id)sender {

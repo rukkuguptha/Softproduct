@@ -37,6 +37,8 @@
 @property(readwrite) NSInteger  optionidentfr;
 @property(strong,nonatomic)NSString *genralid;
 @property(strong,nonatomic)NSString *Planid;
+@property(strong,nonatomic)NSString *insertedgeneralid;
+
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser     *xmlParser;

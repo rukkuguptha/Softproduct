@@ -67,6 +67,7 @@
 }
 #pragma mark-Popover
 -(void)createpopover{
+    poptype=1;
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
@@ -112,6 +113,53 @@
     
     
 }
+-(void)createSearchpopover{
+    poptype=2;
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 120)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    
+    
+    
+    
+    [self.popOverController presentPopoverFromRect:_measuresrchbtnlbl.frame
+                                            inView:self.addmatView
+                          permittedArrowDirections:UIPopoverArrowDirectionUp
+                                          animated:YES];
+    
+    
+}
 
 #pragma mark - Table View datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -123,11 +171,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_materialTable) {
-         return [_materialarray count];
+                return [_materialarray count];
         
     }
     if (tableView==_popOverTableView) {
-        return [_subtypearray count];
+        switch (poptype) {
+            case 1:
+         return [_subtypearray count];
+                break;
+            case 2:
+                return [_unitofmeasurearray count];
+                break;
+
+            default:
+                break;
+        }
+
+        
     }
     return YES;
    
@@ -150,7 +210,20 @@
           }
     }
     if (tableView==_popOverTableView) {
-        cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
+        switch (poptype) {
+            case 1:
+                cell.textLabel.text=[_subtypearray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                 cell.textLabel.text=[_unitofmeasurearray objectAtIndex:indexPath.row];
+             
+                break;
+                
+            default:
+                break;
+        }
+
+       
     }
      if (tableView==_materialTable) {
     Manpwr*materaialmdl=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
@@ -174,9 +247,23 @@
 {
     
     if(tableView==_popOverTableView){
+        switch (poptype) {
+            case 1:
+                [_subsearchbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                break;
+            case 2:
+                _unitofmesuretxtfld.text=[_unitofmeasurearray objectAtIndex:indexPath.row];
+                
+                
+                break;
+                
+            default:
+                break;
+        }
+
         
         //_subtyptxtfld.text=[_subtypearray objectAtIndex:indexPath.row];
-        [_subsearchbtnlbl setTitle:[_subtypearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+       
     }
     
 
@@ -286,9 +373,10 @@
                    "<unitcost>%f</unitcost>\n"
                    "<picture>%@</picture>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
+                   "<UnitInMeasure>%@</UnitInMeasure>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -342,9 +430,10 @@
                    "<unitcost>%f</unitcost>\n"
                    "<picture>%@</picture>\n"
                     "<qtyinstock>%f</qtyinstock>\n"
+                   "<UnitInMeasure>%@</UnitInMeasure>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -744,7 +833,109 @@
     
 }
 
+-(void)UnitOfMeasureSelect{
+   
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UnitOfMeasureSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</UnitOfMeasureSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UnitOfMeasureSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
+-(void)UnitOfMeasureInsert{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UnitOfMeasureInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UnitInMeasure>%@</UnitInMeasure>\n"
+                   "</UnitOfMeasureInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_unitofmesuretxtfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UnitOfMeasureInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -912,6 +1103,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"asUnitInMeasurement"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"InserteMaterialsResult"])
     {
         
@@ -1020,6 +1221,35 @@
         
     }
     
+    if([elementName isEqualToString:@"UnitOfMeasureSelectResponse"])
+    {
+        _unitofmeasurearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"UnitId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"UnitInMeasure"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 
 }
@@ -1120,6 +1350,15 @@
         recordResults = FALSE;
         
         _materialmdl.stckinhand=_soapResults;
+       
+        _soapResults = nil;
+
+
+    }
+    if([elementName isEqualToString:@"asUnitInMeasurement"])
+    {  recordResults = FALSE;
+        
+        _materialmdl.unitofmeasure=_soapResults;
         [_materialarray addObject:_materialmdl];
         _soapResults = nil;
 
@@ -1212,6 +1451,23 @@
         
         
     }
+    if([elementName isEqualToString:@"UnitId"])
+    {
+       recordResults =FALSE;
+         _soapResults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"UnitInMeasure"])
+    {
+        recordResults =FALSE;
+        [_unitofmeasurearray addObject:_soapResults];
+        
+         _soapResults = nil;
+
+        
+    }
+
 
 }
 
@@ -1281,6 +1537,7 @@
         else
         {
         [self InserteMaterials];
+            [self UnitOfMeasureInsert];
 
     }
     }
@@ -1301,6 +1558,8 @@
 else
 {
         [self UpdateMaterials];
+     [self UnitOfMeasureInsert];
+    
 }
     }
 }
@@ -1385,6 +1644,7 @@ else
     _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
     _stockinhandtxtfld.text=pwrmdl.stckinhand;
     _uplodpiclctn=pwrmdl.picturelocation;
+    _unitofmesuretxtfld.text=pwrmdl.unitofmeasure;
     
     [self FetchAnyImage];
 
@@ -1396,6 +1656,11 @@ else
 {
     _addmatView.hidden=YES;
    }
+
+- (IBAction)mesuresechbtn:(id)sender {
+    [self createSearchpopover];
+    [self UnitOfMeasureSelect];
+}
 
 #pragma mark-Textfield Delegate
 

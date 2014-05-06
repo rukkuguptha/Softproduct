@@ -63,6 +63,8 @@
      _manpwrdragview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
      _matraltouchview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
 
+    
+   
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -684,6 +686,57 @@
     }
     
 }
+-(void)GeneralQuantityUpdate{
+  //  Metgenmdl * matmdl2=(Metgenmdl *)[_resourcearray objectAtIndex:metdeletepath];
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<GeneralQuantityUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<mainId>%d</mainId>\n"
+                   "</GeneralQuantityUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_generalid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralQuantityUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -840,6 +893,7 @@
         }
         recordResults = TRUE;
     }
+    
     if([elementName isEqualToString:@"GeneralMaterialSelectResponse"])
     {_materialarray=[[NSMutableArray alloc]init];
         
@@ -1061,6 +1115,11 @@
         recordResults = FALSE;
         
          if ([_soapResults isEqualToString:@"Insert Successfully"]||[_soapResults isEqualToString:@"delete"]) {
+             
+          
+                 [self GeneralQuantityUpdate];
+             
+             
                [self GeneralDetailselect];
              
          }
@@ -1071,6 +1130,7 @@
             _descptntxtfld.text=@"";
             _numbertxtfld.text=@"";
             _hourstxtfld.text=@"";
+              [self GeneralQuantityUpdate];
              [self GeneralDetailselect];
             
         }
@@ -1093,7 +1153,7 @@
         
               _soapResults = nil;
     }
-
+    
     if([elementName isEqualToString:@"MaterialEntryId"])
     {
         
@@ -1589,6 +1649,7 @@
                 
                 
                 [self GeneralDetailInsert];
+                
             }
         }
         else if(!mandragFromSource && manpathFromDstTable != nil)

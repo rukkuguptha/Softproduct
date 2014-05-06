@@ -26,5 +26,6 @@
 @property(strong,nonatomic)NSString *Experiance;
 @property(strong,nonatomic)NSString *JobTasks;
 @property(strong,nonatomic)NSString *EducationReq;
+@property(strong,nonatomic)NSString *unitofmeasure;
 
 @end

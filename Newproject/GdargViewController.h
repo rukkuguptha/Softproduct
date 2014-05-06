@@ -56,6 +56,10 @@
 @property (strong, nonatomic) IBOutlet UIView *manpowerview;
 
 @property (strong, nonatomic) IBOutlet UIView *editview;
+
+@property(strong,nonatomic)UISearchBar *searchbar;
+@property(strong,nonatomic)NSString *searchstring;
+
 @property(readwrite)NSInteger dragbtnindx;
 @property(readwrite)NSInteger  generalid;
 @property(strong,nonatomic)Manpwr *manpwr1;

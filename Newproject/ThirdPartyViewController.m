@@ -50,7 +50,7 @@ _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:
     searchController.searchResultsDataSource = (id)self;
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
-    _Typearray=[[NSMutableArray alloc]initWithObjects:@"Manpower",@"Equipment",@"Materials",@"Fleet", nil];
+    _Typearray=[[NSMutableArray alloc]initWithObjects:@"Equipment",@"Fleet", nil];
     _pictureimgvw.userInteractionEnabled = YES;
     UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self action:@selector(handlePinch:)];
@@ -1691,6 +1691,7 @@ finishedSavingWithError:(NSError *)error
 - (IBAction)subsearchbtn:(id)sender {
     popvr=1;
     [self createpopover];
+    //[self SelectAllSubtypeThirdParty];
     [self AllSkills];
 }
 

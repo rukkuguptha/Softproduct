@@ -822,6 +822,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"mainId"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -929,6 +939,14 @@
         _eqmntbtn.hidden=NO;
         [_phasebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         [_projectheaderbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+    }
+    if([elementName isEqualToString:@"mainId"])
+    {
+        recordResults = FALSE;
+        _insertedgeneralid=_soapResults;
+        _soapResults = nil;
+        
         
     }
 
@@ -1195,10 +1213,18 @@
 
 - (IBAction)manpowerbtn:(id)sender {
     dragbutnindx=1;
-    //if (!_gdVCtrl) {
+    
         self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"GdargViewController" bundle:nil];
-    //}
-    _generalmdl.gid=_genralid;
+        if (_optionidentfr==1) {
+        _gdVCtrl.generalid=[_insertedgeneralid integerValue];
+    
+}
+else{
+    _gdVCtrl.generalid=[_genralid integerValue];
+  
+}
+
+  
     _gdVCtrl.dragbtnindx=dragbutnindx;
     self.gdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_gdVCtrl
@@ -1217,11 +1243,17 @@
 
 - (IBAction)matreialbtn:(id)sender {
      dragbutnindx=2;
-    //if (!_gdVCtrl) {
-        self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"Gmateralview" bundle:nil];
-   // }
-    _generalmdl.gid=_genralid;
-    _gdVCtrl.dragbtnindx=dragbutnindx;
+            self.gdVCtrl=[[GdargViewController alloc]initWithNibName:@"Gmateralview" bundle:nil];
+   
+    if (_optionidentfr==1) {
+        _gdVCtrl.generalid=[_insertedgeneralid integerValue];
+        
+    }
+    else{
+        _gdVCtrl.generalid=[_genralid integerValue];
+           }
+
+      _gdVCtrl.dragbtnindx=dragbutnindx;
     self.gdVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     [self presentViewController:_gdVCtrl
                        animated:YES completion:NULL];
@@ -1268,6 +1300,7 @@
     if (_optionidentfr==1) {
           [self GeneralInsert];
        
+        
                    }
 
     
