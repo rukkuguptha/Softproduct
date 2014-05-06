@@ -328,6 +328,7 @@
 
 #pragma mark-Button Actions
 - (IBAction)clseVCtrlbtn:(id)sender {
+     _addplanview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -506,7 +507,7 @@
 -(IBAction)Editaction:(id)sender
 {
     optionidentifier=2;
-    self.navabar.title = @"Edit";
+    self.navabar.title = @"EDIT";
       _addplanview.hidden=NO;
      _selectionlabel.hidden=NO;
     button = (UIButton *)sender;

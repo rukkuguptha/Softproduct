@@ -564,7 +564,7 @@
 - (IBAction)clsebtn:(id)sender {
     _seqnotextfld.text=@"";
     _jobtasktextfld.text=@"";
-
+_addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

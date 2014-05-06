@@ -484,6 +484,7 @@
 }
 
 - (IBAction)clsebtn:(id)sender {
+    _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

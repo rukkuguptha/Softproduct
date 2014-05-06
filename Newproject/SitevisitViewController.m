@@ -1649,6 +1649,7 @@
         [_complextyofwrkbtnlbl setTitle:[_cmpxtyofwrk objectAtIndex:indexPath.row] forState:UIControlStateNormal];
        
     }
+    [self.popOverController dismissPopoverAnimated:YES];
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
     

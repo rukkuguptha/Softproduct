@@ -1073,6 +1073,7 @@
 #pragma mark-actios
 -(IBAction)closeuser:(id)sender
 {
+     _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)adduserview:(id)sender

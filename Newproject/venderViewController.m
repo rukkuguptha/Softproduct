@@ -50,7 +50,7 @@
 }
 #pragma mark-Actions
 -(IBAction)closevendorpage:(id)sender
-{
+{ _venderaddview.hidden=YES;
     if ([self.delegate respondsToSelector:@selector(newaction)])
     {
     [self.delegate newaction];

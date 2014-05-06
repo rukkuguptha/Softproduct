@@ -48,7 +48,7 @@
                                 <navigationItem title="Plan" id="nUE-6U-sAD">
                                     <barButtonItem key="rightBarButtonItem" id="d3V-68-WqR">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8Zg-tS-lEl">
-                                            <rect key="frame" x="968" y="2" width="40" height="40"/>
+                                            <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <state key="normal" title="Button" image="appbar.close.png">
@@ -189,14 +189,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <navigationBar contentMode="scaleToFill" id="xsT-pB-pwZ">
-                                    <rect key="frame" x="2" y="1" width="766" height="44"/>
+                                    <rect key="frame" x="0.0" y="1" width="771" height="44"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <items>
                                         <navigationItem title="Add New Record" id="WP0-d0-N32">
                                             <barButtonItem key="rightBarButtonItem" id="euR-CK-Uco">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="VF6-z5-Vu6">
-                                                    <rect key="frame" x="710" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="715" y="2" width="40" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.close.png">

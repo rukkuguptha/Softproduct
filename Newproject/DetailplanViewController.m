@@ -398,6 +398,7 @@
        // cell.textLabel.text=typmdl.typeName;
         [_scaffoldtyprbtn setTitle:typmdl.typeName forState:UIControlStateNormal];
     }
+    [self.popovercontroller dismissPopoverAnimated:YES];
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color

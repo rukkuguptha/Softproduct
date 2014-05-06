@@ -279,6 +279,7 @@
         
         
     }
+     [self.popOverController dismissPopoverAnimated:YES];
     
 }
 
