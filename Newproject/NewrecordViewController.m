@@ -828,6 +828,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
            [_typeidbtnlbl setTitle:[array1 objectAtIndex:indexPath.row] forState:UIControlStateNormal];
       
        }
+    [self.popOverController dismissPopoverAnimated:YES];
+
     
 
 }

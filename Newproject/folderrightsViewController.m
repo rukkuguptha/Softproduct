@@ -132,6 +132,7 @@
 #pragma mark-IBActions
 -(IBAction)closefolderrightsview:(id)sender
 {
+     _editview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)editfolderrights:(id)sender

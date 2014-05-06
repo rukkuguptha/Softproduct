@@ -225,7 +225,7 @@
 -(void)wrksetngpage{
     
     if (!self.wrkstngVCtrlr) {
-        self.wrkstngVCtrlr=[[WrksetngViewController alloc]initWithNibName:@"WrksetngViewController" bundle:nil];
+        self.wrkstngVCtrlr=[[SettngsViewController alloc]initWithNibName:@"SettngsViewController" bundle:nil];
     }
     _wrkstngVCtrlr.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_wrkstngVCtrlr animated:YES completion:nil];

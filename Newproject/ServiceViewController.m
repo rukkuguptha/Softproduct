@@ -60,6 +60,7 @@
 -(IBAction)closetheservicesview:(id)sender
 {
      self.openviewindex=NSNotFound;
+    _addserview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 #pragma mark-tableview datasources

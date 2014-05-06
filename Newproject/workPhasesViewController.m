@@ -212,6 +212,7 @@
 #pragma mark:actions
 -(IBAction)closePhases:(id)sender
 {
+    _workphasesview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addworkPhasesview:(id)sender

@@ -1,8 +1,8 @@
 //
-//  WrksetngViewController.h
+//  SettngsViewController.h
 //  Newproject
 //
-//  Created by GMSIndia 2 on 05/05/14.
+//  Created by GMSIndia 2 on 06/05/14.
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
@@ -11,8 +11,7 @@
 #import "workPhasesViewController.h"
 #import "WorktypeViewController.h"
 
-@interface WrksetngViewController : UIViewController
-
+@interface SettngsViewController : UIViewController
 
 
 @property (strong, nonatomic) IBOutlet UIView *serviceview;
@@ -24,5 +23,4 @@
 @property(strong,nonatomic)WorktypeViewController *wrktypeVCtrl;
 
 -(IBAction)closethepage:(id)sender;
-
 @end

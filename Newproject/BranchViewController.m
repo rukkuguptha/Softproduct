@@ -63,6 +63,8 @@
 #pragma mark-Actions
 - (IBAction)Closebranchpage:(id)sender
 {
+    _branchview.hidden=YES;
+
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addbranchaction:(id)sender
