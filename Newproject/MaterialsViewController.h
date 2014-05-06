@@ -24,6 +24,7 @@
     NSString *msgstrg;
     NSString *matealcode;
     NSString*skill;
+    NSInteger poptype;
     
 }
 @property(strong,nonatomic)NSMutableDictionary *skilldict;
@@ -44,10 +45,13 @@
 
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *subtypearray;
-
+@property(strong,nonatomic)NSMutableArray *unitofmeasurearray;
 @property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
+
+@property (strong, nonatomic) IBOutlet UITextField *unitofmesuretxtfld;
+
 
 
 /*cell outlets*/
@@ -94,5 +98,10 @@
 -(IBAction)addmaterial:(id)sender;
 -(IBAction)editmaterial:(id)sender;
 -(IBAction)closeaddview:(id)sender;
+
+- (IBAction)mesuresechbtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *measuresrchbtnlbl;
+
 
 @end

@@ -31,6 +31,9 @@
 @property(strong,nonatomic)GeneralViewController *generalworkctrlr;
 @property(strong,nonatomic)Generalmodel *gmodel;
 
+@property (strong, nonatomic) IBOutlet UISearchBar * searchbar;
+@property(strong,nonatomic)NSString *searchstring;
+
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;
 - (IBAction)Scaffoldslection:(id)sender;
