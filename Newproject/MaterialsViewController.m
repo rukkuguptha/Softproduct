@@ -1603,6 +1603,7 @@ else
 
 -(IBAction)closeMaterials:(id)sender
 {
+    _addmatView.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 -(IBAction)addmaterial:(id)sender

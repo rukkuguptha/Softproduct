@@ -988,6 +988,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
 }
 
 - (IBAction)closebtn:(id)sender {
+    _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

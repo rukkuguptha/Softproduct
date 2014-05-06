@@ -121,6 +121,7 @@
 -(IBAction)closemanpower:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+    _addview.hidden=YES;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

@@ -175,7 +175,7 @@
     if (!self.crewVCtrl) {
         self.crewVCtrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
     }
-    _crewVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    //_crewVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     [self presentViewController:_crewVCtrl
                        animated:YES completion:NULL];
 

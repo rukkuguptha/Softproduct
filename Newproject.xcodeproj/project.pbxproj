@@ -311,6 +311,9 @@
 		D4F5BD5618E15FEE0045DBE3 /* Cinfocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F5BD5518E15FEE0045DBE3 /* Cinfocell.xib */; };
 		D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F61A5418A896D90006093B /* ProcesshrViewController.m */; };
 		D4F61A5718A896D90006093B /* ProcesshrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F61A5518A896D90006093B /* ProcesshrViewController.xib */; };
+		D4FE16FC19189FCF00C8DA58 /* searchicon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE16FB19189FCF00C8DA58 /* searchicon@2x.png */; };
+		D4FE16FE19189FE200C8DA58 /* searchicon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE16FD19189FE200C8DA58 /* searchicon.png */; };
+		D4FE17021918D44B00C8DA58 /* drag.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE17011918D44B00C8DA58 /* drag.png */; };
 		D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */; };
 		D4FED40817F15B07004BE242 /* HRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FED40617F15B07004BE242 /* HRViewController.m */; };
 		D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4FED40717F15B07004BE242 /* HRViewController.xib */; };
@@ -744,6 +747,9 @@
 		D4F61A5318A896D90006093B /* ProcesshrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcesshrViewController.h; sourceTree = "<group>"; };
 		D4F61A5418A896D90006093B /* ProcesshrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcesshrViewController.m; sourceTree = "<group>"; };
 		D4F61A5518A896D90006093B /* ProcesshrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcesshrViewController.xib; sourceTree = "<group>"; };
+		D4FE16FB19189FCF00C8DA58 /* searchicon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchicon@2x.png"; sourceTree = "<group>"; };
+		D4FE16FD19189FE200C8DA58 /* searchicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchicon.png; sourceTree = "<group>"; };
+		D4FE17011918D44B00C8DA58 /* drag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drag.png; sourceTree = "<group>"; };
 		D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7-camera-icon.png"; sourceTree = "<group>"; };
 		D4FED40517F15B07004BE242 /* HRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRViewController.h; sourceTree = "<group>"; };
 		D4FED40617F15B07004BE242 /* HRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRViewController.m; sourceTree = "<group>"; };
@@ -1100,6 +1106,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE17011918D44B00C8DA58 /* drag.png */,
 				D4E6156318D971C500D7EAA0 /* logo.png */,
 				6426F5FA18C0685C002471AC /* SasteyPicture.png */,
 				6426F5F818C06824002471AC /* fleet.png */,
@@ -1118,6 +1125,8 @@
 				D4EC1FE01875280500A55942 /* textbox.png */,
 				D40A6639187131CA00AB7496 /* cb_mono_on.png */,
 				D40A663A187131CA00AB7496 /* cb_mono_off.png */,
+				D4FE16FD19189FE200C8DA58 /* searchicon.png */,
+				D4FE16FB19189FCF00C8DA58 /* searchicon@2x.png */,
 				D4399EBD186D7BBF00A693F7 /* search-button.png */,
 				D4399EBB186D7BB000A693F7 /* search-button@2x.png */,
 				64A09DB018605711001F74E2 /* appbar.delete.png */,
@@ -1408,6 +1417,7 @@
 				64A27C2018E1640000D184BF /* Srepcell.xib in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
+				D4FE17021918D44B00C8DA58 /* drag.png in Resources */,
 				D40202A11907BCE2003DED36 /* MatrlGnsecondcell.xib in Resources */,
 				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
@@ -1526,6 +1536,7 @@
 				D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
+				D4FE16FC19189FCF00C8DA58 /* searchicon@2x.png in Resources */,
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
@@ -1560,6 +1571,7 @@
 				64161C0D17FEB511007D4D89 /* squre.png in Resources */,
 				64F97992185EF8B000E7722B /* jobsitereqViewController.xib in Resources */,
 				D402029F1907BCBC003DED36 /* Gnmatlfirstcell.xib in Resources */,
+				D4FE16FE19189FE200C8DA58 /* searchicon.png in Resources */,
 				D4004075185B183600C38E12 /* EqpmViewController.xib in Resources */,
 				6426F5F718C067F3002471AC /* accounting.png in Resources */,
 				D4FFBD221855B7880007851D /* carat-open.png in Resources */,

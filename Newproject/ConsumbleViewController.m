@@ -1000,7 +1000,7 @@
 
 
 -(IBAction)closeconsume:(id)sender{
-    
+      _addView.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
