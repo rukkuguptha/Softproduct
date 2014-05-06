@@ -42,6 +42,8 @@
 @property (strong, nonatomic)NSMutableArray *skillarray;
 @property (strong, nonatomic)NSMutableDictionary *skilldict;
 @property (strong, nonatomic)NSMutableDictionary *crewdict;
+@property (strong, nonatomic)NSMutableDictionary *revcrewdict;
+
 /*Outlets*/
 @property (strong, nonatomic) IBOutlet UINavigationBar *navbar;
 @property (strong, nonatomic) IBOutlet UIView *touchview;
