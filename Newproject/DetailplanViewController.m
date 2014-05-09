@@ -57,6 +57,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+   
     [self GeneralSelect];
     // Dispose of any resources that can be recreated.
 }
@@ -64,12 +65,14 @@
 {
     [super viewWillAppear:animated];
       [self GeneralSelect];
+    [self TotalManHoursSelect];
+    
 }
 
 #pragma mark-Actions
 -(IBAction)addplan:(id)sender
 {
-    _addscaffoldrecordview.hidden=NO;
+        _addscaffoldrecordview.hidden=NO;
     optionidentifier=1;
     _unittextfield.text=@"";
     _equipmenttextfield.text=@"";
@@ -105,6 +108,9 @@
     _heighttextfield.text=scaffldingplan.height;
     _qtytextfield.text=scaffldingplan.qty;
     _elevationtextfield.text=scaffldingplan.elevation;
+    _subunittextfld.text=scaffldingplan.subunit;
+    [_sequencebtn setTitle:scaffldingplan.sequencename forState:UIControlStateNormal];
+    [_phasebtn setTitle:scaffldingplan.phasename forState:UIControlStateNormal];
 }
 -(IBAction)closeplan:(id)sender
 {
@@ -126,8 +132,10 @@
 }
 - (IBAction)Scaffoldslection:(id)sender
 {
+    [self JobsequenceSelect];
+    [self SelectAllPhases];
     [self ScaffoldingSelectScaffoldtype];
-
+    
     _scaffoldbtn.tintColor=[UIColor whiteColor];
      _fireproofingbtn.tintColor=[UIColor blackColor];
        _insulationbtn.tintColor=[UIColor blackColor];
@@ -139,6 +147,7 @@
 }
 -(IBAction)selectscaffoldtype:(id)sender
 {
+    poptype=1;
        UIViewController *popovercontent=[[UIViewController alloc]init];
     UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
     popoverview.backgroundColor=[UIColor whiteColor];
@@ -265,6 +274,44 @@
                        animated:YES completion:NULL];
     
 }
+- (IBAction)SelectPhaseaction:(id)sender
+{
+    poptype=2;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_phasebtn.frame inView:self.addscaffoldrecordview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    
+    
+}
+
+- (IBAction)Sequenceselectaction:(id)sender
+{
+    poptype=3;
+    UIViewController *popovercontent=[[UIViewController alloc]init];
+    UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    popoverview.backgroundColor=[UIColor whiteColor];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 210, 200)];
+    _popovertableview.delegate=(id)self;
+    _popovertableview.dataSource=(id)self;
+    _popovertableview.rowHeight=32;
+    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    [popoverview addSubview:_popovertableview];
+    popovercontent.view=popoverview;
+    popovercontent.contentSizeForViewInPopover=CGSizeMake(210, 200);
+    self.popovercontroller=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
+    [self.popovercontroller presentPopoverFromRect:_sequencebtn.frame inView:self.addscaffoldrecordview permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+}
+
 
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -282,8 +329,19 @@
     }
     if(tableView==_popovertableview)
     {
-        
-            return [_scaffoldtyperesultarray count];
+        switch (poptype) {
+            case 1:
+                return [_scaffoldtyperesultarray count];
+                break;
+            case 2:
+                return [_phasearray count];
+                break;
+            case 3:
+                return [_sequencearray count];
+                break;
+            default:
+                break;
+        }
         
         
     }
@@ -377,13 +435,28 @@
 
     if(tableView==_popovertableview)
     {
-       
+        //Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
             cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+        switch (poptype) {
+                
+            case 1:
+                _typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
+               cell.textLabel.text=_typemdl.typeName;
+                break;
+                
+            case 2:
+                cell.textLabel.text=[_phasearray objectAtIndex:indexPath.row];
+                break;
+           
+            case 3:
+                cell.textLabel.text=[_sequencearray objectAtIndex:indexPath.row];
+                break;
             
-            Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
-            
-            cell.textLabel.text=typmdl.typeName;
+            default:
+                break;
+        }
+        
         
     }
     
@@ -393,11 +466,24 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==_popovertableview)
-    { Scaffoldtypemdl*typmdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
-        scaffoldtypeindex=indexPath.row;
-       // cell.textLabel.text=typmdl.typeName;
-        [_scaffoldtyprbtn setTitle:typmdl.typeName forState:UIControlStateNormal];
-    }
+    {
+        switch (poptype) {
+            case 1:
+               _typemdl=(Scaffoldtypemdl *)[_scaffoldtyperesultarray objectAtIndex:indexPath.row];
+                scaffoldtypeindex=indexPath.row;
+                // cell.textLabel.text=typmdl.typeName;
+                [_scaffoldtyprbtn setTitle:_typemdl.typeName forState:UIControlStateNormal];
+
+                break;
+            case 2:
+                [_phasebtn setTitle:[_phasearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                break;
+            default:
+                case 3:
+                [_sequencebtn setTitle:[_sequencearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                break;
+        }
+            }
     [self.popovercontroller dismissPopoverAnimated:YES];
 }
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -421,6 +507,7 @@
 #pragma mark-webservices
 -(void)ScaffoldingSelectScaffoldtype{
     webtype=1;
+     poptype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -520,6 +607,57 @@
     }
     
 }
+-(void)JobsequenceSelect{
+    poptype=3;
+    recordResults = FALSE;
+    NSInteger skillid=8040;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ServiceJobSequenceselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SkillId>%d</SkillId>\n"
+                   "</ServiceJobSequenceselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",skillid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ServiceJobSequenceselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 -(void)GeneralSelect{
     recordResults = FALSE;
@@ -675,6 +813,8 @@
     NSString *soapMessage;
     if(optionidentifier==1){
     NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
+    NSString *phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+        NSString *sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
     NSLog(@"%@",scaffoldid);
     NSString *desc=@"";
      NSString *manhours=@"0";
@@ -709,16 +849,20 @@
                    "<PPE>%d</PPE>\n"
                    "<UnplannedWork>%d</UnplannedWork>\n"
                    "<ph>%@</ph>\n"
+                   "<Sequence>%d</Sequence>\n"
+                   "<Phase>%d</Phase>\n"
+                   "<SubUnit>%@</SubUnit>\n"
                    "</Scaffoldinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[insertid integerValue],_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text];
+                   "</soap:Envelope>\n",[insertid integerValue],_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text,[sequenceid integerValue],[phaseid integerValue],_subunittextfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     }
     else if (optionidentifier==2)
     {
         NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
         NSLog(@"%@",scaffoldid);
-        
+        NSString *phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+        NSString *sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
        // NSString *insertid=@"0";
          Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
         NSString *manhours=scaffldingplan.manhours;
@@ -751,9 +895,12 @@
                        "<PPE>%d</PPE>\n"
                        "<UnplannedWork>%d</UnplannedWork>"
                        "<ph>%@</ph>\n"
+                       "<Sequence>%d</Sequence>\n"
+                       "<Phase>%d</Phase>\n"
+                       "<SubUnit>%@</SubUnit>\n"
                        "</Scaffoldinsert>\n"
                        "</soap:Body>\n"
-                       "</soap:Envelope>\n",scaffldingplan.idvalue,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,scaffldingplan.desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text];
+                       "</soap:Envelope>\n",scaffldingplan.idvalue,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,scaffldingplan.desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text,[sequenceid integerValue],[phaseid integerValue],_subunittextfld.text];
         NSLog(@"soapmsg%@",soapMessage);
 
     }
@@ -788,6 +935,104 @@
     
 }
 
+-(void)TotalManHoursSelect
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<TotalManHoursSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</TotalManHoursSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_planid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/TotalManHoursSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+
+}
+-(void)SelectAllPhases{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PlanPhasesSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "</PlanPhasesSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PlanPhasesSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 
 #pragma mark - Connection
@@ -827,6 +1072,7 @@
         [self ScaffoldingSelectplan];
         webtype=0;
     }
+
 
 
 }
@@ -1207,7 +1453,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SubUnit"])
+    if([elementName isEqualToString:@"generalSubUnit"])
     {
         
         if(!_soapresults)
@@ -1234,7 +1480,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Phase"])
+    if([elementName isEqualToString:@"PHASE"])
     {
         
         if(!_soapresults)
@@ -1301,6 +1547,106 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"TotalManHoursSelectResult"])
+    {
+       
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MANHOURQuantity"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
+    {
+        _sequencearray=[[NSMutableArray alloc]init];
+        _sequencedict=[[NSMutableDictionary alloc]init];
+        _sequenceiddict=[[NSMutableDictionary alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobSequenceId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SequenceNumber"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PlanPhasesSelectResult"])
+    {
+        _phasearray=[[NSMutableArray alloc]init];
+        _phasedict=[[NSMutableDictionary alloc]init];
+        _phaseiddict=[[NSMutableDictionary alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PhaseID"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+
 
 
 }
@@ -1485,10 +1831,38 @@
         
         recordResults = FALSE;
         _scfldmdl.pid=_soapresults;
+        //[_scaffoldingplanlistarray addObject:_scfldmdl];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"SubUnit"])
+    {
+        
+        recordResults = FALSE;
+        _scfldmdl.subunit=_soapresults;
+        //[_scaffoldingplanlistarray addObject:_scfldmdl];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"Sequence"])
+    {
+        
+        recordResults = FALSE;
+        _scfldmdl.sequence=[_soapresults integerValue];
+        NSString *sequence=[_sequenceiddict objectForKey:_soapresults];
+        _scfldmdl.sequencename=sequence;
+        //[_scaffoldingplanlistarray addObject:_scfldmdl];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"Phase"])
+    {
+        
+        recordResults = FALSE;
+        _scfldmdl.phase=[_soapresults integerValue];
+        NSString *phase=[_phaseiddict objectForKey:_soapresults];
+        _scfldmdl.phasename=phase;
         [_scaffoldingplanlistarray addObject:_scfldmdl];
         _soapresults = nil;
     }
-    
+
     
     if([elementName isEqualToString:@"ScaffoldingSelectScaffoldtypeResult"])
     {
@@ -1606,6 +1980,9 @@
         _allctrlr.ph=_proheadertextfield.text;
         _allctrlr.planid=_planid;
         _allctrlr.Scfldid=_insertresultvalue;
+        _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+        _allctrlr.sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
+            _allctrlr.subunit=_subunittextfld.text;
         _allctrlr.optionidentifier=optionidentifier;
             NSInteger scfid= [_allctrlr.sid integerValue];
             switch (scfid) {
@@ -1679,6 +2056,9 @@
             _allctrlr.sid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
             _allctrlr.qty=_qtytextfield.text;
             _allctrlr.planid=_planid;
+            _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
+            _allctrlr.sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
+            _allctrlr.subunit=_subunittextfld.text;
             NSInteger scfid= [_allctrlr.sid integerValue];
             switch (scfid) {
                 case 1:
@@ -1772,7 +2152,7 @@
         _gmodel.Unit=_soapresults;
         _soapresults = nil;
     }
-    if([elementName isEqualToString:@"SubUnit"])
+    if([elementName isEqualToString:@"generalSubUnit"])
     {
         
         recordResults = FALSE;
@@ -1796,7 +2176,7 @@
         _soapresults = nil;
     }
 
-    if([elementName isEqualToString:@"Phase"])
+    if([elementName isEqualToString:@"PHASE"])
     {
         
         recordResults = FALSE;
@@ -1843,6 +2223,61 @@
        
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"MANHOURQuantity"])
+    {
+        
+        recordResults = FALSE;
+        _totalmanhourlabel.text=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"ServiceJobSequenceselectResult"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"JobSequenceId"])
+    {
+        
+        recordResults = FALSE;
+        _sequencestring=_soapresults;
+                
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"JobTask"])
+    {
+        
+        recordResults = FALSE;
+        [_sequencearray addObject:_soapresults];
+        [_sequencedict setObject:_soapresults forKey:_sequencestring];
+        [_sequenceiddict setObject:_sequencestring forKey:_soapresults];
+        
+        _soapresults = nil;
+    }
+
+
+    if([elementName isEqualToString:@"PhaseID"])
+    {
+        
+        recordResults = FALSE;
+        _phasestring=_soapresults;
+        _soapresults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"PhaseName"])
+    {
+        
+        recordResults = FALSE;
+        [_phasearray addObject:_soapresults];
+        [_phasedict setObject:_phasestring forKey:_soapresults];
+        [_phaseiddict setObject:_phasestring forKey:_soapresults];
+        _soapresults = nil;
+        
+        
+    }
 
 
 
@@ -1850,6 +2285,7 @@
 
 }
 #pragma mark-delegate
+
 -(void)navgteanimtn{
     [UIView transitionFromView:self.allctrlr.view
                         toView:self.addscaffoldrecordview

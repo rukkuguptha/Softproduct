@@ -74,6 +74,9 @@
 @property (strong, nonatomic)NSString  * ph;
 @property (strong, nonatomic)NSString  * sid;
 @property (strong, nonatomic)NSString  * qty;
+@property (strong, nonatomic)NSString  * phaseid;
+@property (strong, nonatomic)NSString  * sequenceid;
+@property (strong, nonatomic)NSString  * subunit;
 
 
 

@@ -33,5 +33,10 @@
 @property(strong,nonatomic)NSString *manhours;
 @property(strong,nonatomic)NSString *erecthours;
 @property(strong,nonatomic)NSString *dismantlehours;
+@property(strong,nonatomic)NSString *subunit;
+@property(readwrite)NSInteger sequence;
+@property(readwrite)NSInteger phase;
+@property(strong,nonatomic)NSString *sequencename;
+@property(strong,nonatomic)NSString *phasename;
 
 @end
