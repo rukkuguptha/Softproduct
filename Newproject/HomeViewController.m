@@ -75,6 +75,12 @@
     doubleTap5.numberOfTapsRequired=1;
     doubleTap5.delegate=(id)self;
     [self.planngview addGestureRecognizer:doubleTap5];
+    UITapGestureRecognizer *doubleTap6 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Estimationpage)];
+    doubleTap6.numberOfTapsRequired=1;
+    doubleTap6.delegate=(id)self;
+    [self.estimtnview addGestureRecognizer:doubleTap6];
 
 
 
@@ -145,6 +151,17 @@
     [self presentViewController:_PlangVCtrl
                        animated:YES completion:NULL];
 
+}
+-(void)Estimationpage{
+    if (!self.EstmVCtrl) {
+        self.EstmVCtrl=[[EsttileViewController alloc]initWithNibName:@"EsttileViewController" bundle:nil];
+    }
+    _EstmVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _EstmVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_EstmVCtrl
+                       animated:YES completion:NULL];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

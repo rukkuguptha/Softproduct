@@ -62,7 +62,6 @@
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
-@property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
 
 
 /*cell outlets*/
@@ -82,6 +81,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *itemdestxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *subtypetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *unitcosttxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *stockinhandtxtfld;
+
 @property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 @property(strong,nonatomic)IBOutlet UITextField *craftcodetextfld;
 @property(strong,nonatomic)IBOutlet UITextField *billingratetextfield;

@@ -17,6 +17,7 @@
 #import "AssetsViewController.h"
 #import "CrewsetupViewController.h"
 
+
 @interface ResViewController : UIViewController
 
 
@@ -41,6 +42,7 @@
 @property(strong,nonatomic)ConsumbleViewController*ConsuVCtrl;
 @property(strong,nonatomic)AssetsViewController*AssetVCtrl;
 @property(strong,nonatomic)CrewsetupViewController*crewVCtrl;
+
 - (IBAction)closebtnActn:(id)sender;
 
 @end

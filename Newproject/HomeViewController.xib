@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4514" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
     <dependencies>
         <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="companyView" destination="26" id="28"/>
                 <outlet property="customerview" destination="4" id="21"/>
+                <outlet property="estimtnview" destination="d8t-0b-D1U" id="YAe-RB-j6C"/>
                 <outlet property="hrview" destination="29" id="31"/>
                 <outlet property="leadView" destination="23" id="25"/>
                 <outlet property="planngview" destination="Pjb-zn-1HX" id="eZv-oU-lvZ"/>

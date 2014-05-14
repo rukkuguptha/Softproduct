@@ -298,6 +298,12 @@
 		D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF318D03F47007617F0 /* ContractViewController.m */; };
 		D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF418D03F47007617F0 /* ContractViewController.xib */; };
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
+		D4F34355191C9C8E0023D715 /* EsttileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F34353191C9C8E0023D715 /* EsttileViewController.m */; };
+		D4F34356191C9C8E0023D715 /* EsttileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F34354191C9C8E0023D715 /* EsttileViewController.xib */; };
+		D4F3435A191CA3970023D715 /* EstimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F34358191CA3970023D715 /* EstimationViewController.m */; };
+		D4F3435B191CA3970023D715 /* EstimationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F34359191CA3970023D715 /* EstimationViewController.xib */; };
+		D4F3435D191CA90B0023D715 /* Emtncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F3435C191CA90B0023D715 /* Emtncell.xib */; };
+		D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F3435F191CCD220023D715 /* ModlEstimation.m */; };
 		D4F4B0A7190671CC0026C8B6 /* DetailplanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0A6190671CC0026C8B6 /* DetailplanViewController.m */; };
 		D4F4B0AB190678460026C8B6 /* GdargViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F4B0A9190678460026C8B6 /* GdargViewController.m */; };
 		D4F4B0AC190678460026C8B6 /* GdargViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F4B0AA190678460026C8B6 /* GdargViewController.xib */; };
@@ -728,6 +734,15 @@
 		D4F19DF318D03F47007617F0 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		D4F19DF418D03F47007617F0 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
+		D4F34352191C9C8E0023D715 /* EsttileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EsttileViewController.h; sourceTree = "<group>"; };
+		D4F34353191C9C8E0023D715 /* EsttileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EsttileViewController.m; sourceTree = "<group>"; };
+		D4F34354191C9C8E0023D715 /* EsttileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EsttileViewController.xib; sourceTree = "<group>"; };
+		D4F34357191CA3970023D715 /* EstimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EstimationViewController.h; sourceTree = "<group>"; };
+		D4F34358191CA3970023D715 /* EstimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EstimationViewController.m; sourceTree = "<group>"; };
+		D4F34359191CA3970023D715 /* EstimationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EstimationViewController.xib; sourceTree = "<group>"; };
+		D4F3435C191CA90B0023D715 /* Emtncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Emtncell.xib; sourceTree = "<group>"; };
+		D4F3435E191CCD220023D715 /* ModlEstimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModlEstimation.h; sourceTree = "<group>"; };
+		D4F3435F191CCD220023D715 /* ModlEstimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModlEstimation.m; sourceTree = "<group>"; };
 		D4F4B0A5190671CC0026C8B6 /* DetailplanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailplanViewController.h; sourceTree = "<group>"; };
 		D4F4B0A6190671CC0026C8B6 /* DetailplanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailplanViewController.m; sourceTree = "<group>"; };
 		D4F4B0A8190678460026C8B6 /* GdargViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GdargViewController.h; sourceTree = "<group>"; };
@@ -940,6 +955,7 @@
 				D4FED40417F15AC5004BE242 /* hr */,
 				D4F19DCC18D03AA4007617F0 /* Leads */,
 				D4B7017C18AB3E490060BE0A /* Planning */,
+				D4F34351191C9C2E0023D715 /* Estimation */,
 				D40D1EB1176B086F00379DD5 /* Supporting Files */,
 			);
 			path = Newproject;
@@ -1077,7 +1093,6 @@
 				D4F5576D1904F7EF00EFDAF4 /* GeneralViewController.h */,
 				D4F5576E1904F7EF00EFDAF4 /* GeneralViewController.m */,
 				D4F5576F1904F7EF00EFDAF4 /* GeneralViewController.xib */,
-				64AD76C618AE12B100089A0F /* scaffoldcell.xib */,
 				D4F4B0A8190678460026C8B6 /* GdargViewController.h */,
 				D4F4B0A9190678460026C8B6 /* GdargViewController.m */,
 				D4F4B0AA190678460026C8B6 /* GdargViewController.xib */,
@@ -1089,6 +1104,7 @@
 				D4A21FFC190A1D790065840D /* DequipViewController.h */,
 				D4A21FFD190A1D790065840D /* DequipViewController.m */,
 				D4A21FFF190A1D890065840D /* Dragequip.xib */,
+				64AD76C618AE12B100089A0F /* scaffoldcell.xib */,
 				D4A22000190A1D890065840D /* Srcequcell.xib */,
 				D4A22001190A1D890065840D /* Destequcell.xib */,
 				649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */,
@@ -1271,6 +1287,8 @@
 				D42E73DD1907E26300F7C99A /* Metgenmdl.m */,
 				D4A22005190A1DA90065840D /* Drageqmodel.h */,
 				D4A22006190A1DA90065840D /* Drageqmodel.m */,
+				D4F3435E191CCD220023D715 /* ModlEstimation.h */,
+				D4F3435F191CCD220023D715 /* ModlEstimation.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1300,6 +1318,20 @@
 				64A3B82218DFEF0B0015887F /* CommentsViewController.xib */,
 			);
 			name = Leads;
+			sourceTree = "<group>";
+		};
+		D4F34351191C9C2E0023D715 /* Estimation */ = {
+			isa = PBXGroup;
+			children = (
+				D4F34352191C9C8E0023D715 /* EsttileViewController.h */,
+				D4F34353191C9C8E0023D715 /* EsttileViewController.m */,
+				D4F34354191C9C8E0023D715 /* EsttileViewController.xib */,
+				D4F34357191CA3970023D715 /* EstimationViewController.h */,
+				D4F34358191CA3970023D715 /* EstimationViewController.m */,
+				D4F34359191CA3970023D715 /* EstimationViewController.xib */,
+				D4F3435C191CA90B0023D715 /* Emtncell.xib */,
+			);
+			name = Estimation;
 			sourceTree = "<group>";
 		};
 		D4FED40417F15AC5004BE242 /* hr */ = {
@@ -1398,6 +1430,7 @@
 				64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */,
 				D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */,
 				D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */,
+				D4F34356191C9C8E0023D715 /* EsttileViewController.xib in Resources */,
 				D40D1EBD176B086F00379DD5 /* Default.png in Resources */,
 				D40D1EBF176B086F00379DD5 /* Default@2x.png in Resources */,
 				642FA78A18AC927F00372623 /* AddserviceViewController.xib in Resources */,
@@ -1415,6 +1448,7 @@
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				D40202A11907BCE2003DED36 /* MatrlGnsecondcell.xib in Resources */,
+				D4F3435B191CA3970023D715 /* EstimationViewController.xib in Resources */,
 				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
@@ -1561,6 +1595,7 @@
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
+				D4F3435D191CA90B0023D715 /* Emtncell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
 				6437578718BC5572003691E6 /* maintablecell.xib in Resources */,
@@ -1670,6 +1705,7 @@
 				D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
+				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
 				D49F876518EEA36B00413CAD /* Empmdl.m in Sources */,
 				64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */,
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
@@ -1684,9 +1720,11 @@
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
+				D4F3435A191CA3970023D715 /* EstimationViewController.m in Sources */,
 				D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */,
 				D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */,
 				D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */,
+				D4F34355191C9C8E0023D715 /* EsttileViewController.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */,
 				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
