@@ -14,6 +14,7 @@
 #import "TilehrViewController.h"
 #import "PlanningViewController.h"
 #import "TilecustmrViewController.h"
+#import "EsttileViewController.h"
 @interface HomeViewController : UIViewController
 
 /*Views*/
@@ -23,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UIView *hrview;
 @property (strong, nonatomic) IBOutlet UIView *planngview;
 @property (strong, nonatomic) IBOutlet UIView *reurceview;
+@property (strong, nonatomic) IBOutlet UIView *estimtnview;
 
 
 /*controllers*/
@@ -33,6 +35,7 @@
 @property(strong,nonatomic)ResViewController*ReVCtrl;
 @property(strong,nonatomic)TilehrViewController*TilehrVCtrl;
 @property(strong,nonatomic)PlanningViewController *PlangVCtrl;
+@property(strong,nonatomic)EsttileViewController *EstmVCtrl;
 
 
 
