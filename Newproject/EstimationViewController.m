@@ -35,6 +35,7 @@
     _estmntable.layer.borderWidth = 2.0;
     _estmntable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"Resource planning", nil];
     [self WorkTypeSelect];
 
 }
@@ -86,26 +87,32 @@
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
     
     
+    [self.popOverController presentPopoverFromRect:_disclurbtnlbl.frame
+                                                     inView:self.estmntable
+                                      permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                                    animated:YES];
+
     
-    switch (poptype) {
-        case 1:
-            [self.popOverController presentPopoverFromRect:_leadcustmrbtnlbl.frame
-                                                    inView:self.addview
-                                  permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                  animated:YES];
-
-            break;
-        case 2:
-            [self.popOverController presentPopoverFromRect:_planbtnlbl.frame
-                                                    inView:self.addview
-                                  permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                  animated:YES];
-            
-            break;
-
-        default:
-            break;
-    }
+    
+//    switch (poptype) {
+//        case 1:
+//            [self.popOverController presentPopoverFromRect:_leadcustmrbtnlbl.frame
+//                                                    inView:self.addview
+//                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+//                                                  animated:YES];
+//
+//            break;
+//        case 2:
+//            [self.popOverController presentPopoverFromRect:_planbtnlbl.frame
+//                                                    inView:self.addview
+//                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+//                                                  animated:YES];
+//            
+//            break;
+//
+//        default:
+//            break;
+//    }
     
     
     
@@ -122,18 +129,19 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_popOverTableView) {
-        switch (poptype) {
-            case 1:
-                return [_leadcustmrarry count];
-                break;
-            case 2:
-                return [_planarray count];
-                break;
-                
-
-            default:
-                break;
-        }
+        return [_listarray count];
+//        switch (poptype) {
+//            case 1:
+//                return [_leadcustmrarry count];
+//                break;
+//            case 2:
+//                return [_planarray count];
+//                break;
+//                
+//
+//            default:
+//                break;
+//        }
     }
     else if (tableView==_estmntable) {
         return [_Estimationarray count];
@@ -165,18 +173,19 @@
         
     }
     if (tableView==_popOverTableView) {
-        switch (poptype) {
-            case 1:
-                cell.textLabel.text=[_leadcustmrarry objectAtIndex:indexPath.row];
-                break;
-            case 2:
-                   cell.textLabel.text=[_planarray objectAtIndex:indexPath.row];
-             
-                break;
-
-            default:
-                break;
-        }
+              cell.textLabel.text=[_listarray objectAtIndex:indexPath.row];
+//        switch (poptype) {
+//            case 1:
+//                cell.textLabel.text=[_leadcustmrarry objectAtIndex:indexPath.row];
+//                break;
+//            case 2:
+//                   cell.textLabel.text=[_planarray objectAtIndex:indexPath.row];
+//             
+//                break;
+//
+//            default:
+//                break;
+//        }
     }
 if (tableView==_estmntable) {
     
@@ -196,24 +205,55 @@ if (tableView==_estmntable) {
 #pragma mark-tableview datasource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+     ModlEstimation *estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
     if (tableView==_popOverTableView) {
-        switch (poptype) {
-            case 1:
-                [_leadcustmrbtnlbl setTitle:[_leadcustmrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                
-                break;
-            case 2:
-                
-                  [_planbtnlbl setTitle:[_planarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-                  [self EstimationWorkTypeSelect];
-               
-                
-                break;
-            default:
-                break;
+        
+        
+        if (!self.phestVCtrl) {
+            self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
         }
+        _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+        _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        _phestVCtrl.estmtnid=estmdl.estimateid;
+        [self presentViewController:_phestVCtrl
+                           animated:YES completion:NULL];
+
+        
+//        switch (poptype) {
+//            case 1:
+//                [_leadcustmrbtnlbl setTitle:[_leadcustmrarry objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+//                
+//                break;
+//            case 2:
+//                
+//                  [_planbtnlbl setTitle:[_planarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+//                  [self EstimationWorkTypeSelect];
+//               
+//                
+//                break;
+//            default:
+//                break;
+//        }
         [self.popOverController dismissPopoverAnimated:YES];
 
+    }
+}
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_estmntable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
     }
 }
 
@@ -1094,6 +1134,7 @@ if (tableView==_estmntable) {
 }
 
 - (IBAction)disclurebtn:(id)sender {
+    [self createpopover];
 }
 
 - (IBAction)addclsebtn:(id)sender {
