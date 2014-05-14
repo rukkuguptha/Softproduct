@@ -102,38 +102,35 @@
     _equipitemdesctextfield.text=dmodel.eqdesc;
     _equipqtytextfield.text=dmodel.qty;
    
-    if (dmodel.hrate==0) {
-        [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
+        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         
     }
-    else if(dmodel.hrate==1){
-        [_hratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    if ([dmodel.ratestring isEqualToString:@"Daily Rate"]) {
         
+        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     }
-    if (dmodel.drate==0) {
-        [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    if ([dmodel.ratestring isEqualToString:@"Weekly Rate"]) {
         
+        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     }
-    else if(dmodel.drate==1){
-        [_dratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    if ([dmodel.ratestring isEqualToString:@"Monthly Rate"]) {
         
+        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
     }
-    if (dmodel.wrate==0) {
-        [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        
-    }
-    else if(dmodel.wrate==1){
-        [_wratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        
-    }
-    if (dmodel.mrate==0) {
-        [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        
-    }
-    else if(dmodel.mrate==1){
-        [_mratecheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        
-    }
+    
 
     _hratecheck=@"";
     _mratecheck=@"";
@@ -306,50 +303,37 @@
         _equipdescdestlabel.text=dmodel.eqdesc;
         _equipquantdestlabel=(UILabel *)[cell viewWithTag:3];
         _equipquantdestlabel.text=dmodel.qty;
-//        _equiphratedestlabel=(UILabel *)[cell viewWithTag:4];
-//        _equiphratedestlabel.text=dmodel.hrate;
-//        _equipdratedestlabel=(UILabel *)[cell viewWithTag:5];
-//        _equipdratedestlabel.text=dmodel.drate;
-//        _equipwratedestlabel=(UILabel *)[cell viewWithTag:6];
-//        _equipwratedestlabel.text=dmodel.wrate;
-//        _equipmratedestlabel=(UILabel *)[cell viewWithTag:7];
-//        _equipmratedestlabel.text=dmodel.mrate;
-//        NSInteger h1=[dmodel.hrate integerValue];
-//        NSInteger d1=[dmodel.drate integerValue];
-//        NSInteger w1=[dmodel.wrate integerValue];
-//        NSInteger m1=[dmodel.mrate integerValue];
-        if (dmodel.hrate ==0) {
-            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            
-        }
-        else if(dmodel.hrate ==1){
+           NSLog(@"%@",dmodel.ratestring);
+        if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
             [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            
-        }
-        if (dmodel.drate==0) {
             [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            
-        }
-        else if(dmodel.drate==1){
-            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            
-        }
-        if (dmodel.wrate==0) {
             [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            
-        }
-        else if(dmodel.wrate==1){
-            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            
-        }
-        if (dmodel.mrate==0) {
             [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             
         }
-        else if(dmodel.mrate==1){
-            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+         if ([dmodel.ratestring isEqualToString:@"Daily Rate"]) {
+        
+             [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+             [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         }
+        if ([dmodel.ratestring isEqualToString:@"Weekly Rate"]) {
             
+            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         }
+        if ([dmodel.ratestring isEqualToString:@"Monthly Rate"]) {
+            
+            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+
+
         
         
         
@@ -500,6 +484,7 @@
     NSInteger wrate=0;
     NSInteger mrate=0;
     NSInteger yrate=0;
+    NSString *ratestring=@"Daily Rate";
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -521,9 +506,10 @@
                    "<WeeklyRate>%d</WeeklyRate>\n"
                    "<MonthlyRate>%d</MonthlyRate>\n"
                    "<YearlyRate>%d</YearlyRate>\n"
+                   "<Rate>%@</Rate>\n"
                    "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_generalid integerValue],emodel.entryid,emodel.itemcode,emodel.itemdescptn,etype,ename,[quantity integerValue],hrate,drate,wrate,mrate,yrate];
+                   "</soap:Envelope>\n",[_generalid integerValue],emodel.entryid,emodel.itemcode,emodel.itemdescptn,etype,ename,[quantity integerValue],hrate,drate,wrate,mrate,yrate,ratestring];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -556,6 +542,7 @@
     
 }
 -(void)GeneralResourceDetailUpdate{
+    NSString *ratestring;
     webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
@@ -576,6 +563,7 @@
         drate=dmodel.drate;
         wrate=dmodel.wrate;
         hrate=dmodel.hrate;
+        ratestring=dmodel.ratestring;
     }
     else
     {
@@ -587,6 +575,7 @@
         }
         else{
             hrate=1;
+            ratestring=@"Hourly Rate";
             drate=0;
             wrate=0;
             mrate=0;
@@ -605,6 +594,7 @@
         }
         else{
             drate=1;
+            ratestring=@"Daily Rate";
             mrate=0;
             wrate=0;
             hrate=0;
@@ -626,6 +616,7 @@
         }
         else{
             wrate=1;
+            ratestring=@"Weekly Rate";
             drate=0;
             hrate=0;
             mrate=0;
@@ -645,6 +636,7 @@
         }
         else{
             mrate=1;
+            ratestring=@"Monthly Rate";
             drate=0;
             wrate=0;
             hrate=0;
@@ -680,9 +672,10 @@
                    "<WeeklyRate>%d</WeeklyRate>\n"
                    "<MonthlyRate>%d</MonthlyRate>\n"
                    "<YearlyRate>%d</YearlyRate>\n"
+                    "<Rate>%@</Rate>\n"
                    "</GeneralResourceDetailUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",dmodel.idvalue,dmodel.mainGeneralId,dmodel.SubGeneralResourceId,dmodel.eqitemcode,dmodel.eqdesc,etype,ename,[quantity integerValue],hrate,drate,wrate ,mrate ,yrate];
+                   "</soap:Envelope>\n",dmodel.idvalue,dmodel.mainGeneralId,dmodel.SubGeneralResourceId,dmodel.eqitemcode,dmodel.eqdesc,etype,ename,[quantity integerValue],hrate,drate,wrate ,mrate ,yrate,ratestring];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -959,6 +952,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Rate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
         if([elementName isEqualToString:@"GeneralResourceDetailUpdateResult"])
     {
         if(!_soapResults)
@@ -1172,9 +1174,20 @@
             //checkbtnclick=1;
         }
 
+        //[_equipdestarray addObject:_dmdl];
+        
+        _soapResults = nil;    }
+    if([elementName isEqualToString:@"Rate"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _dmdl.ratestring=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         [_equipdestarray addObject:_dmdl];
         
         _soapResults = nil;    }
+
 //    
 //    if([elementName isEqualToString:@"YearlyRate"])
 //    {

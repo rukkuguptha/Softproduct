@@ -2297,6 +2297,7 @@
 -(void)updatedata
 {
     [self GeneralSelect];
+    [self TotalManHoursSelect];
 }
 #pragma mark - SearchBar
 
