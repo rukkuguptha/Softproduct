@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EstimationViewController">
             <connections>
                 <outlet property="cmpnylbl" destination="3xD-CL-LjJ" id="7gf-QG-OpF"/>
+                <outlet property="disclurbtnlbl" destination="keM-9o-0cf" id="Bd6-yS-osU"/>
                 <outlet property="estlbl" destination="z9a-xq-aUo" id="6ko-lC-DcC"/>
                 <outlet property="estmtncell" destination="FLN-pw-yp8" id="Kds-XX-MDr"/>
             </connections>

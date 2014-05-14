@@ -103,6 +103,10 @@
 		D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */; };
 		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
 		D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */; };
+		D40427E219235DF50049A709 /* PhsestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40427E019235DF50049A709 /* PhsestViewController.m */; };
+		D40427E319235DF50049A709 /* PhsestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40427E119235DF50049A709 /* PhsestViewController.xib */; };
+		D40427E5192365210049A709 /* Phestcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40427E4192365210049A709 /* Phestcell.xib */; };
+		D40427E819237F980049A709 /* Rephase.m in Sources */ = {isa = PBXBuildFile; fileRef = D40427E719237F980049A709 /* Rephase.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
 		D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BC18BB1E9B00C5DB30 /* right_arrow.png */; };
@@ -457,6 +461,12 @@
 		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
 		D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangmntdetailsViewController.m; sourceTree = "<group>"; };
 		D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MangmntdetailsViewController.xib; sourceTree = "<group>"; };
+		D40427DF19235DF50049A709 /* PhsestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhsestViewController.h; sourceTree = "<group>"; };
+		D40427E019235DF50049A709 /* PhsestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhsestViewController.m; sourceTree = "<group>"; };
+		D40427E119235DF50049A709 /* PhsestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhsestViewController.xib; sourceTree = "<group>"; };
+		D40427E4192365210049A709 /* Phestcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Phestcell.xib; sourceTree = "<group>"; };
+		D40427E619237F980049A709 /* Rephase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rephase.h; sourceTree = "<group>"; };
+		D40427E719237F980049A709 /* Rephase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rephase.m; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		D40736BE18BB1E9B00C5DB30 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -1289,6 +1299,8 @@
 				D4A22006190A1DA90065840D /* Drageqmodel.m */,
 				D4F3435E191CCD220023D715 /* ModlEstimation.h */,
 				D4F3435F191CCD220023D715 /* ModlEstimation.m */,
+				D40427E619237F980049A709 /* Rephase.h */,
+				D40427E719237F980049A709 /* Rephase.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1330,6 +1342,10 @@
 				D4F34358191CA3970023D715 /* EstimationViewController.m */,
 				D4F34359191CA3970023D715 /* EstimationViewController.xib */,
 				D4F3435C191CA90B0023D715 /* Emtncell.xib */,
+				D40427DF19235DF50049A709 /* PhsestViewController.h */,
+				D40427E019235DF50049A709 /* PhsestViewController.m */,
+				D40427E119235DF50049A709 /* PhsestViewController.xib */,
+				D40427E4192365210049A709 /* Phestcell.xib */,
 			);
 			name = Estimation;
 			sourceTree = "<group>";
@@ -1524,6 +1540,7 @@
 				D42D8C3818D2E3E3009D8085 /* UsersViewController.xib in Resources */,
 				D4EC1FE11875280500A55942 /* textbox.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
+				D40427E319235DF50049A709 /* PhsestViewController.xib in Resources */,
 				D4F036C718B70A38003A668C /* Wrkschdulecell.xib in Resources */,
 				64A3B81D18DFEEC90015887F /* ActivityViewController.xib in Resources */,
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
@@ -1594,6 +1611,7 @@
 				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
+				D40427E5192365210049A709 /* Phestcell.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				D4F3435D191CA90B0023D715 /* Emtncell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
@@ -1703,6 +1721,7 @@
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
 				D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */,
+				D40427E819237F980049A709 /* Rephase.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
 				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
@@ -1737,6 +1756,7 @@
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
 				649ED79E187FB8260086CDDE /* CompanyViewController.m in Sources */,
 				D49F876118EEA36B00413CAD /* Scaffoldsubtypemodel.m in Sources */,
+				D40427E219235DF50049A709 /* PhsestViewController.m in Sources */,
 				D4A338E518F3EEEF00E53FAC /* DetailmarkupsectionViewController.m in Sources */,
 				D49F874C18EEA36B00413CAD /* followupmodel.m in Sources */,
 				D49F876B18EEA36B00413CAD /* NumbrSerMdl.m in Sources */,

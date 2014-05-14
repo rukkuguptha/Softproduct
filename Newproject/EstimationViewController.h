@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ModlEstimation.h"
-
+#import "PhsestViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -21,6 +21,7 @@
     NSString * typestg;
     
 }
+@property(strong,nonatomic)PhsestViewController *phestVCtrl;
 @property(strong,nonatomic) ModlEstimation *mdlestmtn;
 
 /*popover*/
@@ -38,6 +39,8 @@
 @property (strong, nonatomic)NSMutableDictionary *leaddict;
 @property (strong, nonatomic)NSMutableDictionary *custmrdict;
 
+
+@property (strong, nonatomic)NSMutableArray *listarray;
 @property (strong, nonatomic)NSMutableArray *typelistarray;
 @property (strong, nonatomic)NSMutableDictionary *typelistdict;
 @property (strong, nonatomic)NSMutableDictionary *revtypelistarray;
@@ -59,6 +62,7 @@
 @property (strong, nonatomic) IBOutlet UIView *addview;
 @property (strong, nonatomic) IBOutlet UILabel *leadcustmlbl;
 
+@property (strong, nonatomic) IBOutlet UIButton *disclurbtnlbl;
 
 
 - (IBAction)clsebtn:(id)sender;
