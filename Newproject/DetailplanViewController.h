@@ -81,6 +81,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *generalquanitylabel;
 @property(strong,nonatomic)IBOutlet UILabel *generalphaselabel;
 @property(strong,nonatomic)IBOutlet UILabel *generalseqlabel;
+@property(strong,nonatomic)IBOutlet UILabel *totalmanhourlabel;
 
 
 
@@ -123,12 +124,25 @@
 @property(strong,nonatomic)NSMutableDictionary *scaffoldidDict;
 @property(strong,nonatomic)NSMutableArray *generallistarray;
 @property(strong,nonatomic)NSMutableArray *newworkarray;
+@property(strong,nonatomic)NSMutableArray * sequencearray;
+@property(strong,nonatomic)NSMutableArray * phasearray;
+@property(strong,nonatomic)NSMutableDictionary *sequencedict;
+@property(strong,nonatomic)NSString *sequencestring;
+@property(strong,nonatomic)NSMutableDictionary *phasedict;
+@property(strong,nonatomic)NSString *phasestring;
+@property(strong,nonatomic)NSMutableDictionary *phaseiddict;
+@property(strong,nonatomic)NSMutableDictionary *sequenceiddict;
 
 /*strings*/
 @property(strong,nonatomic)NSString *scaffoldtypestring;
 @property(strong,nonatomic)NSString *insertresultvalue;
 @property(strong,nonatomic)NSString *planid;
 
+@property (strong, nonatomic) IBOutlet UITextField *subunittextfld;
+@property (strong, nonatomic) IBOutlet UIButton *phasebtn;
+- (IBAction)SelectPhaseaction:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *sequencebtn;
+- (IBAction)Sequenceselectaction:(id)sender;
 
 
 -(void)navgteanimtn;

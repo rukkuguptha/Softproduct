@@ -826,10 +826,13 @@ return cell;
                        "<PPE>%d</PPE>\n"
                        "<UnplannedWork>%d</UnplannedWork>\n"
                        "<ph>%@</ph>\n"
+                       "<Sequence>%d</Sequence>\n"
+                       "<Phase>%d</Phase>\n"
+                       "<SubUnit>%@</SubUnit>\n"
                        "</Scaffoldinsert>\n"
                        "</soap:Body>\n"
                        "</soap:Envelope>\n",[_Scfldid integerValue],_len,_wid,_height,_qty,_ele,_unit,
-                       _equip,_Destxtfld.text,[_sid integerValue],_manpwr,_erecrhr,_dishr,_planid,iwf,spf,upw,_ph];
+                       _equip,_Destxtfld.text,[_sid integerValue],_manpwr,_erecrhr,_dishr,_planid,iwf,spf,upw,_ph,[_sequenceid integerValue],[_phaseid integerValue],_subunit];
         NSLog(@"soapmsg%@",soapMessage);
 
     }
@@ -889,10 +892,13 @@ return cell;
                    "<PPE>%d</PPE>\n"
                    "<UnplannedWork>%d</UnplannedWork>\n"
                    "<ph>%@</ph>\n"
+                   "<Sequence>%d</Sequence>\n"
+                   "<Phase>%d</Phase>\n"
+                   "<SubUnit>%@</SubUnit>\n"
                    "</Scaffoldinsert>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",_customsccfldmdl.idvalue,_len,_wid,_height,_qty,_ele,_unit,
-                   _equip,_Destxtfld.text,[_sid integerValue],_manpwr,_erecrhr,_dishr,_planid,iwf,spf,upw,_ph];
+                   _equip,_Destxtfld.text,[_sid integerValue],_manpwr,_erecrhr,_dishr,_planid,iwf,spf,upw,_ph,[_sequenceid integerValue],[_phaseid integerValue],_subunit];
     NSLog(@"soapmsg%@",soapMessage);
     }
     
