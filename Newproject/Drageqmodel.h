@@ -16,7 +16,7 @@
 @property(strong,nonatomic)NSString *eqdesc;
 @property(strong,nonatomic)NSString *eqtype;
 @property(strong,nonatomic)NSString *ename;
-
+@property(strong,nonatomic)NSString *ratestring;
 @property(strong,nonatomic)NSString *qty;
 @property(readwrite)NSInteger hrate;
 @property(readwrite)NSInteger mrate;
