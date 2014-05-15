@@ -11,6 +11,8 @@
 #import "PhasecomponentsViewController.h"
 @interface PhsestViewController : UIViewController{
       BOOL recordResults;
+    UIButton *button;
+    NSInteger webtype;
 }
 @property (strong, nonatomic) Rephase *rephasemdl;
 @property (strong, nonatomic)PhasecomponentsViewController *PhasecmpntVCtrl;

@@ -294,12 +294,24 @@
 }
 
 - (IBAction)equpbtn:(id)sender {
+    webtype=1;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+  
+    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];
+    NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
+    Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
+   
+   
     if (!self.PhasecmpntVCtrl) {
         self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
     }
     _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
       _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-    //_phestVCtrl.estmtnid=estmdl.estimateid;
+    _PhasecmpntVCtrl.estmtnid=_estmtnid;
+      _PhasecmpntVCtrl.webtype=webtype;
+    _PhasecmpntVCtrl.phaseid=rephaemdl.phaseid;
     [self presentViewController:_PhasecmpntVCtrl
                        animated:YES completion:NULL];
 
@@ -309,9 +321,51 @@
 }
 
 - (IBAction)fleetbtn:(id)sender {
+    webtype=3;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    
+    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];
+    NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
+    Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
+    
+    
+    if (!self.PhasecmpntVCtrl) {
+        self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
+    }
+    _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _PhasecmpntVCtrl.estmtnid=_estmtnid;
+    _PhasecmpntVCtrl.webtype=webtype;
+    _PhasecmpntVCtrl.phaseid=rephaemdl.phaseid;
+    [self presentViewController:_PhasecmpntVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (IBAction)thirdbtn:(id)sender {
+    webtype=4;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    
+    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];
+    NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
+    Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
+    
+    
+    if (!self.PhasecmpntVCtrl) {
+        self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
+    }
+    _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _PhasecmpntVCtrl.estmtnid=_estmtnid;
+    _PhasecmpntVCtrl.webtype=webtype;
+    _PhasecmpntVCtrl.phaseid=rephaemdl.phaseid;
+    [self presentViewController:_PhasecmpntVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (IBAction)consumbtn:(id)sender {
