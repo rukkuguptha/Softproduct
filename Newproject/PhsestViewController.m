@@ -304,9 +304,9 @@
     Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
    
    
-    if (!self.PhasecmpntVCtrl) {
+//    if (!self.PhasecmpntVCtrl) {
         self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
-    }
+   // }
     _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
       _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _PhasecmpntVCtrl.estmtnid=_estmtnid;
@@ -317,7 +317,28 @@
 
 }
 
-- (IBAction)matbtn:(id)sender {
+- (IBAction)matbtn:(id)sender
+{
+    webtype=2;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    
+    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];
+    NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
+    Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
+    
+    
+//    if (!self.PhasecmpntVCtrl) {
+        self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"MatPhaseEst" bundle:nil];
+    //}
+    _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _PhasecmpntVCtrl.estmtnid=_estmtnid;
+    _PhasecmpntVCtrl.webtype=webtype;
+    _PhasecmpntVCtrl.phaseid=rephaemdl.phaseid;
+    [self presentViewController:_PhasecmpntVCtrl
+                       animated:YES completion:NULL];
 }
 
 - (IBAction)fleetbtn:(id)sender {
@@ -331,9 +352,9 @@
     Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
     
     
-    if (!self.PhasecmpntVCtrl) {
+//    if (!self.PhasecmpntVCtrl) {
         self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
-    }
+    //}
     _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _PhasecmpntVCtrl.estmtnid=_estmtnid;
@@ -355,9 +376,9 @@
     Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
     
     
-    if (!self.PhasecmpntVCtrl) {
+//    if (!self.PhasecmpntVCtrl) {
         self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
-    }
+   // }
     _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _PhasecmpntVCtrl.estmtnid=_estmtnid;
@@ -368,10 +389,53 @@
 
 }
 
-- (IBAction)consumbtn:(id)sender {
+- (IBAction)consumbtn:(id)sender
+{
+    webtype=5;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    
+    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];
+    NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
+    Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
+    
+    
+//    if (!self.PhasecmpntVCtrl) {
+        self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"MatPhaseEst" bundle:nil];
+  //  }
+    _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _PhasecmpntVCtrl.estmtnid=_estmtnid;
+    _PhasecmpntVCtrl.webtype=webtype;
+    _PhasecmpntVCtrl.phaseid=rephaemdl.phaseid;
+    [self presentViewController:_PhasecmpntVCtrl
+                       animated:YES completion:NULL];
+
 }
 
-- (IBAction)othrsbtn:(id)sender {
+- (IBAction)othrsbtn:(id)sender
+{
+    webtype=6;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
     
+    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];
+    NSIndexPath *textFieldIndexPath = [self.phasetable indexPathForRowAtPoint:rootViewPoint];
+    Rephase *rephaemdl=(Rephase *)[_phasearray objectAtIndex:textFieldIndexPath.row];
+    
+    
+//    if (!self.PhasecmpntVCtrl) {
+        self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"MatPhaseEst" bundle:nil];
+    //}
+    _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _PhasecmpntVCtrl.estmtnid=_estmtnid;
+    _PhasecmpntVCtrl.webtype=webtype;
+    _PhasecmpntVCtrl.phaseid=rephaemdl.phaseid;
+    [self presentViewController:_PhasecmpntVCtrl
+                       animated:YES completion:NULL];
+
 }
 @end

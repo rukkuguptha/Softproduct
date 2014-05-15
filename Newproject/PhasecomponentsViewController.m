@@ -35,23 +35,37 @@
     [super viewWillAppear:animated];
     switch (_webtype) {
         case 1:
+             _navabar.title=@"Equipments";
             [self EstimationDetailSelect];
 
             break;
         case 2:
-          
+            _navabar.title=@"Materials";
+            [self materialdetailselect];
             
             break;
         case 3:
+             _navabar.title=@"Fleets";
             [self FleetDetailSelect];
             
             break;
             
         case 4:
+            _navabar.title=@"ThirdParty";
             [self ThirdpartyDetailSelect];
             
             break;
 
+        case 5:
+             _navabar.title=@"Consumables";
+            [self Consumabledetailselect];
+            
+            break;
+            case 6:
+            _navabar.title=@"Others";
+            [self OtherDetailSelect];
+            
+            break;
             
         default:
             break;
@@ -216,6 +230,161 @@
     }
     
 }
+-(void)materialdetailselect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EstimationDetailSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Name>%@</Name>\n"
+                   "<Phase>%d</Phase>\n"
+                   "</EstimationDetailSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_estmtnid integerValue],@"Materials",[_phaseid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Consumabledetailselect
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EstimationDetailSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Name>%@</Name>\n"
+                   "<Phase>%d</Phase>\n"
+                   "</EstimationDetailSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_estmtnid integerValue],@"Consumbales",[_phaseid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)OtherDetailSelect
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EstimationDetailSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<Name>%@</Name>\n"
+                   "<Phase>%d</Phase>\n"
+                   "</EstimationDetailSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_estmtnid integerValue],@"Others",[_phaseid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationDetailSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -249,6 +418,8 @@
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     [_cmpntstable reloadData];
+    [_materialtable reloadData];
+
     
     
     
@@ -449,6 +620,10 @@
         return [_Componetsarry count];
         
     }
+     if (tableView==_materialtable)
+     {
+         return [_Componetsarry count];
+     }
     
     
     return YES;
@@ -470,6 +645,12 @@
             cell=_cmpntcell;
             
         }
+        if (tableView==_materialtable) {
+            [[NSBundle mainBundle]loadNibNamed:@"Thirdmatothcell" owner:self options:nil];
+            cell=_materailcell;
+            
+        }
+
         
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         
@@ -509,6 +690,18 @@
         }
 
     }
+    if (tableView==_materialtable) {
+        Drageqmodel *eqmdl1=(Drageqmodel *)[_Componetsarry objectAtIndex:indexPath.row];
+        
+        _matitemcodelabel=(UILabel *)[cell viewWithTag:1];
+        _matitemcodelabel.text=eqmdl1.eqitemcode;
+        _matdeslabel=(UILabel *)[cell viewWithTag:2];
+        _matdeslabel.text=eqmdl1.eqdesc;
+        _matquantylabel=(UILabel *)[cell viewWithTag:3];
+        _matquantylabel.text=eqmdl1.qty;
+        
+        
+    }
     
     
     
@@ -517,7 +710,7 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
-    if(tableView==_cmpntstable)
+    if(tableView==_cmpntstable||tableView==_materialtable)
     {
         if (indexPath.row%2 == 0) {
             [cell setBackgroundColor:[UIColor whiteColor]];
