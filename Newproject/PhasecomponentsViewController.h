@@ -10,4 +10,8 @@
 
 @interface PhasecomponentsViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *titleview;
+
+- (IBAction)clsebtn:(id)sender;
+
 @end
