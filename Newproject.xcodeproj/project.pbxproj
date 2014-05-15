@@ -60,6 +60,8 @@
 		64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A11EE418683792008D20CC /* workPhasesViewController.m */; };
 		64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE518683792008D20CC /* workPhasesViewController.xib */; };
 		64A11EE918683BE6008D20CC /* customphase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE818683BE6008D20CC /* customphase.xib */; };
+		64A12C1219247FA8003721A3 /* MatPhaseEst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C1119247FA8003721A3 /* MatPhaseEst.xib */; };
+		64A12C141924812A003721A3 /* Componentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C131924812A003721A3 /* Componentcell.xib */; };
 		64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7A187546D20028B43A /* jobdetailsViewController.m */; };
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
@@ -408,6 +410,8 @@
 		64A11EE418683792008D20CC /* workPhasesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = workPhasesViewController.m; sourceTree = "<group>"; };
 		64A11EE518683792008D20CC /* workPhasesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = workPhasesViewController.xib; sourceTree = "<group>"; };
 		64A11EE818683BE6008D20CC /* customphase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customphase.xib; sourceTree = "<group>"; };
+		64A12C1119247FA8003721A3 /* MatPhaseEst.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatPhaseEst.xib; sourceTree = "<group>"; };
+		64A12C131924812A003721A3 /* Componentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Componentcell.xib; sourceTree = "<group>"; };
 		64A14D79187546D20028B43A /* jobdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobdetailsViewController.h; sourceTree = "<group>"; };
 		64A14D7A187546D20028B43A /* jobdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobdetailsViewController.m; sourceTree = "<group>"; };
 		64A14D7B187546D20028B43A /* jobdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobdetailsViewController.xib; sourceTree = "<group>"; };
@@ -1354,6 +1358,8 @@
 				D40F8F2719247D340059C8C9 /* PhasecomponentsViewController.h */,
 				D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */,
 				D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */,
+				64A12C1119247FA8003721A3 /* MatPhaseEst.xib */,
+				64A12C131924812A003721A3 /* Componentcell.xib */,
 			);
 			name = Estimation;
 			sourceTree = "<group>";
@@ -1508,6 +1514,7 @@
 				D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */,
 				D4F4B0AE1906810D0026C8B6 /* FirstMdragcell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
+				64A12C141924812A003721A3 /* Componentcell.xib in Resources */,
 				649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */,
 				D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */,
 				D453DA321873F215007EE3DC /* Assetcell.xib in Resources */,
@@ -1648,6 +1655,7 @@
 				D4A22004190A1D890065840D /* Destequcell.xib in Resources */,
 				64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */,
 				D4FEF52418FE895E0047E6BD /* Matrixcell.xib in Resources */,
+				64A12C1219247FA8003721A3 /* MatPhaseEst.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
