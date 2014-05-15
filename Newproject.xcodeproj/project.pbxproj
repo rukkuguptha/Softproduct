@@ -138,6 +138,8 @@
 		D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */; };
 		D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */; };
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
+		D40F8F2A19247D340059C8C9 /* PhasecomponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */; };
+		D40F8F2B19247D340059C8C9 /* PhasecomponentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D415486318ADF64900351248 /* Ratecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D415486218ADF64900351248 /* Ratecellview.xib */; };
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
@@ -506,6 +508,9 @@
 		D40DD25F1873D29B00E7BC2C /* SmalltoolsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmalltoolsViewController.m; sourceTree = "<group>"; };
 		D40DD2601873D29B00E7BC2C /* SmalltoolsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SmalltoolsViewController.xib; sourceTree = "<group>"; };
 		D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Smalltoolcell.xib; sourceTree = "<group>"; };
+		D40F8F2719247D340059C8C9 /* PhasecomponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhasecomponentsViewController.h; sourceTree = "<group>"; };
+		D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhasecomponentsViewController.m; sourceTree = "<group>"; };
+		D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhasecomponentsViewController.xib; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D415486218ADF64900351248 /* Ratecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ratecellview.xib; sourceTree = "<group>"; };
 		D418B61818B4A5620043644A /* NewrecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewrecordViewController.h; sourceTree = "<group>"; };
@@ -1346,6 +1351,9 @@
 				D40427E019235DF50049A709 /* PhsestViewController.m */,
 				D40427E119235DF50049A709 /* PhsestViewController.xib */,
 				D40427E4192365210049A709 /* Phestcell.xib */,
+				D40F8F2719247D340059C8C9 /* PhasecomponentsViewController.h */,
+				D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */,
+				D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */,
 			);
 			name = Estimation;
 			sourceTree = "<group>";
@@ -1519,6 +1527,7 @@
 				D40736C218BB1E9B00C5DB30 /* left_arrow.png in Resources */,
 				648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */,
 				D4F036C918B71781003A668C /* Meetingnotesview.xib in Resources */,
+				D40F8F2B19247D340059C8C9 /* PhasecomponentsViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
 				D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */,
@@ -1684,6 +1693,7 @@
 				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
+				D40F8F2A19247D340059C8C9 /* PhasecomponentsViewController.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
 				642FA78918AC927F00372623 /* AddserviceViewController.m in Sources */,
 				D42D8C2618D2DD79009D8085 /* ManViewController.m in Sources */,
