@@ -294,6 +294,14 @@
 }
 
 - (IBAction)equpbtn:(id)sender {
+    if (!self.PhasecmpntVCtrl) {
+        self.PhasecmpntVCtrl=[[PhasecomponentsViewController alloc]initWithNibName:@"PhasecomponentsViewController" bundle:nil];
+    }
+    _PhasecmpntVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+      _PhasecmpntVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    //_phestVCtrl.estmtnid=estmdl.estimateid;
+    [self presentViewController:_PhasecmpntVCtrl
+                       animated:YES completion:NULL];
 
 }
 

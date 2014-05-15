@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Rephase.h"
+#import "PhasecomponentsViewController.h"
 @interface PhsestViewController : UIViewController{
       BOOL recordResults;
 }
 @property (strong, nonatomic) Rephase *rephasemdl;
-
+@property (strong, nonatomic)PhasecomponentsViewController *PhasecmpntVCtrl;
 @property (strong, nonatomic) NSString *estmtnid;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
 @property (strong, nonatomic) IBOutlet UITableView *phasetable;
