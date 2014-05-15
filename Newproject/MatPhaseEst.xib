@@ -5,7 +5,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhasecomponentsViewController">
+            <connections>
+                <outlet property="materialtable" destination="uZp-VG-I3c" id="IpO-VL-un2"/>
+                <outlet property="navabar" destination="9AT-h0-qx4" id="8ai-GV-P6g"/>
+                <outlet property="titleview" destination="S5i-mP-9FO" id="edh-Ue-7d2"/>
+                <outlet property="view" destination="1" id="UCl-j0-Psp"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1">
             <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
@@ -15,10 +22,15 @@
                     <rect key="frame" x="31" y="116" width="478" height="484"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="87b-Kg-acP"/>
+                        <outlet property="delegate" destination="-1" id="Fbl-Xy-kby"/>
+                    </connections>
                 </tableView>
                 <navigationBar contentMode="scaleToFill" id="Cvm-v0-Rgv">
                     <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.0" green="0.59999999999999998" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Materials" id="9AT-h0-qx4">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="7Gd-Ep-iIH">
@@ -29,6 +41,9 @@
                                     <state key="normal" title="Button" image="appbar.close.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+                                    <connections>
+                                        <action selector="clsebtn:" destination="-1" eventType="touchUpInside" id="b5s-lf-sz6"/>
+                                    </connections>
                                 </button>
                             </barButtonItem>
                         </navigationItem>
@@ -38,21 +53,21 @@
                     <rect key="frame" x="31" y="69" width="478" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NhI-VL-ugU">
-                            <rect key="frame" x="20" y="11" width="88" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NhI-VL-ugU">
+                            <rect key="frame" x="26" y="11" width="88" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P97-iP-Hh9">
-                            <rect key="frame" x="193" y="11" width="78" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P97-iP-Hh9">
+                            <rect key="frame" x="209" y="11" width="78" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lhp-qc-TFT">
-                            <rect key="frame" x="359" y="11" width="68" height="21"/>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lhp-qc-TFT">
+                            <rect key="frame" x="362" y="11" width="68" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>

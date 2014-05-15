@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PhasecomponentsViewController">
             <connections>
                 <outlet property="cmpntstable" destination="iXq-Nh-iGH" id="JOz-zR-FI0"/>
+                <outlet property="navabar" destination="DXV-hF-ov2" id="SmM-wS-mYs"/>
                 <outlet property="titleview" destination="ItL-m4-Q7B" id="kdb-np-Bys"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>

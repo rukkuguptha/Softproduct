@@ -62,6 +62,7 @@
 		64A11EE918683BE6008D20CC /* customphase.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A11EE818683BE6008D20CC /* customphase.xib */; };
 		64A12C1219247FA8003721A3 /* MatPhaseEst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C1119247FA8003721A3 /* MatPhaseEst.xib */; };
 		64A12C141924812A003721A3 /* Componentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C131924812A003721A3 /* Componentcell.xib */; };
+		64A12C161924A29C003721A3 /* Thirdmatothcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C151924A29C003721A3 /* Thirdmatothcell.xib */; };
 		64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7A187546D20028B43A /* jobdetailsViewController.m */; };
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
@@ -412,6 +413,7 @@
 		64A11EE818683BE6008D20CC /* customphase.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customphase.xib; sourceTree = "<group>"; };
 		64A12C1119247FA8003721A3 /* MatPhaseEst.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatPhaseEst.xib; sourceTree = "<group>"; };
 		64A12C131924812A003721A3 /* Componentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Componentcell.xib; sourceTree = "<group>"; };
+		64A12C151924A29C003721A3 /* Thirdmatothcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thirdmatothcell.xib; sourceTree = "<group>"; };
 		64A14D79187546D20028B43A /* jobdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobdetailsViewController.h; sourceTree = "<group>"; };
 		64A14D7A187546D20028B43A /* jobdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobdetailsViewController.m; sourceTree = "<group>"; };
 		64A14D7B187546D20028B43A /* jobdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobdetailsViewController.xib; sourceTree = "<group>"; };
@@ -1359,6 +1361,7 @@
 				D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */,
 				D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */,
 				64A12C1119247FA8003721A3 /* MatPhaseEst.xib */,
+				64A12C151924A29C003721A3 /* Thirdmatothcell.xib */,
 				64A12C131924812A003721A3 /* Componentcell.xib */,
 			);
 			name = Estimation;
@@ -1512,6 +1515,7 @@
 				648D12FE17716C7F006BB41A /* rectangle3.png in Resources */,
 				D4FE723C187EA3BA00FF4DEF /* ios7-camera-icon.png in Resources */,
 				D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */,
+				64A12C161924A29C003721A3 /* Thirdmatothcell.xib in Resources */,
 				D4F4B0AE1906810D0026C8B6 /* FirstMdragcell.xib in Resources */,
 				D443A33317716FE60011C5DB /* appbar.close.png in Resources */,
 				64A12C141924812A003721A3 /* Componentcell.xib in Resources */,

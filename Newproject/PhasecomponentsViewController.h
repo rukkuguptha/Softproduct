@@ -33,6 +33,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *quantylbl;
 @property (strong, nonatomic) IBOutlet UITextField *ratetxtfld;
 
+//Outlets for mat/third/oth
+@property (strong, nonatomic) IBOutlet UITableView *materialtable;
+@property (strong, nonatomic) IBOutlet UITableViewCell *materailcell;
+@property (strong, nonatomic) IBOutlet UILabel *matitemcodelabel;
+@property (strong, nonatomic) IBOutlet UILabel *matdeslabel;
+@property (strong, nonatomic) IBOutlet UILabel *matquantylabel;
+@property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 
 
 - (IBAction)clsebtn:(id)sender;
