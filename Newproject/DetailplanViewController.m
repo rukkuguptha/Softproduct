@@ -1969,6 +1969,7 @@
         {
             self.allctrlr=[[AllDetailsplandisplayViewController alloc]initWithNibName:@"AllDetailsplandisplayViewController" bundle:nil];
         }
+        _allctrlr.newscfoldtypearry=_scaffoldtyperesultarray;
         _allctrlr.len=_lengthtextfield.text;
         _allctrlr.wid=_widthtextfield.text;
         _allctrlr.height=_heighttextfield.text;
