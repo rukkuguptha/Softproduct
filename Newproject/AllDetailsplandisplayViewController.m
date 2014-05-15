@@ -1569,6 +1569,7 @@ return cell;
    else if([_sid integerValue]==3)
    {
     rate=typmdl.rate;
+       NSLog(@"%@",typmdl.rate);
 
    }
    else if([_sid integerValue]==4)
