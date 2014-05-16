@@ -27,8 +27,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-      self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     
+   
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
                                          initWithTarget:self
                                          action:@selector(newestpage)];
@@ -36,12 +37,13 @@
     doubleTap.delegate=(id)self;
     [self.estimteview addGestureRecognizer:doubleTap];
     
-    UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
-                                          initWithTarget:self
-                                          action:@selector(bidpage)];
-    doubleTap1.numberOfTapsRequired=1;
-    doubleTap1.delegate=(id)self;
-    [self.bidsview addGestureRecognizer:doubleTap1];
+    
+//    UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
+//                                          initWithTarget:self
+//                                          action:@selector(bidpage)];
+//    doubleTap1.numberOfTapsRequired=1;
+//    doubleTap1.delegate=(id)self;
+//    [self.bidsview addGestureRecognizer:doubleTap1];
 
 }
 
