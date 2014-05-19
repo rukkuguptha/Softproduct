@@ -1025,9 +1025,9 @@ return aSection.newsectionHeaderView;
 
 -(void)Jobview:(NSString *)nwstrg{
     //_jobviews.hidden=NO;
-    if (!_verifictnVCtrl) {
+    //if (!_verifictnVCtrl) {
         self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"NVerificationViewController" bundle:nil];
-    }
+    //}
     
     //_verifictnVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _verifictnVCtrl.applicantid=_Applicantid;
@@ -1036,9 +1036,9 @@ return aSection.newsectionHeaderView;
 
 }
 -(void)senttojob:(NSString *)nwstrg{
-    if (!_verifictnVCtrl) {
+   // if (!_verifictnVCtrl) {
         self.verifictnVCtrl=[[VerificationViewController alloc]initWithNibName:@"SendEmployeeview" bundle:nil];
-    }
+   // }
     
     _verifictnVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _verifictnVCtrl.applicantid=_Applicantid;
