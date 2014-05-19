@@ -47,9 +47,13 @@
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+   
     [super viewWillAppear:animated];
      self.openviewindex=NSNotFound;
     [self SelectAllServices];
+//    disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
+//    [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+//    [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,7 +96,8 @@
     _abbrvtnlabel=(UILabel*)[cell viewWithTag:2];
     _abbrvtnlabel.text=semdl.abbrevtn;
      disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+   [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+  //  [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
     disbtn.tag=indexPath.row;
     [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
     disbtn.frame = CGRectMake(270.0, 1.0, 50.0, 40.0);
@@ -101,6 +106,7 @@
        return cell;
 }
 -(void)disaction:(UIButton*)sender{
+    
     // [_animatedview removeFromSuperview];
     _commentlabel.hidden=YES;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
@@ -142,6 +148,7 @@
         .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
     
     _commentlabel.hidden=NO;
+    
     //    NSLog(@"%@",empmdl.badgeflag);
     //    if ([empmdl.badgeflag isEqualToString:@"true"]) {
     //        //_badgelbl.enabled=NO;
@@ -167,15 +174,17 @@
 -(void)showviewWithUserAction:(BOOL)userAction{
     
     // Toggle the disclosure button state.
-    
+   
     disbtn.selected = !disbtn.selected;
     
     if (userAction) {
         if (disbtn.selected) {
+            
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
                 .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
             [self viewopened:btnindex];
+           
             _commentlabel.hidden=NO;
             
             
@@ -222,7 +231,8 @@
 {
     
     viewclosed=btnindex;
-    
+    _animatedview.hidden=YES;
+
     self.openviewindex = NSNotFound;
     
     

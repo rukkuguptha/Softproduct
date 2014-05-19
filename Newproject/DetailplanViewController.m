@@ -814,7 +814,8 @@
     if(optionidentifier==1){
     NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
     NSString *phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
-        NSString *sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
+        NSString *sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
+        NSLog(@"%@",_sequencebtn.titleLabel.text);
     NSLog(@"%@",scaffoldid);
     NSString *desc=@"";
      NSString *manhours=@"0";
@@ -1982,7 +1983,7 @@
         _allctrlr.planid=_planid;
         _allctrlr.Scfldid=_insertresultvalue;
         _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
-        _allctrlr.sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
+        _allctrlr.sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
             _allctrlr.subunit=_subunittextfld.text;
         _allctrlr.optionidentifier=optionidentifier;
             NSInteger scfid= [_allctrlr.sid integerValue];
@@ -2058,7 +2059,7 @@
             _allctrlr.qty=_qtytextfield.text;
             _allctrlr.planid=_planid;
             _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
-            _allctrlr.sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
+            _allctrlr.sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
             _allctrlr.subunit=_subunittextfld.text;
             NSInteger scfid= [_allctrlr.sid integerValue];
             switch (scfid) {
@@ -2239,14 +2240,23 @@
         
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"SkillId"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapresults = nil;
+    }
+    
     if([elementName isEqualToString:@"JobSequenceId"])
     {
         
         recordResults = FALSE;
         _sequencestring=_soapresults;
-                
+        
         _soapresults = nil;
     }
+
     if([elementName isEqualToString:@"JobTask"])
     {
         
@@ -2257,6 +2267,15 @@
         
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"SequenceNumber"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        _soapresults = nil;
+    }
+
 
 
     if([elementName isEqualToString:@"PhaseID"])
@@ -2274,7 +2293,7 @@
         recordResults = FALSE;
         [_phasearray addObject:_soapresults];
         [_phasedict setObject:_phasestring forKey:_soapresults];
-        [_phaseiddict setObject:_phasestring forKey:_soapresults];
+        [_phaseiddict setObject:_soapresults forKey:_soapresults];
         _soapresults = nil;
         
         
@@ -2293,6 +2312,7 @@
                       duration:1
                        options:UIViewAnimationOptionTransitionFlipFromRight
                     completion:nil];
+    [self ScaffoldingSelectplan];
 
 }
 -(void)updatedata
