@@ -1015,7 +1015,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1090,7 +1090,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1169,7 +1169,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1221,7 +1221,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1272,7 +1272,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1324,7 +1324,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1375,7 +1375,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1441,7 +1441,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
