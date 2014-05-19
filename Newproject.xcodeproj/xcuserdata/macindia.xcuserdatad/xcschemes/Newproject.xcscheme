@@ -81,7 +81,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
-      customArchiveName = "kontoiii"
+      customArchiveName = "koon"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
