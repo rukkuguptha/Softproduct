@@ -447,16 +447,16 @@
 {
     poptype=2;
     UIViewController* popoverContent = [[UIViewController alloc]init];
-    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 120, 90)];
+    UIView* popoverView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 130, 100)];
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 90)];
+    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 130, 100)];
     _popovertableview.delegate=(id)self;
     _popovertableview.dataSource=(id)self;
-    _popovertableview.rowHeight= 30;
-    _popovertableview.separatorColor=[UIColor cyanColor];
+    _popovertableview.rowHeight= 36;
+    //_popovertableview.separatorColor=[UIColor blackColor];
     [popoverView addSubview:_popovertableview];
     popoverContent.view = popoverView;
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 90);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(130, 100);
     button = (UIButton *)sender;
     UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     CGPoint center= button.center;

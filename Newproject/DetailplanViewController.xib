@@ -18,6 +18,7 @@
                 <outlet property="heighttextfield" destination="4hU-DC-cXX" id="aDV-bw-VS7"/>
                 <outlet property="insulationbtn" destination="fyy-29-YWk" id="NB7-xe-px8"/>
                 <outlet property="lengthtextfield" destination="pWH-NI-sMY" id="nZS-GN-pKZ"/>
+                <outlet property="navabar" destination="nUE-6U-sAD" id="7Os-03-bbS"/>
                 <outlet property="phasebtn" destination="lNL-c0-9Le" id="UIn-OP-qDM"/>
                 <outlet property="proheadertextfield" destination="lQv-CZ-bZV" id="CKq-fM-fRn"/>
                 <outlet property="qtytextfield" destination="fbe-T9-v88" id="fwR-WA-dmB"/>
@@ -398,9 +399,9 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xha-sW-xdm">
                                     <rect key="frame" x="20" y="28" width="215" height="33"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Add New Work" backgroundImage="textbox.png">
-                                        <color key="titleColor" red="0.0" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>

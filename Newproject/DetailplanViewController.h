@@ -23,7 +23,7 @@
     NSInteger scaffoldtypeindex;
     NSInteger poptype;
 }
-
+@property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 
 @property(strong,nonatomic)Customscaffoldingplan *scfldmdl;
 @property(strong,nonatomic)Scaffoldtypemdl *typemdl;

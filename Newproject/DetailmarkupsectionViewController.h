@@ -36,6 +36,10 @@
 @property(strong,nonatomic)IBOutlet UILabel *selectedlabel;
 @property(strong,nonatomic)IBOutlet UILabel *fixedlabel;
 
+@property(strong,nonatomic)IBOutlet UIButton *stcheckbtn;
+@property(strong,nonatomic)IBOutlet UIButton *otcheckbtn;
+@property(strong,nonatomic)IBOutlet UIButton *rcipcheckbtn;
+@property(strong,nonatomic)IBOutlet UIButton *selectedcheckbtn;
 /*xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlparser;
 @property(strong,nonatomic)NSMutableString *soapresults;

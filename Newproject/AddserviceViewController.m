@@ -35,6 +35,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _navabar.title=[NSString stringWithFormat:@"Services-%@",_planID];
     [self SelectAllServices];
     
 }
