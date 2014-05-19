@@ -76,7 +76,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *updatelbl;
 
 - (IBAction)Addadressbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIImageView *logoimg;
 
+@property (strong, nonatomic) IBOutlet UIWebView *logoweb;
 
 
 @end

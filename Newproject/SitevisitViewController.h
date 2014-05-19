@@ -13,6 +13,7 @@
 #import "NewrecordViewController.h"
 #import "SitevistMdl.h"
 #import "Validation.h"
+#import "DrawingViewController.h"
 
 @interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate>{
     BOOL recordResults;
@@ -22,7 +23,7 @@
 }
 
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
-
+@property (strong, nonatomic)DrawingViewController *drwVCtrl;
 -(void)toreloadatable;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
@@ -249,5 +250,6 @@
 - (IBAction)weatheroutlookbtn:(id)sender;
 - (IBAction)notesbtn:(id)sender;
 
+- (IBAction)equpdraw:(id)sender;
 
 @end

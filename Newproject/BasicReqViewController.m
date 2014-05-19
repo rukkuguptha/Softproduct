@@ -344,7 +344,7 @@
 //        [butt addTarget:self
 //                 action:@selector(noaction:) forControlEvents:UIControlEventTouchUpOutside];
         //[butt setTitle:@"cellButton" forState:UIControlStateNormal];
-        butt.frame = CGRectMake(150.0, 0.0, 50.0, 40.0);
+        butt.frame = CGRectMake(120.0, 0.0, 50.0, 40.0);
         [cell.contentView addSubview:butt];
         
     }
@@ -364,7 +364,7 @@
    // [_animatedview removeFromSuperview];
     _venderlbl.hidden=YES;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
+        .frame =  CGRectMake(150, 10, 0, 0);} completion:nil];
     
     _animatedview.hidden=YES;
     basicreqmdl*reqmdl=(basicreqmdl *)[_allrequirementarray objectAtIndex:sender.tag];
@@ -378,7 +378,7 @@
     btnindex=textFieldIndexPath.row;
     
     //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(200, 10, 0, 25)];
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(150, 10, 0, 25)];
     _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _venderlbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
     _venderlbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -394,7 +394,7 @@
     NSLog(@"I Clicked a button %d",sender.tag);
     _animatedview.hidden=NO;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(200, 10, 70, 25);} completion:nil];
+        .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
     
     _venderlbl.hidden=NO;
     if (reqmdl.inhouse==1) {
@@ -416,7 +416,7 @@
         if (butt.selected) {
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(200, 10, 70, 25);} completion:nil];
+                .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
             [self viewopened:btnindex];
             _venderlbl.hidden=NO;
             
@@ -425,7 +425,7 @@
         }
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(200, 10, 70, 25);} completion:nil];
+                .frame =  CGRectMake(150, 10, 70, 25);} completion:nil];
             [self viewclosed:btnindex];
             //_venderlbl.hidden=YES;
             
@@ -448,12 +448,12 @@
 //        for (NSInteger i = 0; i < countOfRowsToDelete; i++) {
             _venderlbl.hidden=YES;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
-                .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
+                .frame =  CGRectMake(100, 10, 0, 0);} completion:nil];
             
             _animatedview.hidden=YES;
             
             
-       // }
+       //}
         
         
     }
