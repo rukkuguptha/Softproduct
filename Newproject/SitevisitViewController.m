@@ -3207,7 +3207,20 @@
 }
 
 
+
 #pragma mark-button Actions
+- (IBAction)equpdraw:(id)sender {
+    
+    if (!_drwVCtrl) {
+        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+    }
+    
+    _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+  _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_drwVCtrl
+                       animated:YES completion:NULL];
+}
+
 - (IBAction)cmpxtyofwrkbtn:(id)sender {
     
     [self createpopover];

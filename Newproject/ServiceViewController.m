@@ -100,7 +100,7 @@
   //  [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
     disbtn.tag=indexPath.row;
     [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
-    disbtn.frame = CGRectMake(270.0, 1.0, 50.0, 40.0);
+    disbtn.frame = CGRectMake(270.0, 1.0, 50.0, 50.0);
     [cell.contentView addSubview:disbtn];
     
        return cell;

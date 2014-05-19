@@ -32,8 +32,10 @@
    
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     
- 
+    _logoimg.layer.borderWidth = 2.0;
+    _logoimg.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 
+ 
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -666,7 +668,11 @@
     {
         
         recordResults = FALSE;
-        
+        NSString *fullURL =[NSString stringWithFormat:@"http://test1.kontract360.com/Files/Docs/BasicInfo/%@",_soapResults]  ;
+        NSURL *url = [NSURL URLWithString:fullURL];
+        NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+        [_logoweb loadRequest:requestObj];
+
         
         _soapResults = nil;
     }
