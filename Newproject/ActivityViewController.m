@@ -69,6 +69,12 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     _popoverArray=[[NSMutableArray alloc]initWithObjects:@"Comments",nil];
     self.navigationController.navigationBar.tintColor=[UIColor grayColor];
     _activitytypeArray=[[NSMutableArray alloc]initWithObjects:@"Email Follow UP",@"Phone Follow UP",@"Launch Appointment",@"Golf Game", nil];
+    [[self.cmttxtbox layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.cmttxtbox layer] setBorderWidth:2];
+    [[self.cmttxtbox layer] setCornerRadius:10];
+    _cmttable.layer.borderWidth = 2.0;
+    _cmttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+
        // Do any additional setup after loading the view from its nib.
    
 }
@@ -136,7 +142,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
             [[NSBundle mainBundle]loadNibNamed:@"customcommentforactivitycell" owner:self options:nil];
             
             cell=_cmtcell;
-            
+            [self.cmttable.layer setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
         }
 
         
@@ -191,9 +197,9 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         commentmdl*cmtmdl=(commentmdl *)[_cmntarray  objectAtIndex:indexPath.row];
         
         _commentcellview=(UITextView*)[cell viewWithTag:1];
-        [[self.commentcellview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
-        [[self.commentcellview layer] setBorderWidth:2];
-        [[self.commentcellview layer] setCornerRadius:10];
+//        [[self.commentcellview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+//        [[self.commentcellview layer] setBorderWidth:2];
+//        [[self.commentcellview layer] setCornerRadius:10];
         _commentcellview.text=cmtmdl.comments;
         _titilelbl=(UILabel*)[cell viewWithTag:2];
         _titilelbl.text=cmtmdl.commentdate;

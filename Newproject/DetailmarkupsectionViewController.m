@@ -83,14 +83,45 @@
         _variablelabel.text=headmark.VariablePercent;
         _fixedlabel=(UILabel*)[cell viewWithTag:3];
         _fixedlabel.text=headmark.FixedDollar;
-        _stlabel=(UILabel*)[cell viewWithTag:4];
-        _stlabel.text=headmark.ST;
-        _otlabel=(UILabel*)[cell viewWithTag:5];
-        _otlabel.text=headmark.OT;
-        _rciplabel=(UILabel*)[cell viewWithTag:6];
-        _rciplabel.text=headmark.RCIP;
-        _selectedlabel=(UILabel*)[cell viewWithTag:7];
-        _selectedlabel.text=headmark.Selected;
+    if ([headmark.ST isEqualToString:@"true"]) {
+        [_stcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_stcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    }
+    if ([headmark.OT isEqualToString:@"true"]) {
+        [_otcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_otcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    }
+    if ([headmark.RCIP isEqualToString:@"true"]) {
+        [_rcipcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_rcipcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    }
+    if ([headmark.Selected isEqualToString:@"true"]) {
+        [_selectedcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_selectedcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+    }
+
+
+    
+//        _stlabel=(UILabel*)[cell viewWithTag:4];
+//        _stlabel.text=headmark.ST;
+//        _otlabel=(UILabel*)[cell viewWithTag:5];
+//        _otlabel.text=headmark.OT;
+//        _rciplabel=(UILabel*)[cell viewWithTag:6];
+//        _rciplabel.text=headmark.RCIP;
+//        _selectedlabel=(UILabel*)[cell viewWithTag:7];
+//        _selectedlabel.text=headmark.Selected;
     
     
     

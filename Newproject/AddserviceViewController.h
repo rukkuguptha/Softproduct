@@ -25,6 +25,7 @@
 -(IBAction)addservicetotable:(id)sender;
 
 /*outlets*/
+@property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 @property(strong,nonatomic)IBOutlet UITableView *servicelisttable;
 @property(strong,nonatomic)IBOutlet UIView *tabletitleview;
 @property(strong,nonatomic)UITableView *popovertableview;

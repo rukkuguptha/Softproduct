@@ -54,9 +54,13 @@
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _cmttable.layer.borderWidth = 2.0;
+    _cmttable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 //    _leadTable.separatorColor= [UIColor colorWithRed:219.0/255.0f green:236.0/255.0f blue:244.0/255.0f alpha:1.0f];
     
-   
+            [[self.cmttxtbox layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+            [[self.cmttxtbox layer] setBorderWidth:2];
+            [[self.cmttxtbox layer] setCornerRadius:10];
     
     
     self.view3.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:251.0/255.0f alpha:1.0f];
@@ -232,7 +236,8 @@
         }
          if (tableView==_cmttable) {
              [[NSBundle mainBundle]loadNibNamed:@"CommentsCells" owner:self options:nil];
-             
+             [self.cmttable.layer setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+
              cell=_cmtcell;
              
          }
@@ -314,11 +319,11 @@ if (tableView==_leadTable) {
     
     if (tableView==_cmttable) {
     commentmdl*cmtmdl=(commentmdl *)[_CommentsArray  objectAtIndex:indexPath.row];
-        
+       
       _commenttextview=(UITextView*)[cell viewWithTag:1];
-        [[self.commenttextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
-        [[self.commenttextview layer] setBorderWidth:2];
-        [[self.commenttextview layer] setCornerRadius:10];
+//        [[self.commenttextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+//        [[self.commenttextview layer] setBorderWidth:2];
+//        [[self.commenttextview layer] setCornerRadius:10];
 
        _commenttextview.text=cmtmdl.comments;
         _titilelbl=(UILabel*)[cell viewWithTag:2];
@@ -765,14 +770,14 @@ if (tableView==_leadTable) {
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 120, 70)];
+                           initWithFrame:CGRectMake(0, 0, 120, 82)];
     
     popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 70)];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 82)];
     
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 35;
+    _popOverTableView.rowHeight= 42;
     _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
     
     
@@ -782,7 +787,7 @@ if (tableView==_leadTable) {
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 70);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 82);
     
     //create a popover controller
     

@@ -64,6 +64,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _navabar.title=[NSString stringWithFormat:@"Plan-%@",_planid];
       [self GeneralSelect];
     [self TotalManHoursSelect];
     
