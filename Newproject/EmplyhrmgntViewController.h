@@ -17,6 +17,9 @@
      NSInteger btnindex;
     NSInteger selectedcell;
     
+    NSInteger btnclck;
+    NSInteger previousindexpath;
+
 }
 @property(readwrite)NSInteger openviewindex;
 @property(readwrite)NSInteger previousopenviewindex;
@@ -66,5 +69,8 @@
 - (IBAction)savebtn:(id)sender;
 
 - (IBAction)badgeclsebtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *disclsebtn;
+- (IBAction)disclbtn:(id)sender;
 
 @end

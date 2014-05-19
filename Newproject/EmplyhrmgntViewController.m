@@ -51,7 +51,8 @@
     [super viewWillAppear:animated];
       [self SelectAllJobSites];
     self.openviewindex=NSNotFound;
-
+   // previousindexpath=NSNotFound;
+  
    
    
     
@@ -104,13 +105,14 @@
     
     
     /*detailbtn*/
-    
-    butn=[UIButton buttonWithType:UIButtonTypeCustom];
-    [butn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
-    butn.tag=indexPath.row;
-    [butn addTarget:self action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
-    butn.frame = CGRectMake(150.0, 0.0, 50.0, 40.0);
-    [cell.contentView addSubview:butn];
+//    butn=[UIButton buttonWithType:UIButtonTypeCustom];
+//    [butn setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
+//    [butn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
+//    //butn.tag=indexPath.row;
+//    [butn addTarget:self action:@selector(showaction:) forControlEvents:UIControlEventTouchUpInside];
+//    butn.frame = CGRectMake(150.0, 0.0, 50.0, 40.0);
+//
+//       [cell.contentView addSubview:butn];
 
     return cell;
 }
@@ -142,6 +144,10 @@
 #pragma mark-Menu view Animation
 -(void)showaction:(UIButton*)sender{
     // [_animatedview removeFromSuperview];
+    
+    btnclck++;
+    
+        
     _badgelbl.hidden=YES;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
         .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
@@ -159,7 +165,26 @@
     NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
     btnindex=textFieldIndexPath.row;
-    
+//    if(btnclck%2!=0){
+//        if (previousindexpath!=NSNotFound) {
+//            
+//        
+//           [button setImage:[UIImage imageNamed:@"carat-open"] forState:UIControlStateNormal];
+//               CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.mgmttableview];
+//        NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
+//        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//            
+//        }
+//    }
+//   else{
+//      
+//       [button setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+//
+//        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.mgmttableview];
+//        NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
+//        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    }
+
     
     
     //create uiview
@@ -198,13 +223,15 @@
     
     // Toggle the disclosure button state.
     
-    butn.selected = !butn.selected;
-    
-    if (userAction) {
+             butn.selected = !butn.selected;
+
+          
+       if (userAction) {
         if (butn.selected) {
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
                 .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+             //[butn setImage:[UIImage imageNamed:@"carat-open"] forState:UIControlStateSelected];
             [self viewopened:btnindex];
             _badgelbl.hidden=NO;
             
@@ -214,6 +241,7 @@
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
                 .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+             // [butn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
             [self viewclosed:btnindex];
             //_venderlbl.hidden=YES;
             
@@ -224,7 +252,7 @@
 }
 -(void)viewopened:(NSInteger)viewopened{
     
-    
+    viewopened=btnindex;
     selectedcell=viewopened;
     NSInteger previousOpenviewIndex = self.openviewindex;
     
@@ -237,7 +265,7 @@
         _badgelbl.hidden=YES;
         [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{  _animatedview
             .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
-        
+         //[butn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
         _animatedview.hidden=YES;
         
         
@@ -258,7 +286,7 @@
 {
     
     viewclosed=btnindex;
-    
+     //[butn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateSelected];
     self.openviewindex = NSNotFound;
     
     
@@ -780,6 +808,75 @@
     _badgeview.hidden=YES;
     self.openviewindex=NSNotFound;
     [self CustEmployeeselect];
+
+}
+- (IBAction)disclbtn:(id)sender {
+    
+    _badgelbl.hidden=YES;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
+        .frame =  CGRectMake(200, 10, 0, 0);} completion:nil];
+    
+    _animatedview.hidden=YES;
+  
+    
+    
+    
+    
+    UIButton*  button = (UIButton *)sender;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.mgmttableview];
+    NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+      Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:textFieldIndexPath.row];
+    btnindex=textFieldIndexPath.row;
+    //    if(btnclck%2!=0){
+    //           [button setImage:[UIImage imageNamed:@"carat-open"] forState:UIControlStateNormal];
+    //               CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.mgmttableview];
+    //        NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
+    //        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    //    }
+    //   else{
+    //
+    //       [button setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
+    //
+    //        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.mgmttableview];
+    //        NSIndexPath *textFieldIndexPath = [self.mgmttableview indexPathForRowAtPoint:rootViewPoint];
+    //        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    //    }
+    
+    
+    
+    //create uiview
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(200, 10, 0, 25)];
+    _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
+    _badgelbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
+    _badgelbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
+    _badgelbl.textColor=[UIColor blackColor];
+    _badgelbl.text=@"Badge Details";
+    [self.animatedview addSubview:_badgelbl];
+    
+    _badgelbl.hidden=YES;
+    
+    UITapGestureRecognizer *tap= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(badgedetails)];
+    [self.animatedview addGestureRecognizer:tap];
+    
+    [cell addSubview:_animatedview];
+    
+    _animatedview.hidden=NO;
+    [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
+        .frame =  CGRectMake(200, 10, 90, 25);} completion:nil];
+    
+    _badgelbl.hidden=NO;
+    NSLog(@"%@",empmdl.badgeflag);
+    if ([empmdl.badgeflag isEqualToString:@"true"]) {
+        _badgelbl.enabled=NO;
+        _animatedview.userInteractionEnabled=NO;
+        //_animatedview.
+        
+    }
+    
+    [self showviewWithUserAction:YES];
 
 }
 @end
