@@ -537,9 +537,10 @@
                    "<WeeklyRate>%d</WeeklyRate>\n"
                    "<MonthlyRate>%d</MonthlyRate>\n"
                    "<YearlyRate>%d</YearlyRate>\n"
+                   "<Rate>%@</Rate>\n"
                    "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,manmdl1.itemcode,manmdl1.itemdescptn,@"MT",@"Materials",1,[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue]];
+                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,manmdl1.itemcode,manmdl1.itemdescptn,@"MT",@"Materials",1,[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],@"Daily Rate"];
     NSLog(@"soapmsg%@",soapMessage);
     
     
