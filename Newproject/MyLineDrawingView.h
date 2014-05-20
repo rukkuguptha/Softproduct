@@ -11,7 +11,7 @@
 
 @interface MyLineDrawingView : UIView {
   id delegate;
-    UIBezierPath *myPath;
+    UIBezierPath * myPath;
     UIColor *brushPattern;
     NSMutableArray *patharray;
     NSMutableDictionary *pathdictionary;

@@ -106,6 +106,8 @@
 		D40313BA18B60CE000C27F2F /* siteEqupmtntcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40313B918B60CE000C27F2F /* siteEqupmtntcell.xib */; };
 		D40367F018ED3A5200139E7D /* MangmntdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */; };
 		D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */; };
+		D40407DB192B171A00864BA4 /* myscroll.m in Sources */ = {isa = PBXBuildFile; fileRef = D40407DA192B171A00864BA4 /* myscroll.m */; };
+		D40407DD192B1CFB00864BA4 /* save 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D40407DC192B1CFB00864BA4 /* save 3.png */; };
 		D40427E219235DF50049A709 /* PhsestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40427E019235DF50049A709 /* PhsestViewController.m */; };
 		D40427E319235DF50049A709 /* PhsestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40427E119235DF50049A709 /* PhsestViewController.xib */; };
 		D40427E5192365210049A709 /* Phestcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40427E4192365210049A709 /* Phestcell.xib */; };
@@ -472,6 +474,9 @@
 		D40367ED18ED3A5100139E7D /* MangmntdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MangmntdetailsViewController.h; sourceTree = "<group>"; };
 		D40367EE18ED3A5100139E7D /* MangmntdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MangmntdetailsViewController.m; sourceTree = "<group>"; };
 		D40367EF18ED3A5200139E7D /* MangmntdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MangmntdetailsViewController.xib; sourceTree = "<group>"; };
+		D40407D9192B171A00864BA4 /* myscroll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = myscroll.h; sourceTree = "<group>"; };
+		D40407DA192B171A00864BA4 /* myscroll.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = myscroll.m; sourceTree = "<group>"; };
+		D40407DC192B1CFB00864BA4 /* save 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "save 3.png"; sourceTree = "<group>"; };
 		D40427DF19235DF50049A709 /* PhsestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhsestViewController.h; sourceTree = "<group>"; };
 		D40427E019235DF50049A709 /* PhsestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhsestViewController.m; sourceTree = "<group>"; };
 		D40427E119235DF50049A709 /* PhsestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhsestViewController.xib; sourceTree = "<group>"; };
@@ -1150,6 +1155,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D40407DC192B1CFB00864BA4 /* save 3.png */,
 				D4FE170B1918ED1000C8DA58 /* Srch.png */,
 				D4FE17091918ED0800C8DA58 /* drop.png */,
 				D4E6156318D971C500D7EAA0 /* logo.png */,
@@ -1213,6 +1219,8 @@
 		D4D570161772BE8800671A35 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				D40407D9192B171A00864BA4 /* myscroll.h */,
+				D40407DA192B171A00864BA4 /* myscroll.m */,
 				D4EC7E3E192A10D400C60BA9 /* MyLineDrawingView.h */,
 				D4EC7E3F192A10D400C60BA9 /* MyLineDrawingView.m */,
 				D49F86F118EEA36B00413CAD /* CKCalendarView.h */,
@@ -1590,6 +1598,7 @@
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
+				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
@@ -1697,6 +1706,7 @@
 			files = (
 				D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */,
 				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
+				D40407DB192B171A00864BA4 /* myscroll.m in Sources */,
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
 				D49F876918EEA36B00413CAD /* Infomdl.m in Sources */,
 				D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */,
