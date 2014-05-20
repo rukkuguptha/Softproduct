@@ -1359,6 +1359,17 @@
         recordResults = TRUE;
 
     }
+    if([elementName isEqualToString:@"entryid"])
+    {
+       
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"WorkTypeSelectResult"])
     {
         _typelistarray=[[NSMutableArray alloc]init];
@@ -1454,6 +1465,13 @@
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"SelectAllPlansResult"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"entryid"])
     {
         
         recordResults = FALSE;

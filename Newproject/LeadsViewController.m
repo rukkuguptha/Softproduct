@@ -49,8 +49,8 @@
 
     
     
-    _scroll.frame=CGRectMake(0, 0, 768,1004);
-    [_scroll setContentSize:CGSizeMake(768,1125)];
+    _scroll.frame=CGRectMake(0, 44, 715,768);
+    [_scroll setContentSize:CGSizeMake(715,1125)];
     //self.navigationController.navigationBar.tintColor= [UIColor colorWithRed:135.0/255.0f green:206.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _leadTable.layer.borderWidth = 2.0;
     _leadTable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -631,7 +631,7 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_leadtypebtnlbl.frame
-                                            inView:self.view2
+                                            inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -662,7 +662,7 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_projecttype.frame
-                                            inView:self.view2
+                                            inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -692,7 +692,7 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_leadstatusBtn.frame
-                                            inView:self.view2
+                                            inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -724,7 +724,7 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_industrytypetxtfld.frame
-                                            inView:self.view2
+                                            inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -756,7 +756,7 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_prjctexcutntxtfld.frame
-                                            inView:self.view2
+                                            inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -928,7 +928,7 @@ if (tableView==_leadTable) {
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     [self.popOverController presentPopoverFromRect:_companybtn.frame
-                                            inView:self.view2
+                                            inView:self.scroll
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
     
@@ -950,7 +950,7 @@ if (tableView==_leadTable) {
     popovercontent.view=popoverview;
     popovercontent.contentSizeForViewInPopover=CGSizeMake(200, 250);
     self.popOverController=[[UIPopoverController alloc]initWithContentViewController:popovercontent];
-    [self.popOverController presentPopoverFromRect:_statebutton.frame inView:_view2 permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+    [self.popOverController presentPopoverFromRect:_statebutton.frame inView:_scroll permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
     
     
 }
@@ -971,8 +971,8 @@ if (tableView==_leadTable) {
                  "</soap:Body>\n"
                  "</soap:Envelope>\n"];
     NSLog(@"soapmessage%@",soapmessage);
-    NSURL *url=[NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    
+   // NSURL *url=[NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+      NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
     NSMutableURLRequest *theRequest=[NSMutableURLRequest requestWithURL:url];
     NSString *msglength=[NSString stringWithFormat:@"%d",[soapmessage length]];
     [theRequest addValue:@"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -1095,7 +1095,7 @@ if (tableView==_leadTable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -2264,6 +2264,7 @@ if (tableView==_leadTable) {
        _leadassigntotextfld.text=@"";
        [_leadstatusBtn setTitle:@"Select" forState:UIControlStateNormal];
        _cmttxtbox.text=@"";
+       _composecmtview.hidden=YES;
        
 
    }

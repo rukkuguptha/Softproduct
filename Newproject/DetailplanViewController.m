@@ -2294,7 +2294,7 @@
         recordResults = FALSE;
         [_phasearray addObject:_soapresults];
         [_phasedict setObject:_phasestring forKey:_soapresults];
-        [_phaseiddict setObject:_soapresults forKey:_soapresults];
+        [_phaseiddict setObject:_soapresults forKey:_phasestring];
         _soapresults = nil;
         
         

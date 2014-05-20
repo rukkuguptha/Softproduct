@@ -76,7 +76,7 @@
                                         <navigationItem title="HR" id="RMb-PU-3Zb">
                                             <barButtonItem key="rightBarButtonItem" id="dOA-3K-itl">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IAm-bV-TmV">
-                                                    <rect key="frame" x="968" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.close.png">

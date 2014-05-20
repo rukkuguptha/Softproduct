@@ -1509,6 +1509,8 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
         _descptionTextview.text=@"";
         _statusTxtFld.text=@"";
         _cmttxtbox.text=@"";
+        _composecmtview.hidden=YES;
+
         
     }
 }

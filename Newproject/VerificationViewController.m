@@ -410,21 +410,21 @@ ssnclck++;
     
        
 }
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    //alternating cell back ground color
-           if (indexPath.row%2 == 0) {
-            [cell setBackgroundColor:[UIColor whiteColor]];
-            
-        }else
-        {
-            
-            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
-            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
-            
-            
-        }
-    }
-
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    //alternating cell back ground color
+//           if (indexPath.row%2 == 0) {
+//            [cell setBackgroundColor:[UIColor whiteColor]];
+//            
+//        }else
+//        {
+//            
+//            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+//            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+//            
+//            
+//        }
+//    }
+//
 
 - (IBAction)Rsavebtn:(id)sender {
 }
@@ -2076,7 +2076,7 @@ ssnclck++;
     _popOverTableView.delegate=(id)self;
     _popOverTableView.dataSource=(id)self;
     _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorColor=[UIColor cyanColor];
+    //_popOverTableView.separatorColor=[UIColor cyanColor];
     
     [popoverView addSubview:_popOverTableView];
     popoverContent.view = popoverView;
