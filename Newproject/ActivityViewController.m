@@ -321,7 +321,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 {
     
     viewclosed=btnindex;
-    
+    _animatedview.hidden=YES;
     self.openviewindex = NSNotFound;
     
     

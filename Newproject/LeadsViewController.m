@@ -548,6 +548,7 @@ if (tableView==_leadTable) {
     _contacttiletxtfld.text=info1.contacttitle;
     _emailidtxtfld.text=info1.emailid;
     [_statebutton setTitle:[_reversedict objectForKey:info1.state]forState:UIControlStateNormal];
+    NSLog(@"%@",info1.state);
     _leadassigntotextfld.text=info1.leadassignto;
     [_leadstatusBtn setTitle:info1.leadstatus forState:UIControlStateNormal];
     [_industrytypetxtfld setTitle:info1.Industrytype forState:UIControlStateNormal];
@@ -900,6 +901,18 @@ if (tableView==_leadTable) {
         
     
     
+    }
+    else
+    {
+        if (butnidtfr==1) {
+            [self Addlead];
+        }
+        else  if(butnidtfr==2)
+        {
+            
+            [self updatelead];
+        }
+
     }
 }
 - (IBAction)selectcompany:(id)sender

@@ -823,73 +823,115 @@
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"MobileNumber is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
-    
-
-        else if (optionidentifier==1) {
-            
-            
-            if([_emailtextfield.text isEqualToString:@""])
+        else if([_phoneofficetextfield.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if(![_emailtextfield.text isEqualToString:@""])
+        {
+            Validation *val=[[Validation alloc]init];
+            int value2 = [val validEmailAddress:_emailtextfield.text];
+            if(value2==0)
             {
-                Validation *val=[[Validation alloc]init];
-                int value2 = [val validEmailAddress:_emailtextfield.text];
-                if(value2==0)
-                {
-                    
-                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert1 show];
-                }
                 
-                
-                
-                else
-                {
-            
-                    [self CustomerSalesRepInfoInsert];
-                }
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert1 show];
             }
-            
             else
             {
-                
-                [self CustomerSalesRepInfoInsert];
-            }
-
-        }
-    
-        else if(optionidentifier==2)
-        {
-            
-            
-            [self CustomerSalesRepInfoUpdate];
-            
-            if([_emailtextfield.text isEqualToString:@""])
-            {
-                Validation *val=[[Validation alloc]init];
-                int value2 = [val validEmailAddress:_emailtextfield.text];
-                if(value2==0)
+                if (optionidentifier==1)
                 {
-                    
-                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert1 show];
+                [self CustomerSalesRepInfoInsert];
                 }
-                
-                
-                else{
-                    
-                    
-                    
-                    [self CustomerSalesRepInfoUpdate];
+                else
+                {
+                     [self CustomerSalesRepInfoUpdate];
                 }
-            }
-            else{
-                
-                
-                
-                [self CustomerSalesRepInfoUpdate];
             }
 
-            
         }
+    else
+    {
+        if (optionidentifier==1)
+        {
+            [self CustomerSalesRepInfoInsert];
+        }
+        else
+        {
+            [self CustomerSalesRepInfoUpdate];
+        }
+
+    }
+    
+    
+    
+
+//        else if (optionidentifier==1) {
+//            
+//            
+//             else if(![_emailidtxtfld.text isEqualToString:@""])
+//            {
+//                Validation *val=[[Validation alloc]init];
+//                int value2 = [val validEmailAddress:_emailtextfield.text];
+//                if(value2==0)
+//                {
+//                    
+//                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                    [alert1 show];
+//                }
+//                
+//                
+//                
+//                else
+//                {
+//            
+//                    [self CustomerSalesRepInfoInsert];
+//                }
+//            }
+//            
+//            else
+//            {
+//                
+//                [self CustomerSalesRepInfoInsert];
+//            }
+//
+//        }
+//    
+//        else if(optionidentifier==2)
+//        {
+//            
+//            
+//            
+//            
+//            if([_emailtextfield.text isEqualToString:@""])
+//            {
+//                Validation *val=[[Validation alloc]init];
+//                int value2 = [val validEmailAddress:_emailtextfield.text];
+//                if(value2==0)
+//                {
+//                    
+//                    UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                    [alert1 show];
+//                }
+//                
+//                
+//                else{
+//                    
+//                    
+//                    
+//                    [self CustomerSalesRepInfoUpdate];
+//                }
+//            }
+//            else{
+//                
+//                
+//                
+//                [self CustomerSalesRepInfoUpdate];
+//            }
+//
+//            
+//        }
 }
 
 - (IBAction)cancel:(id)sender {
