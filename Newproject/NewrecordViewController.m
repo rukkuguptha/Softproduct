@@ -31,6 +31,13 @@
     self.view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view3.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    [[self.meetgdetailslbl layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.meetgdetailslbl layer] setBorderWidth:2];
+    [[self.meetgdetailslbl layer] setCornerRadius:10];
+    [[self.notestxtfld layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.notestxtfld layer] setBorderWidth:2];
+    [[self.notestxtfld layer] setCornerRadius:10];
+
     // Do any additional setup after loading the view from its nib.
     
     //_navbar.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -1132,5 +1139,28 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
     _notestxtfld.text=@"";
    
+}
+
+- (IBAction)drawactn:(id)sender {
+   
+        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+   
+    
+    _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_drwVCtrl
+                       animated:YES completion:NULL];
+
+}
+
+- (IBAction)drawnotesactn:(id)sender {
+   
+        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+  
+    
+    _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_drwVCtrl
+                       animated:YES completion:NULL];
 }
 @end

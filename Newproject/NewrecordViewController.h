@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CKCalendarView.h"
+#import "DrawingViewController.h"
 @protocol newrecordDelgate <NSObject>
 
 -(void)toreloadatable;
@@ -21,7 +22,7 @@
     NSInteger istr;
   //  id <newrecordDelgate>Delegate;
 }
-
+@property(nonatomic, strong)DrawingViewController *drwVCtrl;
 @property(nonatomic, weak)id<newrecordDelgate>delegate;
 @property(nonatomic, weak) CKCalendarView *calendar;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
@@ -101,7 +102,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *datebtnlbl;
 
 - (IBAction)datebtn:(id)sender;
-@property (strong, nonatomic) IBOutlet UITextField *meetgdetailslbl;
+//@property (strong, nonatomic) IBOutlet UITextField *meetgdetailslbl;
+@property (strong, nonatomic) IBOutlet UITextView *meetgdetailslbl;
 
 - (IBAction)meetgupdatebt:(id)sender;
 - (IBAction)meetgcancelbtn:(id)sender;
@@ -125,9 +127,12 @@
 /*Notes*/
 @property (strong, nonatomic) IBOutlet UIButton *notedatebtnlbl;
 - (IBAction)notedatebtn:(id)sender;
-@property (strong, nonatomic) IBOutlet UITextField *notestxtfld;
+//@property (strong, nonatomic) IBOutlet UITextField *notestxtfld;
+@property (strong, nonatomic) IBOutlet UITextView *notestxtfld;
 
 - (IBAction)notesupdatebtn:(id)sender;
 - (IBAction)notescancelbtn:(id)sender;
+- (IBAction)drawactn:(id)sender;
+- (IBAction)drawnotesactn:(id)sender;
 
 @end

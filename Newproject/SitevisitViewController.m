@@ -48,7 +48,9 @@
     _prdunratetble.layer.borderWidth=3.0;
     _documenttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _documenttable.layer.borderWidth=3.0;
-  
+    [[self.equipmnttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.equipmnttxtview layer] setBorderWidth:2];
+    [[self.equipmnttxtview layer] setCornerRadius:10];
     _tabletitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _jobsitetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _jobsitetable.layer.borderWidth=3.0;
@@ -86,7 +88,20 @@
     [[self.scpeofwrktxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.scpeofwrktxtview layer] setBorderWidth:2];
     [[self.scpeofwrktxtview layer] setCornerRadius:10];
-
+    [[self.accblitytxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.accblitytxtview layer] setBorderWidth:2];
+    [[self.accblitytxtview layer] setCornerRadius:10];
+ _esatitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _accebiltytitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    _ESAtble.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _ESAtble.layer.borderWidth=3.0;
+    _accebilitytable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    _accebilitytable.layer.borderWidth=3.0;
+    
+    [[self.Accibltylblview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.Accibltylblview layer] setBorderWidth:2];
+    [[self.Accibltylblview layer] setCornerRadius:10];
+    
 
     }
 
@@ -141,10 +156,6 @@
     _weatherview.hidden=YES;
     _notesview.hidden=YES;
     
-
-    
-    
-    
 }
 - (void)didReceiveMemoryWarning
 {
@@ -177,7 +188,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -236,7 +247,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -288,7 +299,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -339,7 +350,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -389,7 +400,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -438,7 +449,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -488,7 +499,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -537,8 +548,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -588,7 +599,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -637,7 +648,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -687,7 +698,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -737,7 +748,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -787,7 +798,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -837,7 +848,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -890,7 +901,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -943,7 +954,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -997,7 +1008,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1050,7 +1061,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1104,7 +1115,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1157,7 +1168,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1210,7 +1221,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1264,7 +1275,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1318,7 +1329,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1327,6 +1338,59 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/Sitevisitdeleteworkschedule" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)PlanDrawingSelect{
+    recordResults = FALSE;
+   // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PlanDrawingSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Location>%@</Location>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</PlanDrawingSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Accessibility",trimmestrg];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PlanDrawingSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1387,6 +1451,8 @@
     [_bidderstable reloadData];
     [_weathertable reloadData];
     [_notestable reloadData];
+    [_ESAtble reloadData];
+    [_accebilitytable reloadData];
     
     
 }
@@ -1437,6 +1503,10 @@
         if (tableView==_notestable) {
             return [_notearray count];
         }
+        if (tableView==_accebilitytable) {
+            return [_filenamearray count];
+        }
+
         }
     
     return YES;
@@ -1512,7 +1582,13 @@
             cell=_saftycell;
             
         }
+ if (tableView==_accebilitytable) {
+     [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
+     
+     cell=_docucell;
+     
 
+ }
 
 
        }
@@ -1623,6 +1699,14 @@
         _ruledesptn=(UILabel *)[cell viewWithTag:2];
         _ruledesptn.text=sitemdl1.Notes;
         
+    }
+    if (tableView==_accebilitytable) {
+        
+        
+        _doculbl=(UILabel *)[cell viewWithTag:1];
+        _doculbl.text=[_filenamearray objectAtIndex:indexPath.row];
+
+
     }
 
     return cell;
@@ -2212,7 +2296,32 @@
         recordResults = TRUE;
     }
     
-    
+    if([elementName isEqualToString:@"PlanDrawingSelectResponse"])
+    {
+        _filenamearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"drawingid"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"filename"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 }
@@ -2669,6 +2778,20 @@
         
         _soapResults = nil;    }
     
+    if([elementName isEqualToString:@"drawingid"])
+    {
+         recordResults = FALSE;
+        
+         _soapResults = nil;
+        
+        
+    }
+    if([elementName isEqualToString:@"filename"])
+    {
+        recordResults = FALSE;
+        [_filenamearray addObject:_soapResults];
+        _soapResults = nil;
+    }
 
 
 
@@ -2866,7 +2989,8 @@
 }
 
 - (IBAction)acceblitybtn:(id)sender {
-    
+    [self PlanDrawingSelect];
+
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -2899,8 +3023,7 @@
 }
 
 - (IBAction)Equmntstgareabtn:(id)sender {
-    
-    _gernalbtnlbl.tintColor=[UIColor blackColor];
+       _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
     _accesbltybtnlbl.tintColor=[UIColor blackColor];
@@ -3211,12 +3334,27 @@
 #pragma mark-button Actions
 - (IBAction)equpdraw:(id)sender {
     
-    if (!_drwVCtrl) {
-        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
-    }
+    tabtype=1;
+    self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+    
     
     _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
   _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _drwVCtrl.planid=_companyid;
+    _drwVCtrl.tabtype=tabtype;
+    [self presentViewController:_drwVCtrl
+                       animated:YES completion:NULL];
+}
+
+- (IBAction)accebiltydraw:(id)sender {
+    tabtype=2;
+    self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+    
+    
+    _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+     _drwVCtrl.planid=_companyid;
+       _drwVCtrl.tabtype=tabtype;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
 }
@@ -3541,5 +3679,29 @@
         [_jobsitetable reloadData];
         
     }
+}
+- (IBAction)viewbtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.accebilitytable];
+    NSIndexPath *textFieldIndexPath = [self.accebilitytable indexPathForRowAtPoint:rootViewPoint];
+    
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+      NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.100/Folder/Root/Drawings/%@-%@-%@",trimmestrg,@"Accessibility",[_filenamearray objectAtIndex:textFieldIndexPath.row]];
+     // NSLog(@"fullURL%@",fullURL);
+    
+    
+    
+   
+        self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
+   
+    _webVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _webVCtrl.urlstring=fullURL;
+    
+    [self presentViewController:_webVCtrl
+                       animated:YES completion:NULL];
+    
+    
 }
 @end

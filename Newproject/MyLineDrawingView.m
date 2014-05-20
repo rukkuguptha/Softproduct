@@ -64,7 +64,7 @@ CGPoint midPoint(CGPoint p1, CGPoint p2);
     CGContextSetStrokeColorWithColor(context, [lineColor CGColor]);
   
      
-[lineColor setStroke];
+    [lineColor setStroke];
     [myPath strokeWithBlendMode:kCGBlendModeDifference alpha:1.0];
     // Drawing code
    //[myPath stroke];

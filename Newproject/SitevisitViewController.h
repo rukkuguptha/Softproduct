@@ -14,18 +14,22 @@
 #import "SitevistMdl.h"
 #import "Validation.h"
 #import "DrawingViewController.h"
+#import "WebViewController.h"
 
 @interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate>{
     BOOL recordResults;
     NSString *itemid;
     NSInteger path;
+    NSInteger tabtype;
+    UIButton *button;
 
 }
-
+@property (strong, nonatomic)WebViewController *webVCtrl;
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
 @property (strong, nonatomic)DrawingViewController *drwVCtrl;
 -(void)toreloadatable;
 
+@property (strong, nonatomic)NSMutableArray *filenamearray;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
 
 @property (strong, nonatomic)NewrecordViewController *newrecordVCtrl;
@@ -70,6 +74,10 @@
 @property (strong, nonatomic) IBOutlet UITableView *documenttable;
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *docucell;
+@property (strong, nonatomic) IBOutlet UILabel *doculbl;
+
+- (IBAction)viewbtn:(id)sender;
+
 
 /*Accebility view*/
 
@@ -81,12 +89,18 @@
 - (IBAction)accebilityupdate:(id)sender;
 
 
+
+
 /*Equipment Staging area Views*/
 
 @property (strong, nonatomic) IBOutlet UIView *equipmentview;
 
 @property (strong, nonatomic) IBOutlet UITextView *equipmnttxtview;
 - (IBAction)equpmntupdatebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UITableView *ESAtble;
+
+@property (strong, nonatomic) IBOutlet UIView *esatitleview;
+
 
 /*Jobsite Views*/
 @property (strong, nonatomic) IBOutlet UIView *jobsiteview;
@@ -128,7 +142,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *equarealbl;
 @property (strong, nonatomic) IBOutlet UILabel *equunitlbl;
 - (IBAction)deleteequmnt:(id)sender;
-
+@property (strong, nonatomic) IBOutlet UIView *accebiltytitleview;
+@property (strong, nonatomic) IBOutlet UITableView *accebilitytable;
 
 
 
@@ -251,5 +266,8 @@
 - (IBAction)notesbtn:(id)sender;
 
 - (IBAction)equpdraw:(id)sender;
+
+- (IBAction)accebiltydraw:(id)sender;
+
 
 @end
