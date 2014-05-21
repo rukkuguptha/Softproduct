@@ -36,6 +36,7 @@
         
         
         [_mylineview setBackgroundColor:[UIColor colorWithPatternImage:_editedimage]];
+            
 
     }
     else{
@@ -400,7 +401,10 @@
 }
 
 - (IBAction)deletebtn:(id)sender {
+      [_mylineview setBackgroundColor:[UIColor whiteColor]];
     [self.mylineview removeFromSuperview];
+    _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
+    _newview.layer.borderWidth=5.0;
     _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
     _mylineview.backgroundColor=[UIColor clearColor];
     [self.newview addSubview:_mylineview];

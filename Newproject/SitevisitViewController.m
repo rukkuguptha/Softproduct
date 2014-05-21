@@ -1693,7 +1693,18 @@
     
     NSString *soapMessage;
     NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Meeting",[_filenamearray objectAtIndex:fetchindex]];
+    SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:fetchindex];
+    
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM-dd-yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:sitemdl1.meetingdate];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+_passingdate=dateString;
+    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Meeting",dateString,sitemdl1.filename];
     
     
     soapMessage = [NSString stringWithFormat:
@@ -1746,7 +1757,17 @@
     
     NSString *soapMessage;
     NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Notes",[_filenamearray objectAtIndex:fetchindex]];
+      SitevistMdl *sitemdl1=(SitevistMdl *)[_notearray objectAtIndex:fetchindex];
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM-dd-yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:sitemdl1.notedate];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _passingdate=dateString;
+    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@-%@.jpg",plantrimmestrg,@"Notes",dateString,sitemdl1.filename];
     
     
     soapMessage = [NSString stringWithFormat:
@@ -3269,6 +3290,7 @@
         _drwVCtrl.tabtype=tabtype;
         _drwVCtrl.editedimage=_Editedimage;
         _drwVCtrl.viewclck=viewclck;
+        _drwVCtrl.datestrg=_passingdate;
         
         [self presentViewController:_drwVCtrl
                            animated:YES completion:NULL];
@@ -4188,8 +4210,8 @@
     if (tabtype==2) {
     button = (UIButton *)sender;
     CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.ESAtble];
-    NSIndexPath *textFieldIndexPath = [self.ESAtble indexPathForRowAtPoint:rootViewPoint];
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.accebilitytable];
+    NSIndexPath *textFieldIndexPath = [self.accebilitytable indexPathForRowAtPoint:rootViewPoint];
     fetchindex=textFieldIndexPath.row;
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
    [self AccessFetchImage];
@@ -4200,8 +4222,8 @@
         
         button = (UIButton *)sender;
         CGPoint center= button.center;
-        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.accebilitytable];
-        NSIndexPath *textFieldIndexPath = [self.accebilitytable indexPathForRowAtPoint:rootViewPoint];
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.ESAtble];
+        NSIndexPath *textFieldIndexPath = [self.ESAtble indexPathForRowAtPoint:rootViewPoint];
         
         NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
         fetchindex=textFieldIndexPath.row;

@@ -342,9 +342,19 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 -(void)SitevisitInsertmeetingnotes{
     recordResults = FALSE;
+    NSString *filename;
+    if ([_meetgdetailslbl.text isEqualToString:@""]) {
+        
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *filename = [defaults objectForKey:@"Imagename"];
+ filename = [defaults objectForKey:@"Imagename"];
+        
+    }
+    else{
+        
+         filename=@"";
+    }
     NSString *soapMessage;
     
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -535,9 +545,17 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 -(void)SitevisitInsertNotes{
     recordResults = FALSE;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSString *filename = [defaults objectForKey:@"Imagename"];
+    NSString *filename;
+    if ([_notestxtfld.text isEqualToString:@""]) {
+        
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        filename = [defaults objectForKey:@"Imagename"];
+    }
+    else{
+        filename=@"";
+    }
   
 
     NSString *soapMessage;

@@ -27,6 +27,7 @@
     NSInteger webtype;
 
 }
+@property (strong, nonatomic)NSString *passingdate;
 @property (strong, nonatomic)UIImage *Editedimage;
 @property (strong, nonatomic)WebViewController *webVCtrl;
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
