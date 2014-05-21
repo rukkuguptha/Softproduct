@@ -393,8 +393,8 @@
     dropAreaFrame.origin.y = kNavBarHeight;
     dropAreaFrame.size.height -= kNavBarHeight;
     
-    dropArea = [[UIView alloc] initWithFrame:CGRectMake(539, 117, 460, 533)];
-    [dropArea setBackgroundColor:[UIColor whiteColor]];
+    dropArea = [[UIView alloc] initWithFrame:CGRectMake(540, 30, 460, 700)];
+    [dropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
     [self.touchview addSubview:dropArea];
     
     CGRect contentFrame = dropAreaFrame;
@@ -409,6 +409,7 @@
     [dropArea addSubview:dropAreaLabel];
     
     [dropArea addSubview:_crewnametable];
+  
 }
 
 - (void)initDraggedCellWithCell:(UITableViewCell*)cell AtPoint:(CGPoint)point
@@ -456,7 +457,7 @@
     }
     else if([_crewnametable pointInside:pointInDst withEvent:nil])
     {
-        [self startDraggingFromDstAtPoint:pointInDst];
+        //[self startDraggingFromDstAtPoint:pointInDst];
         dragFromSource = NO;
     }
     
@@ -484,12 +485,14 @@
             draggedData = nil;
         }
         
-        path=indexPath.row;
+        crewpath=indexPath.row;
         
-        Manpwr*manmdl1=(Manpwr *)[_manpwrarray objectAtIndex:indexPath.row];
+        Manpwr*manmdl1=(Manpwr *)[_manpwrarray objectAtIndex:crewpath];
         
-       draggedData = manmdl1.itemcode;
-            }
+        draggedData = manmdl1.itemcode;
+        NSLog(@"%@",manmdl1.itemdescptn);
+    }
+
     
 }
 
@@ -527,6 +530,7 @@
          }];
         
     }
+    
 }
 
 - (void)doDrag:(UIPanGestureRecognizer *)gestureRecognizer
@@ -535,7 +539,7 @@
     {
         CGPoint translation = [gestureRecognizer translationInView:[draggedCell superview]];
         [draggedCell setCenter:CGPointMake([draggedCell center].x + translation.x,
-                                           [draggedCell center].y + translation.y)];
+                                                 [draggedCell center].y + translation.y)];
         [gestureRecognizer setTranslation:CGPointZero inView:[draggedCell superview]];
     }
 }
@@ -630,7 +634,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -681,7 +685,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -732,7 +736,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -783,7 +787,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -816,7 +820,7 @@
     recordResults = FALSE;
     NSString *soapMessage;
     
-      Manpwr *manpwr=(Manpwr *)[_manpwrarray objectAtIndex:path];
+      Manpwr *manpwr=(Manpwr *)[_manpwrarray objectAtIndex:crewpath];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -843,7 +847,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -875,7 +879,7 @@
     recordResults = FALSE;
     NSString *soapMessage;
     
-    Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:path];
+    Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:Deletepath];
 
     soapMessage = [NSString stringWithFormat:
                    
@@ -894,7 +898,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -944,7 +948,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -997,7 +1001,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1048,7 +1052,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1237,7 +1241,7 @@
     }
     
 
-    if([elementName isEqualToString:@"Description"])
+    if([elementName isEqualToString:@"CrDescription"])
     {
         
         if(!_soapResults)
@@ -1377,7 +1381,9 @@
         recordResults = FALSE;
         
         _manpwrmdl.itemdescptn=_soapResults;
-         _crewmdl1.mandescptn=_soapResults;
+        NSLog(@"%@",_manpwrmdl.itemdescptn);
+        
+       
      
         _soapResults = nil;
     }
@@ -1430,7 +1436,14 @@
     
         _soapResults = nil;
     }
-    
+    if([elementName isEqualToString:@"CrDescription"])
+    {
+        recordResults = FALSE;
+        _crewmdl1.mandescptn=_soapResults;
+        
+        _soapResults = nil;
+    }
+
     
 //    if([elementName isEqualToString:@"Description"])
 //    {

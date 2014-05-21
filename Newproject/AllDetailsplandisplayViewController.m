@@ -426,15 +426,29 @@ return cell;
             NSIndexPath* indexPath = [_maintable indexPathForRowAtPoint:[gestureRecognizer locationInView:_maintable]];
             if(indexPath != nil)
             {
+                NewscfldDetails *dmdl=(NewscfldDetails *)[_Maintablescflddetailsarray objectAtIndex:indexPath.row];
+                dmdl.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
+                [_Maintablescflddetailsarray addObject:dmdl];
                 [_Maintablescflddetailsarray insertObject:draggedData atIndex:indexPath.row];
-                [_maintable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+               // [_maintable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else
             {
-                NewscfldDetails*nwscfld1=[[NewscfldDetails alloc]init];
-                nwscfld1.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
-                
-                [_Maintablescflddetailsarray addObject:nwscfld1];
+                if ([_Maintablescflddetailsarray count]==0)
+                {
+                    NewscfldDetails*nwscfld1=[[NewscfldDetails alloc]init];
+                    nwscfld1.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
+                    NSLog(@"%d",nwscfld1.scaffolddetailid);
+                    
+                    [_Maintablescflddetailsarray addObject:nwscfld1];
+                    
+                }
+                else
+                {
+                    NewscfldDetails *dmdl=(NewscfldDetails *)[_Maintablescflddetailsarray objectAtIndex:indexPath.row];
+                     dmdl.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
+                    [_Maintablescflddetailsarray addObject:dmdl];
+                }
                 
                 [self manhoursfordetail];
 
@@ -468,6 +482,8 @@ return cell;
 }
 
 
+
+
 #pragma mark-WebService
 
 -(void)Selectcheight{
@@ -493,7 +509,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -542,7 +558,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -592,7 +608,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -692,7 +708,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -743,7 +759,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -903,7 +919,7 @@ return cell;
     }
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -964,7 +980,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1016,7 +1032,7 @@ return cell;
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     

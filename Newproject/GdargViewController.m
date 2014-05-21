@@ -1517,7 +1517,7 @@
         }
         else if([_generaltable pointInside:pointInDst withEvent:nil])
         {
-            [self startDraggingFromDstAtPoint:pointInDst];
+            //[self startDraggingFromDstAtPoint:pointInDst];
             mandragFromSource = NO;
         }
     }
@@ -1780,7 +1780,7 @@
     }
     else if([_resourcegenraltable pointInside:pointInDst withEvent:nil])
     {
-        [self materialstartDraggingFromDstAtPoint:pointInDst];
+        //[self materialstartDraggingFromDstAtPoint:pointInDst];
         materldragFromSource = NO;
     }
 }
