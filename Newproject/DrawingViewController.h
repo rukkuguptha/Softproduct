@@ -56,5 +56,8 @@
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)deletebtn:(id)sender;
 - (IBAction)savebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *deletebtnlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *savebtnlbl;
 
 @end

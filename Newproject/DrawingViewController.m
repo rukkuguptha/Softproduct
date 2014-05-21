@@ -28,6 +28,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
         if (_viewclck==1) {
+            
+            if (_tabtype==3||_tabtype==4) {
+                _deletebtnlbl.hidden=YES;
+                _savebtnlbl.hidden=YES;
+            }
          [self.view setBackgroundColor:[UIColor whiteColor]];
         [self.mylineview removeFromSuperview];
         _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
@@ -460,9 +465,13 @@
                 [self AccebilityUploadPlanDrawings];
                 break;
             case 3:
+               
                 [self MeetingUploadPlanDrawings];
                 break;
             case 4:
+               
+
+                  _deletebtnlbl.hidden=YES;
                 [self NotesUploadPlanDrawings];
                 break;
                 
