@@ -46,6 +46,8 @@
 @property(strong,nonatomic)NSString *wethrfrm;
 @property(strong,nonatomic)NSString *weathrto;
 @property(strong,nonatomic)NSString *weatherdescptn;
+@property(strong,nonatomic)NSString *filename;
+
 
 
 @end

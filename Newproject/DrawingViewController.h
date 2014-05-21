@@ -26,7 +26,10 @@
     NSInteger  path;
 
 }
+
+@property(strong,nonatomic)UIImage *editedimage;
 @property(readwrite) NSInteger tabtype;
+@property(readwrite) NSInteger viewclck;
 @property(strong,nonatomic)MyLineDrawingView*mylineview;
 @property(strong,nonatomic)myscroll *newscroll;
 /*outlets*/
@@ -42,7 +45,7 @@
 @property (strong, nonatomic)NSString*savename;
 @property(strong,nonatomic)NSData*basedata;
 @property(strong,nonatomic)NSString*encodedString;
-
+@property (strong, nonatomic)NSString*datestrg;
 
 
 /*Xmlparser*/

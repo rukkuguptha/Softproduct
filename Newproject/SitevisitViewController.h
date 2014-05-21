@@ -22,8 +22,12 @@
     NSInteger path;
     NSInteger tabtype;
     UIButton *button;
+    NSInteger fetchindex;
+    NSInteger viewclck;
+    NSInteger webtype;
 
 }
+@property (strong, nonatomic)UIImage *Editedimage;
 @property (strong, nonatomic)WebViewController *webVCtrl;
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
 @property (strong, nonatomic)DrawingViewController *drwVCtrl;
@@ -167,8 +171,17 @@
 @property (strong, nonatomic) IBOutlet UIView *meetingview;
 @property (strong, nonatomic) IBOutlet UIView *meetingtitleview;
 @property (strong, nonatomic) IBOutlet UITableView *meetingtable;
+@property (strong, nonatomic) IBOutlet UITableView *meetghandtable;
+@property (strong, nonatomic) IBOutlet UIView *mtghandtitleview;
+@property (strong, nonatomic) IBOutlet UITableViewCell *meetgcell;
+
+@property (strong, nonatomic) IBOutlet UILabel *mnamelbl;
+@property (strong, nonatomic) IBOutlet UILabel *mdetaillbl;
+- (IBAction)mviewbtn:(id)sender;
+
 - (IBAction)addmeetgnots:(id)sender;
 - (IBAction)deltemeetng:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *mnotelbl;
 
 
 /*otherbidders*/
@@ -243,6 +256,7 @@
 @property(strong,nonatomic)NSMutableArray *bidderarray;
 @property(strong,nonatomic)NSMutableArray *weatherarray;
 @property(strong,nonatomic)NSMutableArray *notearray;
+
 
 
 /*Dictionary*/

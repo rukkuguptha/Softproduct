@@ -22,6 +22,7 @@
     NSInteger istr;
   //  id <newrecordDelgate>Delegate;
 }
+@property(readwrite)NSInteger tabtype;
 @property(nonatomic, strong)DrawingViewController *drwVCtrl;
 @property(nonatomic, weak)id<newrecordDelgate>delegate;
 @property(nonatomic, weak) CKCalendarView *calendar;
@@ -35,6 +36,7 @@
 
 
 @property(strong,nonatomic) NSString *companyid;
+@property(strong,nonatomic) NSString *datesstrg;
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

@@ -91,7 +91,7 @@
     [[self.accblitytxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.accblitytxtview layer] setBorderWidth:2];
     [[self.accblitytxtview layer] setCornerRadius:10];
- _esatitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+     _esatitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _accebiltytitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _ESAtble.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _ESAtble.layer.borderWidth=3.0;
@@ -102,8 +102,10 @@
     [[self.Accibltylblview layer] setBorderWidth:2];
     [[self.Accibltylblview layer] setCornerRadius:10];
     
-
-    }
+  _mtghandtitleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    
+    
+}
 
 -(void)toreloadatable{
     [self SitevisitSelectproductionrate];
@@ -1358,6 +1360,7 @@
     
 }
 -(void)PlanDrawingSelect{
+    webtype=1;
     recordResults = FALSE;
    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
     NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -1391,6 +1394,387 @@
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
     [theRequest addValue: @"http://ios.kontract360.com/PlanDrawingSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)EstmPlanDrawingSelect{
+    webtype=2;
+
+    recordResults = FALSE;
+    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PlanDrawingSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Location>%@</Location>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</PlanDrawingSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Equipment",trimmestrg];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PlanDrawingSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)MeetingPlanDrawingSelect{
+    webtype=3;
+    
+    recordResults = FALSE;
+    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PlanDrawingSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Location>%@</Location>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</PlanDrawingSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Meeting",trimmestrg];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PlanDrawingSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)NotesPlanDrawingSelect{
+    webtype=4;
+    
+    recordResults = FALSE;
+    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+    NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PlanDrawingSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Location>%@</Location>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "</PlanDrawingSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",@"Notes",trimmestrg];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PlanDrawingSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
+-(void)FetchImage{
+    recordResults = FALSE;
+    // SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:path];
+  //  NSString * trimmestrg=[[_filenamearray objectAtIndex:fetchindex] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+   // NSArray *newarray=[[_filenamearray objectAtIndex:fetchindex] componentsSeparatedByString:@"."];
+    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Equipment",[_filenamearray objectAtIndex:fetchindex]];
+//  NSString *fullURL =[NSString stringWithFormat:@"Folder/Root/Drawings/%@-%@-%@",plantrimmestrg,@"Equipment",[newarray objectAtIndex:0]];
+    
+          soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<filename>%@</filename>\n"
+                    "</FetchImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",fullURL];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)AccessFetchImage{
+    recordResults = FALSE;
+  
+    NSString *soapMessage;
+    NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Accessibility",[_filenamearray objectAtIndex:fetchindex]];
+   
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<filename>%@</filename>\n"
+                   "</FetchImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",fullURL];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)meetingFetchImage{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Meeting",[_filenamearray objectAtIndex:fetchindex]];
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<filename>%@</filename>\n"
+                   "</FetchImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",fullURL];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)notesFetchImage{
+    recordResults = FALSE;
+    
+    NSString *soapMessage;
+    NSString * plantrimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *fullURL =[NSString stringWithFormat:@"%@-%@-%@",plantrimmestrg,@"Notes",[_filenamearray objectAtIndex:fetchindex]];
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<filename>%@</filename>\n"
+                   "</FetchImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",fullURL];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FetchImage" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1451,8 +1835,19 @@
     [_bidderstable reloadData];
     [_weathertable reloadData];
     [_notestable reloadData];
-    [_ESAtble reloadData];
-    [_accebilitytable reloadData];
+    
+    if (webtype==1) {
+         [_accebilitytable reloadData];
+        webtype=0;
+
+    }
+    if (webtype==2) {
+         [_ESAtble reloadData];
+      
+         webtype=0;
+    }
+    
+  
     
     
 }
@@ -1476,7 +1871,7 @@
               return [_productionratearray count];
           }
         
-              if (tableView==_jobsitetable) {
+        if (tableView==_jobsitetable) {
                   return [_jobsiteArray count];
               }
         if (tableView==_safetytableview) {
@@ -1492,7 +1887,8 @@
         }
         
         if (tableView==_meetingtable) {
-            return [_meetgarray count];
+           return [_meetgarray count];
+           // return 2;
         }
         if (tableView==_bidderstable) {
             return [_bidderarray count];
@@ -1503,7 +1899,7 @@
         if (tableView==_notestable) {
             return [_notearray count];
         }
-        if (tableView==_accebilitytable) {
+        if ((tableView==_accebilitytable)||(tableView=_ESAtble )) {
             return [_filenamearray count];
         }
 
@@ -1528,7 +1924,7 @@
             
              cell=_ratecell;
         }
-        if (tableView==_documenttable) {
+     else   if (tableView==_documenttable) {
                  [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
             
             cell=_docucell;
@@ -1536,60 +1932,67 @@
         }
 
         
-        if (tableView==_jobsitetable) {
+      else    if (tableView==_jobsitetable) {
             [[NSBundle mainBundle]loadNibNamed:@"Jobsitecellview" owner:self options:nil];
             
             cell=_jobsitecell;
             
         }
         
-        if (tableView==_safetytableview) {
+      else    if (tableView==_safetytableview) {
             [[NSBundle mainBundle]loadNibNamed:@"SaftyCell" owner:self options:nil];
             
             cell=_saftycell;
             
         }
-          if (tableView==_newequipmenttable) {
+        else    if (tableView==_newequipmenttable) {
               [[NSBundle mainBundle]loadNibNamed:@"siteEqupmtntcell" owner:self options:nil];
               
               cell=_equmntcell;
           }
-        if (tableView==_workscdletable) {
+        else  if (tableView==_workscdletable) {
             [[NSBundle mainBundle]loadNibNamed:@"Wrkschdulecell" owner:self options:nil];
             
             cell=_wrkschdlecell;
 
             
         }
-        if (tableView==_meetingtable) {
-        [[NSBundle mainBundle]loadNibNamed:@"SaftyCell" owner:self options:nil];
+      else    if (tableView==_meetingtable) {
+        [[NSBundle mainBundle]loadNibNamed:@"Meetingnotesview" owner:self options:nil];
                 
-                cell=_saftycell;
+                cell=_meetgcell;
 
         }
-        if (tableView==_bidderstable) {
+      else    if (tableView==_bidderstable) {
             cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
             
         }
-        if (tableView==_weathertable) {
+      else    if (tableView==_weathertable) {
             [[NSBundle mainBundle]loadNibNamed:@"Ratecellview" owner:self options:nil];
             
             cell=_ratecell;
         }
-        if (tableView==_notestable) {
-            [[NSBundle mainBundle]loadNibNamed:@"SaftyCell" owner:self options:nil];
-            
-            cell=_saftycell;
-            
+       else   if (tableView==_notestable) {
+           [[NSBundle mainBundle]loadNibNamed:@"Meetingnotesview" owner:self options:nil];
+           
+           cell=_meetgcell;
+
+           
         }
- if (tableView==_accebilitytable) {
+ else   if (tableView==_accebilitytable) {
+      [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
+     
+       cell=_docucell;
+     
+
+ }
+ else  if (tableView==_ESAtble) {
+     
      [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
      
      cell=_docucell;
      
-
  }
-
 
        }
     
@@ -1600,7 +2003,7 @@
 
       }
     
-      if (tableView==_prdunratetble) {
+     else  if (tableView==_prdunratetble) {
           
           SitevistMdl *sitemdl1=(SitevistMdl *)[_productionratearray objectAtIndex:indexPath.row];
           _ratelbl=(UILabel *)[cell viewWithTag:1];
@@ -1613,7 +2016,7 @@
           
           
       }
-    if (tableView==_jobsitetable) {
+  else   if (tableView==_jobsitetable) {
         
         SitevistMdl *sitemdl1=(SitevistMdl *)[_jobsiteArray objectAtIndex:indexPath.row];
         _jobname=(UILabel *)[cell viewWithTag:1];
@@ -1625,7 +2028,7 @@
         _jobcost=(UILabel *)[cell viewWithTag:4];
         _jobcost.text=sitemdl1.jobcost;
 }
-     if (tableView==_safetytableview) {
+    else  if (tableView==_safetytableview) {
          
          SitevistMdl *sitemdl1=(SitevistMdl *)[_saftyArray objectAtIndex:indexPath.row];
          _rultitllbl=(UILabel *)[cell viewWithTag:1];
@@ -1635,7 +2038,7 @@
 
      }
     
-   if (tableView==_newequipmenttable) {
+ else   if (tableView==_newequipmenttable) {
        SitevistMdl *sitemdl1=(SitevistMdl *)[_Equpmntarray objectAtIndex:indexPath.row];
        
        _eqnamelbl=(UILabel *)[cell viewWithTag:1];
@@ -1651,7 +2054,7 @@
        
    }
     
-    if (tableView==_workscdletable) {
+  else   if (tableView==_workscdletable) {
         SitevistMdl *sitemdl1=(SitevistMdl *)[_wrkschdlearray objectAtIndex:indexPath.row];
         
         _startdaelbl=(UILabel *)[cell viewWithTag:1];
@@ -1665,24 +2068,26 @@
         
         
     }
-    if (tableView==_meetingtable) {
+  else   if (tableView==_meetingtable) {
         
         SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:indexPath.row];
-        _rultitllbl=(UILabel *)[cell viewWithTag:1];
-        _rultitllbl.text=sitemdl1.meetingdate;
-        _ruledesptn=(UILabel *)[cell viewWithTag:2];
-        _ruledesptn.text=sitemdl1.meetingdetails;
+        _mnamelbl=(UILabel *)[cell viewWithTag:1];
+        _mnamelbl.text=sitemdl1.meetingdate;
+        _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+        _mdetaillbl.text=sitemdl1.meetingdetails;
+      _mnotelbl=(UILabel *)[cell viewWithTag:3];
+      _mnotelbl.text=sitemdl1.filename;
 
-        
+      
     }
-    if (tableView==_bidderstable) {
+  else   if (tableView==_bidderstable) {
           SitevistMdl *sitemdl1=(SitevistMdl *)[_bidderarray objectAtIndex:indexPath.row];
         
         cell.textLabel.text=[NSString stringWithFormat:@"\t\t\t\t\t\t%@",sitemdl1.biddername];
             }
     
     
-    if (tableView==_weathertable) {
+  else   if (tableView==_weathertable) {
         SitevistMdl *sitemdl1=(SitevistMdl *)[_weatherarray objectAtIndex:indexPath.row];
         _ratelbl=(UILabel *)[cell viewWithTag:1];
         _ratelbl.text=sitemdl1.wethrfrm;
@@ -1692,15 +2097,17 @@
         _ratevaluelbl.text=sitemdl1.weatherdescptn;
         
     }
-    if (tableView==_notestable) {
+ else    if (tableView==_notestable) {
         SitevistMdl *sitemdl1=(SitevistMdl *)[_notearray objectAtIndex:indexPath.row];
-        _rultitllbl=(UILabel *)[cell viewWithTag:1];
-        _rultitllbl.text=sitemdl1.notedate;
-        _ruledesptn=(UILabel *)[cell viewWithTag:2];
-        _ruledesptn.text=sitemdl1.Notes;
-        
+     _mnamelbl=(UILabel *)[cell viewWithTag:1];
+     _mnamelbl.text=sitemdl1.notedate;
+     _mdetaillbl=(UILabel *)[cell viewWithTag:2];
+     _mdetaillbl.text=sitemdl1.Notes;
+     _mnotelbl=(UILabel *)[cell viewWithTag:3];
+     _mnotelbl.text=sitemdl1.filename;
+     
     }
-    if (tableView==_accebilitytable) {
+  else if ((tableView==_accebilitytable)||(tableView=_ESAtble )) {
         
         
         _doculbl=(UILabel *)[cell viewWithTag:1];
@@ -2175,7 +2582,15 @@
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"MettingFileName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"SitevisitSelectOtherBiddersResponse"])
     {
         _bidderarray=[[NSMutableArray alloc]init];
@@ -2295,7 +2710,15 @@
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"FileName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"PlanDrawingSelectResponse"])
     {
         _filenamearray=[[NSMutableArray alloc]init];
@@ -2315,6 +2738,22 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"filename"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"FetchImageResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"url"])
     {
         if(!_soapResults)
         {
@@ -2668,9 +3107,17 @@
     {
         recordResults = FALSE;
         _sitevistmdl.meetguserid=_soapResults;
+      
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"MettingFileName"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.filename=_soapResults;
         [_meetgarray addObject:_sitevistmdl];
         _soapResults = nil;
     }
+
     if([elementName isEqualToString:@"entryother"])
     {
         _sitevistmdl=[[SitevistMdl alloc]init];
@@ -2725,10 +3172,19 @@
     {
         recordResults = FALSE;
         _sitevistmdl.notesuserid=_soapResults;
+       
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"FileName"])
+    {
+        recordResults = FALSE;
+        _sitevistmdl.filename=_soapResults;
         [_notearray addObject:_sitevistmdl];
         
         _soapResults = nil;
     }
+
     if([elementName isEqualToString:@"weatherentry"])
     {
         _sitevistmdl=[[SitevistMdl alloc]init];
@@ -2793,6 +3249,32 @@
         _soapResults = nil;
     }
 
+    if([elementName isEqualToString:@"url"])
+    {
+       recordResults = FALSE;
+        
+        NSData *data1=[_soapResults base64DecodedData];
+        
+        _Editedimage=  [[UIImage alloc]initWithData:data1];
+        
+        //[NSData dataWithData:UIImagePNGRepresentation(image.image)];
+        
+        //  [_mainimgeview setImage:[UIImage imageNamed:@"width"]];
+        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+        
+        
+        _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+        _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+        _drwVCtrl.planid=_companyid;
+        _drwVCtrl.tabtype=tabtype;
+        _drwVCtrl.editedimage=_Editedimage;
+        _drwVCtrl.viewclck=viewclck;
+        
+        [self presentViewController:_drwVCtrl
+                           animated:YES completion:NULL];
+        
+   _soapResults = nil;
+    }
 
 
 
@@ -2990,7 +3472,7 @@
 
 - (IBAction)acceblitybtn:(id)sender {
     [self PlanDrawingSelect];
-
+ tabtype=2;
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -3023,6 +3505,8 @@
 }
 
 - (IBAction)Equmntstgareabtn:(id)sender {
+     tabtype=1;
+    [self EstmPlanDrawingSelect];
        _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -3196,7 +3680,9 @@
 }
 
 - (IBAction)meetingnotesbtn:(id)sender {
+    tabtype=3;
     [self SitevisitSelectMeetingNotes];
+    [self MeetingPlanDrawingSelect];
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -3231,6 +3717,7 @@
 
 - (IBAction)otherbiddersbtn:(id)sender {
     [self SitevisitSelectOtherBidders];
+     [self NotesPlanDrawingSelect];
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
@@ -3295,6 +3782,8 @@
 }
 
 - (IBAction)notesbtn:(id)sender {
+    tabtype=4;
+
     [self SitevisitSelectNotes];
     
     _gernalbtnlbl.tintColor=[UIColor blackColor];
@@ -3333,7 +3822,7 @@
 
 #pragma mark-button Actions
 - (IBAction)equpdraw:(id)sender {
-    
+    viewclck=0;
     tabtype=1;
     self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
     
@@ -3347,6 +3836,7 @@
 }
 
 - (IBAction)accebiltydraw:(id)sender {
+      viewclck=0;
     tabtype=2;
     self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
     
@@ -3477,10 +3967,20 @@
                        animated:YES completion:NULL];
 
 }
+- (IBAction)mviewbtn:(id)sender {
+    
+    
+    
+    
+}
+
 - (IBAction)addmeetgnots:(id)sender {
            self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
      self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
+    self.newrecordVCtrl.tabtype=tabtype;
+
+    
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
@@ -3549,6 +4049,7 @@
         self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Addnoterecordview" bundle:nil];
      self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.companyid=_companyid;
+     self.newrecordVCtrl.tabtype=tabtype;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
@@ -3681,27 +4182,57 @@
     }
 }
 - (IBAction)viewbtn:(id)sender {
+    viewclck=1;
+    
+    if (tabtype==2) {
     button = (UIButton *)sender;
     CGPoint center= button.center;
-    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.accebilitytable];
-    NSIndexPath *textFieldIndexPath = [self.accebilitytable indexPathForRowAtPoint:rootViewPoint];
-    
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.ESAtble];
+    NSIndexPath *textFieldIndexPath = [self.ESAtble indexPathForRowAtPoint:rootViewPoint];
+    fetchindex=textFieldIndexPath.row;
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-      NSString * trimmestrg=[_companyid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.100/Folder/Root/Drawings/%@-%@-%@",trimmestrg,@"Accessibility",[_filenamearray objectAtIndex:textFieldIndexPath.row]];
-     // NSLog(@"fullURL%@",fullURL);
+   [self AccessFetchImage];
     
-    
-    
-   
-        self.webVCtrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
-   
-    _webVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    _webVCtrl.urlstring=fullURL;
-    
-    [self presentViewController:_webVCtrl
-                       animated:YES completion:NULL];
-    
-    
+    }
+ else   if (tabtype==1) {
+        
+        
+        button = (UIButton *)sender;
+        CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.accebilitytable];
+        NSIndexPath *textFieldIndexPath = [self.accebilitytable indexPathForRowAtPoint:rootViewPoint];
+        
+        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+        fetchindex=textFieldIndexPath.row;
+        [self FetchImage];
+     
+        
+        }
+
+   else if (tabtype==3) {
+        button = (UIButton *)sender;
+        CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.meetingtable];
+        NSIndexPath *textFieldIndexPath = [self.meetingtable indexPathForRowAtPoint:rootViewPoint];
+        fetchindex=textFieldIndexPath.row;
+        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+        [self meetingFetchImage];
+        
+    }
+    else   if (tabtype==4) {
+        
+        
+        button = (UIButton *)sender;
+        CGPoint center= button.center;
+        CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.notestable];
+        NSIndexPath *textFieldIndexPath = [self.notestable indexPathForRowAtPoint:rootViewPoint];
+        
+        NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+        fetchindex=textFieldIndexPath.row;
+        [self notesFetchImage];
+        
+        
+    }
+
 }
 @end

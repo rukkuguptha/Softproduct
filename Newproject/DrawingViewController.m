@@ -27,32 +27,42 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.view setBackgroundColor:[UIColor whiteColor]];
-    
-    //_scroll.frame=CGRectMake(0, 0,768, 939);
-   // [_scroll setContentSize:CGSizeMake(768,1400)];
-    
-    btnclick=0;
-    
-    // Do any additional setup after loading the view from its nib.
-    red = 0.0/255.0;
-    green = 0.0/255.0;
-    blue = 0.0/255.0;
-    brush = 15.0;
-    opacity = 1.0;
-    
-    _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
-    _newview.layer.borderWidth=5.0;
+        if (_viewclck==1) {
+         [self.view setBackgroundColor:[UIColor whiteColor]];
+        [self.mylineview removeFromSuperview];
+        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 954)];
+        _mylineview.backgroundColor=[UIColor clearColor];
+        [self.newview addSubview:_mylineview];
+        
+        
+        [_mylineview setBackgroundColor:[UIColor colorWithPatternImage:_editedimage]];
 
-    
-    _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 939)];
-    _mylineview.backgroundColor=[UIColor clearColor];
-    _mylineview.delegate = self;
-    _mylineview.brushPattern=[UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
-    [self.newview addSubview:_mylineview];
-  //_newscroll=[[myscroll alloc]init];
-   // [self.newscroll addSubview:_mylineview];
-    
+    }
+    else{
+        [self.view setBackgroundColor:[UIColor whiteColor]];
+        
+   
+        
+        btnclick=0;
+        
+        // Do any additional setup after loading the view from its nib.
+        red = 0.0/255.0;
+        green = 0.0/255.0;
+        blue = 0.0/255.0;
+        brush = 15.0;
+        opacity = 1.0;
+        
+        _newview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
+        _newview.layer.borderWidth=5.0;
+        
+        
+        _mylineview = [[MyLineDrawingView alloc] initWithFrame:CGRectMake(0, 0, 768, 939)];
+        _mylineview.backgroundColor=[UIColor clearColor];
+        _mylineview.delegate = self;
+        _mylineview.brushPattern=[UIColor colorWithRed:102.0/255.0 green:255.0/255.0 blue:0.0/255.0 alpha:1];
+        [self.newview addSubview:_mylineview];
+
+    }
     
 }
 -(void)viewDidLayoutSubviews{
@@ -77,6 +87,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-webservice
 
 -(void)AccebilityUploadPlanDrawings{
     recordResults = FALSE;
@@ -84,6 +95,8 @@
     
     NSString *soapMessage;
      NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
+     NSString * plantrimmestrg=[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+   //  NSString *filename =[NSString stringWithFormat:@"Drawings/%@-%@-%@.jpg",plantrimmestrg,@"Accessibility",_savename];
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -99,7 +112,7 @@
                    "<Location>%@</Location>\n"
                    "</UploadPlanDrawings>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_encodedString,filename,_planid,@"Accessibility"];
+                   "</soap:Envelope>\n",_encodedString,filename,plantrimmestrg,@"Accessibility"];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -132,6 +145,169 @@
     
     
 }
+-(void)EquipmentUploadPlanDrawings{
+    recordResults = FALSE;
+    
+       NSString * trimmestrg=[_planid stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *soapMessage;
+    NSString*filename=[NSString stringWithFormat:@"%@.jpg",_savename];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadPlanDrawings xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<Location>%@</Location>\n"
+                   "</UploadPlanDrawings>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,filename,trimmestrg,@"Equipment"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)MeetingUploadPlanDrawings{
+    recordResults = FALSE;
+    
+    
+    NSString *soapMessage;
+    NSString*filename=[NSString stringWithFormat:@"%@-%@.jpg",_datestrg,_savename];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadPlanDrawings xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<Location>%@</Location>\n"
+                   "</UploadPlanDrawings>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,filename,_planid,@"Meeting"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)NotesUploadPlanDrawings{
+    recordResults = FALSE;
+    
+    
+    NSString *soapMessage;
+    NSString*filename=[NSString stringWithFormat:@"%@-%@.jpg",_datestrg,_savename];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadPlanDrawings xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<PlanId>%@</PlanId>\n"
+                   "<Location>%@</Location>\n"
+                   "</UploadPlanDrawings>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,filename,_planid,@"Notes"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadPlanDrawings" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -266,10 +442,24 @@
         
         NSLog(@"result%@",_encodedString);
         _savename=[alertView textFieldAtIndex:0].text;;
+        NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+        [defaults setObject:_savename forKey:@"Imagename"];
+        [defaults synchronize];
+        
        // [self UploadDocs];
         switch (_tabtype) {
+            case 1:
+                [self EquipmentUploadPlanDrawings];
+                break;
+
             case 2:
                 [self AccebilityUploadPlanDrawings];
+                break;
+            case 3:
+                [self MeetingUploadPlanDrawings];
+                break;
+            case 4:
+                [self NotesUploadPlanDrawings];
                 break;
                 
             default:

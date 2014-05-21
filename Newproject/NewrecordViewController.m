@@ -75,7 +75,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -130,7 +130,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -184,7 +184,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -239,7 +239,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -312,7 +312,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -342,7 +342,9 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 -(void)SitevisitInsertmeetingnotes{
     recordResults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    NSString *filename = [defaults objectForKey:@"Imagename"];
     NSString *soapMessage;
     
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -353,6 +355,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _datesstrg=dateString;
 
     soapMessage = [NSString stringWithFormat:
                    
@@ -367,14 +370,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<details>%@</details>\n"
                    "<userId>%d</userId>\n"
                    "<planId>%@</planId>\n"
+                   "<FileName>%@</FileName>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",   dateString ,_meetgdetailslbl.text,0,_companyid];
+                   "</soap:Envelope>\n",   dateString ,_meetgdetailslbl.text,0,_companyid,filename];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -427,7 +431,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -501,7 +505,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -531,7 +535,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 -(void)SitevisitInsertNotes{
     recordResults = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
+    NSString *filename = [defaults objectForKey:@"Imagename"];
+  
+
     NSString *soapMessage;
     
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -559,14 +567,16 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<Notes>%@</Notes>\n"
                    "<UserId>%d</UserId>\n"
                    "<planId>%@</planId>\n"
+                   "<DateTime>%@</DateTime>\n"
+                   "<FileName>%@</FileName>\n"
                     "</SitevisitInsertNotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",   dateString ,_notestxtfld.text,0,_companyid];
+                   "</soap:Envelope>\n",   dateString ,_notestxtfld.text,0,_companyid,dateString,filename];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -617,8 +627,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1143,9 +1153,13 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)drawactn:(id)sender {
    
-        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
-   
     
+    
+        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+    [self dateconversion];
+    _drwVCtrl.tabtype=_tabtype;
+    _drwVCtrl.datestrg=_datesstrg;
+      _drwVCtrl.planid=_companyid;
     _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_drwVCtrl
@@ -1156,11 +1170,42 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 - (IBAction)drawnotesactn:(id)sender {
    
         self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
-  
-    
+    [self notesdateconversion];
+
+    _drwVCtrl.tabtype=_tabtype;
+    _drwVCtrl.datestrg=_datesstrg;
+    _drwVCtrl.planid=_companyid;
+
     _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
 }
+
+
+-(void)dateconversion{
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _datesstrg=dateString;
+
+}
+-(void)notesdateconversion{
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
+    [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
+    NSDate *dates = [dateFormat1 dateFromString:_notedatebtnlbl.titleLabel.text];
+    NSLog(@"s%@",dates);
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat: @"yyyy-MM-dd"];
+    
+    NSString*    dateString = [dateFormat2 stringFromDate:dates];
+    _datesstrg=dateString;
+    
+}
+
 @end
