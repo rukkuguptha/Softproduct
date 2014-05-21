@@ -581,14 +581,57 @@
 
         
     }
-   else if(webtype==1){
-        [self CustomerContactInfoInsert];
-    }
-  else   if(webtype==2)
-    {
-        [self CustomerContactInfoUpdate];
-    }
+    else if ([_phonetextfield.text isEqualToString:@""]){
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phone Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
         
+        
+    }
+    else if(![_emailtextfield.text isEqualToString:@""])
+    {
+        Validation *val=[[Validation alloc]init];
+        int value2 = [val validEmailAddress:_emailtextfield.text];
+        if(value2==0)
+        {
+            
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+        }
+        else
+        {
+            if (webtype==1)
+            {
+                [self CustomerContactInfoInsert];
+            }
+            else
+            {
+                [self CustomerContactInfoUpdate];
+            }
+        }
+        
+    }
+    else
+    {
+        if (webtype==1)
+        {
+            [self CustomerContactInfoInsert];
+        }
+        else
+        {
+            [self CustomerContactInfoUpdate];
+        }
+        
+    }
+
+
+//   else if(webtype==1){
+//        [self CustomerContactInfoInsert];
+//    }
+//  else   if(webtype==2)
+//    {
+//        [self CustomerContactInfoUpdate];
+//    }
+//        
     
 }
 

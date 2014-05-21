@@ -470,7 +470,7 @@
 {
     
     viewclosed=btnindex;
-    
+    _animatedview.hidden=YES;
     self.openviewindex = NSNotFound;
     
     
