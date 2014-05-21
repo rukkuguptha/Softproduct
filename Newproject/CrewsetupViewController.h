@@ -19,12 +19,13 @@
     
     BOOL            dragFromSource;     // used for reodering
     NSIndexPath*    pathFromDstTable;
-    NSInteger path;
+    //NSInteger path;
     NSInteger Deletepath;
     int webpath;
     NSString *skill;
     NSInteger poptype;
      NSString * crewid;
+    NSInteger crewpath;
 
 }
 
