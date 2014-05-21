@@ -41,7 +41,7 @@
     // Do any additional setup after loading the view from its nib.
     _generalview.hidden=NO;
     _generalbtn.tintColor=[UIColor whiteColor];
-    
+    _scaffoldbtn.tintColor=[UIColor blackColor];
     _searchbar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 220, 44)];
     _searchbar.delegate = (id)self;
     _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -64,7 +64,11 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _navabar.title=[NSString stringWithFormat:@"Plan-%@",_planid];
+    _scaffoldview.hidden=YES;
+ _generalview.hidden=NO;
+     _generalbtn.tintColor=[UIColor whiteColor];
+    _scaffoldbtn.tintColor=[UIColor blackColor];
+        _navabar.title=[NSString stringWithFormat:@"Plan-%@",_planid];
       [self GeneralSelect];
     [self TotalManHoursSelect];
     
