@@ -110,8 +110,17 @@
     _qtytextfield.text=scaffldingplan.qty;
     _elevationtextfield.text=scaffldingplan.elevation;
     _subunittextfld.text=scaffldingplan.subunit;
-    [_sequencebtn setTitle:scaffldingplan.sequencename forState:UIControlStateNormal];
-    [_phasebtn setTitle:scaffldingplan.phasename forState:UIControlStateNormal];
+    NSLog(@"%@",[_sequencedict objectForKey:scaffldingplan.sequencename]);
+    NSLog(@"%@",[_phaseiddict objectForKey:scaffldingplan.phasename]);
+    NSLog(@"ujuy%@",scaffldingplan.subunit);
+    
+    [_sequencebtn setTitle:[_sequencedict objectForKey:scaffldingplan.sequencename] forState:UIControlStateNormal];
+   [_phasebtn setTitle:[_phaseiddict objectForKey:scaffldingplan.phasename] forState:UIControlStateNormal];
+    first=scaffldingplan.internalworkfactor;
+    sec=scaffldingplan.ppe;
+    third=scaffldingplan.unplannedwork;
+//    [_sequencebtn setTitle:scaffldingplan.sequencename forState:UIControlStateNormal];
+//    [_phasebtn setTitle:scaffldingplan.phasename forState:UIControlStateNormal];
 }
 -(IBAction)closeplan:(id)sender
 {
@@ -609,6 +618,7 @@
     
 }
 -(void)JobsequenceSelect{
+     webtype=1;
     poptype=3;
     recordResults = FALSE;
     NSInteger skillid=8040;
@@ -864,12 +874,13 @@
         NSString *scaffoldid=[_scaffoldidDict objectForKey:_scaffoldtyprbtn.titleLabel.text];
         NSLog(@"%@",scaffoldid);
         NSString *phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
-        NSString *sequenceid=[_sequencedict objectForKey:_sequencebtn.titleLabel.text];
+        NSString *sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
        // NSString *insertid=@"0";
          Customscaffoldingplan*scaffldingplan=(Customscaffoldingplan *)[_scaffoldingplanlistarray objectAtIndex:btnindex];
         NSString *manhours=scaffldingplan.manhours;
         NSString *erecthours=scaffldingplan.erecthours;
         NSString *dismantilehours=scaffldingplan.dismantlehours;
+    
         soapMessage = [NSString stringWithFormat:
                        
                        @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -902,7 +913,7 @@
                        "<SubUnit>%@</SubUnit>\n"
                        "</Scaffoldinsert>\n"
                        "</soap:Body>\n"
-                       "</soap:Envelope>\n",scaffldingplan.idvalue,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,scaffldingplan.desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,0,0,0,_proheadertextfield.text,[sequenceid integerValue],[phaseid integerValue],_subunittextfld.text];
+                       "</soap:Envelope>\n",scaffldingplan.idvalue,_lengthtextfield.text,_widthtextfield.text,_heighttextfield.text,_qtytextfield.text,_elevationtextfield.text,_unittextfield.text,_equipmenttextfield.text,scaffldingplan.desc,[scaffoldid integerValue],[manhours doubleValue],[erecthours doubleValue],[dismantilehours doubleValue],_planid,first,sec,third,_proheadertextfield.text,[sequenceid integerValue],[phaseid integerValue],_subunittextfld.text];
         NSLog(@"soapmsg%@",soapMessage);
 
     }
@@ -988,6 +999,7 @@
 
 }
 -(void)SelectAllPhases{
+     webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -1290,6 +1302,36 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SubUnit"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"Sequence"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Phase"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
     if([elementName isEqualToString:@"ScaffoldingSelectScaffoldtypeResult"])
     {
         _scaffoldtyperesultarray=[[NSMutableArray alloc]init];
@@ -1790,21 +1832,44 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.internalworkfactor=[_soapresults integerValue];
+        if ([_soapresults isEqualToString:@"true"]) {
+            _scfldmdl.internalworkfactor=1;
+        }
+        else
+        {
+            _scfldmdl.internalworkfactor=0;
+        }
+        
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"PPE"])
     {
         
         recordResults = FALSE;
-        _scfldmdl.ppe=[_soapresults integerValue];
+        if ([_soapresults isEqualToString:@"true"]) {
+            _scfldmdl.ppe=1;
+        }
+        else
+        {
+            _scfldmdl.ppe=0;
+        }
+
+       
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"UnplannedWork"])
     {
         
         recordResults = FALSE;
-        _scfldmdl.unplannedwork=[_soapresults integerValue];
+        if ([_soapresults isEqualToString:@"true"]) {
+            _scfldmdl.unplannedwork=1;
+        }
+        else
+        {
+            _scfldmdl.unplannedwork=0;
+        }
+        
+
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"ManHoures"])
@@ -1848,9 +1913,9 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.sequence=[_soapresults integerValue];
-        NSString *sequence=[_sequenceiddict objectForKey:_soapresults];
-        _scfldmdl.sequencename=sequence;
+        _scfldmdl.sequencename=_soapresults;
+//        NSString *sequence=[_sequenceiddict objectForKey:_soapresults];
+//        _scfldmdl.sequencename=sequence;
         //[_scaffoldingplanlistarray addObject:_scfldmdl];
         _soapresults = nil;
     }
@@ -1858,9 +1923,9 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.phase=[_soapresults integerValue];
-        NSString *phase=[_phaseiddict objectForKey:_soapresults];
-        _scfldmdl.phasename=phase;
+        _scfldmdl.phasename=_soapresults;
+//        NSString *phase=[_phaseiddict objectForKey:_soapresults];
+//        _scfldmdl.phasename=phase;
         [_scaffoldingplanlistarray addObject:_scfldmdl];
         _soapresults = nil;
     }
@@ -2062,6 +2127,9 @@
             _allctrlr.phaseid=[_phasedict objectForKey:_phasebtn.titleLabel.text];
             _allctrlr.sequenceid=[_sequenceiddict objectForKey:_sequencebtn.titleLabel.text];
             _allctrlr.subunit=_subunittextfld.text;
+            _allctrlr.iwfcheck=first;
+            _allctrlr.ppecheck=sec;
+            _allctrlr.upwcheck=third;
             NSInteger scfid= [_allctrlr.sid integerValue];
             switch (scfid) {
                 case 1:

@@ -77,6 +77,11 @@
 @property (strong, nonatomic)NSString  * phaseid;
 @property (strong, nonatomic)NSString  * sequenceid;
 @property (strong, nonatomic)NSString  * subunit;
+@property(readwrite)NSInteger ppecheck;
+@property(readwrite)NSInteger  upwcheck;
+@property(readwrite)NSInteger  iwfcheck;
+
+
 
 
 

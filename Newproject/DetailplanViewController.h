@@ -22,6 +22,9 @@
     NSInteger optionidentifier;
     NSInteger scaffoldtypeindex;
     NSInteger poptype;
+    NSInteger first;
+    NSInteger sec;
+    NSInteger third;
 }
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 

@@ -64,13 +64,35 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
         _widthfld.text=_wid;
         _hightfld.text=_height;
         _elvatnfld.text=_ele;
-    }
+          }
     else if(_optionidentifier==2)
     {
         _lengthfld.text=_len;
         _widthfld.text=_wid;
         _hightfld.text=_height;
         _elvatnfld.text=_ele;
+        if (_upwcheck==1) {
+             [_upwbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [_upwbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        if (_ppecheck==1) {
+             [_spfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_spfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        if (_iwfcheck==1) {
+            [_iwfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+
+        }
+        else
+        {
+            [_iwfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+
     }
 
 
@@ -96,6 +118,29 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
         _widthfld.text=_wid;
         _hightfld.text=_height;
         _elvatnfld.text=_ele;
+        if (_upwcheck==1) {
+            [_upwbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else
+        {
+            [_upwbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        if (_ppecheck==1) {
+            [_spfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        }
+        else{
+            [_spfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        if (_iwfcheck==1) {
+            [_iwfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            
+        }
+        else
+        {
+            [_iwfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        
+
 
     }
     [self Selectcheight];
@@ -329,7 +374,7 @@ return cell;
     }
     else if([_maintable pointInside:pointInDst withEvent:nil])
     {
-        [self startDraggingFromDstAtPoint:pointInDst];
+       // [self startDraggingFromDstAtPoint:pointInDst];
         dragFromSource = NO;
     }
 }
@@ -1129,7 +1174,7 @@ return cell;
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"ScaffodDetailselectResult"])
+    if([elementName isEqualToString:@"ScaffodDetailselectResponse"])
     {
         _Maintablescflddetailsarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
