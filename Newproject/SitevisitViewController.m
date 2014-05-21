@@ -3785,6 +3785,7 @@
     tabtype=4;
 
     [self SitevisitSelectNotes];
+    [self NotesPlanDrawingSelect];
     
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
