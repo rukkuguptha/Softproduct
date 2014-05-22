@@ -253,6 +253,21 @@ return cell;
         
     }
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if (indexPath.row%2 == 0) {
+        [cell setBackgroundColor:[UIColor whiteColor]];
+        
+    }else
+    {
+        
+        //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+        [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+        
+        
+    }
+}
+
 
 
 -(IBAction)clsebtn:(id)sender{
