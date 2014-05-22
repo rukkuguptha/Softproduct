@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _gernalview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _rateview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -108,21 +109,69 @@
 }
 
 -(void)toreloadatable{
-    [self SitevisitSelectproductionrate];
-    [self SitevisitSelectjobsitereq];
-    [self  SitevisitSelectWorkSchedule];
-    [self SitevisitSelectWeatherOutlook];
-    [self SitevisitSelectOtherBidders];
-    [self SitevisitSelectMeetingNotes];
-    [self SitevisitSelectNotes];
-    [self Selectsafetyrulessitevisit];
-    [self SitevisitSelectequipment];
+    switch (_newrecordVCtrl.reloadtype) {
+        case 1:
+             [self SitevisitSelectproductionrate];
+            break;
+        case 2:
+          [self SitevisitSelectjobsitereq];
+            break;
+        case 3:
+             [self Selectsafetyrulessitevisit];
+         
+            break;
+        case 4:
+            [self SitevisitSelectequipment];
+            break;
+        case 5:
+           [self  SitevisitSelectWorkSchedule];
+            break;
+        case 6:
+           [self SitevisitSelectMeetingNotes];
+            break;
+        case 7:
+           [self SitevisitSelectOtherBidders];
+            break;
+        case 8:
+            [self SitevisitSelectWeatherOutlook];
+            break;
+        case 9:
+           [self SitevisitSelectNotes];
+            break;
+
+        default:
+            break;
+    }
+    
+   
+
+
+
+}
+-(void)toreloaddrawings{
+    switch (_drwVCtrl.tabtype) {
+        case 1:
+            [self EstmPlanDrawingSelect];
+            break;
+        case 2:
+             [self PlanDrawingSelect];
+            break;
+     
+
+            
+        default:
+            break;
+    }
+    
+    
     
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
      _companynametxtfld.text=_companyname;
+      _navgitem.title=[NSString stringWithFormat:@"Site Visit-%@",_companyid];
     [self ListSiteVisitGeneral];
     [self SelectAllItemType];
     [self SitevisitSelectproductionrate];
@@ -2142,8 +2191,10 @@ _passingdate=dateString;
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     //alternating cell back ground color
-    if(tableView==_documenttable||tableView==_prdunratetble)
-    {
+ if(tableView==_popOverTableView)
+   {
+   }
+ else{
         if (indexPath.row%2 == 0) {
             [cell setBackgroundColor:[UIColor whiteColor]];
             
@@ -2875,7 +2926,7 @@ _passingdate=dateString;
         }
 
         else{
-        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
         }
      _soapResults = nil;
@@ -3291,6 +3342,8 @@ _passingdate=dateString;
         _drwVCtrl.editedimage=_Editedimage;
         _drwVCtrl.viewclck=viewclck;
         _drwVCtrl.datestrg=_passingdate;
+       _drwVCtrl.delegate=self;
+
         
         [self presentViewController:_drwVCtrl
                            animated:YES completion:NULL];
@@ -3851,9 +3904,10 @@ _passingdate=dateString;
     
     
     _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-  _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _drwVCtrl.planid=_companyid;
     _drwVCtrl.tabtype=tabtype;
+    _drwVCtrl.delegate=self;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
 }
@@ -3868,6 +3922,7 @@ _passingdate=dateString;
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
      _drwVCtrl.planid=_companyid;
        _drwVCtrl.tabtype=tabtype;
+     _drwVCtrl.delegate=self;
     [self presentViewController:_drwVCtrl
                        animated:YES completion:NULL];
 }
@@ -3906,14 +3961,12 @@ _passingdate=dateString;
 
 
 - (IBAction)Rateaddbtn:(id)sender {
-            self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
-    
+    self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"NewrecordViewController" bundle:nil];
     self.newrecordVCtrl.companyid=_companyid;
     self.newrecordVCtrl.delegate=self;
     self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     [self presentViewController:_newrecordVCtrl
                        animated:YES completion:NULL];
-
 }
 
 - (IBAction)celleditbtn:(id)sender {

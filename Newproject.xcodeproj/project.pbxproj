@@ -295,6 +295,7 @@
 		D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658CB17F2DED100202B14 /* detailDisclosureButton.png */; };
 		D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */; };
 		D4E658D417F2EF5B00202B14 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D317F2EF5B00202B14 /* wrong.png */; };
+		D4E7AD09192DC91F00C07497 /* Handnotes.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E7AD08192DC91F00C07497 /* Handnotes.png */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
 		D4EC7E3C192A09FD00C60BA9 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7E3A192A09FD00C60BA9 /* DrawingViewController.m */; };
 		D4EC7E3D192A09FD00C60BA9 /* DrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EC7E3B192A09FD00C60BA9 /* DrawingViewController.xib */; };
@@ -746,6 +747,7 @@
 		D4E658CB17F2DED100202B14 /* detailDisclosureButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailDisclosureButton.png; sourceTree = "<group>"; };
 		D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-checkmark4-1.png"; sourceTree = "<group>"; };
 		D4E658D317F2EF5B00202B14 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
+		D4E7AD08192DC91F00C07497 /* Handnotes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Handnotes.png; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
 		D4EC7E39192A09FD00C60BA9 /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
 		D4EC7E3A192A09FD00C60BA9 /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
@@ -1155,6 +1157,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4E7AD08192DC91F00C07497 /* Handnotes.png */,
 				D40407DC192B1CFB00864BA4 /* save 3.png */,
 				D4FE170B1918ED1000C8DA58 /* Srch.png */,
 				D4FE17091918ED0800C8DA58 /* drop.png */,
@@ -1628,6 +1631,7 @@
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
+				D4E7AD09192DC91F00C07497 /* Handnotes.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
 				D42D8C0818D2D8AC009D8085 /* folderrightsViewController.xib in Resources */,
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,

@@ -13,7 +13,7 @@
 @end
 
 @implementation DrawingViewController
-
+@synthesize delegate,newdelegate;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -348,7 +348,7 @@
    
     
     }
-
+#pragma mark-XML Parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"UploadPlanDrawingsResponse"])
@@ -394,7 +394,8 @@
         _mylineview.backgroundColor=[UIColor clearColor];
         [self.newview addSubview:_mylineview];
 
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self saveaction];
+       
         
         _soapResults = nil;
         
@@ -402,8 +403,37 @@
     
 }
 - (IBAction)clsebtn:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+           [self dismissViewControllerAnimated:YES completion:nil];
+    
+   
+   
 }
+-(void)saveaction{
+    if (_tabtype==1||_tabtype==2) {
+        
+if ([self.delegate respondsToSelector:@selector(toreloaddrawings)]) {
+        [self.delegate toreloaddrawings];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
+      }
+    if (_tabtype==3||_tabtype==4) {
+        
+        if ([self.newdelegate respondsToSelector:@selector(updatingtables)]) {
+            [self.newdelegate updatingtables];
+            
+            [self dismissViewControllerAnimated:YES completion:nil];
+            
+            
+                  }
+        
+    }
+    
+
+    
+}
+
 
 - (IBAction)deletebtn:(id)sender {
       [_mylineview setBackgroundColor:[UIColor whiteColor]];
@@ -435,6 +465,13 @@
 #pragma mark-UIAlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
+        
+        if ([[alertView textFieldAtIndex:0].text isEqualToString:@""]) {
+            UIAlertView *newalert=[[UIAlertView alloc]initWithTitle:nil message:@"Name is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [newalert show];
+            
+            }
+        else{
         UIGraphicsBeginImageContext(_newview.bounds.size);
         [_newview.layer renderInContext:UIGraphicsGetCurrentContext()];
         UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -450,7 +487,12 @@
         _encodedString = [data base64EncodedString];
         
         NSLog(@"result%@",_encodedString);
-        _savename=[alertView textFieldAtIndex:0].text;;
+        
+        
+        
+        _savename=[alertView textFieldAtIndex:0].text;
+        
+        
         NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
         [defaults setObject:_savename forKey:@"Imagename"];
         [defaults synchronize];
@@ -465,14 +507,10 @@
                 [self AccebilityUploadPlanDrawings];
                 break;
             case 3:
-               
-                [self MeetingUploadPlanDrawings];
+               [self MeetingUploadPlanDrawings];
                 break;
             case 4:
-               
-
-                  _deletebtnlbl.hidden=YES;
-                [self NotesUploadPlanDrawings];
+               [self NotesUploadPlanDrawings];
                 break;
                 
             default:
@@ -480,7 +518,7 @@
         }
 
     }
-    
+    }
 }
 
 @end

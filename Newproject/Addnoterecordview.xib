@@ -44,10 +44,10 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5fp-Wk-5It">
-                    <rect key="frame" x="457" y="226" width="63" height="29"/>
+                    <rect key="frame" x="462" y="215" width="54" height="52"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="Draw" backgroundImage="textbox.png">
+                    <state key="normal" backgroundImage="Handnotes.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -113,6 +113,7 @@
         </view>
     </objects>
     <resources>
+        <image name="Handnotes.png" width="128" height="128"/>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="squareimage1.png" width="300" height="400"/>
         <image name="textbox.png" width="298" height="64"/>

@@ -11,6 +11,18 @@
 #include "MyLineDrawingView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "myscroll.h"
+@protocol drawingDelgate <NSObject>
+
+-(void)toreloaddrawings;
+
+@end
+@protocol updateDelgate <NSObject>
+
+-(void) updatingtables;
+
+@end
+
+
 @interface DrawingViewController : UIViewController{
     BOOL recordResults;
     CGPoint lastPoint;
@@ -27,6 +39,8 @@
 
 }
 
+@property(nonatomic, weak)id<drawingDelgate>delegate;
+@property(nonatomic, weak)id<updateDelgate>newdelegate;
 @property(strong,nonatomic)UIImage *editedimage;
 @property(readwrite) NSInteger tabtype;
 @property(readwrite) NSInteger viewclck;

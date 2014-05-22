@@ -16,7 +16,7 @@
 #import "DrawingViewController.h"
 #import "WebViewController.h"
 
-@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate>{
+@interface SitevisitViewController : UIViewController<UITabBarDelegate,UITableViewDataSource,UITableViewDelegate,newrecordDelgate,drawingDelgate>{
     BOOL recordResults;
     NSString *itemid;
     NSInteger path;
@@ -33,6 +33,7 @@
 @property (strong, nonatomic)SitevistMdl *sitevistmdl;
 @property (strong, nonatomic)DrawingViewController *drwVCtrl;
 -(void)toreloadatable;
+-(void)toreloaddrawings;
 
 @property (strong, nonatomic)NSMutableArray *filenamearray;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollview;
@@ -258,7 +259,9 @@
 @property(strong,nonatomic)NSMutableArray *weatherarray;
 @property(strong,nonatomic)NSMutableArray *notearray;
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *navgitem;
 
+@property (strong, nonatomic) IBOutlet UINavigationBar *navigtnbar;
 
 /*Dictionary*/
 @property(strong,nonatomic)NSMutableDictionary *JobtypeDict;

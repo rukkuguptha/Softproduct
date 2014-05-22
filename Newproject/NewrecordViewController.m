@@ -736,6 +736,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 
@@ -769,6 +778,16 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alertview show];
+        _soapResults = nil;
+
+    
+    }
+
 
     
 }
@@ -868,6 +887,45 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
 
 }
+
+#pragma mark-Alertview Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _meetgdetailslbl.text=@"";
+    _ratetxtfld.text=@"";
+    _descptntxtfld.text=@"";
+    _valuetxtfld.text=@"";
+    _jobnametxtfld.text=@"";
+    _jobcodetxtfld.text=@"";
+    _jobcosttxtfld.text=@"";
+    [_typeidbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
+    _ruletxtfld.text=@"";
+    _ruldescptn.text=@"";
+    _equpnotxtfld.text=@"";
+    _equpareatxtfld.text=@"";
+    _equpdscptn.text=@"";
+    _equnittxtfld.text=@"";
+    [_startdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    [_enddatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    
+    _wrkdesctxtfld.text=@"";
+     _bidnamelbl.text=@"";
+    [_wethrfrmdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    [_wethrendbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    
+    _wathrcndtnlbl.text=@"";
+    [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    _notestxtfld.text=@"";
+    if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
+        [self.delegate toreloadatable];
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+
+}
+
 #pragma mark - Calendar
 -(void)createCalenderPopover
 {
@@ -1044,10 +1102,12 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 - (IBAction)clsebtn:(id)sender {
      if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
           [self.delegate toreloadatable];
+         
           [self dismissViewControllerAnimated:YES completion:nil];
     }
    }
 - (IBAction)updatepratebtn:(id)sender {
+    _reloadtype=1;
     [self InsertSitevisitProductionRates];
 }
 
@@ -1064,6 +1124,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)jobupdatebtn:(id)sender {
+    _reloadtype=2;
+
     [self SitevisitInsertjobsiterequirements];
 }
 
@@ -1076,14 +1138,19 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
 }
 - (IBAction)ruleupdte:(id)sender {
+    _reloadtype=3;
+
     [self SitevisitInsertsafetyrules];
 }
 
 - (IBAction)rulecancel:(id)sender {
+    
     _ruletxtfld.text=@"";
     _ruldescptn.text=@"";
 }
 - (IBAction)equupdtebtn:(id)sender {
+    _reloadtype=4;
+
     [self SitevisitInsertequipment];
 }
 
@@ -1104,6 +1171,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)wrkupdtebtn:(id)sender {
+    _reloadtype=5;
+
     [self SitevisitInsertworkschedule];
 }
 
@@ -1119,6 +1188,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [self createCalenderPopover];
 }
 - (IBAction)meetgupdatebt:(id)sender {
+    _reloadtype=6;
+
     [self SitevisitInsertmeetingnotes];
 }
 
@@ -1129,6 +1200,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
 }
 - (IBAction)bidupdatebtn:(id)sender {
+    _reloadtype=7;
+
     [self SitevisitInsertotherbidders];
 }
 
@@ -1146,6 +1219,8 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)wethrupdatebtn:(id)sender {
+    _reloadtype=8;
+
     [self SitevisitInsertweatheroutlook];
 }
 
@@ -1156,10 +1231,13 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
      _wathrcndtnlbl.text=@"";
 }
 - (IBAction)notedatebtn:(id)sender {
+   
+
      istr=6;
      [self createCalenderPopover];
 }
 - (IBAction)notesupdatebtn:(id)sender {
+     _reloadtype=9;
     [self SitevisitInsertNotes];
 }
 
@@ -1173,11 +1251,12 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
    
     
     
-        self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
+    self.drwVCtrl=[[DrawingViewController alloc]initWithNibName:@"DrawingViewController" bundle:nil];
     [self dateconversion];
     _drwVCtrl.tabtype=_tabtype;
     _drwVCtrl.datestrg=_datesstrg;
       _drwVCtrl.planid=_companyid;
+     _drwVCtrl.newdelegate=self;
     _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_drwVCtrl
@@ -1193,7 +1272,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _drwVCtrl.tabtype=_tabtype;
     _drwVCtrl.datestrg=_datesstrg;
     _drwVCtrl.planid=_companyid;
-
+    _drwVCtrl.newdelegate=self;
     _drwVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _drwVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_drwVCtrl
@@ -1223,6 +1302,19 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _datesstrg=dateString;
+    
+}
+-(void) updatingtables{
+    if (_tabtype==3) {
+         _reloadtype=6;
+        [self SitevisitInsertmeetingnotes];
+        
+    }
+    else if (_tabtype==4){
+         _reloadtype=9;
+        [self SitevisitInsertNotes];
+    }
+   
     
 }
 

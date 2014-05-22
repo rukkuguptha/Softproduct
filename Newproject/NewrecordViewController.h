@@ -16,13 +16,16 @@
 @end
 
 
-@interface NewrecordViewController : UIViewController{
+@interface NewrecordViewController : UIViewController<updateDelgate>{
     BOOL recordResults;
     NSString *jobtypeitm;
     NSInteger istr;
+    
+    
   //  id <newrecordDelgate>Delegate;
 }
 @property(readwrite)NSInteger tabtype;
+@property(readwrite)NSInteger reloadtype;
 @property(nonatomic, strong)DrawingViewController *drwVCtrl;
 @property(nonatomic, weak)id<newrecordDelgate>delegate;
 @property(nonatomic, weak) CKCalendarView *calendar;
@@ -136,5 +139,5 @@
 - (IBAction)notescancelbtn:(id)sender;
 - (IBAction)drawactn:(id)sender;
 - (IBAction)drawnotesactn:(id)sender;
-
+-(void) updatingtables;
 @end
