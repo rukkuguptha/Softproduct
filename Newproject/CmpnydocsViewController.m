@@ -27,13 +27,15 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-    _cmmntview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
-     _newcmntview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    //_cmmntview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _newcmntview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
 
     // Do any additional setup after loading the view from its nib.
     _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _docutable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _cmmnttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _docutable.layer.borderWidth=3.0f;
+    _cmmnttable.layer.borderWidth=3.0f;
     _popovrdict=[[NSMutableDictionary alloc]init];
     [_popovrdict setObject:@"1" forKey:@"Company Values"];
     [_popovrdict setObject:@"2" forKey:@"Quality"];
@@ -48,7 +50,9 @@
     [_popovrdict setObject:@"11" forKey:@"Contract"];
     _popoverArry=[[NSMutableArray alloc]initWithArray:[_popovrdict allKeys]];
 
-
+    [[self.cmmnttxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.cmmnttxtview layer] setBorderWidth:2];
+    [[self.cmmnttxtview layer] setCornerRadius:10];
    
 
 }
@@ -111,9 +115,9 @@
                                         init];
     
     UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 500, 507)];
+                           initWithFrame:CGRectMake(0, 0, 520, 530)];
     
-    popoverView.backgroundColor = [UIColor grayColor];
+    popoverView.backgroundColor = [UIColor whiteColor];
     
     
     [popoverView addSubview:self.cmmntview];
@@ -123,7 +127,7 @@
     
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(500, 507);
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(520, 530);
     
     //create a popover controller
     
@@ -243,6 +247,24 @@ return cell;
     [self.popOverController dismissPopoverAnimated:YES];
     [self AllDocumentsselect];
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_docutable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
 
 #pragma mark-webservice
 -(void)AllDocumentsselect
@@ -661,6 +683,7 @@ return cell;
         
         [self FileCommentsselect];
         _cmmnttxtview.text=@"";
+        _newcmntview.hidden=YES;
         
     }
 }
