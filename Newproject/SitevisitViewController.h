@@ -179,6 +179,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *mnamelbl;
 @property (strong, nonatomic) IBOutlet UILabel *mdetaillbl;
+@property(strong,nonatomic)IBOutlet UIImageView *typeimagview;
 - (IBAction)mviewbtn:(id)sender;
 
 - (IBAction)addmeetgnots:(id)sender;

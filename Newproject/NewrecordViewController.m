@@ -355,6 +355,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
          filename=@"";
     }
+    NSInteger typ=0;
+    if ([_meetgdetailslbl.text isEqualToString:@""]&&![filename isEqualToString:@""])
+    {
+        typ=0;
+    }
+    else if (![_meetgdetailslbl.text isEqualToString:@""]&&[filename isEqualToString:@""])
+    {
+       typ=1;
+    }
     NSString *soapMessage;
     
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -381,9 +390,10 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<userId>%d</userId>\n"
                    "<planId>%@</planId>\n"
                    "<FileName>%@</FileName>\n"
+                   "<Type>%d</Type>\n"
                    "</SitevisitInsertmeetingnotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",   dateString ,_meetgdetailslbl.text,0,_companyid,filename];
+                   "</soap:Envelope>\n",   dateString ,_meetgdetailslbl.text,0,_companyid,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -546,6 +556,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 -(void)SitevisitInsertNotes{
     recordResults = FALSE;
     NSString *filename;
+    
     if ([_notestxtfld.text isEqualToString:@""]) {
         
         
@@ -556,7 +567,16 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     else{
         filename=@"";
     }
-  
+    NSInteger typ=0;
+    if ([_notestxtfld.text isEqualToString:@""]&&![filename isEqualToString:@""])
+    {
+        typ=0;
+    }
+    else if (![_notestxtfld.text isEqualToString:@""]&&[filename isEqualToString:@""])
+    {
+        typ=1;
+    }
+
 
     NSString *soapMessage;
     
@@ -587,9 +607,10 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
                    "<planId>%@</planId>\n"
                    "<DateTime>%@</DateTime>\n"
                    "<FileName>%@</FileName>\n"
+                   "<Type>%d</Type>\n"
                     "</SitevisitInsertNotes>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",   dateString ,_notestxtfld.text,0,_companyid,dateString,filename];
+                   "</soap:Envelope>\n",   dateString ,_notestxtfld.text,0,_companyid,dateString,filename,typ];
     NSLog(@"soapmsg%@",soapMessage);
     
     

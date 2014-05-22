@@ -47,6 +47,8 @@
 @property(strong,nonatomic)NSString *weathrto;
 @property(strong,nonatomic)NSString *weatherdescptn;
 @property(strong,nonatomic)NSString *filename;
+@property(readwrite)NSInteger typvalue;
+@property(readwrite)NSInteger notetype;
 
 
 
