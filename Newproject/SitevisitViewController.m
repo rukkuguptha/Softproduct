@@ -2147,6 +2147,14 @@ _passingdate=dateString;
         _mdetaillbl.text=sitemdl1.meetingdetails;
       _mnotelbl=(UILabel *)[cell viewWithTag:3];
       _mnotelbl.text=sitemdl1.filename;
+      _typeimagview=(UIImageView*)[cell viewWithTag:5];
+      if (sitemdl1.typvalue==0) {
+          _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
+      }
+      else
+      {
+          _typeimagview.image=[UIImage imageNamed:@"Notepad"];
+      }
 
       
     }
@@ -2175,6 +2183,17 @@ _passingdate=dateString;
      _mdetaillbl.text=sitemdl1.Notes;
      _mnotelbl=(UILabel *)[cell viewWithTag:3];
      _mnotelbl.text=sitemdl1.filename;
+      NSLog(@"%d",sitemdl1.notetype);
+     _typeimagview=(UIImageView*)[cell viewWithTag:5];
+     if (sitemdl1.notetype==0) {
+         _typeimagview.image=[UIImage imageNamed:@"Handnotes"];
+     }
+     else if(sitemdl1.notetype==1)
+     {
+         _typeimagview.image=[UIImage imageNamed:@"Notepad"];
+     }
+     
+
      
     }
   else if ((tableView==_accebilitytable)||(tableView=_ESAtble )) {
@@ -2662,6 +2681,15 @@ _passingdate=dateString;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Type"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if([elementName isEqualToString:@"SitevisitSelectOtherBiddersResponse"])
     {
@@ -2790,6 +2818,15 @@ _passingdate=dateString;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"noteType"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
     if([elementName isEqualToString:@"PlanDrawingSelectResponse"])
     {
@@ -3186,9 +3223,23 @@ _passingdate=dateString;
     {
         recordResults = FALSE;
         _sitevistmdl.filename=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Type"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"false"]) {
+            _sitevistmdl.typvalue=0;
+        }
+        else
+        {
+             _sitevistmdl.typvalue=1;
+        }
         [_meetgarray addObject:_sitevistmdl];
         _soapResults = nil;
     }
+
 
     if([elementName isEqualToString:@"entryother"])
     {
@@ -3252,10 +3303,27 @@ _passingdate=dateString;
     {
         recordResults = FALSE;
         _sitevistmdl.filename=_soapResults;
+        
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"noteType"])
+    {
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"false"]) {
+            _sitevistmdl.notetype=0;
+        }
+        else
+        {
+            _sitevistmdl.notetype=1;
+        }
+
         [_notearray addObject:_sitevistmdl];
         
         _soapResults = nil;
     }
+
 
     if([elementName isEqualToString:@"weatherentry"])
     {
