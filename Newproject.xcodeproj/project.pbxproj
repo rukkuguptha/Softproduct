@@ -113,6 +113,8 @@
 		D40427E319235DF50049A709 /* PhsestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40427E119235DF50049A709 /* PhsestViewController.xib */; };
 		D40427E5192365210049A709 /* Phestcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40427E4192365210049A709 /* Phestcell.xib */; };
 		D40427E819237F980049A709 /* Rephase.m in Sources */ = {isa = PBXBuildFile; fileRef = D40427E719237F980049A709 /* Rephase.m */; };
+		D4049668192F183B00685109 /* GroupEqupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4049666192F183B00685109 /* GroupEqupViewController.m */; };
+		D4049669192F183B00685109 /* GroupEqupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4049667192F183B00685109 /* GroupEqupViewController.xib */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
 		D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BC18BB1E9B00C5DB30 /* right_arrow.png */; };
@@ -486,6 +488,9 @@
 		D40427E4192365210049A709 /* Phestcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Phestcell.xib; sourceTree = "<group>"; };
 		D40427E619237F980049A709 /* Rephase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rephase.h; sourceTree = "<group>"; };
 		D40427E719237F980049A709 /* Rephase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rephase.m; sourceTree = "<group>"; };
+		D4049665192F183B00685109 /* GroupEqupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupEqupViewController.h; sourceTree = "<group>"; };
+		D4049666192F183B00685109 /* GroupEqupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupEqupViewController.m; sourceTree = "<group>"; };
+		D4049667192F183B00685109 /* GroupEqupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupEqupViewController.xib; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		D40736BE18BB1E9B00C5DB30 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -940,13 +945,24 @@
 				D453DA291873F1D0007EE3DC /* AssetsViewController.m */,
 				D453DA2A1873F1D0007EE3DC /* AssetsViewController.xib */,
 				D453DA311873F215007EE3DC /* Assetcell.xib */,
+				D4049664192F17DD00685109 /* Group SetUp */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4049664192F17DD00685109 /* Group SetUp */ = {
+			isa = PBXGroup;
+			children = (
 				D49E055D18C7022800AF6330 /* CrewsetupViewController.h */,
 				D49E055E18C7022800AF6330 /* CrewsetupViewController.m */,
 				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
 				D49E056218C71B7100AF6330 /* Cmanpwrcell.xib */,
 				D49E056418C71B9300AF6330 /* Namecrewcell.xib */,
+				D4049665192F183B00685109 /* GroupEqupViewController.h */,
+				D4049666192F183B00685109 /* GroupEqupViewController.m */,
+				D4049667192F183B00685109 /* GroupEqupViewController.xib */,
 			);
-			name = Resources;
+			name = "Group SetUp";
 			sourceTree = "<group>";
 		};
 		D40D1E9E176B086E00379DD5 = {
@@ -1602,6 +1618,7 @@
 				64A3B81D18DFEEC90015887F /* ActivityViewController.xib in Resources */,
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
 				D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */,
+				D4049669192F183B00685109 /* GroupEqupViewController.xib in Resources */,
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
@@ -1811,6 +1828,7 @@
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */,
 				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
+				D4049668192F183B00685109 /* GroupEqupViewController.m in Sources */,
 				D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */,
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
