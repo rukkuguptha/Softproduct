@@ -140,4 +140,19 @@
 - (IBAction)drawactn:(id)sender;
 - (IBAction)drawnotesactn:(id)sender;
 -(void) updatingtables;
+
+
+@property(strong,nonatomic)NSString *displaydate;
+@property(strong,nonatomic)NSString *displaynote;
+@property(readwrite)NSInteger viewtype;
+
+@property(strong,nonatomic)NSString *datendtime;
+@property(strong,nonatomic)NSString *details;
+
+@property(strong,nonatomic)IBOutlet UIButton *updatebtnnote;
+@property(strong,nonatomic)IBOutlet UIButton *cancelnotebtn;
+@property(strong,nonatomic)IBOutlet UIButton *drawnotebtn;
+@property(strong,nonatomic)IBOutlet UIButton *updatemmeetingbtn;
+@property(strong,nonatomic)IBOutlet UIButton *cancelmeetingnote;
+@property(strong,nonatomic)IBOutlet UIButton *drawmeetingbtn;
 @end
