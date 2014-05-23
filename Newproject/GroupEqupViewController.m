@@ -51,6 +51,9 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [_crewbtnlbl setTitle:@"Select" forState:UIControlStateNormal ];
+        [_servicebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     
     [self setupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
     [self setupDestinationTableWithFrame:CGRectMake(0, 0, 460, 533)];
     
@@ -212,9 +215,9 @@
             
         }
         if (tableView==_crewtable) {
-            [[NSBundle mainBundle]loadNibNamed:@"Namecrewcell" owner:self options:nil];
+            [[NSBundle mainBundle]loadNibNamed:@"ecrewcell" owner:self options:nil];
             
-            //cell=_crewnamecell;
+            cell=_crewcell;
         }
         
         cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -253,15 +256,15 @@
     
     if (tableView==_crewtable) {
         
-//        Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
-//        _crwmanpwrlbl=(UILabel *)[cell viewWithTag:1];
-//        _crwmanpwrlbl.text=crewmdl1.manpower;
-//        _crwdeslbl1=(UILabel *)[cell viewWithTag:2];
-//        _crwdeslbl1.text=crewmdl1.mandescptn;
-//        _crwdeslbl2=(UILabel *)[cell viewWithTag:3];
-//        
-//        
-//        _crwdeslbl2.text=[_revcrewdict objectForKey:crewmdl1.crewname];
+        Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+        _crwmanpwrlbl=(UILabel *)[cell viewWithTag:1];
+        _crwmanpwrlbl.text=crewmdl1.manpower;
+        _crwdeslbl1=(UILabel *)[cell viewWithTag:2];
+        _crwdeslbl1.text=crewmdl1.mandescptn;
+        _crwdeslbl2=(UILabel *)[cell viewWithTag:3];
+        
+        _crwdeslbl2.text=crewmdl1.crewname;
+        //NSLog(@"%@",crewmdl1.crewname);
         
         
     }
@@ -274,8 +277,8 @@
         Deletepath=indexPath.row;
         
         if (tableView==_crewtable) {
-            //[self Crewdelete];
-            // [_crewmembersarray removeObject:indexPath];
+            [self Crewdelete];
+            [_crewmembersarray removeObject:indexPath];
             
         }
         
@@ -295,7 +298,7 @@
             case 2:
                 
                 [_crewbtnlbl setTitle:[_crenamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
-               // [self Selectcrewname];
+               [self Selectcrewname];
                 break;
                 
             default:
@@ -382,8 +385,8 @@
     
     draggedCell = [[UITableViewCell alloc] init];
     draggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-   // Manpwr*manmdl1=(Manpwr *)[_manpwrarray objectAtIndex:indexPath.row];
-   // draggedCell.textLabel.text =manmdl1.itemcode;
+    Manpwr*manmdl1=(Manpwr *)[_equipmentarray objectAtIndex:indexPath.row];
+    draggedCell.textLabel.text =manmdl1.itemcode;
     draggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
     draggedCell.textLabel.textColor = cell.textLabel.textColor;
@@ -441,10 +444,10 @@
         
         crewpath=indexPath.row;
         
-       // Manpwr*manmdl1=(Manpwr *)[_manpwrarray objectAtIndex:crewpath];
+       Manpwr*manmdl1=(Manpwr *)[_equipmentarray objectAtIndex:crewpath];
         
-       // draggedData = manmdl1.itemcode;
-        //NSLog(@"%@",manmdl1.itemdescptn);
+       draggedData = manmdl1.itemcode;
+        NSLog(@"%@",manmdl1.itemdescptn);
     }
     
     
@@ -468,8 +471,8 @@
             //[draggedData release];
             draggedData = nil;
         }
-        //Manpwr*manmdl1=(Manpwr *)[_manpwrarray objectAtIndex:indexPath.row];
-        //draggedData = manmdl1.itemcode;
+        Manpwr*manmdl1=(Manpwr *)[_equipmentarray objectAtIndex:indexPath.row];
+        draggedData = manmdl1.itemcode;
         
         // remove old cell
         [_crewmembersarray removeObjectAtIndex:indexPath.row];
@@ -513,9 +516,9 @@
             NSIndexPath* indexPath = [_crewtable indexPathForRowAtPoint:[gestureRecognizer locationInView:_crewtable]];
             if(indexPath != nil)
             {
-               // Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
-                //crewmdl1.manpower=draggedData;
-               // [_crewmembersarray addObject:crewmdl1];
+                Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+                crewmdl1.manpower=draggedData;
+               [_crewmembersarray addObject:crewmdl1];
                 
                 //  [_crewmembersarray insertObject:draggedData atIndex:indexPath.row];
                 [_crewtable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
@@ -523,18 +526,18 @@
             else
             {
                 if ([_crewmembersarray count]==0) {
-                   // Crewmodel *crewmdl1=[[Crewmodel alloc]init];
-                   // crewmdl1.manpower=draggedData;
-                    //[_crewmembersarray addObject:crewmdl1];
+                    Crewmodel *crewmdl1=[[Crewmodel alloc]init];
+                   crewmdl1.manpower=draggedData;
+                    [_crewmembersarray addObject:crewmdl1];
                     
                 }
                 else{
-                  //  Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
-                    //crewmdl1.manpower=draggedData;
-                   // [_crewmembersarray addObject:crewmdl1];
+                   Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:indexPath.row];
+                    crewmdl1.manpower=draggedData;
+                    [_crewmembersarray addObject:crewmdl1];
                 }
                 
-                //[self crewinsert];
+                [self crewinsert];
             }
         }
         else if(!dragFromSource && pathFromDstTable != nil)
@@ -679,9 +682,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EquipmentCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</CrewSetUpSelect>\n"
+                   "</EquipmentCrewSetUpSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
@@ -696,7 +699,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/CrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -730,11 +733,11 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Selectcrewname xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<crewname>%@</crewname>\n"
-                   "</Selectcrewname>\n"
+                   "<EquipmentCrewNameSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<CrewId>%d</CrewId>\n"
+                   "</EquipmentCrewNameSelect>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]];
+                   "</soap:Envelope>\n",[[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]integerValue ]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -747,7 +750,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Selectcrewname" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentCrewNameSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -767,116 +770,112 @@
     
 }
 
-//-(void)crewinsert{
-//    
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    Manpwr *manpwr=(Manpwr *)[_manpwrarray objectAtIndex:crewpath];
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<crewinsert xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<Manpower>%@</Manpower>\n"
-//                   "<Description>%@</Description>\n"
-//                   "<Type>%@</Type>\n"
-//                   "<LeadId>%d</LeadId>\n"
-//                   "<unitcost>%f</unitcost>\n"
-//                   "<Name>%@</Name>\n"
-//                   "<daystype>%d</daystype>\n"
-//                   "<dayscount>%d</dayscount>\n"
-//                   "<CrewName>%@</CrewName>\n"
-//                   "</crewinsert>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,manpwr.subtype,0,[manpwr
-//                                                                                             .unitcost floatValue],@"crewname",0,0,[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/crewinsert" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
-//-(void)Crewdelete{
-//    
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:Deletepath];
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<Crewdelete xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<ID>%d</ID>\n"
-//                   "</Crewdelete>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",[crewmdl1.ID integerValue]];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/Crewdelete" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
+-(void)crewinsert{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Manpwr *manpwr=(Manpwr *)[_equipmentarray objectAtIndex:crewpath];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Equipmentcrewinsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Equipment>%@</Equipment>\n"
+                   "<Description>%@</Description>\n"
+                   "<Type>%@</Type>\n"
+                   "<HourlyRate>%f</HourlyRate>\n"
+                   "<Name>%@</Name>\n"
+                   "<CrewId>%d</CrewId>\n"
+                   "</Equipmentcrewinsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,@"EQ",[manpwr.unitcost floatValue],@"Equipment",[[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Equipmentcrewinsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)Crewdelete{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Crewmodel *crewmdl1=(Crewmodel *)[_crewmembersarray objectAtIndex:Deletepath];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentCrewdelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ID>%d</ID>\n"
+                   "</EquipmentCrewdelete>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[crewmdl1.ID integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentCrewdelete" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 -(void)AllSkills{
     
@@ -944,9 +943,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<CrewSetUpDelete xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<CrewId>%d</CrewId>\n"
-                   "</CrewSetUpDelete>\n"
+                   "<EquipmentCrewSetUpDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EquipmentCrewId>%d</EquipmentCrewId>\n"
+                   "</EquipmentCrewSetUpDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]integerValue ]];
     NSLog(@"soapmsg%@",soapMessage);
@@ -961,7 +960,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/CrewSetUpDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentCrewSetUpDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -995,9 +994,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllCrewDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AllEquipmentCrewDelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<CrewId>%d</CrewId>\n"
-                   "</AllCrewDelete>\n"
+                   "</AllEquipmentCrewDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]integerValue ]];
     NSLog(@"soapmsg%@",soapMessage);
@@ -1012,7 +1011,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllCrewDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/AllEquipmentCrewDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1135,7 +1134,7 @@
     }
     
     
-    if([elementName isEqualToString:@"CrewSetUpSelectResponse"])
+    if([elementName isEqualToString:@"EquipmentCrewSetUpSelectResponse"])
     {_crenamearray=[[NSMutableArray alloc]init];
         _crewdict=[[NSMutableDictionary alloc]init];
         _revcrewdict=[[NSMutableDictionary alloc]init];
@@ -1145,7 +1144,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"CrewId"])
+    if([elementName isEqualToString:@"EquipmentCrewId"])
     {
         if(!_soapResults)
         {
@@ -1154,7 +1153,7 @@
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"Crewname"])
+    if([elementName isEqualToString:@"EquipmentCrewName"])
     {
         
         if(!_soapResults)
@@ -1163,7 +1162,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SelectcrewnameResponse"])
+    if([elementName isEqualToString:@"EquipmentCrewNameSelectResponse"])
     {
         _crewmembersarray=[[NSMutableArray alloc]init];
         
@@ -1182,7 +1181,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Manpower"])
+    if([elementName isEqualToString:@"Equipment"])
     {
         
         if(!_soapResults)
@@ -1193,7 +1192,7 @@
     }
     
     
-    if([elementName isEqualToString:@"CrDescription"])
+    if([elementName isEqualToString:@"EqDescription"])
     {
         
         if(!_soapResults)
@@ -1212,7 +1211,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"UnitCost"])
+    if([elementName isEqualToString:@"HourlyRate"])
     {
         
         if(!_soapResults)
@@ -1232,7 +1231,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"CrewName"])
+    if([elementName isEqualToString:@"EqCrewName"])
     {
         
         if(!_soapResults)
@@ -1356,7 +1355,7 @@
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"CrewId"])
+    if([elementName isEqualToString:@"EquipmentCrewId"])
     {
         recordResults =FALSE;
         crewid=_soapResults;
@@ -1365,7 +1364,7 @@
         
     }
     
-    if([elementName isEqualToString:@"Crewname"])
+    if([elementName isEqualToString:@"EquipmentCrewName"])
     {
         
         recordResults = FALSE;
@@ -1381,14 +1380,22 @@
         _crewmdl1.ID=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"Manpower"])
+    if([elementName isEqualToString:@"Equipment"])
     {
         recordResults = FALSE;
         _crewmdl1.manpower=_soapResults;
         
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"CrDescription"])
+    if([elementName isEqualToString:@"EqCrewName"])
+    {
+        
+        recordResults = FALSE;
+        _crewmdl1.crewname=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"EqDescription"])
     {
         recordResults = FALSE;
         _crewmdl1.mandescptn=_soapResults;
@@ -1411,7 +1418,7 @@
         _crewmdl1.type=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"unitCost"])
+    if([elementName isEqualToString:@"HourlyRate"])
     {
         
         recordResults = FALSE;
@@ -1424,18 +1431,12 @@
         
         recordResults = FALSE;
         _crewmdl1.name=_soapResults;
+        [_crewmembersarray addObject:_crewmdl1];
+
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"CrewName"])
-    {
-        
-        recordResults = FALSE;
-        _crewmdl1.crewname=_soapResults;
-        [_crewmembersarray addObject:_crewmdl1];
-        _soapResults = nil;
-    }
-    if([elementName isEqualToString:@"result"])
+       if([elementName isEqualToString:@"result"])
     {
         
         recordResults = FALSE;

@@ -64,6 +64,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *crwmanpwrlbl;
 @property (strong, nonatomic) IBOutlet UILabel *crwdeslbl1;
 @property (strong, nonatomic) IBOutlet UILabel *crwdeslbl2;
+@property (strong, nonatomic) IBOutlet UITableViewCell *crewcell;
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *equpcell;
 /*buttons*/

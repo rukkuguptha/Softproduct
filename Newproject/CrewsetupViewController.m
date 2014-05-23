@@ -841,7 +841,7 @@
                    "<CrewName>%@</CrewName>\n"
                    "</crewinsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,manpwr.subtype,0,[manpwr
+                   "</soap:Envelope>\n",manpwr.itemcode,manpwr.itemdescptn,@"MP",0,[manpwr
                    .unitcost floatValue],@"crewname",0,0,[_crewdict objectForKey:_crewbtnlbl.titleLabel.text]];
     NSLog(@"soapmsg%@",soapMessage);
     
