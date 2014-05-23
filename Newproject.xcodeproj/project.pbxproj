@@ -83,6 +83,11 @@
 		64A3B82318DFEF0B0015887F /* CommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B82118DFEF0B0015887F /* CommentsViewController.m */; };
 		64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82218DFEF0B0015887F /* CommentsViewController.xib */; };
 		64A3B82618E02FC90015887F /* branchcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B82518E02FC90015887F /* branchcell.xib */; };
+		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
+		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
+		64A654B9192F2227004DDB84 /* GpMaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B7192F2227004DDB84 /* GpMaterViewController.m */; };
+		64A654BA192F2227004DDB84 /* GpMaterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B8192F2227004DDB84 /* GpMaterViewController.xib */; };
+		64A654BC192F2561004DDB84 /* Magpcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654BB192F2561004DDB84 /* Magpcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
@@ -448,6 +453,13 @@
 		64A3B82118DFEF0B0015887F /* CommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsViewController.m; sourceTree = "<group>"; };
 		64A3B82218DFEF0B0015887F /* CommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentsViewController.xib; sourceTree = "<group>"; };
 		64A3B82518E02FC90015887F /* branchcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = branchcell.xib; sourceTree = "<group>"; };
+		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
+		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
+		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
+		64A654B6192F2227004DDB84 /* GpMaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GpMaterViewController.h; sourceTree = "<group>"; };
+		64A654B7192F2227004DDB84 /* GpMaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GpMaterViewController.m; sourceTree = "<group>"; };
+		64A654B8192F2227004DDB84 /* GpMaterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GpMaterViewController.xib; sourceTree = "<group>"; };
+		64A654BB192F2561004DDB84 /* Magpcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Magpcell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
@@ -953,6 +965,9 @@
 		D4049664192F17DD00685109 /* Group SetUp */ = {
 			isa = PBXGroup;
 			children = (
+				64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */,
+				64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */,
+				64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */,
 				D49E055D18C7022800AF6330 /* CrewsetupViewController.h */,
 				D49E055E18C7022800AF6330 /* CrewsetupViewController.m */,
 				D49E055F18C7022800AF6330 /* CrewsetupViewController.xib */,
@@ -961,6 +976,10 @@
 				D4049665192F183B00685109 /* GroupEqupViewController.h */,
 				D4049666192F183B00685109 /* GroupEqupViewController.m */,
 				D4049667192F183B00685109 /* GroupEqupViewController.xib */,
+				64A654B6192F2227004DDB84 /* GpMaterViewController.h */,
+				64A654B7192F2227004DDB84 /* GpMaterViewController.m */,
+				64A654B8192F2227004DDB84 /* GpMaterViewController.xib */,
+				64A654BB192F2561004DDB84 /* Magpcell.xib */,
 			);
 			name = "Group SetUp";
 			sourceTree = "<group>";
@@ -1524,6 +1543,7 @@
 				6426F5FB18C0685C002471AC /* SasteyPicture.png in Resources */,
 				D4A338E718F3EEEF00E53FAC /* custmarkdetailcell.xib in Resources */,
 				D402029D1907A076003DED36 /* Gmateralview.xib in Resources */,
+				64A654BA192F2227004DDB84 /* GpMaterViewController.xib in Resources */,
 				D40D1EC7176B086F00379DD5 /* ViewController.xib in Resources */,
 				D40D1ED1176B0A0800379DD5 /* HomeViewController.xib in Resources */,
 				6426F5F918C06824002471AC /* fleet.png in Resources */,
@@ -1704,6 +1724,7 @@
 				64A3B81E18DFEEC90015887F /* ActivityCustomCell.xib in Resources */,
 				649EDEC418BB011A00B78D97 /* EqaddRecordview.xib in Resources */,
 				D43DAA3718D1B62700280AA6 /* cmpnydocucell.xib in Resources */,
+				64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
@@ -1719,6 +1740,7 @@
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
+				64A654BC192F2561004DDB84 /* Magpcell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1796,6 +1818,7 @@
 				D49F875218EEA36B00413CAD /* commentmdl.m in Sources */,
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
+				64A654B9192F2227004DDB84 /* GpMaterViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
@@ -1817,6 +1840,7 @@
 				D42D8C3A18D2E3F0009D8085 /* UsersViewController.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
+				64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
 				D4F3435A191CA3970023D715 /* EstimationViewController.m in Sources */,
