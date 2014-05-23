@@ -172,11 +172,11 @@
     [self presentViewController: _AssetVCtrl animated:YES completion:nil];
 }
 -(void)crewpage{
-    if (!self.crewVCtrl) {
-        self.crewVCtrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
+    if (!self.gpctrl) {
+        self.gpctrl=[[GPSetupTileViewController alloc]initWithNibName:@"GPSetupTileViewController" bundle:nil];
     }
-    //_crewVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-    [self presentViewController:_crewVCtrl
+    _gpctrl.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:_gpctrl
                        animated:YES completion:NULL];
 
     
