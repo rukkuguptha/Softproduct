@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewrecordViewController">
             <connections>
+                <outlet property="cancelnotebtn" destination="b4H-bt-5Ei" id="PwK-wb-4Kc"/>
+                <outlet property="drawnotebtn" destination="5fp-Wk-5It" id="DUj-BZ-Bhy"/>
                 <outlet property="notedatebtnlbl" destination="rxX-SN-XmX" id="fcH-TK-fbc"/>
                 <outlet property="notestxtfld" destination="L1r-bq-NXy" id="5ly-Uh-90E"/>
+                <outlet property="updatebtnnote" destination="4KR-XM-h5V" id="XaQ-BZ-A2A"/>
                 <outlet property="view" destination="1" id="Wua-HV-Lj3"/>
             </connections>
         </placeholder>

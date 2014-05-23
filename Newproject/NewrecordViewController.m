@@ -27,6 +27,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (_viewtype==4) {
+        _meetgdetailslbl.text=_details;
+        [_datebtnlbl setTitle:_datendtime forState:UIControlStateNormal];
+        [_notedatebtnlbl setTitle:_displaydate forState:UIControlStateNormal];
+        _notestxtfld.text=_displaynote;
+        _drawmeetingbtn.hidden=YES;
+        _drawnotebtn.hidden=YES;
+        _cancelmeetingnote.hidden=YES;
+        _cancelnotebtn.hidden=YES;
+        _updatebtnnote.hidden=YES;
+        _updatemmeetingbtn.hidden=YES;
+        _datebtnlbl.enabled=NO;
+        _notedatebtnlbl.enabled=NO;
+        _notestxtfld.editable=NO;
+        _meetgdetailslbl.editable=NO;
+        
+        
+    }
+    
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -365,7 +384,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
        typ=1;
     }
     NSString *soapMessage;
-    
+  
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
     [dateFormat1 setDateFormat:@"MM/dd/yyyy"];
     NSDate *dates = [dateFormat1 dateFromString:_datebtnlbl.titleLabel.text];
@@ -375,8 +394,17 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     _datesstrg=dateString;
-
-    soapMessage = [NSString stringWithFormat:
+    if (_datesstrg.length==0) {
+        NSDate *daa=[NSDate date];
+        NSLog(@"%@",daa);
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString*curntdate = [dateFormat stringFromDate:daa];
+        NSLog(@"%@",curntdate);
+        dateString=curntdate;
+        
+    }
+       soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
@@ -589,7 +617,17 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
     NSString*    dateString = [dateFormat2 stringFromDate:dates];
     
-    
+    if (dateString.length==0) {
+        NSDate *daa=[NSDate date];
+        NSLog(@"%@",daa);
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSString*curntdate = [dateFormat stringFromDate:daa];
+        NSLog(@"%@",curntdate);
+        dateString=curntdate;
+        
+    }
+
     
     
     soapMessage = [NSString stringWithFormat:

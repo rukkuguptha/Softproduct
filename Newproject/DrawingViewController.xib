@@ -45,7 +45,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <navigationItem title="Draw" id="2a5-ND-p6N">
+                        <navigationItem title="Hand Notes" id="2a5-ND-p6N">
                             <barButtonItem key="rightBarButtonItem" id="0Ea-pZ-0aV">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nlz-EC-1QF">
                                     <rect key="frame" x="702" y="-3" width="50" height="50"/>

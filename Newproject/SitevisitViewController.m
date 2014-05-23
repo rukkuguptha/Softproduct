@@ -4361,8 +4361,25 @@ _passingdate=dateString;
         NSIndexPath *textFieldIndexPath = [self.meetingtable indexPathForRowAtPoint:rootViewPoint];
         fetchindex=textFieldIndexPath.row;
         NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
-        [self meetingFetchImage];
-        
+       
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_meetgarray objectAtIndex:fetchindex];
+       if (sitemdl1.typvalue==0) {
+            [self meetingFetchImage];
+       }
+       else
+       {
+           self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"meetingnoterecordaddview" bundle:nil];
+           self.newrecordVCtrl.delegate=self;
+           self.newrecordVCtrl.datendtime=sitemdl1.meetingdate;
+           self.newrecordVCtrl.details=sitemdl1.meetingdetails;
+            self.newrecordVCtrl.viewtype=4;
+//           self.newrecordVCtrl.companyid=_companyid;
+//           self.newrecordVCtrl.tabtype=tabtype;
+           self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+           [self presentViewController:_newrecordVCtrl
+                              animated:YES completion:NULL];
+       }
+       
     }
     else   if (tabtype==4) {
         
@@ -4374,7 +4391,24 @@ _passingdate=dateString;
         
         NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
         fetchindex=textFieldIndexPath.row;
-        [self notesFetchImage];
+        SitevistMdl *sitemdl1=(SitevistMdl *)[_notearray objectAtIndex:fetchindex];
+        if (sitemdl1.notetype==0) {
+            [self notesFetchImage];
+        }
+        else
+        {
+            self.newrecordVCtrl=[[NewrecordViewController alloc]initWithNibName:@"Addnoterecordview" bundle:nil];
+                       self.newrecordVCtrl.delegate=self;
+            self.newrecordVCtrl.displaydate=sitemdl1.notedate;
+            self.newrecordVCtrl.displaynote=sitemdl1.Notes;
+            self.newrecordVCtrl.viewtype=4;
+            //           self.newrecordVCtrl.companyid=_companyid;
+            //           self.newrecordVCtrl.tabtype=tabtype;
+            self.newrecordVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+            [self presentViewController:_newrecordVCtrl
+                               animated:YES completion:NULL];
+        }
+        
         
         
     }
