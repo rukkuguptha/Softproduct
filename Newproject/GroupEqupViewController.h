@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Manpwr.h"
+#import "Crewmodel.h"
 @interface GroupEqupViewController : UIViewController<UIGestureRecognizerDelegate>{
     
      NSInteger poptype;
@@ -20,11 +21,17 @@
     NSIndexPath*    pathFromDstTable;
     //NSInteger path;
     NSInteger Deletepath;
+     NSInteger crewpath;
+    int webpath;
+    NSString *skill;
+    NSString * crewid;
+
 
     
 }
 
-
+@property (strong, nonatomic)Manpwr *manpwrmdl;
+@property (strong, nonatomic)Crewmodel *crewmdl1;
 
 @property (strong, nonatomic)NSMutableArray *crewmembersarray;
 @property (strong, nonatomic)NSMutableArray *equipmentarray;
@@ -33,6 +40,10 @@
 @property (strong, nonatomic)NSMutableDictionary *skilldict;
 @property (strong, nonatomic)NSMutableDictionary *crewdict;
 @property (strong, nonatomic)NSMutableDictionary *revcrewdict;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
@@ -47,6 +58,14 @@
 @property (strong, nonatomic) IBOutlet UITableView *equpmenttable;
 @property (strong, nonatomic) IBOutlet UITableView *crewtable;
 
+@property (strong, nonatomic) IBOutlet UILabel *manpwritmlbl;
+@property (strong, nonatomic) IBOutlet UILabel *manpwrdeslbl;
+@property (strong, nonatomic) IBOutlet UILabel *hurlyratelbl;
+@property (strong, nonatomic) IBOutlet UILabel *crwmanpwrlbl;
+@property (strong, nonatomic) IBOutlet UILabel *crwdeslbl1;
+@property (strong, nonatomic) IBOutlet UILabel *crwdeslbl2;
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *equpcell;
 /*buttons*/
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)clearbtn:(id)sender;

@@ -120,6 +120,8 @@
 		D40427E819237F980049A709 /* Rephase.m in Sources */ = {isa = PBXBuildFile; fileRef = D40427E719237F980049A709 /* Rephase.m */; };
 		D4049668192F183B00685109 /* GroupEqupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4049666192F183B00685109 /* GroupEqupViewController.m */; };
 		D4049669192F183B00685109 /* GroupEqupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4049667192F183B00685109 /* GroupEqupViewController.xib */; };
+		D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404966C192F2DEA00685109 /* GEqupcell.xib */; };
+		D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404966E192F3DCE00685109 /* ecrewcell.xib */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
 		D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BC18BB1E9B00C5DB30 /* right_arrow.png */; };
@@ -503,6 +505,8 @@
 		D4049665192F183B00685109 /* GroupEqupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupEqupViewController.h; sourceTree = "<group>"; };
 		D4049666192F183B00685109 /* GroupEqupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupEqupViewController.m; sourceTree = "<group>"; };
 		D4049667192F183B00685109 /* GroupEqupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupEqupViewController.xib; sourceTree = "<group>"; };
+		D404966C192F2DEA00685109 /* GEqupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GEqupcell.xib; sourceTree = "<group>"; };
+		D404966E192F3DCE00685109 /* ecrewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ecrewcell.xib; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		D40736BE18BB1E9B00C5DB30 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -976,6 +980,8 @@
 				D4049665192F183B00685109 /* GroupEqupViewController.h */,
 				D4049666192F183B00685109 /* GroupEqupViewController.m */,
 				D4049667192F183B00685109 /* GroupEqupViewController.xib */,
+				D404966C192F2DEA00685109 /* GEqupcell.xib */,
+				D404966E192F3DCE00685109 /* ecrewcell.xib */,
 				64A654B6192F2227004DDB84 /* GpMaterViewController.h */,
 				64A654B7192F2227004DDB84 /* GpMaterViewController.m */,
 				64A654B8192F2227004DDB84 /* GpMaterViewController.xib */,
@@ -1684,6 +1690,7 @@
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
 				64A11EE918683BE6008D20CC /* customphase.xib in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
+				D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */,
 				D4F557711904F7EF00EFDAF4 /* GeneralViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
 				D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */,
@@ -1694,6 +1701,7 @@
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
+				D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */,
 				D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */,
 				6426F5E318C05C12002471AC /* bgmetro1.png in Resources */,
 				D48B608117F941AE001A53C8 /* RadioButton-Unselected.png in Resources */,
