@@ -350,7 +350,7 @@
         eqdeletepath=indexPath.row;
         
         if (tableView==_equipdesttable) {
-            [self GeneralResourceDetailDelete];
+            [self GeneralGroupDetailDelete];
             [_equipdestarray removeObject:indexPath];
             
         }
@@ -475,6 +475,7 @@
     
 }
 -(void)PlanHoursSelect{
+    webtype=5;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -801,7 +802,7 @@
     
 }
 
--(void)GeneralResourceDetailDelete{
+-(void)GeneralGroupDetailDelete{
     webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
@@ -816,24 +817,25 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GeneralResourceDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<GeneralGroupDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
-                   "</GeneralResourceDetailDelete>\n"
+                   "</GeneralGroupDetailDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",dmodel.idvalue];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    
+    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceDetailDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralGroupDetailDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1127,6 +1129,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"GeneralGroupDetailDeleteResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     
     
@@ -1359,6 +1370,10 @@
             _equipitemdesctextfield.text=@"";
             _equipqtytextfield.text=@"";
         }
+         if (webtype==5)
+         {
+             [self GeneralResourceDetailselect];
+         }
         
         _soapResults = nil;
     }
@@ -1610,8 +1625,9 @@
     equipdropAreaFrame.origin.y = kNavBarHeight;
     equipdropAreaFrame.size.height -= kNavBarHeight;
     
-    equipdropArea = [[UIView alloc] initWithFrame:CGRectMake(305, 35, 688, 700)];
+    equipdropArea = [[UIView alloc] initWithFrame:CGRectMake(350, 35, 638, 700)];
     [equipdropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
+    //[equipdropArea setBackgroundColor:[UIColor redColor]];
     [self.equiptouchview addSubview:equipdropArea];
     
     CGRect contentFrame = equipdropAreaFrame;
@@ -1644,9 +1660,9 @@
     
     equipdraggedCell = [[UITableViewCell alloc] init];
     equipdraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:indexPath.row];
-    equipdraggedCell.textLabel.text =emdl.itemcode;
-    NSLog(@"name1%@",emdl.itemcode);
+   // Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:indexPath.row];
+    equipdraggedCell.textLabel.text =[_crenamearray objectAtIndex:indexPath.row];
+    //NSLog(@"name1%@",emdl.itemcode);
     NSLog(@"apath%d",indexPath.row);
     equipdraggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
