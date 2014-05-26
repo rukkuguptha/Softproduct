@@ -634,7 +634,7 @@
     }
     
 }
--(void)GeneralResourceDetailDelete{
+-(void)GeneralGroupDetailDelete{
     Metgenmdl * matmdl2=(Metgenmdl *)[_resourcearray objectAtIndex:metdeletepath];
 
     recordResults = FALSE;
@@ -649,9 +649,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GeneralResourceDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<GeneralGroupDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
-                   "</GeneralResourceDetailDelete>\n"
+                   "</GeneralGroupDetailDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[matmdl2.matgenid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
@@ -666,7 +666,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceDetailDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralGroupDetailDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1419,7 +1419,7 @@
             
             metdeletepath=indexPath.row;
             
-            [self GeneralResourceDetailDelete];
+            [self GeneralGroupDetailDelete];
             [_resourcearray removeObject:indexPath];
         }
 
