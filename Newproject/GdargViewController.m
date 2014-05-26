@@ -87,9 +87,9 @@
     }
   
     
-    [self SelectGeneralManpower];
+    [self selectmanpowercrew];
     [self GeneralDetailselect];
-    [self GeneralMaterialSelect];
+    [self MatrialCrewSetupSelect];
    [self GeneralResourceMaterialDetailselect];
     
 }
@@ -123,8 +123,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-     NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
-   // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -152,56 +152,58 @@
     
 }
 
--(void)SelectGeneralManpower{
-      
-    recordResults = FALSE;
-    NSString *soapMessage;
-    
-    
-    soapMessage = [NSString stringWithFormat:
-                   
-                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-                   
-                   
-                   "<soap:Body>\n"
-                   
-                   "<SelectGeneralManpower xmlns=\"http://ios.kontract360.com/\">\n"
-                   
-                   "</SelectGeneralManpower>\n"
-                   "</soap:Body>\n"
-                   "</soap:Envelope>\n"];
-    NSLog(@"soapmsg%@",soapMessage);
-    
-    
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    
-    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-    
-    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-    
-    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    
-    [theRequest addValue: @"http://ios.kontract360.com/SelectGeneralManpower" forHTTPHeaderField:@"Soapaction"];
-    
-    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-    [theRequest setHTTPMethod:@"POST"];
-    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    
-    if( theConnection )
-    {
-        _webData = [NSMutableData data];
+
+-(void)selectmanpowercrew{
+        
+        recordResults = FALSE;
+        NSString *soapMessage;
+        
+        
+        soapMessage = [NSString stringWithFormat:
+                       
+                       @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                       "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                       
+                       
+                       "<soap:Body>\n"
+                       
+                       "<CrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                       
+                       "</CrewSetUpSelect>\n"
+                       "</soap:Body>\n"
+                       "</soap:Envelope>\n"];
+        NSLog(@"soapmsg%@",soapMessage);
+        
+        
+        // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+        NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+        
+        NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+        
+        NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+        
+        [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+        
+        [theRequest addValue: @"http://ios.kontract360.com/CrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
+        
+        [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+        [theRequest setHTTPMethod:@"POST"];
+        [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+        
+        if( theConnection )
+        {
+            _webData = [NSMutableData data];
+        }
+        else
+        {
+            ////NSLog(@"theConnection is NULL");
+        }
+        
     }
-    else
-    {
-        ////NSLog(@"theConnection is NULL");
-    }
-    
-}
+
 -(void)GeneralDetailselect{
     
     recordResults = FALSE;
@@ -224,8 +226,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -278,8 +280,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -328,8 +330,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -383,8 +385,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -411,7 +413,8 @@
     }
     
 }
--(void)GeneralMaterialSelect{
+-(void)MatrialCrewSetupSelect{
+    
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -424,16 +427,16 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GeneralMaterialSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MatrialCrewSetupSelect xmlns=\"http://ios.kontract360.com/\">\n"
                    
-                   "</GeneralMaterialSelect>\n"
+                   "</MatrialCrewSetupSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n"];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -441,7 +444,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/GeneralMaterialSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/MatrialCrewSetupSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -482,8 +485,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -515,7 +518,13 @@
     recordResults = FALSE;
     NSString *soapMessage;
     NSString*rate=@"0";
-     Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:materialpath];
+    NSString*hours=@"0";
+
+    
+   // Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:materialpath];
+   // Metgenmdl *matmdl=(Metgenmdl*)[_resourcearray ob]
+    _matrlmdl=[[Metgenmdl alloc]init];
+
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -526,26 +535,19 @@
                    
                    "<GeneralResourceDetailInsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<MainGeneralId>%d</MainGeneralId>\n"
-                   "<SubGeneralResourceId>%d</SubGeneralResourceId>\n"
-                   "<ManPower>%@</ManPower>\n"
-                   "<Description>%@</Description>\n"
-                   "<Type>%@</Type>\n"
-                   "<Name>%@</Name>\n"
-                   "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%d</HourlyRate>\n"
-                   "<DailyRate>%d</DailyRate>\n"
-                   "<WeeklyRate>%d</WeeklyRate>\n"
-                   "<MonthlyRate>%d</MonthlyRate>\n"
-                   "<YearlyRate>%d</YearlyRate>\n"
+                   "<SubGeneralCrewId>%d</SubGeneralCrewId>\n"
+                   "<GroupDescription>%@</GroupDescription>\n"
+                   "<Houres>%f</Houres>\n"
                    "<Rate>%@</Rate>\n"
-                   "</GeneralResourceDetailInsert>\n"
+                   "<Quantity>%d</Quantity>\n"
+                    "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_generalid,manmdl1.entryid,manmdl1.itemcode,manmdl1.itemdescptn,@"MT",@"Materials",1,[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],@"Daily Rate"];
+                   "</soap:Envelope>\n",_generalid,[[_matrlcrewdict objectForKey:[_materialarray objectAtIndex:materialpath]]integerValue],@"Material Group",[hours floatValue],@"Hourly Rate",1];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -577,7 +579,9 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
-    NSString*rate=@"0";
+
+    NSString*hours=@"0";
+
     //Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:materialpath];
        Metgenmdl * matmdl2=(Metgenmdl *)[_resourcearray objectAtIndex:meteditpath];
     soapMessage = [NSString stringWithFormat:
@@ -589,27 +593,21 @@
                    "<soap:Body>\n"
                    
                    "<GeneralResourceDetailUpdate xmlns=\"http://ios.kontract360.com/\">\n"
-                     "<Id>%d</Id>\n"
+                    "<Id>%d</Id>\n"
                    "<MainGeneralId>%d</MainGeneralId>\n"
-                   "<SubGeneralResourceId>%d</SubGeneralResourceId>\n"
-                   "<ManPower>%@</ManPower>\n"
-                   "<Description>%@</Description>\n"
-                   "<Type>%@</Type>\n"
-                   "<Name>%@</Name>\n"
-                   "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%d</HourlyRate>\n"
-                   "<DailyRate>%d</DailyRate>\n"
-                   "<WeeklyRate>%d</WeeklyRate>\n"
-                   "<MonthlyRate>%d</MonthlyRate>\n"
-                   "<YearlyRate>%d</YearlyRate>\n"
-                   "</GeneralResourceDetailUpdate>\n"
+                   "<SubGeneralCrewId>%d</SubGeneralCrewId>\n"
+                   "<GroupDescription>%@</GroupDescription>\n"
+                   "<Houres>%f</Houres>\n"
+                   "<Rate>%@</Rate>\n"
+                   "<Quantity>%d</Quantity>\n"
+                    "</GeneralResourceDetailUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[matmdl2.matgenid integerValue],_generalid,[matmdl2.SubGeneralResourceId integerValue],matmdl2.itemcode,matmdl2.itemdesc,@"MT",@"Materials",[_quantitytxtfld.text integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue],[rate integerValue]];
+                   "</soap:Envelope>\n",[matmdl2.matgenid integerValue],_generalid,[matmdl2.SubGeneralResourceId integerValue],@"Material Group",[hours floatValue],@"Hourly Rate",[_quantitytxtfld.text integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -659,8 +657,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -710,8 +708,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -895,44 +893,6 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"GeneralMaterialSelectResponse"])
-    {_materialarray=[[NSMutableArray alloc]init];
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"MaterialEntryId"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-
-    if([elementName isEqualToString:@"MaterialItemCode"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"MaterialDescription"])
-    {
-        
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
     if([elementName isEqualToString:@"GeneralResourceMaterialDetailselectResponse"])
     {
         _resourcearray=[[NSMutableArray alloc]init];
@@ -951,7 +911,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SubGeneralResourceId"])
+    if([elementName isEqualToString:@"SubGeneralCrewId"])
     {
         
         if(!_soapResults)
@@ -961,7 +921,7 @@
         recordResults = TRUE;
     }
 
-    if([elementName isEqualToString:@"MateItemCode"])
+    if([elementName isEqualToString:@"ResourceMaterialCrewName"])
     {
         
         if(!_soapResults)
@@ -970,7 +930,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"DetailDescription"])
+    if([elementName isEqualToString:@"DetailGroupDescription"])
     {
         
         if(!_soapResults)
@@ -981,7 +941,7 @@
     }
     
 
-    if([elementName isEqualToString:@"Materialqty"])
+    if([elementName isEqualToString:@"MatQuantity"])
     {
         
         if(!_soapResults)
@@ -1022,7 +982,62 @@
         recordResults = TRUE;
     }
 
-
+    if([elementName isEqualToString:@"CrewSetUpSelectResponse"])
+    {_crewnamearray=[[NSMutableArray alloc]init];
+        _crewdict=[[NSMutableDictionary alloc]init];
+        _revcrewdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"CrewId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Crewname"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MatrialCrewSetupSelectResponse"])
+    {  _materialarray=[[NSMutableArray alloc]init];
+        _matrlcrewdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"MaterialCrewId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"MaterialCrewName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+   
 
 
 }
@@ -1155,33 +1170,7 @@
               _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"MaterialEntryId"])
-    {
-        
-       recordResults = FALSE;
-        _manpwr1=[[Manpwr alloc]init];
-        _manpwr1.entryid=[_soapResults integerValue];
-         _soapResults = nil;
-    }
-    
-    if([elementName isEqualToString:@"MaterialItemCode"])
-    {
-        
-        recordResults = FALSE;
-        _manpwr1.itemcode=_soapResults;
-        _soapResults = nil;
-
-    }
-    if([elementName isEqualToString:@"MaterialDescription"])
-    {
-        
-        recordResults = FALSE;
-          _manpwr1.itemdescptn=_soapResults;
-        [_materialarray addObject:_manpwr1];
-        _soapResults = nil;
-
-    }
-    if([elementName isEqualToString:@"MaterialId"])
+        if([elementName isEqualToString:@"MaterialId"])
     {
         
         recordResults = FALSE;
@@ -1190,7 +1179,7 @@
        
              _soapResults = nil;
     }
-    if([elementName isEqualToString:@"SubGeneralResourceId"])
+    if([elementName isEqualToString:@"SubGeneralCrewId"])
     {
         
       recordResults = FALSE;
@@ -1198,7 +1187,7 @@
          _soapResults = nil;
     }
 
-    if([elementName isEqualToString:@"MateItemCode"])
+    if([elementName isEqualToString:@"ResourceMaterialCrewName"])
     {
         
         recordResults = FALSE;
@@ -1206,7 +1195,7 @@
         _matrlmdl.itemcode=_soapResults;
         _soapResults = nil;
     }
-    if([elementName isEqualToString:@"DetailDescription"])
+    if([elementName isEqualToString:@"DetailGroupDescription"])
     {
         
         recordResults = FALSE;
@@ -1223,7 +1212,7 @@
 
     
     
-    if([elementName isEqualToString:@"Materialqty"])
+    if([elementName isEqualToString:@"MatQuantity"])
     {
         
         recordResults = FALSE;
@@ -1247,6 +1236,43 @@
       [_crewdict setObject:crewid forKey:_soapResults];
      _soapResults = nil;}
 
+    if([elementName isEqualToString:@"CrewId"])
+    {
+        recordResults =FALSE;
+        crewid=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    
+    if([elementName isEqualToString:@"Crewname"])
+    {
+        
+        recordResults = FALSE;
+        [_crewnamearray addObject:_soapResults];
+        [_crewdict setObject:crewid forKey:_soapResults];
+        [_revcrewdict setObject:_soapResults forKey:crewid];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"MaterialCrewId"])
+    {
+        recordResults =FALSE;
+        crewid=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    
+    if([elementName isEqualToString:@"MaterialCrewName"])
+    {
+        
+        recordResults = FALSE;
+        [_materialarray addObject:_soapResults];
+        [_matrlcrewdict setObject:crewid forKey:_soapResults];
+   
+        _soapResults = nil;
+    }
+
 
 }
 
@@ -1261,7 +1287,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_manpwrtable){
-        return [_manpowerarray count];
+        return [_crewnamearray count];
     }
     if (tableView==_generaltable){
         return [_generaldetailarray count];
@@ -1299,9 +1325,12 @@
             cell=_secondcell;
         }
         if (tableView==_materialtable) {
-            [[NSBundle mainBundle]loadNibNamed:@"Gnmatlfirstcell" owner:self options:nil];
-            
-            cell=_materialcell;
+//            [[NSBundle mainBundle]loadNibNamed:@"Gnmatlfirstcell" owner:self options:nil];
+//            
+//            cell=_materialcell;
+            [[NSBundle mainBundle]loadNibNamed:@"FirstMdragcell" owner:self options:nil];
+            cell=_firstcell;
+
         }
         if (tableView==_resourcegenraltable) {
             [[NSBundle mainBundle]loadNibNamed:@"MatrlGnsecondcell" owner:self options:nil];
@@ -1317,7 +1346,7 @@
     
     if (tableView==_manpwrtable) {
         _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
-             _manpwr1lbl.text=[_manpowerarray objectAtIndex:indexPath.row]     ;
+             _manpwr1lbl.text=[_crewnamearray objectAtIndex:indexPath.row]     ;
         
 //        Manpwr *manpwr=(Manpwr *)[_manpowerarray objectAtIndex:indexPath.row];
 //        _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
@@ -1343,11 +1372,15 @@
         }
     if (tableView==_materialtable){
         
-           Manpwr *manpwr1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
-        _codelbl1=(UILabel *)[cell viewWithTag:1];
-        _codelbl1.text=manpwr1.itemcode;
-        _matrldesc1lbl=(UILabel *)[cell viewWithTag:2];
-        _matrldesc1lbl.text=manpwr1.itemdescptn;
+         //  Manpwr *manpwr1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+//        _codelbl1=(UILabel *)[cell viewWithTag:1];
+//        _codelbl1.text=manpwr1.itemcode;
+//        _matrldesc1lbl=(UILabel *)[cell viewWithTag:2];
+//        _matrldesc1lbl.text=manpwr1.itemdescptn;
+        
+        _manpwr1lbl=(UILabel *)[cell viewWithTag:1];
+        _manpwr1lbl.text=[_materialarray objectAtIndex:indexPath.row]     ;
+
 
         
         
@@ -1751,8 +1784,8 @@
     
     materldraggedCell = [[UITableViewCell alloc] init];
     materldraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
-    materldraggedCell.textLabel.text =manmdl1.itemcode;
+    //Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+    materldraggedCell.textLabel.text =[_materialarray objectAtIndex:indexPath.row];
     materldraggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
     materldraggedCell.textLabel.textColor = cell.textLabel.textColor;
@@ -1811,9 +1844,9 @@
         
         materialpath=indexPath.row;
         
-        Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+       // Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
         
-        materldraggedData = manmdl1.itemcode;
+        materldraggedData = [_materialarray objectAtIndex:indexPath.row];
     }
     
 }
@@ -1836,8 +1869,9 @@
             //[draggedData release];
             materldraggedData = nil;
         }
-        Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
-        materldraggedData = manmdl1.itemcode;
+        //Manpwr*manmdl1=(Manpwr *)[_materialarray objectAtIndex:indexPath.row];
+        materldraggedData = [_materialarray objectAtIndex:indexPath.row];
+
         
         // remove old cell
         [_resourcearray removeObjectAtIndex:indexPath.row];
