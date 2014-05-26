@@ -32,6 +32,9 @@
     NSInteger wcheck;
     NSInteger mcheck;
     
+     NSString * crewid;
+    NSString *planhours;
+    
 }
 
 - (IBAction)clsbtn:(id)sender;
@@ -96,6 +99,11 @@
 
 @property(strong,nonatomic)NSMutableArray *equipsrcarray;
 @property(strong,nonatomic)NSMutableArray *equipdestarray;
+
+@property (strong, nonatomic)NSMutableDictionary *crewdict;
+@property (strong, nonatomic)NSMutableDictionary *revcrewdict;
+@property (strong, nonatomic)NSMutableArray *crenamearray;
+
 
 
 /* xmlparser*/
