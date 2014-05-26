@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Drageqmodel : NSObject
+
 @property(readwrite)NSInteger idvalue;
 @property(readwrite)NSInteger mainGeneralId;
 @property(readwrite)NSInteger SubGeneralResourceId;
@@ -18,6 +19,9 @@
 @property(strong,nonatomic)NSString *ename;
 @property(strong,nonatomic)NSString *ratestring;
 @property(strong,nonatomic)NSString *qty;
+@property(strong,nonatomic)NSString *hours;
+@property(strong,nonatomic)NSString *GroupDescription;
+@property(strong,nonatomic)NSString *EquipmentCrewName;
 @property(readwrite)NSInteger hrate;
 @property(readwrite)NSInteger mrate;
 @property(readwrite)NSInteger drate;

@@ -56,9 +56,10 @@
     [super viewWillAppear:animated];
     [self equipsetupSourceTableWithFrame:CGRectMake(0, 0, 266,610)];
     [self equipsetupDestinationTableWithFrame:CGRectMake(0, 0, 682, 533)];
-    
-    [self SelectAllEquipment];
+    [self CrewSetUpSelect];
+    //[self SelectAllEquipment];
     [self GeneralResourceDetailselect];
+    
 }
 
 - (IBAction)clsbtn:(id)sender {
@@ -98,38 +99,38 @@
     btnindex=textFieldIndexPath.row;
     
     Drageqmodel*dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:btnindex];
-    _equipitemcodetextfield.text=dmodel.eqitemcode;
-    _equipitemdesctextfield.text=dmodel.eqdesc;
+    _equipitemcodetextfield.text=dmodel.EquipmentCrewName;
+    _equipitemdesctextfield.text=dmodel.hours;
     _equipqtytextfield.text=dmodel.qty;
    
-    if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
-        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        
-    }
-    if ([dmodel.ratestring isEqualToString:@"Daily Rate"]) {
-        
-        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-    }
-    if ([dmodel.ratestring isEqualToString:@"Weekly Rate"]) {
-        
-        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-    }
-    if ([dmodel.ratestring isEqualToString:@"Monthly Rate"]) {
-        
-        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-    }
+//    if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
+//        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        
+//    }
+//    if ([dmodel.ratestring isEqualToString:@"Daily Rate"]) {
+//        
+//        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//    }
+//    if ([dmodel.ratestring isEqualToString:@"Weekly Rate"]) {
+//        
+//        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//    }
+//    if ([dmodel.ratestring isEqualToString:@"Monthly Rate"]) {
+//        
+//        [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//    }
     
 
     _hratecheck=@"";
@@ -244,7 +245,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_equipsourcetable) {
-        return [_equipsrcarray count];
+        return [_crenamearray count];
         
         
     }
@@ -284,12 +285,12 @@
     if (tableView==_equipsourcetable) {
         //cell.textLabel.text=[srcData objectAtIndex:indexPath.row];
         
-        Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:indexPath.row];
+        //Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:indexPath.row];
         
         _equipitemlabel=(UILabel *)[cell viewWithTag:1];
-        _equipitemlabel.text=emdl.itemcode;
-        _equideslabel=(UILabel *)[cell viewWithTag:2];
-        _equideslabel.text=emdl.itemdescptn;
+        _equipitemlabel.text=[_crenamearray objectAtIndex:indexPath.row];
+//        _equideslabel=(UILabel *)[cell viewWithTag:2];
+//        _equideslabel.text=emdl.itemdescptn;
         
         
     }
@@ -298,42 +299,42 @@
         Drageqmodel *dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:indexPath.row];
         
         _equipitemdestlabel=(UILabel *)[cell viewWithTag:1];
-        _equipitemdestlabel.text=dmodel.eqitemcode;
+        _equipitemdestlabel.text=dmodel.EquipmentCrewName;
         _equipdescdestlabel=(UILabel *)[cell viewWithTag:2];
-        _equipdescdestlabel.text=dmodel.eqdesc;
+        _equipdescdestlabel.text=dmodel.hours;
         _equipquantdestlabel=(UILabel *)[cell viewWithTag:3];
         _equipquantdestlabel.text=dmodel.qty;
            NSLog(@"%@",dmodel.ratestring);
-        if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
-            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            
-        }
-         if ([dmodel.ratestring isEqualToString:@"Daily Rate"]) {
-        
-             [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-             [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-             [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-             [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-         }
-        if ([dmodel.ratestring isEqualToString:@"Weekly Rate"]) {
-            
-            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        }
-        if ([dmodel.ratestring isEqualToString:@"Monthly Rate"]) {
-            
-            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-        }
-
-
+//        if ([dmodel.ratestring isEqualToString:@"Hourly Rate"]) {
+//            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            
+//        }
+//         if ([dmodel.ratestring isEqualToString:@"Daily Rate"]) {
+//        
+//             [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//             [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//             [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//             [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//         }
+//        if ([dmodel.ratestring isEqualToString:@"Weekly Rate"]) {
+//            
+//            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        }
+//        if ([dmodel.ratestring isEqualToString:@"Monthly Rate"]) {
+//            
+//            [_mratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//            [_hratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            [_wratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//            [_dratecellcheckbutton setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        }
+//
+//
         
         
         
@@ -349,7 +350,7 @@
         eqdeletepath=indexPath.row;
         
         if (tableView==_equipdesttable) {
-            [self GeneralResourceDetailDelete];
+            [self GeneralGroupDetailDelete];
             [_equipdestarray removeObject:indexPath];
             
         }
@@ -372,6 +373,57 @@
 }
 
 #pragma mark-webservices
+-(void)CrewSetUpSelect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentCrewSetUpSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</EquipmentCrewSetUpSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentCrewSetUpSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 -(void)SelectAllEquipment{
     recordResults = FALSE;
@@ -422,6 +474,57 @@
     }
     
 }
+-(void)PlanHoursSelect{
+    webtype=5;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PlanHoursSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "</PlanHoursSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_generalid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+   // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/PlanHoursSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)GeneralResourceDetailselect{
     recordResults = FALSE;
     NSString *soapMessage;
@@ -444,8 +547,8 @@
     
     
     //NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    
+    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
@@ -475,16 +578,18 @@
     webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
-    Equpmntmdl *emodel=(Equpmntmdl *)[_equipsrcarray objectAtIndex:equippath];
-    NSString *etype=@"EQ";
-    NSString *ename=@"Equipments";
+    NSString *cid=[_crewdict objectForKey:[_crenamearray objectAtIndex:equippath]];
+   // Equpmntmdl *emodel=(Equpmntmdl *)[_equipsrcarray objectAtIndex:equippath];
+   // NSString *etype=@"EQ";
+    NSString *ename=@"Equipment Group";
     NSString *quantity=@"1";
-    NSInteger hrate=0;
-    NSInteger drate=0;
-    NSInteger wrate=0;
-    NSInteger mrate=0;
-    NSInteger yrate=0;
-    NSString *ratestring=@"Daily Rate";
+   // NSString *hours=@"7";
+//    NSInteger hrate=0;
+//    NSInteger drate=0;
+//    NSInteger wrate=0;
+//    NSInteger mrate=0;
+//    NSInteger yrate=0;
+    NSString *ratestring=@"Hourly Rate";
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -495,27 +600,20 @@
                    
                    "<GeneralResourceDetailInsert xmlns=\"http://ios.kontract360.com/\">\n"
                    "<MainGeneralId>%d</MainGeneralId>\n"
-                   "<SubGeneralResourceId>%d</SubGeneralResourceId>\n"
-                   "<ManPower>%@</ManPower>\n"
-                   "<Description>%@</Description>\n"
-                   "<Type>%@</Type>\n"
-                   "<Name>%@</Name>\n"
-                   "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%d</HourlyRate>\n"
-                   "<DailyRate>%d</DailyRate>\n"
-                   "<WeeklyRate>%d</WeeklyRate>\n"
-                   "<MonthlyRate>%d</MonthlyRate>\n"
-                   "<YearlyRate>%d</YearlyRate>\n"
+                   "<SubGeneralCrewId>%d</SubGeneralCrewId>\n"
+                   "<GroupDescription>%@</GroupDescription>\n"
+                   "<Houres>%f</Houres>\n"
                    "<Rate>%@</Rate>\n"
+                   "<Quantity>%d</Quantity>\n"
                    "</GeneralResourceDetailInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_generalid integerValue],emodel.entryid,emodel.itemcode,emodel.itemdescptn,etype,ename,[quantity integerValue],hrate,drate,wrate,mrate,yrate,ratestring];
+                   "</soap:Envelope>\n",[_generalid integerValue],[cid integerValue],ename,[planhours floatValue],ratestring,[quantity integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    
+   // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
@@ -547,109 +645,112 @@
     recordResults = FALSE;
     NSString *soapMessage;
     Drageqmodel *dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:btnindex];
-    NSString *etype=@"EQ";
-    NSString *ename=@"Equipments";
+    NSString *cid=[_crewdict objectForKey:dmodel.EquipmentCrewName];
+   // NSString *etype=@"EQ";
+    NSString *ename=@"Equipment Group";
     NSString *quantity=_equipqtytextfield.text;
-    NSInteger hrate;
-    NSInteger drate;
-    NSInteger wrate;
-    NSInteger mrate;
-    NSInteger yrate;
-    yrate=0;
-    NSLog(@"%@",_hratecheck);
-    if([_hratecheck isEqualToString:@""]&&[_dratecheck isEqualToString:@""]&&[_mratecheck isEqualToString:@""]&&[_wratecheck isEqualToString:@""])
-    {
-        mrate=dmodel.mrate;
-        drate=dmodel.drate;
-        wrate=dmodel.wrate;
-        hrate=dmodel.hrate;
-        ratestring=dmodel.ratestring;
-    }
-    else
-    {
-
-//    if([_hratecheck isEqualToString:@"h"])
-//    {
-        if (hcheck==0) {
-            hrate=0;
-        }
-        else{
-            hrate=1;
-            ratestring=@"Hourly Rate";
-            drate=0;
-            wrate=0;
-            mrate=0;
-        }
-//        _hratecheck=@"";
-//    }
-//    else
-//    {
-//        hrate=dmodel.hrate;
-//    }
-    
-//    if([_dratecheck isEqualToString:@"d"])
-//   {
-        if (dcheck==0) {
-            drate=0;
-        }
-        else{
-            drate=1;
-            ratestring=@"Daily Rate";
-            mrate=0;
-            wrate=0;
-            hrate=0;
-            
-        }
-//        _dratecheck=@"";
-//    }
-//    else
-//    {
-//        drate=dmodel.drate;
-//    }
-    
-    
-    if([_wratecheck isEqualToString:@"w"])
-    {
-        if (wcheck==0) {
-            
-            wrate=0;
-        }
-        else{
-            wrate=1;
-            ratestring=@"Weekly Rate";
-            drate=0;
-            hrate=0;
-            mrate=0;
-            
-        }
-//        _wratecheck=@"";
-   }
-//    else
-//    {
-//        wrate=dmodel.wrate;
-//    }
-    
-    
-//   if([_mratecheck isEqualToString:@"m"])    {
-        if (mcheck==0) {
-            mrate=0;
-        }
-        else{
-            mrate=1;
-            ratestring=@"Monthly Rate";
-            drate=0;
-            wrate=0;
-            hrate=0;
-            
-//        }
-//        _mratecheck=@"";
-}
-    
-//    else
+    NSString *hours=_equipitemdesctextfield.text;
+    ratestring=@"Hourly Rate";
+  //  NSInteger hrate;
+   // NSInteger drate;
+   // NSInteger wrate;
+  //  NSInteger mrate;
+   // NSInteger yrate;
+   // yrate=0;
+   // NSLog(@"%@",_hratecheck);
+//    if([_hratecheck isEqualToString:@""]&&[_dratecheck isEqualToString:@""]&&[_mratecheck isEqualToString:@""]&&[_wratecheck isEqualToString:@""])
 //    {
 //        mrate=dmodel.mrate;
+//        drate=dmodel.drate;
+//        wrate=dmodel.wrate;
+//        hrate=dmodel.hrate;
+//        ratestring=dmodel.ratestring;
 //    }
-    }
+//    else
+//    {
+//
+////    if([_hratecheck isEqualToString:@"h"])
+////    {
+//        if (hcheck==0) {
+//            hrate=0;
+//        }
+//        else{
+//            hrate=1;
+//            ratestring=@"Hourly Rate";
+//            drate=0;
+//            wrate=0;
+//            mrate=0;
+//        }
+////        _hratecheck=@"";
+////    }
+////    else
+////    {
+////        hrate=dmodel.hrate;
+////    }
+//    
+////    if([_dratecheck isEqualToString:@"d"])
+////   {
+//        if (dcheck==0) {
+//            drate=0;
+//        }
+//        else{
+//            drate=1;
+//            ratestring=@"Daily Rate";
+//            mrate=0;
+//            wrate=0;
+//            hrate=0;
+//            
+//        }
+////        _dratecheck=@"";
+////    }
+////    else
+////    {
+////        drate=dmodel.drate;
+////    }
+//    
+//    
+//    if([_wratecheck isEqualToString:@"w"])
+//    {
+//        if (wcheck==0) {
+//            
+//            wrate=0;
+//        }
+//        else{
+//            wrate=1;
+//            ratestring=@"Weekly Rate";
+//            drate=0;
+//            hrate=0;
+//            mrate=0;
+//            
+//        }
+////        _wratecheck=@"";
+//   }
+////    else
+////    {
+////        wrate=dmodel.wrate;
+////    }
+//    
+//    
+////   if([_mratecheck isEqualToString:@"m"])    {
+//        if (mcheck==0) {
+//            mrate=0;
+//        }
+//        else{
+//            mrate=1;
+//            ratestring=@"Monthly Rate";
+//            drate=0;
+//            wrate=0;
+//            hrate=0;
+//            
+////        }
+////        _mratecheck=@"";
+//}
+//    
+////    else
+////    {
+////        mrate=dmodel.mrate;
+////    }
+//    }
       soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -660,28 +761,21 @@
                    
                    "<GeneralResourceDetailUpdate xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
-                   "<MainGeneralId>%d</MainGeneralId>\n"
-                   "<SubGeneralResourceId>%d</SubGeneralResourceId>\n"
-                   "<ManPower>%@</ManPower>\n"
-                   "<Description>%@</Description>\n"
-                   "<Type>%@</Type>\n"
-                   "<Name>%@</Name>\n"
-                   "<Qty>%d</Qty>\n"
-                   "<HourlyRate>%d</HourlyRate>\n"
-                   "<DailyRate>%d</DailyRate>\n"
-                   "<WeeklyRate>%d</WeeklyRate>\n"
-                   "<MonthlyRate>%d</MonthlyRate>\n"
-                   "<YearlyRate>%d</YearlyRate>\n"
+                    "<MainGeneralId>%d</MainGeneralId>\n"
+                    "<SubGeneralCrewId>%d</SubGeneralCrewId>\n"
+                    "<GroupDescription>%@</GroupDescription>\n"
+                    "<Houres>%f</Houres>\n"
                     "<Rate>%@</Rate>\n"
+                    "<Quantity>%d</Quantity>\n"
                    "</GeneralResourceDetailUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",dmodel.idvalue,dmodel.mainGeneralId,dmodel.SubGeneralResourceId,dmodel.eqitemcode,dmodel.eqdesc,etype,ename,[quantity integerValue],hrate,drate,wrate ,mrate ,yrate,ratestring];
+                     "</soap:Envelope>\n",dmodel.idvalue,dmodel.mainGeneralId,[cid integerValue],dmodel.GroupDescription,[hours floatValue],ratestring,[quantity integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    
+    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
@@ -708,7 +802,7 @@
     
 }
 
--(void)GeneralResourceDetailDelete{
+-(void)GeneralGroupDetailDelete{
     webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
@@ -723,24 +817,25 @@
                    
                    "<soap:Body>\n"
                    
-                   "<GeneralResourceDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<GeneralGroupDetailDelete xmlns=\"http://ios.kontract360.com/\">\n"
                    "<Id>%d</Id>\n"
-                   "</GeneralResourceDetailDelete>\n"
+                   "</GeneralGroupDetailDelete>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",dmodel.idvalue];
     NSLog(@"soapmsg%@",soapMessage);
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
-    
+    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
     NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/GeneralResourceDetailDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/GeneralGroupDetailDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -871,7 +966,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"SubGeneralResourceId"])
+    if([elementName isEqualToString:@"ResourceEquipmentCrewName"])
     {
         if(!_soapResults)
         {
@@ -879,7 +974,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"EqItemCode"])
+    if([elementName isEqualToString:@"GroupDescription"])
     {
         if(!_soapResults)
         {
@@ -887,64 +982,7 @@
         }
         recordResults = TRUE;
     }
-    if([elementName isEqualToString:@"Description"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"Type"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"Name"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"Qty"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    
-    if([elementName isEqualToString:@"HourlyRate"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"DailyRate"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"WeeklyRate"])
-    {
-        if(!_soapResults)
-        {
-            _soapResults = [[NSMutableString alloc] init];
-        }
-        recordResults = TRUE;
-    }
-    if([elementName isEqualToString:@"MonthlyRate"])
+    if([elementName isEqualToString:@"Houres"])
     {
         if(!_soapResults)
         {
@@ -960,6 +998,63 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Quantity"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+//    if([elementName isEqualToString:@"Qty"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    
+//    if([elementName isEqualToString:@"HourlyRate"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"DailyRate"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"WeeklyRate"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"MonthlyRate"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
+//    if([elementName isEqualToString:@"Rate"])
+//    {
+//        if(!_soapResults)
+//        {
+//            _soapResults = [[NSMutableString alloc] init];
+//        }
+//        recordResults = TRUE;
+//    }
 
         if([elementName isEqualToString:@"GeneralResourceDetailUpdateResult"])
     {
@@ -986,7 +1081,64 @@
         }
         recordResults = TRUE;
     }
-    
+    if([elementName isEqualToString:@"EquipmentCrewSetUpSelectResponse"])
+    {_crenamearray=[[NSMutableArray alloc]init];
+        _crewdict=[[NSMutableDictionary alloc]init];
+        _revcrewdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EquipmentCrewId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"EquipmentCrewName"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"PlanHoursSelectResponse"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"GeneralGroupDetailDeleteResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     
     
     
@@ -1049,132 +1201,31 @@
         _dmdl.mainGeneralId=[_soapResults integerValue];
         
         _soapResults = nil;    }
-    if([elementName isEqualToString:@"SubGeneralResourceId"])
+    if([elementName isEqualToString:@"ResourceEquipmentCrewName"])
     {
         
         
         recordResults = FALSE;
         
-        _dmdl.SubGeneralResourceId=[_soapResults integerValue];
+        _dmdl.EquipmentCrewName=_soapResults;
         
         _soapResults = nil;    }
-    if([elementName isEqualToString:@"EqItemCode"])
+    if([elementName isEqualToString:@"GroupDescription"])
     {
         
         
         recordResults = FALSE;
         
-        _dmdl.eqitemcode=_soapResults;
+        _dmdl.GroupDescription=_soapResults;
         
         _soapResults = nil;    }
-    if([elementName isEqualToString:@"Description"])
+    if([elementName isEqualToString:@"Houres"])
     {
         
         
         recordResults = FALSE;
         
-        _dmdl.eqdesc=_soapResults;
-        
-        _soapResults = nil;    }
-    if([elementName isEqualToString:@"Type"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        _dmdl.eqtype=_soapResults;
-        
-        _soapResults = nil;    }
-    if([elementName isEqualToString:@"Name"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        _dmdl.ename=_soapResults;
-        
-        _soapResults = nil;    }
-    if([elementName isEqualToString:@"Qty"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        _dmdl.qty=_soapResults;
-        
-        _soapResults = nil;    }
-    if([elementName isEqualToString:@"HourlyRate"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        if ([_soapResults isEqualToString:@"false"]) {
-            _dmdl.hrate=0;
-            //checkbtnclick=0;
-            
-        }
-        else{
-            _dmdl.hrate=1;
-            //checkbtnclick=1;
-        }
-
-        
-        _soapResults = nil;    }
-    if([elementName isEqualToString:@"DailyRate"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        
-        if ([_soapResults isEqualToString:@"false"]) {
-            _dmdl.drate=0;
-            //checkbtnclick=0;
-            
-        }
-        else{
-            _dmdl.drate=1;
-            //checkbtnclick=1;
-        }
-        
-        _soapResults = nil;    }
-    
-    if([elementName isEqualToString:@"WeeklyRate"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        if ([_soapResults isEqualToString:@"false"]) {
-            _dmdl.wrate=0;
-            //checkbtnclick=0;
-            
-        }
-        else{
-            _dmdl.wrate=1;
-            //checkbtnclick=1;
-        }
-
-        
-        _soapResults = nil;    }
-    if([elementName isEqualToString:@"MonthlyRate"])
-    {
-        
-        
-        recordResults = FALSE;
-        
-        if ([_soapResults isEqualToString:@"false"]) {
-            _dmdl.mrate=0;
-            //checkbtnclick=0;
-            
-        }
-        else{
-            _dmdl.mrate=1;
-            //checkbtnclick=1;
-        }
-
-        //[_equipdestarray addObject:_dmdl];
+        _dmdl.hours=_soapResults;
         
         _soapResults = nil;    }
     if([elementName isEqualToString:@"Rate"])
@@ -1184,11 +1235,112 @@
         recordResults = FALSE;
         
         _dmdl.ratestring=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-        [_equipdestarray addObject:_dmdl];
         
         _soapResults = nil;    }
-
+    if([elementName isEqualToString:@"Quantity"])
+    {
+        
+        
+        recordResults = FALSE;
+        
+        _dmdl.qty=_soapResults;
+        [_equipdestarray addObject:_dmdl];
+        _soapResults = nil;    }
+//    if([elementName isEqualToString:@"Qty"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        _dmdl.qty=_soapResults;
+//        
+//        _soapResults = nil;    }
+//    if([elementName isEqualToString:@"HourlyRate"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        if ([_soapResults isEqualToString:@"false"]) {
+//            _dmdl.hrate=0;
+//            //checkbtnclick=0;
+//            
+//        }
+//        else{
+//            _dmdl.hrate=1;
+//            //checkbtnclick=1;
+//        }
+//
+//        
+//        _soapResults = nil;    }
+//    if([elementName isEqualToString:@"DailyRate"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        
+//        if ([_soapResults isEqualToString:@"false"]) {
+//            _dmdl.drate=0;
+//            //checkbtnclick=0;
+//            
+//        }
+//        else{
+//            _dmdl.drate=1;
+//            //checkbtnclick=1;
+//        }
+//        
+//        _soapResults = nil;    }
 //    
+//    if([elementName isEqualToString:@"WeeklyRate"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        if ([_soapResults isEqualToString:@"false"]) {
+//            _dmdl.wrate=0;
+//            //checkbtnclick=0;
+//            
+//        }
+//        else{
+//            _dmdl.wrate=1;
+//            //checkbtnclick=1;
+//        }
+//
+//        
+//        _soapResults = nil;    }
+//    if([elementName isEqualToString:@"MonthlyRate"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        if ([_soapResults isEqualToString:@"false"]) {
+//            _dmdl.mrate=0;
+//            //checkbtnclick=0;
+//            
+//        }
+//        else{
+//            _dmdl.mrate=1;
+//            //checkbtnclick=1;
+//        }
+//
+//        //[_equipdestarray addObject:_dmdl];
+//        
+//        _soapResults = nil;    }
+//    if([elementName isEqualToString:@"Rate"])
+//    {
+//        
+//        
+//        recordResults = FALSE;
+//        
+//        _dmdl.ratestring=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+//        [_equipdestarray addObject:_dmdl];
+//        
+//        _soapResults = nil;    }
+//
+//
 //    if([elementName isEqualToString:@"YearlyRate"])
 //    {
 //        
@@ -1218,9 +1370,40 @@
             _equipitemdesctextfield.text=@"";
             _equipqtytextfield.text=@"";
         }
+         if (webtype==5)
+         {
+             [self GeneralResourceDetailselect];
+         }
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"EquipmentCrewId"])
+    {
+        recordResults =FALSE;
+        crewid=_soapResults;
+        _soapResults = nil;
+        
+        
+    }
+    
+    if([elementName isEqualToString:@"EquipmentCrewName"])
+    {
+        
+        recordResults = FALSE;
+        [_crenamearray addObject:_soapResults];
+        [_crewdict setObject:crewid forKey:_soapResults];
+        [_revcrewdict setObject:_soapResults forKey:crewid];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        recordResults = FALSE;
+        planhours=_soapResults;
+        [self GeneralResourceDetailInsert];
+        _soapResults = nil;
+    }
+
     
     
     
@@ -1306,10 +1489,10 @@
         
         equippath=indexPath.row;
         
-        Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:equippath];
-        
-        equipdraggedData = emdl.itemcode;
-        NSLog(@"name2%@",emdl.itemcode);
+       // Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:equippath];
+        NSString *cid=[_crenamearray objectAtIndex:equippath];
+        equipdraggedData = cid;
+        NSLog(@"name2%@",cid);
         NSLog(@"apath%d",equippath);
     }
 }
@@ -1339,7 +1522,7 @@
             if(indexPath != nil)
             {
                 Drageqmodel *dmdl=(Drageqmodel *)[_equipdestarray objectAtIndex:indexPath.row];
-                dmdl.eqitemcode=equipdraggedData;
+                dmdl.EquipmentCrewName=equipdraggedData;
                 [_equipdestarray addObject:dmdl];
 
                 //[_equipdestarray insertObject:equipdraggedData atIndex:indexPath.row];
@@ -1349,7 +1532,7 @@
             {
                 if ([_equipdestarray count]==0) {
                     Drageqmodel *dmdl=[[Drageqmodel alloc]init];
-                    dmdl.eqitemcode=equipdraggedData;
+                    dmdl.EquipmentCrewName=equipdraggedData;
                     [_equipdestarray addObject:dmdl];
 
                 }
@@ -1357,11 +1540,11 @@
                 {
                 
                 Drageqmodel *dmdl=(Drageqmodel *)[_equipdestarray objectAtIndex:indexPath.row];
-                dmdl.eqitemcode=equipdraggedData;
+                dmdl.EquipmentCrewName=equipdraggedData;
                 [_equipdestarray addObject:dmdl];
                 }
-                
-                [self GeneralResourceDetailInsert];
+                [self PlanHoursSelect];
+               // [self GeneralResourceDetailInsert];
             }
         }
         else if(!equipdragFromSource && equippathFromDstTable != nil)
@@ -1442,8 +1625,9 @@
     equipdropAreaFrame.origin.y = kNavBarHeight;
     equipdropAreaFrame.size.height -= kNavBarHeight;
     
-    equipdropArea = [[UIView alloc] initWithFrame:CGRectMake(305, 35, 688, 700)];
+    equipdropArea = [[UIView alloc] initWithFrame:CGRectMake(350, 35, 638, 700)];
     [equipdropArea setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f]];
+    //[equipdropArea setBackgroundColor:[UIColor redColor]];
     [self.equiptouchview addSubview:equipdropArea];
     
     CGRect contentFrame = equipdropAreaFrame;
@@ -1476,9 +1660,9 @@
     
     equipdraggedCell = [[UITableViewCell alloc] init];
     equipdraggedCell.selectionStyle = UITableViewCellSelectionStyleGray;
-    Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:indexPath.row];
-    equipdraggedCell.textLabel.text =emdl.itemcode;
-    NSLog(@"name1%@",emdl.itemcode);
+   // Equpmntmdl *emdl=(Equpmntmdl *)[_equipsrcarray objectAtIndex:indexPath.row];
+    equipdraggedCell.textLabel.text =[_crenamearray objectAtIndex:indexPath.row];
+    //NSLog(@"name1%@",emdl.itemcode);
     NSLog(@"apath%d",indexPath.row);
     equipdraggedCell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     
