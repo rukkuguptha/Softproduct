@@ -71,11 +71,14 @@
 @property(strong,nonatomic)NSMutableData   * webData;
 
 /*arrays*/
+@property(strong,nonatomic)NSMutableDictionary *matrlcrewdict;
 @property(strong,nonatomic)NSMutableArray *manpowerarray;
 @property(strong,nonatomic)NSMutableArray *generaldetailarray;
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *resourcearray;
 @property(strong,nonatomic)NSMutableDictionary *crewdict;
+@property (strong, nonatomic)NSMutableDictionary *revcrewdict;
+@property(strong,nonatomic)NSMutableArray *crewnamearray;
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
 @property (strong, nonatomic) IBOutlet UITableView *manpwrtable;
