@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ModlEstimation.h"
 #import "PhsestViewController.h"
+#import "DPCalendarTestViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -23,7 +24,7 @@
 }
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;
 @property(strong,nonatomic) ModlEstimation *mdlestmtn;
-
+@property(strong,nonatomic)DPCalendarTestViewController *DPVCtrl;
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;

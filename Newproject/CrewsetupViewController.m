@@ -39,18 +39,7 @@
     _crewnametable.layer.borderWidth=2.0f;
     
     
-    _autocompltearray=[[NSMutableArray alloc]init];
-    _crewnametxtfld.delegate=(id)self;
-    _autocompleteTableView = [[UITableView alloc] initWithFrame:CGRectMake(406, 130, 203, 100) style:UITableViewStylePlain];
-    _autocompleteTableView.delegate = (id)self;
-    _autocompleteTableView.dataSource =(id) self;
-    _autocompleteTableView.scrollEnabled = YES;
-    _autocompleteTableView.hidden = YES;
-    _autocompleteTableView.layer.borderColor=[UIColor blackColor].CGColor ;
-    _autocompleteTableView.layer.borderWidth=2.0f;
-    _autocompleteTableView.rowHeight=30;
-    [self.view addSubview:_autocompleteTableView];
-
+  
     
     UIPanGestureRecognizer* panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePanning:)];
     panGesture.delegate=self;
@@ -1496,8 +1485,17 @@
               
 
            }
+        if ([_soapResults isEqualToString:@"insertcrew"]) {
+            
+            [self Selectcrewname];
+          
+            
+            
+            
+        }
+
         
-        if ([_soapResults isEqualToString:@"insertcrew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
+        if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
              _crewnametxtfld.text=@"";
             [self Selectcrewname];
         }

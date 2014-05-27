@@ -2928,36 +2928,36 @@ _passingdate=dateString;
             
             [self SitevisitSelectWeatherOutlook];
            }
-        if ([_soapResults isEqualToString:@"deletedjobsitereq"]) {
+      else  if ([_soapResults isEqualToString:@"deletedjobsitereq"]) {
             
             [self SitevisitSelectjobsitereq];
         }
         
-        if ([_soapResults isEqualToString:@"deletedsafetyrules"]) {
+        else  if ([_soapResults isEqualToString:@"deletedsafetyrules"]) {
             
             [self Selectsafetyrulessitevisit];
         }
-        if ([_soapResults isEqualToString:@"deletedequipmentsitevisit"]) {
+       else   if ([_soapResults isEqualToString:@"deletedequipmentsitevisit"]) {
             
             [self SitevisitSelectequipment];
         }
-        if ([_soapResults isEqualToString:@"deletedworkschedule"]) {
+       else   if ([_soapResults isEqualToString:@"deletedworkschedule"]) {
             
             [self SitevisitSelectWorkSchedule];
         }
-        if ([_soapResults isEqualToString:@"deletedmeetingnotes"]) {
+       else   if ([_soapResults isEqualToString:@"deletedmeetingnotes"]) {
             
             [self SitevisitSelectMeetingNotes];
         }
-        if ([_soapResults isEqualToString:@"deletedotherbidder"]) {
+       else   if ([_soapResults isEqualToString:@"deletedotherbidder"]) {
             
             [self SitevisitSelectOtherBidders];
         }
-        if ([_soapResults isEqualToString:@"deletednotes"]) {
+       else   if ([_soapResults isEqualToString:@"deletednotes"]) {
             
             [self SitevisitSelectNotes];
         }
-        if ([_soapResults isEqualToString:@"deletedproductionrates"]) {
+       else   if ([_soapResults isEqualToString:@"deletedproductionrates"]) {
             
             [self SitevisitSelectproductionrate];
         }

@@ -35,7 +35,7 @@
     _estmntable.layer.borderWidth = 2.0;
     _estmntable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 
-    _listarray=[[NSMutableArray alloc]initWithObjects:@"Resource planning", nil];
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"Resource planning",@"Estimation Calendar", nil];
     [self WorkTypeSelect];
 
 }
@@ -208,17 +208,34 @@ if (tableView==_estmntable) {
     
      ModlEstimation *estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
     if (tableView==_popOverTableView) {
-        
-        
-        if (!self.phestVCtrl) {
-            self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
-        }
-        _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-        _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-        _phestVCtrl.estmtnid=estmdl.estimateid;
-        [self presentViewController:_phestVCtrl
-                           animated:YES completion:NULL];
+        switch (indexPath.row) {
+            case 0:
+                self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
+                
+                _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+                _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+                _phestVCtrl.estmtnid=estmdl.estimateid;
+                [self presentViewController:_phestVCtrl
+                                   animated:YES completion:NULL];
 
+                break;
+            case 1:
+               
+                   // self.DPVCtrl=[[DPCalendarTestViewController alloc]initWithNibName:@"DPCalendarTestViewController" bundle:nil];
+                    self.DPVCtrl=[DPCalendarTestViewController new];
+                
+                //_DPVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+               // _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+               // DPVCtrl.estmtnid=estmdl.estimateid;
+                [self presentViewController:_DPVCtrl
+                                   animated:YES completion:NULL];
+                
+                break;
+
+            default:
+                break;
+        }
+       
         
 //        switch (poptype) {
 //            case 1:
@@ -280,7 +297,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -329,7 +346,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -378,7 +395,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -459,7 +476,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -508,9 +525,9 @@ if (tableView==_estmntable) {
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
-    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -559,9 +576,9 @@ if (tableView==_estmntable) {
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
-    //NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -611,7 +628,7 @@ if (tableView==_estmntable) {
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
