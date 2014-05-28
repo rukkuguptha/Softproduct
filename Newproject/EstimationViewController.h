@@ -20,6 +20,7 @@
     NSString * customerstring;
     UIButton *button;
     NSString * typestg;
+    NSInteger disindex;
     
 }
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;

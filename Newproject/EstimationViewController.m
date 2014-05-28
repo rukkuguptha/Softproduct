@@ -206,7 +206,12 @@ if (tableView==_estmntable) {
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-     ModlEstimation *estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:indexPath.row];
+     ModlEstimation *estmdl=(ModlEstimation *)[_Estimationarray objectAtIndex:disindex];
+    
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:estmdl.estimateid forKey:@"Estimationid"];
+    [defaults synchronize];
+
     if (tableView==_popOverTableView) {
         switch (indexPath.row) {
             case 0:
@@ -1151,6 +1156,11 @@ if (tableView==_estmntable) {
 }
 
 - (IBAction)disclurebtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.estmntable];
+    NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
+    disindex=textFieldIndexPath.row;
     [self createpopover];
 }
 
