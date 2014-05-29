@@ -265,6 +265,7 @@
 		D4A10B6B1935FCCA001856F8 /* Eventcalcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B661935FCCA001856F8 /* Eventcalcell.xib */; };
 		D4A10B6C1935FCCA001856F8 /* Matcalevecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B671935FCCA001856F8 /* Matcalevecell.xib */; };
 		D4A10B6D1935FCCA001856F8 /* Sumcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B681935FCCA001856F8 /* Sumcell.xib */; };
+		D4A10B731936F588001856F8 /* Eventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B721936F588001856F8 /* Eventmdl.m */; };
 		D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A21FFD190A1D790065840D /* DequipViewController.m */; };
 		D4A22002190A1D890065840D /* Dragequip.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A21FFF190A1D890065840D /* Dragequip.xib */; };
 		D4A22003190A1D890065840D /* Srcequcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A22000190A1D890065840D /* Srcequcell.xib */; };
@@ -745,6 +746,8 @@
 		D4A10B661935FCCA001856F8 /* Eventcalcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Eventcalcell.xib; sourceTree = "<group>"; };
 		D4A10B671935FCCA001856F8 /* Matcalevecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Matcalevecell.xib; sourceTree = "<group>"; };
 		D4A10B681935FCCA001856F8 /* Sumcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Sumcell.xib; sourceTree = "<group>"; };
+		D4A10B711936F588001856F8 /* Eventmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eventmdl.h; sourceTree = "<group>"; };
+		D4A10B721936F588001856F8 /* Eventmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eventmdl.m; sourceTree = "<group>"; };
 		D4A21FFC190A1D790065840D /* DequipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DequipViewController.h; sourceTree = "<group>"; };
 		D4A21FFD190A1D790065840D /* DequipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DequipViewController.m; sourceTree = "<group>"; };
 		D4A21FFF190A1D890065840D /* Dragequip.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Dragequip.xib; sourceTree = "<group>"; };
@@ -1524,6 +1527,8 @@
 				D4F3435F191CCD220023D715 /* ModlEstimation.m */,
 				D40427E619237F980049A709 /* Rephase.h */,
 				D40427E719237F980049A709 /* Rephase.m */,
+				D4A10B711936F588001856F8 /* Eventmdl.h */,
+				D4A10B721936F588001856F8 /* Eventmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2034,6 +2039,7 @@
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */,
 				D49F875518EEA36B00413CAD /* allfolderrights.m in Sources */,
+				D4A10B731936F588001856F8 /* Eventmdl.m in Sources */,
 				D4049668192F183B00685109 /* GroupEqupViewController.m in Sources */,
 				D49F875A18EEA36B00413CAD /* Equpmntmdl.m in Sources */,
 				D4A674BE19345FFD00D5A77E /* DPCalendarTestOptionsViewController.m in Sources */,
