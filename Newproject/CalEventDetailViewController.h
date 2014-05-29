@@ -7,12 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Detaileventmanpwr.h"
+#import "Eqeventmdl.h"
 
 @interface CalEventDetailViewController : UIViewController
 {
     NSInteger tooltype;
+     NSInteger sum;
+     NSInteger eqsum;
+    NSInteger matsum;
+    BOOL recordResults;
 }
 
+@property(strong,nonatomic)NSString *selecteddate;
+@property(strong,nonatomic)Detaileventmanpwr *manpwr;
+@property(strong,nonatomic)Eqeventmdl *eqmdl;
+@property(strong,nonatomic)IBOutlet UILabel *totallabel;
+/*xmlParser*/
+@property(strong,nonatomic)NSMutableData *webData;
+@property(strong,nonatomic)NSMutableString *soapresults;
+@property(strong,nonatomic)NSXMLParser *xmlparser;
 
 @property(strong,nonatomic)IBOutlet UITableView *calmanpwrtable;
 @property(strong,nonatomic)IBOutlet UITableView *sumtable;
@@ -26,11 +40,35 @@
 @property(strong,nonatomic)IBOutlet UIView *mattitleview;
 @property(strong,nonatomic)IBOutlet UIView *summarytitleview;
 
+@property(strong,nonatomic)NSMutableArray *manpwrarray;
+@property(strong,nonatomic)NSMutableArray *totalarray;
+@property(strong,nonatomic)NSMutableArray *eqpmntarray;
+
 
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)manpoweraction:(id)sender;
 - (IBAction)equipmentaction:(id)sender;
 - (IBAction)materialaction:(id)sender;
 - (IBAction)summaryaction:(id)sender;
+
+
+/*Labels in Manpwr*/
+@property(strong,nonatomic)IBOutlet UILabel *manitemcodelabel;
+@property(strong,nonatomic)IBOutlet UILabel *mandeslabel;
+@property(strong,nonatomic)IBOutlet UILabel *manpdatelabel;
+@property(strong,nonatomic)IBOutlet UILabel *manqtylabel;
+@property(strong,nonatomic)IBOutlet UILabel *manstlabel;
+@property(strong,nonatomic)IBOutlet UILabel *manotlabel;
+@property(strong,nonatomic)IBOutlet UILabel *manstratelabel;
+@property(strong,nonatomic)IBOutlet UILabel *manotratelabel;
+@property(strong,nonatomic)IBOutlet UILabel *mantotallabel;
+
+
+/*Labels in equipment*/
+@property(strong,nonatomic)IBOutlet UILabel *Eqitemcodelabel;
+@property(strong,nonatomic)IBOutlet UILabel *Eqdeslabel;
+@property(strong,nonatomic)IBOutlet UILabel *Eqdatelabel;
+@property(strong,nonatomic)IBOutlet UILabel *Eqqtylabel;
+@property(strong,nonatomic)IBOutlet UILabel *Eqtotallabel;
 
 @end

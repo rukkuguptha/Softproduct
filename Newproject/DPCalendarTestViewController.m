@@ -300,10 +300,14 @@
 }
 
 -(void)didSelectItemWithDate:(NSDate *)date {
-    
+    NSDateFormatter *formatter2 = [[NSDateFormatter alloc] init];
+   [formatter2 setDateFormat: @"yyyy-MM-dd"];
+    NSString *stringFromDate = [formatter2 stringFromDate:date];
+    NSLog(@"Select date %@", stringFromDate);
     if (!self.calctrl) {
         self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
     }
+    _calctrl.selecteddate=stringFromDate;
     [self presentViewController:_calctrl
                        animated:YES completion:NULL];
     
