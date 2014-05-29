@@ -1127,6 +1127,13 @@
         [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
          _titlenamelabel.text=@"";
     }
+   else if([usrmdl.UserTypeId isEqualToString:@"1"])
+   {
+       [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+       [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
+       _titlenamelabel.text=@"";
+   }
+
 
 }
 -(IBAction)closeuserview:(id)sender
