@@ -10,6 +10,7 @@
 #import "ModlEstimation.h"
 #import "PhsestViewController.h"
 #import "DPCalendarTestViewController.h"
+#import "CalEventDetailViewController.h"
 @interface EstimationViewController : UIViewController{
     
     NSInteger poptype;
@@ -23,6 +24,7 @@
     NSInteger disindex;
     
 }
+@property(strong,nonatomic)CalEventDetailViewController * calctrl;
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;
 @property(strong,nonatomic) ModlEstimation *mdlestmtn;
 @property(strong,nonatomic)DPCalendarTestViewController *DPVCtrl;

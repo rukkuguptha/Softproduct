@@ -35,7 +35,7 @@
     _estmntable.layer.borderWidth = 2.0;
     _estmntable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 
-    _listarray=[[NSMutableArray alloc]initWithObjects:@"Resource planning",@"Estimation Calendar", nil];
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"Resource planning",@"Estimation Calendar",@"Estimation Review", nil];
     [self WorkTypeSelect];
 
 }
@@ -236,7 +236,13 @@ if (tableView==_estmntable) {
                                    animated:YES completion:NULL];
                 
                 break;
-
+                 case 2:
+                if (!self.calctrl) {
+                    self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
+                }
+                [self presentViewController:_calctrl
+                                   animated:YES completion:NULL];
+           break;
             default:
                 break;
         }
