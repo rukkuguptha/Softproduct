@@ -11,6 +11,7 @@
 
 @interface DPCalendarTestViewController : UINavigationController<UIActionSheetDelegate>{
     BOOL recordResults;
+    NSString*previoustitle;
 
 }
 @property(strong,nonatomic)CalEventDetailViewController * calctrl;

@@ -530,7 +530,25 @@
     {
         
         recordResults = FALSE;
-        [_titlearray addObject:_soapresults];
+      
+        NSArray*array=[_soapresults componentsSeparatedByString:@""];
+        NSString*newtitile=[array objectAtIndex:0];
+        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]) {
+            newtitile=@"Cost";
+            }
+        
+        if ([previoustitle isEqualToString:@"Cost"]) {
+            
+            
+        }
+        else{
+              [_titlearray addObject:newtitile];
+        }
+        
+      
+        
+        previoustitle=newtitile;
+        
         _soapresults = nil;
 
     }
