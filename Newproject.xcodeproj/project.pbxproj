@@ -29,6 +29,9 @@
 		6437578518BC554B003691E6 /* Subtypecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578418BC554B003691E6 /* Subtypecell.xib */; };
 		6437578718BC5572003691E6 /* maintablecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6437578618BC5572003691E6 /* maintablecell.xib */; };
 		64428BBF192E08E800CB2CF9 /* Notepad.png in Resources */ = {isa = PBXBuildFile; fileRef = 64428BBE192E08E800CB2CF9 /* Notepad.png */; };
+		646A28B61937350400902C4A /* Detaileventmanpwr.m in Sources */ = {isa = PBXBuildFile; fileRef = 646A28B51937350400902C4A /* Detaileventmanpwr.m */; };
+		646A28B91937351D00902C4A /* Eqeventmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 646A28B81937351D00902C4A /* Eqeventmdl.m */; };
+		646A28BC193743CF00902C4A /* OthereventMaodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 646A28BB193743CF00902C4A /* OthereventMaodel.m */; };
 		6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 6481615B176EF0C50017F4CC /* rightarowblack.png */; };
 		648D12FE17716C7F006BB41A /* rectangle3.png in Resources */ = {isa = PBXBuildFile; fileRef = 648D12FD17716C7F006BB41A /* rectangle3.png */; };
 		648DE20B1777F7B400261F74 /* ContactInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8811772DFDA00CAECE7 /* ContactInfoViewController.xib */; };
@@ -412,6 +415,12 @@
 		6437578418BC554B003691E6 /* Subtypecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Subtypecell.xib; sourceTree = "<group>"; };
 		6437578618BC5572003691E6 /* maintablecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = maintablecell.xib; sourceTree = "<group>"; };
 		64428BBE192E08E800CB2CF9 /* Notepad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Notepad.png; sourceTree = "<group>"; };
+		646A28B41937350400902C4A /* Detaileventmanpwr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Detaileventmanpwr.h; sourceTree = "<group>"; };
+		646A28B51937350400902C4A /* Detaileventmanpwr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Detaileventmanpwr.m; sourceTree = "<group>"; };
+		646A28B71937351D00902C4A /* Eqeventmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Eqeventmdl.h; sourceTree = "<group>"; };
+		646A28B81937351D00902C4A /* Eqeventmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Eqeventmdl.m; sourceTree = "<group>"; };
+		646A28BA193743CF00902C4A /* OthereventMaodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OthereventMaodel.h; sourceTree = "<group>"; };
+		646A28BB193743CF00902C4A /* OthereventMaodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OthereventMaodel.m; sourceTree = "<group>"; };
 		6481615B176EF0C50017F4CC /* rightarowblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightarowblack.png; sourceTree = "<group>"; };
 		648D12FD17716C7F006BB41A /* rectangle3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rectangle3.png; sourceTree = "<group>"; };
 		648D12FF17716E0E006BB41A /* appbar.close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.close.png; sourceTree = "<group>"; };
@@ -1529,6 +1538,12 @@
 				D40427E719237F980049A709 /* Rephase.m */,
 				D4A10B711936F588001856F8 /* Eventmdl.h */,
 				D4A10B721936F588001856F8 /* Eventmdl.m */,
+				646A28B41937350400902C4A /* Detaileventmanpwr.h */,
+				646A28B51937350400902C4A /* Detaileventmanpwr.m */,
+				646A28B71937351D00902C4A /* Eqeventmdl.h */,
+				646A28B81937351D00902C4A /* Eqeventmdl.m */,
+				646A28BA193743CF00902C4A /* OthereventMaodel.h */,
+				646A28BB193743CF00902C4A /* OthereventMaodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1998,6 +2013,7 @@
 				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
 				D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */,
 				D49F876E18EEA36B00413CAD /* Vlumedismdl.m in Sources */,
+				646A28BC193743CF00902C4A /* OthereventMaodel.m in Sources */,
 				D49F875218EEA36B00413CAD /* commentmdl.m in Sources */,
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
@@ -2019,6 +2035,7 @@
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
+				646A28B91937351D00902C4A /* Eqeventmdl.m in Sources */,
 				649EB48B18A8DF4700CDBE28 /* DetailproHrViewController.m in Sources */,
 				D49F875F18EEA36B00413CAD /* Scaffoldtypemdl.m in Sources */,
 				D4B7018018AB3EAB0060BE0A /* PlanningViewController.m in Sources */,
@@ -2035,6 +2052,7 @@
 				D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */,
 				D4A6749919345F1B00D5A77E /* DPCalendarIconEvent.m in Sources */,
 				D4EC7E3C192A09FD00C60BA9 /* DrawingViewController.m in Sources */,
+				646A28B61937350400902C4A /* Detaileventmanpwr.m in Sources */,
 				D4F34355191C9C8E0023D715 /* EsttileViewController.m in Sources */,
 				64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */,
 				D4A21FFE190A1D790065840D /* DequipViewController.m in Sources */,
