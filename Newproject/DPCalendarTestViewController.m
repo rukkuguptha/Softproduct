@@ -531,7 +531,7 @@
         
         recordResults = FALSE;
       
-        NSArray*array=[_soapresults componentsSeparatedByString:@""];
+        NSArray*array=[_soapresults componentsSeparatedByString:@" "];
         NSString*newtitile=[array objectAtIndex:0];
         if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]) {
             newtitile=@"Cost";
