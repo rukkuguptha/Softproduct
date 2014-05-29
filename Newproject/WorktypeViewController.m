@@ -106,12 +106,20 @@
         [_worktypearray removeObject:indexPath];
         
         
-        
-        
-        
-    }
+        }
     
 }
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+//   
+//    static NSString *CellIdentifier = @"SectionHeader";
+//    UITableViewCell *headerView = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (headerView == nil){
+//        [[NSBundle mainBundle]loadNibNamed:@"worktypecell" owner:self options:nil];
+//       // [NSException raise:@"headerView == nil.." format:@"No cells with matching CellIdentifier loaded from your storyboard"];
+//    }
+//    return headerView;
+//    
+//}
 #pragma mark-webservice
 -(void)WorkTypeSelect{
     
