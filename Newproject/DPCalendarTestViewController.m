@@ -153,6 +153,7 @@
            
            else{
                 [_eventdatearray addObject:eventdate];
+               [_alldatearray addObject:[_datearray objectAtIndex:i]];
            }
            _previousdate=eventdate;
           
@@ -161,18 +162,46 @@
            
        }
     
-    //UIImage *icon = [UIImage imageNamed:@"IconPubHol"];
-    //UIImage *greyIcon = [UIImage imageNamed:@"IconDateGrey"];
-    //NSArray*datearray=[[NSArray alloc]initWithObjects:[date dateByAddingYears:0 months:0 days:1],[date dateByAddingYears:0 months:0 days:4],[date dateByAddingYears:0 months:0 days:3] ,nil];
+    NSString*dkey;
+         for (int i = 0; i < [_alldatearray count]; i++) {
+              _alltitlearray=[[NSMutableArray alloc]init];
+              dkey=[_alldatearray objectAtIndex:i];
+             for (int x = 0; x < [_calendararray count]; x++){
+                 Eventmdl*neweve=(Eventmdl *)[_calendararray objectAtIndex:x];
+                
+
+            if ([neweve.startdate isEqualToString:[_alldatearray objectAtIndex:i]]) {
+                if ([neweve.Title length]==0) {
+                    
+                }
+                else{
+                [_alltitlearray addObject:neweve.Title];
+                }
+            }
+            else{
+                
+            }
+        }
+             
+             NSLog(@"date%@",dkey);
+          [_titledict setObject:_alltitlearray forKey:dkey];
+              NSLog(@"_titledict%@",_titledict);
+     }
+
     
-    //NSArray *titles = @[@"Manpower", @"Materials", @"ThirdParty",@"Consumbles",@"Third party"];
+   
     
-    for (int i = 0; i < [_eventdatearray count]; i++) {
-        for (int x=0; x<[_titlearray count]; x++) {
+  for (int i = 0; i < [_eventdatearray count]; i++) {
+        
+        
+      
+        
+     NSArray*array=  [_titledict objectForKey:[_alldatearray objectAtIndex:i]];
+        for (int x=0; x<[array count]; x++) {
             
         
             int index = x;
-            DPCalendarEvent *event = [[DPCalendarEvent alloc] initWithTitle:[_titlearray objectAtIndex:index] startTime:[_eventdatearray objectAtIndex:i] endTime:[_eventdatearray objectAtIndex:i]  colorIndex:index];
+            DPCalendarEvent *event = [[DPCalendarEvent alloc] initWithTitle:[array objectAtIndex:index] startTime:[_eventdatearray objectAtIndex:i] endTime:[_eventdatearray objectAtIndex:i]  colorIndex:index];
             [events addObject:event];
         }
         
@@ -245,6 +274,9 @@
 	[self updateLabelWithMonth:self.monthlyView.seletedMonth];
     [self CalenderSelect];
     _eventdatearray=[[NSMutableArray alloc]init];
+    _alldatearray=[[NSMutableArray alloc]init];
+    _titledict=[[NSMutableDictionary alloc]init];
+
    }
 
 - (void) updateLabelWithMonth:(NSDate *)month {
@@ -449,7 +481,8 @@
     {
         _datearray=[[NSMutableArray alloc]init];
         _titlearray=[[NSMutableArray alloc]init];
-        if(!_soapresults)
+        _calendararray=[[NSMutableArray alloc]init];
+             if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
         }
@@ -510,11 +543,13 @@
     
       if([elementName isEqualToString:@"Start"])
     {
-        
+        _eventmdl=[[Eventmdl alloc]init];
         recordResults = FALSE;
         NSArray*array=[_soapresults componentsSeparatedByString:@"T"];
         NSString*new=[array objectAtIndex:0];
         [_datearray addObject:new];
+        _eventmdl.startdate=new;
+      
         _soapresults = nil;
 
     }
@@ -523,32 +558,7 @@
     {
         
         recordResults = FALSE;
-        _soapresults = nil;
-
-    }
-    if([elementName isEqualToString:@"Title"])
-    {
-        
-        recordResults = FALSE;
-      
-        NSArray*array=[_soapresults componentsSeparatedByString:@" "];
-        NSString*newtitile=[array objectAtIndex:0];
-        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]) {
-            newtitile=@"Cost";
-            }
-        
-        if ([previoustitle isEqualToString:@"Cost"]) {
-            
-            
-        }
-        else{
-              [_titlearray addObject:newtitile];
-        }
-        
-      
-        
-        previoustitle=newtitile;
-        
+        _eventmdl.enddate=_soapresults;
         _soapresults = nil;
 
     }
@@ -556,10 +566,62 @@
     {
         
         recordResults = FALSE;
+        _eventmdl.sum1=_soapresults;
+        
+        
+        _soapresults = nil;
+        
+    }
+
+    if([elementName isEqualToString:@"Title"])
+    {
+        
+        recordResults = FALSE;
+      
+        NSArray*array=[_soapresults componentsSeparatedByString:@" "];
+         NSString*newtitile=[array objectAtIndex:0];
+        NSLog(@"title%@",newtitile);
+        
+        
+        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]) {
+            //newtitile=@"Cost";
+            newtitile=[NSString stringWithFormat:@"Cost %@",_eventmdl.sum1];
+            if ([previoustitle isEqualToString:@"Cost"]) {
+                
+                
+                
+            }
+            else{
+                [_titlearray addObject:newtitile];
+                 _eventmdl.Title=newtitile;
+               // [_titledict setObject:newtitile forKey:_eventmdl.startdate];
+            }
+        }
+        else{
+            
+             [_titlearray addObject:newtitile];
+             _eventmdl.Title=newtitile;
+            //  [_titledict setObject:newtitile forKey:_eventmdl.startdate];
+            
+        }
+
+        if ([olddate isEqualToString:_eventmdl.startdate]) {
+            
+           // [_titledict setObject:_titlearray forKey:_eventmdl.startdate];
+            
+        }
+        
+        
+     
+        NSArray*array1=[newtitile componentsSeparatedByString:@" "];
+        previoustitle=[array1 objectAtIndex:0];
+
+      [_calendararray addObject:_eventmdl];
+          olddate=_eventmdl.startdate;
         _soapresults = nil;
 
     }
-
+  
 }
 
 @end
