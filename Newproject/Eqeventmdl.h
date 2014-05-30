@@ -13,4 +13,6 @@
 @property(strong,nonatomic)NSString *eventDescription;
 @property(strong,nonatomic)NSString *UnitCost;
 @property(strong,nonatomic)NSString *Qty;
+@property(strong,nonatomic)NSString *eqdate;
+
 @end
