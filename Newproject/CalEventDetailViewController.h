@@ -40,7 +40,7 @@
 @property(strong,nonatomic)IBOutlet UITableViewCell *calothercell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *sumcell;
 
-
+@property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 @property(strong,nonatomic)IBOutlet UIView *mantitleview;
 @property(strong,nonatomic)IBOutlet UIView *mattitleview;
 @property(strong,nonatomic)IBOutlet UIView *summarytitleview;

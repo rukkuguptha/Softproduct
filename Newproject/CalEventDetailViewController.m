@@ -55,11 +55,12 @@
     _calmanpwrtable.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        _navitem.title=@"Estimation Review";
         [self EstimationManPowerReviewSelect];
     }
     else
     {
-    
+     _navitem.title=@"Calendar";
     [self CalenderManPowerSelect];
     }
 
@@ -142,7 +143,7 @@
     _calmanpwrtable.hidden=YES;
     _sumtable.hidden=NO;
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
-        
+        sum=0;
         _reviewsumarray=[[NSMutableArray alloc]init];
         _titlearray=[[NSMutableArray alloc]init];
         [self SummaryManPowerSelect];
@@ -1549,6 +1550,7 @@
         
         
         [_reviewsumarray addObject:_soapresults];
+       
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"Column1"])
