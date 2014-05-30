@@ -240,6 +240,8 @@ if (tableView==_estmntable) {
                 if (!self.calctrl) {
                     self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
                 }
+                _calctrl.estimationstring=@"Estimationreview";
+                _calctrl.estid=estmdl.estimateid;
                 [self presentViewController:_calctrl
                                    animated:YES completion:NULL];
            break;

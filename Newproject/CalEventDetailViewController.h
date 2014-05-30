@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "Detaileventmanpwr.h"
 #import "Eqeventmdl.h"
+#import "Eventmdl.h"
+#import "OthereventMaodel.h"
 
 @interface CalEventDetailViewController : UIViewController
 {
@@ -22,6 +24,8 @@
 @property(strong,nonatomic)NSString *selecteddate;
 @property(strong,nonatomic)Detaileventmanpwr *manpwr;
 @property(strong,nonatomic)Eqeventmdl *eqmdl;
+@property(strong,nonatomic)OthereventMaodel *othrmdl;
+@property(strong,nonatomic)Eventmdl *eventmdl;
 @property(strong,nonatomic)IBOutlet UILabel *totallabel;
 /*xmlParser*/
 @property(strong,nonatomic)NSMutableData *webData;
@@ -33,6 +37,7 @@
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *calmanpwrcell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *calmaterialcell;
+@property(strong,nonatomic)IBOutlet UITableViewCell *calothercell;
 @property(strong,nonatomic)IBOutlet UITableViewCell *sumcell;
 
 
@@ -42,7 +47,15 @@
 
 @property(strong,nonatomic)NSMutableArray *manpwrarray;
 @property(strong,nonatomic)NSMutableArray *totalarray;
+@property(strong,nonatomic)NSMutableArray *otherarray;
 @property(strong,nonatomic)NSMutableArray *eqpmntarray;
+@property(strong,nonatomic)NSMutableArray *summaryarray;
+@property(strong,nonatomic)NSMutableArray *datearray;
+@property(strong,nonatomic)NSMutableArray *reviewsumarray;
+@property(strong,nonatomic)NSMutableArray *titlearray;
+
+@property(strong,nonatomic)NSMutableDictionary *titledict;
+@property(strong,nonatomic)NSString *datedictstring;
 
 
 - (IBAction)clsebtn:(id)sender;
@@ -70,5 +83,23 @@
 @property(strong,nonatomic)IBOutlet UILabel *Eqdatelabel;
 @property(strong,nonatomic)IBOutlet UILabel *Eqqtylabel;
 @property(strong,nonatomic)IBOutlet UILabel *Eqtotallabel;
+
+/*Labels in summary*/
+@property(strong,nonatomic)IBOutlet UILabel *summarylabel;
+@property(strong,nonatomic)IBOutlet UILabel *costlabel;
+
+/*Labels in equipment*/
+@property(strong,nonatomic)IBOutlet UILabel *Otheritemcodelabel;
+@property(strong,nonatomic)IBOutlet UILabel *Otherdeslabel;
+@property(strong,nonatomic)IBOutlet UILabel *otherdatelabel;
+@property(strong,nonatomic)IBOutlet UILabel *otherqtylabel;
+@property(strong,nonatomic)IBOutlet UILabel *othertotallabel;
+
+
+/*Estimation Review*/
+@property(strong,nonatomic)NSString *estimationstring;
+@property(strong,nonatomic)NSString *estid;
+
+
 
 @end

@@ -54,7 +54,14 @@
     //[_calmanpwrtable reloadData];
     _calmanpwrtable.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        [self EstimationManPowerReviewSelect];
+    }
+    else
+    {
+    
     [self CalenderManPowerSelect];
+    }
 
 }
 
@@ -77,8 +84,14 @@
     _sumtable.hidden=YES;
     //[_calmanpwrtable reloadData];
     _calmanpwrtable.hidden=NO;
-    
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        [self EstimationManPowerReviewSelect];
+    }
+    else
+    {
+
      [self CalenderManPowerSelect];
+    }
 }
 - (IBAction)equipmentaction:(id)sender
 {
@@ -89,30 +102,57 @@
     _mattitleview.hidden=NO;
     _sumtable.hidden=YES;
     _calmanpwrtable.hidden=NO;
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        [self EstimationEquipmentReviewSelect];
+    }
+    else
+    {
+
     [self CalenderEquipmentSelect];
+    }
    // [_calmanpwrtable reloadData];
 }
 - (IBAction)materialaction:(id)sender
 {
     tooltype=3;
-     _totalarray=[[NSMutableArray alloc]init];
+    
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _summarytitleview.hidden=YES;
     _mattitleview.hidden=NO;
     _sumtable.hidden=YES;
     _calmanpwrtable.hidden=NO;
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        [self EstimationOtherReviewSelect];
+    }
+    else
+    {
+
    [self CalenderOtherSelect];
-    //[_calmanpwrtable reloadData];
+    }
+   
 }
 - (IBAction)summaryaction:(id)sender
 {
     tooltype=4;
+    _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _mattitleview.hidden=YES;
     _summarytitleview.hidden=NO;
     _calmanpwrtable.hidden=YES;
     _sumtable.hidden=NO;
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        
+        _reviewsumarray=[[NSMutableArray alloc]init];
+        _titlearray=[[NSMutableArray alloc]init];
+        [self SummaryManPowerSelect];
+        [self SummaryEquipmentSelect];
+        [self SummaryMaterialSelect];
+    }
+    else
+    {
+    [self  SummarySelect];
+    }
 }
 
 #pragma mark-tableview datasource
@@ -136,15 +176,20 @@
         }
         if (tooltype==3) {
             
-           [_eqpmntarray count];
+         return [_otherarray count];
         }
     }
-    if (tableView==_sumtable) {
-      //  if (tooltype==4) {
-            
-            return 5;
-       // }
-    }
+    if (tableView==_sumtable)
+    {
+         if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+           return [_reviewsumarray count];
+        
+         }
+         else
+         {
+             return [_summaryarray count];
+         }
+        }
     
     return YES;
     
@@ -170,8 +215,8 @@
                 cell=_calmaterialcell;
             }
             if (tooltype==3) {
-                [[NSBundle mainBundle]loadNibNamed:@"Matcalevecell" owner:self options:nil];
-                cell=_calmaterialcell;
+                [[NSBundle mainBundle]loadNibNamed:@"calothereventcell" owner:self options:nil];
+                cell=_calothercell;
             }
            
             
@@ -183,8 +228,10 @@
                 cell=_sumcell;
             //}
         }
+       
+    
+     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
     }
-        cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
         if (tableView==_calmanpwrtable) {
             if (tooltype==1) {
 
@@ -195,8 +242,17 @@
                 _manitemcodelabel.text=manmdl.ItemCode;
                 _mandeslabel=(UILabel *)[cell viewWithTag:2];
                 _mandeslabel.text=manmdl.eventDescription;
-                _manpdatelabel=(UILabel *)[cell viewWithTag:3];
+                  _manpdatelabel=(UILabel *)[cell viewWithTag:3];
+                if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+                    NSArray*array=[manmdl.mandate componentsSeparatedByString:@"T"];
+                    NSString*news=[array objectAtIndex:0];
+                    _manpdatelabel.text=news;
+                }
+                else
+                {
+              
                 _manpdatelabel.text=_selecteddate;
+                }
                 _manqtylabel=(UILabel *)[cell viewWithTag:4];
                 _manqtylabel.text=manmdl.Qty;
                 _manstlabel=(UILabel *)[cell viewWithTag:5];
@@ -220,19 +276,52 @@
                 _mantotallabel.text=[NSString stringWithFormat:@"%d",total];
                  [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
                  NSLog(@"%@",_totalarray);
-                int i;
+               
                 if (indexPath.row==[_manpwrarray count]-1) {
                     [self calculatesum];
                     sum=0;
-//                for (i=0; i<[_totalarray count]; i++)
-//                {
-//                    sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
-//                     NSLog(@"%d",sum);
-//                    _totallabel.text=[NSString stringWithFormat:@"%d",sum]  ;
-//                }
                 }
         
     }
+            if (tooltype==3)
+            {
+                _totallabel.text=@"";
+                
+                OthereventMaodel *othmdl=(OthereventMaodel *)[_otherarray objectAtIndex:indexPath.row];
+                
+                _Otheritemcodelabel=(UILabel *)[cell viewWithTag:1];
+                _Otheritemcodelabel.text=othmdl.ItemCode;
+                _Otherdeslabel=(UILabel *)[cell viewWithTag:2];
+                _Otherdeslabel.text=othmdl.eventDescription;
+                _otherdatelabel=(UILabel *)[cell viewWithTag:3];
+                if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+                    NSArray*array=[othmdl.otherdate componentsSeparatedByString:@"T"];
+                    NSString*news=[array objectAtIndex:0];
+                    _otherdatelabel.text=news;
+                }
+                else {
+
+                _otherdatelabel.text=_selecteddate;
+                }
+                _otherqtylabel=(UILabel *)[cell viewWithTag:4];
+                _otherqtylabel.text=othmdl.Qty;
+                _othertotallabel=(UILabel *)[cell viewWithTag:5];
+                NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
+                _othertotallabel.text=[NSString stringWithFormat:@"%d",B1];
+                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                NSLog(@"%@",_totalarray);
+                
+                if (indexPath.row==[_otherarray count]-1) {
+                    
+                    
+                    [self calculatesum];
+                    sum=0;
+                }
+                
+                
+                
+            }
+
             if (tooltype==2)
             {
                _totallabel.text=@"";
@@ -243,7 +332,14 @@
                 _Eqdeslabel=(UILabel *)[cell viewWithTag:2];
                 _Eqdeslabel.text=eqmdl.eventDescription;
                 _Eqdatelabel=(UILabel *)[cell viewWithTag:3];
+                if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+                    NSArray*array=[eqmdl.eqdate componentsSeparatedByString:@"T"];
+                    NSString*news=[array objectAtIndex:0];
+                   _Eqdatelabel.text=news;
+                }
+                else {
                 _Eqdatelabel.text=_selecteddate;
+                }
                 _Eqqtylabel=(UILabel *)[cell viewWithTag:4];
                 _Eqqtylabel.text=eqmdl.Qty;
                 _Eqtotallabel=(UILabel *)[cell viewWithTag:5];
@@ -251,61 +347,67 @@
                 _Eqtotallabel.text=[NSString stringWithFormat:@"%d",B1];
                 [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
                 NSLog(@"%@",_totalarray);
-                int i;
+               
                 if (indexPath.row==[_eqpmntarray count]-1) {
                     [self calculatesum];
                     sum=0;
-//                    for (i=0; i<[_totalarray count]; i++)
-//                    {
-//                        eqsum=([[_totalarray objectAtIndex:i]integerValue])+eqsum;
-//                        NSLog(@"%d",eqsum);
-//                        _totallabel.text=[NSString stringWithFormat:@"%d",eqsum]  ;              }
+
                 }
                 
 
 
                 
             }
-            if (tooltype==3)
-            { _totallabel.text=@"";
-                
-                Eqeventmdl *eqmdl=(Eqeventmdl *)[_eqpmntarray objectAtIndex:indexPath.row];
-                
-                _Eqitemcodelabel=(UILabel *)[cell viewWithTag:1];
-                _Eqitemcodelabel.text=eqmdl.ItemCode;
-                _Eqdeslabel=(UILabel *)[cell viewWithTag:2];
-                _Eqdeslabel.text=eqmdl.eventDescription;
-                _Eqdatelabel=(UILabel *)[cell viewWithTag:3];
-                _Eqdatelabel.text=_selecteddate;
-                _Eqqtylabel=(UILabel *)[cell viewWithTag:4];
-                _Eqqtylabel.text=eqmdl.Qty;
-                _Eqtotallabel=(UILabel *)[cell viewWithTag:5];
-                NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
-                _Eqtotallabel.text=[NSString stringWithFormat:@"%d",B1];
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
-                NSLog(@"%@",_totalarray);
-                int i;
-                if (indexPath.row==[_eqpmntarray count]-1) {
-                    
-//                    for (i=0; i<[_totalarray count]; i++)
-//                    {
-//                        matsum=([[_totalarray objectAtIndex:i]integerValue])+matsum;
-//                        NSLog(@"%d",matsum);
-//                        _totallabel.text=[NSString stringWithFormat:@"%d",matsum]  ;              }
-                    [self calculatesum];
-                    sum=0;
-                }
-                
-
-
-            }
-
+            
         
     
         }
+    if (tableView==_sumtable) {
+         _totallabel.text=@"";
+        if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        _summarylabel=(UILabel *)[cell viewWithTag:1];
+        _costlabel=(UILabel *)[cell viewWithTag:2];
+        _summarylabel.text=[_titlearray objectAtIndex:indexPath.row];
+        _costlabel.text=[_reviewsumarray objectAtIndex:indexPath.row];
+        [_totalarray addObject:[_reviewsumarray objectAtIndex:indexPath.row]];
+              NSLog(@"%@",_totalarray);
+        if (indexPath.row==[_titlearray count]-1) {
+            [self calculatesum];
+            sum=0;
+            
+        }
+        }
+        else
+        {
+            
+        
+        NSLog(@"%@",_summaryarray);
+        NSArray*array=[[_summaryarray objectAtIndex:indexPath.row ] componentsSeparatedByString:@" "];
+        NSString*newtitile=[array objectAtIndex:0];
+      NSString*newtitiles=[array objectAtIndex:1];
+         NSLog(@"%@",newtitiles);
+         NSLog(@"%@",newtitile);
+        _summarylabel=(UILabel *)[cell viewWithTag:1];
+            _costlabel=(UILabel *)[cell viewWithTag:2];
+        _summarylabel.text=newtitile;
+        _costlabel.text=newtitiles;
+       
+        [_totalarray addObject:newtitiles];
+        NSLog(@"%@",_totalarray);
+        
+        if (indexPath.row==[_summaryarray count]-1) {
+            [self calculatesum];
+            sum=0;
+            
+        }
+        
+        }
+
+
+    }
     
     return cell;
-        
+    
 
 }
 
@@ -520,6 +622,386 @@
     }
     
 }
+-(void)SummarySelect{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SummarySelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "<start>%@</start>\n"
+                   "</SummarySelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue],_selecteddate];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SummarySelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+/*webservicefor estimationreview*/
+-(void)EstimationManPowerReviewSelect
+{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EstimationManPowerReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<LeadId>%d</LeadId>\n"
+                   "</EstimationManPowerReviewSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationManPowerReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)EstimationEquipmentReviewSelect
+{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EstimationEquipmentReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</EstimationEquipmentReviewSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationEquipmentReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)EstimationOtherReviewSelect
+{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EstimationOtherReviewSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</EstimationOtherReviewSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EstimationOtherReviewSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SummaryManPowerSelect
+{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SummaryManPowerSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</SummaryManPowerSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SummaryManPowerSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SummaryEquipmentSelect
+{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SummaryEquipmentSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</SummaryEquipmentSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SummaryEquipmentSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)SummaryMaterialSelect
+{
+    recordResults = FALSE;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString*estmtn = [defaults objectForKey:@"Estimationid"];
+    
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SummaryMaterialSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</SummaryMaterialSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[estmtn integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SummaryMaterialSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -552,7 +1034,13 @@
 	[_xmlparser setDelegate:(id)self];
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
-    [_calmanpwrtable reloadData];
+    if (tooltype==1||tooltype==2||tooltype==3) {
+        [_calmanpwrtable reloadData];
+    }
+   // [_calmanpwrtable reloadData];
+    if (tooltype==4) {
+        [_sumtable reloadData];
+    }
    
     
 
@@ -570,6 +1058,16 @@
         recordResults = TRUE;
 
     }
+    if([elementName isEqualToString:@"EstimationManPowerReviewSelectResult"])
+    {_manpwrarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"ItemCode"])
     {
         if(!_soapresults)
@@ -579,6 +1077,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"CalenderDate"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"Description"])
     {
         if(!_soapresults)
@@ -645,6 +1153,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EstimationEquipmentReviewSelectResponse"])
+    {_eqpmntarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"eqItemCode"])
     {        if(!_soapresults)
         {
@@ -674,6 +1192,15 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EQCalenderDate"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
     if([elementName isEqualToString:@"EqQty"])
     {
@@ -685,7 +1212,8 @@
         
     }
     if([elementName isEqualToString:@"CalenderOtherSelectResponse"])
-    {_eqpmntarray=[[NSMutableArray alloc]init];
+    {
+        _otherarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -693,8 +1221,20 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EstimationOtherReviewSelectResponse"])
+    {
+        _otherarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"OtherItemCode"])
-    {        if(!_soapresults)
+    {
+        if(!_soapresults)
     {
         _soapresults = [[NSMutableString alloc] init];
     }
@@ -712,7 +1252,25 @@
         recordResults = TRUE;
         
     }
-    
+    if([elementName isEqualToString:@"otherUnitCost"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"OtherCalenderDate"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     
     if([elementName isEqualToString:@"OtherQty"])
     {
@@ -723,8 +1281,76 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"SummarySelectResponse"])
+    {
+        _summaryarray=[[NSMutableArray alloc]init];
+       
+      
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Title"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SummaryManPowerSelectResponse"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SummaryMaterialSelectResponse"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SummaryEquipmentSelectResponse"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
-   
+
+    if([elementName isEqualToString:@"Column1"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Column2"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    
 
 
 
@@ -751,6 +1377,14 @@
         
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"EstimationManPowerReviewSelectResult"])
+    {
+        
+        recordResults = FALSE;
+        
+        _soapresults = nil;
+    }
+
     if([elementName isEqualToString:@"ItemCode"])
     {
         _manpwr=[[Detaileventmanpwr alloc]init];
@@ -777,6 +1411,15 @@
         
         _soapresults = nil;
     }
+    if([elementName isEqualToString:@"CalenderDate"])
+    {
+        
+        recordResults = FALSE;
+        _manpwr.mandate=_soapresults;
+        
+        _soapresults = nil;
+    }
+
     if([elementName isEqualToString:@"ST"])
     {
         recordResults = FALSE;
@@ -835,7 +1478,13 @@
         _eqmdl.UnitCost=_soapresults;
         _soapresults = nil;
            }
-    
+    if([elementName isEqualToString:@"EQCalenderDate"])
+    {recordResults = FALSE;
+        
+        _eqmdl.eqdate=_soapresults;
+        _soapresults = nil;
+    }
+
     if([elementName isEqualToString:@"EqQty"])
     {
         recordResults = FALSE;
@@ -846,10 +1495,10 @@
         
     }
     if([elementName isEqualToString:@"OtherItemCode"])
-    {     _eqmdl=[[Eqeventmdl alloc]init];
+    {     _othrmdl=[[OthereventMaodel alloc]init];
         recordResults = FALSE;
         
-        _eqmdl.ItemCode=_soapresults;
+        _othrmdl.ItemCode=_soapresults;
         _soapresults = nil;
     }
     
@@ -858,28 +1507,58 @@
         
         recordResults = FALSE;
         
-        _eqmdl.eventDescription=_soapresults;
+        _othrmdl.eventDescription=_soapresults;
         _soapresults = nil;
         
     }
     
-//    if([elementName isEqualToString:@"UnitCost"])
-//    {recordResults = FALSE;
-//        
-//        _eqmdl.UnitCost=_soapresults;
-//        _soapresults = nil;
-//    }
-    
+    if([elementName isEqualToString:@"otherUnitCost"])
+    {recordResults = FALSE;
+        
+        _othrmdl.UnitCost=_soapresults;
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"OtherCalenderDate"])
+    {recordResults = FALSE;
+        
+        _othrmdl.otherdate=_soapresults;
+        _soapresults = nil;
+    }
+
     if([elementName isEqualToString:@"OtherQty"])
     {
         recordResults = FALSE;
         
-        _eqmdl.Qty=_soapresults;
-        [_eqpmntarray addObject:_eqmdl];
+        _othrmdl.Qty=_soapresults;
+        [_otherarray addObject:_othrmdl];
         _soapresults = nil;
         
     }
-
+    if([elementName isEqualToString:@"Title"])
+    {
+        recordResults = FALSE;
+        
+        
+        [_summaryarray addObject:_soapresults];
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Column2"])
+    {
+        recordResults = FALSE;
+        
+        
+        [_reviewsumarray addObject:_soapresults];
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"Column1"])
+    {
+        recordResults = FALSE;
+        
+        
+        [_titlearray addObject:_soapresults];
+        _soapresults = nil;
+    }
 
 
 }

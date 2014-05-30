@@ -17,6 +17,7 @@
 @property(strong,nonatomic)NSString *OT;
 @property(strong,nonatomic)NSString *STrate;
 @property(strong,nonatomic)NSString *OTrate;
+@property(strong,nonatomic)NSString *mandate;
 
 
 @end
