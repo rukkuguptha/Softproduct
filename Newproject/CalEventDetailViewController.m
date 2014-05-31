@@ -372,8 +372,8 @@
         _costlabel.text=[_reviewsumarray objectAtIndex:indexPath.row];
         [_totalarray addObject:[_reviewsumarray objectAtIndex:indexPath.row]];
               NSLog(@"%@",_totalarray);
-        if (indexPath.row==[_titlearray count]-1) {
-            [self calculatesum];
+        if (indexPath.row==[_reviewsumarray count]-1) {
+            [self calculatereviewsum];
             sum=0;
             
         }
@@ -438,7 +438,15 @@
         _totallabel.text=[NSString stringWithFormat:@"%d",sum]  ;
     }
 }
-
+-(void)calculatereviewsum
+{ int i;
+    for (i=0; i<[_reviewsumarray count]; i++)
+    {
+        sum=([[_reviewsumarray objectAtIndex:i]integerValue])+sum;
+        NSLog(@"%d",sum);
+        _totallabel.text=[NSString stringWithFormat:@"%d",sum]  ;
+    }
+}
 
 -(void)CalenderManPowerSelect
 {
