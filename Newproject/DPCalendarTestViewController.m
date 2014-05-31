@@ -281,7 +281,7 @@
 
 - (void) updateLabelWithMonth:(NSDate *)month {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"MMMM YYYY"];
+    [formatter setDateFormat:@"MMMM yyyy"];
     NSString *stringFromDate = [formatter stringFromDate:month];
     [self.monthLabel setText:stringFromDate];
 }
