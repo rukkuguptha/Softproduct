@@ -40,6 +40,10 @@
     _mattitleview.hidden=YES;
     _summarytitleview.hidden=YES;
     _sumtable.hidden=YES;
+    _manpwrbtn.tintColor=[UIColor whiteColor];
+    _eqpmntbtn.tintColor=[UIColor blackColor];
+     _materialbtn.tintColor=[UIColor blackColor];
+    _summarybtn.tintColor=[UIColor blackColor];
 
     // Do any additional setup after loading the view from its nib.
 }
@@ -51,6 +55,10 @@
     _mattitleview.hidden=YES;
     _summarytitleview.hidden=YES;
       _sumtable.hidden=YES;
+     _manpwrbtn.tintColor=[UIColor whiteColor];
+    _eqpmntbtn.tintColor=[UIColor blackColor];
+     _materialbtn.tintColor=[UIColor blackColor];
+    _summarybtn.tintColor=[UIColor blackColor];
     //[_calmanpwrtable reloadData];
     _calmanpwrtable.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
@@ -85,6 +93,11 @@
     _sumtable.hidden=YES;
     //[_calmanpwrtable reloadData];
     _calmanpwrtable.hidden=NO;
+     _manpwrbtn.tintColor=[UIColor whiteColor];
+    _eqpmntbtn.tintColor=[UIColor blackColor];
+     _materialbtn.tintColor=[UIColor blackColor];
+    _summarybtn.tintColor=[UIColor blackColor];
+    
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         [self EstimationManPowerReviewSelect];
     }
@@ -97,6 +110,10 @@
 - (IBAction)equipmentaction:(id)sender
 {
     tooltype=2;
+     _eqpmntbtn.tintColor=[UIColor whiteColor];
+    _manpwrbtn.tintColor=[UIColor blackColor];
+     _materialbtn.tintColor=[UIColor blackColor];
+     _summarybtn.tintColor=[UIColor blackColor];
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _summarytitleview.hidden=YES;
@@ -116,7 +133,10 @@
 - (IBAction)materialaction:(id)sender
 {
     tooltype=3;
-    
+    _manpwrbtn.tintColor=[UIColor blackColor];
+    _eqpmntbtn.tintColor=[UIColor blackColor];
+     _summarybtn.tintColor=[UIColor blackColor];
+    _materialbtn.tintColor=[UIColor whiteColor];
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _summarytitleview.hidden=YES;
@@ -136,6 +156,10 @@
 - (IBAction)summaryaction:(id)sender
 {
     tooltype=4;
+    _manpwrbtn.tintColor=[UIColor blackColor];
+    _eqpmntbtn.tintColor=[UIColor blackColor];
+     _materialbtn.tintColor=[UIColor blackColor];
+     _summarybtn.tintColor=[UIColor whiteColor];
     _totalarray=[[NSMutableArray alloc]init];
     _mantitleview.hidden=YES;
     _mattitleview.hidden=YES;

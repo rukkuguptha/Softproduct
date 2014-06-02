@@ -76,6 +76,11 @@
 @property(strong,nonatomic)IBOutlet UILabel *manotratelabel;
 @property(strong,nonatomic)IBOutlet UILabel *mantotallabel;
 
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *manpwrbtn;
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *eqpmntbtn;
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *materialbtn;
+@property(strong,nonatomic)IBOutlet UIBarButtonItem *summarybtn;
+
 
 /*Labels in equipment*/
 @property(strong,nonatomic)IBOutlet UILabel *Eqitemcodelabel;

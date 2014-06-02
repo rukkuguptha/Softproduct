@@ -8,9 +8,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalEventDetailViewController">
             <connections>
                 <outlet property="calmanpwrtable" destination="lwt-Yo-c6h" id="4eS-Fw-iC7"/>
+                <outlet property="eqpmntbtn" destination="Vhe-nm-pPC" id="uy5-VC-ijn"/>
+                <outlet property="manpwrbtn" destination="r9y-U4-6pY" id="Urx-ba-GDg"/>
                 <outlet property="mantitleview" destination="rtV-0y-sV6" id="daJ-7A-6c8"/>
+                <outlet property="materialbtn" destination="bUN-lj-Vp3" id="9kX-mt-ThC"/>
                 <outlet property="mattitleview" destination="Ubd-8n-hB3" id="ECN-QV-GC8"/>
                 <outlet property="navitem" destination="36z-Th-Oda" id="M5C-j5-MiU"/>
+                <outlet property="summarybtn" destination="xIa-h0-sGO" id="gpG-ZQ-bzr"/>
                 <outlet property="summarytitleview" destination="srf-9R-gm0" id="EBd-9I-Y72"/>
                 <outlet property="sumtable" destination="dsY-GN-l4z" id="frD-JV-Njd"/>
                 <outlet property="totallabel" destination="nek-kF-xh8" id="bf7-Xj-Zcw"/>
