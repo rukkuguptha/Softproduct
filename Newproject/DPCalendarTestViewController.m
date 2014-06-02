@@ -120,29 +120,38 @@
            NSDate *date1 = [NSDate date];
            NSUInteger componentFlags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit;
            NSDateComponents *components = [[NSCalendar currentCalendar] components:componentFlags fromDate:date1];
-           NSInteger year1 = [components year];
-           NSInteger month1 = [components month];
-           NSInteger day1 = [components day];
+           float year1 = [components year];
+           float month1 = [components month];
+           float day1 = [components day];
            NSArray*newdate=[[_datearray objectAtIndex:i]componentsSeparatedByString:@"-"];
-           NSInteger year2=[[newdate objectAtIndex:0]integerValue];
-           NSInteger month2=[[newdate objectAtIndex:1]integerValue];
-        NSInteger day2=[[newdate objectAtIndex:2]integerValue];
+           float year2=[[newdate objectAtIndex:0]integerValue];
+           float month2=[[newdate objectAtIndex:1]integerValue];
+        float day2=[[newdate objectAtIndex:2]integerValue];
 
            
            
-            NSInteger year=year1-year2;
-           NSInteger month=month1-month2;
-           NSInteger day=day1-day2;
+            float year=year1-year2;
+           float month=month1-month2;
            
-           if (year1>year2) {
-               year=-1*year;
-           }
-           if (month1>month2) {
+           float day=day1-day2;
+           
+           
+           year=-1*year;
                month=-1*month;
-           }
-           if (day1>day2) {
                day=-1*day;
-           }
+           
+           
+           
+           
+//           if (year1<year2) {
+//               year=-1*year;
+//           }
+//           if (month1<month2) {
+//               month=-1*month;
+//           }
+//           if (day1>day2) {
+//               day=-1*day;
+//           }
 
            NSDate*eventdate=[date dateByAddingYears:year months:month days:day];
            
@@ -276,6 +285,7 @@
     _eventdatearray=[[NSMutableArray alloc]init];
     _alldatearray=[[NSMutableArray alloc]init];
     _titledict=[[NSMutableDictionary alloc]init];
+   
 
    }
 
@@ -483,7 +493,7 @@
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"CalenderSelectResponse"])
     {
-        _datearray=[[NSMutableArray alloc]init];
+    _datearray=[[NSMutableArray alloc]init];
         _titlearray=[[NSMutableArray alloc]init];
         _calendararray=[[NSMutableArray alloc]init];
              if(!_soapresults)
@@ -551,7 +561,7 @@
         recordResults = FALSE;
         NSArray*array=[_soapresults componentsSeparatedByString:@"T"];
         NSString*new=[array objectAtIndex:0];
-        [_datearray addObject:new];
+       [_datearray addObject:new];
         _eventmdl.startdate=new;
       
         _soapresults = nil;
