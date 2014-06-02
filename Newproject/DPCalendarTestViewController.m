@@ -602,7 +602,7 @@
         
         if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]) {
             //newtitile=@"Cost";
-            newtitile=[NSString stringWithFormat:@"Cost %@",_eventmdl.sum1];
+            newtitile=[NSString stringWithFormat:@"Cost $%@",_eventmdl.sum1];
             if ([previoustitle isEqualToString:@"Cost"]) {
                 
                 
