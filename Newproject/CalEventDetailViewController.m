@@ -263,9 +263,9 @@
                 _manotlabel.text=manmdl.OT;
 
                 _manstratelabel=(UILabel *)[cell viewWithTag:7];
-                _manstratelabel.text=manmdl.STrate;
+                _manstratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.STrate];
                 _manotratelabel=(UILabel *)[cell viewWithTag:8];
-                _manotratelabel.text=manmdl.OTrate;
+                _manotratelabel.text=[NSString stringWithFormat:@"$%@",manmdl.OTrate];
 
                 NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
                  NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
@@ -274,7 +274,7 @@
                 NSLog(@"%d",total);
                
              _manotratelabel=(UILabel *)[cell viewWithTag:9];
-                _mantotallabel.text=[NSString stringWithFormat:@"%d",total];
+                _mantotallabel.text=[NSString stringWithFormat:@"$%d",total];
                  [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
                  NSLog(@"%@",_totalarray);
                
@@ -308,7 +308,7 @@
                 _otherqtylabel.text=othmdl.Qty;
                 _othertotallabel=(UILabel *)[cell viewWithTag:5];
                 NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
-                _othertotallabel.text=[NSString stringWithFormat:@"%d",B1];
+                _othertotallabel.text=[NSString stringWithFormat:@"$%d",B1];
                 [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
                 NSLog(@"%@",_totalarray);
                 
@@ -345,7 +345,7 @@
                 _Eqqtylabel.text=eqmdl.Qty;
                 _Eqtotallabel=(UILabel *)[cell viewWithTag:5];
                  NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
-                _Eqtotallabel.text=[NSString stringWithFormat:@"%d",B1];
+                _Eqtotallabel.text=[NSString stringWithFormat:@"$%d",B1];
                 [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
                 NSLog(@"%@",_totalarray);
                
@@ -369,7 +369,7 @@
         _summarylabel=(UILabel *)[cell viewWithTag:1];
         _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=[_titlearray objectAtIndex:indexPath.row];
-        _costlabel.text=[_reviewsumarray objectAtIndex:indexPath.row];
+        _costlabel.text=[NSString stringWithFormat:@"$%@",[_reviewsumarray objectAtIndex:indexPath.row]];
         [_totalarray addObject:[_reviewsumarray objectAtIndex:indexPath.row]];
               NSLog(@"%@",_totalarray);
         if (indexPath.row==[_reviewsumarray count]-1) {
@@ -391,7 +391,7 @@
         _summarylabel=(UILabel *)[cell viewWithTag:1];
             _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=newtitile;
-        _costlabel.text=newtitiles;
+        _costlabel.text=[NSString stringWithFormat:@"$%@",newtitiles];
        
         [_totalarray addObject:newtitiles];
         NSLog(@"%@",_totalarray);
@@ -435,7 +435,7 @@
     {
         sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
         NSLog(@"%d",sum);
-        _totallabel.text=[NSString stringWithFormat:@"%d",sum]  ;
+        _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
     }
 }
 -(void)calculatereviewsum
@@ -444,7 +444,7 @@
     {
         sum=([[_reviewsumarray objectAtIndex:i]integerValue])+sum;
         NSLog(@"%d",sum);
-        _totallabel.text=[NSString stringWithFormat:@"%d",sum]  ;
+        _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
     }
 }
 
