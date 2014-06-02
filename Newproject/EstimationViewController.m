@@ -35,7 +35,7 @@
     _estmntable.layer.borderWidth = 2.0;
     _estmntable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
 
-    _listarray=[[NSMutableArray alloc]initWithObjects:@"Resource planning",@"Estimation Calendar",@"Estimation Review", nil];
+    _listarray=[[NSMutableArray alloc]initWithObjects:@"Estimation Calendar",@"Estimation Review", nil];
     [self WorkTypeSelect];
 
 }
@@ -214,17 +214,17 @@ if (tableView==_estmntable) {
 
     if (tableView==_popOverTableView) {
         switch (indexPath.row) {
+//            case 0:
+//                self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
+//                
+//                _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+//                _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+//                _phestVCtrl.estmtnid=estmdl.estimateid;
+//                [self presentViewController:_phestVCtrl
+//                                   animated:YES completion:NULL];
+//
+//                break;
             case 0:
-                self.phestVCtrl=[[PhsestViewController alloc]initWithNibName:@"PhsestViewController" bundle:nil];
-                
-                _phestVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
-                _phestVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                _phestVCtrl.estmtnid=estmdl.estimateid;
-                [self presentViewController:_phestVCtrl
-                                   animated:YES completion:NULL];
-
-                break;
-            case 1:
                
                    // self.DPVCtrl=[[DPCalendarTestViewController alloc]initWithNibName:@"DPCalendarTestViewController" bundle:nil];
                     self.DPVCtrl=[DPCalendarTestViewController new];
@@ -236,7 +236,7 @@ if (tableView==_estmntable) {
                                    animated:YES completion:NULL];
                 
                 break;
-                 case 2:
+                 case 1:
                 if (!self.calctrl) {
                     self.calctrl=[[CalEventDetailViewController alloc]initWithNibName:@"CalEventDetailViewController" bundle:nil];
                 }
