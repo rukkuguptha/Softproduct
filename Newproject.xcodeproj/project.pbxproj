@@ -355,6 +355,8 @@
 		D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F19DF318D03F47007617F0 /* ContractViewController.m */; };
 		D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19DF418D03F47007617F0 /* ContractViewController.xib */; };
 		D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F19E0118D03FBA007617F0 /* Contractcell.xib */; };
+		D4F2F91E193C41F300B732E9 /* iconleftblack.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91D193C41F200B732E9 /* iconleftblack.png */; };
+		D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */ = {isa = PBXBuildFile; fileRef = D4F2F91F193C439100B732E9 /* iconarrowright.png */; };
 		D4F34355191C9C8E0023D715 /* EsttileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F34353191C9C8E0023D715 /* EsttileViewController.m */; };
 		D4F34356191C9C8E0023D715 /* EsttileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4F34354191C9C8E0023D715 /* EsttileViewController.xib */; };
 		D4F3435A191CA3970023D715 /* EstimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F34358191CA3970023D715 /* EstimationViewController.m */; };
@@ -876,6 +878,8 @@
 		D4F19DF318D03F47007617F0 /* ContractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContractViewController.m; sourceTree = "<group>"; };
 		D4F19DF418D03F47007617F0 /* ContractViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContractViewController.xib; sourceTree = "<group>"; };
 		D4F19E0118D03FBA007617F0 /* Contractcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Contractcell.xib; sourceTree = "<group>"; };
+		D4F2F91D193C41F200B732E9 /* iconleftblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iconleftblack.png; path = ../iconleftblack.png; sourceTree = "<group>"; };
+		D4F2F91F193C439100B732E9 /* iconarrowright.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconarrowright.png; sourceTree = "<group>"; };
 		D4F34352191C9C8E0023D715 /* EsttileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EsttileViewController.h; sourceTree = "<group>"; };
 		D4F34353191C9C8E0023D715 /* EsttileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EsttileViewController.m; sourceTree = "<group>"; };
 		D4F34354191C9C8E0023D715 /* EsttileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EsttileViewController.xib; sourceTree = "<group>"; };
@@ -1354,6 +1358,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4F2F91F193C439100B732E9 /* iconarrowright.png */,
+				D4F2F91D193C41F200B732E9 /* iconleftblack.png */,
 				D4A6748619345E6C00D5A77E /* IconPubHol.png */,
 				D4A6748719345E6C00D5A77E /* IconPubHol@2x.png */,
 				D4A6748819345E6C00D5A77E /* IconCamera.png */,
@@ -1758,6 +1764,7 @@
 				64A3B82418DFEF0B0015887F /* CommentsViewController.xib in Resources */,
 				6481615C176EF0C50017F4CC /* rightarowblack.png in Resources */,
 				64A3B82618E02FC90015887F /* branchcell.xib in Resources */,
+				D4F2F91E193C41F300B732E9 /* iconleftblack.png in Resources */,
 				D42D8C1718D2D8FF009D8085 /* custombasicreqcell.xib in Resources */,
 				D4A338E818F3EEEF00E53FAC /* markupcell.xib in Resources */,
 				64A3B81F18DFEEC90015887F /* customcommentforactivitycell.xib in Resources */,
@@ -1804,6 +1811,7 @@
 				D4B0386A18B3699F00F9DE04 /* cellfordocumnt.xib in Resources */,
 				D4A6748C19345E6C00D5A77E /* IconPubHol.png in Resources */,
 				D4A10B6A1935FCCA001856F8 /* CalEventDetailViewController.xib in Resources */,
+				D4F2F920193C439100B732E9 /* iconarrowright.png in Resources */,
 				64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */,
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,

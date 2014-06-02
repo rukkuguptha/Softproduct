@@ -78,11 +78,14 @@
     self.todayButton.frame = CGRectMake(width - 50 * 2, 20, 50, 20);
     self.optionsButton.frame = CGRectMake(width - 50 * 3, 20, 50, 20);
     self.createEventButton.frame = CGRectMake(width - 50 * 5, 20, 100, 20);
-    [self.previousButton setTitle:@"Previous" forState:UIControlStateNormal];
-    [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
+   // [self.previousButton setTitle:@"Previous" forState:UIControlStateNormal];
+    [self.previousButton setImage:[UIImage imageNamed:@"iconleftblack"] forState:UIControlStateNormal];
+      [self.nextButton setImage:[UIImage imageNamed:@"iconarrowright"] forState:UIControlStateNormal];
+   // [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
     //[self.todayButton setTitle:@"Today" forState:UIControlStateNormal];
     //[self.optionsButton setTitle:@"Option" forState:UIControlStateNormal];
     [self.createEventButton setTitle:@"DONE" forState:UIControlStateNormal];
+    [self.createEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     
     self.monthLabel = [[UILabel alloc] initWithFrame:CGRectMake((width - 200) / 2, 20, 200, 20)];
@@ -94,7 +97,7 @@
     [self.optionsButton addTarget:self action:@selector(optionsButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     [self.createEventButton addTarget:self action:@selector(createEventButtonSelected:) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     [self.view addSubview:self.monthLabel];
     [self.view addSubview:self.previousButton];
     [self.view addSubview:self.nextButton];
