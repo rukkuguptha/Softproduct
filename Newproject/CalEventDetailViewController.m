@@ -171,8 +171,8 @@
         _reviewsumarray=[[NSMutableArray alloc]init];
         _titlearray=[[NSMutableArray alloc]init];
         [self SummaryManPowerSelect];
-        [self SummaryEquipmentSelect];
-        [self SummaryMaterialSelect];
+       // [self SummaryEquipmentSelect];
+        //[self SummaryMaterialSelect];
     }
     else
     {
@@ -299,18 +299,11 @@
                
              _manotratelabel=(UILabel *)[cell viewWithTag:9];
                 _mantotallabel.text=[NSString stringWithFormat:@"$%d",total];
-                 [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
-                 NSLog(@"%@",_totalarray);
-               
-                if (indexPath.row==[_manpwrarray count]-1) {
-                    [self calculatesum];
-                    sum=0;
-                }
-        
+                
     }
             if (tooltype==3)
             {
-                _totallabel.text=@"";
+               // _totallabel.text=@"";
                 
                 OthereventMaodel *othmdl=(OthereventMaodel *)[_otherarray objectAtIndex:indexPath.row];
                 
@@ -333,15 +326,6 @@
                 _othertotallabel=(UILabel *)[cell viewWithTag:5];
                 NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
                 _othertotallabel.text=[NSString stringWithFormat:@"$%d",B1];
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
-                NSLog(@"%@",_totalarray);
-                
-                if (indexPath.row==[_otherarray count]-1) {
-                    
-                    
-                    [self calculatesum];
-                    sum=0;
-                }
                 
                 
                 
@@ -349,7 +333,7 @@
 
             if (tooltype==2)
             {
-               _totallabel.text=@"";
+              // _totallabel.text=@"";
                 Eqeventmdl *eqmdl=(Eqeventmdl *)[_eqpmntarray objectAtIndex:indexPath.row];
                 
                 _Eqitemcodelabel=(UILabel *)[cell viewWithTag:1];
@@ -370,14 +354,6 @@
                 _Eqtotallabel=(UILabel *)[cell viewWithTag:5];
                  NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
                 _Eqtotallabel.text=[NSString stringWithFormat:@"$%d",B1];
-                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
-                NSLog(@"%@",_totalarray);
-               
-                if (indexPath.row==[_eqpmntarray count]-1) {
-                    [self calculatesum];
-                    sum=0;
-
-                }
                 
 
 
@@ -388,20 +364,13 @@
     
         }
     if (tableView==_sumtable) {
-         _totallabel.text=@"";
+         //_totallabel.text=@"";
         if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         _summarylabel=(UILabel *)[cell viewWithTag:1];
         _costlabel=(UILabel *)[cell viewWithTag:2];
         _summarylabel.text=[_titlearray objectAtIndex:indexPath.row];
         _costlabel.text=[NSString stringWithFormat:@"$%@",[_reviewsumarray objectAtIndex:indexPath.row]];
-        [_totalarray addObject:[_reviewsumarray objectAtIndex:indexPath.row]];
-              NSLog(@"%@",_totalarray);
-        if (indexPath.row==[_reviewsumarray count]-1) {
-            [self calculatereviewsum];
-            sum=0;
-            
-        }
-        }
+                }
         else
         {
             
@@ -417,15 +386,7 @@
         _summarylabel.text=newtitile;
         _costlabel.text=[NSString stringWithFormat:@"$%@",newtitiles];
        
-        [_totalarray addObject:newtitiles];
-        NSLog(@"%@",_totalarray);
-        
-        if (indexPath.row==[_summaryarray count]-1) {
-            [self calculatesum];
-            sum=0;
             
-        }
-        
         }
 
 
@@ -454,7 +415,9 @@
     }
 }
 -(void)calculatesum
-{ int i;
+{
+    
+    int i;
     for (i=0; i<[_totalarray count]; i++)
     {
         sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
@@ -463,13 +426,55 @@
     }
 }
 -(void)calculatereviewsum
-{ int i;
-    for (i=0; i<[_reviewsumarray count]; i++)
-    {
-        sum=([[_reviewsumarray objectAtIndex:i]integerValue])+sum;
-        NSLog(@"%d",sum);
-        _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+{
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        
+    for (int i=0; i<[_reviewsumarray count]; i++) {
+        
+    [_totalarray addObject:[_reviewsumarray objectAtIndex:i]];
+    NSLog(@"%@",_totalarray);
+    if (i==[_reviewsumarray count]-1) {
+       
+        for ( int x=0; x<[_reviewsumarray count]; x++)
+        {
+            sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
+            NSLog(@"%d",sum);
+            _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        }
+
+        sum=0;
+        
     }
+    }
+
+}
+else{
+    
+    
+    for (int i=0; i<[_summaryarray count]; i++) {
+        NSArray*array=[[_summaryarray objectAtIndex:i] componentsSeparatedByString:@" "];
+        //NSString*newtitile=[array objectAtIndex:0];
+        NSString*newtitiles=[array objectAtIndex:1];
+
+    [_totalarray addObject:newtitiles];
+    NSLog(@"%@",_totalarray);
+    
+    if (i==[_summaryarray count]-1) {
+        for ( int x=0; x<[_totalarray count]; x++)
+        {
+            sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
+            NSLog(@"%d",sum);
+            _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+        }
+        
+        
+        sum=0;
+    }
+
+        
+    }
+    }
+    
 }
 
 -(void)CalenderManPowerSelect
@@ -874,6 +879,7 @@
 }
 -(void)SummaryManPowerSelect
 {
+    tooltype=6;
     recordResults = FALSE;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -928,6 +934,7 @@
 }
 -(void)SummaryEquipmentSelect
 {
+    tooltype=7;
     recordResults = FALSE;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -982,6 +989,7 @@
 }
 -(void)SummaryMaterialSelect
 {
+    tooltype=5;
     recordResults = FALSE;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -1068,14 +1076,38 @@
 	[_xmlparser setShouldResolveExternalEntities: YES];
 	[_xmlparser parse];
     if (tooltype==1||tooltype==2||tooltype==3) {
+          [self newcalcuations];
         [_calmanpwrtable reloadData];
     }
+    
+ 
    // [_calmanpwrtable reloadData];
     if (tooltype==4) {
+        [self calculatereviewsum];
         [_sumtable reloadData];
+    }
+    
+    switch (tooltype) {
+        case 5:
+            [self calculatereviewsum];
+             [_sumtable reloadData];
+
+            break;
+
+        case 7:
+            [self SummaryMaterialSelect];
+            break;
+
+        case 6:
+            [self SummaryEquipmentSelect];
+            break;
+            
+        default:
+            break;
     }
    
     
+
 
 }
 
@@ -1582,6 +1614,7 @@
         
         
         [_reviewsumarray addObject:_soapresults];
+      
        
         _soapresults = nil;
     }
@@ -1595,6 +1628,70 @@
     }
 
 
+}
+
+
+-(void)newcalcuations{
+    
+    switch (tooltype) {
+        case 1:
+            for (int i=0; i<[_manpwrarray count]; i++) {
+             Detaileventmanpwr *manmdl=(Detaileventmanpwr *)[_manpwrarray objectAtIndex:i];
+            NSInteger A1=([manmdl.ST integerValue])*([manmdl.STrate integerValue]);
+            NSInteger A2=([manmdl.OT integerValue])*([manmdl.OTrate integerValue]);
+            NSInteger B=A1+A2;
+            NSInteger total=B*([manmdl.Qty integerValue]);
+            NSLog(@"%d",total);
+            
+           [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
+            NSLog(@"%@",_totalarray);
+            
+            if (i==[_manpwrarray count]-1) {
+                [self calculatesum];
+                sum=0;
+            }
+            }
+
+            break;
+        case 2:
+              for (int i=0; i<[_eqpmntarray count]; i++) {
+             Eqeventmdl *eqmdl=(Eqeventmdl *)[_eqpmntarray objectAtIndex:i];
+            NSInteger B1=([eqmdl.UnitCost integerValue])*([eqmdl.Qty integerValue]);
+            [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+            NSLog(@"%@",_totalarray);
+            
+            if (i==[_eqpmntarray count]-1) {
+                [self calculatesum];
+                sum=0;
+                
+            }
+              }
+
+            break;
+        case 3:
+            for (int i=0; i<[_otherarray count]; i++) {
+                
+                OthereventMaodel *othmdl=(OthereventMaodel *)[_otherarray objectAtIndex:i];
+                NSInteger B1=([othmdl.UnitCost integerValue])*([othmdl.Qty integerValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                NSLog(@"%@",_totalarray);
+                
+                if (i==[_otherarray count]-1) {
+                    
+                    
+                    [self calculatesum];
+                    sum=0;
+                }
+                
+            }
+
+            break;
+
+            
+        default:
+            break;
+    }
+   
 }
 
 @end
