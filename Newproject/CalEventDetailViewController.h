@@ -22,11 +22,13 @@
 }
 
 @property(strong,nonatomic)NSString *selecteddate;
+@property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)Detaileventmanpwr *manpwr;
 @property(strong,nonatomic)Eqeventmdl *eqmdl;
 @property(strong,nonatomic)OthereventMaodel *othrmdl;
 @property(strong,nonatomic)Eventmdl *eventmdl;
 @property(strong,nonatomic)IBOutlet UILabel *totallabel;
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 /*xmlParser*/
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSMutableString *soapresults;

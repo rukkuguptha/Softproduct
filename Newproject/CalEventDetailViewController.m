@@ -50,6 +50,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _totallabel.text=@"";
     tooltype=1;
     _mantitleview.hidden=NO;
     _mattitleview.hidden=YES;
@@ -64,12 +65,26 @@
     _totalarray=[[NSMutableArray alloc]init];
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
         _navitem.title=@"Estimation Review";
+        _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+        _searchbar.delegate=(id)self;
+        _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+        self.calmanpwrtable.tableHeaderView=_searchbar;
+        UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+        searchctrlr.searchResultsDelegate=(id)self;
+        searchctrlr.searchResultsDataSource=(id)self;
+        searchctrlr.delegate=(id)self;
+
         [self EstimationManPowerReviewSelect];
     }
     else
     {
-     _navitem.title=@"Calendar";
-    [self CalenderManPowerSelect];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:_selecteddate];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        _navitem.title=[NSString stringWithFormat:@"Estimation Calendar-%@",myFormattedDate];
+        [self CalenderManPowerSelect];
     }
 
 }
@@ -79,6 +94,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-IBActions
 - (IBAction)clsebtn:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
@@ -220,6 +236,7 @@
     
     
 }
+#pragma mark-tableview delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"mycell";
@@ -271,12 +288,22 @@
                 if ([_estimationstring isEqualToString:@"Estimationreview"]) {
                     NSArray*array=[manmdl.mandate componentsSeparatedByString:@"T"];
                     NSString*news=[array objectAtIndex:0];
-                    _manpdatelabel.text=news;
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                    NSDate *dates = [dateFormat dateFromString:news];
+                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                    _manpdatelabel.text=myFormattedDate;
                 }
                 else
                 {
-              
-                _manpdatelabel.text=_selecteddate;
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                    NSDate *dates = [dateFormat dateFromString:_selecteddate];
+                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                    _manpdatelabel.text=myFormattedDate;
+                
                 }
                 _manqtylabel=(UILabel *)[cell viewWithTag:4];
                 _manqtylabel.text=manmdl.Qty;
@@ -315,11 +342,21 @@
                 if ([_estimationstring isEqualToString:@"Estimationreview"]) {
                     NSArray*array=[othmdl.otherdate componentsSeparatedByString:@"T"];
                     NSString*news=[array objectAtIndex:0];
-                    _otherdatelabel.text=news;
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                    NSDate *dates = [dateFormat dateFromString:news];
+                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                    _otherdatelabel.text=myFormattedDate;
                 }
                 else {
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                    NSDate *dates = [dateFormat dateFromString:_selecteddate];
+                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                    _otherdatelabel.text=myFormattedDate;
 
-                _otherdatelabel.text=_selecteddate;
                 }
                 _otherqtylabel=(UILabel *)[cell viewWithTag:4];
                 _otherqtylabel.text=othmdl.Qty;
@@ -344,10 +381,20 @@
                 if ([_estimationstring isEqualToString:@"Estimationreview"]) {
                     NSArray*array=[eqmdl.eqdate componentsSeparatedByString:@"T"];
                     NSString*news=[array objectAtIndex:0];
-                   _Eqdatelabel.text=news;
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                    NSDate *dates = [dateFormat dateFromString:news];
+                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                   _Eqdatelabel.text=myFormattedDate;
                 }
                 else {
-                _Eqdatelabel.text=_selecteddate;
+                    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                    NSDate *dates = [dateFormat dateFromString:_selecteddate];
+                    [dateFormat setDateFormat:@"MM-dd-yyy"];
+                    NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                _Eqdatelabel.text=myFormattedDate;
                 }
                 _Eqqtylabel=(UILabel *)[cell viewWithTag:4];
                 _Eqqtylabel.text=eqmdl.Qty;
@@ -414,69 +461,7 @@
         }
     }
 }
--(void)calculatesum
-{
-    
-    int i;
-    for (i=0; i<[_totalarray count]; i++)
-    {
-        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
-        NSLog(@"%d",sum);
-        _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
-    }
-}
--(void)calculatereviewsum
-{
-    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
-        
-    for (int i=0; i<[_reviewsumarray count]; i++) {
-        
-    [_totalarray addObject:[_reviewsumarray objectAtIndex:i]];
-    NSLog(@"%@",_totalarray);
-    if (i==[_reviewsumarray count]-1) {
-       
-        for ( int x=0; x<[_reviewsumarray count]; x++)
-        {
-            sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
-            NSLog(@"%d",sum);
-            _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
-        }
-
-        sum=0;
-        
-    }
-    }
-
-}
-else{
-    
-    
-    for (int i=0; i<[_summaryarray count]; i++) {
-        NSArray*array=[[_summaryarray objectAtIndex:i] componentsSeparatedByString:@" "];
-        //NSString*newtitile=[array objectAtIndex:0];
-        NSString*newtitiles=[array objectAtIndex:1];
-
-    [_totalarray addObject:newtitiles];
-    NSLog(@"%@",_totalarray);
-    
-    if (i==[_summaryarray count]-1) {
-        for ( int x=0; x<[_totalarray count]; x++)
-        {
-            sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
-            NSLog(@"%d",sum);
-            _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
-        }
-        
-        
-        sum=0;
-    }
-
-        
-    }
-    }
-    
-}
-
+#pragma mark-Webservices
 -(void)CalenderManPowerSelect
 {
     recordResults = FALSE;
@@ -1042,6 +1027,159 @@ else{
     }
     
 }
+-(void)ManPowerReviewSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<ManPowerReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</ManPowerReviewSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,[_estid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManPowerReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)EquipmentReviewSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<EquipmentReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</EquipmentReviewSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,[_estid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)OtherReviewSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<OtherReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<LeadId>%d</LeadId>\n"
+                   "</OtherReviewSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,[_estid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/OtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -1124,6 +1262,15 @@ else{
 
     }
     if([elementName isEqualToString:@"EstimationManPowerReviewSelectResult"])
+    {_manpwrarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"ManPowerReviewSearchResponse"])
     {_manpwrarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
         {
@@ -1218,6 +1365,7 @@ else{
         recordResults = TRUE;
         
     }
+    
     if([elementName isEqualToString:@"EstimationEquipmentReviewSelectResponse"])
     {_eqpmntarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
@@ -1227,6 +1375,16 @@ else{
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"EquipmentReviewSearchResponse"])
+    {_eqpmntarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
     if([elementName isEqualToString:@"eqItemCode"])
     {        if(!_soapresults)
@@ -1296,6 +1454,17 @@ else{
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"OtherReviewSearchResponse"])
+    {
+        _otherarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
     if([elementName isEqualToString:@"OtherItemCode"])
     {
@@ -1629,6 +1798,70 @@ else{
 
 
 }
+#pragma mark-calculations
+-(void)calculatesum
+{
+    
+    int i;
+    for (i=0; i<[_totalarray count]; i++)
+    {
+        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
+        NSLog(@"%d",sum);
+        _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+    }
+}
+
+-(void)calculatereviewsum
+{
+    if ([_estimationstring isEqualToString:@"Estimationreview"]) {
+        
+        for (int i=0; i<[_reviewsumarray count]; i++) {
+            
+            [_totalarray addObject:[_reviewsumarray objectAtIndex:i]];
+            NSLog(@"%@",_totalarray);
+            if (i==[_reviewsumarray count]-1) {
+                
+                for ( int x=0; x<[_reviewsumarray count]; x++)
+                {
+                    sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
+                    NSLog(@"%d",sum);
+                    _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+                }
+                
+                sum=0;
+                
+            }
+        }
+        
+    }
+    else{
+        
+        
+        for (int i=0; i<[_summaryarray count]; i++) {
+            NSArray*array=[[_summaryarray objectAtIndex:i] componentsSeparatedByString:@" "];
+            //NSString*newtitile=[array objectAtIndex:0];
+            NSString*newtitiles=[array objectAtIndex:1];
+            
+            [_totalarray addObject:newtitiles];
+            NSLog(@"%@",_totalarray);
+            
+            if (i==[_summaryarray count]-1) {
+                for ( int x=0; x<[_totalarray count]; x++)
+                {
+                    sum=([[_totalarray objectAtIndex:x]integerValue])+sum;
+                    NSLog(@"%d",sum);
+                    _totallabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+                }
+                
+                
+                sum=0;
+            }
+            
+            
+        }
+    }
+    
+}
 
 
 -(void)newcalcuations{
@@ -1693,5 +1926,60 @@ else{
     }
    
 }
+#pragma mark - SearchBar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    _totallabel.text=@"";
+    _searchstring=_searchbar.text;
+    _totalarray=[[NSMutableArray alloc]init];
+    if (tooltype==1) {
+        [self ManPowerReviewSearch];
+
+    }
+    else if(tooltype==2)
+    {
+        [self EquipmentReviewSearch];
+    }
+    else if(tooltype==3)
+    {
+        [self OtherReviewSearch];
+    }
+
+    
+       [searchBar resignFirstResponder];
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    _totalarray=[[NSMutableArray alloc]init];
+    if (tooltype==1) {
+    [self EstimationManPowerReviewSelect];
+    }
+     if(tooltype==2)
+     {
+         [self EstimationEquipmentReviewSelect];
+     }
+    if(tooltype==3)
+    {
+        [self EstimationOtherReviewSelect];
+    }
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    _totalarray=[[NSMutableArray alloc]init];
+    if ([_searchbar.text length]==0) {
+        if (tooltype==1) {
+        [self EstimationManPowerReviewSelect];
+        }
+        if (tooltype==2) {
+            [self EstimationEquipmentReviewSelect];
+        }
+        
+        if (tooltype==3) {
+            [self EstimationOtherReviewSelect];
+        }
+    }
+    
+}
+
 
 @end
