@@ -44,6 +44,13 @@
     doubleTap2.delegate=(id)self;
     [self.mangmntview addGestureRecognizer:doubleTap2];
     
+    UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(JobPage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.jobview addGestureRecognizer:doubleTap3];
+    
     }
 -(void)masterpage{
     if (!self.hrVCtrl) {
@@ -81,6 +88,20 @@
     self.mgmtVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     
     [self presentViewController:self.mgmtVCtrl
+                       animated:YES completion:NULL];
+    
+    
+    
+}
+-(void)JobPage{
+    
+    if (!self.EmpVCtrl ) {
+        self.EmpVCtrl=[[EmpJobViewController alloc]initWithNibName:@"EmpJobViewController" bundle:nil];
+    }
+    
+   // self.EmpVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    
+    [self presentViewController:self.EmpVCtrl
                        animated:YES completion:NULL];
     
     
