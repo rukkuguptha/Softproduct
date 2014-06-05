@@ -84,7 +84,7 @@
    // [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
     //[self.todayButton setTitle:@"Today" forState:UIControlStateNormal];
     //[self.optionsButton setTitle:@"Option" forState:UIControlStateNormal];
-    [self.createEventButton setTitle:@"DONE" forState:UIControlStateNormal];
+    [self.createEventButton setTitle:@"BACK" forState:UIControlStateNormal];
     [self.createEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     
@@ -600,7 +600,7 @@
         NSLog(@"title%@",newtitile);
         
         
-        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]) {
+        if ([newtitile isEqualToString:@"Manpower"]||[newtitile isEqualToString:@"Equipment"]||[newtitile isEqualToString:@"Material"]||[newtitile isEqualToString:@"Consumbles"]||[newtitile isEqualToString:@"Perdiem"]||[newtitile isEqualToString:@"Delivery"]||[newtitile isEqualToString:@"Miscell"]||[newtitile isEqualToString:@"Travel"]) {
             //newtitile=@"Cost";
             newtitile=[NSString stringWithFormat:@"Cost $%@",_eventmdl.sum1];
             if ([previoustitle isEqualToString:@"Cost"]) {
