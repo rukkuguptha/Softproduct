@@ -1414,7 +1414,6 @@
 				D4FED41517F1A046004BE242 /* 1.png */,
 				D4FED41717F1A04D004BE242 /* 2.png */,
 				D4E15793177416D9002764AB /* icon-disclosure.png */,
-				6481615B176EF0C50017F4CC /* rightarowblack.png */,
 				648D12FF17716E0E006BB41A /* appbar.close.png */,
 				648D12FD17716C7F006BB41A /* rectangle3.png */,
 				D4149F27177186C100738AAC /* squareimage1.png */,
@@ -2193,6 +2192,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Newproject/Newproject-Prefix.pch";
 				INFOPLIST_FILE = "Newproject/Newproject-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2205,6 +2205,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Newproject/Newproject-Prefix.pch";
 				INFOPLIST_FILE = "Newproject/Newproject-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
