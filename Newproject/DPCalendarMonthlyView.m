@@ -300,10 +300,11 @@ NSString *const DPCalendarViewDayCellIdentifier = @"DPCalendarViewDayCellIdentif
         NSDate *thisMonth = [self.pagingMonths objectAtIndex:1];
         if ((collectionView == [self.pagingViews objectAtIndex:1]) && self.selectedDate && ([[self firstVisibleDateOfMonth:thisMonth] compare:self.selectedDate] == NSOrderedAscending) && ([[self lastVisibleDateOfMonth:thisMonth] compare:self.selectedDate] == NSOrderedDescending)) {
             
+            
             NSIndexPath *indexPath = [self indexPathForCurrentMonthWithDate:self.selectedDate];
             if ([self collectionView:collectionView shouldSelectItemAtIndexPath:indexPath]) {
                 [collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionCenteredVertically];
-                [self collectionView:collectionView didSelectItemAtIndexPath:indexPath];
+                //[self collectionView:collectionView didSelectItemAtIndexPath:indexPath];
             }
         }
     }
