@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "EqothersViewController.h"
+#import "LabourViewController.h"
 @interface MovementtileViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *labourview;
 @property (strong, nonatomic) IBOutlet UIView *equview;
 @property (strong, nonatomic)EqothersViewController*EquVCtrl;
+@property (strong, nonatomic)LabourViewController*labrVCtrl;
 - (IBAction)clsebtn:(id)sender;
+
 
 @end

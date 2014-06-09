@@ -57,6 +57,9 @@
 		649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */; };
 		649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */; };
 		649EDED818BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */; };
+		649F45E119457D1800E89F5C /* LabourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F45DF19457D1800E89F5C /* LabourViewController.m */; };
+		649F45E219457D1800E89F5C /* LabourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649F45E019457D1800E89F5C /* LabourViewController.xib */; };
+		649F45E419457F8A00E89F5C /* Lbrcuscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649F45E319457F8A00E89F5C /* Lbrcuscell.xib */; };
 		64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A00F3018C5B115002F607E /* empmgmtcell.xib */; };
 		64A09DAE1860549E001F74E2 /* appbar.checkmark.thick.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DAC1860549E001F74E2 /* appbar.checkmark.thick.png */; };
 		64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A09DAD1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png */; };
@@ -498,6 +501,10 @@
 		649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllDetailsplandisplayViewController.h; sourceTree = "<group>"; };
 		649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllDetailsplandisplayViewController.m; sourceTree = "<group>"; };
 		649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllDetailsplandisplayViewController.xib; sourceTree = "<group>"; };
+		649F45DE19457D1800E89F5C /* LabourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabourViewController.h; sourceTree = "<group>"; };
+		649F45DF19457D1800E89F5C /* LabourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabourViewController.m; sourceTree = "<group>"; };
+		649F45E019457D1800E89F5C /* LabourViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabourViewController.xib; sourceTree = "<group>"; };
+		649F45E319457F8A00E89F5C /* Lbrcuscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Lbrcuscell.xib; sourceTree = "<group>"; };
 		64A00F3018C5B115002F607E /* empmgmtcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = empmgmtcell.xib; sourceTree = "<group>"; };
 		64A09DAC1860549E001F74E2 /* appbar.checkmark.thick.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.checkmark.thick.png; sourceTree = "<group>"; };
 		64A09DAD1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.checkmark.thick.unchecked.png; sourceTree = "<group>"; };
@@ -1239,6 +1246,10 @@
 				D41499B6194576D5001E9146 /* EqothersViewController.h */,
 				D41499B7194576D5001E9146 /* EqothersViewController.m */,
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
+				649F45DE19457D1800E89F5C /* LabourViewController.h */,
+				649F45DF19457D1800E89F5C /* LabourViewController.m */,
+				649F45E019457D1800E89F5C /* LabourViewController.xib */,
+				649F45E319457F8A00E89F5C /* Lbrcuscell.xib */,
 			);
 			name = "Project Management";
 			sourceTree = "<group>";
@@ -1863,6 +1874,7 @@
 				D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */,
 				D400406B185B180200C38E12 /* ResViewController.xib in Resources */,
 				64A00F3118C5B115002F607E /* empmgmtcell.xib in Resources */,
+				649F45E419457F8A00E89F5C /* Lbrcuscell.xib in Resources */,
 				D49E056118C7022800AF6330 /* CrewsetupViewController.xib in Resources */,
 				D4F19DF618D03F47007617F0 /* ContractViewController.xib in Resources */,
 				D41499B5194575BB001E9146 /* MovementtileViewController.xib in Resources */,
@@ -2053,6 +2065,7 @@
 				D47A9B2319407AA2001CC416 /* worksettings.png in Resources */,
 				D4DEEDDB17F40BE70096A908 /* UploadDocViewController.xib in Resources */,
 				D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */,
+				649F45E219457D1800E89F5C /* LabourViewController.xib in Resources */,
 				D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */,
 				D4F557711904F7EF00EFDAF4 /* GeneralViewController.xib in Resources */,
 				D4D7A28D17F5401000880E38 /* profilepicture.png in Resources */,
@@ -2164,6 +2177,7 @@
 				D41499B9194576D5001E9146 /* EqothersViewController.m in Sources */,
 				D49F875318EEA36B00413CAD /* Manpwr.m in Sources */,
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
+				649F45E119457D1800E89F5C /* LabourViewController.m in Sources */,
 				D4F4B0A7190671CC0026C8B6 /* DetailplanViewController.m in Sources */,
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
