@@ -82,7 +82,12 @@
     doubleTap6.delegate=(id)self;
     [self.estimtnview addGestureRecognizer:doubleTap6];
 
-
+    UITapGestureRecognizer *doubleTap7 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Managementpage)];
+    doubleTap7.numberOfTapsRequired=1;
+    doubleTap7.delegate=(id)self;
+    [self.projectview addGestureRecognizer:doubleTap7];
 
 }
 
@@ -162,6 +167,16 @@
                        animated:YES completion:NULL];
     
     
+}
+-(void)Managementpage{
+    if (!_mangVCtrl) {
+        _mangVCtrl=[[ManagemttileViewController alloc]initWithNibName:@"ManagemttileViewController" bundle:nil];
+    }
+    _mangVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _mangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_mangVCtrl
+                       animated:YES completion:NULL];
+
 }
 
 - (void)didReceiveMemoryWarning
