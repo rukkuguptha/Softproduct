@@ -13,6 +13,7 @@
                 <outlet property="hrview" destination="29" id="31"/>
                 <outlet property="leadView" destination="23" id="25"/>
                 <outlet property="planngview" destination="Pjb-zn-1HX" id="eZv-oU-lvZ"/>
+                <outlet property="projectview" destination="EPr-1o-t3c" id="qcr-DD-gOR"/>
                 <outlet property="reurceview" destination="QcF-Qj-Fym" id="Svq-Rg-yJM"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
