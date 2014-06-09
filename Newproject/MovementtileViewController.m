@@ -54,6 +54,15 @@
 }
 
 -(void)labourpage{
+    if (!_labrVCtrl) {
+        _labrVCtrl=[[LabourViewController alloc]initWithNibName:@"LabourViewController" bundle:nil];
+    }
+    //_EquVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    // _EquVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_labrVCtrl
+                       animated:YES completion:NULL];
+    
+
     
 }
 -(void)equpage{
