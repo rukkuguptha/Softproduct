@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface EqothersViewController : UIViewController
+- (IBAction)clsebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end
