@@ -1,5 +1,5 @@
 //
-//  Lburmdl.h
+//  Labourcustommdl.h
 //  Newproject
 //
 //  Created by GMSIndia 2 on 10/06/14.
@@ -8,15 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Lburmdl : NSObject
+@interface Labourcustommdl : NSObject
+
+
+
 
 @property(strong,nonatomic)NSString *JobNumber;
 @property(strong,nonatomic)NSString *ItemCode;
 @property(strong,nonatomic)NSString *jbDescription;
 @property(strong,nonatomic)NSString *CalenderDate;
 @property(strong,nonatomic)NSString *qty;
-
-
-
 
 @end
