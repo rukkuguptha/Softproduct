@@ -168,12 +168,14 @@
 		D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40DD2651873ED0800E7BC2C /* Smalltoolcell.xib */; };
 		D40F8F2A19247D340059C8C9 /* PhasecomponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */; };
 		D40F8F2B19247D340059C8C9 /* PhasecomponentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */; };
+		D413816A1946BD4A0056574C /* EqOthersMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41381691946BD4A0056574C /* EqOthersMdl.m */; };
 		D41499AF194573A2001E9146 /* ManagemttileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499AD194573A2001E9146 /* ManagemttileViewController.m */; };
 		D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499AE194573A2001E9146 /* ManagemttileViewController.xib */; };
 		D41499B4194575BB001E9146 /* MovementtileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499B2194575BB001E9146 /* MovementtileViewController.m */; };
 		D41499B5194575BB001E9146 /* MovementtileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499B3194575BB001E9146 /* MovementtileViewController.xib */; };
 		D41499B9194576D5001E9146 /* EqothersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499B7194576D5001E9146 /* EqothersViewController.m */; };
 		D41499BA194576D5001E9146 /* EqothersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499B8194576D5001E9146 /* EqothersViewController.xib */; };
+		D41499BC19458121001E9146 /* Eqotherscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499BB19458121001E9146 /* Eqotherscell.xib */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D415486318ADF64900351248 /* Ratecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D415486218ADF64900351248 /* Ratecellview.xib */; };
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
@@ -640,6 +642,8 @@
 		D40F8F2719247D340059C8C9 /* PhasecomponentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhasecomponentsViewController.h; sourceTree = "<group>"; };
 		D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhasecomponentsViewController.m; sourceTree = "<group>"; };
 		D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhasecomponentsViewController.xib; sourceTree = "<group>"; };
+		D41381681946BD4A0056574C /* EqOthersMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqOthersMdl.h; sourceTree = "<group>"; };
+		D41381691946BD4A0056574C /* EqOthersMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqOthersMdl.m; sourceTree = "<group>"; };
 		D41499AC194573A2001E9146 /* ManagemttileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagemttileViewController.h; sourceTree = "<group>"; };
 		D41499AD194573A2001E9146 /* ManagemttileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagemttileViewController.m; sourceTree = "<group>"; };
 		D41499AE194573A2001E9146 /* ManagemttileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagemttileViewController.xib; sourceTree = "<group>"; };
@@ -649,6 +653,7 @@
 		D41499B6194576D5001E9146 /* EqothersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqothersViewController.h; sourceTree = "<group>"; };
 		D41499B7194576D5001E9146 /* EqothersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqothersViewController.m; sourceTree = "<group>"; };
 		D41499B8194576D5001E9146 /* EqothersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqothersViewController.xib; sourceTree = "<group>"; };
+		D41499BB19458121001E9146 /* Eqotherscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Eqotherscell.xib; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D415486218ADF64900351248 /* Ratecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ratecellview.xib; sourceTree = "<group>"; };
 		D418B61818B4A5620043644A /* NewrecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewrecordViewController.h; sourceTree = "<group>"; };
@@ -1246,6 +1251,7 @@
 				D41499B6194576D5001E9146 /* EqothersViewController.h */,
 				D41499B7194576D5001E9146 /* EqothersViewController.m */,
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
+				D41499BB19458121001E9146 /* Eqotherscell.xib */,
 				649F45DE19457D1800E89F5C /* LabourViewController.h */,
 				649F45DF19457D1800E89F5C /* LabourViewController.m */,
 				649F45E019457D1800E89F5C /* LabourViewController.xib */,
@@ -1703,6 +1709,8 @@
 				646A28B81937351D00902C4A /* Eqeventmdl.m */,
 				646A28BA193743CF00902C4A /* OthereventMaodel.h */,
 				646A28BB193743CF00902C4A /* OthereventMaodel.m */,
+				D41381681946BD4A0056574C /* EqOthersMdl.h */,
+				D41381691946BD4A0056574C /* EqOthersMdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2033,6 +2041,7 @@
 				D4FED41617F1A047004BE242 /* 1.png in Resources */,
 				D4FED41817F1A04E004BE242 /* 2.png in Resources */,
 				D47A9B1C19407AA2001CC416 /* branches.png in Resources */,
+				D41499BC19458121001E9146 /* Eqotherscell.xib in Resources */,
 				D4E6156418D971C500D7EAA0 /* logo.png in Resources */,
 				D4E658C017F2A54F00202B14 /* I9view.xib in Resources */,
 				D4004057185B174A00C38E12 /* TileViewController.xib in Resources */,
@@ -2179,6 +2188,7 @@
 				D4F61A5618A896D90006093B /* ProcesshrViewController.m in Sources */,
 				649F45E119457D1800E89F5C /* LabourViewController.m in Sources */,
 				D4F4B0A7190671CC0026C8B6 /* DetailplanViewController.m in Sources */,
+				D413816A1946BD4A0056574C /* EqOthersMdl.m in Sources */,
 				D40D1ED0176B0A0800379DD5 /* HomeViewController.m in Sources */,
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
 				D42E73DE1907E26300F7C99A /* Metgenmdl.m in Sources */,
