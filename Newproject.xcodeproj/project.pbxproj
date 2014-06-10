@@ -170,6 +170,8 @@
 		D40F8F2A19247D340059C8C9 /* PhasecomponentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D40F8F2819247D340059C8C9 /* PhasecomponentsViewController.m */; };
 		D40F8F2B19247D340059C8C9 /* PhasecomponentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */; };
 		D413816A1946BD4A0056574C /* EqOthersMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41381691946BD4A0056574C /* EqOthersMdl.m */; };
+		D413816C1947107A0056574C /* create-a-new-job.png in Resources */ = {isa = PBXBuildFile; fileRef = D413816B1947107A0056574C /* create-a-new-job.png */; };
+		D413816E194710830056574C /* site-requirement.png in Resources */ = {isa = PBXBuildFile; fileRef = D413816D194710830056574C /* site-requirement.png */; };
 		D41499AF194573A2001E9146 /* ManagemttileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499AD194573A2001E9146 /* ManagemttileViewController.m */; };
 		D41499B0194573A2001E9146 /* ManagemttileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499AE194573A2001E9146 /* ManagemttileViewController.xib */; };
 		D41499B4194575BB001E9146 /* MovementtileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41499B2194575BB001E9146 /* MovementtileViewController.m */; };
@@ -647,6 +649,8 @@
 		D40F8F2919247D340059C8C9 /* PhasecomponentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhasecomponentsViewController.xib; sourceTree = "<group>"; };
 		D41381681946BD4A0056574C /* EqOthersMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EqOthersMdl.h; sourceTree = "<group>"; };
 		D41381691946BD4A0056574C /* EqOthersMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EqOthersMdl.m; sourceTree = "<group>"; };
+		D413816B1947107A0056574C /* create-a-new-job.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "create-a-new-job.png"; sourceTree = "<group>"; };
+		D413816D194710830056574C /* site-requirement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "site-requirement.png"; sourceTree = "<group>"; };
 		D41499AC194573A2001E9146 /* ManagemttileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManagemttileViewController.h; sourceTree = "<group>"; };
 		D41499AD194573A2001E9146 /* ManagemttileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManagemttileViewController.m; sourceTree = "<group>"; };
 		D41499AE194573A2001E9146 /* ManagemttileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManagemttileViewController.xib; sourceTree = "<group>"; };
@@ -1508,6 +1512,8 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D413816B1947107A0056574C /* create-a-new-job.png */,
+				D413816D194710830056574C /* site-requirement.png */,
 				64A4124B19408104003EE113 /* hremployemangement.png */,
 				64A4124C19408104003EE113 /* hrinprocess.png */,
 				64A4124D19408104003EE113 /* hrmaster.png */,
@@ -1882,6 +1888,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D413816C1947107A0056574C /* create-a-new-job.png in Resources */,
 				6426F5EF18C06100002471AC /* estimation.png in Resources */,
 				D40D1EB5176B086F00379DD5 /* InfoPlist.strings in Resources */,
 				D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */,
@@ -2059,6 +2066,7 @@
 				D43DAA3518D1B0A800280AA6 /* CmpnydocsViewController.xib in Resources */,
 				D4A6748E19345E6C00D5A77E /* IconCamera.png in Resources */,
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
+				D413816E194710830056574C /* site-requirement.png in Resources */,
 				D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,

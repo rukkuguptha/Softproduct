@@ -175,9 +175,9 @@
 	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
-    NSDictionary *dictionary=[_xmlParser dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"EquipmentandOthersSelectResponse",@"Table", nil]];
+   // NSDictionary *dictionary=[_xmlParser dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"EquipmentandOthersSelectResponse",@"Table", nil]];
     
-                                     NSLog(@"dictioanry is %@",dictionary);
+                                     //NSLog(@"dictioanry is %@",dictionary);
 
 	[_xmlParser parse];
     
@@ -454,19 +454,19 @@
     
 }
 - (void)parserDidEndDocument:(NSXMLParser *)parser{
-    NSArray*newarray=[_equipmntarray mutableCopy];
-    for (int i = 0; i<[_equipmntarray count]; i++) {
-        
-        EqOthersMdl*eqmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:i];
-    NSSortDescriptor *sortdescpt=[[NSSortDescriptor alloc]initWithKey:eqmdl.itemdate ascending:NO];
-    NSArray*sortedarray=[[NSArray alloc]initWithObjects:sortdescpt, nil];
-          NSLog(@"array%@",[sortedarray objectAtIndex:0]);
-   NSArray*array=[newarray sortedArrayUsingDescriptors:sortedarray];
-  
-        NSLog(@"array%@",array);
- 
-    }
-    NSLog(@"arrayuuuu");
+//    NSArray*newarray=[_equipmntarray mutableCopy];
+//    for (int i = 0; i<[_equipmntarray count]; i++) {
+//        
+//        EqOthersMdl*eqmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:i];
+//    NSSortDescriptor *sortdescpt=[[NSSortDescriptor alloc]initWithKey:eqmdl.itemdate ascending:NO];
+//    NSArray*sortedarray=[[NSArray alloc]initWithObjects:sortdescpt, nil];
+//          NSLog(@"array%@",[sortedarray objectAtIndex:0]);
+//   NSArray*array=[newarray sortedArrayUsingDescriptors:sortedarray];
+//  
+//        NSLog(@"array%@",array);
+// 
+//    }
+//    NSLog(@"arrayuuuu");
 }
 
 #pragma mark-Tableview
