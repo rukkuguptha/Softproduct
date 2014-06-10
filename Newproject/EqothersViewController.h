@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface EqothersViewController : UIViewController
+- (IBAction)clsebtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
+@property (strong, nonatomic) IBOutlet UITableView *eqtable;
+@property (strong, nonatomic) IBOutlet UITableViewCell *eqcell;
+@property (strong, nonatomic) IBOutlet UIView *titleview;
 
 @end
