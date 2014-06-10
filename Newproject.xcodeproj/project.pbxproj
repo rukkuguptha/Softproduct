@@ -103,6 +103,7 @@
 		64A69850193844DA00F2000C /* calothereventcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A6984F193844DA00F2000C /* calothereventcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
+		64B08E5C1946BE3C003C25F5 /* Lburmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B08E5B1946BE3C003C25F5 /* Lburmdl.m */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
@@ -556,6 +557,8 @@
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
 		64A6984F193844DA00F2000C /* calothereventcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = calothereventcell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
+		64B08E5A1946BE3C003C25F5 /* Lburmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lburmdl.h; sourceTree = "<group>"; };
+		64B08E5B1946BE3C003C25F5 /* Lburmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lburmdl.m; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -1711,6 +1714,8 @@
 				646A28BB193743CF00902C4A /* OthereventMaodel.m */,
 				D41381681946BD4A0056574C /* EqOthersMdl.h */,
 				D41381691946BD4A0056574C /* EqOthersMdl.m */,
+				64B08E5A1946BE3C003C25F5 /* Lburmdl.h */,
+				64B08E5B1946BE3C003C25F5 /* Lburmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2281,6 +2286,7 @@
 				64A11EE618683792008D20CC /* workPhasesViewController.m in Sources */,
 				D40A99CC18C5A9B5005384F9 /* EmplyhrmgntViewController.m in Sources */,
 				D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */,
+				64B08E5C1946BE3C003C25F5 /* Lburmdl.m in Sources */,
 				D49F874918EEA36B00413CAD /* Section.m in Sources */,
 				D49F874B18EEA36B00413CAD /* Processsectionheaderview.m in Sources */,
 				D44BEA7118E0252600719ED5 /* BranchViewController.m in Sources */,
