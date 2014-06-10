@@ -7,14 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Lburmdl.h"
+#import "Labourcustommdl.h"
 
 @interface LabourViewController : UIViewController
 {
     BOOL recordResults;
     NSInteger sum;
 }
-@property(strong,nonatomic)Lburmdl *lbrmdl;
+@property(strong,nonatomic)Labourcustommdl *lbrmdl;
 
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *labrcell;

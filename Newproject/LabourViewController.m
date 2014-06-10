@@ -81,7 +81,7 @@
         }
     }
         if(tableView==_labrtable)
-        {  Lburmdl*lmdl=(Lburmdl *)[_labourarray objectAtIndex:indexPath.row];
+        {  Labourcustommdl*lmdl=(Labourcustommdl *)[_labourarray objectAtIndex:indexPath.row];
             _joblbl=(UILabel*)[cell viewWithTag:1];
             cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
             _joblbl.text=lmdl.JobNumber;
@@ -314,7 +314,7 @@
     {
         
         recordResults = FALSE;
-        _lbrmdl=[[Lburmdl alloc]init];
+        _lbrmdl=[[Labourcustommdl alloc]init];
         _lbrmdl.JobNumber=_soapResults;
         _soapResults = nil;
     }
@@ -374,7 +374,7 @@
     
     
             for (int i=0; i<[_labourarray count]; i++) {
-                Lburmdl *lmdl=(Lburmdl *)[_labourarray objectAtIndex:i];
+                Labourcustommdl *lmdl=(Labourcustommdl *)[_labourarray objectAtIndex:i];
                
                
                 [_totalarray addObject:[NSString stringWithFormat:@"%d",[lmdl.qty integerValue]]];
