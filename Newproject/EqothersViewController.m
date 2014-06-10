@@ -175,9 +175,9 @@
 	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
-   // NSDictionary *dictionary=[_xmlParser dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"EquipmentandOthersSelectResponse",@"Table", nil]];
+    //NSDictionary *dictionary=[_xmlParser dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"JobNumber", nil]];
     
-                                     //NSLog(@"dictioanry is %@",dictionary);
+                                   //  NSLog(@"dictioanry is %@",dictionary);
 
 	[_xmlParser parse];
     
