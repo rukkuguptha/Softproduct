@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
+#import "InOutSiteViewController.h"
 @interface EqothersViewController : UIViewController{
     BOOL  recordResults;
     int btnclck;
@@ -19,6 +20,7 @@
     NSInteger dateselctor;
 }
 - (IBAction)clsebtn:(id)sender;
+@property (strong, nonatomic)InOutSiteViewController *InoutVCtrl;
 @property (strong, nonatomic)EqOthersMdl*equpmdl;
 @property (strong, nonatomic)NSMutableArray *equipmntarray;
 @property (strong, nonatomic)NSMutableArray *Optionarray;
@@ -70,5 +72,39 @@
 - (IBAction)itmdatebtn:(id)sender;
 
 - (IBAction)showbtn:(id)sender;
+
+
+
+- (IBAction)stockoutbtn:(id)sender;
+- (IBAction)siteinbtn:(id)sender;
+
+- (IBAction)siteoutbtn:(id)sender;
+- (IBAction)stockinbtn:(id)sender;
+
+
+/*new xib outlets*/
+@property (strong, nonatomic) IBOutlet UITextField *jobsitetxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *itmnametxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *orderdtxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *stocktxtfld;
+@property (strong, nonatomic) IBOutlet UITextField *delivrdtxtfld;
+
+@property (strong, nonatomic) IBOutlet UITextField *sendtxtfld;
+@property (strong, nonatomic) IBOutlet UILabel *orderedlbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *delivedlbl;
+@property (strong, nonatomic) IBOutlet UILabel *sendlbl;
+
+@property (strong, nonatomic) IBOutlet UIButton *thirdbtnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *confirmbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *confirmcheckbtnlbl;
+@property (strong, nonatomic) IBOutlet UITextView *notestxtview;
+
+- (IBAction)thirdbtn:(id)sender;
+- (IBAction)confirmbtn:(id)sender;
+
+- (IBAction)savebtn:(id)sender;
 
 @end

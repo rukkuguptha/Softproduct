@@ -1048,4 +1048,41 @@
 - (IBAction)showbtn:(id)sender {
     [self EQOthersSearch];
 }
+
+- (IBAction)stockoutbtn:(id)sender {
+}
+
+- (IBAction)siteinbtn:(id)sender {
+    if (!_InoutVCtrl) {
+        _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"InOutSiteViewController" bundle:nil];
+    }
+    _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_InoutVCtrl
+                       animated:YES completion:NULL];
+    
+}
+
+- (IBAction)siteoutbtn:(id)sender {
+    if (!_InoutVCtrl) {
+        _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bundle:nil];
+    }
+    _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_InoutVCtrl
+                       animated:YES completion:NULL];
+    
+
+}
+
+- (IBAction)stockinbtn:(id)sender {
+}
+- (IBAction)thirdbtn:(id)sender {
+}
+
+- (IBAction)confirmbtn:(id)sender {
+}
+
+- (IBAction)savebtn:(id)sender {
+}
 @end
