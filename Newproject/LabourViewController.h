@@ -30,6 +30,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *deslbl;
 @property(strong,nonatomic)IBOutlet UILabel *datelbl;
 @property(strong,nonatomic)IBOutlet UILabel *quantitylbl;
+@property(strong,nonatomic)IBOutlet UILabel *countlabel;
 
 
 /* xmlparser*/
