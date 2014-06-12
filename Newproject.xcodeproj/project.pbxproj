@@ -70,7 +70,7 @@
 		64A12C1219247FA8003721A3 /* MatPhaseEst.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C1119247FA8003721A3 /* MatPhaseEst.xib */; };
 		64A12C141924812A003721A3 /* Componentcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C131924812A003721A3 /* Componentcell.xib */; };
 		64A12C161924A29C003721A3 /* Thirdmatothcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A12C151924A29C003721A3 /* Thirdmatothcell.xib */; };
-		64A1317D19485599009F5431 /* ECountmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A1317C19485599009F5431 /* ECountmdl.m */; };
+		64A1317D19485599009F5431 /* Countmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A1317C19485599009F5431 /* Countmdl.m */; };
 		64A14D7C187546D20028B43A /* jobdetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A14D7A187546D20028B43A /* jobdetailsViewController.m */; };
 		64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7B187546D20028B43A /* jobdetailsViewController.xib */; };
 		64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A14D7E18755B910028B43A /* customdetlcell.xib */; };
@@ -522,8 +522,8 @@
 		64A12C1119247FA8003721A3 /* MatPhaseEst.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatPhaseEst.xib; sourceTree = "<group>"; };
 		64A12C131924812A003721A3 /* Componentcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Componentcell.xib; sourceTree = "<group>"; };
 		64A12C151924A29C003721A3 /* Thirdmatothcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Thirdmatothcell.xib; sourceTree = "<group>"; };
-		64A1317B19485599009F5431 /* ECountmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECountmdl.h; sourceTree = "<group>"; };
-		64A1317C19485599009F5431 /* ECountmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECountmdl.m; sourceTree = "<group>"; };
+		64A1317B19485599009F5431 /* Countmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Countmdl.h; sourceTree = "<group>"; };
+		64A1317C19485599009F5431 /* Countmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Countmdl.m; sourceTree = "<group>"; };
 		64A14D79187546D20028B43A /* jobdetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobdetailsViewController.h; sourceTree = "<group>"; };
 		64A14D7A187546D20028B43A /* jobdetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobdetailsViewController.m; sourceTree = "<group>"; };
 		64A14D7B187546D20028B43A /* jobdetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = jobdetailsViewController.xib; sourceTree = "<group>"; };
@@ -1725,8 +1725,8 @@
 				D41381691946BD4A0056574C /* EqOthersMdl.m */,
 				64B08E5D19471497003C25F5 /* Labourcustommdl.h */,
 				64B08E5E19471498003C25F5 /* Labourcustommdl.m */,
-				64A1317B19485599009F5431 /* ECountmdl.h */,
-				64A1317C19485599009F5431 /* ECountmdl.m */,
+				64A1317B19485599009F5431 /* Countmdl.h */,
+				64A1317C19485599009F5431 /* Countmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2232,7 +2232,7 @@
 				D49F875118EEA36B00413CAD /* Infoleads.m in Sources */,
 				649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */,
 				D4014FF318E3E05B00DB825A /* SerialViewController.m in Sources */,
-				64A1317D19485599009F5431 /* ECountmdl.m in Sources */,
+				64A1317D19485599009F5431 /* Countmdl.m in Sources */,
 				D49F876318EEA36B00413CAD /* Crewmodel.m in Sources */,
 				D49F875E18EEA36B00413CAD /* Customscaffoldingplan.m in Sources */,
 				D49F876A18EEA36B00413CAD /* Rsalesmdl.m in Sources */,

@@ -484,7 +484,7 @@
     {
         
         recordResults = FALSE;
-        _emdl=[[ECountmdl alloc]init];
+        _emdl=[[Countmdl alloc]init];
         _emdl.JobNumber=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapResults = nil;
     }
@@ -563,7 +563,7 @@
         
         for (int j=0; j<[_employeecountarray count]; j++)
         {
-            ECountmdl *emdl=(ECountmdl *)[_employeecountarray objectAtIndex:j];
+            Countmdl *emdl=(Countmdl *)[_employeecountarray objectAtIndex:j];
             NSLog(@"%@",emdl.JobNumber);
             NSLog(@"%@",emdl.jbDescription);
             
@@ -591,50 +591,5 @@
         [_newlabrarray addObject:lmdl];
     }
 }
-//-(void)checkqtyavailability1
-//{
-//    for (int i=0; i<[_employeecountarray count]; i++)
-//    {
-//        ECountmdl *emdl=(ECountmdl *)[_employeecountarray objectAtIndex:i];
-//        NSLog(@"%@",emdl.JobNumber);
-//        NSLog(@"%@",emdl.jbDescription);
-//        
-//        for (int j=0; j<[_labourarray count]; j++)
-//        {
-//            Labourcustommdl*lmdl=(Labourcustommdl *)[_labourarray objectAtIndex:j];
-//            
-//            if ([lmdl.JobNumber isEqualToString:emdl.JobNumber]&&[lmdl.jbDescription isEqualToString:emdl.jbDescription])
-//            {
-//               
-//                
-//                NSLog(@"%@",lmdl.JobNumber);
-//                
-//                NSLog(@"%@",lmdl.jbDescription);
-//
-//                NSLog(@"%@",emdl.JobNumber);
-//                NSLog(@"%@",emdl.jbDescription);
-//                NSLog(@"%@",lmdl.JobNumber);
-//                NSLog(@"%@",lmdl.jbDescription);
-//                
-//                
-//                
-//                lmdl.count=emdl.count1;
-//                NSLog(@"%@",lmdl.count);
-//                NSLog(@"%@",lmdl.count);
-//                [_newlabrarray addObject:lmdl];
-//            }
-//            else
-//            {
-//                
-//                lmdl.count=@"0";
-//                NSLog(@"%@",lmdl.count);
-//                [_newlabrarray addObject:lmdl];
-//            }
-//            
-//            
-//        }
-//       
-//    }
-//}
 
 @end

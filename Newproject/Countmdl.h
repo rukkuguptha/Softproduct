@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ECountmdl : NSObject
+@interface Countmdl : NSObject
 @property(strong,nonatomic)NSString *JobNumber;
 @property(strong,nonatomic)NSString *count1;
 @property(strong,nonatomic)NSString *jbDescription;
