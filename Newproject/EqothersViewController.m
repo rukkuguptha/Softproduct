@@ -38,6 +38,7 @@
     [super viewWillAppear:animated];
     [self EquipmentandOthersSelect];
     _mydict=[[NSMutableDictionary alloc]init];
+     dateselctor=0;
 }
 - (void)didReceiveMemoryWarning
 {
@@ -70,8 +71,7 @@
     popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
     
     //create a popover controller
-    
-    self.popOverController = [[UIPopoverController alloc]
+      self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
     //
@@ -80,13 +80,37 @@
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
     
     
-    [self.popOverController presentPopoverFromRect:_optionbtnlbl.frame
-                                            inView:self.scroll
-                          permittedArrowDirections:UIPopoverArrowDirectionUp
-                                          animated:YES];
     
     
+    switch (btnindex) {
+        case 1:
+            [self.popOverController presentPopoverFromRect:_itembtnlbl.frame
+                                                    inView:self.scroll
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            break;
+        case 2:
+            [self.popOverController presentPopoverFromRect:_jobnubrbtnlbl.frame
+                                                    inView:self.scroll
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            break;
+            
+        case 3:
+            [self.popOverController presentPopoverFromRect:_itmdatebtnlbl.frame
+                                                    inView:self.scroll
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            break;
+            
+        default:
+            break;
+    }
     
+
       
     
     
@@ -142,7 +166,223 @@
     
 }
 
+-(void)EquipmentJobNumberSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentJobNumberSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</EquipmentJobNumberSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentJobNumberSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)EquipmentItemNameSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentItemNameSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</EquipmentItemNameSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentItemNameSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
+-(void)EquipmentDateSelect{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentDateSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</EquipmentDateSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentDateSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)EQOthersSearch{
+    recordResults = FALSE;
+    NSString*job;
+    NSString*item;
+    NSString*itemdate;
+    job= _jobnubrbtnlbl.titleLabel.text;
+    item= _itembtnlbl.titleLabel.text;
+    itemdate= _itmdatebtnlbl.titleLabel.text;
+    
+    if ([_jobnubrbtnlbl.titleLabel.text isEqualToString:@"Select Job"]) {
+        
+        job=@"";
+    }
+    if ([_itembtnlbl.titleLabel.text isEqualToString:@"Select Item Name"]) {
+        
+        item=@"";
+    }
+    if ([_itmdatebtnlbl.titleLabel.text isEqualToString:@"Select Date"]) {
+        
+         itemdate=@"1900-1-1";
+    }
+
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EQOthersSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<string1>%@</string1>\n"
+                   "<string2>%@</string2>\n"
+                   "<string3>%@</string3>\n"
+                   "<cnt>%d</cnt>\n"
+                   "</EQOthersSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",job,item,itemdate,dateselctor];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EQOthersSearch" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -175,13 +415,14 @@
 	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
-   // NSDictionary *dictionary=[_xmlParser dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"EquipmentandOthersSelectResponse",@"Table", nil]];
+    //NSDictionary *dictionary=[_xmlParser dictionaryWithValuesForKeys:[[NSArray alloc]initWithObjects:@"JobNumber", nil]];
     
-                                     //NSLog(@"dictioanry is %@",dictionary);
+                                   //  NSLog(@"dictioanry is %@",dictionary);
 
 	[_xmlParser parse];
     
     [_eqtable reloadData];
+    [_popOverTableView reloadData];
     
        }
 #pragma mark-xml parser
@@ -319,6 +560,78 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"EquipmentJobNumberSelectResponse"])
+    {
+        _jobnumbrarray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EqJobNumber"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EquipmentItemNameSelectResponse"])
+    {
+        _itemnamearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EqItemName"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EquipmentDateSelectResponse"])
+    {
+        _itemdatearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EqDate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"EQOthersSearchResponse"])
+    {
+        _equipmntarray=[[NSMutableArray alloc]init];
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -450,22 +763,59 @@
         [_equipmntarray addObject:_equpmdl];
              _soapResults = nil;
     }
-    
+    if([elementName isEqualToString:@"EqJobNumber"])
+    {
+        recordResults = FALSE;
+        [_jobnumbrarray addObject:_soapResults];
+        _soapResults = nil;
+
+
+    }
+    if([elementName isEqualToString:@"EqItemName"])
+    {
+        recordResults = FALSE;
+        [_itemnamearray addObject:_soapResults];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"EqDate"])
+    {
+      recordResults = FALSE;
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM/dd/yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+
+        [_itemdatearray addObject:myFormattedDate];
+         _soapResults = nil;
+    }
     
 }
 - (void)parserDidEndDocument:(NSXMLParser *)parser{
-//    NSArray*newarray=[_equipmntarray mutableCopy];
-//    for (int i = 0; i<[_equipmntarray count]; i++) {
+    
+//       NSArray*newarray=[_equipmntarray mutableCopy];
+//   // for (int i = 0; i<[_equipmntarray count]; i++) {
 //        
-//        EqOthersMdl*eqmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:i];
-//    NSSortDescriptor *sortdescpt=[[NSSortDescriptor alloc]initWithKey:eqmdl.itemdate ascending:NO];
-//    NSArray*sortedarray=[[NSArray alloc]initWithObjects:sortdescpt, nil];
-//          NSLog(@"array%@",[sortedarray objectAtIndex:0]);
-//   NSArray*array=[newarray sortedArrayUsingDescriptors:sortedarray];
+//      //  EqOthersMdl*eqmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:i];
+//        NSSortDescriptor *firstDescriptor = [[NSSortDescriptor alloc] initWithKey:@"itemdate" ascending:YES];
+//        NSSortDescriptor *secondDescriptor = [[NSSortDescriptor alloc] initWithKey:@"entryid" ascending:YES];
+//        
+//        NSArray *sortDescriptors = [NSArray arrayWithObjects:firstDescriptor, secondDescriptor, nil];
+//        
+//        NSArray *sortedArray = [newarray sortedArrayUsingDescriptors:sortDescriptors];
+//
+////    NSSortDescriptor *sortdescpt=[[NSSortDescriptor alloc]initWithKey:eqmdl.itemdate ascending:NO];
+////    NSArray*sortedarray=[[NSArray alloc]initWithObjects:sortdescpt, nil];
+////          NSLog(@"array%@",[sortedarray objectAtIndex:0]);
+////   NSArray*array=[newarray sortedArrayUsingDescriptors:sortedarray];
 //  
-//        NSLog(@"array%@",array);
+//        NSLog(@"array%@",[sortedArray objectAtIndex:0]);
 // 
-//    }
+//    //}
 //    NSLog(@"arrayuuuu");
 }
 
@@ -484,10 +834,25 @@
     // Return the number of rows in the section.
     
     if (tableView==_popOverTableView) {
-        return [_Optionarray count];
+        switch (btnindex) {
+            case 1:
+                 return [_itemnamearray count];
+                break;
+            case 2:
+                return [_jobnumbrarray count];
+                break;
+            case 3:
+                return [_itemdatearray count];
+                break;
+
+
+            default:
+                break;
+        }
+       
     }
     else{
-        return 3;
+        return [_equipmntarray count];
     }
     return YES;
 
@@ -499,18 +864,37 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
         if (tableView==_eqtable) {
             
         
         [[NSBundle mainBundle]loadNibNamed:@"Eqotherscell" owner:self options:nil];
         cell=_eqcell;
         }
-    }
+             }
     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
 
     if (tableView==_popOverTableView) {
+        switch (btnindex) {
+            case 1:
+               
+                cell.textLabel.text=[_itemnamearray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+               
+                cell.textLabel.text=[_jobnumbrarray objectAtIndex:indexPath.row];
+                break;
+            case 3:
+                 cell.textLabel.text=[_itemdatearray objectAtIndex:indexPath.row];
+            
+                break;
+                
+                
+            default:
+                break;
+        }
+
         
-        cell.textLabel.text=[_Optionarray objectAtIndex:indexPath.row];
     }
     
     if (tableView==_eqtable) {
@@ -539,8 +923,28 @@
 -(void)tableView: (UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView==_popOverTableView) {
-        
-        [_optionbtnlbl setTitle:[_Optionarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+        switch (btnindex) {
+            case 1:
+                
+               
+                 [_itembtnlbl setTitle:[_itemnamearray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                break;
+            case 2:
+                
+                [_jobnubrbtnlbl setTitle:[_jobnumbrarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+
+                break;
+            case 3:
+               
+                   [_itmdatebtnlbl setTitle:[_itemdatearray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                break;
+                
+                
+            default:
+                break;
+        }
+
+     //   [_optionbtnlbl setTitle:[_Optionarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
        }
     [self.popOverController dismissPopoverAnimated:YES];
 }
@@ -555,24 +959,93 @@
 }
 
 - (IBAction)checkbtn:(id)sender {
-    btnclck++;
-    if (btnclck%2!=0) {
-        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
-        _selectbtnlbl.enabled=YES;
-    }
-    else
-    {
-        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
-          _selectbtnlbl.enabled=NO;
-    }
+   
+//    btnclck++;
+//    if (btnclck%2!=0) {
+//        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        _selectbtnlbl.enabled=YES;
+//    }
+//    else
+//    {
+//        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//          _selectbtnlbl.enabled=NO;
+//    }
 
 }
 
 - (IBAction)optnbtn:(id)sender {
+      [_popOverTableView reloadData];
+}
+
+- (IBAction)itembtn:(id)sender {
+    btnindex=1;
     [self createpopover];
-    [_popOverTableView reloadData];
+
+    [self EquipmentItemNameSelect];
+}
+
+- (IBAction)itmcheckbtn:(id)sender {
+      btnclck++;
+        if (btnclck%2!=0) {
+           [_itemcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+          
+           _itembtnlbl.enabled=YES;
+        }
+        else
+        {
+           [_itemcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            _itembtnlbl.enabled=NO;
+            [_itembtnlbl setTitle:@"Select Item Name" forState:UIControlStateNormal];
+       }
+
+}
+
+- (IBAction)jobbtn:(id)sender {
+    btnindex=2;
+    [self createpopover];
+    [self EquipmentJobNumberSelect];
+}
+
+- (IBAction)jobcheckbtn:(id)sender {
+    btnclck2++;
+    if (btnclck2%2!=0) {
+        [_jobcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+          _jobnubrbtnlbl.enabled=YES;
+    }
+    else
+    {
+        [_jobcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _jobnubrbtnlbl.enabled=NO;
+         [_jobnubrbtnlbl setTitle:@"Select Job" forState:UIControlStateNormal];
+    }
+
+}
+
+- (IBAction)datecheckbtn:(id)sender {
+    btnclck3++;
+    if (btnclck3%2!=0) {
+        [_datecheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        _itmdatebtnlbl.enabled=YES;
+        dateselctor=1;
+    }
+    else
+    {
+        [_datecheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+         _itmdatebtnlbl.enabled=NO;
+        [_itmdatebtnlbl setTitle:@"Select Date" forState:UIControlStateNormal];
+        dateselctor=0;
+
+    }
+
+}
+
+- (IBAction)itmdatebtn:(id)sender {
+    btnindex=3;
+    [self createpopover];
+    [self EquipmentDateSelect];
 }
 
 - (IBAction)showbtn:(id)sender {
+    [self EQOthersSearch];
 }
 @end
