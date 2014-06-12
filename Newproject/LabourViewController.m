@@ -551,7 +551,7 @@
             }
     }
 -(void)checkqtyavailability
-{
+{  _newlabrarray=[[NSMutableArray alloc]init];
     for (int i=0; i<[_labourarray count]; i++)
     {
         
