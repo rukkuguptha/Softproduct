@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     sum=0;
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
   
     // Do any additional setup after loading the view from its nib.
@@ -38,6 +39,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+   
+     sum=0;
     _totalarray=[[NSMutableArray alloc]init];
     _newlabrarray=[[NSMutableArray alloc]init];
     [self CountFromEmployeeSelect];
@@ -108,7 +111,17 @@
                 
                 _quantitylbl=(UILabel*)[cell viewWithTag:5];
                 _quantitylbl.text=lmdl.qty;
-            NSLog(@"%@",lmdl.count);
+            _countlabel=(UILabel*)[cell viewWithTag:6];
+            if ([lmdl.count length]==0) {
+                
+                _countlabel.text=@"0";
+
+            }
+            else
+            {
+                _countlabel.text=lmdl.count;
+            }
+           
                 
             
             }
@@ -290,9 +303,11 @@
 	[_xmlParser parse];
     
     if (webtype==2) {
+       
         [self ProjectManPowerRequiredSelect];
             }
     if (webtype==1) {
+        
         [self checkqtyavailability];
         [self newcalcuations];
         [_labrtable reloadData];
@@ -469,7 +484,7 @@
     {
         
         recordResults = FALSE;
-        _emdl=[[ECountmdl alloc]init];
+        _emdl=[[Countmdl alloc]init];
         _emdl.JobNumber=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapResults = nil;
     }
@@ -492,6 +507,17 @@
 
 
 }
+//- (void)parserDidEndDocument:(NSXMLParser *)parser
+//{
+//    if (webtype==1) {
+//        [self checkqtyavailability1];
+//        [self newcalcuations];
+//        [_labrtable reloadData];
+//        
+//        
+//    }
+//
+//}
 #pragma mark-calculations
 -(void)calculatesum
 {
@@ -503,12 +529,14 @@
       
         
         _totalquantitylabel.text=[NSString stringWithFormat:@"%d",sum]  ;
+        
     }
+    
 }
 
 -(void)newcalcuations{
     
-    
+    _totalarray=[[NSMutableArray alloc]init];
             for (int i=0; i<[_labourarray count]; i++) {
                 Labourcustommdl *lmdl=(Labourcustommdl *)[_labourarray objectAtIndex:i];
                
@@ -535,7 +563,7 @@
         
         for (int j=0; j<[_employeecountarray count]; j++)
         {
-            ECountmdl *emdl=(ECountmdl *)[_employeecountarray objectAtIndex:j];
+            Countmdl *emdl=(Countmdl *)[_employeecountarray objectAtIndex:j];
             NSLog(@"%@",emdl.JobNumber);
             NSLog(@"%@",emdl.jbDescription);
             
@@ -551,15 +579,17 @@
                 lmdl.count=emdl.count1;
                  NSLog(@"%@",lmdl.count);
             }
-            else
-            {
-                
-                lmdl.count=@"0";
-            }
+//            else
+//            {
+//                
+//                lmdl.count=@"0";
+//            }
 
         }
         NSLog(@"%@",lmdl.count);
+        
         [_newlabrarray addObject:lmdl];
     }
 }
+
 @end

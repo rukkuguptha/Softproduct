@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Labourcustommdl.h"
-#import "ECountmdl.h"
+#import "Countmdl.h"
 
 @interface LabourViewController : UIViewController
 {
@@ -17,7 +17,7 @@
     NSInteger webtype;
 }
 @property(strong,nonatomic)Labourcustommdl *lbrmdl;
-@property(strong,nonatomic)ECountmdl *emdl;
+@property(strong,nonatomic)Countmdl *emdl;
 
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *labrcell;
@@ -30,6 +30,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *deslbl;
 @property(strong,nonatomic)IBOutlet UILabel *datelbl;
 @property(strong,nonatomic)IBOutlet UILabel *quantitylbl;
+@property(strong,nonatomic)IBOutlet UILabel *countlabel;
 
 
 /* xmlparser*/

@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 GMSIndia1. All rights reserved.
 //
 
-#import "ECountmdl.h"
+#import "Countmdl.h"
 
-@implementation ECountmdl
+@implementation Countmdl
 
 @end
