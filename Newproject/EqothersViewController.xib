@@ -7,11 +7,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EqothersViewController">
             <connections>
-                <outlet property="checkbtnlbl" destination="23V-SW-thf" id="s6z-Hx-QA6"/>
+                <outlet property="datecheckbtnlbl" destination="e7M-zX-kfB" id="VRN-fA-05S"/>
                 <outlet property="eqtable" destination="ULg-oe-KgI" id="QAQ-F0-5t8"/>
-                <outlet property="optionbtnlbl" destination="DPP-Rn-6cO" id="rRX-qE-zWD"/>
+                <outlet property="itembtnlbl" destination="965-Dx-RuD" id="rOH-pD-m9Q"/>
+                <outlet property="itemcheckbtnlbl" destination="yZb-jR-APU" id="y0R-UA-Zcj"/>
+                <outlet property="itmdatebtnlbl" destination="Twv-YZ-dZT" id="gBh-a0-e3e"/>
+                <outlet property="jobcheckbtnlbl" destination="23V-SW-thf" id="hFx-8v-4r7"/>
+                <outlet property="jobnubrbtnlbl" destination="DPP-Rn-6cO" id="d6D-pP-sLA"/>
                 <outlet property="scroll" destination="40A-wt-Cyi" id="yeA-G0-hyg"/>
-                <outlet property="selectbtnlbl" destination="965-Dx-RuD" id="Aks-TJ-kFm"/>
                 <outlet property="titleview" destination="H0l-SV-Ki7" id="NvJ-Lq-dWn"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
@@ -84,39 +87,41 @@
                             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="23V-SW-thf">
-                            <rect key="frame" x="230" y="21" width="43" height="28"/>
+                            <rect key="frame" x="14" y="18" width="43" height="28"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="cb_mono_off.png">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="checkbtn:" destination="-1" eventType="touchUpInside" id="bPW-6V-rSC"/>
+                                <action selector="jobcheckbtn:" destination="-1" eventType="touchUpInside" id="k2B-qL-zVK"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPP-Rn-6cO">
-                            <rect key="frame" x="35" y="19" width="167" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DPP-Rn-6cO">
+                            <rect key="frame" x="65" y="16" width="167" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                            <state key="normal" title="Select Job Number" backgroundImage="textbox.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="optnbtn:" destination="-1" eventType="touchUpInside" id="yWe-1A-Ght"/>
+                                <action selector="jobbtn:" destination="-1" eventType="touchUpInside" id="VxS-50-wdL"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="965-Dx-RuD">
-                            <rect key="frame" x="281" y="19" width="167" height="30"/>
+                            <rect key="frame" x="291" y="16" width="167" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                            <state key="normal" title="Select Item Name" backgroundImage="textbox.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <action selector="selectbtn:" destination="-1" eventType="touchUpInside" id="9c4-CT-cyd"/>
+                                <action selector="itembtn:" destination="-1" eventType="touchUpInside" id="SJj-lx-0uQ"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTF-6G-R4c">
-                            <rect key="frame" x="474" y="26" width="77" height="20"/>
+                            <rect key="frame" x="725" y="19" width="77" height="20"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Show">
@@ -124,6 +129,38 @@
                             </state>
                             <connections>
                                 <action selector="showbtn:" destination="-1" eventType="touchUpInside" id="j93-V2-Tnp"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZb-jR-APU">
+                            <rect key="frame" x="240" y="18" width="43" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="cb_mono_off.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="itmcheckbtn:" destination="-1" eventType="touchUpInside" id="r4B-G1-VvJ"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e7M-zX-kfB">
+                            <rect key="frame" x="473" y="16" width="43" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="cb_mono_off.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="datecheckbtn:" destination="-1" eventType="touchUpInside" id="KKh-QH-4Et"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Twv-YZ-dZT">
+                            <rect key="frame" x="529" y="14" width="167" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Select Date" backgroundImage="textbox.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="itmdatebtn:" destination="-1" eventType="touchUpInside" id="LEt-Uf-NKR"/>
                             </connections>
                         </button>
                     </subviews>

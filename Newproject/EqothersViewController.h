@@ -11,13 +11,22 @@
 @interface EqothersViewController : UIViewController{
     BOOL  recordResults;
     int btnclck;
+     int btnclck2;
+    int btnclck3;
+
     NSString *previousdate;
+    NSInteger btnindex;
+    NSInteger dateselctor;
 }
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic)EqOthersMdl*equpmdl;
 @property (strong, nonatomic)NSMutableArray *equipmntarray;
 @property (strong, nonatomic)NSMutableArray *Optionarray;
 @property (strong, nonatomic)NSMutableDictionary *mydict;
+@property (strong, nonatomic)NSMutableArray *jobnumbrarray;
+@property (strong, nonatomic)NSMutableArray *itemnamearray;
+@property (strong, nonatomic)NSMutableArray *itemdatearray;
+
 @property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 @property (strong, nonatomic) IBOutlet UITableView *eqtable;
 @property (strong, nonatomic) IBOutlet UITableViewCell *eqcell;
@@ -45,14 +54,21 @@
 @property (strong, nonatomic) IBOutlet UILabel *datelbl;
 @property (strong, nonatomic) IBOutlet UILabel *orderdlbl;
 @property (strong, nonatomic) IBOutlet UILabel *stocklbl;
-@property (strong, nonatomic) IBOutlet UIButton *optionbtnlbl;
-@property (strong, nonatomic) IBOutlet UIButton *checkbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *jobcheckbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *jobnubrbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *itemcheckbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *itembtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *datecheckbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *itmdatebtnlbl;
+- (IBAction)itembtn:(id)sender;
+- (IBAction)itmcheckbtn:(id)sender;
+- (IBAction)jobbtn:(id)sender;
+- (IBAction)jobcheckbtn:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UIButton *selectbtnlbl;
-- (IBAction)selectbtn:(id)sender;
-- (IBAction)checkbtn:(id)sender;
+- (IBAction)datecheckbtn:(id)sender;
 
-- (IBAction)optnbtn:(id)sender;
+- (IBAction)itmdatebtn:(id)sender;
+
 - (IBAction)showbtn:(id)sender;
 
 @end
