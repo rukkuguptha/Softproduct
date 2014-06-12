@@ -104,6 +104,9 @@
 		64A69850193844DA00F2000C /* calothereventcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A6984F193844DA00F2000C /* calothereventcell.xib */; };
 		64AA0B8A177810FC005DD2B2 /* SalesRepInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649AE8861772DFF200CAECE7 /* SalesRepInfoViewController.xib */; };
 		64AD76C718AE12B100089A0F /* scaffoldcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AD76C618AE12B100089A0F /* scaffoldcell.xib */; };
+		64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */; };
+		64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */; };
+		64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B81949B029002D44B6 /* StkOtSiteout.xib */; };
 		64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B08E5E19471498003C25F5 /* Labourcustommdl.m */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
@@ -563,6 +566,10 @@
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
 		64A6984F193844DA00F2000C /* calothereventcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = calothereventcell.xib; sourceTree = "<group>"; };
 		64AD76C618AE12B100089A0F /* scaffoldcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = scaffoldcell.xib; sourceTree = "<group>"; };
+		64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InOutSiteViewController.h; sourceTree = "<group>"; };
+		64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InOutSiteViewController.m; sourceTree = "<group>"; };
+		64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InOutSiteViewController.xib; sourceTree = "<group>"; };
+		64AE02B81949B029002D44B6 /* StkOtSiteout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StkOtSiteout.xib; sourceTree = "<group>"; };
 		64B08E5D19471497003C25F5 /* Labourcustommdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labourcustommdl.h; sourceTree = "<group>"; };
 		64B08E5E19471498003C25F5 /* Labourcustommdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Labourcustommdl.m; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
@@ -1265,6 +1272,10 @@
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
 				D41499BB19458121001E9146 /* Eqotherscell.xib */,
 				D4149B6A194966F400A5A6FD /* Siteoutview.xib */,
+				64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */,
+				64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */,
+				64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */,
+				64AE02B81949B029002D44B6 /* StkOtSiteout.xib */,
 				649F45DE19457D1800E89F5C /* LabourViewController.h */,
 				649F45DF19457D1800E89F5C /* LabourViewController.m */,
 				649F45E019457D1800E89F5C /* LabourViewController.xib */,
@@ -2020,6 +2031,7 @@
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
 				D4F557731904F89600EFDAF4 /* PGcell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
+				64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */,
 				D4A10B6C1935FCCA001856F8 /* Matcalevecell.xib in Resources */,
 				D4A22002190A1D890065840D /* Dragequip.xib in Resources */,
 				D42D8C2718D2DD79009D8085 /* ManViewController.xib in Resources */,
@@ -2151,6 +2163,7 @@
 				64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */,
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
+				64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				D47A9B1F19407AA2001CC416 /* folder-rights.png in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
@@ -2260,6 +2273,7 @@
 				D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D4A674C019345FFD00D5A77E /* DPCalendarTestCreateEventViewController.m in Sources */,
+				64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */,
 				D453DA2B1873F1D0007EE3DC /* AssetsViewController.m in Sources */,
 				D49F876418EEA36B00413CAD /* vendermodel.m in Sources */,
 				D4A85B4118A0E867004E9C8B /* TilehrViewController.m in Sources */,
