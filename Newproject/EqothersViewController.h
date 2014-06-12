@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
+#import "InOutSiteViewController.h"
 @interface EqothersViewController : UIViewController{
     BOOL  recordResults;
     int btnclck;
@@ -19,6 +20,7 @@
     NSInteger dateselctor;
 }
 - (IBAction)clsebtn:(id)sender;
+@property (strong, nonatomic)InOutSiteViewController *InoutVCtrl;
 @property (strong, nonatomic)EqOthersMdl*equpmdl;
 @property (strong, nonatomic)NSMutableArray *equipmntarray;
 @property (strong, nonatomic)NSMutableArray *Optionarray;

@@ -1053,9 +1053,26 @@
 }
 
 - (IBAction)siteinbtn:(id)sender {
+    if (!_InoutVCtrl) {
+        _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"InOutSiteViewController" bundle:nil];
+    }
+    _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_InoutVCtrl
+                       animated:YES completion:NULL];
+    
 }
 
 - (IBAction)siteoutbtn:(id)sender {
+    if (!_InoutVCtrl) {
+        _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bundle:nil];
+    }
+    _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_InoutVCtrl
+                       animated:YES completion:NULL];
+    
+
 }
 
 - (IBAction)stockinbtn:(id)sender {
