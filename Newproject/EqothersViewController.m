@@ -1048,4 +1048,24 @@
 - (IBAction)showbtn:(id)sender {
     [self EQOthersSearch];
 }
+
+- (IBAction)stockoutbtn:(id)sender {
+}
+
+- (IBAction)siteinbtn:(id)sender {
+}
+
+- (IBAction)siteoutbtn:(id)sender {
+}
+
+- (IBAction)stockinbtn:(id)sender {
+}
+- (IBAction)thirdbtn:(id)sender {
+}
+
+- (IBAction)confirmbtn:(id)sender {
+}
+
+- (IBAction)savebtn:(id)sender {
+}
 @end
