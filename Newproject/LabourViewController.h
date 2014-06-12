@@ -8,13 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "Labourcustommdl.h"
+#import "ECountmdl.h"
 
 @interface LabourViewController : UIViewController
 {
     BOOL recordResults;
     NSInteger sum;
+    NSInteger webtype;
 }
 @property(strong,nonatomic)Labourcustommdl *lbrmdl;
+@property(strong,nonatomic)ECountmdl *emdl;
 
 @property(strong,nonatomic)IBOutlet UIView *titleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *labrcell;
@@ -37,6 +40,8 @@
 
 @property(strong,nonatomic)NSMutableArray *labourarray;
 @property(strong,nonatomic)NSMutableArray *totalarray;
+@property(strong,nonatomic)NSMutableArray *employeecountarray;
+@property(strong,nonatomic)NSMutableArray *newlabrarray;
 
 - (IBAction)clsebtn:(id)sender;
 @end

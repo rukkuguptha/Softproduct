@@ -39,7 +39,9 @@
 {
     [super viewWillAppear:animated];
     _totalarray=[[NSMutableArray alloc]init];
-    [self ProjectManPowerRequiredSelect];
+    _newlabrarray=[[NSMutableArray alloc]init];
+    [self CountFromEmployeeSelect];
+    //[self ProjectManPowerRequiredSelect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,7 +65,9 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_labourarray count];
+    
+    
+    return [_newlabrarray count];
     
     
 }
@@ -81,30 +85,37 @@
         }
     }
         if(tableView==_labrtable)
-        {  Labourcustommdl*lmdl=(Labourcustommdl *)[_labourarray objectAtIndex:indexPath.row];
-            _joblbl=(UILabel*)[cell viewWithTag:1];
-            cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
-            _joblbl.text=lmdl.JobNumber;
-            _itemcodelbl=(UILabel*)[cell viewWithTag:2];
-           
-            _itemcodelbl.text=lmdl.ItemCode;
-            _deslbl=(UILabel*)[cell viewWithTag:3];
-            _deslbl.text=lmdl.jbDescription;
-            _datelbl=(UILabel*)[cell viewWithTag:4];
-            NSArray*array=[lmdl.CalenderDate componentsSeparatedByString:@"T"];
-            NSString*news=[array objectAtIndex:0];
-            NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-            [dateFormat setDateFormat:@"yyyy-MM-dd"];
-            NSDate *dates = [dateFormat dateFromString:news];
-            [dateFormat setDateFormat:@"MM-dd-yyy"];
-            NSString *myFormattedDate = [dateFormat stringFromDate:dates];
-            _datelbl.text=myFormattedDate;
+        {
+            
+            Labourcustommdl*lmdl=(Labourcustommdl *)[_newlabrarray objectAtIndex:indexPath.row];
+                _joblbl=(UILabel*)[cell viewWithTag:1];
+                cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+                _joblbl.text=lmdl.JobNumber;
+                _itemcodelbl=(UILabel*)[cell viewWithTag:2];
+                
+                _itemcodelbl.text=lmdl.ItemCode;
+                _deslbl=(UILabel*)[cell viewWithTag:3];
+                _deslbl.text=lmdl.jbDescription;
+                _datelbl=(UILabel*)[cell viewWithTag:4];
+                NSArray*array=[lmdl.CalenderDate componentsSeparatedByString:@"T"];
+                NSString*news=[array objectAtIndex:0];
+                NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+                [dateFormat setDateFormat:@"yyyy-MM-dd"];
+                NSDate *dates = [dateFormat dateFromString:news];
+                [dateFormat setDateFormat:@"MM-dd-yyy"];
+                NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+                _datelbl.text=myFormattedDate;
+                
+                _quantitylbl=(UILabel*)[cell viewWithTag:5];
+                _quantitylbl.text=lmdl.qty;
+            NSLog(@"%@",lmdl.count);
+                
+            
+            }
+            
+    
 
-            _quantitylbl=(UILabel*)[cell viewWithTag:5];
-            _quantitylbl.text=lmdl.qty;
-
-        }
-        
+    
 
     
     
@@ -144,6 +155,7 @@
 #pragma mark-webservices
 -(void)ProjectManPowerRequiredSelect
 {
+    webtype=1;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -193,6 +205,58 @@
     }
     
 }
+-(void)CountFromEmployeeSelect
+{
+    webtype=2;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<CountFromEmployeeSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</CountFromEmployeeSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/CountFromEmployeeSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -224,8 +288,18 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    [self newcalcuations];
-    [_labrtable reloadData];
+    
+    if (webtype==2) {
+        [self ProjectManPowerRequiredSelect];
+            }
+    if (webtype==1) {
+        [self checkqtyavailability];
+        [self newcalcuations];
+        [_labrtable reloadData];
+       
+
+    }
+    
   
 }
 #pragma mark-xml parser
@@ -286,6 +360,44 @@
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"CountFromEmployeeSelectResponse"])
+    {
+        _employeecountarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"countJobNumber"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"CountDescription"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"count1"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 
@@ -315,7 +427,7 @@
         
         recordResults = FALSE;
         _lbrmdl=[[Labourcustommdl alloc]init];
-        _lbrmdl.JobNumber=_soapResults;
+        _lbrmdl.JobNumber=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"ItemCode"])
@@ -332,7 +444,7 @@
         
         recordResults = FALSE;
        
-        _lbrmdl.jbDescription=_soapResults;
+        _lbrmdl.jbDescription=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
         _soapResults = nil;
     }
 
@@ -353,6 +465,30 @@
         [_labourarray addObject:_lbrmdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"countJobNumber"])
+    {
+        
+        recordResults = FALSE;
+        _emdl=[[ECountmdl alloc]init];
+        _emdl.JobNumber=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"CountDescription"])
+    {
+        
+        recordResults = FALSE;
+      _emdl.jbDescription=[_soapResults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"count1"])
+    {
+        
+        recordResults = FALSE;
+        _emdl.count1=_soapResults;
+        [_employeecountarray addObject:_emdl];
+        _soapResults = nil;
+    }
+
 
 
 }
@@ -386,5 +522,44 @@
                 }
             }
     }
+-(void)checkqtyavailability
+{
+    for (int i=0; i<[_labourarray count]; i++)
+    {
+        
+        Labourcustommdl*lmdl=(Labourcustommdl *)[_labourarray objectAtIndex:i];
+        
+        NSLog(@"%@",lmdl.JobNumber);
+        
+        NSLog(@"%@",lmdl.jbDescription);
+        
+        for (int j=0; j<[_employeecountarray count]; j++)
+        {
+            ECountmdl *emdl=(ECountmdl *)[_employeecountarray objectAtIndex:j];
+            NSLog(@"%@",emdl.JobNumber);
+            NSLog(@"%@",emdl.jbDescription);
+            
+            if ([lmdl.JobNumber isEqualToString:emdl.JobNumber]&&[lmdl.jbDescription isEqualToString:emdl.jbDescription])
+            {
+                NSLog(@"%@",emdl.JobNumber);
+                NSLog(@"%@",emdl.jbDescription);
+                NSLog(@"%@",lmdl.JobNumber);
+                NSLog(@"%@",lmdl.jbDescription);
+               
+                
+                
+                lmdl.count=emdl.count1;
+                 NSLog(@"%@",lmdl.count);
+            }
+            else
+            {
+                
+                lmdl.count=@"0";
+            }
 
+        }
+        NSLog(@"%@",lmdl.count);
+        [_newlabrarray addObject:lmdl];
+    }
+}
 @end

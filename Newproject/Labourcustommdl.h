@@ -18,5 +18,6 @@
 @property(strong,nonatomic)NSString *jbDescription;
 @property(strong,nonatomic)NSString *CalenderDate;
 @property(strong,nonatomic)NSString *qty;
+@property(strong,nonatomic)NSString *count;
 
 @end
