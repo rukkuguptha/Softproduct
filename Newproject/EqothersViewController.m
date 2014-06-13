@@ -1050,12 +1050,22 @@
 }
 
 - (IBAction)stockoutbtn:(id)sender {
+    
+  
+        _stockVCtrl=[[StockViewController alloc]initWithNibName:@"Siteoutview" bundle:nil];
+
+    _stockVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _stockVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_stockVCtrl
+                       animated:YES completion:NULL];
+    
+
 }
 
 - (IBAction)siteinbtn:(id)sender {
-    if (!_InoutVCtrl) {
+    
         _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"InOutSiteViewController" bundle:nil];
-    }
+    
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_InoutVCtrl
@@ -1064,9 +1074,9 @@
 }
 
 - (IBAction)siteoutbtn:(id)sender {
-    if (!_InoutVCtrl) {
+   
         _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bundle:nil];
-    }
+    
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_InoutVCtrl
@@ -1076,13 +1086,14 @@
 }
 
 - (IBAction)stockinbtn:(id)sender {
-}
-- (IBAction)thirdbtn:(id)sender {
-}
+   
+        _stockVCtrl=[[StockViewController alloc]initWithNibName:@"StockViewController" bundle:nil];
+    
+    _stockVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _stockVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_stockVCtrl
+                       animated:YES completion:NULL];
+    
 
-- (IBAction)confirmbtn:(id)sender {
-}
-
-- (IBAction)savebtn:(id)sender {
 }
 @end

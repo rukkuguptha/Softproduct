@@ -184,6 +184,8 @@
 		D41499BA194576D5001E9146 /* EqothersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499B8194576D5001E9146 /* EqothersViewController.xib */; };
 		D41499BC19458121001E9146 /* Eqotherscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41499BB19458121001E9146 /* Eqotherscell.xib */; };
 		D4149B6B194966F400A5A6FD /* Siteoutview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4149B6A194966F400A5A6FD /* Siteoutview.xib */; };
+		D4149BB01949B3F300A5A6FD /* StockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4149BAE1949B3F300A5A6FD /* StockViewController.m */; };
+		D4149BB11949B3F300A5A6FD /* StockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4149BAF1949B3F300A5A6FD /* StockViewController.xib */; };
 		D4149F28177186C100738AAC /* squareimage1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4149F27177186C100738AAC /* squareimage1.png */; };
 		D415486318ADF64900351248 /* Ratecellview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D415486218ADF64900351248 /* Ratecellview.xib */; };
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
@@ -673,6 +675,9 @@
 		D41499B8194576D5001E9146 /* EqothersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EqothersViewController.xib; sourceTree = "<group>"; };
 		D41499BB19458121001E9146 /* Eqotherscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Eqotherscell.xib; sourceTree = "<group>"; };
 		D4149B6A194966F400A5A6FD /* Siteoutview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteoutview.xib; sourceTree = "<group>"; };
+		D4149BAD1949B3F300A5A6FD /* StockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StockViewController.h; sourceTree = "<group>"; };
+		D4149BAE1949B3F300A5A6FD /* StockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StockViewController.m; sourceTree = "<group>"; };
+		D4149BAF1949B3F300A5A6FD /* StockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StockViewController.xib; sourceTree = "<group>"; };
 		D4149F27177186C100738AAC /* squareimage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squareimage1.png; sourceTree = "<group>"; };
 		D415486218ADF64900351248 /* Ratecellview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Ratecellview.xib; sourceTree = "<group>"; };
 		D418B61818B4A5620043644A /* NewrecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewrecordViewController.h; sourceTree = "<group>"; };
@@ -1271,6 +1276,9 @@
 				D41499B7194576D5001E9146 /* EqothersViewController.m */,
 				D41499B8194576D5001E9146 /* EqothersViewController.xib */,
 				D41499BB19458121001E9146 /* Eqotherscell.xib */,
+				D4149BAD1949B3F300A5A6FD /* StockViewController.h */,
+				D4149BAE1949B3F300A5A6FD /* StockViewController.m */,
+				D4149BAF1949B3F300A5A6FD /* StockViewController.xib */,
 				D4149B6A194966F400A5A6FD /* Siteoutview.xib */,
 				64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */,
 				64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */,
@@ -2052,6 +2060,7 @@
 				D453DA301873F206007EE3DC /* Consumblecell.xib in Resources */,
 				D43A395D18C993B00099EF7B /* NVerificationViewController.xib in Resources */,
 				D4049669192F183B00685109 /* GroupEqupViewController.xib in Resources */,
+				D4149BB11949B3F300A5A6FD /* StockViewController.xib in Resources */,
 				D415486318ADF64900351248 /* Ratecellview.xib in Resources */,
 				D40DD2661873ED0800E7BC2C /* Smalltoolcell.xib in Resources */,
 				D4A10B6D1935FCCA001856F8 /* Sumcell.xib in Resources */,
@@ -2302,6 +2311,7 @@
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
 				D4F3435A191CA3970023D715 /* EstimationViewController.m in Sources */,
 				D49F876218EEA36B00413CAD /* NewscfldDetails.m in Sources */,
+				D4149BB01949B3F300A5A6FD /* StockViewController.m in Sources */,
 				D49F874E18EEA36B00413CAD /* Verfymdl.m in Sources */,
 				D49F874618EEA36B00413CAD /* PDFImageConverter.m in Sources */,
 				D4A6749919345F1B00D5A77E /* DPCalendarIconEvent.m in Sources */,
