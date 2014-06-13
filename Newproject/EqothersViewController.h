@@ -10,7 +10,7 @@
 #import "EqOthersMdl.h"
 #import "InOutSiteViewController.h"
 #import "StockViewController.h"
-@interface EqothersViewController : UIViewController{
+@interface EqothersViewController : UIViewController<EqDelgate>{
     BOOL  recordResults;
     int btnclck;
      int btnclck2;
@@ -22,6 +22,7 @@
     NSInteger dateselctor;
 }
 - (IBAction)clsebtn:(id)sender;
+-(void)toreloadtable;
 @property (strong, nonatomic)StockViewController*stockVCtrl;
 @property (strong, nonatomic)InOutSiteViewController *InoutVCtrl;
 @property (strong, nonatomic)EqOthersMdl*equpmdl;
