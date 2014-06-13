@@ -15,6 +15,7 @@
     int btnclck;
      int btnclck2;
     int btnclck3;
+    UIButton *button;
 
     NSString *previousdate;
     NSInteger btnindex;

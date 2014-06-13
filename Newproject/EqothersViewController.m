@@ -1050,12 +1050,19 @@
 }
 
 - (IBAction)stockoutbtn:(id)sender {
-    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.eqtable];
+    NSIndexPath *textFieldIndexPath = [self.eqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    EqOthersMdl*eqmmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*passedarray=[[NSMutableArray alloc]initWithObjects:eqmmdl, nil];
   
-        _stockVCtrl=[[StockViewController alloc]initWithNibName:@"Siteoutview" bundle:nil];
+    _stockVCtrl=[[StockViewController alloc]initWithNibName:@"Siteoutview" bundle:nil];
 
     _stockVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _stockVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _stockVCtrl.eqarray=passedarray;
     [self presentViewController:_stockVCtrl
                        animated:YES completion:NULL];
     
@@ -1063,22 +1070,39 @@
 }
 
 - (IBAction)siteinbtn:(id)sender {
-    
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.eqtable];
+    NSIndexPath *textFieldIndexPath = [self.eqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    EqOthersMdl*eqmmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*passedarray=[[NSMutableArray alloc]initWithObjects:eqmmdl, nil];
+
         _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"InOutSiteViewController" bundle:nil];
     
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _InoutVCtrl.inoutarray=passedarray;
+
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
 }
 
 - (IBAction)siteoutbtn:(id)sender {
-   
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.eqtable];
+    NSIndexPath *textFieldIndexPath = [self.eqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    EqOthersMdl*eqmmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*passedarray=[[NSMutableArray alloc]initWithObjects:eqmmdl, nil];
+
         _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bundle:nil];
     
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+     _InoutVCtrl.inoutarray=passedarray;
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
@@ -1086,11 +1110,21 @@
 }
 
 - (IBAction)stockinbtn:(id)sender {
-   
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.eqtable];
+    NSIndexPath *textFieldIndexPath = [self.eqtable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    EqOthersMdl*eqmmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:textFieldIndexPath.row];
+    NSMutableArray*passedarray=[[NSMutableArray alloc]initWithObjects:eqmmdl, nil];
+    
+
         _stockVCtrl=[[StockViewController alloc]initWithNibName:@"StockViewController" bundle:nil];
     
     _stockVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _stockVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _stockVCtrl.eqarray=passedarray;
+
     [self presentViewController:_stockVCtrl
                        animated:YES completion:NULL];
     
