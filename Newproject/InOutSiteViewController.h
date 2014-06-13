@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
 
+
+@protocol sendback<NSObject>
+
+-(void)toreloadtable;
+
+
+@end
 @interface InOutSiteViewController : UIViewController
 {
     NSInteger confirmcheck;
@@ -18,10 +25,12 @@
     NSString *confirmout;
     NSString *job;
     NSInteger webtype;
+    NSString *msg;
 }
-
+-(void)toreloadtable;
 
 @property(strong,nonatomic)EqOthersMdl *eqmdl;
+@property(nonatomic, weak)id<sendback>delegate;
 
 -(IBAction)closethepage:(id)sender;
 
