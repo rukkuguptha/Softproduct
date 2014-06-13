@@ -8,17 +8,33 @@
 
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
+@protocol EqDelgate <NSObject>
+
+-(void)toreloadtable;
+
+@end
+
 @interface StockViewController : UIViewController{
     
     NSInteger btnclck;
       NSInteger btnclck1;
       NSInteger btnclck2;
+     BOOL  recordResults;
+    NSInteger confirm;
+    NSInteger thirdparty;
+    NSString *jobnumber;
     
     
 }
-
+@property(nonatomic, weak)id<EqDelgate>delegate;
 @property (strong, nonatomic)EqOthersMdl*eqmdl;
 @property (strong, nonatomic)NSMutableArray *eqarray;
+@property (strong, nonatomic)NSMutableDictionary *jobdict;
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
 /*Stock out xib outlets*/
 @property (strong, nonatomic) IBOutlet UITextField *jobsitetxtfld;
 @property (strong, nonatomic) IBOutlet UITextField *itmnametxtfld;

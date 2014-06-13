@@ -948,7 +948,9 @@
        }
     [self.popOverController dismissPopoverAnimated:YES];
 }
-
+-(void)toreloadtable{
+    [self EquipmentandOthersSelect];
+}
 
 - (IBAction)clsebtn:(id)sender {
    
@@ -1063,6 +1065,7 @@
     _stockVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _stockVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _stockVCtrl.eqarray=passedarray;
+    _stockVCtrl.delegate=self;
     [self presentViewController:_stockVCtrl
                        animated:YES completion:NULL];
     
