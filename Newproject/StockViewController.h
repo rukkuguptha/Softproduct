@@ -23,6 +23,7 @@
     NSInteger confirm;
     NSInteger thirdparty;
     NSString *jobnumber;
+    NSString *message;
     
     
 }
