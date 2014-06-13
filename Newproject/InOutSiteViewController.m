@@ -133,7 +133,12 @@
 }
 -(IBAction)savesitein:(id)sender
 {
+    
+if(confirmcheck==1)
+{
+
     [self SiteInUpdate];
+}
 }
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -332,9 +337,10 @@
                    "<MainId>%d</MainId>\n"
                    "<ConfirmSiteIn>%d</ConfirmSiteIn>\n"
                    "<Notes>%@</Notes>\n"
+                   "<QtyReceivedNow>%d</QtyReceivedNow>\n"
                    "</SiteInUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],confirmcheck,note];
+                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],confirmcheck,note,[_qtyrcvdnwtxtfld.text integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -517,6 +523,14 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SiteInUpdateResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
     
 
@@ -552,8 +566,32 @@
         _qtyrcvdnwtxtfld.text=_soapResults;
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"SiteInUpdateResult"])
+    {
+        recordResults = FALSE;
+        msg=_soapResults;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+        _soapResults = nil;
+    }
+
 
 }
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if ([alertView.message isEqualToString:msg]) {
+        
+        
+        if ([self.delegate respondsToSelector:@selector(toreloadtable)]) {
+            [self.delegate toreloadtable];
+        }
+        
+    }
+    
+    
+}
+
 
 
 @end
