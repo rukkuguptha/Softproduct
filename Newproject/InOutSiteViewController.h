@@ -7,13 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EqOthersMdl.h"
 
 @interface InOutSiteViewController : UIViewController
 {
     NSInteger confirmcheck;
      NSInteger outconfirmcheck;
+    BOOL recordResults;
+    NSString *confmin;
+    NSString *confirmout;
+    NSString *job;
+    NSInteger webtype;
 }
 
+
+@property(strong,nonatomic)EqOthersMdl *eqmdl;
 
 -(IBAction)closethepage:(id)sender;
 
@@ -28,6 +36,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *cnfrmbtn;
 
 -(IBAction)confirmcheckaction:(id)sender;
+-(IBAction)savesitein:(id)sender;
 
 
 /*IBOutlets in Siteout*/
@@ -43,13 +52,21 @@
 
 -(IBAction)outconfirmcheckaction:(id)sender;
 -(IBAction)tojobsiteaction:(id)sender;
+-(IBAction)savesiteout:(id)sender;
 
 
 
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 
-
+/*array*/
 @property(strong,nonatomic)NSMutableArray *inoutarray;
+@property(strong,nonatomic)NSMutableArray *jobarray;
+@property(strong,nonatomic)NSMutableDictionary *jobdict;
+
+ /*xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 @end
