@@ -1086,7 +1086,7 @@
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _InoutVCtrl.inoutarray=passedarray;
-
+ _InoutVCtrl.delegate=self;
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
@@ -1106,6 +1106,7 @@
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
      _InoutVCtrl.inoutarray=passedarray;
+    _InoutVCtrl.delegate=self;
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
