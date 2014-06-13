@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "EqOthersMdl.h"
 
 @interface InOutSiteViewController : UIViewController
 {
     NSInteger confirmcheck;
      NSInteger outconfirmcheck;
+    BOOL recordResults;
 }
 
+
+@property(strong,nonatomic)EqOthersMdl *eqmdl;
 
 -(IBAction)closethepage:(id)sender;
 
@@ -49,7 +53,12 @@
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
 
-
+/*array*/
 @property(strong,nonatomic)NSMutableArray *inoutarray;
+
+ /*xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
 
 @end
