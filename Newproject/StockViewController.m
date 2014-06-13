@@ -418,6 +418,7 @@
             _notestxtview.text=@"";
             [_thirdbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             thirdparty=0;
+            message=_soapResults;
         }
 
          _soapResults = nil;
@@ -427,11 +428,15 @@
 #pragma Mark-AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
+    if ([alertView.message isEqualToString:message]) {
+        
+    
     if ([self.delegate respondsToSelector:@selector(toreloadtable)]) {
         [self.delegate toreloadtable];
         
         
         
+    }
     }
     
     
@@ -454,6 +459,22 @@
 }
 
 - (IBAction)confirmbtn:(id)sender {
+//    if (thirdparty==1) {
+//        if ([[_sendtxtfld.text intValue] compare:[_orderdtxtfld.text intValue] options:NSNumericSearch] == NSOrderedDescending){
+//            
+//            
+//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//        
+//    }
+//    else{
+//        
+//        
+//        
+//    }
+    
+    
     btnclck++;
     if (btnclck%2!=0) {
         [_confirmcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
