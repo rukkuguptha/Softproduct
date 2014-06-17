@@ -25,7 +25,8 @@
 @property(strong,nonatomic)NSString*stockinbit;
 @property(strong,nonatomic)NSString*siteinbit;
 @property(strong,nonatomic)NSString*siteoutbit;
-
+@property(strong,nonatomic)NSString*stockinexpn;
+@property(strong,nonatomic)NSString*siteinexpn;
 
 
 @end

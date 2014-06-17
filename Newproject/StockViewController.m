@@ -314,10 +314,10 @@
                    "<ConfirmStockIn>%d</ConfirmStockIn>\n"
                    "<Notes>%@</Notes>\n"
                    "<QtyReceivedBackNow>%d</QtyReceivedBackNow>\n"
-                   
+                    "<Exception>%d</Exception>\n"
                    "</StockInUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],confirm1,_notes1txtview.text, [_receivedback1txtfld.text integerValue]];
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],confirm1,_notes1txtview.text, [_receivedback1txtfld.text integerValue],exception];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -537,7 +537,7 @@
     {
           recordResults = FALSE;
         if ([_soapResults isEqualToString:@"Inserted SiteIn"]) {
-            
+            [self StockOutInsert];
         }
         else{
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
@@ -628,7 +628,7 @@
         }
         else{
             [self SiteInInsert];
-             [self StockOutInsert];
+             //[self StockOutInsert];
         }
         
     }
@@ -654,7 +654,7 @@
             else{
                 if (confirm==1) {
                     [self SiteInInsert];
-                      [self StockOutInsert];
+                     // [self StockOutInsert];
                 }
                 else{
                     UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];

@@ -685,6 +685,29 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SiteInException"])
+    {
+        
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StockInException"])
+    {
+        
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
 
 
 }
@@ -853,10 +876,33 @@
         
         recordResults = FALSE;
         _equpmdl.stockinbit=_soapResults;
-            [_equipmntarray addObject:_equpmdl];
+        
         _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"SiteInException"])
+    {
+        
+        
+        
+        recordResults = FALSE;
+        _equpmdl.siteinexpn=_soapResults;
+        
+        _soapResults = nil;
+
+    }
+    if([elementName isEqualToString:@"StockInException"])
+    {
+        
+        
+        
+        recordResults = FALSE;
+        _equpmdl.stockinexpn=_soapResults;
+        [_equipmntarray addObject:_equpmdl];
+        _soapResults = nil;
+
+    }
+
 
     if([elementName isEqualToString:@"EqJobNumber"])
     {
@@ -1012,11 +1058,30 @@
         
         if ([eqmmdl.stockoutbit isEqualToString:@"true"]) {
             _stockoutbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
-            _stockoutbtnlbl.enabled=NO;
+        
+            if ([eqmmdl.DeliveredQty integerValue]>=[eqmmdl.OrderedQuantity integerValue]) {
+                
+                 _stockoutbtnlbl.enabled=NO;
+            }
+           
             
              if ([eqmmdl.siteinbit isEqualToString:@"false"]) {
+                 if ([eqmmdl.siteinexpn isEqualToString:@"true"]) {
+                     
+                     _siteinbtnlbl.backgroundColor=[UIColor redColor];
+                     
+                 }
+                 else{
+                     
                  _siteinbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
-                  _siteinbtnlbl.enabled=NO;
+                     
+                     if ([eqmmdl.ReceivedQty integerValue]>=[eqmmdl.OrderedQuantity integerValue]) {
+                         
+                        _siteinbtnlbl.enabled=NO;
+                     }
+
+                  
+                 }
 
                  }
              else if ([eqmmdl.siteinbit isEqualToString:@"true"]){
@@ -1027,12 +1092,29 @@
         
         if ([eqmmdl.siteoutbit isEqualToString:@"true"]) {
             _siteoutbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
-            _siteoutbtnlbl.enabled=NO;
+            if ([eqmmdl.TotalQtySendBack integerValue]>=[eqmmdl.ReceivedQty integerValue]) {
+                
+                 _siteoutbtnlbl.enabled=NO;
+            }
+
+           
             
             if ([eqmmdl.stockinbit isEqualToString:@"false"]) {
+                if ([eqmmdl.stockinexpn isEqualToString:@"true"]) {
+                    
+                    _stockinbtnlbl.backgroundColor=[UIColor redColor];
+                    
+                }
+                else{
+
                 _stockinbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
-                 _stockinbtnlbl.enabled=NO;
+                    if ([eqmmdl.QtyReceivedBack integerValue]>=[eqmmdl.TotalQtySendBack integerValue]) {
+                        
+                         _stockinbtnlbl.enabled=NO;
+                    }
+
                 
+                }
             }
             else if ([eqmmdl.stockinbit isEqualToString:@"true"]){
                 _stockinbtnlbl.backgroundColor=[UIColor redColor];
@@ -1218,7 +1300,7 @@
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _InoutVCtrl.inoutarray=passedarray;
-    _InoutVCtrl.delegate=self;
+    _InoutVCtrl.delegate=(id)self;
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
@@ -1238,7 +1320,7 @@ _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bund
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
      _InoutVCtrl.inoutarray=passedarray;
-    _InoutVCtrl.delegate=self;
+    _InoutVCtrl.delegate=(id)self;
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
