@@ -39,7 +39,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-   
+   dateselctor=0;
      sum=0;
     _totalarray=[[NSMutableArray alloc]init];
     _newlabrarray=[[NSMutableArray alloc]init];
@@ -57,6 +57,151 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+-(void)createpopover{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 200, 120)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
+    
+    //create a popover controller
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
+    
+    
+    
+    switch (btnindex) {
+        case 1:
+            [self.popOverController presentPopoverFromRect:_jobbtn.frame
+                                                    inView:self.view
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            break;
+        case 2:
+            [self.popOverController presentPopoverFromRect:_descbtn.frame
+                                                    inView:self.view
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            break;
+            
+        case 3:
+            [self.popOverController presentPopoverFromRect:_datebtn.frame
+                                                    inView:self.view
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    
+    
+    
+}
+- (IBAction)jobcheckbtnaction:(id)sender
+{
+    btnclck++;
+    if (btnclck%2!=0) {
+        [_jobcheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+        _jobbtn.enabled=YES;
+    }
+    else
+    {
+        [_jobcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _jobbtn.enabled=NO;
+        [_jobbtn setTitle:@"Select Job Number" forState:UIControlStateNormal];
+    }
+
+}
+- (IBAction)desccheckaction:(id)sender
+{
+    btnclck2++;
+    if (btnclck2%2!=0) {
+        [_desccheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+        _descbtn.enabled=YES;
+    }
+    else
+    {
+        [_desccheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _descbtn.enabled=NO;
+        [_descbtn setTitle:@"Select Description Name" forState:UIControlStateNormal];
+    }
+
+}
+- (IBAction)datecheckbtnaction:(id)sender
+{
+    btnclck3++;
+    if (btnclck3%2!=0) {
+        [_datecheckbtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        
+        _datebtn.enabled=YES;
+         dateselctor=1;
+    }
+    else
+    {
+        [_datecheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        _datebtn.enabled=NO;
+        [_datebtn setTitle:@"Select Date" forState:UIControlStateNormal];
+         dateselctor=0;
+    }
+
+}
+
+
+- (IBAction)selectjob:(id)sender
+{
+    btnindex=1;
+    [self createpopover];
+    [self ManPowerJobnumberSelect];
+}
+- (IBAction)selectdate:(id)sender
+{
+    btnindex=3;
+    [self createpopover];
+    [self LabourCalenderdateSelect];
+}
+- (IBAction)seletdesc:(id)sender
+{
+    btnindex=2;
+    [self createpopover];
+    [self LabourDescriptionSelect];
+}
+- (IBAction)show:(id)sender
+{
+    [self ManpowerreqSearch];
+}
+
+
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -69,9 +214,30 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    
+    if (tableView==_popOverTableView) {
+        switch (btnindex) {
+            case 1:
+                return [_jobarray count];
+                break;
+            case 2:
+                return [_descarray count];
+                break;
+            case 3:
+                return [_datearray count];
+                break;
+                
+                
+            default:
+                break;
+        }
+        
+    }
+    else
+    {
+
     return [_newlabrarray count];
-    
+    }
+    return YES;
     
 }
 
@@ -87,6 +253,30 @@
             cell=_labrcell;
         }
     }
+     cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+    if (tableView==_popOverTableView) {
+        switch (btnindex) {
+            case 1:
+                
+                cell.textLabel.text=[_jobarray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                
+                cell.textLabel.text=[_descarray objectAtIndex:indexPath.row];
+                break;
+            case 3:
+                cell.textLabel.text=[_datearray objectAtIndex:indexPath.row];
+                
+                break;
+                
+                
+            default:
+                break;
+        }
+        
+        
+    }
+
         if(tableView==_labrtable)
         {
             
@@ -135,7 +325,31 @@ return cell;
 {
     
     
-    
+    if (tableView==_popOverTableView) {
+        switch (btnindex) {
+            case 1:
+                
+                
+                [_jobbtn setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                break;
+            case 2:
+                
+                [_descbtn setTitle:[_descarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                
+                break;
+            case 3:
+                
+                [_datebtn setTitle:[_datearray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                break;
+                
+                
+            default:
+                break;
+        }
+        
+        //   [_optionbtnlbl setTitle:[_Optionarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+    }
+    [self.popOverController dismissPopoverAnimated:YES];
     
     
 }
@@ -196,6 +410,233 @@ return cell;
     
     [theRequest addValue: @"http://ios.kontract360.com/ProjectManPowerRequiredSelect" forHTTPHeaderField:@"Soapaction"];
     
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)LabourDescriptionSelect
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<LabourDescriptionSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</LabourDescriptionSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/LabourDescriptionSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)LabourCalenderdateSelect
+{
+       recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<LabourCalenderdateSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</LabourCalenderdateSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/LabourCalenderdateSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)ManPowerJobnumberSelect
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ManPowerJobnumberSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</ManPowerJobnumberSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManPowerJobnumberSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)ManpowerreqSearch
+{
+    recordResults = FALSE;
+    NSString*job;
+    NSString*desc;
+    NSString*itemdate;
+    job= _jobbtn.titleLabel.text;
+    desc= [_descbtn.titleLabel.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    itemdate= _datebtn.titleLabel.text;
+    
+    if ([_jobbtn.titleLabel.text isEqualToString:@"Select Job Number"]) {
+        
+        job=@"";
+    }
+    if ([_descbtn.titleLabel.text isEqualToString:@"Select Description Name"]) {
+        
+        desc=@"";
+    }
+    if ([_datebtn.titleLabel.text isEqualToString:@"Select Date"]) {
+        
+        itemdate=@"1900-1-1";
+    }
+    
+    
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ManpowerreqSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<string1>%@</string1>\n"
+                   "<string2>%@</string2>\n"
+                   "<string3>%@</string3>\n"
+                   "<cnt>%d</cnt>\n"
+                   "</ManpowerreqSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",job,desc,itemdate,dateselctor];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManpowerreqSearch" forHTTPHeaderField:@"Soapaction"];
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
     [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
@@ -309,6 +750,7 @@ return cell;
        
 
     }
+    [_popOverTableView reloadData];
     
   
 }
@@ -407,6 +849,77 @@ return cell;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"LabourDescriptionSelectResponse"])
+    {
+        _descarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LabourDes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LabourCalenderdateSelectResponse"])
+    {
+        _datearray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"LabourCalenderdate"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ManPowerJobnumberSelectResponse"])
+    {
+        _jobarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"manjobnumber"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ManpowerreqSearchResponse"])
+    {
+        _labourarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
+    
+
+
+
+
+
 
 
 
@@ -498,6 +1011,38 @@ return cell;
         [_employeecountarray addObject:_emdl];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"LabourDes"])
+    {
+        
+        recordResults = FALSE;
+        [_descarray addObject:_soapResults];
+                _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"LabourCalenderdate"])
+    {
+        
+        recordResults = FALSE;
+        NSArray *dateArray=[[NSArray alloc]init];
+        dateArray=[_soapResults componentsSeparatedByString:@"T"];
+        NSString *date1 =[dateArray objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:date1];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        [_datearray addObject:myFormattedDate];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"manjobnumber"])
+    {
+        
+        recordResults = FALSE;
+        [_jobarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+
+
+
 
 
 
