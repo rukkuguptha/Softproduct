@@ -57,9 +57,11 @@
     
     
     [self StockInSelect];
-
+    
+    
     
 }
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -572,7 +574,6 @@
         [self.delegate toreloadtable];
         
         
-        
     }
     }
     
@@ -602,7 +603,7 @@
     if (btnclck%2!=0) {
         [_confirmcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         confirm=1;
-        [self SiteInInsert];
+        
     }
     else
     {
@@ -626,6 +627,7 @@
             [alert show];
         }
         else{
+            [self SiteInInsert];
              [self StockOutInsert];
         }
         
@@ -651,6 +653,7 @@
             }
             else{
                 if (confirm==1) {
+                    [self SiteInInsert];
                       [self StockOutInsert];
                 }
                 else{
@@ -686,6 +689,24 @@
     
     
 
+}
+
+- (IBAction)exceptnbtn:(id)sender {
+    expclck++;
+    if (expclck%2!=0) {
+        [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        exception=1;
+        
+    }
+    else
+    {
+        [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        exception=0;
+    }
+
+}
+
+- (IBAction)removebtn:(id)sender {
 }
 
 - (IBAction)save1btn:(id)sender {
