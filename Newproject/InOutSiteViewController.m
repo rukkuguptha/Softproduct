@@ -39,7 +39,9 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [self JobsSelect];
+   
     [self SiteInSelect];
     
     EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
@@ -116,6 +118,7 @@
         
         
         outconfirmcheck=1;
+        [self StockInInsert];
         
         
     }
@@ -129,7 +132,15 @@
 }
 -(IBAction)savesiteout:(id)sender
 {
-    
+    if (outconfirmcheck==1) {
+        [self SiteOutInsert];
+    }
+    else
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please confirm before save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+
 }
 -(IBAction)savesitein:(id)sender
 {
@@ -139,6 +150,11 @@ if(confirmcheck==1)
 
     [self SiteInUpdate];
 }
+    else
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please confirm before save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
 }
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -156,7 +172,7 @@ if(confirmcheck==1)
     if(tableView==_popovertableview)
         
     {
-        return 5;
+        return [_jobnoarray count];
     }
     
     return YES;
@@ -173,8 +189,8 @@ if(confirmcheck==1)
     if(tableView==_popovertableview)
     {  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
         cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-      
-                //cell.textLabel.text=[_statearray objectAtIndex:indexPath.row];
+        jobsitemodel *jmdl=(jobsitemodel*)[_jobnoarray objectAtIndex:indexPath.row];
+        cell.textLabel.text=[NSString stringWithFormat:@"%@-%@",jmdl.jobno,jmdl.jobname];
         
                 
         
@@ -197,11 +213,11 @@ if(confirmcheck==1)
 {
     
     if (tableView==_popovertableview) {
+        jobsitemodel *jmdl=(jobsitemodel*)[_jobnoarray objectAtIndex:indexPath.row];
         
+       [_tojobbtn setTitle:[NSString stringWithFormat:@"%@-%@",jmdl.jobno,jmdl.jobname]forState:UIControlStateNormal];
         
-       
-        
-        
+        jobid=jmdl.jobid;
         
     }
     [self.popovercontroller dismissPopoverAnimated:YES];
@@ -425,70 +441,187 @@ if(confirmcheck==1)
     
     
 }
+-(void)JOB1Select
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+   
+    EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<JOB1Select xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<JobNumber>%@</JobNumber>\n"
+                   
+                   "</JOB1Select>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",eqmdl.jobnumber];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/JOB1Select" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
-//-(void)SiteOutInsert
-//{
-//    
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    
-//    EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
-//    NSString *note=_outnotetextview.text;
-//    NSString *jobdesc=[_jobdict objectForKey:eqmdl.jobnumber];
-//    
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<SiteInInsert xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<MainId>%d</MainId>\n"
-//                   "<JobNumber>%@</JobNumber>\n"
-//                   "<JobSite>%@</JobSite>\n"
-//                   "<ItemCode>%@</ItemCode>\n"
-//                   "<ItemName>%@</ItemName>\n"
-//                   "<QtySendBackNow>%d</QtySendBackNow>\n"
-//                   "<ToJob>%d</ToJob>\n"
-//                   "<ConfirmSiteOut>%d</ConfirmSiteOut>\n"
-//                   "<Notes>%@</Notes>\n"
-//                   "</SiteInInsert>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],eqmdl.jobnumber,jobdesc,eqmdl.itemcode,eqmdl.itemname,[_outqtysendbacktxtfld.text integerValue],,outconfirmcheck,note];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/SiteOutInsert" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
-//
+-(void)SiteOutInsert
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+   
+    EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
+    NSString *note=_outnotetextview.text;
+    NSString *jobdesc=[_jobdict objectForKey:eqmdl.jobnumber];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SiteOutInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   "<JobNumber>%@</JobNumber>\n"
+                   "<JobSite>%@</JobSite>\n"
+                   "<ItemCode>%@</ItemCode>\n"
+                   "<ItemName>%@</ItemName>\n"
+                   "<QtySendBackNow>%d</QtySendBackNow>\n"
+                   "<ToJob>%d</ToJob>\n"
+                   "<ConfirmSiteOut>%d</ConfirmSiteOut>\n"
+                   "<Notes>%@</Notes>\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "</SiteOutInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],eqmdl.jobnumber,jobdesc,eqmdl.itemcode,eqmdl.itemname,[_outqtysendbacktxtfld.text integerValue],jobid,outconfirmcheck,note,[eqmdl.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SiteOutInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)StockInInsert
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
+    //NSString *note=_outnotetextview.text;
+    NSString *jobdesc=[_jobdict objectForKey:eqmdl.jobnumber];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<StockInInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   "<JobNumber>%@</JobNumber>\n"
+                   "<JobSite>%@</JobSite>\n"
+                   "<ItemCode>%@</ItemCode>\n"
+                   "<ItemName>%@</ItemName>\n"
+                   "<QtyReceivedBackNow>%d</QtyReceivedBackNow>\n"
+                   "<ConfirmStockIn>%d</ConfirmStockIn>\n"
+                   "<Notes>%@</Notes>\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "</StockInInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],eqmdl.jobnumber,jobdesc,eqmdl.itemcode,eqmdl.itemname,[_outqtysendbacktxtfld.text integerValue],0,@"",[eqmdl.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/StockInInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -522,10 +655,11 @@ if(confirmcheck==1)
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     if (webtype==1) {
+        [self JOB1Select];
          EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
         _jobsitetxtfld.text=[_jobdict objectForKey:eqmdl.jobnumber];
         _outjobsitetxtfld.text=[_jobdict objectForKey:eqmdl.jobnumber];
-
+        webtype=0;
 
     }
     
@@ -584,6 +718,63 @@ if(confirmcheck==1)
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"SiteOutInsertResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StockInInsertResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"JOB1SelectResponse"])
+    {
+        _jobnoarray=[[NSMutableArray alloc]init];
+        _jobnodictionary=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"JNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"J1JobDescDetail"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+   
+
+
+
     
     
 
@@ -610,6 +801,7 @@ if(confirmcheck==1)
     if([elementName isEqualToString:@"JobDescDetail"])
     {
         recordResults = FALSE;
+        
         [_jobdict setObject:_soapResults forKey:job];
         _soapResults = nil;
     }
@@ -622,12 +814,45 @@ if(confirmcheck==1)
     if([elementName isEqualToString:@"SiteInUpdateResult"])
     {
         recordResults = FALSE;
-        msg=_soapResults;
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
+        
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        msg=_soapResults;
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+               _soapResults = nil;
+    }
+
+    
+    if([elementName isEqualToString:@"JId"])
+    {
+        recordResults = FALSE;
+        _jmdl=[[jobsitemodel alloc]init];
+        _jmdl.jobid=[_soapResults integerValue];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"JNumber"])
+    {
+        recordResults = FALSE;
+        
+        _jmdl.jobno=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"J1JobDescDetail"])
+    {
+        recordResults = FALSE;
+        _jmdl.jobname=_soapResults;
+        [_jobnoarray addObject:_jmdl];
+        
+        _soapResults = nil;
+    }
+    
+
+
 
 
 }
@@ -635,7 +860,9 @@ if(confirmcheck==1)
     
     if ([alertView.message isEqualToString:msg]) {
         
-        
+        [_cnfrmbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        confirmcheck=0;
+        _notetextview.text=@"";
         if ([self.delegate respondsToSelector:@selector(toreloadtable)]) {
             [self.delegate toreloadtable];
         }

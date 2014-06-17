@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
+#import "jobsitemodel.h"
 
 
 @protocol sendback<NSObject>
@@ -24,12 +25,14 @@
     NSString *confmin;
     NSString *confirmout;
     NSString *job;
+    NSInteger jobid;
     NSInteger webtype;
     NSString *msg;
 }
 -(void)toreloadtable;
 
 @property(strong,nonatomic)EqOthersMdl *eqmdl;
+@property(strong,nonatomic)jobsitemodel *jmdl;
 @property(nonatomic, weak)id<sendback>delegate;
 
 -(IBAction)closethepage:(id)sender;
@@ -72,6 +75,10 @@
 @property(strong,nonatomic)NSMutableArray *inoutarray;
 @property(strong,nonatomic)NSMutableArray *jobarray;
 @property(strong,nonatomic)NSMutableDictionary *jobdict;
+
+@property(strong,nonatomic)NSMutableArray *jobnoarray;
+@property(strong,nonatomic)NSMutableDictionary *jobnodictionary;
+@property(strong,nonatomic)NSString *jobdesc;
 
  /*xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;

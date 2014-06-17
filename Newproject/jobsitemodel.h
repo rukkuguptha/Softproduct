@@ -11,5 +11,6 @@
 @interface jobsitemodel : NSObject
 @property(readwrite)NSInteger jobid;
 @property(strong,nonatomic)NSString *jobname;
+@property(strong,nonatomic)NSString *jobno;
 
 @end

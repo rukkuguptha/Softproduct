@@ -134,12 +134,15 @@ VG8gEEpvYlNpdGU
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="IT1-Cx-v5W">
-                    <rect key="frame" x="243" y="511" width="46" height="30"/>
+                    <rect key="frame" x="247" y="511" width="46" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                     <state key="normal" title="Save">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="savesiteout:" destination="-1" eventType="touchUpInside" id="d59-FF-8aB"/>
+                    </connections>
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="hzo-cY-ZWQ">
                     <rect key="frame" x="20" y="266" width="232" height="30"/>
