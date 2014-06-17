@@ -118,7 +118,16 @@
         
         
         outconfirmcheck=1;
-        [self StockInInsert];
+        if ([_outqtysendbacktxtfld.text  compare:_outreceivedqtytxtfld.text options:NSNumericSearch] == NSOrderedDescending){
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity Send Back should be less than or equal to Received Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
+            [self StockInInsert];
+        }
+
+       
         
         
     }
@@ -132,8 +141,16 @@
 }
 -(IBAction)savesiteout:(id)sender
 {
+
     if (outconfirmcheck==1) {
+        if ([_outqtysendbacktxtfld.text  compare:_outreceivedqtytxtfld.text options:NSNumericSearch] == NSOrderedDescending){
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity Send Back should be less than or equal to Received Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
         [self SiteOutInsert];
+        }
     }
     else
     {
