@@ -560,6 +560,50 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"StockOut"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SiteIn"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"SiteOut"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StockIn"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+
     if([elementName isEqualToString:@"EquipmentJobNumberSelectResponse"])
     {
         _jobnumbrarray=[[NSMutableArray alloc]init];
@@ -760,9 +804,50 @@
         
         recordResults = FALSE;
            _equpmdl.QtyReceivedBack=_soapResults;
-        [_equipmntarray addObject:_equpmdl];
+    
              _soapResults = nil;
     }
+    if([elementName isEqualToString:@"StockOut"])
+    {
+        
+        
+        recordResults = FALSE;
+        _equpmdl.stockoutbit=_soapResults;
+      
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SiteIn"])
+    {
+        
+        
+        recordResults = FALSE;
+        _equpmdl.siteinbit=_soapResults;
+        
+        _soapResults = nil;
+
+    }
+    
+    if([elementName isEqualToString:@"SiteOut"])
+    {
+        
+        
+        recordResults = FALSE;
+        _equpmdl.siteoutbit=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"StockIn"])
+    {
+        
+        
+        recordResults = FALSE;
+        _equpmdl.stockinbit=_soapResults;
+            [_equipmntarray addObject:_equpmdl];
+        _soapResults = nil;
+        
+    }
+
     if([elementName isEqualToString:@"EqJobNumber"])
     {
         recordResults = FALSE;
@@ -793,6 +878,7 @@
         [_itemdatearray addObject:myFormattedDate];
          _soapResults = nil;
     }
+  
     
 }
 - (void)parserDidEndDocument:(NSXMLParser *)parser{
@@ -913,6 +999,39 @@
     _orderdlbl.text=eqmmdl.OrderedQuantity;
     _stocklbl=(UILabel *)[cell viewWithTag:7];
     _stocklbl.text=eqmmdl.StockQuantity;
+        
+        if ([eqmmdl.stockoutbit isEqualToString:@"true"]) {
+            _stockoutbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+            
+             if ([eqmmdl.siteinbit isEqualToString:@"false"]) {
+                 _siteinbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+
+                 }
+             else if ([eqmmdl.siteinbit isEqualToString:@"true"]){
+                 _siteinbtnlbl.backgroundColor=[UIColor redColor];
+             }
+                
+        }
+        
+        if ([eqmmdl.siteoutbit isEqualToString:@"true"]) {
+            _siteoutbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+            
+            if ([eqmmdl.stockinbit isEqualToString:@"false"]) {
+                _stockinbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+
+                
+            }
+            else if ([eqmmdl.stockinbit isEqualToString:@"true"]){
+                _stockinbtnlbl.backgroundColor=[UIColor redColor];
+            }
+            
+        }
+        
+
+        
+        
+        
+        
     }
 
     return cell;
@@ -1086,7 +1205,7 @@
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _InoutVCtrl.inoutarray=passedarray;
- _InoutVCtrl.delegate=self;
+    _InoutVCtrl.delegate=self;
     [self presentViewController:_InoutVCtrl
                        animated:YES completion:NULL];
     
@@ -1101,7 +1220,7 @@
     EqOthersMdl*eqmmdl=(EqOthersMdl *)[_equipmntarray objectAtIndex:textFieldIndexPath.row];
     NSMutableArray*passedarray=[[NSMutableArray alloc]initWithObjects:eqmmdl, nil];
 
-        _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bundle:nil];
+_InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bundle:nil];
     
     _InoutVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _InoutVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
@@ -1128,6 +1247,7 @@
     _stockVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _stockVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     _stockVCtrl.eqarray=passedarray;
+    _stockVCtrl.delegate=self;
 
     [self presentViewController:_stockVCtrl
                        animated:YES completion:NULL];

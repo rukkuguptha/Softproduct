@@ -77,6 +77,10 @@
 
 - (IBAction)showbtn:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *stockoutbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *siteinbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *siteoutbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *stockinbtnlbl;
 
 
 - (IBAction)stockoutbtn:(id)sender;

@@ -21,6 +21,7 @@
       NSInteger btnclck2;
      BOOL  recordResults;
     NSInteger confirm;
+      NSInteger confirm1;
     NSInteger thirdparty;
     NSString *jobnumber;
     NSString *message;

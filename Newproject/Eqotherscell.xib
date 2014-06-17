@@ -13,7 +13,11 @@
                 <outlet property="itmcodelbl" destination="njO-Cb-v9r" id="fM3-Cr-Mhp"/>
                 <outlet property="jobnumbrlbl" destination="87T-Or-fqK" id="ziy-OE-rMX"/>
                 <outlet property="orderdlbl" destination="i0v-E8-qZ9" id="UeU-UJ-66H"/>
+                <outlet property="siteinbtnlbl" destination="sSy-Ur-Csg" id="hKJ-p6-XbE"/>
+                <outlet property="siteoutbtnlbl" destination="APd-iJ-fTC" id="HVT-WV-Dup"/>
+                <outlet property="stockinbtnlbl" destination="kh8-64-op2" id="u7n-lP-QyN"/>
                 <outlet property="stocklbl" destination="EtG-bo-HuL" id="jOi-nE-mGJ"/>
+                <outlet property="stockoutbtnlbl" destination="j2d-hB-sRX" id="TrO-7K-IJv"/>
                 <outlet property="typelbl" destination="9hb-BU-LDH" id="n7O-8V-sxJ"/>
             </connections>
         </placeholder>
@@ -102,44 +106,52 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2d-hB-sRX">
+                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j2d-hB-sRX">
                         <rect key="frame" x="657" y="8" width="68" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                        <state key="normal" title="Stock Out" backgroundImage="textbox.png">
+                        <state key="normal" title="Stock Out">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="stockoutbtn:" destination="-1" eventType="touchUpInside" id="G7F-2n-mwF"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSy-Ur-Csg">
-                        <rect key="frame" x="733" y="7" width="68" height="30"/>
+                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSy-Ur-Csg">
+                        <rect key="frame" x="733" y="8" width="68" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                        <state key="normal" title="Site In" backgroundImage="textbox.png">
+                        <state key="normal" title="Site In">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="siteinbtn:" destination="-1" eventType="touchUpInside" id="g4r-Ee-6aK"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APd-iJ-fTC">
-                        <rect key="frame" x="809" y="7" width="68" height="30"/>
+                    <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="APd-iJ-fTC">
+                        <rect key="frame" x="809" y="8" width="68" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                        <state key="normal" title="Site Out" backgroundImage="textbox.png">
+                        <state key="normal" title="Site Out">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
                             <action selector="siteoutbtn:" destination="-1" eventType="touchUpInside" id="tsb-4S-bro"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh8-64-op2">
-                        <rect key="frame" x="885" y="7" width="68" height="30"/>
+                    <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kh8-64-op2">
+                        <rect key="frame" x="885" y="8" width="68" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                        <state key="normal" title="Stock In" backgroundImage="textbox.png">
+                        <state key="normal" title="Stock In">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
@@ -150,7 +162,4 @@
             </tableViewCellContentView>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="textbox.png" width="298" height="64"/>
-    </resources>
 </document>

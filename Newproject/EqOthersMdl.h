@@ -21,5 +21,11 @@
 @property(strong,nonatomic)NSString*ReceivedQty;
 @property(strong,nonatomic)NSString*TotalQtySendBack;
 @property(strong,nonatomic)NSString*QtyReceivedBack;
+@property(strong,nonatomic)NSString*stockoutbit;
+@property(strong,nonatomic)NSString*stockinbit;
+@property(strong,nonatomic)NSString*siteinbit;
+@property(strong,nonatomic)NSString*siteoutbit;
+
+
 
 @end
