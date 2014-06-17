@@ -15,6 +15,11 @@
     BOOL recordResults;
     NSInteger sum;
     NSInteger webtype;
+    NSInteger btnindex;
+    int btnclck;
+    int btnclck2;
+    int btnclck3;
+     NSInteger dateselctor;
 }
 @property(strong,nonatomic)Labourcustommdl *lbrmdl;
 @property(strong,nonatomic)Countmdl *emdl;
@@ -32,6 +37,14 @@
 @property(strong,nonatomic)IBOutlet UILabel *quantitylbl;
 @property(strong,nonatomic)IBOutlet UILabel *countlabel;
 
+@property(strong,nonatomic)IBOutlet UIButton *jobbtn;
+@property(strong,nonatomic)IBOutlet UIButton *descbtn;
+@property(strong,nonatomic)IBOutlet UIButton *datebtn;
+
+@property(strong,nonatomic)IBOutlet UIButton *jobcheckbtn;
+@property(strong,nonatomic)IBOutlet UIButton *desccheckbtn;
+@property(strong,nonatomic)IBOutlet UIButton *datecheckbtn;
+
 
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
@@ -43,6 +56,23 @@
 @property(strong,nonatomic)NSMutableArray *totalarray;
 @property(strong,nonatomic)NSMutableArray *employeecountarray;
 @property(strong,nonatomic)NSMutableArray *newlabrarray;
+@property(strong,nonatomic)NSMutableArray *jobarray;
+@property(strong,nonatomic)NSMutableArray *descarray;
+@property(strong,nonatomic)NSMutableArray *datearray;
+
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
 
 - (IBAction)clsebtn:(id)sender;
+- (IBAction)selectjob:(id)sender;
+- (IBAction)selectdate:(id)sender;
+- (IBAction)seletdesc:(id)sender;
+- (IBAction)show:(id)sender;
+- (IBAction)jobcheckbtnaction:(id)sender;
+- (IBAction)desccheckaction:(id)sender;
+- (IBAction)datecheckbtnaction:(id)sender;
+
+
 @end

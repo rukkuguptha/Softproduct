@@ -7,6 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LabourViewController">
             <connections>
+                <outlet property="datebtn" destination="Nm3-l8-leE" id="zIh-lj-IaX"/>
+                <outlet property="datecheckbtn" destination="unG-bR-4k7" id="4x7-Ck-Lok"/>
+                <outlet property="descbtn" destination="Awu-o5-tmm" id="mDh-ro-8xr"/>
+                <outlet property="desccheckbtn" destination="tVR-9l-ziA" id="58b-Mw-v56"/>
+                <outlet property="jobbtn" destination="S9A-ld-iCl" id="top-lr-RmG"/>
+                <outlet property="jobcheckbtn" destination="gyl-qb-tpd" id="LUa-2Q-uSH"/>
                 <outlet property="labrtable" destination="gQV-cf-r48" id="t5Z-Zm-gR7"/>
                 <outlet property="titleview" destination="Pf5-Zw-Bc1" id="ECR-P8-bD3"/>
                 <outlet property="totalquantitylabel" destination="5JA-xf-k4I" id="Svf-v9-Whd"/>
@@ -19,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gQV-cf-r48">
-                    <rect key="frame" x="47" y="127" width="910" height="351"/>
+                    <rect key="frame" x="47" y="172" width="910" height="351"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
@@ -50,7 +56,7 @@
                     </items>
                 </navigationBar>
                 <view contentMode="scaleToFill" id="Pf5-Zw-Bc1">
-                    <rect key="frame" x="47" y="85" width="910" height="41"/>
+                    <rect key="frame" x="47" y="130" width="910" height="41"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XzA-ha-ZcP">
@@ -112,11 +118,88 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Man Power" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="g74-DT-IpY">
-                    <rect key="frame" x="47" y="59" width="94" height="21"/>
+                    <rect key="frame" x="47" y="52" width="94" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gyl-qb-tpd">
+                    <rect key="frame" x="47" y="94" width="43" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="cb_mono_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="jobcheckbtnaction:" destination="-1" eventType="touchUpInside" id="9Jb-AI-61r"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="S9A-ld-iCl">
+                    <rect key="frame" x="85" y="92" width="167" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="Select Job Number" backgroundImage="textbox.png">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectjob:" destination="-1" eventType="touchUpInside" id="46p-yp-JDi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Awu-o5-tmm">
+                    <rect key="frame" x="311" y="92" width="185" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="Select Description Name" backgroundImage="textbox.png">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="seletdesc:" destination="-1" eventType="touchUpInside" id="JA5-uu-Kh5"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tVR-9l-ziA">
+                    <rect key="frame" x="272" y="93" width="43" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="cb_mono_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="desccheckaction:" destination="-1" eventType="touchUpInside" id="lVf-co-UJc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="unG-bR-4k7">
+                    <rect key="frame" x="504" y="92" width="43" height="28"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="cb_mono_off.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="datecheckbtnaction:" destination="-1" eventType="touchUpInside" id="PBk-uA-FlV"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Nm3-l8-leE">
+                    <rect key="frame" x="549" y="90" width="167" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="Select Date" backgroundImage="textbox.png">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectdate:" destination="-1" eventType="touchUpInside" id="rlH-BR-FgT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tWP-D4-YWn">
+                    <rect key="frame" x="760" y="92" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="Show">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="show:" destination="-1" eventType="touchUpInside" id="M58-oS-QaU"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -125,5 +208,7 @@
     </objects>
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
+        <image name="cb_mono_off.png" width="22" height="21"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>
