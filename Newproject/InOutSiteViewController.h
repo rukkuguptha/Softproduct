@@ -28,6 +28,8 @@
     NSInteger jobid;
     NSInteger webtype;
     NSString *msg;
+    NSInteger excptn;
+    NSInteger  btnclck;
 }
 -(void)toreloadtable;
 
@@ -46,10 +48,13 @@
 @property(strong,nonatomic)IBOutlet UITextField *qtyrcvdnwtxtfld;
 @property(strong,nonatomic)IBOutlet UITextView *notetextview;
 @property(strong,nonatomic)IBOutlet UIButton *cnfrmbtn;
+@property (strong, nonatomic) IBOutlet UIButton *excptnbtnlbl;
 
 -(IBAction)confirmcheckaction:(id)sender;
 -(IBAction)savesitein:(id)sender;
+- (IBAction)removeexpbtn:(id)sender;
 
+- (IBAction)excptnbtn:(id)sender;
 
 /*IBOutlets in Siteout*/
 @property(strong,nonatomic)IBOutlet UITextField *outjobsitetxtfld;

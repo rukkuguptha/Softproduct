@@ -173,6 +173,25 @@ if(confirmcheck==1)
         [alert show];
     }
 }
+
+- (IBAction)removeexpbtn:(id)sender {
+}
+
+- (IBAction)excptnbtn:(id)sender {
+    
+    btnclck++;
+    if (btnclck%2!=0) {
+        [_excptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        excptn=1;
+       
+    }
+    else
+    {
+        [_excptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        excptn=0;
+    }
+
+}
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -216,12 +235,7 @@ if(confirmcheck==1)
     
     
     
-    
-    
-    
-    
-    
-    return cell;
+return cell;
     
     
 }
@@ -371,9 +385,10 @@ if(confirmcheck==1)
                    "<ConfirmSiteIn>%d</ConfirmSiteIn>\n"
                    "<Notes>%@</Notes>\n"
                    "<QtyReceivedNow>%d</QtyReceivedNow>\n"
+                    "<Exception>%d</Exception>\n"
                    "</SiteInUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],confirmcheck,note,[_qtyrcvdnwtxtfld.text integerValue]];
+                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],confirmcheck,note,[_qtyrcvdnwtxtfld.text integerValue],excptn];
     NSLog(@"soapmsg%@",soapMessage);
     
     

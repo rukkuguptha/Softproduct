@@ -81,7 +81,7 @@
                         <action selector="outconfirmcheckaction:" destination="-1" eventType="touchUpInside" id="UoP-46-yO5"/>
                     </connections>
                 </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="vbb" id="ray-3S-atO">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" id="ray-3S-atO">
                     <rect key="frame" x="20" y="416" width="507" height="74"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

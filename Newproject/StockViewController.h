@@ -17,6 +17,7 @@
 @interface StockViewController : UIViewController{
     
     NSInteger btnclck;
+      NSInteger expclck;
       NSInteger btnclck1;
       NSInteger btnclck2;
      BOOL  recordResults;
@@ -25,6 +26,7 @@
     NSInteger thirdparty;
     NSString *jobnumber;
     NSString *message;
+        NSInteger exception;
     
     
 }
@@ -72,8 +74,11 @@
 @property (strong, nonatomic) IBOutlet UITextField *receivedback1txtfld;
 @property (strong, nonatomic) IBOutlet UIButton *confirmlbl;
 @property (strong, nonatomic) IBOutlet UITextView *notes1txtview;
+@property (strong, nonatomic) IBOutlet UIButton *exceptnbtnlbl;
 
 - (IBAction)confirm1btnlbl:(id)sender;
+- (IBAction)exceptnbtn:(id)sender;
+- (IBAction)removebtn:(id)sender;
 
 
 - (IBAction)save1btn:(id)sender;

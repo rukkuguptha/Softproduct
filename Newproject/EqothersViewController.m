@@ -39,6 +39,16 @@
     [self EquipmentandOthersSelect];
     _mydict=[[NSMutableDictionary alloc]init];
      dateselctor=0;
+    NSTimer*timer;
+   timer= [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                     target:self
+                                   selector:@selector(timermethod)
+                                   userInfo:nil
+                                    repeats:YES];
+
+}
+-(void)timermethod{
+    [self EquipmentandOthersSelect];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -1002,9 +1012,11 @@
         
         if ([eqmmdl.stockoutbit isEqualToString:@"true"]) {
             _stockoutbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+            _stockoutbtnlbl.enabled=NO;
             
              if ([eqmmdl.siteinbit isEqualToString:@"false"]) {
                  _siteinbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+                  _siteinbtnlbl.enabled=NO;
 
                  }
              else if ([eqmmdl.siteinbit isEqualToString:@"true"]){
@@ -1015,10 +1027,11 @@
         
         if ([eqmmdl.siteoutbit isEqualToString:@"true"]) {
             _siteoutbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
+            _siteoutbtnlbl.enabled=NO;
             
             if ([eqmmdl.stockinbit isEqualToString:@"false"]) {
                 _stockinbtnlbl.backgroundColor=[UIColor colorWithRed:51/255.0f green:153.0/255.0f blue:0.0/255.0f alpha:1.0f];
-
+                 _stockinbtnlbl.enabled=NO;
                 
             }
             else if ([eqmmdl.stockinbit isEqualToString:@"true"]){
