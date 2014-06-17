@@ -52,8 +52,11 @@
     _item1txtfld.text=_eqmdl.itemname;
     _stock1txtfld.text=_eqmdl.StockQuantity;
     
+    _received1txtfld.text=_eqmdl.QtyReceivedBack;
+    _sendout1txtfld.text=_eqmdl.DeliveredQty;
     
     
+    [self StockInSelect];
 
     
 }
@@ -87,9 +90,10 @@
                    "<ConfirmStockOut>%d</ConfirmStockOut>\n"
                    "<Notes>%@</Notes>\n"
                    "<ThirdParty>%d</ThirdParty>\n"
+                   "<EntryId>%d</EntryId>\n"
                    "</StockOutInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],_eqmdl.jobnumber,_jobsitetxtfld.text,_eqmdl.itemcode,_eqmdl.itemname,[_sendtxtfld.text integerValue],confirm,_notestxtview.text,thirdparty];
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],_eqmdl.jobnumber,_jobsitetxtfld.text,_eqmdl.itemcode,_eqmdl.itemname,[_sendtxtfld.text integerValue],confirm,_notestxtview.text,thirdparty,[_eqmdl.entryid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -143,9 +147,10 @@
                    "<ConfirmStockOut>%d</ConfirmStockOut>\n"
                    "<Notes>%@</Notes>\n"
                    "<ReceivedBack>%d</ReceivedBack>\n"
+                   "<EntryId>%d</EntryId>\n"
                    "</SiteInInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],_eqmdl.jobnumber,_jobsitetxtfld.text,_eqmdl.itemcode,_eqmdl.itemname,[_sendtxtfld.text integerValue],confirm,_notestxtview.text,0];
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],_eqmdl.jobnumber,_jobsitetxtfld.text,_eqmdl.itemcode,_eqmdl.itemname,[_sendtxtfld.text integerValue],confirm,_notestxtview.text,0,[_eqmdl.entryid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -287,6 +292,112 @@
     
     
 }
+-(void)StockInUpdate{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<StockInUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   "<ConfirmStockIn>%d</ConfirmStockIn>\n"
+                   "<Notes>%@</Notes>\n"
+                   "<QtyReceivedBackNow>%d</QtyReceivedBackNow>\n"
+                   
+                   "</StockInUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],confirm1,_notes1txtview.text, [_receivedback1txtfld.text integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/StockInUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)StockInSelect{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<StockInSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   "</StockInSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/StockInSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -374,6 +485,23 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"StockInSelectResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+    if([elementName isEqualToString:@"QtyReceivedBackNow"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -413,7 +541,9 @@
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
         [_confirmcheckbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_confirmlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         confirm=0;
+            confirm1=0;
             _sendtxtfld.text=@"";
             _notestxtview.text=@"";
             [_thirdbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
@@ -424,6 +554,13 @@
          _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"QtyReceivedBackNow"])
+    {
+        recordResults = FALSE;
+        _receivedback1txtfld.text=_soapResults;
+         _soapResults = nil;
+    }
+
 }
 #pragma Mark-AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -459,20 +596,6 @@
 }
 
 - (IBAction)confirmbtn:(id)sender {
-//    if (thirdparty==1) {
-//        if ([[_sendtxtfld.text intValue] compare:[_orderdtxtfld.text intValue] options:NSNumericSearch] == NSOrderedDescending){
-//            
-//            
-//            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//            [alert show];
-//        }
-//        
-//    }
-//    else{
-//        
-//        
-//        
-//    }
     
     
     btnclck++;
@@ -490,18 +613,73 @@
 }
 
 - (IBAction)savebtn:(id)sender {
-    [self StockOutInsert];
-}
+          
+    
+    
+    if (thirdparty==1) {
+        
+       
+        if ([_sendtxtfld.text  compare:_orderdtxtfld.text options:NSNumericSearch] == NSOrderedDescending){
+            
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else{
+             [self StockOutInsert];
+        }
+        
+    }
+    else{
+        
+        
+        if ([_sendtxtfld.text  compare:_stocktxtfld.text options:NSNumericSearch] == NSOrderedDescending){
+            
+            
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Quantity In Stock" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            
+        }
+        
+        else{
+            if ([_sendtxtfld.text  compare:_orderdtxtfld.text options:NSNumericSearch] == NSOrderedDescending){
+                
+                
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Quantity should be less than or equal to Ordered Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+            else{
+                if (confirm==1) {
+                      [self StockOutInsert];
+                }
+                else{
+                    UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                    [alert show];
+
+                }
+              
+            }
+
+        }
+        
+    }
+
+    
+   }
 
 - (IBAction)confirm1btnlbl:(id)sender {
     btnclck2++;
     if (btnclck2%2!=0) {
         [_confirmlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        confirm1=1;
         
     }
     else
     {
         [_confirmlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        confirm1=0;
+
         
     }
     
@@ -511,6 +689,15 @@
 }
 
 - (IBAction)save1btn:(id)sender {
+    if (confirm1==1) {
+        [self StockInUpdate];
+    }
+    else{
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please Confirm before Save" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+
 }
 
 - (IBAction)closebtn:(id)sender {
