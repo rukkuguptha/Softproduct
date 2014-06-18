@@ -39,7 +39,7 @@
                     <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
                         <navigationItem title="Labour" id="dXB-68-PPU">
-                            <barButtonItem key="rightBarButtonItem" style="plain" id="3IP-ZO-83j">
+                            <barButtonItem key="rightBarButtonItem" id="3IP-ZO-83j">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Ob4-nD-Sc5">
                                     <rect key="frame" x="958" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
