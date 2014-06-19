@@ -517,7 +517,7 @@
     
     recordResults = FALSE;
     NSString *soapMessage;
-    NSString*rate=@"0";
+   // NSString*rate=@"0";
     NSString*hours=@"0";
 
     
