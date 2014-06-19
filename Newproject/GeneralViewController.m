@@ -111,15 +111,18 @@
     _autotable3.layer.borderWidth=2.0f;
     _autotable3.rowHeight=30;
     [self.view addSubview:_autotable3];
+ 
+  
+    
+   
 
-
-
-      [self UnitSelect];
-    [self SubUnitSelect];
-    [self GeneralEquipmentSelect];
-    [self ProjectHeaderselect];
-    [self SelectAllPhases];
-    [self JobsequenceSelect];
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self Checknetavailabilty];
+  
 
 }
 
@@ -201,6 +204,7 @@
 
 #pragma mark-webservice
 -(void)SelectAllPhases{
+    p=@"Phase";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -250,6 +254,7 @@
     
 }
 -(void)UnitSelect{
+    p=@"Other";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -299,6 +304,7 @@
     
 }
 -(void)SubUnitSelect{
+    p=@"Other";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -348,6 +354,7 @@
     
 }
 -(void)GeneralEquipmentSelect{
+    p=@"Other";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -398,6 +405,7 @@
 }
 
 -(void)ProjectHeaderselect{
+    p=@"Other";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -447,6 +455,7 @@
     
 }
 -(void)JobsequenceSelect{
+    p=@"Sequence";
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -649,7 +658,30 @@
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
-    [_popovertableview reloadData];
+   
+    if ([p isEqualToString:@"Phase"]) {
+        
+        [self createphasedata];
+        [_popovertableview reloadData];
+        
+        [self JobsequenceSelect];
+        
+           }
+    else if([p isEqualToString:@"Sequence"])
+    {
+        [self createsequenceDB];
+        [_popovertableview reloadData];
+        [self UnitSelect];
+        [self SubUnitSelect];
+        [self GeneralEquipmentSelect];
+        [self ProjectHeaderselect];
+
+    }
+    else if([p isEqualToString:@"Other"])
+    {
+        [_popovertableview reloadData];
+    }
+   
         
 }
 #pragma mark-xml parser
@@ -1298,7 +1330,15 @@ else{
 
 - (IBAction)updatebtn:(id)sender {
     if (_optionidentfr==1) {
-          [self GeneralInsert];
+                if ([_Availablityresult isEqualToString:@"Yes"]) {
+        
+                   [self GeneralInsert];
+                }
+               else if([_Availablityresult isEqualToString:@"No"]){
+                   [self insertGeneralDetails];
+                }
+
+        
        
         
                    }
@@ -1312,4 +1352,385 @@ else{
      
     }
 }
+-(void)Checknetavailabilty{
+    /* for checking Connectivity*/
+    
+    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+    _Availablityresult = [[NSString alloc] init];
+    _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
+    NSLog(@"Internet connection availability : %@", _Availablityresult);
+    //    if ([_Availablityresult isEqualToString:@"Yes"]) {
+    //        //[self FetchManapowerdatasfromDB];
+    //
+    //        if ([_Sqlitearry count]>0) {
+    //            [self SynManpowertoserver];
+    //        }
+    //        else{
+    //            //[self Selectallmanpower];
+    //            [self AllSkills];
+    //        }
+    //
+    //
+    //    }
+         if([_Availablityresult isEqualToString:@"No"]){
+            [self Createdatabase];
+           [self fetchphase];
+             [self fetchsequencedata];
+             
+        
+            
+        }
+    else if ([_Availablityresult isEqualToString:@"Yes"])
+    
+        [self SelectAllPhases];
+    
+}
+
+
+#pragma mark-sqlite
+-(void)Createdatabase{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath1 = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"GeneralList.db"]];
+    NSLog(@"Path %@",_databasePath1);
+    
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    if ([filemgr fileExistsAtPath: _databasePath1 ] == NO)
+    {
+        const char *dbpath = [_databasePath1 UTF8String];
+        if (sqlite3_open(dbpath, &_newGenarallistDb) == SQLITE_OK)
+        {
+            char *errMsg;
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS GeneralList (ID INTEGER PRIMARY KEY AUTOINCREMENT, Unit TEXT, SubUnit TEXT, Equipment TEXT, ProjectHeader TEXT, Sequence TEXT, Phase TEXT, Description TEXT)";
+            
+            
+            if (sqlite3_exec(_newGenarallistDb, sql_stmt, NULL, NULL, &errMsg)
+                != SQLITE_OK)
+            {
+                
+                NSLog(@"Failed to create table");
+                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_newGenarallistDb));
+            }
+            sqlite3_close(_newGenarallistDb);
+            
+        }
+        
+        else {
+            NSLog( @"Failed to open/create database");
+            
+        }
+        
+    }
+}
+-(void)insertGeneralDetails{
+    sqlite3_stmt    *statement;
+    const char *dbpath = [_databasePath1 UTF8String];
+    
+    NSString *des=_destextview.text;
+    
+    if (sqlite3_open(dbpath, &_newGenarallistDb) == SQLITE_OK)
+    {
+        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO GeneralList(Unit,SubUnit,Equipment,ProjectHeader,Sequence,Phase,Description) VALUES (\"%@\",\"%@\",\"%@\",\"%@\",\"%d\",\"%d\",\"%@\")",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue],[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],des];
+       
+        
+        const char *insert_stmt = [InsertSQl UTF8String];
+        sqlite3_prepare_v2(_newGenarallistDb, insert_stmt, -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            
+            NSLog( @"Generaldata added");
+            
+        } else {
+            //status.text = @"Failed to add contact";
+            NSLog( @"Failed to add General Data ");
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_newGenarallistDb);
+        
+    }
+   
+    
+}
+#pragma mark-sqlite
+-(void)createphasedata{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath2 = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"Phase.db"]];
+    NSLog(@"Path %@",_databasePath2);
+    
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    if ([filemgr fileExistsAtPath: _databasePath2 ] == NO)
+    {
+        const char *dbpath = [_databasePath2 UTF8String];
+        if (sqlite3_open(dbpath, &_phasedb) == SQLITE_OK)
+        {
+            char *errMsg;
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS PhaseList (ID INTEGER PRIMARY KEY AUTOINCREMENT, PhaseID TEXT, PhaseName TEXT)";
+            
+            
+            if (sqlite3_exec(_phasedb, sql_stmt, NULL, NULL, &errMsg)
+                != SQLITE_OK)
+            {
+                
+                NSLog(@"Failed to create table");
+                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_phasedb));
+            }
+            sqlite3_close(_phasedb);
+            
+        }
+        
+        else {
+            NSLog( @"Failed to open/create database");
+            
+        }
+        
+    }
+    for (int i=0; i<[_phasearray count]; i++) {
+        _phasename = [_phasearray objectAtIndex:i];
+        _phaseid = [_phasedict objectForKey:[_phasearray objectAtIndex:i]];
+        [self insertphase];
+    }
+
+}
+-(void)createsequenceDB
+{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent:@"Sequence.db"]];
+    NSLog(@"Path %@",_databasePath);
+    
+    NSFileManager *filemgr = [NSFileManager defaultManager];
+    if ([filemgr fileExistsAtPath: _databasePath ] == NO)
+    {
+        const char *dbpath = [_databasePath UTF8String];
+        if (sqlite3_open(dbpath, &_sequenceDB) == SQLITE_OK)
+        {
+            char *errMsg;
+            const char *sql_stmt = "CREATE TABLE IF NOT EXISTS SequenceList (ID INTEGER PRIMARY KEY AUTOINCREMENT, SequenceID TEXT, SequenceName TEXT)";
+            
+            
+            if (sqlite3_exec(_sequenceDB, sql_stmt, NULL, NULL, &errMsg)
+                != SQLITE_OK)
+            {
+                
+                NSLog(@"Failed to create table");
+                NSLog( @"Error while inserting '%s'", sqlite3_errmsg(_sequenceDB));
+            }
+            sqlite3_close(_sequenceDB);
+            
+        }
+        
+        else {
+            NSLog( @"Failed to open/create database");
+            
+        }
+        
+    }
+    for (int i=0; i<[_sequencearray count]; i++) {
+        _sequencename = [_sequencearray objectAtIndex:i];
+        _sequenceid = [_sequncedict objectForKey:[_sequencearray objectAtIndex:i]];
+        [self insertsequnecedatatodb];
+    }
+    
+}
+-(void)insertphase
+{
+    sqlite3_stmt    *statement;
+    const char *dbpath = [_databasePath2 UTF8String];
+    
+   
+    
+    if (sqlite3_open(dbpath, &_phasedb) == SQLITE_OK)
+    {
+        NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO PhaseList(PhaseID,PhaseName) VALUES (\"%@\",\"%@\")",_phaseid,_phasename];
+        
+        
+        const char *insert_stmt = [InsertSQl UTF8String];
+        sqlite3_prepare_v2(_phasedb, insert_stmt, -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE)
+        {
+            
+            NSLog( @"phasedata added");
+            
+        } else {
+            //status.text = @"Failed to add contact";
+            NSLog( @"Failed to add phase Data ");
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(_phasedb);
+        
+    }
+    
+    
+}
+-(void)insertsequnecedatatodb
+{
+    {
+        sqlite3_stmt    *statement;
+        const char *dbpath = [_databasePath UTF8String];
+        
+        
+        
+        if (sqlite3_open(dbpath, &_sequenceDB) == SQLITE_OK)
+        {
+            NSString *InsertSQl=[NSString stringWithFormat:@"INSERT INTO SequenceList(SequenceID,SequenceName) VALUES (\"%@\",\"%@\")",_sequenceid,_sequencename];
+            
+            
+            const char *insert_stmt = [InsertSQl UTF8String];
+            sqlite3_prepare_v2(_sequenceDB, insert_stmt, -1, &statement, NULL);
+            if (sqlite3_step(statement) == SQLITE_DONE)
+            {
+                
+                NSLog( @"SequenceData added");
+                
+            } else {
+                //status.text = @"Failed to add contact";
+                NSLog( @"Failed to add Sequence Data ");
+            }
+            sqlite3_finalize(statement);
+            sqlite3_close(_sequenceDB);
+            
+        }
+        
+        
+    }
+}
+-(void)fetchphase{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath2 = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"Phase.db"]];
+    NSLog(@"Path %@",_databasePath2);
+    
+    const char *dbpath = [_databasePath2 UTF8String];
+    sqlite3_stmt    *statement;
+    
+    if (sqlite3_open(dbpath, &_phasedb) == SQLITE_OK)
+    {
+        
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM PhaseList"];
+        // NSLog(@"Sql%@",querySQL);
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_phasedb, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            // NSLog(@"sqlite %@",sqlite3_step(statement));
+            _phasearray=[[NSMutableArray alloc]init];
+             _phasedict=[[NSMutableDictionary alloc]init];
+            while (sqlite3_step(statement) == SQLITE_ROW)
+                
+                
+            {
+                
+                const char* key = (const char*)sqlite3_column_text(statement, 0);
+                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+                
+                const char* pid = (const char*)sqlite3_column_text(statement, 1);
+               NSString *sqlitephase = pid == NULL ? nil : [[NSString alloc] initWithUTF8String:pid];
+                
+                
+                const char*pname = (const char*)sqlite3_column_text(statement, 2);
+                NSString *sqlitephasename= pname== NULL ? nil : [[NSString alloc] initWithUTF8String:pname];
+                [_phasedict setObject:sqlitephase forKey:sqlitephasename];
+                
+                
+                
+                [_phasearray addObject:sqlitephasename];
+                
+                
+            }
+            
+            
+            
+            
+            
+        }
+        sqlite3_finalize(statement);
+        
+    }
+    sqlite3_close(_phasedb);
+    [_popovertableview reloadData];
+
+    
+}
+-(void)fetchsequencedata
+{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _databasePath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"Sequence.db"]];
+    NSLog(@"Path %@",_databasePath);
+    
+    const char *dbpath = [_databasePath UTF8String];
+    sqlite3_stmt    *statement;
+    
+    if (sqlite3_open(dbpath, &_sequenceDB) == SQLITE_OK)
+    {
+        
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM SequenceList"];
+        // NSLog(@"Sql%@",querySQL);
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_sequenceDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            // NSLog(@"sqlite %@",sqlite3_step(statement));
+            _sequencearray=[[NSMutableArray alloc]init];
+            _sequncedict=[[NSMutableDictionary alloc]init];
+            while (sqlite3_step(statement) == SQLITE_ROW)
+                
+                
+            {
+                
+                const char* key = (const char*)sqlite3_column_text(statement, 0);
+                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+                
+                const char* sid = (const char*)sqlite3_column_text(statement, 1);
+                NSString *sqliteSequence = sid == NULL ? nil : [[NSString alloc] initWithUTF8String:sid];
+                
+                
+                const char*sname = (const char*)sqlite3_column_text(statement, 2);
+                NSString *sqlitesequencename= sname== NULL ? nil : [[NSString alloc] initWithUTF8String:sname];
+                [_sequncedict setObject:sqliteSequence forKey:sqlitesequencename];
+                
+                
+                
+                [_sequencearray addObject:sqlitesequencename];
+                
+                
+            }
+            
+            
+            
+            
+            
+        }
+        sqlite3_finalize(statement);
+        
+    }
+    sqlite3_close(_sequenceDB);
+    [_popovertableview reloadData];
+    
+    
+}
+
+
+
 @end

@@ -11,6 +11,7 @@
 #import "GdargViewController.h"
 #import "DequipViewController.h"
 #import "Validation.h"
+#import <sqlite3.h>
 
 
 @protocol newgenralDelgate <NSObject>
@@ -27,6 +28,7 @@
      NSInteger poptype;
      NSString *jobsequnce;
     NSInteger dragbutnindx;
+    NSString *p;
     }
 @property(nonatomic, weak)id<newgenralDelgate> delegate;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navitm;
@@ -92,6 +94,20 @@
 - (IBAction)manpowerbtn:(id)sender;
 - (IBAction)equpmntbtn:(id)sender;
 - (IBAction)matreialbtn:(id)sender;
-
-
+/*sqlite*/
+@property(strong,nonatomic) NSString *docsDir;
+@property(strong,nonatomic) NSArray *dirPaths;
+@property(nonatomic,readwrite) sqlite3*newGenarallistDb;
+@property (strong, nonatomic) NSString *databasePath;
+@property (strong, nonatomic) NSString *databasePath1;
+@property (strong, nonatomic) NSString *databasePath2;
+@property (strong, nonatomic) NSString *Availablityresult;
+@property(nonatomic,readwrite) sqlite3*phasedb;
+@property(nonatomic,readwrite) sqlite3*sequenceDB;
+@property(strong,nonatomic)NSString *phaseid;
+@property(strong,nonatomic)NSString *phasename;
+@property(strong,nonatomic)NSString *sequenceid;
+@property(strong,nonatomic)NSString *sequencename;
+@property(strong,nonatomic)NSMutableArray *phasesqlitearray;
+@property(strong,nonatomic)NSMutableDictionary *sqlitephasedict;
 @end
