@@ -105,6 +105,7 @@
     }
     else if([_Availablityresult isEqualToString:@"No"]){
         [self Createdatabase];
+        
         //[self FetchManapowerdatasfromDB];
         
         

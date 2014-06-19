@@ -13,6 +13,7 @@
 #import "GeneralViewController.h"
 #import "Generalmodel.h"
 
+
 @interface DetailplanViewController : UIViewController<animatndelegate,newgenralDelgate>
 {
     BOOL recordResults;
@@ -150,4 +151,5 @@
 
 -(void)navgteanimtn;
 -(void)updatedata;
+
 @end
