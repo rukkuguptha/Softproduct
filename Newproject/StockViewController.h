@@ -30,10 +30,14 @@
     
     
 }
+
 @property(nonatomic, weak)id<EqDelgate>delegate;
 @property (strong, nonatomic)EqOthersMdl*eqmdl;
 @property (strong, nonatomic)NSMutableArray *eqarray;
 @property (strong, nonatomic)NSMutableDictionary *jobdict;
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -59,13 +63,19 @@
 @property (strong, nonatomic) IBOutlet UIButton *confirmcheckbtnlbl;
 @property (strong, nonatomic) IBOutlet UITextView *notestxtview;
 
+@property (strong, nonatomic) IBOutlet UIButton *remveexcptn;
+
 - (IBAction)thirdbtn:(id)sender;
 - (IBAction)confirmbtn:(id)sender;
 
 - (IBAction)savebtn:(id)sender;
 
-/*Stock In xib outlets*/
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
+/*Stock In xib outlets*/
+@property (strong, nonatomic) IBOutlet UITableViewCell *excptncell;
+
+//@property (strong, nonatomic) IBOutlet UIView *excptncell;
 @property (strong, nonatomic) IBOutlet UITextField *jobsite1txtfld;
 @property (strong, nonatomic) IBOutlet UITextField *item1txtfld;
 @property (strong, nonatomic) IBOutlet UITextField *stock1txtfld;

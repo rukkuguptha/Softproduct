@@ -14,6 +14,8 @@
                 <outlet property="notes1txtview" destination="bNd-jl-Pfn" id="q2l-Oi-HmK"/>
                 <outlet property="received1txtfld" destination="w64-ua-1ba" id="hju-uT-37y"/>
                 <outlet property="receivedback1txtfld" destination="BKJ-se-uFm" id="fC0-Sk-13m"/>
+                <outlet property="remveexcptn" destination="GPI-pl-CFA" id="ujK-Qi-3Nb"/>
+                <outlet property="scroll" destination="bXP-Hc-YJK" id="zWn-XZ-llV"/>
                 <outlet property="sendout1txtfld" destination="86q-6K-I8i" id="Lq9-KB-Nex"/>
                 <outlet property="stock1txtfld" destination="VPS-Vg-Ctr" id="UZq-iK-PII"/>
                 <outlet property="view" destination="CMi-yX-osj" id="iKf-PX-JNU"/>
@@ -168,10 +170,10 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GPI-pl-CFA">
-                            <rect key="frame" x="250" y="249" width="112" height="30"/>
+                            <rect key="frame" x="255" y="249" width="112" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                            <state key="normal" title="Remove Exception">
+                            <state key="normal" title="Remove Exception" backgroundImage="textbox.png">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -212,5 +214,6 @@
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>

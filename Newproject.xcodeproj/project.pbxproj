@@ -191,6 +191,7 @@
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
 		D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61A18B4A5620043644A /* NewrecordViewController.xib */; };
 		D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61D18B4AFE90043644A /* Jobsiterecord.xib */; };
+		D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */; };
 		D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */; };
 		D42D8C0818D2D8AC009D8085 /* folderrightsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C0518D2D8AC009D8085 /* folderrightsViewController.xib */; };
 		D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D42D8C0618D2D8AC009D8085 /* custonfldrrigtscell.xib */; };
@@ -684,6 +685,7 @@
 		D418B61918B4A5620043644A /* NewrecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewrecordViewController.m; sourceTree = "<group>"; };
 		D418B61A18B4A5620043644A /* NewrecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewrecordViewController.xib; sourceTree = "<group>"; };
 		D418B61D18B4AFE90043644A /* Jobsiterecord.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Jobsiterecord.xib; sourceTree = "<group>"; };
+		D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Exceptioncell.xib; sourceTree = "<group>"; };
 		D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folderrightsViewController.h; sourceTree = "<group>"; };
 		D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = folderrightsViewController.m; sourceTree = "<group>"; };
 		D42D8C0518D2D8AC009D8085 /* folderrightsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = folderrightsViewController.xib; sourceTree = "<group>"; };
@@ -1280,6 +1282,7 @@
 				D4149BAE1949B3F300A5A6FD /* StockViewController.m */,
 				D4149BAF1949B3F300A5A6FD /* StockViewController.xib */,
 				D4149B6A194966F400A5A6FD /* Siteoutview.xib */,
+				D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */,
 				64AE02B31949AC56002D44B6 /* InOutSiteViewController.h */,
 				64AE02B41949AC56002D44B6 /* InOutSiteViewController.m */,
 				64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */,
@@ -2134,6 +2137,7 @@
 				64A4124F19408104003EE113 /* hrinprocess.png in Resources */,
 				D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */,
 				D4F0AD4419306866004821DD /* GpMaterViewController.xib in Resources */,
+				D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */,
 				D4A6748D19345E6C00D5A77E /* IconPubHol@2x.png in Resources */,
 				D44BEA7A18E0360F00719ED5 /* Addresscell.xib in Resources */,
 				D47A9B1E19407AA2001CC416 /* company-info.png in Resources */,

@@ -15,6 +15,7 @@
                 <outlet property="orderedqtytxtfld" destination="ckr-mx-FGb" id="kIG-WF-d13"/>
                 <outlet property="qtyrcvdnwtxtfld" destination="oDJ-hM-zNw" id="Blh-Oc-Fwx"/>
                 <outlet property="receivedqtytxtfld" destination="YYP-Ky-iPH" id="OCs-U4-OEC"/>
+                <outlet property="remveexptn" destination="OqS-75-cU4" id="QRz-u2-ThM"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -166,7 +167,7 @@
                     <rect key="frame" x="405" y="327" width="122" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
-                    <state key="normal" title="Remove Exception">
+                    <state key="normal" title="Remove Exception" backgroundImage="textbox.png">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -183,5 +184,6 @@
     <resources>
         <image name="appbar.close.png" width="76" height="76"/>
         <image name="cb_mono_off.png" width="22" height="21"/>
+        <image name="textbox.png" width="298" height="64"/>
     </resources>
 </document>
