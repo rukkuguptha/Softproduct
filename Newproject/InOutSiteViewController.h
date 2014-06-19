@@ -38,6 +38,7 @@
 @property(nonatomic, weak)id<sendback>delegate;
 
 -(IBAction)closethepage:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *remveexptn;
 
 
 /*IBOutlets in Sitein*/
@@ -56,6 +57,9 @@
 
 - (IBAction)excptnbtn:(id)sender;
 
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
 /*IBOutlets in Siteout*/
 @property(strong,nonatomic)IBOutlet UITextField *outjobsitetxtfld;
 @property(strong,nonatomic)IBOutlet UITextField *outitemcodetxtfld;
