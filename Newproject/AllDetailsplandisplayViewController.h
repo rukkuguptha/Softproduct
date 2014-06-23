@@ -12,6 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "NewscfldDetails.h"
 #import "Scaffoldsubtypemodel.h"
+#import <sqlite3.h>
 
 
 @protocol animatndelegate <NSObject>
@@ -145,6 +146,15 @@
 - (IBAction)deletebtn:(id)sender;
 - (IBAction)clsebtn:(id)sender;
 
-
+@property(strong,nonatomic) NSString *docsDir;
+@property(strong,nonatomic) NSArray *dirPaths;
+@property(nonatomic,readwrite) sqlite3 *AllscaffoldDB;
+@property (strong, nonatomic) NSString *ScaffoldPath;
+@property (strong, nonatomic) NSString *lastID;
+@property (strong, nonatomic) NSString *Availablityresult;
+@property(nonatomic,readwrite) sqlite3 *scaffoldTypeDB;
+@property (strong, nonatomic) NSString *scaffoldtypepath;
+@property(strong,nonatomic)NSMutableArray *scaffoldtyperesultarray;
+@property(strong,nonatomic)NSMutableArray *DBScaffoldarry;
 
 @end
