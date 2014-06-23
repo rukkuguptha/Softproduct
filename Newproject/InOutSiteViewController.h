@@ -30,6 +30,7 @@
     NSString *msg;
     NSInteger excptn;
     NSInteger  btnclck;
+    NSInteger  poptype;
 }
 -(void)toreloadtable;
 
@@ -57,9 +58,6 @@
 
 - (IBAction)excptnbtn:(id)sender;
 
-/*popover*/
-@property(strong,nonatomic)UIPopoverController *popOverController;
-@property(strong,nonatomic)UITableView *popOverTableView;
 /*IBOutlets in Siteout*/
 @property(strong,nonatomic)IBOutlet UITextField *outjobsitetxtfld;
 @property(strong,nonatomic)IBOutlet UITextField *outitemcodetxtfld;
@@ -79,7 +77,7 @@
 
 @property(strong,nonatomic)IBOutlet UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;
-
+@property(strong,nonatomic)NSMutableArray *notesarray;
 /*array*/
 @property(strong,nonatomic)NSMutableArray *inoutarray;
 @property(strong,nonatomic)NSMutableArray *jobarray;
@@ -93,5 +91,11 @@
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
+
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *siteexptncell;
+
+@property (strong, nonatomic) IBOutlet UILabel *notelbl;
+- (IBAction)deletebtn:(id)sender;
 
 @end

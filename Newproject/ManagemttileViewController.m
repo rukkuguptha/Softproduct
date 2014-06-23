@@ -36,6 +36,12 @@
     doubleTap.numberOfTapsRequired=1;
     doubleTap.delegate=(id)self;
     [self.resurceview addGestureRecognizer:doubleTap];
+    UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
+                                         initWithTarget:self
+                                         action:@selector(Issuepage)];
+    doubleTap1.numberOfTapsRequired=1;
+    doubleTap1.delegate=(id)self;
+    [self.issueview addGestureRecognizer:doubleTap1];
 
 }
 -(void)Resourcepage{
@@ -46,6 +52,17 @@
     _movemtVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_movemtVCtrl
                        animated:YES completion:NULL];
+}
+-(void)Issuepage{
+    if (!_issueVCtrl) {
+        _issueVCtrl=[[IssuesViewController alloc]initWithNibName:@"IssuesViewController" bundle:nil];
+    }
+   //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _issueVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_issueVCtrl
+                       animated:YES completion:NULL];
+
+    
 }
 - (void)didReceiveMemoryWarning
 {

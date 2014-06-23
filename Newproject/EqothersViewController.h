@@ -21,6 +21,8 @@
     NSInteger btnindex;
     NSInteger dateselctor;
 }
+
+@property (strong, nonatomic)NSTimer*timer;
 - (IBAction)clsebtn:(id)sender;
 -(void)toreloadtable;
 @property (strong, nonatomic)StockViewController*stockVCtrl;
@@ -89,6 +91,7 @@
 - (IBAction)siteoutbtn:(id)sender;
 - (IBAction)stockinbtn:(id)sender;
 
+- (IBAction)cancelbtn:(id)sender;
 
 
 @end
