@@ -103,17 +103,37 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self Selectplanfactors];
+    [self Checknetavailabilty];
+  
+    
+}
+-(void)Checknetavailabilty{
+    /* for checking Connectivity*/
+    
+    NSString *URLString = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.google.com"]];
+    _Availablityresult = [[NSString alloc] init];
+    _Availablityresult = ( URLString != NULL ) ? @"Yes" : @"No";
+    NSLog(@"Internet connection availability : %@", _Availablityresult);
+    if([_Availablityresult isEqualToString:@"No"]){
+        
+      
+        [self fetchscaffoldFromDB];
+        
+        
+    }
+    else if ([_Availablityresult isEqualToString:@"Yes"])
+        
+        [self Selectplanfactors];
     if(_optionidentifier==1)
     {
-    _lengthfld.text=_len;
-    _widthfld.text=_wid;
-    _hightfld.text=_height;
-    _elvatnfld.text=_ele;
+        _lengthfld.text=_len;
+        _widthfld.text=_wid;
+        _hightfld.text=_height;
+        _elvatnfld.text=_ele;
     }
     else if(_optionidentifier==2)
     {
-    
+        
         _lengthfld.text=_len;
         _widthfld.text=_wid;
         _hightfld.text=_height;
@@ -140,14 +160,18 @@ srcData = [NSMutableArray arrayWithObjects:@"item0", @"item1", @"item2", @"item3
             [_iwfbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         }
         
-
-
+        
+        
     }
     [self Selectcheight];
     [self ScaffodDetailselect];
+    
 
     
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -1704,8 +1728,14 @@ return cell;
     _manpwr=((chrate+iwf+spf+upw+1)*sf)*l*w*h*1*[rate doubleValue];
      _dishr=_manpwr*0.33;
     _erecrhr=_manpwr*0.67;
-        [self Scaffoldinsert];
-       [self Planfactorsinsert];
+    if([_Availablityresult isEqualToString:@"No"]){
+        [self UpdateScaffold];
+    }
+    else if([_Availablityresult isEqualToString:@"Yes"]){
+      [self Scaffoldinsert];
+      [self Planfactorsinsert];
+    }
+    
 }
 
 -(void)manhoursfordetail{
@@ -1857,4 +1887,221 @@ return cell;
     }
 
 }
+-(void)UpdateScaffold{
+    
+    sqlite3_stmt *statement;
+    const char *dbpath=[_ScaffoldPath UTF8String];
+    NSString *des=_Destxtfld.text;
+    int iwf;
+    int spf;
+    int upw;
+    if (btntouch%2) {
+        iwf=1;
+    }
+    else{
+        iwf=0;
+    }
+    
+    if (chektouch%2) {
+        spf=1;
+    }
+    else{
+        spf=0;
+    }
+    if (ticktouch%2) {
+        upw=1;
+    }
+    else{
+        upw=0;
+    }
+
+    if(sqlite3_open(dbpath, &_AllscaffoldDB)==SQLITE_OK)
+    {
+        
+        NSString *updateSql=[NSString stringWithFormat:@"UPDATE AllScaffoldList SET Description=\"%@\",IWF= \"%d\",PPE=\"%d\",UPW=\"%d\",Manhour=\"%f\",DismantileHour=\"%f\",ErectHour=\"%f\",PlanFactor=\"%@\" WHERE ID= %@",des,iwf,spf,upw,_manpwr,_erecrhr,_dishr,_sitefctrfld.text,_lastID];
+        
+        const char *update_stmt=[updateSql UTF8String];
+        
+        sqlite3_prepare(_AllscaffoldDB, update_stmt, -1, &statement, NULL);
+        if(sqlite3_step(statement)==SQLITE_DONE)
+        {
+            
+            NSLog( @"UserDetail's updated");
+        }
+        
+        else{
+            
+            NSLog( @"Failed to add update");
+        }
+        
+        
+        sqlite3_finalize(statement);
+        sqlite3_close(_AllscaffoldDB);
+        
+    }
+    
+}
+-(void)fetchscaffoldFromDB
+{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _ScaffoldPath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"AllScaffold.db"]];
+    NSLog(@"Path %@",_ScaffoldPath);
+    
+    const char *dbpath = [_ScaffoldPath UTF8String];
+    sqlite3_stmt    *statement;
+    
+    if (sqlite3_open(dbpath, &_AllscaffoldDB) == SQLITE_OK)
+    {
+        
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM AllScaffoldList"];
+        
+        const char *query_stmt = [querySQL UTF8String];
+       
+        if (sqlite3_prepare_v2(_AllscaffoldDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            // NSLog(@"sqlite %@",sqlite3_step(statement));
+            _DBScaffoldarry=[[NSMutableArray alloc]init];
+            
+            // _phasedict=[[NSMutableDictionary alloc]init];
+            while (sqlite3_step(statement) == SQLITE_ROW)
+                
+                
+            {
+              //  _typemdl=[[Scaffoldtypemdl alloc]init];
+                const char* key = (const char*)sqlite3_column_text(statement, 0);
+                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+                _lastID=pkey;
+                
+                const char* len = (const char*)sqlite3_column_text(statement, 6);
+                NSString *length = len == NULL ? nil : [[NSString alloc] initWithUTF8String:len];
+                _lengthfld.text=length;
+               
+                
+                const char*wid = (const char*)sqlite3_column_text(statement, 7);
+                NSString *width= wid== NULL ? nil : [[NSString alloc] initWithUTF8String:wid];
+                _widthfld.text=width;
+                
+                const char*hei = (const char*)sqlite3_column_text(statement, 8);
+                NSString *height= hei== NULL ? nil : [[NSString alloc] initWithUTF8String:hei];
+                _hightfld.text=height;
+                
+                const char*ele = (const char*)sqlite3_column_text(statement, 10);
+                NSString *elevation= ele== NULL ? nil : [[NSString alloc] initWithUTF8String:ele];
+                _elvatnfld.text=elevation;
+                
+                
+            }
+            
+            
+            
+            
+            
+        }
+        sqlite3_finalize(statement);
+        
+    }
+    sqlite3_close(_AllscaffoldDB);
+   
+    
+    
+}
+-(void)fetchScaffoldType{
+    
+    _dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    _docsDir = [_dirPaths objectAtIndex:0];
+    
+    /* Build the path to the database file*/
+    
+    _scaffoldtypepath = [[NSString alloc] initWithString: [_docsDir stringByAppendingPathComponent: @"ScaffoldType.db"]];
+    NSLog(@"Path %@",_scaffoldtypepath);
+    
+    const char *dbpath = [_scaffoldtypepath UTF8String];
+    sqlite3_stmt    *statement;
+    
+    if (sqlite3_open(dbpath, &_scaffoldTypeDB) == SQLITE_OK)
+    {
+        
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM ScaffoldTypeList"];
+        // NSLog(@"Sql%@",querySQL);
+        const char *query_stmt = [querySQL UTF8String];
+        
+        if (sqlite3_prepare_v2(_scaffoldTypeDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            // NSLog(@"sqlite %@",sqlite3_step(statement));
+            _scaffoldtyperesultarray=[[NSMutableArray alloc]init];
+            
+            // _phasedict=[[NSMutableDictionary alloc]init];
+            while (sqlite3_step(statement) == SQLITE_ROW)
+                
+                
+            {
+               _sccfldtypemdl =[[Scaffoldtypemdl alloc]init];
+                const char* key = (const char*)sqlite3_column_text(statement, 0);
+                NSString *pkey= key == NULL ? nil : [[NSString alloc] initWithUTF8String:key];
+                
+                const char* sid = (const char*)sqlite3_column_text(statement, 1);
+                NSString *typeid = sid == NULL ? nil : [[NSString alloc] initWithUTF8String:sid];
+                _sccfldtypemdl.scaffoldid=[typeid integerValue];
+                
+                const char*sname = (const char*)sqlite3_column_text(statement, 2);
+                NSString *typename= sname== NULL ? nil : [[NSString alloc] initWithUTF8String:sname];
+                _sccfldtypemdl.typeName=typename;
+               
+                const char*Rate = (const char*)sqlite3_column_text(statement, 3);
+                NSString *rate= Rate== NULL ? nil : [[NSString alloc] initWithUTF8String:Rate];
+                _sccfldtypemdl.rate=rate;
+                
+                const char*upto33 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *ftupto33= upto33== NULL ? nil : [[NSString alloc] initWithUTF8String:upto33];
+                _sccfldtypemdl.ftupto33=ftupto33;
+
+                const char*upto100 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *Ftupto100= upto100== NULL ? nil : [[NSString alloc] initWithUTF8String:upto100];
+                _sccfldtypemdl.Ftupto100=Ftupto100;
+               
+                const char*upto165 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *Ftupto165= upto165== NULL ? nil : [[NSString alloc] initWithUTF8String:upto165];
+                _sccfldtypemdl.Ftupto165=Ftupto165;
+               
+                const char*g165 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *Ftg165= g165== NULL ? nil : [[NSString alloc] initWithUTF8String:g165];
+                _sccfldtypemdl.Ftg165=Ftg165;
+                
+                const char*upto1750 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *ft3upto1750= upto1750== NULL ? nil : [[NSString alloc] initWithUTF8String:upto1750];
+                _sccfldtypemdl.ft3upto1750=ft3upto1750;
+               
+                const char*upto7000 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *Ft3upto7000= upto7000== NULL ? nil : [[NSString alloc] initWithUTF8String:upto7000];
+                _sccfldtypemdl.Ft3upto7000=Ft3upto7000;
+
+                const char*g18000 = (const char*)sqlite3_column_text(statement, 4);
+                NSString *Ft3g18000= g18000== NULL ? nil : [[NSString alloc] initWithUTF8String:g18000];
+                _sccfldtypemdl.Ft3g18000=Ft3g18000;
+                
+                
+                [_scaffoldtyperesultarray addObject:_sccfldtypemdl];
+                
+                
+            }
+            
+            
+            
+            
+            
+        }
+        sqlite3_finalize(statement);
+        
+    }
+    sqlite3_close(_scaffoldTypeDB);
+    
+    
+}
+
+
 @end

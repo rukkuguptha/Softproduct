@@ -12,6 +12,7 @@
 #import "AllDetailsplandisplayViewController.h"
 #import "GeneralViewController.h"
 #import "Generalmodel.h"
+#import <sqlite3.h>
 
 
 @interface DetailplanViewController : UIViewController<animatndelegate,newgenralDelgate>
@@ -151,5 +152,27 @@
 
 -(void)navgteanimtn;
 -(void)updatedata;
+
+
+/*sqlite for sacffold insert*/
+@property(strong,nonatomic) NSString *docsDir;
+@property(strong,nonatomic) NSArray *dirPaths;
+@property(nonatomic,readwrite) sqlite3 *scaffoldTypeDB;
+@property (strong, nonatomic) NSString *scaffoldtypepath;
+@property (strong, nonatomic) NSString *Availablityresult;
+
+@property(nonatomic,readwrite) sqlite3 *scaffsequenceDB;
+@property (strong, nonatomic) NSString *sequencepath;
+@property(strong,nonatomic)NSString *sname;
+@property(strong,nonatomic)NSString *sid;
+
+@property(nonatomic,readwrite) sqlite3 *scaffPhaseDB;
+@property (strong, nonatomic) NSString *phasepath;
+@property(strong,nonatomic)NSString *pname;
+@property(strong,nonatomic)NSString *pid;
+
+@property(nonatomic,readwrite) sqlite3 *AllscaffoldDB;
+@property (strong, nonatomic) NSString *ScaffoldPath;
+
 
 @end
