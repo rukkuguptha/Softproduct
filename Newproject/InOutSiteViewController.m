@@ -58,7 +58,7 @@
    // _outjobsitetxtfld.text=[_jobdict objectForKey:eqmdl.jobnumber];
     _outtotalqtysendtxtfld.text=eqmdl.TotalQtySendBack;
     
-    
+    [self NotesSiteInselect];
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,6 +92,7 @@
 }
 -(IBAction)tojobsiteaction:(id)sender
 {
+    poptype=1;
     UIViewController *popovercontent=[[UIViewController alloc]init];
     UIView *popoverview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 210, 120)];
     popoverview.backgroundColor=[UIColor whiteColor];
@@ -175,45 +176,48 @@ if(confirmcheck==1)
 }
 
 - (IBAction)removeexpbtn:(id)sender {
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
-    
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 330, 200)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 330, 200)];
-    
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    
-    
-    // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(330, 200);
-    
-    //create a popover controller
-    self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    
-    //
-    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
-    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
-    
-    
-    
-    [self.popOverController presentPopoverFromRect:_remveexptn.frame
-                                            inView:self.view
-                          permittedArrowDirections:UIPopoverArrowDirectionUp
-                                          animated:YES];
+//    poptype=2;
+//    UIViewController* popoverContent = [[UIViewController alloc]
+//                                        init];
+//    
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 330, 200)];
+//    
+//    popoverView.backgroundColor = [UIColor whiteColor];
+//    _popovertableview=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 330, 200)];
+//    
+//    _popovertableview.delegate=(id)self;
+//    _popovertableview.dataSource=(id)self;
+//    _popovertableview.rowHeight= 32;
+//    _popovertableview.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+//    
+//    
+//    // CGRect rect = frame;
+//    [popoverView addSubview:_popovertableview];
+//    popoverContent.view = popoverView;
+//    
+//    //resize the popover view shown
+//    //in the current view to the view's size
+//    popoverContent.contentSizeForViewInPopover = CGSizeMake(330, 200);
+//    
+//    //create a popover controller
+//    self.popovercontroller = [[UIPopoverController alloc]
+//                              initWithContentViewController:popoverContent];
+//    
+//    //
+//    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+//    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+//    
+//    
+//    
+//    [self.popovercontroller presentPopoverFromRect:_remveexptn.frame
+//                                            inView:self.view
+//                          permittedArrowDirections:UIPopoverArrowDirectionUp
+//                                          animated:YES];
 
+    
+    [self SiteInExceptionUpdate];
 }
 
 - (IBAction)excptnbtn:(id)sender {
@@ -247,7 +251,19 @@ if(confirmcheck==1)
     if(tableView==_popovertableview)
         
     {
-        return [_jobnoarray count];
+        switch (poptype) {
+            case 1:
+            return [_jobnoarray count];
+                break;
+            case 2:
+                return [_notesarray count];
+                break;
+
+                
+            default:
+                break;
+        }
+        
     }
     
     return YES;
@@ -259,15 +275,32 @@ if(confirmcheck==1)
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+       // [[NSBundle mainBundle]loadNibNamed:@"Siteinexcptncell" owner:self options:nil];
+       // cell=_siteexptncell;
+
     }
     
     if(tableView==_popovertableview)
-    {  cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
-        cell.textLabel.font = [UIFont systemFontOfSize:12.0];
-        jobsitemodel *jmdl=(jobsitemodel*)[_jobnoarray objectAtIndex:indexPath.row];
-        cell.textLabel.text=[NSString stringWithFormat:@"%@-%@",jmdl.jobno,jmdl.jobname];
+    {
         
-                
+        if (poptype==1) {
+            
+            cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
+                cell.textLabel.font = [UIFont systemFontOfSize:12.0];
+                jobsitemodel *jmdl=(jobsitemodel*)[_jobnoarray objectAtIndex:indexPath.row];
+                cell.textLabel.text=[NSString stringWithFormat:@"%@-%@",jmdl.jobno,jmdl.jobname];
+        }
+        
+          if (poptype==2) {
+        _notelbl=(UILabel *)[cell viewWithTag:1];
+                _notelbl.text=[_notesarray objectAtIndex:indexPath.row];
+         
+          
+          }
+       
+        
+       
         
         }
     
@@ -283,16 +316,19 @@ return cell;
 {
     
     if (tableView==_popovertableview) {
+         if (poptype==1) {
         jobsitemodel *jmdl=(jobsitemodel*)[_jobnoarray objectAtIndex:indexPath.row];
         
        [_tojobbtn setTitle:[NSString stringWithFormat:@"%@-%@",jmdl.jobno,jmdl.jobname]forState:UIControlStateNormal];
         
         jobid=jmdl.jobid;
-        
+         }
+                 
     }
     [self.popovercontroller dismissPopoverAnimated:YES];
     
 }
+#pragma mark-Web Service
 -(void)JobsSelect{
     recordResults=FALSE;
     NSString *soapMessage;
@@ -693,6 +729,114 @@ return cell;
     
 }
 
+-(void)NotesSiteInselect
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<NotesSiteInselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   
+                   "</NotesSiteInselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[eqmdl.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/NotesSiteInselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)SiteInExceptionUpdate
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    EqOthersMdl *eqmdl=(EqOthersMdl*)[_inoutarray objectAtIndex:0];
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<SiteInExceptionUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   "<Notes>%@</Notes>\n"
+                   "</SiteInExceptionUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[eqmdl.entryid integerValue],_notetextview.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/SiteInExceptionUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -733,7 +877,8 @@ return cell;
         webtype=0;
 
     }
-    
+    [self.popovertableview  reloadData];
+   
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -843,10 +988,45 @@ return cell;
     
 
    
-
-
-
+    if([elementName isEqualToString:@"NotesSiteInselectResult"])
+    {
+        //_notesarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
+
+    if([elementName isEqualToString:@"SiteInNotes"])
+    {
+
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+   
+    if([elementName isEqualToString:@"SiteInException"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
     
 
 }
@@ -895,6 +1075,8 @@ return cell;
         msg=_soapResults;
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+         [_excptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        
                _soapResults = nil;
     }
 
@@ -923,8 +1105,29 @@ return cell;
     }
     
 
+    if([elementName isEqualToString:@"SiteInNotes"])
+    {
+         recordResults = FALSE;
+        _notetextview.text=_soapResults;
+        //[_notesarray addObject:_soapResults];
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SiteInException"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            [_excptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            
+        }
+        else
+        {
+            [_excptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        _soapResults = nil;
+        
+    }
 
-
+   
 
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -945,4 +1148,6 @@ return cell;
 
 
 
+- (IBAction)deletebtn:(id)sender {
+   }
 @end

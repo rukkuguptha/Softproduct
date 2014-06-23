@@ -54,7 +54,7 @@
     
     _received1txtfld.text=_eqmdl.QtyReceivedBack;
     _sendout1txtfld.text=_eqmdl.DeliveredQty;
-    
+     [self NotesStockInselect];
     
     [self StockInSelect];
     
@@ -69,42 +69,43 @@
     // Dispose of any resources that can be recreated.
 }
 #pragma mark-Tableview
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    
-    // Return the number of sections.
-    return 1;
-    
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    
-    // Return the number of rows in the section.
-    
-          //return [_equipmntarray count];
-    
-    return 1;
-    
-}
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"mycell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-       [[NSBundle mainBundle]loadNibNamed:@"Exceptioncell" owner:self options:nil];
-        cell=_excptncell;
-        }
-    
-    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
-    
-    return cell;
-    
-    
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+//{
+//    
+//    // Return the number of sections.
+//    return 1;
+//    
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    
+//    // Return the number of rows in the section.
+//    
+//          //return [_equipmntarray count];
+//    
+//    return [_notesarray count];
+//    
+//}
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    static NSString *CellIdentifier = @"mycell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//        
+//       //[[NSBundle mainBundle]loadNibNamed:@"Exceptioncell" owner:self options:nil];
+//        cell=_excptncell;
+//        }
+//    
+//    cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+//    _notelbl=(UILabel *)[cell viewWithTag:1];
+//    _notelbl.text=[_notesarray objectAtIndex:indexPath.row];
+//    return cell;
+//    
+//    
+//}
 
 #pragma mark-Web Service
 -(void)StockOutInsert{
@@ -438,6 +439,114 @@
     
     
 }
+-(void)NotesStockInselect
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+   
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<NotesStockInselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   
+                   "</NotesStockInselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/NotesStockInselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)StockInExceptionUpdate
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<StockInExceptionUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainId>%d</MainId>\n"
+                   "<Notes>%@</Notes>\n"
+                   "</StockInExceptionUpdate>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_eqmdl.entryid integerValue],_notes1txtview.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/StockInExceptionUpdate" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -476,6 +585,7 @@
    	[_xmlParser parse];
     _jobsitetxtfld.text= [_jobdict objectForKey: _eqmdl.jobnumber];
     _jobsite1txtfld.text=[_jobdict objectForKey: _eqmdl.jobnumber];
+   
 
     
 }
@@ -542,6 +652,33 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"NotesStockInselectResult"])
+    {
+        _notesarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StockInNotes"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"StockInException"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -587,6 +724,7 @@
             _sendtxtfld.text=@"";
             _notestxtview.text=@"";
             [_thirdbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
             thirdparty=0;
             message=_soapResults;
         }
@@ -599,6 +737,27 @@
         recordResults = FALSE;
         _receivedback1txtfld.text=_soapResults;
          _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"StockInNotes"])
+    {
+        
+        recordResults = FALSE;
+        _notes1txtview.text=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"StockInException"])
+    {
+        recordResults = FALSE;
+        if ([_soapResults isEqualToString:@"true"]) {
+            [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            
+        }
+        else
+        {
+            [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        }
+        _soapResults = nil;
+   
     }
 
 }
@@ -746,47 +905,51 @@
 
 - (IBAction)removebtn:(id)sender {
     
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
+//    UIViewController* popoverContent = [[UIViewController alloc]
+//                                        init];
+//    
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 330, 200)];
+//    
+//    popoverView.backgroundColor = [UIColor whiteColor];
+//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 330, 200)];
+//    
+//    _popOverTableView.delegate=(id)self;
+//    _popOverTableView.dataSource=(id)self;
+//    _popOverTableView.rowHeight= 32;
+//    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+//    
+//    
+//    // CGRect rect = frame;
+//    [popoverView addSubview:_popOverTableView];
+//     popoverContent.view = popoverView;
+//    
+//    //resize the popover view shown
+//    //in the current view to the view's size
+//    popoverContent.contentSizeForViewInPopover = CGSizeMake(330, 200);
+//    
+//    //create a popover controller
+//    self.popOverController = [[UIPopoverController alloc]
+//                              initWithContentViewController:popoverContent];
+//    
+//    //
+//    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+//    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+//    
+//    
+//    
+//    [self.popOverController presentPopoverFromRect:_remveexcptn.frame
+//                                                    inView:self.scroll
+//                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+//                                                  animated:YES];
     
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 330, 200)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 330, 200)];
-    
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    
-    
-    // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-     popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(330, 200);
-    
-    //create a popover controller
-    self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    
-    //
-    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
-    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
-    
-    
-    
-    [self.popOverController presentPopoverFromRect:_remveexcptn.frame
-                                                    inView:self.scroll
-                                  permittedArrowDirections:UIPopoverArrowDirectionUp
-                                                  animated:YES];
-            
+    [self StockInExceptionUpdate];
     
 
+}
+
+- (IBAction)deletebtn:(id)sender {
 }
 
 - (IBAction)save1btn:(id)sender {

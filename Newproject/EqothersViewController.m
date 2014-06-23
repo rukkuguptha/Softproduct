@@ -39,8 +39,8 @@
     [self EquipmentandOthersSelect];
     _mydict=[[NSMutableDictionary alloc]init];
      dateselctor=0;
-    NSTimer*timer;
-   timer= [NSTimer scheduledTimerWithTimeInterval:5.0f
+    
+   _timer= [NSTimer scheduledTimerWithTimeInterval:5.0f
                                      target:self
                                    selector:@selector(timermethod)
                                    userInfo:nil
@@ -1262,6 +1262,10 @@
 }
 
 - (IBAction)showbtn:(id)sender {
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+    _timer = nil;
     [self EQOthersSearch];
 }
 
@@ -1348,5 +1352,16 @@ _InoutVCtrl=[[InOutSiteViewController alloc]initWithNibName:@"StkOtSiteout" bund
                        animated:YES completion:NULL];
     
 
+}
+
+- (IBAction)cancelbtn:(id)sender {
+     [self EquipmentandOthersSelect];
+    _timer= [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                             target:self
+                                           selector:@selector(timermethod)
+                                           userInfo:nil
+                                            repeats:YES];
+
+    
 }
 @end

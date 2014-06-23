@@ -30,7 +30,7 @@
     
     
 }
-
+@property(strong,nonatomic)NSMutableArray*notesarray;
 @property(nonatomic, weak)id<EqDelgate>delegate;
 @property (strong, nonatomic)EqOthersMdl*eqmdl;
 @property (strong, nonatomic)NSMutableArray *eqarray;
@@ -85,11 +85,13 @@
 @property (strong, nonatomic) IBOutlet UIButton *confirmlbl;
 @property (strong, nonatomic) IBOutlet UITextView *notes1txtview;
 @property (strong, nonatomic) IBOutlet UIButton *exceptnbtnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *notelbl;
 
 - (IBAction)confirm1btnlbl:(id)sender;
 - (IBAction)exceptnbtn:(id)sender;
 - (IBAction)removebtn:(id)sender;
 
+- (IBAction)deletebtn:(id)sender;
 
 - (IBAction)save1btn:(id)sender;
 - (IBAction)closebtn:(id)sender;
