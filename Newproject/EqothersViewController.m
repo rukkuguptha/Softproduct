@@ -47,6 +47,14 @@
                                     repeats:YES];
 
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+    _timer = nil;
+
+}
 -(void)timermethod{
     [self EquipmentandOthersSelect];
 }
@@ -149,7 +157,7 @@
     
     
      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -198,7 +206,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -246,7 +254,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -295,7 +303,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -367,7 +375,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
