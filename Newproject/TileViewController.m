@@ -121,8 +121,7 @@
     if (!self.compVCtrl) {
         self.compVCtrl=[[CompanyViewController alloc]initWithNibName:@"CompanyViewController" bundle:nil];
     }
-    _compVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
-
+   _compVCtrl.modalPresentationStyle = UIModalPresentationCustom;
     [self presentViewController:_compVCtrl
                        animated:YES completion:NULL];
 }

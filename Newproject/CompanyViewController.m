@@ -42,14 +42,22 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
   
-    _scroll.frame=CGRectMake(0, 0,768, 1024);
-    [_scroll setContentSize:CGSizeMake(768,1400)];
+    
     
 
 
    [self Getbasicinfo];
    
 }
+- (void)viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    self.view.bounds = CGRectMake(0, 0, 768, 768);
+    _scroll.frame=CGRectMake(0,50,768, 768);
+    [_scroll setContentSize:CGSizeMake(768,1090)];
+    //[self.view addSubview:_scroll];
+    //self.scroll.bounds = CGRectMake(0, 0, 768, 768);
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -1547,4 +1555,5 @@
 
    
 }
+
 @end
