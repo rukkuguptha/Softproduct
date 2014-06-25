@@ -405,25 +405,29 @@ if (tableView==_leadTable) {
           
                  if (indexPath.row==0) {
                      
-                     if (!self.activityVCtrl) {
+                     //if (!self.activityVCtrl) {
                          self.activityVCtrl=[[ActivityViewController alloc]initWithNibName:@"ActivityViewController" bundle:nil];
-                     }
+                     //}
                    Infoleads*infomdl=(Infoleads *)[_leadinfoArray objectAtIndex:btnindex];
                      _activityVCtrl.leadid=infomdl.leadid;
                      NSLog(@"leadid%d",_activityVCtrl.leadid);
                     
-                     //[self.navigationController pushViewController:self.activityVCtrl animated:YES];
-                     [self presentViewController:_activityVCtrl animated:YES completion:NULL];
+                     //_activityVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
+                     
+                     [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_activityVCtrl
+                                                                                              animated:YES completion:NULL];}];
+                    
                      [self.popOverController dismissPopoverAnimated:YES];
 
                  }
                  
                  if (indexPath.row==1) {
                      _composecmtview.hidden=YES;
-                     [self.popOverController dismissPopoverAnimated:YES];
+                        [self.popOverController dismissPopoverAnimated:YES];
+                  [self commentpopover];
+                    
 
                      
-                     [self commentpopover];
                      
                      [self LeadCommentsList];
                 
@@ -821,7 +825,56 @@ if (tableView==_leadTable) {
     
 }
 
+-(void)createpopover{
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 120, 82)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 120, 82)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 42;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(120, 82);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+//    button = (UIButton *)sender;
+//    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
+//    CGPoint center= button.center;
+//    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.leadTable];
+//    NSIndexPath *textFieldIndexPath = [self.leadTable indexPathForRowAtPoint:rootViewPoint];
+//    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+//    btnindex=textFieldIndexPath.row;
+//    
+//    // _Path=IndexPath;
+//    Infoleads*infomdl=(Infoleads *)[_leadinfoArray objectAtIndex:btnindex];
+//    NSInteger l;
+//    l=infomdl.leadid;
+    
+    
+    [self.popOverController presentPopoverFromRect:_disclsurelbl.frame
+                                            inView:self.view
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
 
+    
+}
 - (IBAction)Addcmtbtn:(id)sender {
     _composecmtview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
 
@@ -969,7 +1022,7 @@ if (tableView==_leadTable) {
 }
 
 
-#pragma mark - arvinice
+#pragma mark - webservice
 /*arvinices*/
 -(void)Stateselect
 {
@@ -2328,6 +2381,7 @@ if (tableView==_leadTable) {
 
 -(void)commentpopover{
     
+    
     UIViewController* popoverContent = [[UIViewController alloc]
                                         init];
     
@@ -2348,7 +2402,7 @@ if (tableView==_leadTable) {
     
     //create a popover controller
     
-    self.popOverController = [[UIPopoverController alloc]
+    self.popOverController1 = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
     
     //
@@ -2363,12 +2417,16 @@ if (tableView==_leadTable) {
 //    UITableView *table = (UITableView *)[cell superview];
 //    NSIndexPath *IndexPath = [table indexPathForCell:cell];
 //    
+   
+    
+//    [self.popOverController1 presentPopoverFromRect: CGRectMake(350, 120, 300, 500)                                        inView:self.view
+//                          permittedArrowDirections:UIPopoverArrowDirectionDown
+//                                          animated:YES];
     
     
-    [self.popOverController presentPopoverFromRect: CGRectMake(350, 120, 300, 500)                                        inView:self.view
-                          permittedArrowDirections:nil
-                                          animated:YES];
-    
+    [self.popOverController1 presentPopoverFromRect: CGRectMake(0, 120, 300, 500)                                        inView:self.leadTable
+                           permittedArrowDirections:UIPopoverArrowDirectionDown
+                                           animated:YES];
     
 
 }

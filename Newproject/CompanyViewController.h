@@ -23,6 +23,7 @@
   
     
 }
+@property(strong,nonatomic)UIViewController*popoverContent;
 @property(strong,nonatomic)AddressViewController *addrsVCtrl;
 @property(strong,nonatomic)Validation*validate;
 @property(strong,nonatomic)IBOutlet UIScrollView *scroll;

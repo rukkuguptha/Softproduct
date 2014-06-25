@@ -19,6 +19,10 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        
+                   
+        
+       
     }
     return self;
 }
@@ -206,9 +210,11 @@
                     NSLog(@"%@",planmdl.planid);
                     _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                     _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                    [self presentViewController:_servVctrl
-                                       animated:YES completion:NULL];
-                }
+                    
+                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_servVctrl
+                                                                                             animated:YES completion:NULL];
+                    }];
+                                   }
                 if (indexPath.row==1) {
                     if (!self.sitevisitVctrl) {
                         self.sitevisitVctrl=[[SitevisitViewController alloc]initWithNibName:@"SitevisitViewController" bundle:nil];
@@ -219,9 +225,12 @@
                     NSLog(@"%@",planmdl.customername);
                     _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                    [self presentViewController:_sitevisitVctrl
-                                       animated:YES completion:NULL];
-                }
+                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_sitevisitVctrl
+                                                                                               animated:YES completion:NULL];
+
+                    }];
+
+                                  }
                 if (indexPath.row==2) {
                     if (!self.DetailplanVctrl) {
                         self.DetailplanVctrl=[[DetailplanViewController alloc]initWithNibName:@"DetailplanViewController" bundle:nil];
@@ -230,8 +239,10 @@
                     _DetailplanVctrl.planid=planmdl.planid;
                     _DetailplanVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                    [self presentViewController:_DetailplanVctrl
-                                       animated:YES completion:NULL];
+                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_DetailplanVctrl
+                                                                                             animated:YES completion:NULL];
+                    }];
+                    
                 }
                 
                 

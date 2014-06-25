@@ -13,7 +13,7 @@
 @end
 
 @implementation CompanyViewController
-
+@synthesize popoverContent;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -1378,13 +1378,16 @@
 
 #pragma mark-popover
 -(void)createpopover{
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
+ popoverContent = [[UIViewController alloc]init];
+ 
+    //[self viewWillLayoutSubviews];
     
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 100)];
+   // UIView* popoverView = [[UIView alloc]
+                           //initWithFrame:CGRectMake(10, 20, 20, 10)];
+    popoverContent.view.bounds=CGRectMake(10, 20, 20, 10);
     
-    popoverView.backgroundColor = [UIColor whiteColor];
+    
+    //popoverView.backgroundColor = [UIColor redColor];
     _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 100)];
     
     _popOverTableView.delegate=(id)self;
@@ -1394,17 +1397,20 @@
     
     
     // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
+    //[popoverView addSubview:_popOverTableView];
+    popoverContent.view = _popOverTableView;
+   
     //resize the popover view shown
     //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 100);
+    [popoverContent setContentSizeForViewInPopover:CGSizeMake(20, 0)];
+    //popoverContent.contentSizeForViewInPopover = CGSizeMake(0, 0);
+    
     
     //create a popover controller
     
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+   
     
     if(poptype==1){
         
@@ -1420,7 +1426,11 @@
     
     
 }
-
+//-(void)viewWillLayoutSubviews{
+//    [super viewWillLayoutSubviews];
+//    popoverContent.view.bounds=CGRectMake(0, 0, 20, 10);
+//    
+//}
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

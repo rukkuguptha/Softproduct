@@ -150,8 +150,10 @@
 -(void)plangpage{
     if (!self.PlangVCtrl) {
         self.PlangVCtrl=[[PlanningViewController alloc]initWithNibName:@"PlanningViewController" bundle:nil];
+        
     }
-    _PlangVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
+    // _PlangVCtrl.view.frame=CGRectMake(100, 171, 768, 768);
+    _PlangVCtrl.modalPresentationStyle=UIModalPresentationCustom;
     _PlangVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_PlangVCtrl
                        animated:YES completion:NULL];
