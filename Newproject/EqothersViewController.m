@@ -47,6 +47,14 @@
                                     repeats:YES];
 
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    if ([_timer isValid]) {
+        [_timer invalidate];
+    }
+    _timer = nil;
+
+}
 -(void)timermethod{
     [self EquipmentandOthersSelect];
 }
@@ -149,7 +157,7 @@
     
     
      NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-  //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+  //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -198,7 +206,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -246,7 +254,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -295,7 +303,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -367,7 +375,7 @@
     
     
     NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-    //  NSURL *url = [NSURL URLWithString:@"http://test3.kontract360.com/service.asmx"];;
+    //  NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -1062,6 +1070,7 @@
             if ([eqmmdl.DeliveredQty integerValue]>=[eqmmdl.OrderedQuantity integerValue]) {
                 
                  _stockoutbtnlbl.enabled=NO;
+                
             }
            
             
@@ -1069,6 +1078,7 @@
                  if ([eqmmdl.siteinexpn isEqualToString:@"true"]) {
                      
                      _siteinbtnlbl.backgroundColor=[UIColor redColor];
+                     
                      
                  }
                  else{
@@ -1078,6 +1088,7 @@
                      if ([eqmmdl.ReceivedQty integerValue]>=[eqmmdl.OrderedQuantity integerValue]) {
                          
                         _siteinbtnlbl.enabled=NO;
+                      
                      }
 
                   
@@ -1095,7 +1106,7 @@
             if ([eqmmdl.TotalQtySendBack integerValue]>=[eqmmdl.ReceivedQty integerValue]) {
                 
                  _siteoutbtnlbl.enabled=NO;
-            }
+                          }
 
            
             
@@ -1111,6 +1122,7 @@
                     if ([eqmmdl.QtyReceivedBack integerValue]>=[eqmmdl.TotalQtySendBack integerValue]) {
                         
                          _stockinbtnlbl.enabled=NO;
+                     
                     }
 
                 
@@ -1270,7 +1282,8 @@
 }
 
 - (IBAction)stockoutbtn:(id)sender {
-    button = (UIButton *)sender;
+   // if(_stockoutbtnlbl.isEnabled){
+           button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.eqtable];
     NSIndexPath *textFieldIndexPath = [self.eqtable indexPathForRowAtPoint:rootViewPoint];
@@ -1286,7 +1299,14 @@
     _stockVCtrl.delegate=self;
     [self presentViewController:_stockVCtrl
                        animated:YES completion:NULL];
-    
+   // }
+//    else{
+//    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Process Completed" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil]
+//    ;
+//    [alert show];
+//
+//
+//    }
 
 }
 

@@ -211,9 +211,12 @@
                     _servVctrl.modalPresentationStyle=UIModalPresentationPageSheet;
                     _servVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
                     
-                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_servVctrl
-                                                                                             animated:YES completion:NULL];
-                    }];
+//                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_servVctrl
+//                                                                                             animated:YES completion:NULL];
+//                    }];
+                    [self presentViewController:_servVctrl
+                                       animated:YES completion:NULL];
+
                                    }
                 if (indexPath.row==1) {
                     if (!self.sitevisitVctrl) {
@@ -225,11 +228,12 @@
                     NSLog(@"%@",planmdl.customername);
                     _sitevisitVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _sitevisitVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_sitevisitVctrl
-                                                                                               animated:YES completion:NULL];
-
-                    }];
-
+//                    [self dismissViewControllerAnimated:YES completion:^{   [self presentViewController:_sitevisitVctrl
+//                                                                                               animated:YES completion:NULL];
+//
+//                    }];
+                    [self presentViewController:_sitevisitVctrl
+                                       animated:YES completion:NULL];
                                   }
                 if (indexPath.row==2) {
                     if (!self.DetailplanVctrl) {
@@ -239,9 +243,11 @@
                     _DetailplanVctrl.planid=planmdl.planid;
                     _DetailplanVctrl.modalPresentationStyle=UIModalPresentationFullScreen;
                     _DetailplanVctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
-                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_DetailplanVctrl
-                                                                                             animated:YES completion:NULL];
-                    }];
+//                    [self dismissViewControllerAnimated:YES completion:^{ [self presentViewController:_DetailplanVctrl
+//                                                                                             animated:YES completion:NULL];
+//                    }];
+                    [self presentViewController:_DetailplanVctrl
+                                       animated:YES completion:NULL];
                     
                 }
                 

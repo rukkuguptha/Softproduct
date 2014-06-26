@@ -16,5 +16,6 @@
 @property(strong,nonatomic)NSString*type;
 @property(strong,nonatomic)NSString*relatedto;
 @property(strong,nonatomic)NSString*comments;
+@property(strong,nonatomic)NSString*status;
 
 @end
