@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "EstimationViewController.h"
+#import "BidViewController.h"
 
 @interface EsttileViewController : UIViewController
 
 @property(strong,nonatomic)EstimationViewController * EHVctrl;
+@property(strong,nonatomic)BidViewController * bidVctrl;
 
 
 @property (strong, nonatomic) IBOutlet UIView *estimteview;

@@ -99,6 +99,12 @@
 		64A4124E19408104003EE113 /* hremployemangement.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124B19408104003EE113 /* hremployemangement.png */; };
 		64A4124F19408104003EE113 /* hrinprocess.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124C19408104003EE113 /* hrinprocess.png */; };
 		64A4125019408104003EE113 /* hrmaster.png in Resources */ = {isa = PBXBuildFile; fileRef = 64A4124D19408104003EE113 /* hrmaster.png */; };
+		64A4D091195AD76200C3F783 /* BidViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D08F195AD76200C3F783 /* BidViewController.m */; };
+		64A4D092195AD76200C3F783 /* BidViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A4D090195AD76200C3F783 /* BidViewController.xib */; };
+		64A4D094195ADB8000C3F783 /* bidcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A4D093195ADB8000C3F783 /* bidcell.xib */; };
+		64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D096195AE50E00C3F783 /* Bidmodel.m */; };
+		64A4D09B195AE95C00C3F783 /* DisplayBidTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A4D099195AE95C00C3F783 /* DisplayBidTableViewController.m */; };
+		64A4D09C195AE95C00C3F783 /* DisplayBidTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A4D09A195AE95C00C3F783 /* DisplayBidTableViewController.xib */; };
 		64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */; };
 		64A654B5192F1F14004DDB84 /* GPSetupTileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */; };
 		64A69850193844DA00F2000C /* calothereventcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A6984F193844DA00F2000C /* calothereventcell.xib */; };
@@ -108,6 +114,9 @@
 		64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B51949AC56002D44B6 /* InOutSiteViewController.xib */; };
 		64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B81949B029002D44B6 /* StkOtSiteout.xib */; };
 		64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B08E5E19471498003C25F5 /* Labourcustommdl.m */; };
+		64C08982195BD72500D4D7C2 /* Tblebidcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C08981195BD72500D4D7C2 /* Tblebidcell.xib */; };
+		64C08986195BE34000D4D7C2 /* SubdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C08984195BE34000D4D7C2 /* SubdetailViewController.m */; };
+		64C08987195BE34000D4D7C2 /* SubdetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C08985195BE34000D4D7C2 /* SubdetailViewController.xib */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
@@ -569,6 +578,15 @@
 		64A4124B19408104003EE113 /* hremployemangement.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hremployemangement.png; sourceTree = "<group>"; };
 		64A4124C19408104003EE113 /* hrinprocess.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrinprocess.png; sourceTree = "<group>"; };
 		64A4124D19408104003EE113 /* hrmaster.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hrmaster.png; sourceTree = "<group>"; };
+		64A4D08E195AD76200C3F783 /* BidViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidViewController.h; sourceTree = "<group>"; };
+		64A4D08F195AD76200C3F783 /* BidViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidViewController.m; sourceTree = "<group>"; };
+		64A4D090195AD76200C3F783 /* BidViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BidViewController.xib; sourceTree = "<group>"; };
+		64A4D093195ADB8000C3F783 /* bidcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bidcell.xib; sourceTree = "<group>"; };
+		64A4D095195AE50E00C3F783 /* Bidmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bidmodel.h; sourceTree = "<group>"; };
+		64A4D096195AE50E00C3F783 /* Bidmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bidmodel.m; sourceTree = "<group>"; };
+		64A4D098195AE95C00C3F783 /* DisplayBidTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DisplayBidTableViewController.h; sourceTree = "<group>"; };
+		64A4D099195AE95C00C3F783 /* DisplayBidTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DisplayBidTableViewController.m; sourceTree = "<group>"; };
+		64A4D09A195AE95C00C3F783 /* DisplayBidTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DisplayBidTableViewController.xib; sourceTree = "<group>"; };
 		64A654B1192F1F14004DDB84 /* GPSetupTileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSetupTileViewController.h; sourceTree = "<group>"; };
 		64A654B2192F1F14004DDB84 /* GPSetupTileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSetupTileViewController.m; sourceTree = "<group>"; };
 		64A654B3192F1F14004DDB84 /* GPSetupTileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPSetupTileViewController.xib; sourceTree = "<group>"; };
@@ -580,6 +598,10 @@
 		64AE02B81949B029002D44B6 /* StkOtSiteout.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StkOtSiteout.xib; sourceTree = "<group>"; };
 		64B08E5D19471497003C25F5 /* Labourcustommdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labourcustommdl.h; sourceTree = "<group>"; };
 		64B08E5E19471498003C25F5 /* Labourcustommdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Labourcustommdl.m; sourceTree = "<group>"; };
+		64C08981195BD72500D4D7C2 /* Tblebidcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tblebidcell.xib; sourceTree = "<group>"; };
+		64C08983195BE34000D4D7C2 /* SubdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubdetailViewController.h; sourceTree = "<group>"; };
+		64C08984195BE34000D4D7C2 /* SubdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubdetailViewController.m; sourceTree = "<group>"; };
+		64C08985195BE34000D4D7C2 /* SubdetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubdetailViewController.xib; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -1771,6 +1793,8 @@
 				64A1317C19485599009F5431 /* Countmdl.m */,
 				D49BF6A219540B60000226FD /* Issuemdl.h */,
 				D49BF6A319540B61000226FD /* Issuemdl.m */,
+				64A4D095195AE50E00C3F783 /* Bidmodel.h */,
+				64A4D096195AE50E00C3F783 /* Bidmodel.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1822,6 +1846,17 @@
 				D4F34358191CA3970023D715 /* EstimationViewController.m */,
 				D4F34359191CA3970023D715 /* EstimationViewController.xib */,
 				D4F3435C191CA90B0023D715 /* Emtncell.xib */,
+				64A4D08E195AD76200C3F783 /* BidViewController.h */,
+				64A4D08F195AD76200C3F783 /* BidViewController.m */,
+				64A4D090195AD76200C3F783 /* BidViewController.xib */,
+				64A4D093195ADB8000C3F783 /* bidcell.xib */,
+				64A4D098195AE95C00C3F783 /* DisplayBidTableViewController.h */,
+				64A4D099195AE95C00C3F783 /* DisplayBidTableViewController.m */,
+				64A4D09A195AE95C00C3F783 /* DisplayBidTableViewController.xib */,
+				64C08981195BD72500D4D7C2 /* Tblebidcell.xib */,
+				64C08983195BE34000D4D7C2 /* SubdetailViewController.h */,
+				64C08984195BE34000D4D7C2 /* SubdetailViewController.m */,
+				64C08985195BE34000D4D7C2 /* SubdetailViewController.xib */,
 				D40427DF19235DF50049A709 /* PhsestViewController.h */,
 				D40427E019235DF50049A709 /* PhsestViewController.m */,
 				D40427E119235DF50049A709 /* PhsestViewController.xib */,
@@ -1965,6 +2000,7 @@
 				D49BF6A119540450000226FD /* IssueCell.xib in Resources */,
 				649EDEC618BB04EC00B78D97 /* addworkscheduleview.xib in Resources */,
 				64A27C2018E1640000D184BF /* Srepcell.xib in Resources */,
+				64C08982195BD72500D4D7C2 /* Tblebidcell.xib in Resources */,
 				64A41245194080D6003EE113 /* customermanagement.png in Resources */,
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
@@ -2035,6 +2071,7 @@
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				D4A6749119345E6C00D5A77E /* IconDateGrey@2x.png in Resources */,
 				64A09DAF1860549E001F74E2 /* appbar.checkmark.thick.unchecked.png in Resources */,
+				64A4D09C195AE95C00C3F783 /* DisplayBidTableViewController.xib in Resources */,
 				D40367F118ED3A5200139E7D /* MangmntdetailsViewController.xib in Resources */,
 				649AE8791772DB8D00CAECE7 /* appbar.edit.png in Resources */,
 				D4F19E0218D03FBA007617F0 /* Contractcell.xib in Resources */,
@@ -2076,6 +2113,7 @@
 				D47A9B2819407CF1001CC416 /* othercompanyassestsicon.png in Resources */,
 				D49DE839185EB391006F1CDA /* closebutton@2x.png in Resources */,
 				64A41249194080F1003EE113 /* bid.png in Resources */,
+				64A4D094195ADB8000C3F783 /* bidcell.xib in Resources */,
 				D40427E319235DF50049A709 /* PhsestViewController.xib in Resources */,
 				D4A6749019345E6C00D5A77E /* IconDateGrey.png in Resources */,
 				D4F036C718B70A38003A668C /* Wrkschdulecell.xib in Resources */,
@@ -2134,6 +2172,7 @@
 				D48A34701876901B00898913 /* FleetCell.xib in Resources */,
 				D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */,
 				6426F5EB18C06062002471AC /* leads.png in Resources */,
+				64A4D092195AD76200C3F783 /* BidViewController.xib in Resources */,
 				D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
@@ -2214,6 +2253,7 @@
 				64A12C1219247FA8003721A3 /* MatPhaseEst.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
+				64C08987195BE34000D4D7C2 /* SubdetailViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2263,6 +2303,7 @@
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
 				D42E73DE1907E26300F7C99A /* Metgenmdl.m in Sources */,
 				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
+				64A4D09B195AE95C00C3F783 /* DisplayBidTableViewController.m in Sources */,
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
 				D4A674A819345F7200D5A77E /* DateTable.m in Sources */,
@@ -2297,6 +2338,7 @@
 				D4A674B319345FAB00D5A77E /* DPCalendarMonthlyView.m in Sources */,
 				D4EC7E40192A10D400C60BA9 /* MyLineDrawingView.m in Sources */,
 				642FA78E18AC945C00372623 /* SitevisitViewController.m in Sources */,
+				64A4D097195AE50E00C3F783 /* Bidmodel.m in Sources */,
 				D44BEA6C18E0243500719ED5 /* AddressViewController.m in Sources */,
 				D49F875D18EEA36B00413CAD /* SitevistMdl.m in Sources */,
 				D49F876018EEA36B00413CAD /* Scfflddetails.m in Sources */,
@@ -2307,6 +2349,7 @@
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
 				D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */,
+				64A4D091195AD76200C3F783 /* BidViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D4A674C019345FFD00D5A77E /* DPCalendarTestCreateEventViewController.m in Sources */,
 				64AE02B61949AC56002D44B6 /* InOutSiteViewController.m in Sources */,
@@ -2318,6 +2361,7 @@
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
+				64C08986195BE34000D4D7C2 /* SubdetailViewController.m in Sources */,
 				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
 				D49F876518EEA36B00413CAD /* Empmdl.m in Sources */,
 				64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */,
