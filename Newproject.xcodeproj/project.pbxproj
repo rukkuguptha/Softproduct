@@ -202,6 +202,12 @@
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
 		D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61A18B4A5620043644A /* NewrecordViewController.xib */; };
 		D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61D18B4AFE90043644A /* Jobsiterecord.xib */; };
+		D41B14DF195BF18400DEED6E /* RelatedtoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */; };
+		D41B14E0195BF18400DEED6E /* RelatedtoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */; };
+		D41B14E6195BF4CE00DEED6E /* Relatedtocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41B14E5195BF4CE00DEED6E /* Relatedtocell.xib */; };
+		D41B14E9195C0CF500DEED6E /* RelatedtoMdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */; };
+		D41B14EB195C2D3F00DEED6E /* images.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EA195C2D3F00DEED6E /* images.png */; };
+		D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */ = {isa = PBXBuildFile; fileRef = D41B14EC195C2F1700DEED6E /* calendarimg.png */; };
 		D429C5EE1952A43D00CE73A6 /* Exceptioncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */; };
 		D429C5F01952DD6100CE73A6 /* Siteinexcptncell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */; };
 		D42D8C0718D2D8AC009D8085 /* folderrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42D8C0418D2D8AC009D8085 /* folderrightsViewController.m */; };
@@ -715,6 +721,14 @@
 		D418B61918B4A5620043644A /* NewrecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewrecordViewController.m; sourceTree = "<group>"; };
 		D418B61A18B4A5620043644A /* NewrecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewrecordViewController.xib; sourceTree = "<group>"; };
 		D418B61D18B4AFE90043644A /* Jobsiterecord.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Jobsiterecord.xib; sourceTree = "<group>"; };
+		D41B14DC195BF18400DEED6E /* RelatedtoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedtoViewController.h; sourceTree = "<group>"; };
+		D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedtoViewController.m; sourceTree = "<group>"; };
+		D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelatedtoViewController.xib; sourceTree = "<group>"; };
+		D41B14E5195BF4CE00DEED6E /* Relatedtocell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Relatedtocell.xib; sourceTree = "<group>"; };
+		D41B14E7195C0CF500DEED6E /* RelatedtoMdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedtoMdl.h; sourceTree = "<group>"; };
+		D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedtoMdl.m; sourceTree = "<group>"; };
+		D41B14EA195C2D3F00DEED6E /* images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = images.png; sourceTree = "<group>"; };
+		D41B14EC195C2F1700DEED6E /* calendarimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendarimg.png; sourceTree = "<group>"; };
 		D429C5ED1952A43D00CE73A6 /* Exceptioncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Exceptioncell.xib; sourceTree = "<group>"; };
 		D429C5EF1952DD6000CE73A6 /* Siteinexcptncell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Siteinexcptncell.xib; sourceTree = "<group>"; };
 		D42D8C0318D2D8AC009D8085 /* folderrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = folderrightsViewController.h; sourceTree = "<group>"; };
@@ -1330,6 +1344,10 @@
 				D40B268F1953F86300217323 /* IssuesViewController.m */,
 				D40B26901953F86300217323 /* IssuesViewController.xib */,
 				D49BF6A01954044F000226FD /* IssueCell.xib */,
+				D41B14DC195BF18400DEED6E /* RelatedtoViewController.h */,
+				D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */,
+				D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */,
+				D41B14E5195BF4CE00DEED6E /* Relatedtocell.xib */,
 			);
 			name = "Project Management";
 			sourceTree = "<group>";
@@ -1655,6 +1673,8 @@
 				D4FED41117F18CB6004BE242 /* btn.png */,
 				D4FED41317F18E28004BE242 /* tabbtn.png */,
 				D4FE723B187EA3B900FF4DEF /* ios7-camera-icon.png */,
+				D41B14EA195C2D3F00DEED6E /* images.png */,
+				D41B14EC195C2F1700DEED6E /* calendarimg.png */,
 				D47A9B2419407AAA001CC416 /* Resources icons */,
 				D47A9B1119407A67001CC416 /* Company icons */,
 			);
@@ -1795,6 +1815,8 @@
 				D49BF6A319540B61000226FD /* Issuemdl.m */,
 				64A4D095195AE50E00C3F783 /* Bidmodel.h */,
 				64A4D096195AE50E00C3F783 /* Bidmodel.m */,
+				D41B14E7195C0CF500DEED6E /* RelatedtoMdl.h */,
+				D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2025,6 +2047,7 @@
 				649E1F83186193790010CBD8 /* custommaterialcell.xib in Resources */,
 				D42D8C1D18D2D91C009D8085 /* venderViewController.xib in Resources */,
 				D49E056318C71B7100AF6330 /* Cmanpwrcell.xib in Resources */,
+				D41B14E6195BF4CE00DEED6E /* Relatedtocell.xib in Resources */,
 				64A09DB118605711001F74E2 /* appbar.delete.png in Resources */,
 				D4A22003190A1D890065840D /* Srcequcell.xib in Resources */,
 				D4F0AD4519306866004821DD /* Magpcell.xib in Resources */,
@@ -2130,6 +2153,7 @@
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
+				D41B14EB195C2D3F00DEED6E /* images.png in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
 				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
@@ -2194,6 +2218,7 @@
 				D4D7A29117F5422000880E38 /* Untitled.png in Resources */,
 				D453DA2E1873F1F3007EE3DC /* Thirdpartycell.xib in Resources */,
 				D42D8C0918D2D8AC009D8085 /* custonfldrrigtscell.xib in Resources */,
+				D41B14ED195C2F1700DEED6E /* calendarimg.png in Resources */,
 				D48B607F17F941A5001A53C8 /* RadioButton-Selected.png in Resources */,
 				64A4124F19408104003EE113 /* hrinprocess.png in Resources */,
 				D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */,
@@ -2239,6 +2264,7 @@
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
+				D41B14E0195BF18400DEED6E /* RelatedtoViewController.xib in Resources */,
 				D47A9B1F19407AA2001CC416 /* folder-rights.png in Resources */,
 				64955C9C180E52D5000A86A1 /* WebViewController.xib in Resources */,
 				64A3B81618DFEE980015887F /* CommentsCells.xib in Resources */,
@@ -2367,6 +2393,7 @@
 				64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */,
 				D4A674A919345F7200D5A77E /* DPCalendarMonthlyCell.m in Sources */,
 				D49BF6A419540B61000226FD /* Issuemdl.m in Sources */,
+				D41B14E9195C0CF500DEED6E /* RelatedtoMdl.m in Sources */,
 				D49F875918EEA36B00413CAD /* jobsitemodel.m in Sources */,
 				64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */,
 				D4A338D518F3EE8700E53FAC /* subheadermarkmodel.m in Sources */,
@@ -2378,6 +2405,7 @@
 				D42D8C3A18D2E3F0009D8085 /* UsersViewController.m in Sources */,
 				D4FED40817F15B07004BE242 /* HRViewController.m in Sources */,
 				D4004056185B174A00C38E12 /* TileViewController.m in Sources */,
+				D41B14DF195BF18400DEED6E /* RelatedtoViewController.m in Sources */,
 				64A654B4192F1F14004DDB84 /* GPSetupTileViewController.m in Sources */,
 				64A3B81C18DFEEC90015887F /* ActivityViewController.m in Sources */,
 				D44BEA7618E0254900719ED5 /* TypeViewController.m in Sources */,
