@@ -1518,7 +1518,7 @@
     if([elementName isEqualToString:@"SummarySelectResponse"])
     {
         _summaryarray=[[NSMutableArray alloc]init];
-       
+       _totallabel.text=@"";
       
         if(!_soapresults)
         {
