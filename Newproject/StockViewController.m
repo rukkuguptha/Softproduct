@@ -750,11 +750,15 @@
         recordResults = FALSE;
         if ([_soapResults isEqualToString:@"true"]) {
             [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            _remveexcptn.hidden=NO;
+            _exceptnbtnlbl.enabled=NO;
             
         }
         else
         {
             [_exceptnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+             _remveexcptn.hidden=YES;
+              _exceptnbtnlbl.enabled=YES;
         }
         _soapResults = nil;
    
