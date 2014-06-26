@@ -39,12 +39,12 @@
     [self.estimteview addGestureRecognizer:doubleTap];
     
     
-//    UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
-//                                          initWithTarget:self
-//                                          action:@selector(bidpage)];
-//    doubleTap1.numberOfTapsRequired=1;
-//    doubleTap1.delegate=(id)self;
-//    [self.bidsview addGestureRecognizer:doubleTap1];
+    UITapGestureRecognizer *doubleTap1 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(bidpage)];
+    doubleTap1.numberOfTapsRequired=1;
+    doubleTap1.delegate=(id)self;
+    [self.bidsview addGestureRecognizer:doubleTap1];
 
 }
 
@@ -59,6 +59,17 @@
                        animated:YES completion:NULL];
     
 }
+-(void)bidpage{
+    if (!self.bidVctrl) {
+        self.bidVctrl=[[BidViewController alloc]initWithNibName:@"BidViewController" bundle:nil];
+    }
+   
+   
+    [self presentViewController:_bidVctrl
+                       animated:YES completion:NULL];
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
