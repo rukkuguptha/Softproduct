@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Issuemdl.h"
 #import "CKCalendarView.h"
+#import "RelatedtoViewController.h"
 @interface IssuesViewController : UIViewController{
     
      BOOL  recordResults;
@@ -20,13 +21,14 @@
 
 }
 
-
+@property(strong,nonatomic)RelatedtoViewController*relatedtoVCtrl;
 @property(strong,nonatomic)Issuemdl*issuemdl;
 @property(strong,nonatomic)NSMutableArray*Issuearray;
 @property(strong,nonatomic)NSMutableArray*jobarray;
 @property(strong,nonatomic)NSMutableArray*statusarray;
 @property(strong,nonatomic)NSMutableArray*Typearray;
 @property(strong,nonatomic)NSMutableDictionary*typedict;
+
 
 /*calendar*/
 @property(nonatomic, weak) CKCalendarView *calendar;

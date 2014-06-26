@@ -159,7 +159,7 @@
     
     
 }
-
+#pragma mark-Tableview datasouce
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
      if(tableView==_popOverTableView){
@@ -185,6 +185,25 @@
   
     
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_issuetable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
+
 #pragma mark-Web Service
 -(void)IssueManagementSelect{
     recordResults = FALSE;
@@ -572,8 +591,8 @@
         }
         recordResults = TRUE;
     }
-
-    
+   
+   
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -869,6 +888,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    _navtitle.title=@"EDIT";
+
      btntype=2;
     _addview.hidden=NO;
     button = (UIButton *)sender;
@@ -889,7 +910,13 @@
 }
 
 - (IBAction)addclsebtn:(id)sender {
+       _navtitle.title=@"ADD";
      _addview.hidden=YES;
+    [_jobsitebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_statusbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    _cmmttxtview.text=@"";
+    _datetxtfld.text=@"";
    }
 
 - (IBAction)clsebtn:(id)sender {
@@ -917,5 +944,25 @@
 }
 
 - (IBAction)relatedtobtn:(id)sender {
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.issuetable];
+    NSIndexPath *textFieldIndexPath = [self.issuetable indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
+
+
+    if (!_relatedtoVCtrl) {
+        _relatedtoVCtrl=[[RelatedtoViewController alloc]initWithNibName:@"RelatedtoViewController" bundle:nil];
+    }
+    _relatedtoVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _relatedtoVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    _relatedtoVCtrl.itemcode=ismdl.itemcode;
+    _relatedtoVCtrl.jobnumber=ismdl.jobnumbr;
+    _relatedtoVCtrl.type=ismdl.type;
+    _relatedtoVCtrl.issueid=ismdl.entryid;
+    [self presentViewController:_relatedtoVCtrl
+                       animated:YES completion:NULL];
+
 }
 @end
