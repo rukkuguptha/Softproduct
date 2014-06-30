@@ -48,6 +48,13 @@
     doubleTap2.numberOfTapsRequired=1;
     doubleTap2.delegate=(id)self;
     [self.timesheetview addGestureRecognizer:doubleTap2];
+    UITapGestureRecognizer *doubleTap3 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(labourPage)];
+    doubleTap3.numberOfTapsRequired=1;
+    doubleTap3.delegate=(id)self;
+    [self.labrview addGestureRecognizer:doubleTap3];
+
 
 
 }
@@ -82,6 +89,19 @@
     
     
 }
+-(void)labourPage{
+    
+    if (!_lbrmgmtvctrl) {
+        _lbrmgmtvctrl=[[LbrMgmtViewController alloc]initWithNibName:@"LbrMgmtViewController" bundle:nil];
+    }
+    //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _lbrmgmtvctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_lbrmgmtvctrl
+                       animated:YES completion:NULL];
+    
+    
+}
+
 
 - (void)didReceiveMemoryWarning
 {
