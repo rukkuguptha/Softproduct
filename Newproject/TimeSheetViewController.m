@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     self.view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+     self.view2.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -64,6 +68,61 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark-Tableview
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    
+    // Return the number of sections.
+    return 1;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(tableView==_timesheettable){
+        return 5;
+    }
+      return YES;
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"mycell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  //  if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.textLabel.font=[UIFont fontWithName:@"Helvetica Neue" size:12];
+        if(tableView==_timesheettable){
+            switch (barbtntype) {
+                case 1:
+                      [[NSBundle mainBundle]loadNibNamed:@"Tlaborcell" owner:self options:nil];
+                     cell=_laborcell;
+                    break;
+                case 2:
+                    [[NSBundle mainBundle]loadNibNamed:@"TEqupcell" owner:self options:nil];
+                    cell=_labrequpcell;
+                    break;
+
+                    
+                default:
+                    break;
+            }
+          
+           
+        }
+        
+  //  }
+    
+    
+    
+    
+    
+    return cell;
+    
+    
+}
+#pragma mark-Button Action
 - (IBAction)allemplysbtn:(id)sender {
 }
 
@@ -101,6 +160,8 @@
 #pragma mark-Barbutton Actions
 
 - (IBAction)laborbtn:(id)sender {
+    barbtntype=1;
+     [_timesheettable reloadData];
     _view1.hidden=NO;
      _view2.hidden=YES;
     _labortableview.hidden=NO;
@@ -111,6 +172,8 @@
 }
 
 - (IBAction)equpbtn:(id)sender {
+      barbtntype=2;
+    [_timesheettable reloadData];
     _view1.hidden=NO;
     _view2.hidden=YES;
     _labortableview.hidden=YES;
@@ -154,6 +217,8 @@
 }
 
 - (IBAction)materialsbtn:(id)sender {
+    barbtntype=3;
+
     _view2.hidden=NO;
     _view1.hidden=YES;
     _labortableview.hidden=YES;
@@ -176,6 +241,8 @@
 }
 
 - (IBAction)othrsbtn:(id)sender {
+    barbtntype=4;
+
     _view2.hidden=NO;
     _view1.hidden=YES;
     _labortableview.hidden=YES;

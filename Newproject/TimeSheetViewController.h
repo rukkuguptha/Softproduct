@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimeSheetViewController : UIViewController
+@interface TimeSheetViewController : UIViewController{
+    
+    NSInteger barbtntype;
+}
 
 
 @property (strong, nonatomic) IBOutlet UITableView *timesheettable;
@@ -88,5 +91,12 @@
 
 
 - (IBAction)clsebtn:(id)sender;
+
+
+/*cell outlets*/
+
+@property (strong, nonatomic) IBOutlet UITableViewCell *laborcell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *labrequpcell;
+
 
 @end
