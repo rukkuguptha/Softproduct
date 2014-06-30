@@ -42,6 +42,13 @@
     doubleTap1.numberOfTapsRequired=1;
     doubleTap1.delegate=(id)self;
     [self.issueview addGestureRecognizer:doubleTap1];
+    UITapGestureRecognizer *doubleTap2 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Timesheetpage)];
+    doubleTap2.numberOfTapsRequired=1;
+    doubleTap2.delegate=(id)self;
+    [self.timesheetview addGestureRecognizer:doubleTap2];
+
 
 }
 -(void)Resourcepage{
@@ -64,6 +71,18 @@
 
     
 }
+-(void)Timesheetpage{
+    if (!_timesheetVCtrl) {
+        _timesheetVCtrl=[[TimeSheetViewController alloc]initWithNibName:@"TimeSheetViewController" bundle:nil];
+    }
+    //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _timesheetVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_timesheetVCtrl
+                       animated:YES completion:NULL];
+    
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

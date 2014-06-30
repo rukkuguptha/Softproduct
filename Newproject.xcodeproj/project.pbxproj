@@ -202,6 +202,8 @@
 		D418B61B18B4A5620043644A /* NewrecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D418B61918B4A5620043644A /* NewrecordViewController.m */; };
 		D418B61C18B4A5620043644A /* NewrecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61A18B4A5620043644A /* NewrecordViewController.xib */; };
 		D418B61E18B4AFE90043644A /* Jobsiterecord.xib in Resources */ = {isa = PBXBuildFile; fileRef = D418B61D18B4AFE90043644A /* Jobsiterecord.xib */; };
+		D41A63D51961302A00FBDBC6 /* TimeSheetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */; };
+		D41A63D61961302A00FBDBC6 /* TimeSheetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */; };
 		D41B14DF195BF18400DEED6E /* RelatedtoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */; };
 		D41B14E0195BF18400DEED6E /* RelatedtoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */; };
 		D41B14E6195BF4CE00DEED6E /* Relatedtocell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D41B14E5195BF4CE00DEED6E /* Relatedtocell.xib */; };
@@ -721,6 +723,9 @@
 		D418B61918B4A5620043644A /* NewrecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewrecordViewController.m; sourceTree = "<group>"; };
 		D418B61A18B4A5620043644A /* NewrecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewrecordViewController.xib; sourceTree = "<group>"; };
 		D418B61D18B4AFE90043644A /* Jobsiterecord.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Jobsiterecord.xib; sourceTree = "<group>"; };
+		D41A63D21961302900FBDBC6 /* TimeSheetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeSheetViewController.h; sourceTree = "<group>"; };
+		D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeSheetViewController.m; sourceTree = "<group>"; };
+		D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeSheetViewController.xib; sourceTree = "<group>"; };
 		D41B14DC195BF18400DEED6E /* RelatedtoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RelatedtoViewController.h; sourceTree = "<group>"; };
 		D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RelatedtoViewController.m; sourceTree = "<group>"; };
 		D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RelatedtoViewController.xib; sourceTree = "<group>"; };
@@ -1348,6 +1353,9 @@
 				D41B14DD195BF18400DEED6E /* RelatedtoViewController.m */,
 				D41B14DE195BF18400DEED6E /* RelatedtoViewController.xib */,
 				D41B14E5195BF4CE00DEED6E /* Relatedtocell.xib */,
+				D41A63D21961302900FBDBC6 /* TimeSheetViewController.h */,
+				D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */,
+				D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */,
 			);
 			name = "Project Management";
 			sourceTree = "<group>";
@@ -2109,6 +2117,7 @@
 				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
 				64A41243194080D6003EE113 /* billing-matrix.png in Resources */,
+				D41A63D61961302A00FBDBC6 /* TimeSheetViewController.xib in Resources */,
 				D4F19DF118D03AD1007617F0 /* newCommentCell.xib in Resources */,
 				D4FE170C1918ED1000C8DA58 /* Srch.png in Resources */,
 				D44BEA7218E0252600719ED5 /* BranchViewController.xib in Resources */,
@@ -2390,6 +2399,7 @@
 				64C08986195BE34000D4D7C2 /* SubdetailViewController.m in Sources */,
 				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
 				D49F876518EEA36B00413CAD /* Empmdl.m in Sources */,
+				D41A63D51961302A00FBDBC6 /* TimeSheetViewController.m in Sources */,
 				64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */,
 				D4A674A919345F7200D5A77E /* DPCalendarMonthlyCell.m in Sources */,
 				D49BF6A419540B61000226FD /* Issuemdl.m in Sources */,
