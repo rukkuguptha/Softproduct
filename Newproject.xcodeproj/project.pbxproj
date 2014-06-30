@@ -57,6 +57,9 @@
 		649EDED018BB05B100B78D97 /* Roolsrecordaddview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDECF18BB05B100B78D97 /* Roolsrecordaddview.xib */; };
 		649EDED718BB45AC00B78D97 /* AllDetailsplandisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */; };
 		649EDED818BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */; };
+		649EE4C219614866008DEF02 /* LbrMgmtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649EE4C019614866008DEF02 /* LbrMgmtViewController.m */; };
+		649EE4C319614866008DEF02 /* LbrMgmtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EE4C119614866008DEF02 /* LbrMgmtViewController.xib */; };
+		649EE4C5196151A2008DEF02 /* Lbmgcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649EE4C4196151A2008DEF02 /* Lbmgcell.xib */; };
 		649F45E119457D1800E89F5C /* LabourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649F45DF19457D1800E89F5C /* LabourViewController.m */; };
 		649F45E219457D1800E89F5C /* LabourViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649F45E019457D1800E89F5C /* LabourViewController.xib */; };
 		649F45E419457F8A00E89F5C /* Lbrcuscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 649F45E319457F8A00E89F5C /* Lbrcuscell.xib */; };
@@ -536,6 +539,10 @@
 		649EDED418BB45AC00B78D97 /* AllDetailsplandisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllDetailsplandisplayViewController.h; sourceTree = "<group>"; };
 		649EDED518BB45AC00B78D97 /* AllDetailsplandisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllDetailsplandisplayViewController.m; sourceTree = "<group>"; };
 		649EDED618BB45AC00B78D97 /* AllDetailsplandisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllDetailsplandisplayViewController.xib; sourceTree = "<group>"; };
+		649EE4BF19614866008DEF02 /* LbrMgmtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LbrMgmtViewController.h; sourceTree = "<group>"; };
+		649EE4C019614866008DEF02 /* LbrMgmtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LbrMgmtViewController.m; sourceTree = "<group>"; };
+		649EE4C119614866008DEF02 /* LbrMgmtViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LbrMgmtViewController.xib; sourceTree = "<group>"; };
+		649EE4C4196151A2008DEF02 /* Lbmgcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Lbmgcell.xib; sourceTree = "<group>"; };
 		649F45DE19457D1800E89F5C /* LabourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LabourViewController.h; sourceTree = "<group>"; };
 		649F45DF19457D1800E89F5C /* LabourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabourViewController.m; sourceTree = "<group>"; };
 		649F45E019457D1800E89F5C /* LabourViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LabourViewController.xib; sourceTree = "<group>"; };
@@ -1356,6 +1363,10 @@
 				D41A63D21961302900FBDBC6 /* TimeSheetViewController.h */,
 				D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */,
 				D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */,
+				649EE4BF19614866008DEF02 /* LbrMgmtViewController.h */,
+				649EE4C019614866008DEF02 /* LbrMgmtViewController.m */,
+				649EE4C119614866008DEF02 /* LbrMgmtViewController.xib */,
+				649EE4C4196151A2008DEF02 /* Lbmgcell.xib */,
 			);
 			name = "Project Management";
 			sourceTree = "<group>";
@@ -2167,6 +2178,7 @@
 				D42D8C1618D2D8FF009D8085 /* BasicReqViewController.xib in Resources */,
 				D4A338EB18F3EEEF00E53FAC /* BillingViewController.xib in Resources */,
 				D4FED40B17F16722004BE242 /* HRcellview.xib in Resources */,
+				649EE4C5196151A2008DEF02 /* Lbmgcell.xib in Resources */,
 				D40313B818B6036300C27F2F /* SaftyCell.xib in Resources */,
 				64F97983185ED60000E7722B /* appbar.addblack.png in Resources */,
 				D4FED41217F18CB9004BE242 /* btn.png in Resources */,
@@ -2272,6 +2284,7 @@
 				D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */,
 				64A15E1618AB7C1B008112EA /* customplancell.xib in Resources */,
 				64AE02B71949AC56002D44B6 /* InOutSiteViewController.xib in Resources */,
+				649EE4C319614866008DEF02 /* LbrMgmtViewController.xib in Resources */,
 				642FA78F18AC945C00372623 /* SitevisitViewController.xib in Resources */,
 				D41B14E0195BF18400DEED6E /* RelatedtoViewController.xib in Resources */,
 				D47A9B1F19407AA2001CC416 /* folder-rights.png in Resources */,
@@ -2384,6 +2397,7 @@
 				D4A338D318F3EE8700E53FAC /* Mastermarkmodel.m in Sources */,
 				D4A338EA18F3EEEF00E53FAC /* BillingViewController.m in Sources */,
 				D4F0AD4319306866004821DD /* GpMaterViewController.m in Sources */,
+				649EE4C219614866008DEF02 /* LbrMgmtViewController.m in Sources */,
 				64A4D091195AD76200C3F783 /* BidViewController.m in Sources */,
 				D4F19D9F18D01CDB007617F0 /* NewCustmrViewController.m in Sources */,
 				D4A674C019345FFD00D5A77E /* DPCalendarTestCreateEventViewController.m in Sources */,
