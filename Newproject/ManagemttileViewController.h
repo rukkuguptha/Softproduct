@@ -9,12 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "MovementtileViewController.h"
 #import "IssuesViewController.h"
+#import "TimeSheetViewController.h"
 
 @interface ManagemttileViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *resurceview;
 @property (strong, nonatomic) IBOutlet UIView *issueview;
+@property (strong, nonatomic) IBOutlet UIView *timesheetview;
 
 @property (strong, nonatomic)MovementtileViewController*movemtVCtrl;
+@property (strong, nonatomic)TimeSheetViewController*timesheetVCtrl;
 @property (strong, nonatomic)IssuesViewController *issueVCtrl;
 - (IBAction)clsebtn:(id)sender;
 
