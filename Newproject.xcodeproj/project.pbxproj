@@ -342,6 +342,9 @@
 		D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F8A4F18EEBEA400413CAD /* Wagesmdl.m */; };
 		D49F8A5318EECA6E00413CAD /* fuelmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D49F8A5218EECA6E00413CAD /* fuelmdl.m */; };
 		D49F8A5518EECD3800413CAD /* fuelcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49F8A5418EECD3800413CAD /* fuelcell.xib */; };
+		D49FA2EE1961643E0037BA7A /* Tlaborcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FA2ED1961643E0037BA7A /* Tlaborcell.xib */; };
+		D49FA2F0196164560037BA7A /* TEqupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FA2EF196164560037BA7A /* TEqupcell.xib */; };
+		D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FA2F11961647A0037BA7A /* TOtherscell.xib */; };
 		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
 		D4A10B691935FCCA001856F8 /* CalEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B641935FCCA001856F8 /* CalEventDetailViewController.m */; };
 		D4A10B6A1935FCCA001856F8 /* CalEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B651935FCCA001856F8 /* CalEventDetailViewController.xib */; };
@@ -930,6 +933,9 @@
 		D49F8A5118EECA6E00413CAD /* fuelmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fuelmdl.h; sourceTree = "<group>"; };
 		D49F8A5218EECA6E00413CAD /* fuelmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fuelmdl.m; sourceTree = "<group>"; };
 		D49F8A5418EECD3800413CAD /* fuelcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = fuelcell.xib; sourceTree = "<group>"; };
+		D49FA2ED1961643E0037BA7A /* Tlaborcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tlaborcell.xib; sourceTree = "<group>"; };
+		D49FA2EF196164560037BA7A /* TEqupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEqupcell.xib; sourceTree = "<group>"; };
+		D49FA2F11961647A0037BA7A /* TOtherscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TOtherscell.xib; sourceTree = "<group>"; };
 		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
 		D4A10B631935FCCA001856F8 /* CalEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalEventDetailViewController.h; sourceTree = "<group>"; };
 		D4A10B641935FCCA001856F8 /* CalEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalEventDetailViewController.m; sourceTree = "<group>"; };
@@ -1363,6 +1369,9 @@
 				D41A63D21961302900FBDBC6 /* TimeSheetViewController.h */,
 				D41A63D31961302900FBDBC6 /* TimeSheetViewController.m */,
 				D41A63D41961302900FBDBC6 /* TimeSheetViewController.xib */,
+				D49FA2ED1961643E0037BA7A /* Tlaborcell.xib */,
+				D49FA2EF196164560037BA7A /* TEqupcell.xib */,
+				D49FA2F11961647A0037BA7A /* TOtherscell.xib */,
 				649EE4BF19614866008DEF02 /* LbrMgmtViewController.h */,
 				649EE4C019614866008DEF02 /* LbrMgmtViewController.m */,
 				649EE4C119614866008DEF02 /* LbrMgmtViewController.xib */,
@@ -2046,6 +2055,7 @@
 				64A11EE718683792008D20CC /* workPhasesViewController.xib in Resources */,
 				D4FFBD201855B7830007851D /* carat.png in Resources */,
 				D40202A11907BCE2003DED36 /* MatrlGnsecondcell.xib in Resources */,
+				D49FA2F0196164560037BA7A /* TEqupcell.xib in Resources */,
 				D4F3435B191CA3970023D715 /* EstimationViewController.xib in Resources */,
 				649EDECA18BB053E00B78D97 /* otherbiddrecordaddview.xib in Resources */,
 				D4A338EC18F3EEEF00E53FAC /* billingcell.xib in Resources */,
@@ -2124,6 +2134,7 @@
 				D41499BA194576D5001E9146 /* EqothersViewController.xib in Resources */,
 				D40F8F2B19247D340059C8C9 /* PhasecomponentsViewController.xib in Resources */,
 				649ED79F187FB8260086CDDE /* CompanyViewController.xib in Resources */,
+				D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */,
 				D47A9B2C19407D22001CC416 /* manpowericon.png in Resources */,
 				D47A9B1319407A8A001CC416 /* basic-requirment.png in Resources */,
 				D4F19DA018D01CDB007617F0 /* NewCustmrViewController.xib in Resources */,
@@ -2172,6 +2183,7 @@
 				D4A10B6D1935FCCA001856F8 /* Sumcell.xib in Resources */,
 				6426F5F318C0621B002471AC /* jobs.png in Resources */,
 				D40407DD192B1CFB00864BA4 /* save 3.png in Resources */,
+				D49FA2EE1961643E0037BA7A /* Tlaborcell.xib in Resources */,
 				D4A338E918F3EEEF00E53FAC /* Recordcustomcell.xib in Resources */,
 				D41B14EB195C2D3F00DEED6E /* images.png in Resources */,
 				649EDEC818BB051900B78D97 /* meetingnoterecordaddview.xib in Resources */,
