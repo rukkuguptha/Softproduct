@@ -12,6 +12,7 @@
 {
     NSInteger btnindex;
     BOOL recordResults;
+    NSString *f;
 }
 
 
@@ -24,6 +25,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *formanbtn;
 - (IBAction)Selectjobsite:(id)sender;
 - (IBAction)Selectforman:(id)sender;
+- (IBAction)closethepage:(id)sender;
 
 
 /* xmlparser*/
@@ -31,5 +33,10 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSMutableArray *jobarray;
+@property(strong,nonatomic)NSMutableArray *formanarray;
 @property(strong,nonatomic)NSString  *jobnumber;
+@property(strong,nonatomic)NSString  *jobid;
+@property(strong,nonatomic)NSMutableDictionary  *jobiddict;
+@property(strong,nonatomic)NSMutableDictionary  *formandict;
+@property(strong,nonatomic)NSString  *forman;
 @end

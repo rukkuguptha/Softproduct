@@ -54,6 +54,7 @@
 {
     btnindex=2;
     [self createpopover];
+    [self ForemanSelect];
 }
 -(void)createpopover{
     UIViewController* popoverContent = [[UIViewController alloc]
@@ -134,7 +135,7 @@
                 return [_jobarray count];
                 break;
             case 2:
-                return 5;
+                return [_formanarray count];
                 break;
             
                 default:
@@ -172,7 +173,7 @@
                 break;
             case 2:
                 
-               // cell.textLabel.text=[_descarray objectAtIndex:indexPath.row];
+                cell.textLabel.text=[_formanarray objectAtIndex:indexPath.row];
                 break;
                 
                 
@@ -207,7 +208,10 @@
                 break;
             case 2:
                 
-               // [_descbtn setTitle:[_descarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                [_formanbtn setTitle:[_formanarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                f=[_formandict objectForKey:[_formanarray objectAtIndex:indexPath.row]];
+                [self ForemanEmployeenameSelect];
+
                 
                 break;
                 
@@ -293,6 +297,114 @@
     
     
 }
+-(void)ForemanSelect
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    NSArray*array=[_jobbtn.titleLabel.text componentsSeparatedByString:@"-"];
+    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
+//    NSInteger job=[jobno integerValue];
+//    jobno=[NSString stringWithFormat:@"%d",job];
+    NSString *job=[NSString stringWithFormat:@"%@",[_jobiddict objectForKey:jobno]];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ForemanSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                    "<job_id>%@</job_id>\n"
+                   
+                   "</ForemanSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",job];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ForemanSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)ForemanEmployeenameSelect
+{
+    recordResults=FALSE;
+    NSString *soapMessage;
+  
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ForemanEmployeenameSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<foremanid>%d</foremanid>\n"
+                   
+                   "</ForemanEmployeenameSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[f integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ForemanEmployeenameSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -335,12 +447,22 @@
             if([elementName isEqualToString:@"JobsSelectResponse"])
     {
         _jobarray=[[NSMutableArray alloc]init];
+        _jobiddict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"JobNumber"])
     {
         if(!_soapResults)
@@ -357,6 +479,38 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"ForemanSelectResponse"])
+    {
+        _formanarray=[[NSMutableArray alloc]init];
+        _formandict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"name"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+
+
+
     
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -375,10 +529,17 @@
 -(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     
+    if([elementName isEqualToString:@"id"])
+    {
+        recordResults = FALSE;
+        _jobid=_soapResults;
+        _soapResults = nil;
+    }
     if([elementName isEqualToString:@"JobNumber"])
     {
         recordResults = FALSE;
         _jobnumber=_soapResults;
+        [_jobiddict setObject:_jobid forKey:_soapResults];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"JobDescDetail"])
@@ -387,8 +548,24 @@
         [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",_jobnumber,_soapResults]];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"name"])
+    {
+        recordResults = FALSE;
+        [_formanarray addObject:_soapResults];
+        _forman=_soapResults;
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"cemp_id"])
+    {
+        recordResults = FALSE;
+        [_formandict setObject:_soapResults forKey:[_forman stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]];
+        _soapResults = nil;
+    }
+
     
 }
+
 
 
 
