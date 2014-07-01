@@ -34,6 +34,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    barbtntype=1;
     _view1.hidden=NO;
     _view2.hidden=YES;
     _timesheettable.rowHeight=60;
@@ -46,20 +47,15 @@
     
     
     
-//    .tintColor=[UIColor whiteColor];
-//    _pratebtnlbl.tintColor=[UIColor blackColor];
-//    _documntbtnlbl.tintColor=[UIColor blackColor];
-//    _accesbltybtnlbl.tintColor=[UIColor blackColor];
-//    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
-//    _jobsitebtnlbl.tintColor=[UIColor blackColor];
-//    _saftybtnlbl.tintColor=[UIColor blackColor];
-//    _equpmntslbl.tintColor=[UIColor blackColor];
-//    _workbtnlbl.tintColor=[UIColor blackColor];
-//    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
-//    _biddersbtnlbl.tintColor=[UIColor blackColor];
-//    _weatherbtnlbl.tintColor=[UIColor blackColor];
-//    _notesbtnlbl.tintColor=[UIColor blackColor];
-//
+    _labrbarbtn.tintColor=[UIColor whiteColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
+   
 
 }
 - (void)didReceiveMemoryWarning
@@ -103,6 +99,12 @@
                     [[NSBundle mainBundle]loadNibNamed:@"TEqupcell" owner:self options:nil];
                     cell=_labrequpcell;
                     break;
+                case 4:
+                    [[NSBundle mainBundle]loadNibNamed:@"TOtherscell" owner:self options:nil];
+                    cell=_labrothrcell;
+                    break;
+                    
+
 
                     
                 default:
@@ -169,6 +171,16 @@
     _materialstableview.hidden=YES;
     _otherstableview.hidden=YES;
     
+    _labrbarbtn.tintColor=[UIColor whiteColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
+
+    
 }
 
 - (IBAction)equpbtn:(id)sender {
@@ -180,45 +192,87 @@
     _equipmnttableview.hidden=NO;
     _materialstableview.hidden=YES;
     _otherstableview.hidden=YES;
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor whiteColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
 
 }
 
 - (IBAction)fleetbtn:(id)sender {
+       barbtntype=2;
+     [_timesheettable reloadData];
     _view1.hidden=NO;
     _view2.hidden=YES;
     _labortableview.hidden=YES;
     _equipmnttableview.hidden=NO;
     _materialstableview.hidden=YES;
     _otherstableview.hidden=YES;
+    
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor whiteColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
 
 
 }
 
 - (IBAction)tpfbtn:(id)sender {
+       barbtntype=2;
+     [_timesheettable reloadData];
     _view1.hidden=NO;
     _view2.hidden=YES;
     _labortableview.hidden=YES;
     _equipmnttableview.hidden=NO;
     _materialstableview.hidden=YES;
     _otherstableview.hidden=YES;
+    
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor whiteColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
+
 
 
 }
 
 - (IBAction)tpebtn:(id)sender {
+       barbtntype=2;
+     [_timesheettable reloadData];
     _view1.hidden=NO;
     _view2.hidden=YES;
     _labortableview.hidden=YES;
     _equipmnttableview.hidden=NO;
     _materialstableview.hidden=YES;
     _otherstableview.hidden=YES;
+    
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor whiteColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
 
 
 }
 
 - (IBAction)materialsbtn:(id)sender {
-    barbtntype=3;
-
+    barbtntype=2;
+ [_timesheettable reloadData];
     _view2.hidden=NO;
     _view1.hidden=YES;
     _labortableview.hidden=YES;
@@ -226,10 +280,20 @@
     _materialstableview.hidden=NO;
     _otherstableview.hidden=YES;
 
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor whiteColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
 
 }
 
 - (IBAction)consumblesbtn:(id)sender {
+     barbtntype=2;
+     [_timesheettable reloadData];
     _view2.hidden=NO;
     _view1.hidden=YES;
     _labortableview.hidden=YES;
@@ -237,11 +301,21 @@
     _materialstableview.hidden=NO;
     _otherstableview.hidden=YES;
     
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor whiteColor];
+    _othrsbarbtn.tintColor=[UIColor blackColor];
+
 
 }
 
 - (IBAction)othrsbtn:(id)sender {
     barbtntype=4;
+    [_timesheettable reloadData];
 
     _view2.hidden=NO;
     _view1.hidden=YES;
@@ -250,6 +324,15 @@
     _materialstableview.hidden=YES;
     _otherstableview.hidden=NO;
     
+    _labrbarbtn.tintColor=[UIColor blackColor];
+    _equpbarbtn.tintColor=[UIColor blackColor];
+    _fleetbarbtn.tintColor=[UIColor blackColor];
+    _tpebarbtn.tintColor=[UIColor blackColor];
+    _thirpfleetbarbtn.tintColor=[UIColor blackColor];
+    _materialbarbtn.tintColor=[UIColor blackColor];
+    _consumblebarbtn.tintColor=[UIColor blackColor];
+    _othrsbarbtn.tintColor=[UIColor whiteColor];
+
 
 }
 
@@ -266,7 +349,7 @@
 }
 
 - (IBAction)clsebtn:(id)sender {
-    _view2.hidden=NO;
-    _view1.hidden=YES;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 @end
