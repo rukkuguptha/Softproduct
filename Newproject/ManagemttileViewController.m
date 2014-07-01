@@ -94,7 +94,7 @@
     if (!_lbrmgmtvctrl) {
         _lbrmgmtvctrl=[[LbrMgmtViewController alloc]initWithNibName:@"LbrMgmtViewController" bundle:nil];
     }
-    //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _lbrmgmtvctrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _lbrmgmtvctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_lbrmgmtvctrl
                        animated:YES completion:NULL];

@@ -7,26 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SubdetailViewController.h"
+
 
 @interface DisplayBidTableViewController : UIViewController
 {
-    UIButton *carbutton;
-    UIButton *button;
-    NSInteger btnindex;
-    NSInteger selectedcell;
+    NSInteger tooltype;
 }
-
-@property(strong,nonatomic)NSString *bidid;
-@property(strong,nonatomic)SubdetailViewController *subvctrl;
-
-@property (strong, nonatomic) IBOutlet UITableView *biddistable;
-@property (strong, nonatomic) IBOutlet UIView *titleview;
-@property (strong, nonatomic) IBOutlet UITableViewCell *tcell;
-@property(readwrite)NSInteger openviewindex;
-@property(readwrite)NSInteger previousopenviewindex;
 
 /*IBActions*/
 - (IBAction)colsethispage:(id)sender;
-
+- (IBAction)manpoweraction:(id)sender;
+- (IBAction)equipmentaction:(id)sender;
+- (IBAction)materialaction:(id)sender;
+- (IBAction)otheraction:(id)sender;
+- (IBAction)summaryaction:(id)sender;
 @end

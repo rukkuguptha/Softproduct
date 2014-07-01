@@ -7,14 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LbmgModel.h"
 
 @interface LbrMgmtViewController : UIViewController
 {
     NSInteger btnindex;
     BOOL recordResults;
     NSString *f;
+    NSString *fname;
+    NSInteger check;
+    UIButton *button;
+    NSInteger webtype;
+    NSInteger btnclick;
+    
 }
-
+@property(strong,nonatomic)LbmgModel *lbmdl;
 
 @property (strong, nonatomic) IBOutlet UITableView *mgmttable;
 @property (strong, nonatomic) IBOutlet UIView *titleview;
@@ -39,4 +46,12 @@
 @property(strong,nonatomic)NSMutableDictionary  *jobiddict;
 @property(strong,nonatomic)NSMutableDictionary  *formandict;
 @property(strong,nonatomic)NSString  *forman;
+@property(strong,nonatomic)NSMutableArray *lbrmgmtarray;
+
+/*uilabel in cell*/
+@property(strong,nonatomic)IBOutlet UILabel *emplabel;
+@property(strong,nonatomic)IBOutlet UILabel *formanlabel;
+@property(strong,nonatomic)IBOutlet UIButton *checkbtn;
+
+@property(strong,nonatomic)NSString *checkstring;
 @end

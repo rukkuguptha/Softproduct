@@ -222,13 +222,13 @@ self.openviewindex=NSNotFound;
     
 }
 -(void)tobidtable
-{   Bidmodel*bmdl=(Bidmodel *)[_bidlistarray objectAtIndex:btnindex];
+{
+    Bidmodel*bmdl=(Bidmodel *)[_bidlistarray objectAtIndex:btnindex];
     
     if (!self.Displayctrlr) {
         self.Displayctrlr=[[DisplayBidTableViewController alloc]initWithNibName:@"DisplayBidTableViewController" bundle:nil];
     }
-    _Displayctrlr.bidid=bmdl.bidid;
-   
+    
     [self presentViewController:_Displayctrlr animated:YES completion:nil];
     self.openviewindex=NSNotFound;
 }
