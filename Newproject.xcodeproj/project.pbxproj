@@ -162,6 +162,10 @@
 		D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BF18BB1E9B00C5DB30 /* left_arrow@2x.png */; };
 		D408B81518CF19AC0001AAD5 /* TilecustmrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D408B81318CF19AC0001AAD5 /* TilecustmrViewController.m */; };
 		D408B81618CF19AC0001AAD5 /* TilecustmrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D408B81418CF19AC0001AAD5 /* TilecustmrViewController.xib */; };
+		D4097D0D1963D00B00D8E910 /* PSitereqmntViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097D0B1963D00B00D8E910 /* PSitereqmntViewController.m */; };
+		D4097D0E1963D00B00D8E910 /* PSitereqmntViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4097D0C1963D00B00D8E910 /* PSitereqmntViewController.xib */; };
+		D4097D101963D26400D8E910 /* Psitereqcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4097D0F1963D26400D8E910 /* Psitereqcell.xib */; };
+		D4097D121963ED0C00D8E910 /* Pjobcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4097D111963ED0C00D8E910 /* Pjobcell.xib */; };
 		D40A663B187131CA00AB7496 /* cb_mono_on.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A6639187131CA00AB7496 /* cb_mono_on.png */; };
 		D40A663C187131CA00AB7496 /* cb_mono_off.png in Resources */ = {isa = PBXBuildFile; fileRef = D40A663A187131CA00AB7496 /* cb_mono_off.png */; };
 		D40A99C518C5A334005384F9 /* Editplanview.xib in Resources */ = {isa = PBXBuildFile; fileRef = D40A99C418C5A334005384F9 /* Editplanview.xib */; };
@@ -676,6 +680,11 @@
 		D408B81218CF19AC0001AAD5 /* TilecustmrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TilecustmrViewController.h; sourceTree = "<group>"; };
 		D408B81318CF19AC0001AAD5 /* TilecustmrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TilecustmrViewController.m; sourceTree = "<group>"; };
 		D408B81418CF19AC0001AAD5 /* TilecustmrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TilecustmrViewController.xib; sourceTree = "<group>"; };
+		D4097D0A1963D00B00D8E910 /* PSitereqmntViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSitereqmntViewController.h; sourceTree = "<group>"; };
+		D4097D0B1963D00B00D8E910 /* PSitereqmntViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSitereqmntViewController.m; sourceTree = "<group>"; };
+		D4097D0C1963D00B00D8E910 /* PSitereqmntViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PSitereqmntViewController.xib; sourceTree = "<group>"; };
+		D4097D0F1963D26400D8E910 /* Psitereqcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Psitereqcell.xib; sourceTree = "<group>"; };
+		D4097D111963ED0C00D8E910 /* Pjobcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Pjobcell.xib; sourceTree = "<group>"; };
 		D40A6639187131CA00AB7496 /* cb_mono_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_on.png; sourceTree = "<group>"; };
 		D40A663A187131CA00AB7496 /* cb_mono_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cb_mono_off.png; sourceTree = "<group>"; };
 		D40A99C418C5A334005384F9 /* Editplanview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Editplanview.xib; sourceTree = "<group>"; };
@@ -1381,6 +1390,11 @@
 				649EE4C019614866008DEF02 /* LbrMgmtViewController.m */,
 				649EE4C119614866008DEF02 /* LbrMgmtViewController.xib */,
 				649EE4C4196151A2008DEF02 /* Lbmgcell.xib */,
+				D4097D0A1963D00B00D8E910 /* PSitereqmntViewController.h */,
+				D4097D0B1963D00B00D8E910 /* PSitereqmntViewController.m */,
+				D4097D0C1963D00B00D8E910 /* PSitereqmntViewController.xib */,
+				D4097D0F1963D26400D8E910 /* Psitereqcell.xib */,
+				D4097D111963ED0C00D8E910 /* Pjobcell.xib */,
 			);
 			name = "Project Management";
 			sourceTree = "<group>";
@@ -2070,6 +2084,7 @@
 				649E1F7C18615A240010CBD8 /* customequipcell.xib in Resources */,
 				D40DD25D1873D26100E7BC2C /* FleetsViewController.xib in Resources */,
 				6437578518BC554B003691E6 /* Subtypecell.xib in Resources */,
+				D4097D121963ED0C00D8E910 /* Pjobcell.xib in Resources */,
 				64A14D7D187546D20028B43A /* jobdetailsViewController.xib in Resources */,
 				D453DA271873F1AF007EE3DC /* ConsumbleViewController.xib in Resources */,
 				D4F19DEE18D03AD1007617F0 /* FollowCommentcell.xib in Resources */,
@@ -2228,6 +2243,7 @@
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				D413816E194710830056574C /* site.png in Resources */,
 				D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */,
+				D4097D101963D26400D8E910 /* Psitereqcell.xib in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
 				D47A9B0C19402B89001CC416 /* EmpJobViewController.xib in Resources */,
@@ -2282,6 +2298,7 @@
 				D4A338E418F3EEEF00E53FAC /* MarkupViewController.xib in Resources */,
 				D4014FF618E3E34000DB825A /* Snumcell.xib in Resources */,
 				D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */,
+				D4097D0E1963D00B00D8E910 /* PSitereqmntViewController.xib in Resources */,
 				D40427E5192365210049A709 /* Phestcell.xib in Resources */,
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				D4F3435D191CA90B0023D715 /* Emtncell.xib in Resources */,
@@ -2386,6 +2403,7 @@
 				D49F875B18EEA36B00413CAD /* Validation.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,
 				D40DD2611873D29B00E7BC2C /* SmalltoolsViewController.m in Sources */,
+				D4097D0D1963D00B00D8E910 /* PSitereqmntViewController.m in Sources */,
 				D49F876D18EEA36B00413CAD /* subcontract.m in Sources */,
 				64A3B82318DFEF0B0015887F /* CommentsViewController.m in Sources */,
 				D42D8C1C18D2D91C009D8085 /* venderViewController.m in Sources */,

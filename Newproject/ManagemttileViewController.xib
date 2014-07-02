@@ -10,6 +10,7 @@
                 <outlet property="issueview" destination="Ow7-cb-0rz" id="Hz5-Lg-x8p"/>
                 <outlet property="labrview" destination="YCM-tv-dGt" id="m3Y-Dt-Mze"/>
                 <outlet property="resurceview" destination="HyI-DO-pAT" id="LzL-yx-LML"/>
+                <outlet property="siteview" destination="MoG-Tf-em0" id="Hef-qb-BBV"/>
                 <outlet property="timesheetview" destination="ibC-u6-opl" id="UFG-9t-tkb"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
