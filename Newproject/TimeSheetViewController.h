@@ -97,6 +97,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *laborcell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *labrequpcell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *labrothrcell;
 
 
 @end
