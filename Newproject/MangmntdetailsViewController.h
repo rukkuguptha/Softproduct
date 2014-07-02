@@ -73,6 +73,10 @@
 @property (strong, nonatomic) IBOutlet UITextView *clausetxtview;
 @property (strong, nonatomic) IBOutlet UITextField *nettextfld;
 
+/*Indeminity*/
+@property (strong, nonatomic) IBOutlet UITextView *indeminityclausetxtview;
+
+
 /*volume*/
 @property (strong, nonatomic)NSMutableArray *volumearray;
 @property (strong, nonatomic)Vlumedismdl *vlumemdl;

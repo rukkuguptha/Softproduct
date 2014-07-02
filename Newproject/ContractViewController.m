@@ -707,6 +707,7 @@
         recordResults = TRUE;
         
     }
+ 
     if ([elementName isEqualToString:@"ThirdPartyequipmentMarkup"])
     {
         
@@ -770,33 +771,7 @@
         
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-}
+   }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
     
@@ -861,7 +836,7 @@
         _sub.Payementclause=_soapresults;
         _soapresults=nil;
     }
-
+    
     if ([elementName isEqualToString:@"NetDays"]) {
         
         recordResults=FALSE;
