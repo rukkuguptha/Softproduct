@@ -14,6 +14,10 @@
 {
     NSInteger tooltype;
     BOOL recordResults;
+     NSInteger sum;
+     NSInteger totqty;
+    NSInteger TotST;
+    NSInteger TotOT;
 }
 
 /*IBActions*/
@@ -25,12 +29,15 @@
 - (IBAction)summaryaction:(id)sender;
 
 @property(strong,nonatomic)NSString *bidid;
+@property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)Reviebidmdl *reviewmdl;
 /*xmlParser*/
 @property(strong,nonatomic)NSMutableData *webData;
 @property(strong,nonatomic)NSMutableString *soapresults;
 @property(strong,nonatomic)NSXMLParser *xmlparser;
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 
+@property (strong, nonatomic) IBOutlet UILabel *sumdisplaylabel;
 @property(strong,nonatomic)IBOutlet UITableView *manpowertable;
 @property(strong,nonatomic)IBOutlet UIView *manpowertitle;
 @property(strong,nonatomic)IBOutlet UITableViewCell *manpowercell;
@@ -40,6 +47,11 @@
 @property (strong, nonatomic) IBOutlet UITableView *SummaryTable;
 @property (strong, nonatomic) IBOutlet UIView *summarytitle;
 @property(strong,nonatomic)IBOutlet UITableViewCell *sumcell;
+@property (strong, nonatomic) IBOutlet UILabel *qtylabel;
+@property (strong, nonatomic) IBOutlet UILabel *stlabel;
+@property (strong, nonatomic) IBOutlet UILabel *otlabel;
+@property (strong, nonatomic) IBOutlet UILabel *ST;
+@property (strong, nonatomic) IBOutlet UILabel *OT;
 
 
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *manpwrbtn;
@@ -77,6 +89,10 @@
 @property(strong,nonatomic)NSMutableArray *Equipmentarray;
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *Otherarray;
+@property(strong,nonatomic)NSMutableArray *totalarray;
+@property(strong,nonatomic)NSMutableArray *quantityarray;
+@property(strong,nonatomic)NSMutableArray *starray;
+@property(strong,nonatomic)NSMutableArray *otarray;
 
 
 @end
