@@ -27,11 +27,13 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+      self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _addview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _issuetable.rowHeight=60;
     _issuetable.layer.borderWidth=3.0;
     _issuetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
-    _addview.layer.borderWidth=3.0;
-    _addview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+//    _addview.layer.borderWidth=3.0;
+//    _addview.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _titleview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f];
     _statusarray=[[NSMutableArray alloc]initWithObjects:@"Open",@"In Process",@"Closed" ,nil];
     _Typearray=[[NSMutableArray alloc]initWithObjects:@"Man Power",@"Equipment",@"Materials",@"Fleet",@"Third Party",@"Consumables",@"Small Tools",@"Other Company Assets" ,nil];
