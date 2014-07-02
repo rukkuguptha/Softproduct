@@ -54,6 +54,13 @@
     doubleTap3.numberOfTapsRequired=1;
     doubleTap3.delegate=(id)self;
     [self.labrview addGestureRecognizer:doubleTap3];
+    
+    UITapGestureRecognizer *doubleTap4 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Sitereqpage)];
+    doubleTap4.numberOfTapsRequired=1;
+    doubleTap4.delegate=(id)self;
+    [self.siteview addGestureRecognizer:doubleTap4];
 
 
 
@@ -102,7 +109,15 @@
     
 }
 
-
+-(void)Sitereqpage{
+    if (!_SitereqVCtrl) {
+        _SitereqVCtrl=[[PSitereqmntViewController alloc]initWithNibName:@"PSitereqmntViewController" bundle:nil];
+    }
+    //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _timesheetVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_SitereqVCtrl
+                       animated:YES completion:NULL];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

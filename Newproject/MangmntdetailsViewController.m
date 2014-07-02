@@ -44,6 +44,10 @@
     [[self.clausetxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.clausetxtview layer] setBorderWidth:3];
     [[self.clausetxtview layer] setCornerRadius:10];
+    [[self.indeminityclausetxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.indeminityclausetxtview layer] setBorderWidth:3];
+    [[self.indeminityclausetxtview layer] setCornerRadius:10];
+
      self.volumetitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     [[self.vlumeclautxtview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.vlumeclautxtview layer] setBorderWidth:3];
@@ -109,7 +113,7 @@
     _weekhrstxtfld.text=_subcntrct.WeeklyHours;
     _subcntrctbtn.text=_subcntrct.SubContractorMarkup;
     _equpclause.text=_subcntrct.EquipmentClause;
-   
+    _indeminityclausetxtview.text=_subcntrct.IndemnityClause;
     _othrtermsclause.text=_subcntrct.OtherClause;
     _overtimetextfield.text=_subcntrct.OvertimeMarkupPer;
    // _premiumtimetxtfld.text=_subcntrct.
@@ -169,6 +173,20 @@
         [_consumblebtn setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
         
     }
+    _paymentview.hidden=NO;
+    _volumeview.hidden=YES;
+    _labrview.hidden=YES;
+    _equpview.hidden=YES;
+    _othrtrmsview.hidden=YES;
+    _markupview.hidden=YES;
+    _baseview.hidden=YES;
+    _fuelview.hidden=YES;
+    _nonfuelview.hidden=YES;
+    _smrview.hidden=YES;
+    _othrratesview.hidden=YES;
+    _deliveryview.hidden=YES;
+    _srsview.hidden=YES;
+    _docuview.hidden=YES;
 
 
     

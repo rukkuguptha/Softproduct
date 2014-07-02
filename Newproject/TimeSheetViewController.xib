@@ -7,13 +7,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeSheetViewController">
             <connections>
+                <outlet property="allemployeeslbl" destination="yeW-Wq-Pot" id="X9H-jp-vcP"/>
                 <outlet property="allemplyescheckbtnlbl" destination="x8N-Ar-EC9" id="vs1-HQ-SKa"/>
                 <outlet property="consumblebarbtn" destination="yVj-no-GnY" id="G7N-36-Lns"/>
+                <outlet property="datebtnlbl" destination="2ik-DB-faf" id="pk8-lB-AJ9"/>
                 <outlet property="equipmnttableview" destination="G56-ea-Bq9" id="h1K-Bo-652"/>
                 <outlet property="equpbarbtn" destination="P8T-d4-Ie5" id="KpV-EY-pGG"/>
                 <outlet property="fleetbarbtn" destination="HfJ-Vr-XV9" id="s2r-PZ-Yha"/>
                 <outlet property="foremanbtnlbl" destination="kii-n6-CfQ" id="Hqk-SA-5ft"/>
                 <outlet property="foremancheckbtnlbl" destination="t57-sr-zNK" id="GDO-Hr-o59"/>
+                <outlet property="foremanlbl" destination="Y5D-5d-4gi" id="uPn-XW-P5j"/>
+                <outlet property="jobnumberbtnlbl" destination="5oy-sn-NJM" id="F82-XU-aQL"/>
                 <outlet property="labortableview" destination="KgX-Ub-xMH" id="dQv-88-9sJ"/>
                 <outlet property="labrbarbtn" destination="lry-2E-Wku" id="j4k-EU-1vQ"/>
                 <outlet property="materialbarbtn" destination="sLC-NB-507" id="253-pz-p4z"/>
@@ -22,8 +26,10 @@
                 <outlet property="othrsbarbtn" destination="Zqh-eh-xOg" id="jfz-Gm-8yl"/>
                 <outlet property="phase1btnlbl" destination="uTW-Bo-HWa" id="AAe-wN-hBn"/>
                 <outlet property="phase2btnlbl" destination="0Zp-7C-42O" id="Ouk-a5-9fi"/>
+                <outlet property="scroll" destination="zNu-gy-irS" id="TOH-HZ-TgC"/>
                 <outlet property="sequence1btnlbl" destination="vKk-ZU-xe0" id="nGd-5w-4NX"/>
                 <outlet property="sequence2btnlbl" destination="UcH-X2-5IE" id="D6F-mY-vV8"/>
+                <outlet property="servicebtnlbl" destination="wmw-r8-Nl2" id="2g7-aZ-iBS"/>
                 <outlet property="tagnumber1btnlbl" destination="vpw-ve-0Da" id="Vxq-Bf-t7K"/>
                 <outlet property="tagnumber2btnlbl" destination="YQP-aK-l4g" id="nKU-Xm-Hzq"/>
                 <outlet property="thirpfleetbarbtn" destination="UUm-T8-45K" id="3Xm-TR-9SJ"/>
@@ -48,19 +54,22 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Job Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IvF-Id-HTo">
-                            <rect key="frame" x="5" y="23" width="77" height="21"/>
+                            <rect key="frame" x="11" y="23" width="77" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5oy-sn-NJM">
-                            <rect key="frame" x="5" y="40" width="183" height="30"/>
+                            <rect key="frame" x="11" y="40" width="183" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                             <state key="normal" title="Select" backgroundImage="textbox.png">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="jobnumbrbtn:" destination="-1" eventType="touchUpInside" id="fec-6E-5XH"/>
+                            </connections>
                         </button>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jc6-LB-sZr">
                             <rect key="frame" x="284" y="23" width="77" height="21"/>
@@ -76,6 +85,9 @@
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="datebtn:" destination="-1" eventType="touchUpInside" id="zhv-Nv-uPQ"/>
+                            </connections>
                         </button>
                         <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h25-T3-P3d">
                             <rect key="frame" x="0.0" y="107" width="1026" height="44"/>
@@ -159,7 +171,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Zp-7C-42O">
-                                    <rect key="frame" x="7" y="14" width="170" height="28"/>
+                                    <rect key="frame" x="63" y="33" width="170" height="28"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Phase" backgroundImage="textbox.png">
@@ -171,7 +183,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UcH-X2-5IE">
-                                    <rect key="frame" x="201" y="14" width="173" height="27"/>
+                                    <rect key="frame" x="257" y="33" width="173" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Sequence" backgroundImage="textbox.png">
@@ -183,7 +195,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQP-aK-l4g">
-                                    <rect key="frame" x="397" y="14" width="157" height="27"/>
+                                    <rect key="frame" x="453" y="33" width="157" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="Tag Number" backgroundImage="textbox.png">
@@ -195,7 +207,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3U-hv-CCu">
-                                    <rect key="frame" x="305" y="69" width="142" height="31"/>
+                                    <rect key="frame" x="403" y="75" width="142" height="31"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <state key="normal" title="Apply">
                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -206,7 +218,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktf-tK-M2d">
-                                    <rect key="frame" x="573" y="14" width="104" height="27"/>
+                                    <rect key="frame" x="629" y="33" width="104" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="WO" backgroundImage="textbox.png">
@@ -218,7 +230,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Mh-t4-UYe">
-                                    <rect key="frame" x="716" y="15" width="104" height="27"/>
+                                    <rect key="frame" x="772" y="34" width="104" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                     <state key="normal" title="PO" backgroundImage="textbox.png">
@@ -269,7 +281,7 @@
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kii-n6-CfQ">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kii-n6-CfQ">
                                     <rect key="frame" x="358" y="15" width="183" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
@@ -676,6 +688,25 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Services" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YPS-Xe-mon">
+                            <rect key="frame" x="545" y="23" width="65" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmw-r8-Nl2">
+                            <rect key="frame" x="542" y="39" width="183" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                            <state key="normal" title="Select" backgroundImage="textbox.png">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="servicebtn:" destination="-1" eventType="touchUpInside" id="Vkt-a2-T6x"/>
+                            </connections>
+                        </button>
                     </subviews>
                 </scrollView>
                 <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-5c-rb2">

@@ -7,15 +7,45 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CKCalendarView.h"
 
 @interface TimeSheetViewController : UIViewController{
     
     NSInteger barbtntype;
+    UIDatePicker *timePick;
+    NSInteger btnclck;
+      NSInteger btnclck1;
+    BOOL  recordResults;
+    NSString*jobnumber;
 }
 
+/*calendar*/
+@property(nonatomic, weak) CKCalendarView *calendar;
+@property(nonatomic, strong) NSDateFormatter *dateFormatter;
+
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+
+/*popover*/
+@property(strong,nonatomic)UIPopoverController *popOverController;
+@property(strong,nonatomic)UITableView *popOverTableView;
+
+
+@property (strong, nonatomic)NSMutableArray*jobarray;
+
+
+@property (strong, nonatomic) IBOutlet UILabel *allemployeeslbl;
+@property (strong, nonatomic) IBOutlet UILabel *foremanlbl;
+
+- (IBAction)servicebtn:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UITableView *timesheettable;
 @property (strong, nonatomic) IBOutlet UIView *labortableview;
+@property (strong, nonatomic) IBOutlet UIButton *jobnumberbtn;
+@property (strong, nonatomic) IBOutlet UIButton *jobnumberbtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *datebtnlbl;
 
 
 @property (strong, nonatomic) IBOutlet UIView *view1;
@@ -89,10 +119,16 @@
 
 - (IBAction)applybtn:(id)sender;
 
+- (IBAction)jobnumbrbtn:(id)sender;
 
 - (IBAction)clsebtn:(id)sender;
+- (IBAction)datebtn:(id)sender;
+
+@property (strong, nonatomic) IBOutlet UIButton *servicebtnlbl;
 
 
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 /*cell outlets*/
 
 @property (strong, nonatomic) IBOutlet UITableViewCell *laborcell;
