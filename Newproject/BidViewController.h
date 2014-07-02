@@ -20,8 +20,9 @@
 }
 
 @property(strong,nonatomic)Bidmodel *bidmdl;
+@property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)DisplayBidTableViewController *Displayctrlr;
-
+@property(strong,nonatomic)IBOutlet UISearchBar *searchbar;
 /*IBActions*/
 -(IBAction)closebidpage:(id)sender;
 

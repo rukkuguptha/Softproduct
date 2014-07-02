@@ -49,6 +49,7 @@
     _materialbtn.tintColor=[UIColor blackColor];
     _otherbtn.tintColor=[UIColor blackColor];
     _summarybtn.tintColor=[UIColor blackColor];
+   
    tooltype=1;
     // Do any additional setup after loading the view from its nib.
 }
@@ -61,8 +62,32 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    self.manpowertable.tableHeaderView=_searchbar;
+    //self.Othertable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchctrlr.searchResultsDelegate=(id)self;
+    searchctrlr.searchResultsDataSource=(id)self;
+    searchctrlr.delegate=(id)self;
+
      tooltype=1;
+    sum=0;
+    totqty=0;
+    TotOT=0;
+    TotST=0;
+    _ST.hidden=NO;
+    _OT.hidden=NO;
+    _stlabel.hidden=NO;
+    _otlabel.hidden=NO;
+    _starray=[[NSMutableArray alloc]init];
+    
+    _otarray=[[NSMutableArray alloc]init];
+    _totalarray=[[NSMutableArray alloc]init];
+    _quantityarray=[[NSMutableArray alloc]init];
     [self BidManPowerReviewSelect];
+    
     _manpowertable.hidden=NO;
     _manpowertitle.hidden=NO;
     _Othertable.hidden=YES;
@@ -84,6 +109,31 @@
 - (IBAction)manpoweraction:(id)sender
 {
     tooltype=1;
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    self.manpowertable.tableHeaderView=_searchbar;
+    //self.Othertable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchctrlr.searchResultsDelegate=(id)self;
+    searchctrlr.searchResultsDataSource=(id)self;
+    searchctrlr.delegate=(id)self;
+
+    _totalarray=[[NSMutableArray alloc]init];
+    _quantityarray=[[NSMutableArray alloc]init];
+    _starray=[[NSMutableArray alloc]init];
+
+    _otarray=[[NSMutableArray alloc]init];
+    sum=0;
+    totqty=0;
+    TotOT=0;
+    TotST=0;
+    _ST.hidden=NO;
+    _OT.hidden=NO;
+    _stlabel.hidden=NO;
+    _otlabel.hidden=NO;
+    [self BidManPowerReviewSelect];
+
     _manpowertable.hidden=NO;
     _manpowertitle.hidden=NO;
     _Othertable.hidden=YES;
@@ -100,6 +150,24 @@
 - (IBAction)equipmentaction:(id)sender
 {
     tooltype=2;
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    //self.manpowertable.tableHeaderView=_searchbar;
+    self.Othertable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchctrlr.searchResultsDelegate=(id)self;
+    searchctrlr.searchResultsDataSource=(id)self;
+    searchctrlr.delegate=(id)self;
+
+    _ST.hidden=YES;
+    _OT.hidden=YES;
+    _stlabel.hidden=YES;
+    _otlabel.hidden=YES;
+    sum=0;
+    totqty=0;
+    _totalarray=[[NSMutableArray alloc]init];
+_quantityarray=[[NSMutableArray alloc]init];
     [self BidEquipmentSelect];
     _manpowertable.hidden=YES;
      _manpowertitle.hidden=YES;
@@ -115,8 +183,25 @@
     
 }
 - (IBAction)materialaction:(id)sender
-{
+{ _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    //self.manpowertable.tableHeaderView=_searchbar;
+    self.Othertable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchctrlr.searchResultsDelegate=(id)self;
+    searchctrlr.searchResultsDataSource=(id)self;
+    searchctrlr.delegate=(id)self;
+
     tooltype=3;
+    sum=0;
+    totqty=0;
+    _ST.hidden=YES;
+    _OT.hidden=YES;
+    _stlabel.hidden=YES;
+    _otlabel.hidden=YES;
+    _totalarray=[[NSMutableArray alloc]init];
+_quantityarray=[[NSMutableArray alloc]init];
     [self BidMaterialReviewselect];
     _manpowertable.hidden=YES;
     _manpowertitle.hidden=YES;
@@ -132,8 +217,25 @@
    
 }
 - (IBAction)otheraction:(id)sender
-{
+{ _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    //self.manpowertable.tableHeaderView=_searchbar;
+    self.Othertable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchctrlr.searchResultsDelegate=(id)self;
+    searchctrlr.searchResultsDataSource=(id)self;
+    searchctrlr.delegate=(id)self;
+
     tooltype=4;
+    sum=0;
+    totqty=0;
+    _ST.hidden=YES;
+    _OT.hidden=YES;
+    _stlabel.hidden=YES;
+    _otlabel.hidden=YES;
+    _totalarray=[[NSMutableArray alloc]init];
+_quantityarray=[[NSMutableArray alloc]init];
     [self BidOtherReviewselect];
     _manpowertable.hidden=YES;
      _manpowertitle.hidden=YES;
@@ -256,8 +358,14 @@
             _Motratelabel=(UILabel *)[cell viewWithTag:8];
             _Motratelabel.text=manmdl.TotalOTRate;
             _Mtotlabel=(UILabel *)[cell viewWithTag:9];
-            NSInteger x=[manmdl.TotalUnitCost integerValue]*[manmdl.TotalQty integerValue];
-            _Mtotlabel.text=[NSString stringWithFormat:@"$%d",x];
+            NSInteger A1=([manmdl.TotalST integerValue])*([manmdl.TotalSTRate integerValue]);
+            NSInteger A2=([manmdl.TotalOT integerValue])*([manmdl.TotalOTRate integerValue]);
+            NSInteger B=A1+A2;
+            NSInteger total=B*([manmdl.TotalQty integerValue]);
+            NSLog(@"%d",total);
+
+            //NSInteger x=[manmdl.TotalUnitCost integerValue]*[manmdl.TotalQty integerValue];
+            _Mtotlabel.text=[NSString stringWithFormat:@"$%d",total];
             _Mtypelabel=(UILabel *)[cell viewWithTag:10];
             _Mtypelabel.text=manmdl.BidMType;
 
@@ -536,6 +644,210 @@
     }
     
 }
+-(void)BidmanpowerSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<BidmanpowerSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<BidId>%@</BidId>\n"
+                   "</BidmanpowerSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_bidid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BidmanpowerSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)BidEquipmentReviewSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<BidEquipmentReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<BidId>%@</BidId>\n"
+                   "</BidEquipmentReviewSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_bidid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BidEquipmentReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)BidMaterialReviewSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<BidMaterialReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<BidId>%@</BidId>\n"
+                   "</BidMaterialReviewSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_bidid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BidMaterialReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)BidOtherReviewSearch
+{
+    // webtype=1;
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   "<BidOtherReviewSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "<BidId>%@</BidId>\n"
+                   "</BidOtherReviewSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring,_bidid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BidOtherReviewSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 //-(void)BidReviewCostselect
 //{
 //    recordResults = FALSE;
@@ -606,8 +918,7 @@
 	NSLog(@"xml===== %@",theXML);
 	
 	
-	if( _xmlparser
-       )
+	if( _xmlparser)
 	{
 		
 	}
@@ -618,10 +929,11 @@
 	[_xmlparser parse];
     if (tooltype==1) {
         
-    
+        [self newcalcuations];
     [_manpowertable reloadData];
     }
     if (tooltype==2||tooltype==3||tooltype==4) {
+         [self newcalcuations];
         [_Othertable reloadData];
     }
     
@@ -641,6 +953,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"BidmanpowerSearchResponse"])
+    {_manpowerarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"BidTableId"])
     {
         if(!_soapresults)
@@ -795,6 +1117,17 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"BidEquipmentReviewSearchResponse"])
+    {_Equipmentarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+
     if([elementName isEqualToString:@"EqEstimation"])
     {
         if(!_soapresults)
@@ -872,6 +1205,17 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"BidMaterialReviewSearchResponse"])
+    {_materialarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    
     if([elementName isEqualToString:@"MtEstimation"])
     {
         if(!_soapresults)
@@ -949,6 +1293,16 @@
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"BidOtherReviewSearchResponse"])
+    {_Otherarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"OtherEstimation"])
     {
         if(!_soapresults)
@@ -1417,6 +1771,228 @@
 
     
 
+}
+#pragma mark-calculations
+-(void)calculatesum
+{
+    
+    int i;
+    for (i=0; i<[_totalarray count]; i++)
+    {
+        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
+        NSLog(@"%d",sum);
+        _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+    }
+    [self calculateqty];
+}
+-(void)calculateqty
+{
+    int i;
+    for (i=0; i<[_quantityarray count]; i++)
+    {
+        totqty=([[_quantityarray objectAtIndex:i]integerValue])+totqty;
+        NSLog(@"%d",totqty);
+        _qtylabel.text=[NSString stringWithFormat:@"%d",totqty]  ;
+    }
+
+}
+-(void)calculatest
+{
+    int i;
+    for (i=0; i<[_starray count]; i++)
+    {
+        TotST=([[_starray objectAtIndex:i]integerValue])+TotST;
+        NSLog(@"%d",TotST);
+        _stlabel.text=[NSString stringWithFormat:@"%d",TotST]  ;
+    }
+    [self calculatesum];
+    
+}
+-(void)calculateot
+{
+    int i;
+    for (i=0; i<[_otarray count]; i++)
+    {
+        TotOT=([[_otarray objectAtIndex:i]integerValue])+TotOT;
+        NSLog(@"%d",TotOT);
+        _otlabel.text=[NSString stringWithFormat:@"%d",TotOT]  ;
+    }
+    [self calculatest];
+    
+}
+
+
+
+-(void)newcalcuations{
+    
+    switch (tooltype) {
+        case 1:
+            for (int i=0; i<[_manpowerarray count]; i++) {
+                Reviebidmdl *manmdl=(Reviebidmdl *)[_manpowerarray objectAtIndex:i];
+               
+                NSInteger A1=([manmdl.TotalST integerValue])*([manmdl.TotalSTRate integerValue]);
+                NSInteger A2=([manmdl.TotalOT integerValue])*([manmdl.TotalOTRate integerValue]);
+                NSInteger B=A1+A2;
+                NSInteger total=B*([manmdl.TotalQty integerValue]);
+                NSLog(@"%d",total);
+                NSInteger qty=[manmdl.TotalQty integerValue];
+                [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
+                [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
+                [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]]];
+                 [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]]];
+                NSLog(@"%@",_totalarray);
+                
+                if (i==[_manpowerarray count]-1) {
+                    [self calculateot];
+                    sum=0;
+                    totqty=0;
+                    TotOT=0;
+                    TotST=0;
+                }
+            }
+            
+            break;
+        case 2:
+            for (int i=0; i<[_Equipmentarray count]; i++) {
+                Reviebidmdl *eqmdl=(Reviebidmdl *)[_Equipmentarray objectAtIndex:i];
+                NSInteger B1=([eqmdl.TotalUnitCost integerValue])*([eqmdl.TotalQty integerValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                NSLog(@"%@",_totalarray);
+                 NSInteger qty=[eqmdl.TotalQty integerValue];
+                [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
+
+                if (i==[_Equipmentarray count]-1) {
+                    [self calculatesum];
+                    sum=0;
+                    totqty=0;
+                    
+                }
+            }
+            
+            break;
+        case 3:
+            for (int i=0; i<[_materialarray count]; i++) {
+                
+                Reviebidmdl *mtmdl=(Reviebidmdl *)[_materialarray objectAtIndex:i];
+                NSInteger B1=([mtmdl.TotalQty integerValue])*([mtmdl.TotalUnitCost integerValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                NSLog(@"%@",_totalarray);
+                NSInteger qty=[mtmdl.TotalQty integerValue];
+                [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
+                if (i==[_materialarray count]-1) {
+                    
+                    
+                    [self calculatesum];
+                    sum=0;
+                     totqty=0;
+                }
+                
+            }
+            
+            break;
+            
+        case 4:
+            for (int i=0; i<[_Otherarray count]; i++) {
+                
+                Reviebidmdl *othmdl=(Reviebidmdl *)[_Otherarray objectAtIndex:i];
+                NSInteger B1=([othmdl.TotalQty integerValue])*([othmdl.TotalUnitCost integerValue]);
+                [_totalarray addObject:[NSString stringWithFormat:@"%d",B1]];
+                NSLog(@"%@",_totalarray);
+                NSInteger qty=[othmdl.TotalQty integerValue];
+                [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
+
+                if (i==[_Otherarray count]-1) {
+                    
+                    
+                    [self calculatesum];
+                    sum=0;
+                     totqty=0;
+                }
+                
+            }
+            
+            break;
+
+        default:
+            break;
+    }
+    
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    _sumdisplaylabel.text=@"";
+     _qtylabel.text=@"";
+     _stlabel.text=@"";
+     _otlabel.text=@"";
+    _searchstring=_searchbar.text;
+    _totalarray=[[NSMutableArray alloc]init];
+    _quantityarray=[[NSMutableArray alloc]init];
+    _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
+    if (tooltype==1) {
+        [self BidmanpowerSearch];
+        
+    }
+    else if(tooltype==2)
+    {
+        [self BidEquipmentReviewSearch];
+    }
+    else if(tooltype==3)
+    {
+        [self BidMaterialReviewSearch];
+    }
+    else if(tooltype==4)
+    {
+        [self BidOtherReviewSearch];
+    }
+    
+    
+    [searchBar resignFirstResponder];
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    _totalarray=[[NSMutableArray alloc]init];
+    _quantityarray=[[NSMutableArray alloc]init];
+    _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
+    if (tooltype==1) {
+        [self BidManPowerReviewSelect];
+    }
+    if(tooltype==2)
+    {
+        [self BidEquipmentSelect];
+    }
+    if(tooltype==3)
+    {
+        [self BidMaterialReviewselect];
+    }
+    if (tooltype==4) {
+        [self BidOtherReviewselect];
+    }
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    _totalarray=[[NSMutableArray alloc]init];
+    _quantityarray=[[NSMutableArray alloc]init];
+    _starray=[[NSMutableArray alloc]init];
+    _otarray=[[NSMutableArray alloc]init];
+    if ([_searchbar.text length]==0) {
+        if (tooltype==1) {
+            [self BidManPowerReviewSelect];
+        }
+        if (tooltype==2) {
+            [self BidEquipmentSelect];
+        }
+        
+        if (tooltype==3) {
+            [self BidMaterialReviewselect];
+        }
+        if (tooltype==4) {
+            [self BidOtherReviewselect];
+        }
+
+    }
+    
 }
 
 
