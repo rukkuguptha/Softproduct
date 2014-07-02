@@ -133,7 +133,7 @@ self.openviewindex=NSNotFound;
     _bidlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
     [_bidlabel setTextAlignment:NSTextAlignmentJustified];
     _bidlabel.textColor=[UIColor blackColor];
-    _bidlabel.text=@"Bid Table";
+    _bidlabel.text=@"Bid Review";
     [self.animatedview addSubview:_bidlabel];
     
     _bidlabel.hidden=YES;
@@ -222,13 +222,13 @@ self.openviewindex=NSNotFound;
     
 }
 -(void)tobidtable
-{   Bidmodel*bmdl=(Bidmodel *)[_bidlistarray objectAtIndex:btnindex];
+{
+    Bidmodel*bmdl=(Bidmodel *)[_bidlistarray objectAtIndex:btnindex];
     
     if (!self.Displayctrlr) {
         self.Displayctrlr=[[DisplayBidTableViewController alloc]initWithNibName:@"DisplayBidTableViewController" bundle:nil];
     }
     _Displayctrlr.bidid=bmdl.bidid;
-   
     [self presentViewController:_Displayctrlr animated:YES completion:nil];
     self.openviewindex=NSNotFound;
 }

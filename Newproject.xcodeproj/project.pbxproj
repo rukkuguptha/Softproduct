@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
+		641A35D6196175F80080403B /* LbmgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 641A35D5196175F80080403B /* LbmgModel.m */; };
 		6426F5E318C05C12002471AC /* bgmetro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E218C05C12002471AC /* bgmetro1.png */; };
 		6426F5E518C05D2B002471AC /* res.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E418C05D2B002471AC /* res.png */; };
 		6426F5E718C05E09002471AC /* com.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E618C05E09002471AC /* com.png */; };
@@ -82,6 +83,9 @@
 		64A1EA161918E709002DC384 /* SettngsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1EA141918E709002DC384 /* SettngsViewController.xib */; };
 		64A1F8B718AA007500EE8850 /* customdoccell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A1F8B618AA007500EE8850 /* customdoccell.xib */; };
 		64A27C2018E1640000D184BF /* Srepcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A27C1F18E1640000D184BF /* Srepcell.xib */; };
+		64A2D08F1962BD8E00BACE76 /* Bidreviewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2D08E1962BD8E00BACE76 /* Bidreviewcell.xib */; };
+		64A2D0911962C37200BACE76 /* sumbidcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A2D0901962C37200BACE76 /* sumbidcell.xib */; };
+		64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A2D0931962C9F000BACE76 /* Reviebidmdl.m */; };
 		64A3B81318DFEE980015887F /* LeadsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64A3B80F18DFEE980015887F /* LeadsViewController.m */; };
 		64A3B81418DFEE980015887F /* LeadsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81018DFEE980015887F /* LeadsViewController.xib */; };
 		64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64A3B81118DFEE980015887F /* CustomLeadCell.xib */; };
@@ -118,8 +122,6 @@
 		64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AE02B81949B029002D44B6 /* StkOtSiteout.xib */; };
 		64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */ = {isa = PBXBuildFile; fileRef = 64B08E5E19471498003C25F5 /* Labourcustommdl.m */; };
 		64C08982195BD72500D4D7C2 /* Tblebidcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C08981195BD72500D4D7C2 /* Tblebidcell.xib */; };
-		64C08986195BE34000D4D7C2 /* SubdetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64C08984195BE34000D4D7C2 /* SubdetailViewController.m */; };
-		64C08987195BE34000D4D7C2 /* SubdetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64C08985195BE34000D4D7C2 /* SubdetailViewController.xib */; };
 		64D23F7D1905103000DEA64A /* Generalmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D23F7C1905103000DEA64A /* Generalmodel.m */; };
 		64F97983185ED60000E7722B /* appbar.addblack.png in Resources */ = {isa = PBXBuildFile; fileRef = 64F97982185ED60000E7722B /* appbar.addblack.png */; };
 		64F97991185EF8B000E7722B /* jobsitereqViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64F9798F185EF8B000E7722B /* jobsitereqViewController.m */; };
@@ -477,6 +479,8 @@
 
 /* Begin PBXFileReference section */
 		64161C0C17FEB511007D4D89 /* squre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squre.png; sourceTree = "<group>"; };
+		641A35D4196175F80080403B /* LbmgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LbmgModel.h; sourceTree = "<group>"; };
+		641A35D5196175F80080403B /* LbmgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LbmgModel.m; sourceTree = "<group>"; };
 		6426F5E218C05C12002471AC /* bgmetro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bgmetro1.png; sourceTree = "<group>"; };
 		6426F5E418C05D2B002471AC /* res.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = res.png; sourceTree = "<group>"; };
 		6426F5E618C05E09002471AC /* com.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = com.png; sourceTree = "<group>"; };
@@ -573,6 +577,10 @@
 		64A1EA141918E709002DC384 /* SettngsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettngsViewController.xib; sourceTree = "<group>"; };
 		64A1F8B618AA007500EE8850 /* customdoccell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = customdoccell.xib; sourceTree = "<group>"; };
 		64A27C1F18E1640000D184BF /* Srepcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Srepcell.xib; sourceTree = "<group>"; };
+		64A2D08E1962BD8E00BACE76 /* Bidreviewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Bidreviewcell.xib; sourceTree = "<group>"; };
+		64A2D0901962C37200BACE76 /* sumbidcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = sumbidcell.xib; sourceTree = "<group>"; };
+		64A2D0921962C9F000BACE76 /* Reviebidmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reviebidmdl.h; sourceTree = "<group>"; };
+		64A2D0931962C9F000BACE76 /* Reviebidmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reviebidmdl.m; sourceTree = "<group>"; };
 		64A3B80E18DFEE980015887F /* LeadsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeadsViewController.h; sourceTree = "<group>"; };
 		64A3B80F18DFEE980015887F /* LeadsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeadsViewController.m; sourceTree = "<group>"; };
 		64A3B81018DFEE980015887F /* LeadsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeadsViewController.xib; sourceTree = "<group>"; };
@@ -617,9 +625,6 @@
 		64B08E5D19471497003C25F5 /* Labourcustommdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Labourcustommdl.h; sourceTree = "<group>"; };
 		64B08E5E19471498003C25F5 /* Labourcustommdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Labourcustommdl.m; sourceTree = "<group>"; };
 		64C08981195BD72500D4D7C2 /* Tblebidcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Tblebidcell.xib; sourceTree = "<group>"; };
-		64C08983195BE34000D4D7C2 /* SubdetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubdetailViewController.h; sourceTree = "<group>"; };
-		64C08984195BE34000D4D7C2 /* SubdetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubdetailViewController.m; sourceTree = "<group>"; };
-		64C08985195BE34000D4D7C2 /* SubdetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubdetailViewController.xib; sourceTree = "<group>"; };
 		64D23F7B1905103000DEA64A /* Generalmodel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Generalmodel.h; sourceTree = "<group>"; };
 		64D23F7C1905103000DEA64A /* Generalmodel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Generalmodel.m; sourceTree = "<group>"; };
 		64F97982185ED60000E7722B /* appbar.addblack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appbar.addblack.png; sourceTree = "<group>"; };
@@ -1845,6 +1850,10 @@
 				64A4D096195AE50E00C3F783 /* Bidmodel.m */,
 				D41B14E7195C0CF500DEED6E /* RelatedtoMdl.h */,
 				D41B14E8195C0CF500DEED6E /* RelatedtoMdl.m */,
+				641A35D4196175F80080403B /* LbmgModel.h */,
+				641A35D5196175F80080403B /* LbmgModel.m */,
+				64A2D0921962C9F000BACE76 /* Reviebidmdl.h */,
+				64A2D0931962C9F000BACE76 /* Reviebidmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -1904,9 +1913,8 @@
 				64A4D099195AE95C00C3F783 /* DisplayBidTableViewController.m */,
 				64A4D09A195AE95C00C3F783 /* DisplayBidTableViewController.xib */,
 				64C08981195BD72500D4D7C2 /* Tblebidcell.xib */,
-				64C08983195BE34000D4D7C2 /* SubdetailViewController.h */,
-				64C08984195BE34000D4D7C2 /* SubdetailViewController.m */,
-				64C08985195BE34000D4D7C2 /* SubdetailViewController.xib */,
+				64A2D08E1962BD8E00BACE76 /* Bidreviewcell.xib */,
+				64A2D0901962C37200BACE76 /* sumbidcell.xib */,
 				D40427DF19235DF50049A709 /* PhsestViewController.h */,
 				D40427E019235DF50049A709 /* PhsestViewController.m */,
 				D40427E119235DF50049A709 /* PhsestViewController.xib */,
@@ -2119,6 +2127,7 @@
 				D47A9B3819407DEB001CC416 /* equipmenticon.png in Resources */,
 				64A41246194080D6003EE113 /* markupmaster.png in Resources */,
 				64A3B81518DFEE980015887F /* CustomLeadCell.xib in Resources */,
+				64A2D08F1962BD8E00BACE76 /* Bidreviewcell.xib in Resources */,
 				D47A9B3019407D53001CC416 /* smalltoolsicon.png in Resources */,
 				D4399EBC186D7BB100A693F7 /* search-button@2x.png in Resources */,
 				D4A6749119345E6C00D5A77E /* IconDateGrey@2x.png in Resources */,
@@ -2152,6 +2161,7 @@
 				649EB48C18A8DF4700CDBE28 /* DetailproHrViewController.xib in Resources */,
 				D42D8C2818D2DD79009D8085 /* custommanapowercell.xib in Resources */,
 				D4F557731904F89600EFDAF4 /* PGcell.xib in Resources */,
+				64A2D0911962C37200BACE76 /* sumbidcell.xib in Resources */,
 				D4FED40917F15B07004BE242 /* HRViewController.xib in Resources */,
 				64AE02B91949B029002D44B6 /* StkOtSiteout.xib in Resources */,
 				D4A10B6C1935FCCA001856F8 /* Matcalevecell.xib in Resources */,
@@ -2313,7 +2323,6 @@
 				64A12C1219247FA8003721A3 /* MatPhaseEst.xib in Resources */,
 				D4B0386C18B36FBD00F9DE04 /* Jobsitecellview.xib in Resources */,
 				D42D8C4218D2E450009D8085 /* ServiceViewController.xib in Resources */,
-				64C08987195BE34000D4D7C2 /* SubdetailViewController.xib in Resources */,
 				6426F5E918C05E88002471AC /* cos.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2328,7 +2337,9 @@
 				D4F4B0B319068ED50026C8B6 /* Gmandrgmdl.m in Sources */,
 				D43DAA3418D1B0A700280AA6 /* CmpnydocsViewController.m in Sources */,
 				D4A674BF19345FFD00D5A77E /* DPCalendarTestOptionsCell.m in Sources */,
+				641A35D6196175F80080403B /* LbmgModel.m in Sources */,
 				D40407DB192B171A00864BA4 /* myscroll.m in Sources */,
+				64A2D0941962C9F000BACE76 /* Reviebidmdl.m in Sources */,
 				D4004074185B183600C38E12 /* EqpmViewController.m in Sources */,
 				D4A6749A19345F1B00D5A77E /* NSDate+DP.m in Sources */,
 				D49F876918EEA36B00413CAD /* Infomdl.m in Sources */,
@@ -2422,7 +2433,6 @@
 				D40427E819237F980049A709 /* Rephase.m in Sources */,
 				D49F874A18EEA36B00413CAD /* SectionHeaderView.m in Sources */,
 				D49F876618EEA36B00413CAD /* Custmermdl.m in Sources */,
-				64C08986195BE34000D4D7C2 /* SubdetailViewController.m in Sources */,
 				D4F34360191CCD220023D715 /* ModlEstimation.m in Sources */,
 				D49F876518EEA36B00413CAD /* Empmdl.m in Sources */,
 				D41A63D51961302A00FBDBC6 /* TimeSheetViewController.m in Sources */,
