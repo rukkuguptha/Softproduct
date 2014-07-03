@@ -18,6 +18,7 @@
      NSInteger totqty;
     NSInteger TotST;
     NSInteger TotOT;
+    NSInteger webtype;
 }
 
 /*IBActions*/
@@ -52,6 +53,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *otlabel;
 @property (strong, nonatomic) IBOutlet UILabel *ST;
 @property (strong, nonatomic) IBOutlet UILabel *OT;
+@property (strong, nonatomic) IBOutlet UILabel *totqtylabel;
 
 
 @property(strong,nonatomic)IBOutlet UIBarButtonItem *manpwrbtn;
@@ -82,6 +84,11 @@
 @property(strong,nonatomic)IBOutlet UILabel *Ototallabel;
 @property(strong,nonatomic)IBOutlet UILabel *Otypelabel;
 
+/*Labels in summarycell*/
+@property(strong,nonatomic)IBOutlet UILabel *namelabel;
+@property(strong,nonatomic)IBOutlet UILabel *costlabel;
+
+
 
 
 /*array & dict */
@@ -89,6 +96,7 @@
 @property(strong,nonatomic)NSMutableArray *Equipmentarray;
 @property(strong,nonatomic)NSMutableArray *materialarray;
 @property(strong,nonatomic)NSMutableArray *Otherarray;
+@property(strong,nonatomic)NSMutableArray *summaryarray;
 @property(strong,nonatomic)NSMutableArray *totalarray;
 @property(strong,nonatomic)NSMutableArray *quantityarray;
 @property(strong,nonatomic)NSMutableArray *starray;
