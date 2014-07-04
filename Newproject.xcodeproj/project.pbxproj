@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		640622E619668F5200D5EC33 /* lgout.png in Resources */ = {isa = PBXBuildFile; fileRef = 640622E519668F5200D5EC33 /* lgout.png */; };
 		64161C0D17FEB511007D4D89 /* squre.png in Resources */ = {isa = PBXBuildFile; fileRef = 64161C0C17FEB511007D4D89 /* squre.png */; };
 		641A35D6196175F80080403B /* LbmgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 641A35D5196175F80080403B /* LbmgModel.m */; };
 		6426F5E318C05C12002471AC /* bgmetro1.png in Resources */ = {isa = PBXBuildFile; fileRef = 6426F5E218C05C12002471AC /* bgmetro1.png */; };
@@ -488,6 +489,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		640622E519668F5200D5EC33 /* lgout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lgout.png; sourceTree = "<group>"; };
 		64161C0C17FEB511007D4D89 /* squre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squre.png; sourceTree = "<group>"; };
 		641A35D4196175F80080403B /* LbmgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LbmgModel.h; sourceTree = "<group>"; };
 		641A35D5196175F80080403B /* LbmgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LbmgModel.m; sourceTree = "<group>"; };
@@ -1662,6 +1664,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				640622E519668F5200D5EC33 /* lgout.png */,
 				D4A0BCF719668A6000A421C3 /* 40x27logo.png */,
 				D4A0BCF319667D0A00A421C3 /* newlogo.png */,
 				D413816B1947107A0056574C /* createjob.png */,
@@ -2329,6 +2332,7 @@
 				D4D8D7A517FA817C006B6CE3 /* requirmentcell.xib in Resources */,
 				D4F3435D191CA90B0023D715 /* Emtncell.xib in Resources */,
 				649E1F8118617ECD0010CBD8 /* MaterialsViewController.xib in Resources */,
+				640622E619668F5200D5EC33 /* lgout.png in Resources */,
 				D4A85B4218A0E867004E9C8B /* TilehrViewController.xib in Resources */,
 				6437578718BC5572003691E6 /* maintablecell.xib in Resources */,
 				D47A9B2219407AA2001CC416 /* users.png in Resources */,
