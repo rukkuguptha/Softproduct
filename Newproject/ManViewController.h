@@ -24,7 +24,7 @@
     NSInteger Newprimarykey;
     NSString*skill;
     NSString*msgstrg;
-      NSInteger newtype;
+    NSInteger newtype;
     
 }
 @property(strong,nonatomic)ServiceViewController *serviceVCtrl;

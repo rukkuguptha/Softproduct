@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="passwrdtxt" destination="11" id="PAR-0X-e0m"/>
+                <outlet property="usernametxt" destination="9" id="NLU-Hs-mKs"/>
                 <outlet property="view" destination="2" id="3"/>
             </connections>
         </placeholder>
@@ -52,7 +54,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newlogo.png" id="Gws-8g-NMF">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="40x27logo.png" id="Gws-8g-NMF">
                     <rect key="frame" x="365" y="156" width="294" height="184"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -63,6 +65,6 @@
         </view>
     </objects>
     <resources>
-        <image name="newlogo.png" width="262" height="208"/>
+        <image name="40x27logo.png" width="400" height="280"/>
     </resources>
 </document>

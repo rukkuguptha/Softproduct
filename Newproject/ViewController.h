@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "HomeViewController.h"
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController{
+     BOOL recordResults;
+
+}
+/* xmlparser*/
+@property(strong,nonatomic)NSXMLParser *xmlParser;
+@property(strong,nonatomic)NSMutableString *soapResults;
+@property(strong,nonatomic)NSMutableData *webData;
+@property (strong, nonatomic) IBOutlet UITextField *usernametxt;
+@property (strong, nonatomic) IBOutlet UITextField *passwrdtxt;
+
+
 @property(strong,nonatomic)HomeViewController*hmeVCtrl;
 - (IBAction)loginbtn:(id)sender;
 
