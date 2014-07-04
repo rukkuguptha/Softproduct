@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CKCalendarView.h"
-
+#import "jobsitemodel.h"
 @interface TimeSheetViewController : UIViewController{
     
     NSInteger barbtntype;
@@ -17,7 +17,12 @@
       NSInteger btnclck1;
     BOOL  recordResults;
     NSString*jobnumber;
+    NSInteger poptype;
 }
+@property(nonatomic, strong)jobsitemodel*jobmdl;
+@property (strong, nonatomic)NSMutableArray*jobarray;
+@property (strong, nonatomic)NSMutableArray*newjobarray;
+@property (strong, nonatomic)NSMutableArray*skillarray;
 
 /*calendar*/
 @property(nonatomic, weak) CKCalendarView *calendar;
@@ -33,7 +38,6 @@
 @property(strong,nonatomic)UITableView *popOverTableView;
 
 
-@property (strong, nonatomic)NSMutableArray*jobarray;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *allemployeeslbl;

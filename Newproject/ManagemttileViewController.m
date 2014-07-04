@@ -61,6 +61,14 @@
     doubleTap4.numberOfTapsRequired=1;
     doubleTap4.delegate=(id)self;
     [self.siteview addGestureRecognizer:doubleTap4];
+    
+    UITapGestureRecognizer *doubleTap5 = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self
+                                          action:@selector(Absentpage)];
+    doubleTap5.numberOfTapsRequired=1;
+    doubleTap5.delegate=(id)self;
+    [self.absntview addGestureRecognizer:doubleTap5];
+
 
 
 
@@ -117,6 +125,16 @@
     _timesheetVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_SitereqVCtrl
                        animated:YES completion:NULL];
+}
+-(void)Absentpage{
+    if (!_absentVCtrl) {
+        _absentVCtrl=[[AbsentViewController alloc]initWithNibName:@"AbsentViewController" bundle:nil];
+    }
+    _absentVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
+    _absentVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
+    [self presentViewController:_absentVCtrl
+                       animated:YES completion:NULL];
+
 }
 - (void)didReceiveMemoryWarning
 {

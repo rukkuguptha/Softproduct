@@ -84,7 +84,17 @@
         return 5;
     }
     if (tableView==_popOverTableView) {
-        return [_jobarray count];
+        switch (poptype) {
+            case 1:
+               return [_jobarray count];
+                break;
+            case 2:
+                return [_skillarray count];
+                break;
+            default:
+                break;
+        }
+        
     }
       return YES;
     
@@ -123,7 +133,19 @@
         }
     
     if (tableView==_popOverTableView) {
-        cell.textLabel.text=[_jobarray objectAtIndex:indexPath.row];
+        switch (poptype) {
+            case 1:
+                  cell.textLabel.text=[_jobarray objectAtIndex:indexPath.row];
+                break;
+            case 2:
+                cell.textLabel.text=[_skillarray objectAtIndex:indexPath.row];
+                break;
+                
+
+            default:
+                break;
+        }
+      
     }
         
   //  }
@@ -140,8 +162,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView==_popOverTableView){
+        switch (poptype) {
+            case 1:
+                 [_jobnumberbtnlbl setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                break;
+            case 2:
+                   [_servicebtnlbl setTitle:[_skillarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                break;
+                
+                
+            default:
+                break;
+        }
+
         
-    [_jobnumberbtnlbl setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+ 
         
         
     }
@@ -275,13 +310,28 @@
     //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
     //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
-    
-    [self.popOverController presentPopoverFromRect:_jobnumberbtnlbl.frame
-                                            inView:self.scroll
-                          permittedArrowDirections:UIPopoverArrowDirectionUp
-                                          animated:YES];
+    switch (poptype) {
+        case 1:
+            [self.popOverController presentPopoverFromRect:_jobnumberbtnlbl.frame
+                                                    inView:self.scroll
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
 
+            break;
+        case 2:
+            [self.popOverController presentPopoverFromRect:_servicebtnlbl.frame
+                                                    inView:self.scroll
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            
+            break;
+
+        default:
+            break;
     }
+       }
 
 #pragma mark-Webservice
 -(void)JobsSelect{
@@ -337,6 +387,64 @@
     
     
 }
+-(void)TimesheetServiceselect{
+    recordResults=FALSE;
+    
+       NSArray*array1=[_jobnumberbtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+        NSString*jobid=[NSString stringWithFormat:@"%@-%@",[array1 objectAtIndex:0],[array1 objectAtIndex:1]];
+    
+    NSString *soapMessage;
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<TimesheetServiceselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                    "<jobid>%@</jobid>\n"
+                   "</TimesheetServiceselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",jobid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/TimesheetServiceselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -390,6 +498,15 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"JobNumber"])
     {
         if(!_soapResults)
@@ -406,7 +523,24 @@
         }
         recordResults = TRUE;
     }
-
+    if([elementName isEqualToString:@"TimesheetServiceselectResponse"])
+    {
+        _skillarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+  
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
 {
@@ -425,13 +559,16 @@
 {
     if([elementName isEqualToString:@"id"])
    {
-      recordResults = FALSE;
+       _jobmdl=[[jobsitemodel alloc]init];
+        recordResults = FALSE;
+       _jobmdl.jobid=[_soapResults integerValue];
        _soapResults = nil;
     }
 
     if([elementName isEqualToString:@"JobNumber"])
     {
         recordResults = FALSE;
+           _jobmdl.jobno=_soapResults;
         jobnumber=_soapResults;
         _soapResults = nil;
     }
@@ -439,7 +576,15 @@
     {
         recordResults = FALSE;
         [_jobarray addObject:[NSString stringWithFormat:@"%@-%@",jobnumber,_soapResults]];
+        _jobmdl.jobname=_soapResults;
+        [_newjobarray addObject:_jobmdl];
         _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"SkillName"])
+    {
+      recordResults = FALSE;
+        [_skillarray addObject:_soapResults];
+         _soapResults = nil;
     }
 
 }
@@ -578,6 +723,7 @@
 }
 
 - (IBAction)jobnumbrbtn:(id)sender {
+    poptype=1;
     [self createpopover];
     [self JobsSelect];
 }
@@ -593,6 +739,9 @@
     
 }
 - (IBAction)servicebtn:(id)sender {
+    poptype=2;
+    [self createpopover];
+    [self TimesheetServiceselect];
     
 }
 

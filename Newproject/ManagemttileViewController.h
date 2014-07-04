@@ -12,7 +12,7 @@
 #import "TimeSheetViewController.h"
 #import "LbrMgmtViewController.h"
 #import "PSitereqmntViewController.h"
-
+#import "AbsentViewController.h"
 @interface ManagemttileViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIView *resurceview;
 @property (strong, nonatomic) IBOutlet UIView *issueview;
@@ -24,8 +24,10 @@
 @property (strong, nonatomic)IssuesViewController *issueVCtrl;
 @property (strong, nonatomic)LbrMgmtViewController *lbrmgmtvctrl;
 @property (strong, nonatomic)PSitereqmntViewController*SitereqVCtrl;
+@property (strong, nonatomic)AbsentViewController*absentVCtrl;
 - (IBAction)clsebtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIView *siteview;
+@property (strong, nonatomic) IBOutlet UIView *absntview;
 
 
 @end
