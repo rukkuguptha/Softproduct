@@ -353,6 +353,7 @@
 		D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FA2F11961647A0037BA7A /* TOtherscell.xib */; };
 		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
 		D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF319667D0A00A421C3 /* newlogo.png */; };
+		D4A0BCF819668A6000A421C3 /* 40x27logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF719668A6000A421C3 /* 40x27logo.png */; };
 		D4A10B691935FCCA001856F8 /* CalEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B641935FCCA001856F8 /* CalEventDetailViewController.m */; };
 		D4A10B6A1935FCCA001856F8 /* CalEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B651935FCCA001856F8 /* CalEventDetailViewController.xib */; };
 		D4A10B6B1935FCCA001856F8 /* Eventcalcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B661935FCCA001856F8 /* Eventcalcell.xib */; };
@@ -957,6 +958,7 @@
 		D49FA2F11961647A0037BA7A /* TOtherscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TOtherscell.xib; sourceTree = "<group>"; };
 		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
 		D4A0BCF319667D0A00A421C3 /* newlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlogo.png; sourceTree = "<group>"; };
+		D4A0BCF719668A6000A421C3 /* 40x27logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40x27logo.png; sourceTree = "<group>"; };
 		D4A10B631935FCCA001856F8 /* CalEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalEventDetailViewController.h; sourceTree = "<group>"; };
 		D4A10B641935FCCA001856F8 /* CalEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalEventDetailViewController.m; sourceTree = "<group>"; };
 		D4A10B651935FCCA001856F8 /* CalEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalEventDetailViewController.xib; sourceTree = "<group>"; };
@@ -1660,6 +1662,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4A0BCF719668A6000A421C3 /* 40x27logo.png */,
 				D4A0BCF319667D0A00A421C3 /* newlogo.png */,
 				D413816B1947107A0056574C /* createjob.png */,
 				D413816D194710830056574C /* site.png */,
@@ -2263,6 +2266,7 @@
 				D4E658CC17F2DED100202B14 /* detailDisclosureButton.png in Resources */,
 				D413816E194710830056574C /* site.png in Resources */,
 				D49F86CF18EE6C5700413CAD /* volumediscountcell.xib in Resources */,
+				D4A0BCF819668A6000A421C3 /* 40x27logo.png in Resources */,
 				D4097D101963D26400D8E910 /* Psitereqcell.xib in Resources */,
 				64A14D7F18755B910028B43A /* customdetlcell.xib in Resources */,
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
