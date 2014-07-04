@@ -352,6 +352,7 @@
 		D49FA2F0196164560037BA7A /* TEqupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FA2EF196164560037BA7A /* TEqupcell.xib */; };
 		D49FA2F21961647A0037BA7A /* TOtherscell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FA2F11961647A0037BA7A /* TOtherscell.xib */; };
 		D49FBE3518F2A4B70050B19F /* Doccontrctcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */; };
+		D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0BCF319667D0A00A421C3 /* newlogo.png */; };
 		D4A10B691935FCCA001856F8 /* CalEventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4A10B641935FCCA001856F8 /* CalEventDetailViewController.m */; };
 		D4A10B6A1935FCCA001856F8 /* CalEventDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B651935FCCA001856F8 /* CalEventDetailViewController.xib */; };
 		D4A10B6B1935FCCA001856F8 /* Eventcalcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4A10B661935FCCA001856F8 /* Eventcalcell.xib */; };
@@ -955,6 +956,7 @@
 		D49FA2EF196164560037BA7A /* TEqupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TEqupcell.xib; sourceTree = "<group>"; };
 		D49FA2F11961647A0037BA7A /* TOtherscell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TOtherscell.xib; sourceTree = "<group>"; };
 		D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Doccontrctcell.xib; sourceTree = "<group>"; };
+		D4A0BCF319667D0A00A421C3 /* newlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newlogo.png; sourceTree = "<group>"; };
 		D4A10B631935FCCA001856F8 /* CalEventDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalEventDetailViewController.h; sourceTree = "<group>"; };
 		D4A10B641935FCCA001856F8 /* CalEventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalEventDetailViewController.m; sourceTree = "<group>"; };
 		D4A10B651935FCCA001856F8 /* CalEventDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalEventDetailViewController.xib; sourceTree = "<group>"; };
@@ -1658,6 +1660,7 @@
 		D4D570151772BE4A00671A35 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				D4A0BCF319667D0A00A421C3 /* newlogo.png */,
 				D413816B1947107A0056574C /* createjob.png */,
 				D413816D194710830056574C /* site.png */,
 				64A4124B19408104003EE113 /* hremployemangement.png */,
@@ -2265,6 +2268,7 @@
 				D40736C318BB1E9B00C5DB30 /* left_arrow@2x.png in Resources */,
 				D47A9B0C19402B89001CC416 /* EmpJobViewController.xib in Resources */,
 				D47A9B2119407AA2001CC416 /* serialnumbers.png in Resources */,
+				D4A0BCF419667D0B00A421C3 /* newlogo.png in Resources */,
 				D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */,
 				D4E7AD09192DC91F00C07497 /* Handnotes.png in Resources */,
 				D40DD2621873D29B00E7BC2C /* SmalltoolsViewController.xib in Resources */,
