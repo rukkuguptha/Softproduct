@@ -28,7 +28,7 @@
     [[UIApplication sharedApplication]setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
     [self prefersStatusBarHidden];
     [self setNeedsStatusBarAppearanceUpdate];
- 
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     // self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 }
 

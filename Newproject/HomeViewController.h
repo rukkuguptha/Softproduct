@@ -40,7 +40,7 @@
 @property(strong,nonatomic)EsttileViewController *EstmVCtrl;
 @property(strong,nonatomic)ManagemttileViewController*mangVCtrl;
 
-
+-(IBAction)logout:(id)sender;
 
 
 

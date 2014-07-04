@@ -31,9 +31,19 @@
     /*new comment*/
     
 }
+-(IBAction)logout:(id)sender
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-   
+//    UIBarButtonItem *logoutbutton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"logout1"] style:UIBarButtonItemStylePlain target:self action:@selector(logoutAction)];
+//    
+//    // [self.navigationItem setRightBarButtonItem:logoutbutton animated:YES];
+//    NSArray *buttons=[[NSArray alloc]initWithObjects:logoutbutton, nil];
+//    [self.navigationItem setRightBarButtonItems:buttons animated:YES];
+    [self.navigationItem setHidesBackButton:YES animated:YES];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc]
                                          initWithTarget:self
                                          action:@selector(customerpage)];
