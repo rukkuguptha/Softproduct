@@ -81,6 +81,8 @@
     _OT.hidden=NO;
     _stlabel.hidden=NO;
     _otlabel.hidden=NO;
+      _qtylabel.hidden=NO;
+    _totqtylabel.hidden=NO;
     _starray=[[NSMutableArray alloc]init];
     
     _otarray=[[NSMutableArray alloc]init];
@@ -132,6 +134,8 @@
     _OT.hidden=NO;
     _stlabel.hidden=NO;
     _otlabel.hidden=NO;
+     _qtylabel.hidden=NO;
+    _totqtylabel.hidden=NO;
     [self BidManPowerReviewSelect];
 
     _manpowertable.hidden=NO;
@@ -164,6 +168,8 @@
     _OT.hidden=YES;
     _stlabel.hidden=YES;
     _otlabel.hidden=YES;
+     _qtylabel.hidden=NO;
+    _totqtylabel.hidden=NO;
     sum=0;
     totqty=0;
     _totalarray=[[NSMutableArray alloc]init];
@@ -200,6 +206,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     _OT.hidden=YES;
     _stlabel.hidden=YES;
     _otlabel.hidden=YES;
+     _qtylabel.hidden=NO;
+    _totqtylabel.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
 _quantityarray=[[NSMutableArray alloc]init];
     [self BidMaterialReviewselect];
@@ -234,6 +242,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     _OT.hidden=YES;
     _stlabel.hidden=YES;
     _otlabel.hidden=YES;
+     _qtylabel.hidden=NO;
+    _totqtylabel.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
 _quantityarray=[[NSMutableArray alloc]init];
     [self BidOtherReviewselect];
@@ -253,6 +263,16 @@ _quantityarray=[[NSMutableArray alloc]init];
 - (IBAction)summaryaction:(id)sender
 {
     tooltype=5;
+    [self BidReviewInsert];
+    _ST.hidden=YES;
+    _OT.hidden=YES;
+    _stlabel.hidden=YES;
+    _otlabel.hidden=YES;
+    _qtylabel.hidden=YES;
+    _totqtylabel.hidden=YES;
+    _totalarray=[[NSMutableArray alloc]init];
+
+  
     _manpowertable.hidden=YES;
     _manpowertitle.hidden=YES;
     _Othertable.hidden=YES;
@@ -264,8 +284,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     _materialbtn.tintColor=[UIColor blackColor];
     _otherbtn.tintColor=[UIColor blackColor];
     _summarybtn.tintColor=[UIColor whiteColor];
-    [_SummaryTable reloadData];
-
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -294,7 +313,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     }
     if (tableView==_SummaryTable)
     {
-        return 4;
+        return [_summaryarray count];
     }
     return YES;
 }
@@ -347,10 +366,10 @@ _quantityarray=[[NSMutableArray alloc]init];
             _Mqtylabel.text=manmdl.TotalQty;
             
             _Mstlabel=(UILabel *)[cell viewWithTag:5];
-            _Mstlabel.text=manmdl.TotalST;
+            _Mstlabel.text=[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]*[manmdl.TotalQty integerValue]];
             
             _Motlabel=(UILabel *)[cell viewWithTag:6];
-            _Motlabel.text=manmdl.TotalOT;
+            _Motlabel.text=[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]*[manmdl.TotalQty integerValue]];
             _Mstratelabel=(UILabel *)[cell viewWithTag:7];
             _Mstratelabel.text=manmdl.TotalSTRate;
             
@@ -447,10 +466,39 @@ _quantityarray=[[NSMutableArray alloc]init];
        
     
     }
+    if (tableView==_SummaryTable)
+    {
+        Reviebidmdl *summdl=(Reviebidmdl *)[_summaryarray objectAtIndex:indexPath.row];
+        
+        _namelabel=(UILabel *)[cell viewWithTag:1];
+        _namelabel.text=summdl.name;
+        _costlabel=(UILabel *)[cell viewWithTag:2];
+        _costlabel.text=summdl.cost;
+ 
+    }
     
     
     return cell;
 }
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    //alternating cell back ground color
+    if(tableView==_manpowertable||tableView==_Othertable||tableView==_SummaryTable)
+    {
+        if (indexPath.row%2 == 0) {
+            [cell setBackgroundColor:[UIColor whiteColor]];
+            
+        }else
+        {
+            
+            //[cell setBackgroundColor:[UIColor colorWithRed:247.0/255.0f green:247.0/255.0f blue:247.0/255.0f alpha:1.0f]];
+            [cell setBackgroundColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f]];
+            
+            
+        }
+    }
+}
+
+
 #pragma mark-Webservices
 -(void)BidManPowerReviewSelect
 {
@@ -848,54 +896,104 @@ _quantityarray=[[NSMutableArray alloc]init];
     }
     
 }
-//-(void)BidReviewCostselect
-//{
-//    recordResults = FALSE;
-//    NSString *soapMessage;
-//    soapMessage = [NSString stringWithFormat:
-//                   
-//                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
-//                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
-//                   
-//                   
-//                   "<soap:Body>\n"
-//                   
-//                   "<BidReviewCostselect xmlns=\"http://ios.kontract360.com/\">\n"
-//                   "<BidReviewId>%d</BidReviewId>\n"
-//                   "</BidReviewCostselect>\n"
-//                   "</soap:Body>\n"
-//                   "</soap:Envelope>\n",_bidid];
-//    NSLog(@"soapmsg%@",soapMessage);
-//    
-//    
-//    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
-//    
-//    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
-//    
-//    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
-//    
-//    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-//    
-//    [theRequest addValue: @"http://ios.kontract360.com/BidReviewCostselect" forHTTPHeaderField:@"Soapaction"];
-//    
-//    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
-//    [theRequest setHTTPMethod:@"POST"];
-//    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
-//    
-//    
-//    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    
-//    if( theConnection )
-//    {
-//        _webData = [NSMutableData data];
-//    }
-//    else
-//    {
-//        ////NSLog(@"theConnection is NULL");
-//    }
-//    
-//}
+-(void)BidReviewCostselect
+{
+    webtype=2;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<BidReviewCostselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</BidReviewCostselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BidReviewCostselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)BidReviewInsert
+{
+    webtype=1;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<BidReviewInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<BidId>%@</BidId>\n"
+                   "</BidReviewInsert>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_bidid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/BidReviewInsert" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
@@ -936,8 +1034,28 @@ _quantityarray=[[NSMutableArray alloc]init];
          [self newcalcuations];
         [_Othertable reloadData];
     }
+    if (webtype==1) {
+        [self BidReviewCostselect];
+       
+        
+    }
+//    if (webtype==2) {
+//        [self newcalcuations];
+//        [_SummaryTable reloadData];
+//        webtype=0;
+//    }
     
     
+    
+}
+- (void)parserDidEndDocument:(NSXMLParser *)parser
+{
+    if (webtype==2)
+    {
+        [self newcalcuations];
+        [_SummaryTable reloadData];
+        webtype=0;
+    }
     
 }
 
@@ -946,6 +1064,10 @@ _quantityarray=[[NSMutableArray alloc]init];
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"BidManPowerReviewSelectResponse"])
     {_manpowerarray=[[NSMutableArray alloc]init];
+        _sumdisplaylabel.text=@"";
+        _qtylabel.text=@"";
+        _stlabel.text=@"";
+        _otlabel.text=@"";
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1110,6 +1232,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     }
     if([elementName isEqualToString:@"BidEquipmentSelectResponse"])
     {_Equipmentarray=[[NSMutableArray alloc]init];
+        _sumdisplaylabel.text=@"";
+        _qtylabel.text=@"";
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1119,6 +1243,7 @@ _quantityarray=[[NSMutableArray alloc]init];
     }
     if([elementName isEqualToString:@"BidEquipmentReviewSearchResponse"])
     {_Equipmentarray=[[NSMutableArray alloc]init];
+        
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1198,6 +1323,8 @@ _quantityarray=[[NSMutableArray alloc]init];
     }
     if([elementName isEqualToString:@"BidMaterialReviewselectResponse"])
     {_materialarray=[[NSMutableArray alloc]init];
+        _sumdisplaylabel.text=@"";
+        _qtylabel.text=@"";
         if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
@@ -1286,7 +1413,9 @@ _quantityarray=[[NSMutableArray alloc]init];
     }
     if([elementName isEqualToString:@"BidOtherReviewselectResponse"])
     {_Otherarray=[[NSMutableArray alloc]init];
-        if(!_soapresults)
+        _sumdisplaylabel.text=@"";
+        _qtylabel.text=@"";
+               if(!_soapresults)
         {
             _soapresults = [[NSMutableString alloc] init];
         }
@@ -1371,6 +1500,45 @@ _quantityarray=[[NSMutableArray alloc]init];
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"BidReviewCostselectResponse"])
+    {_summaryarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"BidReviewId"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Name"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if([elementName isEqualToString:@"Cost"])
+    {
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+
 
 
     
@@ -1767,12 +1935,55 @@ _quantityarray=[[NSMutableArray alloc]init];
         
         
     }
+    if([elementName isEqualToString:@"BidReviewId"])
+    {
+        recordResults = FALSE;
+        _reviewmdl=[[Reviebidmdl alloc]init];
+        _reviewmdl.bidreviewid=_soapresults;
+        
+        _soapresults = nil;
+        
+    }
+    if([elementName isEqualToString:@"Name"])
+    {
+        recordResults = FALSE;
+        
+        
+        _reviewmdl.name=_soapresults;
+        _soapresults = nil;
+    }
+    
+    if([elementName isEqualToString:@"Cost"])
+    {
+        
+        recordResults = FALSE;
+        
+        
+        _reviewmdl.cost=_soapresults;
+        [_summaryarray addObject:_reviewmdl];
+        _soapresults = nil;
+    }
+    
+    
 
 
     
 
 }
 #pragma mark-calculations
+-(void)calculatecost
+{
+    
+    int i;
+    for (i=0; i<[_totalarray count]; i++)
+    {
+        sum=([[_totalarray objectAtIndex:i]integerValue])+sum;
+        NSLog(@"%d",sum);
+        _sumdisplaylabel.text=[NSString stringWithFormat:@"$%d",sum]  ;
+    }
+    
+}
+
 -(void)calculatesum
 {
     
@@ -1838,8 +2049,8 @@ _quantityarray=[[NSMutableArray alloc]init];
                 NSInteger qty=[manmdl.TotalQty integerValue];
                 [_totalarray addObject:[NSString stringWithFormat:@"%d",total]];
                 [_quantityarray addObject:[NSString stringWithFormat:@"%d",qty]];
-                [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]]];
-                 [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]]];
+                [_starray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalST integerValue]*[manmdl.TotalQty integerValue]]];
+                 [_otarray addObject:[NSString stringWithFormat:@"%d",[manmdl.TotalOT integerValue]*[manmdl.TotalQty integerValue]]];
                 NSLog(@"%@",_totalarray);
                 
                 if (i==[_manpowerarray count]-1) {
@@ -1912,6 +2123,26 @@ _quantityarray=[[NSMutableArray alloc]init];
             }
             
             break;
+        case 5:
+            for (int i=0; i<[_summaryarray count]; i++) {
+                
+                Reviebidmdl *smdl=(Reviebidmdl *)[_summaryarray objectAtIndex:i];
+               [_totalarray addObject:[NSString stringWithFormat:@"%d",[smdl.cost integerValue]]];
+                NSLog(@"%@",_totalarray);
+               
+                
+                if (i==[_summaryarray count]-1) {
+                    
+                    
+                    [self calculatecost];
+                    sum=0;
+                    
+                }
+                
+            }
+            
+            break;
+
 
         default:
             break;

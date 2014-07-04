@@ -25,5 +25,10 @@
 @property(strong,nonatomic)NSString *BidMType;
 @property(strong,nonatomic)NSString *Type;
 
+/*for cost*/
+@property(strong,nonatomic)NSString *bidreviewid;
+@property(strong,nonatomic)NSString *name;
+@property(strong,nonatomic)NSString *cost;
+
 
 @end

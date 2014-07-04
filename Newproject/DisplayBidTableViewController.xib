@@ -24,6 +24,7 @@
                 <outlet property="sumdisplaylabel" destination="FWR-Hw-C08" id="Tqv-GN-sGR"/>
                 <outlet property="summarybtn" destination="GwD-H3-R19" id="lWV-fo-mgt"/>
                 <outlet property="summarytitle" destination="cGt-82-xbW" id="Cto-dh-xbR"/>
+                <outlet property="totqtylabel" destination="FQ6-x9-koi" id="0RA-z4-cex"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
