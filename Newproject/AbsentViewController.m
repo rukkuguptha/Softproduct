@@ -208,7 +208,7 @@
      webtype=1;
      [self AbsentManagementselect];
 }
-
+#pragma mark-Web Service
 -(void)AbsentManagementselect{
    
     recordResults=FALSE;
