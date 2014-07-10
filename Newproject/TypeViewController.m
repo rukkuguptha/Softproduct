@@ -549,6 +549,14 @@
     }
 
     }
-
+#pragma mark-Textfield Delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(textField==_typetxtfld)
+    {
+        NSUInteger newLength = [_typetxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
+}
 
 @end
