@@ -8,6 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TimeSheetViewController">
             <connections>
                 <outlet property="labrothrcell" destination="TbY-fb-UEs" id="Lbb-E8-G2r"/>
+                <outlet property="oamuntlbl" destination="08K-Vi-vDo" id="bM5-Kh-t2k"/>
+                <outlet property="odate" destination="fXi-ng-1m6" id="kE4-AX-eB1"/>
+                <outlet property="onamelbl" destination="Xy5-or-4RP" id="f5O-q6-ax2"/>
+                <outlet property="ophase" destination="unH-Pi-HA9" id="dwm-B7-Kqq"/>
+                <outlet property="opolbl" destination="V7b-dN-cFb" id="dFx-28-UXH"/>
+                <outlet property="osequnce" destination="PIG-nI-wGf" id="1F6-zr-uFA"/>
+                <outlet property="otag" destination="YuR-75-aXn" id="K7e-hp-dgN"/>
+                <outlet property="owolbl" destination="kgb-uX-gaO" id="rLM-l4-9I4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

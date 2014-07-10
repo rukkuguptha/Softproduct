@@ -179,6 +179,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *eqwolbl;
 @property (strong, nonatomic) IBOutlet UILabel *eqtaglbl;
 
+/*otherscell*/
+@property (strong, nonatomic) IBOutlet UILabel *onamelbl;
+@property (strong, nonatomic) IBOutlet UILabel *oamuntlbl;
 
+@property (strong, nonatomic) IBOutlet UILabel *odate;
+@property (strong, nonatomic) IBOutlet UILabel *ophase;
+@property (strong, nonatomic) IBOutlet UILabel *osequnce;
+@property (strong, nonatomic) IBOutlet UILabel *otag;
+@property (strong, nonatomic) IBOutlet UILabel *opolbl;
+@property (strong, nonatomic) IBOutlet UILabel *owolbl;
 
 @end

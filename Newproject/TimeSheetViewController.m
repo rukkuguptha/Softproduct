@@ -34,7 +34,7 @@
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    barbtntype=1;
+    newbarbutntype=1;
     _view1.hidden=NO;
     _view2.hidden=YES;
     _labortableview.hidden=NO;
@@ -416,6 +416,7 @@
     
     switch (newbarbutntype) {
         case 1:
+              barbtntype=1;
             [self TimesheetLaborselect];
             break;
         case 2:
