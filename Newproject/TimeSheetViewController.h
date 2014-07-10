@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CKCalendarView.h"
 #import "jobsitemodel.h"
+#import "Timesheetmdl.h"
 @interface TimeSheetViewController : UIViewController{
     
     NSInteger barbtntype;
@@ -18,12 +19,20 @@
     BOOL  recordResults;
     NSString*jobnumber;
     NSInteger poptype;
+     NSInteger poptype2;
+    NSInteger selectedindex,webtype,newbarbutntype;
+    
+    NSString*formanname,*skillname,*phaseid,*purchseid,*workid,*jobsequceid,*jobdate;
+    
 }
+@property(nonatomic, strong)Timesheetmdl*timesheetmdl;
 @property(nonatomic, strong)jobsitemodel*jobmdl;
 @property (strong, nonatomic)NSMutableArray*jobarray;
 @property (strong, nonatomic)NSMutableArray*newjobarray;
-@property (strong, nonatomic)NSMutableArray*skillarray;
+@property (strong, nonatomic)NSMutableArray*skillarray,*timesheetarray,*equmntarray;
 
+@property (strong, nonatomic)NSMutableDictionary *jobdict;
+@property (strong, nonatomic)NSMutableDictionary *foremandict, *skilldict,*phasedict,*POdict,*WOdict,*sequcedict,*revphasedict;
 /*calendar*/
 @property(nonatomic, weak) CKCalendarView *calendar;
 @property(nonatomic, strong) NSDateFormatter *dateFormatter;
@@ -89,8 +98,12 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *materialbarbtn;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *consumblebarbtn;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *othrsbarbtn;
+@property (strong, nonatomic) IBOutlet UIButton *po1btnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *wo1btnlbl;
 
+- (IBAction)wo1btn:(id)sender;
 
+- (IBAction)po1btn:(id)sender;
 
 
 - (IBAction)allemplysbtn:(id)sender;
@@ -138,6 +151,34 @@
 @property (strong, nonatomic) IBOutlet UITableViewCell *laborcell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *labrequpcell;
 @property (strong, nonatomic) IBOutlet UITableViewCell *labrothrcell;
+
+
+
+ /*labocell*/
+@property (strong, nonatomic) IBOutlet UILabel *lbnamelbl;
+@property (strong, nonatomic) IBOutlet UILabel *craftlbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbdatelbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbtimeinlbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbtimeoutlbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbphasebtnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbsewuncebtnlbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *lbtagbtnlbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbpolbl;
+@property (strong, nonatomic) IBOutlet UILabel *lbwolbl;
+
+/*Equpcell*/
+@property (strong, nonatomic) IBOutlet UILabel *eqnamelbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqdatelbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqtimeinlbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqtimeoutlbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *eqphaselbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqsequcelbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqpolbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqwolbl;
+@property (strong, nonatomic) IBOutlet UILabel *eqtaglbl;
+
 
 
 @end
