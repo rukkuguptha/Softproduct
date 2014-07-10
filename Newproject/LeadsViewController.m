@@ -934,8 +934,16 @@ if (tableView==_leadTable) {
         else if(value2==0)
         {
             
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
+            if([_emailidtxtfld.text length]==0)
+            {
+                
+            }
+            else
+            {
+                UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+            }
+
         }
         else
         {
@@ -2508,8 +2516,15 @@ if (tableView==_leadTable) {
         }
         else
         {
+            if([_emailidtxtfld.text length]==0)
+            {
+            
+            }
+            else
+            {
             UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Email" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
+            }
         }
         
         

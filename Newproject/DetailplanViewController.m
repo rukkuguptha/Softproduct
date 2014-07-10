@@ -70,6 +70,8 @@
  _generalview.hidden=NO;
      _generalbtn.tintColor=[UIColor whiteColor];
     _scaffoldbtn.tintColor=[UIColor blackColor];
+    _fireproofingbtn.tintColor=[UIColor blackColor];
+    _insulationbtn.tintColor=[UIColor blackColor];
         _navabar.title=[NSString stringWithFormat:@"Plan-%@",_planid];
       [self GeneralSelect];
     [self TotalManHoursSelect];
@@ -1037,7 +1039,7 @@
 
 }
 -(void)SelectAllPhases{
-    
+    webtype=3;
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -1716,7 +1718,7 @@
         recordResults = TRUE;
     }
     if([elementName isEqualToString:@"PlanPhasesSelectResult"])
-    {
+    { webtype=3;
         _phasearray=[[NSMutableArray alloc]init];
         _phasedict=[[NSMutableDictionary alloc]init];
         _phaseiddict=[[NSMutableDictionary alloc]init];
