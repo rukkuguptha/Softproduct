@@ -569,14 +569,36 @@ _addview.hidden=YES;
 }
 
 - (IBAction)updatebtn:(id)sender {
-    if (optionidentifier==1) {
+    
+    Validation*val=[[Validation alloc]init];
+    int value1=[val isNumeric:_seqnotextfld.text];
+    if(value1==0)
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Sequence Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        
+        
+    }
+    else if ([_seqnotextfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else
+    {
+
+    
+    if (optionidentifier==1)
+    {
         [self JobSequenceInsert];
     }
+    
     else if (optionidentifier==2)
     {
         [self JobSequenceUpdate];
-
+        
     }
+  }
 }
 -(IBAction)deleteAction:(id)sender
 {
@@ -613,7 +635,12 @@ _addview.hidden=YES;
             
         }
     }
-    
+    if([alertView.message isEqualToString:@"Invalid Sequence Number"])
+    {
+        
+        _seqnotextfld.text=@"";
+    }
+
     
     
     
@@ -621,6 +648,46 @@ _addview.hidden=YES;
     
     
 }
+#pragma mark-Textfield Delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(textField==_seqnotextfld)
+    {
+        NSUInteger newLength = [_seqnotextfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
+}
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField
+//{
+//    
+//    Validation*val=[[Validation alloc]init];
+//    if(textField==_seqnotextfld)
+//    {
+//        int value1=[val isBlank:_seqnotextfld.text];
+//        if(value1==0)
+//        {
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//        }
+//    }
+//    return YES;
+//}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField==_seqnotextfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_seqnotextfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Sequence Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
 
-
+}
 @end

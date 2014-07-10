@@ -181,7 +181,7 @@
                                         <navigationItem title="EDIT" id="8UP-FQ-7hl">
                                             <barButtonItem key="rightBarButtonItem" id="yrb-2M-TDH">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1A8-da-hea">
-                                                    <rect key="frame" x="373" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="363" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
                                                     <state key="normal" image="appbar.close.png">

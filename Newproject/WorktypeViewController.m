@@ -455,7 +455,7 @@
         recordResults = FALSE;
         if (webtype==1||webtype==2) {
             msgstrg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         _soapResults = nil;
@@ -478,6 +478,15 @@
             
         }
     }
+}
+#pragma mark-Textfield Delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if(textField==_typetxtfld)
+    {
+        NSUInteger newLength = [_typetxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    return YES;
 }
 
 #pragma mark-Actions

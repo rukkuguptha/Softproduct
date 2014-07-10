@@ -278,6 +278,9 @@
                     <color key="backgroundColor" red="0.62420280610000001" green="0.40847113340000002" blue="0.50701583500000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="tintColor" red="0.62420280610000001" green="0.40847113340000002" blue="0.50701583500000003" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="barTintColor" red="0.62420280610000001" green="0.40847113340000002" blue="0.50701583500000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                    </textAttributes>
                     <items>
                         <navigationItem id="Gaj-Av-tvz">
                             <barButtonItem key="rightBarButtonItem" style="plain" id="G70-vW-DqL">

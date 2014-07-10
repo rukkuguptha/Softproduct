@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "NumbrSerMdl.h"
+#import "Validation.h"
 
 @interface SerialViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>{
     
@@ -18,6 +19,7 @@
     NSInteger webtype;
     NSInteger path;
 }
+@property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)NumbrSerMdl *seqmdl;
 @property(readwrite)NSInteger skillid;
 @property(strong,nonatomic)NSString *displaystring;

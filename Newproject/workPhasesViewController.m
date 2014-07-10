@@ -264,7 +264,7 @@
     }
     else if([_servicebtn.titleLabel.text isEqualToString:@"Select"]||[_servicebtn.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Service Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
 
     }
