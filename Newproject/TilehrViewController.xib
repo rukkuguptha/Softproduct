@@ -26,10 +26,10 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                     </textAttributes>
                     <items>
-                        <navigationItem title="HR" id="0US-DB-Qhd">
+                        <navigationItem title="Human Resources" id="0US-DB-Qhd">
                             <barButtonItem key="rightBarButtonItem" id="h1d-tx-aj1">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UDf-RE-dBv">
-                                    <rect key="frame" x="484" y="2" width="40" height="40"/>
+                                    <rect key="frame" x="474" y="-3" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                     <state key="normal" image="appbar.close.png">

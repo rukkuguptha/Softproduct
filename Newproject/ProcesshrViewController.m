@@ -1094,6 +1094,35 @@ return aSection.newsectionHeaderView;
     
     
 }
+#pragma mark - SearchBar
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    [self SearchApplicants];
+    
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    [self ListAllApplicants];
+    
+}
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if ([_SearchingBar.text length]==0) {
+        
+        [searchBar resignFirstResponder];
+        [self ListAllApplicants];
+        
+    }
+    else  if ([_SearchingBar.text length]>0) {
+        
+        
+        
+        
+        _searchstring=_SearchingBar.text;
+        
+        
+    }
+    
+}
+
 
 #pragma mark-Button Actions
 

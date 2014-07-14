@@ -39,7 +39,7 @@
         
         //create and configure detail button
         UIButton *detailbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        detailbtn.frame = CGRectMake(15.0, 5.0, 35.0, 35.0);
+        detailbtn.frame = CGRectMake(15.0, 10.0, 35.0, 35.0);
         [detailbtn setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
         [detailbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
         [detailbtn addTarget:self action:@selector(nextpage) forControlEvents:UIControlEventTouchUpInside];
@@ -68,7 +68,7 @@
         
         // Create and configure the disclosure button.
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        button.frame = CGRectMake(210.0, 5.0, 35.0, 35.0);
+        button.frame = CGRectMake(210.0, 10.0, 35.0, 35.0);
         [button setImage:[UIImage imageNamed:@"carat.png"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
         [button addTarget:self action:@selector(showaction) forControlEvents:UIControlEventTouchUpInside];
@@ -96,7 +96,7 @@
         proecsslbl2=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
         proecsslbl2.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
         proecsslbl2.textColor=[UIColor blackColor];
-        proecsslbl2.text=@"SendtoEmployee";
+        proecsslbl2.text=@"Send To Employee";
         [self.animatedview2 addSubview:proecsslbl2];
         proecsslbl2.hidden=YES;
         UITapGestureRecognizer *tap11= [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sentjob)];

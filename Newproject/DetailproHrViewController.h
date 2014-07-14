@@ -13,6 +13,8 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "Base64.h"
 #import "WebViewController.h"
+#import "Validation.h"
+#import "Appreqmdl.h"
 
 @interface DetailproHrViewController : UIViewController<UIImagePickerControllerDelegate>
 {
@@ -21,9 +23,18 @@
     NSString *dateString ;
     UIButton *button;
     NSString *urlstring;
-
+    NSString*statusstring;
+    NSInteger webtype;
+ NSString*vendorstrg;
+    NSInteger check;
+    NSInteger dateselctor;
+    NSInteger btnindex;
     
 }
+
+@property (strong, nonatomic)Appreqmdl*appreqmdl;
+@property (strong, nonatomic)NSMutableArray*requirmntarray;
+@property (strong, nonatomic)NSMutableDictionary*vendordict;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *detailbtnlbl;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *docubtnlbl;
@@ -60,12 +71,14 @@
 @property(strong,nonatomic)IBOutlet UITableView *detailstablview;
 @property(strong,nonatomic)IBOutlet UIView *detailstabletitleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *detailscell;
+@property (strong, nonatomic) IBOutlet UIButton *vendrnamebtnlbl;
+@property (strong, nonatomic) IBOutlet UIButton *verfictnbtnlbl;
 
 //celldetail labels
-@property(strong,nonatomic)IBOutlet UILabel *requirementlabel;
-@property(strong,nonatomic)IBOutlet UILabel *statuslabel;
-@property(strong,nonatomic)IBOutlet UILabel *expirylabel;
-@property(strong,nonatomic)IBOutlet UILabel *verificationlabel;
+@property (strong, nonatomic) IBOutlet UILabel *reqnamelbl;
+@property (strong, nonatomic) IBOutlet UIButton *statuslbl;
+@property (strong, nonatomic) IBOutlet UIButton *detalexpbtnlbl;
+
 @property(strong,nonatomic)IBOutlet UIButton *editbtn;
 @property(strong,nonatomic)IBOutlet UIView *editview;
 -(IBAction)editdetails:(id)sender;
@@ -74,6 +87,10 @@
 -(IBAction)cancelrequirement:(id)sender;
 -(IBAction)selectstatus:(id)sender;
 -(IBAction)verifiedaction:(id)sender;
+
+- (IBAction)detailexpbtn:(id)sender;
+- (IBAction)vendorbtn:(id)sender;
+
 
 /*W4 view*/
 @property(strong,nonatomic)IBOutlet UIView *w4detailview;
@@ -113,7 +130,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *docnamelbl;
 - (IBAction)showbtn:(id)sender;
 
-
+@property (strong, nonatomic)NSMutableDictionary*statusdict;
 
 /*document View*/
 @property(strong,nonatomic)IBOutlet UIView *dcmntdetailview;
@@ -130,6 +147,8 @@
 - (IBAction)detailclsebtn:(id)sender;
 
 
+
+
 /*popover*/
 @property(strong,nonatomic)UIPopoverController *popOverController;
 @property(strong,nonatomic)UITableView *popOverTableView;
@@ -143,5 +162,11 @@
 @property(strong,nonatomic)NSMutableArray  *payementtypearray;
 @property(strong,nonatomic)NSMutableArray  *payementtypekey;
 
+@property(strong,nonatomic)IBOutlet UILabel *requirementlabel;
+@property(strong,nonatomic)IBOutlet UILabel *statuslabel;
+@property(strong,nonatomic)IBOutlet UILabel *expirylabel;
+@property(strong,nonatomic)IBOutlet UILabel *verificationlabel;
+@property (strong, nonatomic) IBOutlet UILabel *vendrnamelbl;
+- (IBAction)editbtn:(id)sender;
 
 @end

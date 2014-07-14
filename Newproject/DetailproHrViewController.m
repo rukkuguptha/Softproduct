@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+      [self Applicantrequirementselect];
     _w4detailview.hidden=YES;
     _paymentdetailview.hidden=YES;
     _dcmntdetailview.hidden=YES;
@@ -79,7 +81,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     if(tableView==_detailstablview)
     {
-         return 5;
+         return [_requirmntarray count];
     }
     if(tableView==_documentlisttable)
     {
@@ -93,6 +95,13 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         if (poptype==2) {
             return [_payementtypearray count];
         }
+        if (poptype==3) {
+            return [_statusdict count];
+        }
+        if (poptype==4) {
+            return [_vendordict count];
+        }
+
     }
     return YES;
    
@@ -121,6 +130,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         }
     
     if (tableView==_popOverTableView) {
+        NSArray*array=[_statusdict allKeys];
+        NSArray*vendrarray=[_vendordict allKeys];
         if (poptype==1) {
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
             cell.textLabel.font = [UIFont systemFontOfSize:12.0];
@@ -135,7 +146,13 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
             cell.textLabel.text=[_payementtypearray objectAtIndex:indexPath.row];
 
                    }
-
+        if (poptype==3) {
+            cell.textLabel.text=[array objectAtIndex:indexPath.row];
+        }
+        
+         if (poptype==4) {
+             cell.textLabel.text=[vendrarray objectAtIndex:indexPath.row];
+         }
            }
     }
     if(tableView==_documentlisttable){
@@ -146,7 +163,22 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         
         
     }
-
+    if(tableView==_detailstablview){
+        Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:indexPath.row];
+        _requirementlabel=(UILabel*)[cell viewWithTag:1];
+        _requirementlabel.text=appreqmdl.reqname;
+        _statuslabel=(UILabel*)[cell viewWithTag:2];
+        _statuslabel.text=appreqmdl.status;
+        _expirylabel=(UILabel*)[cell viewWithTag:3];
+        _expirylabel.text=appreqmdl.expdate;
+        _verificationlabel=(UILabel*)[cell viewWithTag:4];
+        _verificationlabel.text=appreqmdl.verifictnstatus;
+       // _vendrnamelbl=(UILabel*)[cell viewWithTag:5];
+       // _vendrnamelbl.text=appreqmdl.vendorname;
+        
+        
+        
+    }
     
     return cell;
 }
@@ -155,6 +187,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView==_popOverTableView){
+          NSArray*array=[_statusdict allKeys];
+        NSArray*vendrarray=[_vendordict allKeys];
          if (poptype==1) {
         
         //_maritalbtn.titleLabel.text=[_maritalarray objectAtIndex:indexPath.row];
@@ -211,7 +245,16 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
             }
             
         }
+        if (poptype==3) {
+               [_statuslbl  setTitle:[array objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+          
+        }
+        if (poptype==4) {
+            [_vendrnamebtnlbl  setTitle:[vendrarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            
+        }
         
+
 
     }
         
@@ -493,6 +536,241 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     
 }
+-(void)Applicantrequirementselect{
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Applicantrequirementselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "<Applicant_Id>%d</Applicant_Id>\n"
+                   "</Applicantrequirementselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",empdmdl.applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Applicantrequirementselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)Statusselect{
+   
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+   
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Statusselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                
+                   "</Statusselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Statusselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)ReqVendorselect{
+   
+
+    recordResults=FALSE;
+    NSString *soapMessage;
+    
+    
+    
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ReqVendorselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   
+                   "</ReqVendorselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ReqVendorselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)ApplicantReqirement2Update{
+   
+    NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc]init];
+    [dateFormat1 setDateFormat: @"MM/dd/yyyy"];
+    
+ 
+    NSDate *dateString1 = [dateFormat1 dateFromString:_detalexpbtnlbl.titleLabel.text];
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
+    [dateFormat2 setDateFormat:@"YYYY-MM-dd"];
+    NSString* sqldate=[dateFormat2 stringFromDate:dateString1];
+    
+    recordResults=FALSE;
+    NSString *soapMessage;
+       Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:btnindex];
+    
+     Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ApplicantReqirement2Update xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<EntryId>%d</EntryId>\n"
+                   "<Applicant_Id>%d</Applicant_Id>\n"
+               
+                   "<RequirementName>%@</RequirementName>\n"
+                   "<expir_date>%@</expir_date>\n"
+                   "<status>%d</status>\n"
+                   "<ARVendorId>%@</ARVendorId>\n"
+                   
+                   "</ApplicantReqirement2Update>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[appreqmdl.entryid integerValue ],empdmdl.applicantid,appreqmdl.reqname,sqldate,[[_statusdict objectForKey:_statuslbl.titleLabel.text]integerValue ],[_vendordict objectForKey:_vendrnamebtnlbl.titleLabel.text]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ApplicantReqirement2Update" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -529,6 +807,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [_popOverTableView reloadData];
     [_documentlisttable reloadData];
+    [_detailstablview reloadData];
     
 }
 #pragma mark - XMLParser
@@ -590,6 +869,118 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"ApplicantrequirementselectResponse"])
+    {
+        _requirmntarray=[[NSMutableArray alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Requirement_Name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"expir_date"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Verification_status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"status"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"StatusselectResponse"])
+    {
+        _statusdict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"statusname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"ReqVendorselectResponse"])
+    {
+        _vendordict=[[NSMutableDictionary alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"ReqEntryId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"VendorName"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -630,12 +1021,85 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     {
         
         recordResults = FALSE;
-        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+        UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
         _documentnametextfld.text=@"";
         [self SelectHRDocs];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"EntryId"])
+    {
+        _appreqmdl=[[Appreqmdl alloc]init];
+         recordResults = FALSE;
+        _appreqmdl.entryid=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Requirement_Name"])
+    {
+        recordResults = FALSE;
+          _appreqmdl.reqname=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"expir_date"])
+    {
+        recordResults = FALSE;
+        NSArray*array=[_soapResults componentsSeparatedByString:@"T"];
+        NSString*news=[array objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:news];
+        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+           _appreqmdl.expdate=myFormattedDate;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"Verification_status"])
+    {
+        recordResults = FALSE;
+           _appreqmdl.verifictnstatus=_soapResults;
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"status"])
+    {
+        recordResults = FALSE;
+           _appreqmdl.status=_soapResults;
+        [_requirmntarray addObject:_appreqmdl];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"id"])
+    {
+       recordResults = FALSE;
+        statusstring=_soapResults;
+         _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"statusname"])
+    {
+        recordResults = FALSE;
+        [_statusdict setObject:statusstring forKey:_soapResults];
+        _soapResults = nil;
+    }
+
+    if([elementName isEqualToString:@"ReqEntryId"])
+    {
+        recordResults = FALSE;
+        vendorstrg=_soapResults;
+        _soapResults = nil;
+
+        
+    }
+ 
+    if([elementName isEqualToString:@"VendorName"])
+    {
+        recordResults = FALSE;
+        [_vendordict setObject:vendorstrg forKey:_soapResults];
+        _soapResults = nil;
+        
+    }
+
 }
 
 #pragma mark - Calendar
@@ -688,10 +1152,21 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     //create a popover controller
     self.popOverController = [[UIPopoverController alloc]
                               initWithContentViewController:popoverContent];
+    
+      if (!dateselctor==11) {
     [self.popOverController presentPopoverFromRect:_expbtn.frame
                                             inView:self.paymentdetailview
                           permittedArrowDirections:UIPopoverArrowDirectionUp
                                           animated:YES];
+      }
+      else{
+          [self.popOverController presentPopoverFromRect:_detalexpbtnlbl.frame
+                                                  inView:self.editview
+                                permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                animated:YES];
+          
+
+           }
     
 }
 
@@ -710,11 +1185,74 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
     
-    NSString *dateString = [dateFormat stringFromDate:date];
-[_expbtn setTitle:dateString forState:UIControlStateNormal];}
+    NSString *dateString1 = [dateFormat stringFromDate:date];
+    if (dateselctor==11) {
+        [_detalexpbtnlbl setTitle:dateString1 forState:UIControlStateNormal];
+    }
+    else{
+        [_expbtn setTitle:dateString1 forState:UIControlStateNormal];
+    }
 
 
 
+}
+
+
+#pragma mark-UIpopover
+-(void)createpopover{
+   
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 230, 100)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 230, 100)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 32;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(230, 100);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    
+    
+    switch (webtype) {
+        case 1:
+            [self.popOverController presentPopoverFromRect:_statuslbl.frame
+                                                    inView:self.editview
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+
+            break;
+        case 2:
+            [self.popOverController presentPopoverFromRect:_vendrnamebtnlbl.frame
+                                                    inView:self.editview
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            
+            break;
+
+        default:
+            break;
+    }
+    
+   }
 
 #pragma mark-Button Action
 -(IBAction)selectmaritalstatus:(id)sender
@@ -819,89 +1357,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 - (IBAction)detailclsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
--(IBAction)selectfileaction:(id)sender{
-    if ([UIImagePickerController isSourceTypeAvailable:
-         UIImagePickerControllerSourceTypeCamera])
-    {
-        
-        
-        UIImagePickerController *imagePicker =
-        [[UIImagePickerController alloc] init];
-        imagePicker.delegate =(id) self;
-        imagePicker.sourceType =
-        UIImagePickerControllerSourceTypeCamera;
-        imagePicker.showsCameraControls=YES;
-        
-        imagePicker.mediaTypes = [NSArray arrayWithObjects:
-                                  (NSString *) kUTTypeImage,
-                                  nil];
-        imagePicker.allowsEditing = NO;
-        // imagePicker.cameraCaptureMode=YES;
-        [self presentViewController:imagePicker animated:YES completion:nil];
-        _newMedia = YES;
-    }
-}
-#pragma mark-ImagePicker
--(void)imagePickerController:(UIImagePickerController *)picker
-didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    // [self.popoverController dismissPopoverAnimated:true];
-    NSString *mediaType = [info
-                           objectForKey:UIImagePickerControllerMediaType];
-    
-    
-    
-    
-    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
-        UIImage *image = [info
-                          objectForKey:UIImagePickerControllerOriginalImage];
-        NSLog(@"dict%@",info);
-    
-        
-        _previewimg.image=nil;
-        _previewimg.image=image;
-      
-        [self dismissViewControllerAnimated:YES completion:nil];
-        if (_newMedia)
-            UIImageWriteToSavedPhotosAlbum(image,
-                                           self,
-                                           @selector(image:finishedSavingWithError:contextInfo:),
-                                           nil);
-    }
-    
-    
-    
-}
 
--(void)image:(UIImage *)image
-finishedSavingWithError:(NSError *)error
- contextInfo:(void *)contextInfo
-{
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Save failed"
-                              message: @"Failed to save image"
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
-    }
-    
-    else{
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }
-}
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-    
     
     
     
@@ -916,6 +1372,7 @@ finishedSavingWithError:(NSError *)error
 }
 - (IBAction)DetailsBtnAction:(id)sender
 {
+    [self Applicantrequirementselect];
     _detailbtnlbl.tintColor=[UIColor whiteColor];
        _docubtnlbl.tintColor=[UIColor blackColor];
        _w4btnlbl.tintColor=[UIColor blackColor];
@@ -976,12 +1433,32 @@ finishedSavingWithError:(NSError *)error
 {
     _editview.hidden=YES;
 }
+-(IBAction)updaterequirement:(id)sender{
+    [self ApplicantReqirement2Update];
+}
 
 -(IBAction)cancelrequirement:(id)sender{
+  
+    [_statuslbl  setTitle:@"Select" forState:UIControlStateNormal];
+      [_vendrnamebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    [_detalexpbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+[_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
     
 }
 - (IBAction)w4savebtn:(id)sender {
+    
+    Validation*val=[[Validation alloc]init];
+    int value1=[val isNumeric:_Dependentstexffld.text];
+    if(value1==0)
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        
+        
+    }
+    else{
     [self UpdateW4];
+    }
     
     }
 - (IBAction)showbtn:(id)sender {
@@ -1006,4 +1483,169 @@ finishedSavingWithError:(NSError *)error
 
     
 }
+- (IBAction)editbtn:(id)sender {
+    _editview.hidden=NO;
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.detailstablview];
+    NSIndexPath *textFieldIndexPath = [self.detailstablview indexPathForRowAtPoint:rootViewPoint];
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    btnindex=textFieldIndexPath.row;
+    Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:textFieldIndexPath.row];
+    _reqnamelbl.text=appreqmdl.reqname;
+    NSArray*statusarry=[_statusdict allKeys];
+      [_statuslbl  setTitle:[statusarry objectAtIndex:textFieldIndexPath.row] forState:UIControlStateNormal];
+    NSArray*vendorarray=[_vendordict allKeys];
+    [_vendrnamebtnlbl  setTitle:[vendorarray objectAtIndex:textFieldIndexPath.row] forState:UIControlStateNormal];
+    [_detalexpbtnlbl  setTitle:appreqmdl.expdate forState:UIControlStateNormal];
+    
+    if ([appreqmdl.verifictnstatus isEqualToString:@"true"]) {
+         [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        check=1;
+    }
+    else{
+          [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        check=0;
+    }
+    
+    
+}
+- (IBAction)detailexpbtn:(id)sender {
+    dateselctor=11;
+    [self createCalenderPopover];
+}
+
+- (IBAction)vendorbtn:(id)sender {
+     webtype=2;
+    poptype=4;
+    
+    [self createpopover];
+    [self ReqVendorselect];
+}
+
+-(IBAction)selectstatus:(id)sender{
+     webtype=1;
+     poptype=3;
+    [self createpopover];
+    [self Statusselect];
+    
+}
+-(IBAction)verifiedaction:(id)sender{
+   
+    if (check==0) {
+         [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+        check=1;
+    }
+    else if (check==1){
+         [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+        check=0;
+    }
+    
+    
+      // Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:indexPath.row];
+    
+//    if ([appreqmdl.verifictnstatus isEqualToString:@"0"])
+//        
+//        
+//    {
+//        
+//        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+//        
+//        
+//        check=1;
+//        
+//        
+//    }
+//    else
+//    {
+//        [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+//        check=0;
+//        
+//    }
+
+}
+
+-(IBAction)selectfileaction:(id)sender{
+    if ([UIImagePickerController isSourceTypeAvailable:
+         UIImagePickerControllerSourceTypeCamera])
+    {
+        
+        
+        UIImagePickerController *imagePicker =
+        [[UIImagePickerController alloc] init];
+        imagePicker.delegate =(id) self;
+        imagePicker.sourceType =
+        UIImagePickerControllerSourceTypeCamera;
+        imagePicker.showsCameraControls=YES;
+        
+        imagePicker.mediaTypes = [NSArray arrayWithObjects:
+                                  (NSString *) kUTTypeImage,
+                                  nil];
+        imagePicker.allowsEditing = NO;
+        // imagePicker.cameraCaptureMode=YES;
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        _newMedia = YES;
+    }
+}
+#pragma mark-ImagePicker
+-(void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // [self.popoverController dismissPopoverAnimated:true];
+    NSString *mediaType = [info
+                           objectForKey:UIImagePickerControllerMediaType];
+    
+    
+    
+    
+    if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
+        UIImage *image = [info
+                          objectForKey:UIImagePickerControllerOriginalImage];
+        NSLog(@"dict%@",info);
+        
+        
+        _previewimg.image=nil;
+        _previewimg.image=image;
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        if (_newMedia)
+            UIImageWriteToSavedPhotosAlbum(image,
+                                           self,
+                                           @selector(image:finishedSavingWithError:contextInfo:),
+                                           nil);
+    }
+    
+    
+    
+}
+
+-(void)image:(UIImage *)image
+finishedSavingWithError:(NSError *)error
+ contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    else{
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
+}
+-(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+
 @end

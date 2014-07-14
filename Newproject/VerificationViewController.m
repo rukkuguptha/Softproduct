@@ -972,6 +972,13 @@ ssnclck++;
     recordResults = FALSE;
     NSString *soapMessage;
     
+    NSDate *daa=[NSDate date];
+   
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MM-dd"];
+    NSString*hiredate = [dateFormat stringFromDate:daa];
+   
+
     Verfymdl *verfymdl=(Verfymdl *)[_Fetchdetailsarray objectAtIndex:0];
     soapMessage = [NSString stringWithFormat:
                    
@@ -1006,7 +1013,7 @@ ssnclck++;
                    "<job_id>%@</job_id>\n"
                    "</EmployeeInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",verfymdl.firstname,verfymdl.lastname,verfymdl.ssn,verfymdl.address,verfymdl.cellphone,verfymdl.Phonenumber,verfymdl.city,verfymdl.state,verfymdl.zip,verfymdl.dob,verfymdl.drivinglicence,verfymdl.hireddate,verfymdl.gender,verfymdl.country,verfymdl.email,[verfymdl.noofdependcies floatValue],verfymdl.maritalstatusid,[_craftdict objectForKey:_craftbtnlbl.titleLabel.text],[_payratetxtfld.text floatValue],[@"150" floatValue],0,_verfymdl.jobsiteid];
+                   "</soap:Envelope>\n",verfymdl.firstname,verfymdl.lastname,verfymdl.ssn,verfymdl.address,verfymdl.cellphone,verfymdl.Phonenumber,verfymdl.city,verfymdl.state,verfymdl.zip,verfymdl.dob,verfymdl.drivinglicence,hiredate,verfymdl.gender,verfymdl.country,verfymdl.email,[verfymdl.noofdependcies floatValue],verfymdl.maritalstatusid,[_craftdict objectForKey:_craftbtnlbl.titleLabel.text],[_payratetxtfld.text floatValue],[@"150" floatValue],0,_verfymdl.jobsiteid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1550,6 +1557,23 @@ ssnclck++;
         recordResults = TRUE;
     }
     
+    if([elementName isEqualToString:@"EmployeeInsertResult"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 
 }
@@ -2058,6 +2082,13 @@ ssnclck++;
         [_skillarray addObject:_soapResults];
         [_skilldict setObject:_soapResults forKey:_skillid];
         _soapResults=nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+          recordResults=FALSE;
+        UIAlertView*alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alertview show];
+          _soapResults=nil;
     }
 
 

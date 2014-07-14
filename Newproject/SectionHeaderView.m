@@ -73,7 +73,7 @@
         
         //create uiview
         _animatedview=[[UIView alloc]initWithFrame:CGRectMake(250, 5, 0, 25)];
-        _animatedview.backgroundColor=[UIColor colorWithRed:110.0/255.0f green:123.0/255.0f blue:139.0/255.0f alpha:1.0f];
+        _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
         proecsslbl=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
         proecsslbl.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
         proecsslbl.textColor=[UIColor blackColor];

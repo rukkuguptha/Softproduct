@@ -39,6 +39,13 @@
      self.view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _scroll.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _applicantprocessview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    
+    
+    _employeestable.layer.borderWidth = 2.0;
+    _employeestable.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+//    _employeecell.layer.borderWidth = 3.0;
+//    _employeecell.layer.borderColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+
      // Do any additional setup after loading the view from its nib.
   //
 
@@ -511,7 +518,7 @@
     if ([_SearchingBar.text length]==0) {
         
              [searchBar resignFirstResponder];
-        
+         [self ListAllApplicants];
         
     }
     else  if ([_SearchingBar.text length]>0) {
