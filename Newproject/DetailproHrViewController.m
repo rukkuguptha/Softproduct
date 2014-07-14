@@ -28,6 +28,8 @@
     [super viewDidLoad];
     
       [self Applicantrequirementselect];
+    [self Statusselect];
+    [self ReqVendorselect];
     _w4detailview.hidden=YES;
     _paymentdetailview.hidden=YES;
     _dcmntdetailview.hidden=YES;
@@ -168,13 +170,14 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         _requirementlabel=(UILabel*)[cell viewWithTag:1];
         _requirementlabel.text=appreqmdl.reqname;
         _statuslabel=(UILabel*)[cell viewWithTag:2];
-        _statuslabel.text=appreqmdl.status;
+        _statuslabel.text=[_restatusdict objectForKey:appreqmdl.status];
         _expirylabel=(UILabel*)[cell viewWithTag:3];
         _expirylabel.text=appreqmdl.expdate;
         _verificationlabel=(UILabel*)[cell viewWithTag:4];
         _verificationlabel.text=appreqmdl.verifictnstatus;
-       // _vendrnamelbl=(UILabel*)[cell viewWithTag:5];
-       // _vendrnamelbl.text=appreqmdl.vendorname;
+        
+               _vendrnamelbl=(UILabel*)[cell viewWithTag:5];
+        //_vendrnamelbl.text=[_rev objectForKey:appreqmdl.status]appreqmdl.vendorname;
         
         
         
@@ -708,13 +711,15 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
  
     NSDate *dateString1 = [dateFormat1 dateFromString:_detalexpbtnlbl.titleLabel.text];
+    
+    NSLog(@"date%@",_detalexpbtnlbl.titleLabel.text);
     NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc]init];
     [dateFormat2 setDateFormat:@"YYYY-MM-dd"];
     NSString* sqldate=[dateFormat2 stringFromDate:dateString1];
     
     recordResults=FALSE;
     NSString *soapMessage;
-       Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:btnindex];
+    Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:btnindex];
     
      Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
     
@@ -731,14 +736,14 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    "<EntryId>%d</EntryId>\n"
                    "<Applicant_Id>%d</Applicant_Id>\n"
                
-                   "<RequirementName>%@</RequirementName>\n"
+                   "<Requirement_Name>%@</Requirement_Name>\n"
                    "<expir_date>%@</expir_date>\n"
                    "<status>%d</status>\n"
                    "<ARVendorId>%@</ARVendorId>\n"
-                   
+                   "<verification_status>%d</verification_status>\n"
                    "</ApplicantReqirement2Update>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[appreqmdl.entryid integerValue ],empdmdl.applicantid,appreqmdl.reqname,sqldate,[[_statusdict objectForKey:_statuslbl.titleLabel.text]integerValue ],[_vendordict objectForKey:_vendrnamebtnlbl.titleLabel.text]];
+                   "</soap:Envelope>\n",[appreqmdl.entryid integerValue ],empdmdl.applicantid,appreqmdl.reqname,sqldate,[[_statusdict objectForKey:_statuslbl.titleLabel.text]integerValue ],[_vendordict objectForKey:_vendrnamebtnlbl.titleLabel.text],1];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -927,6 +932,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     if([elementName isEqualToString:@"StatusselectResponse"])
     {
         _statusdict=[[NSMutableDictionary alloc]init];
+        _restatusdict=[[NSMutableDictionary alloc]init];
+
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -955,6 +962,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     if([elementName isEqualToString:@"ReqVendorselectResponse"])
     {
         _vendordict=[[NSMutableDictionary alloc]init];
+        _revendordict=[[NSMutableDictionary alloc]init];
         
         if(!_soapResults)
         {
@@ -963,7 +971,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"ReqEntryId"])
+    if([elementName isEqualToString:@"ReqVendorId"])
     {
         if(!_soapResults)
         {
@@ -1024,6 +1032,12 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
         _documentnametextfld.text=@"";
+        [_statuslbl  setTitle:@"Select" forState:UIControlStateNormal];
+        [_vendrnamebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        [_detalexpbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+
+        [self ReqVendorselect];
         [self SelectHRDocs];
         _soapResults = nil;
     }
@@ -1049,7 +1063,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
         [dateFormat setDateFormat:@"yyyy-MM-dd"];
         NSDate *dates = [dateFormat dateFromString:news];
-        [dateFormat setDateFormat:@"MM-dd-yyy"];
+        [dateFormat setDateFormat:@"MM/dd/yyy"];
         NSString *myFormattedDate = [dateFormat stringFromDate:dates];
            _appreqmdl.expdate=myFormattedDate;
         _soapResults = nil;
@@ -1080,10 +1094,11 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     {
         recordResults = FALSE;
         [_statusdict setObject:statusstring forKey:_soapResults];
+          [_restatusdict setObject:_soapResults forKey:statusstring];
         _soapResults = nil;
     }
 
-    if([elementName isEqualToString:@"ReqEntryId"])
+    if([elementName isEqualToString:@"ReqVendorId"])
     {
         recordResults = FALSE;
         vendorstrg=_soapResults;
@@ -1096,6 +1111,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     {
         recordResults = FALSE;
         [_vendordict setObject:vendorstrg forKey:_soapResults];
+        [_revendordict setObject:_soapResults forKey:vendorstrg];
         _soapResults = nil;
         
     }
@@ -1453,11 +1469,21 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     {
         UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
+        _Dependentstexffld.text=@"";
         
         
     }
     else{
+        
+        if (_Dependentstexffld.text.length==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Number of Dependents is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+
+            
+        }
+        else{
     [self UpdateW4];
+        }
     }
     
     }
@@ -1493,10 +1519,10 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     btnindex=textFieldIndexPath.row;
     Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:textFieldIndexPath.row];
     _reqnamelbl.text=appreqmdl.reqname;
-    NSArray*statusarry=[_statusdict allKeys];
-      [_statuslbl  setTitle:[statusarry objectAtIndex:textFieldIndexPath.row] forState:UIControlStateNormal];
-    NSArray*vendorarray=[_vendordict allKeys];
-    [_vendrnamebtnlbl  setTitle:[vendorarray objectAtIndex:textFieldIndexPath.row] forState:UIControlStateNormal];
+   
+      [_statuslbl  setTitle:[_restatusdict objectForKey:appreqmdl.status] forState:UIControlStateNormal];
+  
+   //[_vendrnamebtnlbl  setTitle:[_revendordict objectForKey:appreqmdl.vendor] forState:UIControlStateNormal];
     [_detalexpbtnlbl  setTitle:appreqmdl.expdate forState:UIControlStateNormal];
     
     if ([appreqmdl.verifictnstatus isEqualToString:@"true"]) {

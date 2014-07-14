@@ -35,6 +35,8 @@
 @property (strong, nonatomic)Appreqmdl*appreqmdl;
 @property (strong, nonatomic)NSMutableArray*requirmntarray;
 @property (strong, nonatomic)NSMutableDictionary*vendordict;
+@property (strong, nonatomic)NSMutableDictionary*revendordict;
+
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *detailbtnlbl;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *docubtnlbl;
@@ -131,6 +133,7 @@
 - (IBAction)showbtn:(id)sender;
 
 @property (strong, nonatomic)NSMutableDictionary*statusdict;
+@property (strong, nonatomic)NSMutableDictionary*restatusdict;
 
 /*document View*/
 @property(strong,nonatomic)IBOutlet UIView *dcmntdetailview;
