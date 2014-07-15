@@ -30,6 +30,7 @@
 @property(strong,nonatomic)NSString *TotalHoures;
 @property(strong,nonatomic)NSString *PlanId;
 @property(strong,nonatomic)NSString *sequence;
+@property(strong,nonatomic)NSString *EquipmentHours;
 
 
 @end

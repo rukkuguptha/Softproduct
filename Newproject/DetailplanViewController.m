@@ -454,6 +454,7 @@
          _elevationcelllabel.text=scaffmdl.elevation;
          _manhourslabel=(UILabel*)[cell viewWithTag:10];
          _manhourslabel.text=scaffmdl.manhours;
+         
 
 
      }
@@ -473,14 +474,15 @@
         //[NSString stringWithFormat:@"%d",scaffmdl.typescaffold];
         
         _generalquanitylabel=(UILabel*)[cell viewWithTag:5];
-        _generalquanitylabel.text=genmdl.Quantity;
+        _generalquanitylabel.text=genmdl.TotalHoures;
         
         _generalphaselabel=(UILabel*)[cell viewWithTag:6];
         _generalphaselabel.text=genmdl.Phase;
         _generalseqlabel=(UILabel*)[cell viewWithTag:7];
         _generalseqlabel.text=genmdl.sequence;
         
-        
+        _eqhourlabel=(UILabel*)[cell viewWithTag:8];
+        _eqhourlabel.text=genmdl.EquipmentHours;
     }
 
     if(tableView==_popovertableview)
@@ -1642,6 +1644,16 @@
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"EquipmentHours"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
     if([elementName isEqualToString:@"GeneralSearchResponse"])
     {
           _generallistarray=[[NSMutableArray alloc]init];
@@ -2328,7 +2340,7 @@
         
         recordResults = FALSE;
         _gmodel.Quantity=_soapresults;
-         [_generallistarray addObject:_gmodel];
+        
         _soapresults = nil;
     }
 
@@ -2352,6 +2364,14 @@
         recordResults = FALSE;
         _gmodel.sequence=_soapresults;
        
+        _soapresults = nil;
+    }
+    if([elementName isEqualToString:@"EquipmentHours"])
+    {
+        
+        recordResults = FALSE;
+        _gmodel.EquipmentHours=_soapresults;
+         [_generallistarray addObject:_gmodel];
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"MANHOURQuantity"])
