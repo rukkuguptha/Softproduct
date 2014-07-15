@@ -529,10 +529,10 @@
                    "<PlanId>%@</PlanId>\n"
                    "<SequenceId>%d</SequenceId>\n"
                    "<Quantity>%d</Quantity>\n"
-
+                   "<EquipmentHours>%d</EquipmentHours>\n"
                    "</GeneralInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0];
+                   "</soap:Envelope>\n",_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0,0];
     NSLog(@"soapmsg%@",soapMessage);
     
     

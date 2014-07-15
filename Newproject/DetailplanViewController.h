@@ -87,6 +87,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *generalphaselabel;
 @property(strong,nonatomic)IBOutlet UILabel *generalseqlabel;
 @property(strong,nonatomic)IBOutlet UILabel *totalmanhourlabel;
+@property(strong,nonatomic)IBOutlet UILabel *eqhourlabel;
 
 
 

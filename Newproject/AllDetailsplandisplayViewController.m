@@ -512,8 +512,8 @@ return cell;
             {
                 NewscfldDetails *dmdl=(NewscfldDetails *)[_Maintablescflddetailsarray objectAtIndex:indexPath.row];
                 dmdl.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
-                [_Maintablescflddetailsarray addObject:dmdl];
-                [_Maintablescflddetailsarray insertObject:draggedData atIndex:indexPath.row];
+               // [_Maintablescflddetailsarray addObject:dmdl];
+               // [_Maintablescflddetailsarray insertObject:draggedData atIndex:indexPath.row];
                // [_maintable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else

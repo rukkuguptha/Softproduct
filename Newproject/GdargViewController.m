@@ -90,7 +90,7 @@
     [self selectmanpowercrew];
     [self GeneralDetailselect];
     [self MatrialCrewSetupSelect];
-   [self GeneralResourceMaterialDetailselect];
+   //[self GeneralResourceMaterialDetailselect];
     
 }
 
@@ -1656,13 +1656,13 @@
             {
                 Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:indexPath.row];
                 gendtdlmdl.itemcode=mandraggedData;
-                [_generaldetailarray addObject:gendtdlmdl];
+               // [_generaldetailarray addObject:gendtdlmdl];
                
                 
                  // [self GeneralDetailInsert];
 
-               // [_generaldetailarray insertObject:mandraggedData atIndex:indexPath.row];
-                [_generaltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                //[_generaldetailarray insertObject:mandraggedData atIndex:indexPath.row];
+                //[_generaltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
            
             }
             else
@@ -1918,9 +1918,9 @@
             {
                 Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:indexPath.row];
                 matmdl1.itemcode=materldraggedData;
-                [_resourcearray addObject:matmdl1];
-                
-                [_resourcegenraltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+                //[_resourcearray addObject:matmdl1];
+                //[_resourcearray insertObject:mandraggedData atIndex:indexPath.row];
+                //[_resourcegenraltable insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
             }
             else
             {
