@@ -659,6 +659,7 @@
         _empdetl.applicantid=[_soapResults integerValue];
         
         //[self FetchImage];
+        /*fetchapplicant*/
         
         _soapResults = nil;
     }
@@ -1098,6 +1099,7 @@ return aSection.newsectionHeaderView;
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self SearchApplicants];
+    
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
