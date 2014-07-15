@@ -170,6 +170,10 @@
 @property(strong,nonatomic)IBOutlet UILabel *expirylabel;
 @property(strong,nonatomic)IBOutlet UILabel *verificationlabel;
 @property (strong, nonatomic) IBOutlet UILabel *vendrnamelbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *namevendorlbl;
+
+
 - (IBAction)editbtn:(id)sender;
 
 @end

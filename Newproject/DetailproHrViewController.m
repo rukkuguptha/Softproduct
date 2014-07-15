@@ -176,8 +176,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         _verificationlabel=(UILabel*)[cell viewWithTag:4];
         _verificationlabel.text=appreqmdl.verifictnstatus;
         
-               _vendrnamelbl=(UILabel*)[cell viewWithTag:5];
-        //_vendrnamelbl.text=[_rev objectForKey:appreqmdl.status]appreqmdl.vendorname;
+        _namevendorlbl=(UILabel*)[cell viewWithTag:5];
+        _namevendorlbl.text=appreqmdl.vendorname;
         
         
         
@@ -929,6 +929,16 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"vendorname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if([elementName isEqualToString:@"StatusselectResponse"])
     {
         _statusdict=[[NSMutableDictionary alloc]init];
@@ -1037,7 +1047,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         [_detalexpbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
         [_verfictnbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
 
-        [self ReqVendorselect];
+        [self Applicantrequirementselect];
         [self SelectHRDocs];
         _soapResults = nil;
     }
@@ -1079,9 +1089,17 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     {
         recordResults = FALSE;
            _appreqmdl.status=_soapResults;
-        [_requirmntarray addObject:_appreqmdl];
+   
         _soapResults = nil;
         
+    }
+    if([elementName isEqualToString:@"vendorname"])
+    {
+        recordResults = FALSE;
+        _appreqmdl.vendorname=_soapResults;
+        [_requirmntarray addObject:_appreqmdl];
+        _soapResults = nil;
+
     }
     if([elementName isEqualToString:@"id"])
     {

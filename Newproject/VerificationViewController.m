@@ -34,10 +34,16 @@
     [_userdict setObject:@"Admin" forKey:@"1"];
     self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     //_view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-_navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+     _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
        [_tabbar setSelectedItem:[_tabbar.items objectAtIndex:0]];
     _requirementtable.layer.borderWidth = 2.0;
     _requirementtable.layer.borderColor = [UIColor colorWithRed:0/255.0f green:191/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
+    
+    
+    
+    [[self.cmmnttextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.cmmnttextview layer] setBorderWidth:2];
+    [[self.cmmnttextview layer] setCornerRadius:10];
     
     /*scroll*/
     
@@ -48,11 +54,10 @@ _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249
     _monthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthdictArray forKeys:_monthArray];
     _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
     _yearArray=[[NSMutableArray alloc]initWithObjects:@"2013",@"2014",@"2015",@"2016",@"2017",@"2018",@"2019",@"2020",@"2021",@"2022",@"2023", nil];
-
-   _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
-
+    _remonthDictionary=[[NSMutableDictionary alloc]initWithObjects:_monthArray forKeys:_monthdictArray];
+     self.verifctnview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     
-    }
+     }
 
 
 
@@ -2247,6 +2252,20 @@ ssnclck++;
 }
 
 - (IBAction)movebtn:(id)sender {
+    
+    Validation*val=[[Validation alloc]init];
+    int value1=[val isNumeric:_payratetxtfld.text];
+    if(value1==0)
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a valid rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        _payratetxtfld.text=@"";
+        
+        
+    }
+    else{
+
     [self EmployeeInsert];
+    }
 }
 @end

@@ -12,6 +12,7 @@
 #import "Coursemdl.h"
 #import "Base64.h"
 #import "WebViewController.h"
+#import "Validation.h"
 @interface VerificationViewController : UIViewController<UITabBarDelegate>{
      BOOL recordResults;
     NSInteger testint;
@@ -27,6 +28,9 @@
     NSInteger path;
     
 }
+@property (strong, nonatomic) IBOutlet UIView *verifctnview;
+
+
 @property(strong,nonatomic)NSMutableDictionary *userdict;
 @property (strong, nonatomic)Coursemdl*coursemdl;
 

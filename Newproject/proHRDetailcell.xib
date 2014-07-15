@@ -10,9 +10,9 @@
                 <outlet property="detailscell" destination="feL-ai-SYo" id="j6A-9x-L67"/>
                 <outlet property="editbtn" destination="b0K-nf-QbQ" id="9NZ-im-63j"/>
                 <outlet property="expirylabel" destination="5Vy-j7-Y1V" id="Tg6-kd-lqW"/>
+                <outlet property="namevendorlbl" destination="xbi-I7-U5c" id="BtD-3F-30F"/>
                 <outlet property="requirementlabel" destination="Gvn-xr-lRn" id="y9d-WA-o4j"/>
                 <outlet property="statuslabel" destination="wX5-uA-QrQ" id="2Sv-mp-Leq"/>
-                <outlet property="vendrnamelbl" destination="axc-P3-DlO" id="GOb-5E-bor"/>
                 <outlet property="verificationlabel" destination="Iqd-Wm-Gtz" id="e2a-1b-Pma"/>
             </connections>
         </placeholder>
@@ -48,7 +48,7 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b0K-nf-QbQ">
+                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="b0K-nf-QbQ">
                         <rect key="frame" x="650" y="3" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="appbar.edit.png">
@@ -73,12 +73,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="axc-P3-DlO">
-                        <rect key="frame" x="518" y="12" width="94" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" id="geB-vV-Nwc">
                         <rect key="frame" x="483" y="-6" width="1" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,6 +83,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xbi-I7-U5c">
+                        <rect key="frame" x="510" y="13" width="111" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
         </tableViewCell>
