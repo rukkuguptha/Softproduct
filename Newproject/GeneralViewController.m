@@ -1332,8 +1332,21 @@ else{
     if (_optionidentfr==1) {
                 if ([_Availablityresult isEqualToString:@"Yes"]) {
                 
-        
+        if([_phasebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_phasebtnlbl.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+                    else if ([_projectheaderbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_projectheaderbtnlbl.titleLabel.text isEqualToString:@""])
+                    {
+                        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                        [alert show];
+                    }
+                    else
+                    {
+                    
                    [self GeneralInsert];
+                    }
                 }
                else if([_Availablityresult isEqualToString:@"No"]){
                    [self insertGeneralDetails];
@@ -1349,7 +1362,21 @@ else{
         _manbtn.hidden=NO;
         _matbtn.hidden=NO;
         _eqmntbtn.hidden=NO;
+        if([_phasebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_phasebtnlbl.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else if ([_projectheaderbtnlbl.titleLabel.text isEqualToString:@"Select"]||[_projectheaderbtnlbl.titleLabel.text isEqualToString:@""])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
+
         [self GeneralUpdates];
+        }
      
     }
 }
