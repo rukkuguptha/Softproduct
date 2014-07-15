@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CKCalendarView.h"
 #import "DrawingViewController.h"
+#import "Validation.h"
 @protocol newrecordDelgate <NSObject>
 
 -(void)toreloadatable;
@@ -20,10 +21,12 @@
     BOOL recordResults;
     NSString *jobtypeitm;
     NSInteger istr;
+    NSString *result;
     
     
   //  id <newrecordDelgate>Delegate;
 }
+@property(strong,nonatomic)Validation *val;
 @property(readwrite)NSInteger tabtype;
 @property(readwrite)NSInteger reloadtype;
 @property(nonatomic, strong)DrawingViewController *drwVCtrl;

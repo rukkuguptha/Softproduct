@@ -23,6 +23,7 @@
     NSString * typestg;
     NSInteger disindex;
     
+    
 }
 @property(strong,nonatomic)CalEventDetailViewController * calctrl;
 @property(strong,nonatomic)PhsestViewController *phestVCtrl;

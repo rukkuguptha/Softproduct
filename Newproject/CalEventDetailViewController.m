@@ -64,7 +64,7 @@
     _calmanpwrtable.hidden=NO;
     _totalarray=[[NSMutableArray alloc]init];
     if ([_estimationstring isEqualToString:@"Estimationreview"]) {
-        _navitem.title=@"Estimation Review";
+        _navitem.title=[NSString stringWithFormat:@"Estimation Review-%@",_estimationnumber];
         _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
         _searchbar.delegate=(id)self;
         _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];

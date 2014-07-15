@@ -12,6 +12,7 @@
 #import "SitevisitViewController.h"
 #import "DetailplanViewController.h"
 #import "planmodel.h"
+#import "Validation.h"
 @interface PlanningViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSInteger leadcheck;
@@ -35,6 +36,7 @@
 
 @property(strong,nonatomic)NSString *result;
 @property(strong,nonatomic)planmodel *plnmdl;
+@property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)AddserviceViewController *servVctrl;
 @property(strong,nonatomic)SitevisitViewController *sitevisitVctrl;
 @property(strong,nonatomic)DetailplanViewController *DetailplanVctrl;

@@ -27,6 +27,7 @@
     NSInteger webtype;
 
 }
+@property(strong,nonatomic)IBOutlet UIView *productionrateview;
 @property (strong, nonatomic)NSString *passingdate;
 @property (strong, nonatomic)UIImage *Editedimage;
 @property (strong, nonatomic)WebViewController *webVCtrl;

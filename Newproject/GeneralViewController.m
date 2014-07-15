@@ -1331,6 +1331,7 @@ else{
 - (IBAction)updatebtn:(id)sender {
     if (_optionidentfr==1) {
                 if ([_Availablityresult isEqualToString:@"Yes"]) {
+                
         
                    [self GeneralInsert];
                 }

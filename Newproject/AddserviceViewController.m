@@ -434,6 +434,7 @@
     [_servicelisttable reloadData];
         if(webtype==1)
     {
+         [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
         [self SelectPlanServices];
         webtype=0;
     }

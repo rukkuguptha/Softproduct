@@ -51,72 +51,72 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark-Popover
--(void)createpopover{
-    UIViewController* popoverContent = [[UIViewController alloc]
-                                        init];
-    
-    UIView* popoverView = [[UIView alloc]
-                           initWithFrame:CGRectMake(0, 0, 200, 120)];
-    
-    popoverView.backgroundColor = [UIColor whiteColor];
-    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
-    
-    _popOverTableView.delegate=(id)self;
-    _popOverTableView.dataSource=(id)self;
-    _popOverTableView.rowHeight= 32;
-    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
-    
-    
-    // CGRect rect = frame;
-    [popoverView addSubview:_popOverTableView];
-    popoverContent.view = popoverView;
-    
-    //resize the popover view shown
-    //in the current view to the view's size
-    popoverContent.contentSizeForViewInPopover = CGSizeMake(200, 120);
-    
-    //create a popover controller
-    
-    self.popOverController = [[UIPopoverController alloc]
-                              initWithContentViewController:popoverContent];
-    
-    //
-    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
-    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
-    
-    
-    [self.popOverController presentPopoverFromRect:_disclurbtnlbl.frame
-                                                     inView:self.estmntable
-                                      permittedArrowDirections:UIPopoverArrowDirectionLeft
-                                                    animated:YES];
-
-    
-    
-//    switch (poptype) {
-//        case 1:
-//            [self.popOverController presentPopoverFromRect:_leadcustmrbtnlbl.frame
-//                                                    inView:self.addview
-//                                  permittedArrowDirections:UIPopoverArrowDirectionUp
-//                                                  animated:YES];
+//#pragma mark-Popover
+//-(void)createpopover{
+//    UIViewController* popoverContent = [[UIViewController alloc]
+//                                        init];
+//    
+//    UIView* popoverView = [[UIView alloc]
+//                           initWithFrame:CGRectMake(0, 0, 190, 70)];
+//    
+//    popoverView.backgroundColor = [UIColor whiteColor];
+//    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 200, 70)];
+//    
+//    _popOverTableView.delegate=(id)self;
+//    _popOverTableView.dataSource=(id)self;
+//    _popOverTableView.rowHeight= 35;
+//    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+//    
+//    
+//    // CGRect rect = frame;
+//    [popoverView addSubview:_popOverTableView];
+//    popoverContent.view = popoverView;
+//    
+//    //resize the popover view shown
+//    //in the current view to the view's size
+//    popoverContent.contentSizeForViewInPopover = CGSizeMake(190, 72);
+//    
+//    //create a popover controller
+//    
+//    self.popOverController = [[UIPopoverController alloc]
+//                              initWithContentViewController:popoverContent];
+//    
+//    //
+//    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+//    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+//    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+//    
+//    
+//    [self.popOverController presentPopoverFromRect:_disclurbtnlbl.frame
+//                                                     inView:self.estmntable
+//                                      permittedArrowDirections:UIPopoverArrowDirectionLeft
+//                                                    animated:YES];
 //
-//            break;
-//        case 2:
-//            [self.popOverController presentPopoverFromRect:_planbtnlbl.frame
-//                                                    inView:self.addview
-//                                  permittedArrowDirections:UIPopoverArrowDirectionUp
-//                                                  animated:YES];
-//            
-//            break;
-//
-//        default:
-//            break;
-//    }
-    
-    
-    
-}
+//    
+//    
+////    switch (poptype) {
+////        case 1:
+////            [self.popOverController presentPopoverFromRect:_leadcustmrbtnlbl.frame
+////                                                    inView:self.addview
+////                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+////                                                  animated:YES];
+////
+////            break;
+////        case 2:
+////            [self.popOverController presentPopoverFromRect:_planbtnlbl.frame
+////                                                    inView:self.addview
+////                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+////                                                  animated:YES];
+////            
+////            break;
+////
+////        default:
+////            break;
+////    }
+//    
+//    
+//    
+//}
 
 #pragma mark-tableview datasource
 
@@ -242,6 +242,7 @@ if (tableView==_estmntable) {
                 }
                 _calctrl.estimationstring=@"Estimationreview";
                 _calctrl.estid=estmdl.estimateid;
+                _calctrl.estimationnumber=estmdl.EstimationId;
                 [self presentViewController:_calctrl
                                    animated:YES completion:NULL];
            break;
@@ -1097,13 +1098,13 @@ if (tableView==_estmntable) {
 
 - (IBAction)leadcustmrbtb:(id)sender {
     poptype=1;
-    [self createpopover];
+   // [self createpopover];
     
 }
 
 - (IBAction)planbtn:(id)sender {
     poptype=2;
-    [self createpopover];
+    //[self createpopover];
     [self EstimationPlanSelect];
    
 
@@ -1164,12 +1165,53 @@ if (tableView==_estmntable) {
 }
 
 - (IBAction)disclurebtn:(id)sender {
+    UIViewController* popoverContent = [[UIViewController alloc]
+                                        init];
+    
+    UIView* popoverView = [[UIView alloc]
+                           initWithFrame:CGRectMake(0, 0, 170, 70)];
+    
+    popoverView.backgroundColor = [UIColor whiteColor];
+    _popOverTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, 170, 70)];
+    
+    _popOverTableView.delegate=(id)self;
+    _popOverTableView.dataSource=(id)self;
+    _popOverTableView.rowHeight= 36;
+    _popOverTableView.separatorStyle=UITableViewCellSeparatorStyleSingleLine;
+    
+    
+    // CGRect rect = frame;
+    [popoverView addSubview:_popOverTableView];
+    popoverContent.view = popoverView;
+    
+    //resize the popover view shown
+    //in the current view to the view's size
+    popoverContent.contentSizeForViewInPopover = CGSizeMake(170, 70);
+    
+    //create a popover controller
+    
+    self.popOverController = [[UIPopoverController alloc]
+                              initWithContentViewController:popoverContent];
+    
+    //
+    //    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    //    CGRect rect=CGRectMake(cell.bounds.origin.x+90, cell.bounds.origin.y+10, 50, 30);
+    //    [self.popOverController presentPopoverFromRect:_disclsurelbl.bounds inView:self.view permittedArrowDirections:nil animated:YES];
+    
     button = (UIButton *)sender;
     CGPoint center= button.center;
+    UITableViewCell *cell = (UITableViewCell *)[[button superview] superview];
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.estmntable];
     NSIndexPath *textFieldIndexPath = [self.estmntable indexPathForRowAtPoint:rootViewPoint];
     disindex=textFieldIndexPath.row;
-    [self createpopover];
+    [self.popOverController presentPopoverFromRect:_disclurbtnlbl.frame
+                                            inView:cell
+                          permittedArrowDirections:UIPopoverArrowDirectionLeft
+                                          animated:YES];
+    
+
+    
+   // [self createpopover];
 }
 
 - (IBAction)addclsebtn:(id)sender {

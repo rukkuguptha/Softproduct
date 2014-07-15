@@ -55,6 +55,7 @@
 {
     [super viewWillAppear:animated];
     [self SelectAllPlans];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -360,7 +361,13 @@
      [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
      [_planselectionbtn setTitle:@"Select" forState:UIControlStateNormal];
      [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+     [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     _sitefactortxtfld.text=@"";
+    _loctntxtfld.text=@"";
+    _ziptxtfld.text=@"";
+    
+  
+
 }
 -(IBAction)closeaddview:(id)sender
 {
@@ -409,6 +416,7 @@
     {
         [_leadcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         leadcheck=0;
+        _planselectionbtn.enabled=NO;
         //_customerselectionBtn.enabled=YES;
     }
     
@@ -434,6 +442,7 @@
         [_custcheckbtn setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
         customercheck=0;
         //_leadselectionBtn.enabled=YES;
+          _planselectionbtn.enabled=NO;
     }
     
 }
@@ -490,13 +499,36 @@
 -(IBAction)updateplanning:(id)sender
 {
     
-    if([_planselectionbtn.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
+    
+//    Validation*val=[[Validation alloc]init];
+//    int value1=[val isNumeric:_ziptxtfld.text];
+//    int value2=[val isNumeric:_sitefactortxtfld.text];
+//   
+//    
+//    if(value1==0){
+//        
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//        
+//    }
+//    else if(value2==0){
+//        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Site Factor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//        [alert show];
+//    }
+
+     if([_planselectionbtn.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
     {
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Service field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Lead/Customer is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_typebtnlbl.titleLabel.text isEqualToString:@"Select"]||[_planselectionbtn.titleLabel.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Work Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
     {
+    
         
   if(optionidentifier==1)
   {
@@ -1693,8 +1725,80 @@
         [_cmplexitybtnlbl setTitle:@"Select" forState:UIControlStateNormal];
         
     }
+    if ([alertView.message isEqualToString:@"Invalid Zip"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _ziptxtfld.text=@"";
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Invalid Site Factor"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            
+            _sitefactortxtfld.text=@"";
+            
+        }
+    }
+
+
     
     
+}
+
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_ziptxtfld)
+    {
+        NSUInteger newLength = [_ziptxtfld.text length] + [string length] - range.length;
+        return (newLength > 10) ? NO : YES;
+    }
+    if(textField==_sitefactortxtfld)
+    {
+        NSUInteger newLength = [_sitefactortxtfld.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    return YES;
+
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField==_ziptxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_ziptxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Zip" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+       if(textField==_sitefactortxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_sitefactortxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Site Factor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
+ 
 }
 
 @end

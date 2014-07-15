@@ -45,6 +45,17 @@
         
         
     }
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    
+    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
+    
+    [_startdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    [_enddatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    [_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    [_wethrfrmdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    [_wethrendbtnlbl setTitle:dateString forState:UIControlStateNormal];
+    [_notedatebtnlbl setTitle:dateString forState:UIControlStateNormal];
     
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -374,7 +385,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
          filename=@"";
     }
-    NSInteger typ=0;
+        NSInteger typ=0;
     if ([_meetgdetailslbl.text isEqualToString:@""]&&![filename isEqualToString:@""])
     {
         typ=0;
@@ -383,6 +394,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     {
        typ=1;
     }
+    if (_reloadtype==6) {
+        filename=@"";
+        typ=1;
+    }
+
     NSString *soapMessage;
   
     NSDateFormatter *dateFormat1 = [[NSDateFormatter alloc] init];
@@ -602,6 +618,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     }
     else if (![_notestxtfld.text isEqualToString:@""]&&[filename isEqualToString:@""])
     {
+        typ=1;
+    }
+    if(_reloadtype==9)
+    {
+        filename=@"";
         typ=1;
     }
 
@@ -840,6 +861,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
+        result=_soapResults;
         UIAlertView *alertview=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alertview show];
         _soapResults = nil;
@@ -949,39 +971,91 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 #pragma mark-Alertview Delegate
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-    _meetgdetailslbl.text=@"";
-    _ratetxtfld.text=@"";
-    _descptntxtfld.text=@"";
-    _valuetxtfld.text=@"";
-    _jobnametxtfld.text=@"";
-    _jobcodetxtfld.text=@"";
-    _jobcosttxtfld.text=@"";
-    [_typeidbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    if ([alertView.message isEqualToString:@"Invalid Cost"]) {
+        _jobcosttxtfld.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Value"]) {
+        _valuetxtfld.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Rate"]) {
+        _ratetxtfld.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Area"]) {
+        _equpareatxtfld.text=@"";
+        
+        
+    }
 
-    _ruletxtfld.text=@"";
-    _ruldescptn.text=@"";
-    _equpnotxtfld.text=@"";
-    _equpareatxtfld.text=@"";
-    _equpdscptn.text=@"";
-    _equnittxtfld.text=@"";
-    [_startdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    [_enddatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    
-    _wrkdesctxtfld.text=@"";
-     _bidnamelbl.text=@"";
-    [_wethrfrmdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    [_wethrendbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    
-    _wathrcndtnlbl.text=@"";
-    [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    _notestxtfld.text=@"";
+
+//    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+//    _meetgdetailslbl.text=@"";
+//    _ratetxtfld.text=@"";
+//    _descptntxtfld.text=@"";
+//    _valuetxtfld.text=@"";
+//    _jobnametxtfld.text=@"";
+//    _jobcodetxtfld.text=@"";
+//    _jobcosttxtfld.text=@"";
+//    [_typeidbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+//
+//    _ruletxtfld.text=@"";
+//    _ruldescptn.text=@"";
+//_equpnotxtfld.text=@"";
+//    _equpareatxtfld.text=@"";
+//    _equpdscptn.text=@"";
+//    _equnittxtfld.text=@"";
+//    [_startdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+//    [_enddatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+//    
+//    _wrkdesctxtfld.text=@"";
+//     _bidnamelbl.text=@"";
+//    [_wethrfrmdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+//    [_wethrendbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+//    
+//    _wathrcndtnlbl.text=@"";
+//    [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+//    _notestxtfld.text=@"";
+    if ([alertView.message isEqualToString:result]) {
+        [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        _meetgdetailslbl.text=@"";
+        _ratetxtfld.text=@"";
+        _descptntxtfld.text=@"";
+        _valuetxtfld.text=@"";
+        _jobnametxtfld.text=@"";
+        _jobcodetxtfld.text=@"";
+        _jobcosttxtfld.text=@"";
+        [_typeidbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+        
+        _ruletxtfld.text=@"";
+        _ruldescptn.text=@"";
+        _equpnotxtfld.text=@"";
+        _equpareatxtfld.text=@"";
+        _equpdscptn.text=@"";
+        _equnittxtfld.text=@"";
+        [_startdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        [_enddatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        
+        _wrkdesctxtfld.text=@"";
+        _bidnamelbl.text=@"";
+        [_wethrfrmdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        [_wethrendbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        
+        _wathrcndtnlbl.text=@"";
+        [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+        _notestxtfld.text=@"";
+
     if ([self.delegate respondsToSelector:@selector(toreloadatable)]) {
         [self.delegate toreloadatable];
         
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    }
+    
 
 }
 
@@ -1167,7 +1241,14 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
    }
 - (IBAction)updatepratebtn:(id)sender {
     _reloadtype=1;
+    if ([_ratetxtfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Rate is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self InsertSitevisitProductionRates];
+    }
 }
 
 - (IBAction)pratecancel:(id)sender {
@@ -1184,8 +1265,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)jobupdatebtn:(id)sender {
     _reloadtype=2;
+    if ([_jobnametxtfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
 
     [self SitevisitInsertjobsiterequirements];
+    }
 }
 
 - (IBAction)cancelbtn:(id)sender {
@@ -1198,8 +1286,16 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)ruleupdte:(id)sender {
     _reloadtype=3;
+    if ([_ruletxtfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Rule is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+        [self SitevisitInsertsafetyrules];
+    }
 
-    [self SitevisitInsertsafetyrules];
+    
 }
 
 - (IBAction)rulecancel:(id)sender {
@@ -1209,8 +1305,14 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)equupdtebtn:(id)sender {
     _reloadtype=4;
-
+    if ([_equpnotxtfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Equipment Number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self SitevisitInsertequipment];
+    }
 }
 
 - (IBAction)equcancelbtn:(id)sender {
@@ -1260,8 +1362,14 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (IBAction)bidupdatebtn:(id)sender {
     _reloadtype=7;
-
+    if ([_bidnamelbl.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Bidder Name is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self SitevisitInsertotherbidders];
+    }
 }
 
 - (IBAction)bidcancelbtn:(id)sender {
@@ -1376,5 +1484,108 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
    
     
 }
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_ratetxtfld)
+    {
+        NSUInteger newLength = [_ratetxtfld.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    if(textField==_valuetxtfld)
+    {
+        NSUInteger newLength = [_valuetxtfld.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    if(textField==_jobcosttxtfld)
+    {
+        NSUInteger newLength = [_jobcosttxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_ruletxtfld)
+    {
+        NSUInteger newLength = [_ruletxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_equpareatxtfld)
+    {
+        NSUInteger newLength = [_equpareatxtfld.text length] + [string length] - range.length;
+        return (newLength > 18) ? NO : YES;
+    }
+    if(textField==_equnittxtfld)
+    {
+        NSUInteger newLength = [_equnittxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+    if(textField==_equpnotxtfld)
+    {
+        NSUInteger newLength = [_equpnotxtfld.text length] + [string length] - range.length;
+        return (newLength > 50) ? NO : YES;
+    }
+
+
+    return YES;
+    
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+//    if(textField==_ratetxtfld)
+//    {
+//        Validation*val=[[Validation alloc]init];
+//        int value1=[val isNumeric:_ratetxtfld.text];
+//        if(value1==0)
+//        {
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//            
+//        }
+//        
+//    }
+    if(textField==_valuetxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_valuetxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_jobcosttxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_jobcosttxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Cost" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_equpareatxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_equpareatxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Area" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+
+
+    
+    
+}
+
 
 @end

@@ -32,6 +32,7 @@
     _rateview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _docmntview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _accessview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
+    _productionrateview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _equipmentview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _jobsiteview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     _safetyview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -293,7 +294,7 @@
                    "<PlanId>%@</PlanId>\n"
                    "</SaveSiteVisitGeneral>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_companynametxtfld.text,_loctntxtfld.text,_ziptxtfld.text,_complextyofwrkbtnlbl.titleLabel.text,_facilitytxtview.text,_scpeofwrktxtview.text,@"",@"",_companyid];
+                   "</soap:Envelope>\n",_companynametxtfld.text,_loctntxtfld.text,_ziptxtfld.text,_complextyofwrkbtnlbl.titleLabel.text,_facilitytxtview.text,_scpeofwrktxtview.text,_Accibltylblview.text,_equipmnttxtview.text,_companyid];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1994,12 +1995,12 @@ _passingdate=dateString;
             
              cell=_ratecell;
         }
-     else   if (tableView==_documenttable) {
-                 [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
-            
-            cell=_docucell;
-            
-        }
+//     else   if (tableView==_documenttable) {
+//                 [[NSBundle mainBundle]loadNibNamed:@"cellfordocumnt" owner:self options:nil];
+//            
+//            cell=_docucell;
+//            
+//        }
 
         
       else    if (tableView==_jobsitetable) {
@@ -2096,7 +2097,8 @@ _passingdate=dateString;
         _jobtype=(UILabel *)[cell viewWithTag:3];
         _jobtype.text=[_JobtypeDict objectForKey:sitemdl1.jobtypeid];
         _jobcost=(UILabel *)[cell viewWithTag:4];
-        _jobcost.text=sitemdl1.jobcost;
+      _jobcost.text=[NSString stringWithFormat:@"$%@",sitemdl1.jobcost];
+       // _jobcost.text=sitemdl1.jobcost;
 }
     else  if (tableView==_safetytableview) {
          
@@ -2348,6 +2350,24 @@ _passingdate=dateString;
         }
         recordResults = TRUE;
     }
+    if([elementName isEqualToString:@"Accessibility"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"Equipment"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+
+
     if([elementName isEqualToString:@"ScopeofWork"])
     {
         if(!_soapResults)
@@ -2914,6 +2934,22 @@ _passingdate=dateString;
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"Accessibility"])
+    {
+        recordResults = FALSE;
+        _Accibltylblview.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"Equipment"])
+    {
+        recordResults = FALSE;
+        _equipmnttxtview.text=_soapResults;
+        
+        _soapResults = nil;
+    }
+
+
     if([elementName isEqualToString:@"ScopeofWork"])
     {
         recordResults = FALSE;
@@ -3579,39 +3615,39 @@ _passingdate=dateString;
 
 }
 
-- (IBAction)documntbtn:(id)sender {
-    _gernalbtnlbl.tintColor=[UIColor blackColor];
-    _pratebtnlbl.tintColor=[UIColor blackColor];
-    _documntbtnlbl.tintColor=[UIColor whiteColor];
-    _accesbltybtnlbl.tintColor=[UIColor blackColor];
-    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
-    _jobsitebtnlbl.tintColor=[UIColor blackColor];
-    _saftybtnlbl.tintColor=[UIColor blackColor];
-    _equpmntslbl.tintColor=[UIColor blackColor];
-    _workbtnlbl.tintColor=[UIColor blackColor];
-    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
-    _biddersbtnlbl.tintColor=[UIColor blackColor];
-    _weatherbtnlbl.tintColor=[UIColor blackColor];
-    _notesbtnlbl.tintColor=[UIColor blackColor];
-
-    
-    
-    _gernalview.hidden=YES;
-    _rateview.hidden=YES;
-    _docmntview.hidden=NO;
-    _accessview.hidden=YES;
-    _equipmentview.hidden=YES;
-      _jobsiteview.hidden=YES;
-    _safetyview.hidden=YES;
-       _neweqmntview.hidden=YES;
-    _workschdleview.hidden=YES;
-    _meetingview.hidden=YES;
-    _biddersview.hidden=YES;
-    _weatherview.hidden=YES;
-    _notesview.hidden=YES;
-
-
-}
+//- (IBAction)documntbtn:(id)sender {
+//    _gernalbtnlbl.tintColor=[UIColor blackColor];
+//    _pratebtnlbl.tintColor=[UIColor blackColor];
+//    _documntbtnlbl.tintColor=[UIColor whiteColor];
+//    _accesbltybtnlbl.tintColor=[UIColor blackColor];
+//    _EstggAreabtnlbl.tintColor=[UIColor blackColor];
+//    _jobsitebtnlbl.tintColor=[UIColor blackColor];
+//    _saftybtnlbl.tintColor=[UIColor blackColor];
+//    _equpmntslbl.tintColor=[UIColor blackColor];
+//    _workbtnlbl.tintColor=[UIColor blackColor];
+//    _meetingnotesbtnlbl.tintColor=[UIColor blackColor];
+//    _biddersbtnlbl.tintColor=[UIColor blackColor];
+//    _weatherbtnlbl.tintColor=[UIColor blackColor];
+//    _notesbtnlbl.tintColor=[UIColor blackColor];
+//
+//    
+//    
+//    _gernalview.hidden=YES;
+//    _rateview.hidden=YES;
+//    _docmntview.hidden=NO;
+//    _accessview.hidden=YES;
+//    _equipmentview.hidden=YES;
+//      _jobsiteview.hidden=YES;
+//    _safetyview.hidden=YES;
+//       _neweqmntview.hidden=YES;
+//    _workschdleview.hidden=YES;
+//    _meetingview.hidden=YES;
+//    _biddersview.hidden=YES;
+//    _weatherview.hidden=YES;
+//    _notesview.hidden=YES;
+//
+//
+//}
 
 - (IBAction)acceblitybtn:(id)sender {
     [self PlanDrawingSelect];
@@ -4174,7 +4210,7 @@ _passingdate=dateString;
 - (IBAction)deleteweather:(id)sender {
     if (self.editing) {
         [super setEditing:NO animated:NO];
-            [_weathertable setEditing:NO animated:NO];
+        [_weathertable setEditing:NO animated:NO];
         [_weathertable reloadData];
         
         
@@ -4182,7 +4218,7 @@ _passingdate=dateString;
     
     else{
         [super setEditing:YES animated:YES];
-           [_weathertable setEditing:YES animated:YES];
+        [_weathertable setEditing:YES animated:YES];
         [_weathertable reloadData];
         
     }
@@ -4236,15 +4272,17 @@ _passingdate=dateString;
 - (IBAction)deletebidd:(id)sender {
     if (self.editing) {
         [super setEditing:NO animated:NO];
-           [_bidderstable setEditing:NO animated:NO];
+        
+        [_bidderstable setEditing:NO animated:NO];
         [_bidderstable reloadData];
+        
         
         
     }
     
     else{
         [super setEditing:YES animated:YES];
-           [_bidderstable setEditing:YES animated:YES];
+        [_bidderstable setEditing:YES animated:YES];
         [_bidderstable reloadData];
         
         
@@ -4265,7 +4303,7 @@ _passingdate=dateString;
         [super setEditing:YES animated:YES];
            [_workscdletable setEditing:YES animated:YES];
         [_workscdletable reloadData];
-        [_meetingtable setEditing:YES animated:YES];
+        //[_meetingtable setEditing:YES animated:YES];
         
     }
 

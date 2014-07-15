@@ -20,7 +20,7 @@
     NSInteger matsum;
     BOOL recordResults;
 }
-
+@property(strong,nonatomic)NSString *estimationnumber;
 @property(strong,nonatomic)NSString *selecteddate;
 @property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)Detaileventmanpwr *manpwr;
