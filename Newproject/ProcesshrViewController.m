@@ -623,6 +623,7 @@
     {
         imgString=@"Fetchapp";
         _empnameArray=[[NSMutableArray alloc]init];
+           _newprocesssarray=[[NSMutableArray alloc]init];
         
         
         if(!_soapResults)
