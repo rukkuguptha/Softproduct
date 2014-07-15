@@ -28,7 +28,7 @@
 @property(strong,nonatomic)NSMutableArray*statusarray;
 @property(strong,nonatomic)NSMutableArray*Typearray;
 @property(strong,nonatomic)NSMutableDictionary*typedict;
-
+@property(strong,nonatomic)NSMutableDictionary*revtypedict;
 
 /*calendar*/
 @property(nonatomic, weak) CKCalendarView *calendar;
@@ -62,6 +62,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *datelbl;
 @property (strong, nonatomic) IBOutlet UILabel *typelbl;
 @property (strong, nonatomic) IBOutlet UILabel *cmmtlbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *statuslbl;
+
 @property (strong, nonatomic) IBOutlet UITextView *cmmttxtview;
 @property (strong, nonatomic) IBOutlet UITextField *datetxtfld;
 - (IBAction)datebtn:(id)sender;
