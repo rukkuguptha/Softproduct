@@ -49,7 +49,14 @@
      [_typedict setObject:@"CO" forKey:@"Consumables"];
        [_typedict setObject:@"ST" forKey:@"Small Tools"];
       [_typedict setObject:@"OC" forKey:@"Other Company Assets"];
-
+    
+    NSArray*keyarray=[_typedict allKeys];
+    NSArray*valuearray=[_typedict allValues];
+    
+    _revtypedict=[[NSMutableDictionary alloc]initWithObjects:keyarray forKeys:valuearray];
+    
+    
+ 
 
 }
 -(void)viewWillAppear:(BOOL)animated{
@@ -156,6 +163,9 @@
     _typelbl.text=issues.type;
     _cmmtlbl=(UILabel *)[cell viewWithTag:4];
     _cmmtlbl.text=issues.comments;
+         _statuslbl=(UILabel *)[cell viewWithTag:5];
+         _statuslbl.text=issues.status;
+
      }
     return cell;
     
@@ -310,9 +320,9 @@
 }
 -(void)IssueManagementInsert{
     recordResults = FALSE;
-    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
-  
+//    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+//    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
+//  
     
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString *soapMessage;
@@ -335,7 +345,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",jobno,_datetxtfld.text,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",_jobsitebtnlbl.titleLabel.text,_datetxtfld.text,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -369,8 +379,8 @@
 -(void)IssueManagementUpdate{
     recordResults = FALSE;
     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:btnindex];
-    NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
-    NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
+   // NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
+   // NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
     
     
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
@@ -395,7 +405,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[ismdl.entryid integerValue],jobno,_datetxtfld.text,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",[ismdl.entryid integerValue],_jobsitebtnlbl.titleLabel.text,_datetxtfld.text,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -694,6 +704,13 @@
         
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"id"])
+    {
+        
+        
+        recordResults = FALSE;
+       _soapResults = nil;
+    }
 
     if([elementName isEqualToString:@"JobNumber"])
     {
@@ -902,7 +919,10 @@
     btnindex=textFieldIndexPath.row;
     Issuemdl*ismdl=(Issuemdl*)[_Issuearray objectAtIndex:textFieldIndexPath.row];
     [_jobsitebtnlbl setTitle:ismdl.jobnumbr forState:UIControlStateNormal];
-     [_typebtnlbl setTitle:ismdl.type forState:UIControlStateNormal];
+    
+    [_typebtnlbl setTitle:[_revtypedict objectForKey:ismdl.type]forState:UIControlStateNormal];
+    
+  
      [_statusbtnlbl setTitle:ismdl.status forState:UIControlStateNormal];
     _cmmttxtview.text=ismdl.comments;
     _datetxtfld.text=ismdl.datetime;
