@@ -42,7 +42,7 @@
     
     NSInteger metdeletepath;
     NSString *crewid;
-    
+    NSInteger hourtype;
     
 }
 

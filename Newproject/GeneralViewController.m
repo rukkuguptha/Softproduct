@@ -594,7 +594,7 @@
                    "<EquipmentHours>%d</EquipmentHours>\n"
                    "</GeneralUpdates>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[totalhrs floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],0,[_generalmdl.EquipmentHours integerValue]];
+                   "</soap:Envelope>\n",[_genralid integerValue],_unittxtfld.text,_subunittxtfld.text,_equipmnttxtfld.text,_prjcthdrtxtfld.text,[[_phasedict objectForKey:_phasebtnlbl.titleLabel.text]integerValue ],_destextview.text,[_generalmdl.TotalHoures floatValue],_Planid,[[_sequncedict objectForKey:_projectheaderbtnlbl.titleLabel.text]integerValue ],[_generalmdl.Quantity integerValue],[_generalmdl.EquipmentHours integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     

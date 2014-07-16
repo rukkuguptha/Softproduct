@@ -90,7 +90,7 @@
     [self selectmanpowercrew];
     [self GeneralDetailselect];
     [self MatrialCrewSetupSelect];
-   //[self GeneralResourceMaterialDetailselect];
+   [self GeneralResourceMaterialDetailselect];
     
 }
 
@@ -254,8 +254,59 @@
     }
     
 }
--(void)GeneralDetailInsert{
+-(void)ManHoursSelect
+{
     
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ManHoursSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "</ManHoursSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_generalid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ManHoursSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)GeneralDetailInsert{
+    hourtype=1;
     recordResults = FALSE;
        NSString *houres=@"1";
     NSString *soapMessage;
@@ -309,6 +360,7 @@
     
 }
 -(void)GeneralDetailDelete{
+    hourtype=1;
      Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:deletepath];
     recordResults = FALSE;
     NSString *soapMessage;
@@ -359,7 +411,7 @@
     
 }
 -(void)GeneralDetailUpdate{
-    
+    hourtype=1;
     recordResults = FALSE;
   //  Manpwr*manmdl1=(Manpwr *)[_manpowerarray objectAtIndex:path];
        NSString *soapMessage;
@@ -770,11 +822,14 @@
 	[_xmlParser parse];
     
     [_manpwrtable reloadData];
+    
     [_generaltable reloadData];
+    
     [_materialtable reloadData];
     [_resourcegenraltable reloadData];
  
     
+
 }
 #pragma mark-xml parser
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
@@ -1134,7 +1189,8 @@
              
           
                  [self GeneralQuantityUpdate];
-             
+                 [self ManHoursSelect];
+
              
                [self GeneralDetailselect];
              
@@ -2010,7 +2066,25 @@
    }
 
 - (IBAction)updatebtn:(id)sender {
+    Validation *val=[[Validation alloc]init];
+    int value2=[val isNumeric:_numbertxtfld.text];
+    int value1=[val isNumeric:_hourstxtfld.text];
+    if (value2==0) {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        
+    }
+   else if (value1==0) {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        
+    }
+
+
+    else
+    {
     [self GeneralDetailUpdate];
+    }
     
 }
 
@@ -2034,7 +2108,18 @@
 }
 
 - (IBAction)matrlupdatebtn:(id)sender {
+    Validation *val=[[Validation alloc]init];
+    int value2=[val isNumeric:_quantitytxtfld.text];
+    if (value2==0) {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        
+    }
+    else
+    {
+
     [self GeneralResourceDetailUpdate];
+    }
 }
 
 - (IBAction)editmatrlbtn:(id)sender {
@@ -2089,16 +2174,26 @@
     if (textField==_numbertxtfld) {
         int value2=[val isNumeric:_numbertxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Number" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
         
     }
+    if (textField==_quantitytxtfld) {
+        int value2=[val isNumeric:_quantitytxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+
     if (textField==_hourstxtfld) {
         int value2=[val isNumeric:_hourstxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Hours" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -2109,13 +2204,30 @@
 #pragma mark-AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if ([alertView.message isEqualToString:@"Invalid Number"]) {
-        _numbertxtfld.text=@"";
+        
+        Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:editpath];
+        
+        _numbertxtfld.text=gendtdlmdl.numbers;
+       
+        
         
     }
     if ([alertView.message isEqualToString:@"Invalid Hours"]) {
-        _hourstxtfld.text=@"";
+        
+        Gmandrgmdl *gendtdlmdl=(Gmandrgmdl *)[_generaldetailarray objectAtIndex:editpath];
+        
+        
+        _hourstxtfld.text=gendtdlmdl.hours;
         
     }
+    if ([alertView.message isEqualToString:@"Invalid Quantity"]) {
+        Metgenmdl *matmdl1=(Metgenmdl *)[_resourcearray objectAtIndex:meteditpath];
+        
+        
+        _quantitytxtfld.text=matmdl1.itmqunty;
+        
+    }
+
 
 }
 

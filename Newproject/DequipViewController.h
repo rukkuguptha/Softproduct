@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Equpmntmdl.h"
 #import "Drageqmodel.h"
+#import "Validation.h"
 
 @interface DequipViewController : UIViewController<UIGestureRecognizerDelegate>
 
@@ -42,6 +43,7 @@
 
 
 /*equipment*/
+@property(strong,nonatomic)Validation *val;
 @property(strong,nonatomic)Equpmntmdl *eqmdl;
 @property(strong,nonatomic)Drageqmodel *dmdl;
 @property(strong,nonatomic)NSString *generalid;
