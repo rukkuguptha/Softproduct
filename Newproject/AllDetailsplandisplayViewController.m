@@ -28,6 +28,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[self.Destxtfld layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
+    [[self.Destxtfld layer] setBorderWidth:2];
+    [[self.Destxtfld layer] setCornerRadius:10];
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.tuchgview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     NSLog(@"%@",_Scfldid);
@@ -533,10 +537,10 @@ return cell;
                      dmdl.scaffolddetailid=[[_subtypdict objectForKey:draggedData]integerValue];
                     [_Maintablescflddetailsarray addObject:dmdl];
                 }
-                
+                 [_maintable reloadData];
                 [self manhoursfordetail];
 
-                //[_maintable reloadData];
+               
             }
         }
         else if(!dragFromSource && pathFromDstTable != nil)
@@ -1111,7 +1115,7 @@ return cell;
                    "<DismantleHours>%f</DismantleHours>\n"
                    "</Scaffoldetaildelete>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[newscfdetals.scfldprevious integerValue],[newscfdetals.subscaffid integerValue],[newscfdetals.ManHoures doubleValue],[newscfdetals.ErectHoures doubleValue],[newscfdetals.DesmandleHoures doubleValue]];
+                   "</soap:Envelope>\n",[newscfdetals.scfldprevious integerValue],newscfdetals.scaffolddetailid,[newscfdetals.ManHoures doubleValue],[newscfdetals.ErectHoures doubleValue],[newscfdetals.DesmandleHoures doubleValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1814,7 +1818,27 @@ return cell;
 #pragma mark-Buttons
 
 - (IBAction)updatebtn:(id)sender {
-    [self calulatemanhrs];
+    Validation*val=[[Validation alloc]init];
+    int value1=[val isNumeric:_sitefctrfld.text];
+    if(value1==0)
+    {
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a valid sitefactor" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert1 show];
+        _sitefctrfld.text=@"";
+        
+        
+    }
+    else{
+        
+        if(_sitefctrfld.text.length==0){
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Sitefactor is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+
+        }
+        else{
+        [self calulatemanhrs];
+        }
+    }
 
 }
 

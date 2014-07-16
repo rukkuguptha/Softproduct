@@ -13,6 +13,7 @@
 #import "NewscfldDetails.h"
 #import "Scaffoldsubtypemodel.h"
 #import <sqlite3.h>
+#import "Validation.h"
 
 
 @protocol animatndelegate <NSObject>
