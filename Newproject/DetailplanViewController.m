@@ -174,7 +174,7 @@
 }
 - (IBAction)Scaffoldslection:(id)sender
 {
-    [self Checknetavailabilty];
+    
    
     
     _scaffoldbtn.tintColor=[UIColor whiteColor];
@@ -183,6 +183,7 @@
     _generalbtn.tintColor=[UIColor blackColor];
     _scaffoldview.hidden=NO;
     _generalview.hidden=YES;
+    [self Checknetavailabilty];
 //    _fireproofingview.hidden=YES;
 //    _insulationview.hidden=YES;
 }
@@ -208,7 +209,20 @@
 
 -(IBAction)nextbtnaction:(id)sender
 {
-    
+    if ([_scaffoldtyprbtn.titleLabel.text isEqualToString:@""]||[_scaffoldtyprbtn.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Scaffold Type is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_sequencebtn.titleLabel.text isEqualToString:@""]||[_sequencebtn.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Sequence is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else if([_phasebtn.titleLabel.text isEqualToString:@""]||[_phasebtn.titleLabel.text isEqualToString:@"Select"]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Phase is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+
     if([_Availablityresult isEqualToString:@"No"])
     {
         [self insertScaffoldToDB];
@@ -217,7 +231,8 @@
     {
         [self Scaffoldinsert];
     }
-        
+    }
+    
 //   if (optionidentifier==1)
 //   {
 //        [self Scaffoldinsert];
@@ -269,10 +284,10 @@
 }
 - (IBAction)InsulationSelection:(id)sender
 {
-    _insulationbtn.tintColor=[UIColor whiteColor];
-     _scaffoldbtn.tintColor=[UIColor blackColor];
-     _fireproofingbtn.tintColor=[UIColor blackColor];
-     _generalbtn.tintColor=[UIColor blackColor];
+    _insulationbtn.tintColor=[UIColor blackColor];
+//     _scaffoldbtn.tintColor=[UIColor blackColor];
+//     _fireproofingbtn.tintColor=[UIColor blackColor];
+//     _generalbtn.tintColor=[UIColor blackColor];
    
 //    _scaffoldview.hidden=YES;
 //    _fireproofingview.hidden=YES;
@@ -280,10 +295,10 @@
 }
 - (IBAction)fireproofingselection:(id)sender
 {
-    _fireproofingbtn.tintColor=[UIColor whiteColor];
-    _insulationbtn.tintColor=[UIColor blackColor];
-     _scaffoldbtn.tintColor=[UIColor blackColor];
-    _generalbtn.tintColor=[UIColor blackColor];
+    _fireproofingbtn.tintColor=[UIColor blackColor];
+//    _insulationbtn.tintColor=[UIColor blackColor];
+//     _scaffoldbtn.tintColor=[UIColor blackColor];
+//    _generalbtn.tintColor=[UIColor blackColor];
 //    _fireproofingview.hidden=NO;
 //    _scaffoldview.hidden=YES;
 //    _insulationview.hidden=YES;

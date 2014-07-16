@@ -145,7 +145,32 @@
 }
 - (IBAction)updateequip:(id)sender
 {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_equipqtytextfield.text];
+        int value2=[val isNumeric:_equipitemdesctextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    
+    
+       else if(value2==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    else
+    {
+
     [self GeneralResourceDetailUpdate];
+    }
 }
 - (IBAction)hratecheckaction:(id)sender
 {
@@ -474,6 +499,58 @@
     }
     
 }
+-(void)EquipmentHoursSelect
+{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<EquipmentHoursSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<MainGeneralId>%d</MainGeneralId>\n"
+                   "</EquipmentHoursSelect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",[_generalid integerValue]];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/EquipmentHoursSelect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+
 -(void)PlanHoursSelect{
     webtype=5;
     recordResults = FALSE;
@@ -1372,6 +1449,7 @@
         }
          if (webtype==5)
          {
+             [self EquipmentHoursSelect];
              [self GeneralResourceDetailselect];
          }
         
@@ -1677,7 +1755,87 @@
 
 
 
+#pragma mark-textfld delegates
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    
+    if(textField==_equipqtytextfield)
+    {
+        NSUInteger newLength = [_equipqtytextfield.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    if(textField==_equipitemdesctextfield)
+    {
+        NSUInteger newLength = [_equipitemdesctextfield.text length] + [string length] - range.length;
+        return (newLength > 20) ? NO : YES;
+    }
+    return YES;
+    
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if(textField==_equipqtytextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_equipqtytextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_equipitemdesctextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_equipitemdesctextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hours" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    
+    
+}
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+       if ([alertView.message isEqualToString:@"Invalid Hours"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            Drageqmodel*dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:btnindex];
+            
+            _equipitemdesctextfield.text=dmodel.hours;
+            
+            
+        }
+    }
+    if ([alertView.message isEqualToString:@"Invalid Quantity"]) {
+        
+        
+        
+        if (buttonIndex==0) {
+            
+            Drageqmodel*dmodel=(Drageqmodel *)[_equipdestarray objectAtIndex:btnindex];
+            
+           
+            _equipqtytextfield.text=dmodel.qty;
+            
+        }
+    }
+    
+    
+    
+    
+}
 
 
 @end
