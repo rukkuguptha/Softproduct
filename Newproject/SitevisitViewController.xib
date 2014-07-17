@@ -53,6 +53,7 @@
                 <outlet property="safetytableview" destination="DmM-kh-e8R" id="NG6-yd-fOa"/>
                 <outlet property="safetyview" destination="M4O-Ol-Vze" id="UPs-rv-3gd"/>
                 <outlet property="safteytitleview" destination="9nf-TD-E7d" id="6lf-28-HEq"/>
+                <outlet property="saftybtnlbl" destination="17p-bj-zEs" id="saY-N5-eXa"/>
                 <outlet property="scpeofwrktxtview" destination="DFC-Xp-kpQ" id="fjh-YX-WRf"/>
                 <outlet property="scrollview" destination="7Sa-15-2Ih" id="wsj-Ah-t01"/>
                 <outlet property="tabletitleview" destination="PHA-u6-Q1v" id="Q8Z-n5-vu0"/>
@@ -716,7 +717,7 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hand Notes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dKN-fz-lCq">
-                                                    <rect key="frame" x="462" y="10" width="72" height="21"/>
+                                                    <rect key="frame" x="472" y="10" width="72" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -919,7 +920,7 @@
                                 <barButtonItem width="41" style="plain" systemItem="fixedSpace" id="TCx-tM-Vit">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </barButtonItem>
-                                <barButtonItem title="Production Rate" id="hZb-DZ-6b9">
+                                <barButtonItem title="Production Rates" id="hZb-DZ-6b9">
                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     <connections>
                                         <action selector="prductnbtn:" destination="-1" id="cVP-2s-lPh"/>

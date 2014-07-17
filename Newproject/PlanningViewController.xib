@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlanningViewController">
             <connections>
                 <outlet property="addplanview" destination="1sr-eH-f7a" id="Rsr-Pb-MWk"/>
+                <outlet property="cancelbtn" destination="0xA-8o-8iB" id="5i2-Pr-gSO"/>
                 <outlet property="cmplexitybtnlbl" destination="cH2-Vi-3mK" id="f9R-sM-azl"/>
                 <outlet property="custcheckbtn" destination="FlS-2L-LZz" id="9Q2-cQ-O3L"/>
                 <outlet property="leadcheckbtn" destination="N0w-R8-PPz" id="DUX-eh-ztV"/>

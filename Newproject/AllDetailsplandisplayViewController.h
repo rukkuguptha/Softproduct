@@ -51,7 +51,8 @@
 @property(strong,nonatomic)NewscfldDetails       * newscflddetails;
 @property(strong,nonatomic)Scaffoldtypemdl       * sccfldtypemdl;
 @property(strong,nonatomic)Customscaffoldingplan * customsccfldmdl;
-
+@property(strong,nonatomic)UISearchBar *searchbar;
+@property(strong,nonatomic)NSString *searchstring;
 
 /*variables*/
 @property (nonatomic)double manpwr;

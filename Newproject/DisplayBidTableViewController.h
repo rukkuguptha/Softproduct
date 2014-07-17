@@ -28,7 +28,7 @@
 - (IBAction)materialaction:(id)sender;
 - (IBAction)otheraction:(id)sender;
 - (IBAction)summaryaction:(id)sender;
-
+@property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 @property(strong,nonatomic)NSString *bidid;
 @property(strong,nonatomic)NSString *searchstring;
 @property(strong,nonatomic)Reviebidmdl *reviewmdl;

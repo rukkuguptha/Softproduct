@@ -17,6 +17,7 @@
                 <outlet property="manpowertitle" destination="rje-Mi-rhs" id="pg7-yl-yNe"/>
                 <outlet property="manpwrbtn" destination="t4S-jB-oJO" id="qNC-SE-zKi"/>
                 <outlet property="materialbtn" destination="9lC-s5-sfY" id="nET-Gv-14N"/>
+                <outlet property="navitem" destination="ksz-Bm-ZWz" id="bbN-yF-Eq1"/>
                 <outlet property="otherbtn" destination="T2v-Yd-cl8" id="3tl-r2-l7j"/>
                 <outlet property="otlabel" destination="wrU-tI-D19" id="GlG-xR-d5P"/>
                 <outlet property="qtylabel" destination="Gqy-vF-jXm" id="sQB-PH-FvQ"/>
@@ -137,7 +138,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ST Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LGj-x3-Qkl">
-                            <rect key="frame" x="639" y="11" width="42" height="21"/>
+                            <rect key="frame" x="639" y="11" width="51" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
                             <nil key="highlightedColor"/>

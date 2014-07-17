@@ -2078,12 +2078,11 @@ _passingdate=dateString;
           
           SitevistMdl *sitemdl1=(SitevistMdl *)[_productionratearray objectAtIndex:indexPath.row];
           _ratelbl=(UILabel *)[cell viewWithTag:1];
-          _ratelbl.text=sitemdl1.PRRate;
+          _ratelbl.text=[NSString stringWithFormat:@"$%@",sitemdl1.PRRate];
           _ratedeslbl=(UILabel *)[cell viewWithTag:2];
           _ratedeslbl.text=sitemdl1.PRdescptn;
           _ratevaluelbl=(UILabel *)[cell viewWithTag:3];
-          _ratevaluelbl.text=sitemdl1.PRvalue;
-          
+          _ratevaluelbl.text=[NSString stringWithFormat:@"$%@",sitemdl1.PRvalue];
           
           
       }
@@ -3756,14 +3755,14 @@ _passingdate=dateString;
 
 - (IBAction)safetybtn:(id)sender {
     [self Selectsafetyrulessitevisit];
-    
+      _saftybtnlbl.tintColor=[UIColor whiteColor];
     _gernalbtnlbl.tintColor=[UIColor blackColor];
     _pratebtnlbl.tintColor=[UIColor blackColor];
     _documntbtnlbl.tintColor=[UIColor blackColor];
     _accesbltybtnlbl.tintColor=[UIColor blackColor];
     _EstggAreabtnlbl.tintColor=[UIColor blackColor];
     _jobsitebtnlbl.tintColor=[UIColor blackColor];
-    _saftybtnlbl.tintColor=[UIColor whiteColor];
+  
     _equpmntslbl.tintColor=[UIColor blackColor];
     _workbtnlbl.tintColor=[UIColor blackColor];
     _meetingnotesbtnlbl.tintColor=[UIColor blackColor];

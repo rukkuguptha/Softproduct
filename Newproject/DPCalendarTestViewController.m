@@ -84,7 +84,7 @@
    // [self.nextButton setTitle:@"Next" forState:UIControlStateNormal];
     //[self.todayButton setTitle:@"Today" forState:UIControlStateNormal];
     //[self.optionsButton setTitle:@"Option" forState:UIControlStateNormal];
-    [self.createEventButton setTitle:@"BACK" forState:UIControlStateNormal];
+    [self.createEventButton setTitle:@"CLOSE" forState:UIControlStateNormal];
     [self.createEventButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     

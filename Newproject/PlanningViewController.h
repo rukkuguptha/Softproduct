@@ -59,6 +59,7 @@
 @property(strong,nonatomic)IBOutlet UIButton *custcheckbtn;
 @property(strong,nonatomic)IBOutlet UIButton *planselectionbtn;
 @property(strong,nonatomic)IBOutlet UIButton *disclosurebtn;
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 
 @property(strong,nonatomic)IBOutlet UITableViewCell *planingcell;
 @property(strong,nonatomic)IBOutlet UILabel *organizationname;

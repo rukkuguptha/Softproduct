@@ -54,6 +54,7 @@
 -(IBAction)selectDate:(id)sender;
 - (IBAction)editcellbtn:(id)sender;
 - (IBAction)closeactivity:(id)sender;
+- (IBAction)closecomments:(id)sender;
 //- (IBAction)disbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *disbtnlbl;
 /*popover*/

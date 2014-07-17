@@ -38,6 +38,7 @@
 
 @property (strong, nonatomic) IBOutlet UISearchBar * searchbar;
 @property(strong,nonatomic)NSString *searchstring;
+@property (strong, nonatomic) IBOutlet UISearchBar * searchbar1;
 
 /*IBActions*/
 -(IBAction)closeplan:(id)sender;
@@ -71,7 +72,7 @@
 @property(strong,nonatomic)IBOutlet UIView *scaffoldtabletitleview;
 @property(strong,nonatomic)IBOutlet UITableViewCell *scaffoldcell;
 @property(strong,nonatomic)IBOutlet UITableView *scaffoldtable;
-
+@property(strong,nonatomic)IBOutlet UINavigationItem *navitem;
 /*popovercontroller*/
 @property(strong,nonatomic)UITableView *popovertableview;
 @property(strong,nonatomic)UIPopoverController *popovercontroller;

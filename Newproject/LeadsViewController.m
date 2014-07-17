@@ -76,7 +76,8 @@
     _prjctexcutnArray=[[NSMutableArray alloc]initWithObjects:@"Immediate",@"First Quarter", @"Second Quarter",@"Third Quarter",@"Fourth Quarter of that calender year", nil];
     _leadStatusArray=[[NSMutableArray alloc]initWithObjects:@"Open",@"Close",@"Active",@"Hot",@"Cold", nil];
     
-    
+    _view2.hidden=YES;
+
     
      
 }
@@ -87,7 +88,7 @@
     [self getLeads];
    
     
-    
+    _view2.hidden=YES;
 
     
 }
@@ -96,7 +97,7 @@
 {
     [self SelectAllCustomer];
     
-     self.navbaritem.title = @"ADD";
+     self.navbaritem.title = @"Create";
     
     butnidtfr=1;
     
@@ -513,7 +514,7 @@ if (tableView==_leadTable) {
 
 - (IBAction)editcellbtn:(id)sender {
     butnidtfr=2;
-     self.navbaritem.title = @"EDIT";
+     self.navbaritem.title = @"Edit";
     _view2.hidden=NO;
 //    _view2.frame = CGRectMake(512, 384, 0, 0);
 //    //    CGPoint origin = _hidenview.frame.origin;
@@ -2654,6 +2655,9 @@ if (tableView==_leadTable) {
     
 }
 
-
+- (IBAction)closecomments:(id)sender
+{
+    [self.popOverController1 dismissPopoverAnimated:YES];
+}
 
 @end

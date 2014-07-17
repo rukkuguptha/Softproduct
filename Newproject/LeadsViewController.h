@@ -103,6 +103,7 @@
 - (IBAction)updatebtn:(id)sender;
 - (IBAction)cancelbtn:(id)sender;
 - (IBAction)selectcompany:(id)sender;
+- (IBAction)closecomments:(id)sender;
 
 
 -(IBAction)closeleadpage:(id)sender;

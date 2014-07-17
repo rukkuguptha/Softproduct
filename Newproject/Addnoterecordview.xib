@@ -25,7 +25,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <items>
-                        <navigationItem title="Add New Record" id="e5m-dt-fnq">
+                        <navigationItem title="Create New Record" id="e5m-dt-fnq">
                             <barButtonItem key="rightBarButtonItem" id="RfO-So-VbO">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Nvt-xi-uMf">
                                     <rect key="frame" x="474" y="-3" width="50" height="50"/>
