@@ -102,11 +102,19 @@
     NSString *myFormattedDate = [dateFormat stringFromDate:dates];
     _datelabel.text=myFormattedDate;
     _billingdayslabel=(UILabel*)[cell viewWithTag:4];
-    _billingdayslabel.text=submdl.NetDays;
+    NSArray *newdateArray=[[NSArray alloc]init];
+    newdateArray=[submdl.ExpiryDate componentsSeparatedByString:@"T"];
+    NSString *date2 =[newdateArray objectAtIndex:0];
+    NSDateFormatter *dateFormat2 = [[NSDateFormatter alloc] init];
+    [dateFormat2 setDateFormat:@"yyyy-MM-dd"];
+    NSDate *datess = [dateFormat2 dateFromString:date2];
+    [dateFormat2 setDateFormat:@"MM-dd-yyy"];
+    NSString *myFormattedDate2 = [dateFormat2 stringFromDate:datess];
+    _billingdayslabel.text=myFormattedDate2;
     _weeklyhourslabel=(UILabel*)[cell viewWithTag:5];
-    _weeklyhourslabel.text=submdl.WeeklyHours;
-    _subcontractlabel=(UILabel*)[cell viewWithTag:6];
-    _subcontractlabel.text=submdl.SubContractorMarkup;
+    _weeklyhourslabel.text=submdl.Payementclause;
+//    _subcontractlabel=(UILabel*)[cell viewWithTag:6];
+//    _subcontractlabel.text=submdl.SubContractorMarkup;
     
     disbutton=[UIButton buttonWithType:UIButtonTypeCustom];
     [disbutton setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
@@ -770,6 +778,17 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"ExpiryDate"])
+    {
+        
+        if(!_soapresults)
+        {
+            _soapresults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
    }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -999,10 +1018,18 @@
         
         recordResults=FALSE;
         _sub.SpecialRatesStructure=_soapresults;
-        [_contractlistarray addObject:_sub];
+       
         _soapresults=nil;
     }
 
+    if ([elementName isEqualToString:@"ExpiryDate"]) {
+        
+        recordResults=FALSE;
+        _sub.ExpiryDate=_soapresults;
+        [_contractlistarray addObject:_sub];
+        _soapresults=nil;
+    }
+    
 
 
 

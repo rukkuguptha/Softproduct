@@ -34,6 +34,7 @@
     _navbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _docutable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
     _cmmnttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:250.0/255.0f alpha:1.0f].CGColor;
+    _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     _docutable.layer.borderWidth=3.0f;
     _cmmnttable.layer.borderWidth=3.0f;
     _popovrdict=[[NSMutableDictionary alloc]init];
@@ -745,5 +746,9 @@ return cell;
 
 - (IBAction)addcmt:(id)sender {
     _newcmntview.hidden=NO;
+}
+- (IBAction)closebtn:(id)sender
+{
+    [self.popOverController dismissPopoverAnimated:YES];
 }
 @end

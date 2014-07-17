@@ -47,6 +47,7 @@
 -(IBAction)addsequence:(id)sender;
 - (IBAction)addclsebtn:(id)sender;
 - (IBAction)editbtn:(id)sender;
+- (IBAction)cancel:(id)sender;
 
 - (IBAction)clsebtn:(id)sender;
 - (IBAction)updatebtn:(id)sender;

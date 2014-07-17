@@ -43,6 +43,7 @@
     searchController.searchResultsDelegate =(id)self;
     searchController.delegate = (id)self;
     self.openviewindex=NSNotFound;
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -50,6 +51,7 @@
    
     [super viewWillAppear:animated];
      self.openviewindex=NSNotFound;
+    
     [self SelectAllServices];
 //    disbtn=[UIButton buttonWithType:UIButtonTypeCustom];
 //    [disbtn setImage:[UIImage imageNamed:@"carat"] forState:UIControlStateNormal];
@@ -100,7 +102,7 @@
   //  [disbtn setImage:[UIImage imageNamed:@"carat-open.png"] forState:UIControlStateSelected];
     disbtn.tag=indexPath.row;
     [disbtn addTarget:self action:@selector(disaction:) forControlEvents:UIControlEventTouchUpInside];
-    disbtn.frame = CGRectMake(270.0, 1.0, 50.0, 50.0);
+    disbtn.frame = CGRectMake(270.0, 0.0, 50.0, 50.0);
     [cell.contentView addSubview:disbtn];
     
        return cell;
@@ -110,7 +112,7 @@
     // [_animatedview removeFromSuperview];
     _commentlabel.hidden=YES;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-        .frame =  CGRectMake(300, 10, 0, 0);} completion:nil];
+        .frame =  CGRectMake(300, 11, 0, 0);} completion:nil];
     
     _animatedview.hidden=YES;
     //Empmdl *empmdl=(Empmdl *)[_employeelistarray objectAtIndex:sender.tag];
@@ -129,7 +131,7 @@
     
     
     //create uiview
-    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 10, 0, 25)];
+    _animatedview=[[UIView alloc]initWithFrame:CGRectMake(300, 11, 0, 25)];
     _animatedview.backgroundColor=[UIColor colorWithRed:99.0/255.0f green:184.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _commentlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 150, 25)];
     _commentlabel.font = [UIFont fontWithName:@"Helvetica Neue" size:12];
@@ -145,7 +147,7 @@
     
     _animatedview.hidden=NO;
     [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-        .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
+        .frame =  CGRectMake(300, 11, 79, 25);} completion:nil];
     
     _commentlabel.hidden=NO;
     
@@ -182,7 +184,7 @@
             
             _animatedview.hidden=NO;
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{ _animatedview
-                .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
+                .frame =  CGRectMake(300, 11, 79, 25);} completion:nil];
             [self viewopened:btnindex];
            
             _commentlabel.hidden=NO;
@@ -192,7 +194,7 @@
         }
         else{
             [UIView animateWithDuration:0.5f delay:0.0 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{ _animatedview
-                .frame =  CGRectMake(300, 10, 79, 25);} completion:nil];
+                .frame =  CGRectMake(300, 11, 79, 25);} completion:nil];
             [self viewclosed:btnindex];
             //_venderlbl.hidden=YES;
             
@@ -282,7 +284,7 @@
 
 -(IBAction)Addservices:(id)sender
 {   optionidentifier=1;
-    self.navabar.title = @"ADD";
+    self.navabar.title = @"Create";
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=NO;
     _servicetextfld.text=@"";
