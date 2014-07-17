@@ -29,7 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     if (_optionidentfr==1) {
-        _navitm.title=@"ADD";
+        _navitm.title=@"Create";
         
               _unittxtfld.text=@"";
         _subunittxtfld.text=@"";
@@ -46,7 +46,7 @@
        _manbtn.hidden=NO;
        _matbtn.hidden=NO;
        _eqmntbtn.hidden=NO;
-          _navitm.title=@"EDIT";
+          _navitm.title=@"Edit";
         
         _generalmdl=(Generalmodel *)[_generalarray objectAtIndex:0];
         _unittxtfld.text=_generalmdl.Unit;

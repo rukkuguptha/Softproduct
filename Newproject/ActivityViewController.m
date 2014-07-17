@@ -516,7 +516,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
     [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
     [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
     
-     self.activityNav.title = @"ADD";
+     self.activityNav.title = @"Create";
     _employerTxtfld.text=@"";
     
     _statusTxtFld.text=@"";
@@ -576,7 +576,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 
 - (IBAction)editcellbtn:(id)sender
-{ self.activityNav.title = @"EDIT";
+{ self.activityNav.title = @"Edit";
     _newviewactivity.hidden=NO;
 
 //    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);
@@ -1640,6 +1640,9 @@ else
     //[searchBar resignFirstResponder];
     
 }
-
+- (IBAction)closecomments:(id)sender
+{
+    [self.popOverController dismissPopoverAnimated:YES];
+}
 
 @end

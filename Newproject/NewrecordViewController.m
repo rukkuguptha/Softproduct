@@ -1241,10 +1241,36 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
    }
 - (IBAction)updatepratebtn:(id)sender {
     _reloadtype=1;
-    if ([_ratetxtfld.text isEqualToString:@""]) {
+   
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_ratetxtfld.text];
+        int value2=[val isNumeric:_valuetxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    
+
+
+      else if(value2==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    
+
+  else if ([_ratetxtfld.text isEqualToString:@""]) {
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:@"" message:@"Rate is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    
     else
     {
     [self InsertSitevisitProductionRates];
@@ -1529,19 +1555,19 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-//    if(textField==_ratetxtfld)
-//    {
-//        Validation*val=[[Validation alloc]init];
-//        int value1=[val isNumeric:_ratetxtfld.text];
-//        if(value1==0)
-//        {
-//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            [alert1 show];
-//            
-//            
-//        }
-//        
-//    }
+    if(textField==_ratetxtfld)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_ratetxtfld.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
     if(textField==_valuetxtfld)
     {
         Validation*val=[[Validation alloc]init];

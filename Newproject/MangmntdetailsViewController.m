@@ -1378,7 +1378,7 @@
         _codelbl=(UILabel *)[cell viewWithTag:2];
         _codelbl.text=wagemdl.craftcode;
         _baseratelbl=(UILabel *)[cell viewWithTag:3];
-        _baseratelbl.text=wagemdl.baserate;
+        _baseratelbl.text=[NSString stringWithFormat:@"$%@",wagemdl.baserate];
         _prediemlbl=(UILabel *)[cell viewWithTag:4];
         _prediemlbl.text=wagemdl.perdiem;
         _travellbl=(UILabel *)[cell viewWithTag:5];
@@ -1985,6 +1985,24 @@
 - (IBAction)clsebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-- (IBAction)viewbtn:(id)sender {
+- (IBAction)viewbtn:(id)sender
+{
+    button = (UIButton *)sender;
+    CGPoint center= button.center;
+    CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.docutable];
+    NSIndexPath *textFieldIndexPath = [self.docutable indexPathForRowAtPoint:rootViewPoint];
+    
+    NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);
+    NSString *fullURL =[NSString stringWithFormat:@"http://192.168.0.1:443%@",[_documntdict objectForKey:[_documentarray objectAtIndex:textFieldIndexPath.row]]];
+        if (!self.webctrl) {
+        self.webctrl=[[WebViewController alloc]initWithNibName:@"WebViewController" bundle:nil];
+    }
+    NSLog(@"textFieldIndexPath%@",fullURL);
+    _webctrl.modalPresentationStyle = UIModalPresentationPageSheet;
+    _webctrl.urlstring=fullURL;
+    
+    [self presentViewController:_webctrl
+                       animated:YES completion:NULL];
+
 }
 @end

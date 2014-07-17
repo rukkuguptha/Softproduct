@@ -53,6 +53,15 @@
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
     self.generaltable.tableHeaderView=_searchbar;
+    _searchbar1=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar1.delegate=(id)self;
+    _searchbar1.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    self.scaffoldtable.tableHeaderView=_searchbar1;
+    UISearchDisplayController *searchctrlr1=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar1 contentsController:self];
+    searchctrlr1.searchResultsDelegate=(id)self;
+    searchctrlr1.searchResultsDataSource=(id)self;
+    searchctrlr1.delegate=(id)self;
+
 
 }
 
@@ -116,13 +125,15 @@
     _heighttextfield.text=@"";
     _qtytextfield.text=@"";
     _elevationtextfield.text=@"";
+    _subunittextfld.text=@"";
+    _navitem.title=@"Create New Record";
 
 }
 -(IBAction)editscaffoldaction:(id)sender
 {
     optionidentifier=2;
      _addscaffoldrecordview.hidden=NO;
-    
+    _navitem.title=@"Edit";
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.scaffoldtable];
@@ -304,7 +315,8 @@
 //    _insulationview.hidden=YES;
 }
 -(IBAction)addnewworkaction:(id)sender
-{   optionidentifier=1;
+{
+    optionidentifier=1;
     self.generalworkctrlr=[[GeneralViewController alloc]initWithNibName:@"GeneralViewController" bundle:nil];
     _generalworkctrlr.Planid=_planid;
     _generalworkctrlr.optionidentfr=optionidentifier;
@@ -1811,14 +1823,14 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.length=_soapresults;
+        _scfldmdl.length=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapresults = nil;
     }
     if([elementName isEqualToString:@"width"])
     {
         
         recordResults = FALSE;
-        _scfldmdl.width=_soapresults;
+        _scfldmdl.width=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapresults = nil;
     }
 
@@ -1826,7 +1838,7 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.height=_soapresults;
+        _scfldmdl.height=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapresults = nil;
     }
 
@@ -1834,7 +1846,7 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.qty=_soapresults;
+        _scfldmdl.qty=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapresults = nil;
     }
 
@@ -1842,7 +1854,7 @@
     {
         
         recordResults = FALSE;
-        _scfldmdl.elevation=_soapresults;
+        _scfldmdl.elevation=[_soapresults stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         _soapresults = nil;
     }
 
@@ -2204,7 +2216,7 @@
             _allctrlr.len=_lengthtextfield.text;
             _allctrlr.wid=_widthtextfield.text;
             _allctrlr.height=_heighttextfield.text;
-            _allctrlr.ele=_heighttextfield.text;
+            _allctrlr.ele=_elevationtextfield.text;
             _allctrlr.unit=_unittextfield.text;
              _allctrlr.ph=_proheadertextfield.text;
             _allctrlr.equip=_equipmenttextfield.text;
@@ -3196,7 +3208,107 @@
     
 }
 
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+   
+    if(textField==_lengthtextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_lengthtextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Length" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_heighttextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_heighttextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Height" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_widthtextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_widthtextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Width" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_qtytextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_qtytextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
+    if(textField==_elevationtextfield)
+    {
+        Validation*val=[[Validation alloc]init];
+        int value1=[val isNumeric:_elevationtextfield.text];
+        if(value1==0)
+        {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Elevation" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+            
+        }
+        
+    }
 
 
+    
+    
+}
+
+#pragma mark-Alertview Delegate
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if ([alertView.message isEqualToString:@"Invalid Height"]) {
+        _heighttextfield.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Width"]) {
+        _widthtextfield.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Length"]) {
+        _lengthtextfield.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Quantity"]) {
+        _qtytextfield.text=@"";
+        
+        
+    }
+    if ([alertView.message isEqualToString:@"Invalid Elevation"]) {
+        _elevationtextfield.text=@"";
+        
+        
+    }
+}
 
 @end

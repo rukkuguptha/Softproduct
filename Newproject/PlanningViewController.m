@@ -353,7 +353,8 @@
 - (IBAction)addplan:(id)sender {
     _planslectionarray=[[NSMutableArray alloc]init];
     optionidentifier=1;
-    self.navabar.title = @"ADD";
+    self.navabar.title = @"Create";
+    _cancelbtn.enabled=YES;
     //[self SelectAllCustomer];
     _addplanview.hidden=NO;
     _planselectionbtn.enabled=NO;
@@ -556,13 +557,13 @@
 -(IBAction)Editaction:(id)sender
 {
     optionidentifier=2;
-    self.navabar.title = @"EDIT";
+    self.navabar.title = @"Edit";
       _addplanview.hidden=NO;
      _selectionlabel.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
     _planselectionbtn.enabled=YES;
-
+    _cancelbtn.enabled=NO;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.plangtable];
     NSIndexPath *textFieldIndexPath = [self.plangtable indexPathForRowAtPoint:rootViewPoint];
     NSLog(@"textFieldIndexPath%d",textFieldIndexPath.row);

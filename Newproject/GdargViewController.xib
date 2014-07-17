@@ -179,7 +179,7 @@
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="barTintColor" red="0.20000000000000001" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <items>
-                                <navigationItem title="EDIT" id="nuF-Nk-h6B">
+                                <navigationItem title="Edit" id="nuF-Nk-h6B">
                                     <barButtonItem key="rightBarButtonItem" style="plain" id="46m-CX-RFz">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RAL-g1-Or6">
                                             <rect key="frame" x="466" y="-3" width="50" height="50"/>

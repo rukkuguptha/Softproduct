@@ -71,7 +71,7 @@
     searchctrlr.searchResultsDelegate=(id)self;
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
-
+  _navitem.title=[NSString stringWithFormat:@"Bid Review-%@",_bidid];
      tooltype=1;
     sum=0;
     totqty=0;

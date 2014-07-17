@@ -11,6 +11,7 @@
 #import "Vlumedismdl.h"
 #import "Wagesmdl.h"
 #import "fuelmdl.h"
+#import "WebViewController.h"
 
 
 @interface MangmntdetailsViewController : UIViewController{
@@ -19,10 +20,11 @@
     NSInteger tabletype;
     NSString *markup;
     NSString *docuname;
+    UIButton *button;
 }
 
 
-
+@property(strong,nonatomic)WebViewController *webctrl;
 @property(strong,nonatomic)fuelmdl *fumdl;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
