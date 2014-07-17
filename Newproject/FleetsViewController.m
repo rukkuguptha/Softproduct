@@ -370,6 +370,14 @@
 -(void)Insertfleet{
     webtype=1;
     recordResults = FALSE;
+    NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*shiftwise=   [_shiftwisetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*hourly=   [_hurlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+
     NSString*picturelocatn=@"";
     NSString *soapMessage;
     
@@ -403,7 +411,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Insertfleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[_hurlytxtfld.text floatValue],[_dailytxtfld.text floatValue],[_shiftwisetxtfld.text floatValue],[_weeklytxtfld.text floatValue],[_monthlytxtfld.text floatValue],[_yearlytxtfld.text floatValue],[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -438,6 +446,14 @@
 -(void)Updatefleet{
     webtype=2;
     recordResults = FALSE;
+    
+    NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*shiftwise=   [_shiftwisetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*hourly=   [_hurlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString*picturelocatn=@"";
     NSString *soapMessage;
   Equpmntmdl*eqmdl=(Equpmntmdl *)[_fleetarray objectAtIndex:path];
@@ -472,7 +488,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Updatefleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[_hurlytxtfld.text floatValue],[_dailytxtfld.text floatValue],[_shiftwisetxtfld.text floatValue],[_weeklytxtfld.text floatValue],[_monthlytxtfld.text floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1514,7 +1530,7 @@ if([elementName isEqualToString:@"url"])
     _cancelbtn.enabled=YES;
     btntype=1;
     _addview.hidden=NO;
-    _navitem.title=@"ADD";
+    _navitem.title=@"Create";
 }
 
 
@@ -1542,10 +1558,10 @@ if([elementName isEqualToString:@"url"])
     _codetxtfld.text=eqmdl.itemcode;
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;
-    _purchasetxtfld.text=eqmdl.PurchaseValue;
+    _purchasetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.PurchaseValue];
     _serialtxtfld.text=eqmdl.SerialNo;
     _manufattxtfld.text =eqmdl.ManufacturedYear;
-    _insuredtxtfld.text=eqmdl.InsuredValue;
+    _insuredtxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.InsuredValue];
     _hurstxtfld.text=eqmdl.HoursUsed;
     _fueltxtfld.text=eqmdl.FuelConsumptionPerHour;
     _condtntxtfld.text=eqmdl.Condition;
@@ -1556,13 +1572,13 @@ if([elementName isEqualToString:@"url"])
     _shiftwisetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.ShiftwiseRate];
     _weeklytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.WeeklyRate];
     _monthlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.MonthlyRate];
-    _yearlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.YearlyRate];
+    _yearlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.YearlyRate];
     _stockinhandtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
     [self FetchAnyImage];
     _addview.hidden=NO;
-    _navitem.title=@"EDIT";
+    _navitem.title=@"Edit";
     
     
 }
@@ -1664,19 +1680,19 @@ if([elementName isEqualToString:@"url"])
     }
     
     if (textField==_hurstxtfld) {
-        int value4=[val isNumeric:_hurstxtfld.text];
-        if (value4==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid used hours value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert1 show];
-            
-        }
+//        int value4=[val isNumeric:_hurstxtfld.text];
+//        if (value4==0) {
+//            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid used hours value" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//            [alert1 show];
+//            
+//        }
         
     }
     
     if (textField==_fueltxtfld) {
         int value5=[val isNumeric:_fueltxtfld.text];
         if (value5==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid fuel consumption"  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Mileage Per Gallon"  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1690,7 +1706,15 @@ if([elementName isEqualToString:@"url"])
             [alert1 show];
             
         }
-        
+        else{
+            NSInteger daily=8*[_hurlytxtfld.text integerValue];
+            _dailytxtfld.text=[NSString stringWithFormat:@"%d",daily];
+            NSInteger weekly=24*[_hurlytxtfld.text integerValue];
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%d",weekly];
+            NSInteger monthly=72*[_hurlytxtfld.text integerValue];
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%d",monthly];
+
+        }
         
     }
     if (textField==_dailytxtfld) {
@@ -1738,7 +1762,7 @@ if([elementName isEqualToString:@"url"])
     if (textField==_yearlytxtfld) {
         int value11=[val isNumeric:_yearlytxtfld.text];
         if (value11==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid yearly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Loading Capacity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1804,6 +1828,14 @@ if([elementName isEqualToString:@"url"])
         _insuredtxtfld.text=@"";
         
     }
+    
+    if ([alertView.message isEqualToString:@"Invalid Mileage Per Gallon"]) {
+        
+        
+        _fueltxtfld.text=@"";
+        
+    }
+
     if ([alertView.message isEqualToString:@"Invalid used hours value"]) {
         
         

@@ -291,7 +291,8 @@
         _matdesclabel=(UILabel *)[cell viewWithTag:2];
         _matdesclabel.text=manpwr.itemdescptn;
         _hourlylabel=(UILabel *)[cell viewWithTag:3];
-        _hourlylabel.text=manpwr.unitcost;
+        _hourlylabel.text=[NSString stringWithFormat:@"$%@",manpwr.unitcost];
+
         
     }
 

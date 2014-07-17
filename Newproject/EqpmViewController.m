@@ -436,7 +436,14 @@ finishedSavingWithError:(NSError *)error
     _picturelocation=@"";
     recordResults = FALSE;
   //  NSString*picturelocatn=@"";
-  
+    NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*shiftwise=   [_shiftwisetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*hourly=   [_hurlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+
     NSString *soapMessage;
     
     
@@ -469,7 +476,7 @@ finishedSavingWithError:(NSError *)error
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[_hurlytxtfld.text floatValue],[_dailytxtfld.text floatValue],[_shiftwisetxtfld.text floatValue],[_weeklytxtfld.text floatValue],[_monthlytxtfld.text floatValue],[_yearlytxtfld.text floatValue],[_stockinhndtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhndtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -506,9 +513,20 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     _picturelocation=@"";
 
+     NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*shiftwise=   [_shiftwisetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*hourly=   [_hurlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+     NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+     NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+
+    
     //NSString*picturelocatn=@"";
     NSString *soapMessage;
     Equpmntmdl*eqmdl=(Equpmntmdl *)[_Equpntarray objectAtIndex:path];
+    
+    
     
     soapMessage = [NSString stringWithFormat:
                    
@@ -540,7 +558,7 @@ finishedSavingWithError:(NSError *)error
                      "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateEquipment>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[_hurlytxtfld.text floatValue],[_dailytxtfld.text floatValue],[_shiftwisetxtfld.text floatValue],[_weeklytxtfld.text floatValue],[_monthlytxtfld.text floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhndtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",_codetxfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhndtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1578,7 +1596,7 @@ finishedSavingWithError:(NSError *)error
 
     btntype=1;
     _addequipmentview.hidden=NO;
-    _navItem.title=@"ADD";
+    _navItem.title=@"Create";
 }
 -(IBAction)closeaddview:(id)sender
 {
@@ -1614,14 +1632,14 @@ finishedSavingWithError:(NSError *)error
     _shiftwisetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.ShiftwiseRate];
     _weeklytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.WeeklyRate];
     _monthlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.MonthlyRate];
-    _yearlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.YearlyRate];
+    _yearlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.YearlyRate];
     _stockinhndtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
     _uplodpiclctn=[NSString stringWithFormat:@"%@",eqmdl.PictureLocation];
     
     [self FetchAnyImage];
 
 _addequipmentview.hidden=NO;
-    _navItem.title=@"EDIT";
+    _navItem.title=@"Edit";
 
 }
 
@@ -1758,7 +1776,18 @@ _addequipmentview.hidden=NO;
             [alert1 show];
             
         }
+        else{
+            
+        NSInteger daily=8*[_hurlytxtfld.text integerValue];
+        _dailytxtfld.text=[NSString stringWithFormat:@"%d",daily];
+            NSInteger weekly=24*[_hurlytxtfld.text integerValue];
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%d",weekly];
+            NSInteger monthly=72*[_hurlytxtfld.text integerValue];
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%d",monthly];
+            
+        }
 
+        
         
     }
     if (textField==_dailytxtfld) {
@@ -1806,7 +1835,7 @@ _addequipmentview.hidden=NO;
     if (textField==_yearlytxtfld) {
          int value11=[val isNumeric:_yearlytxtfld.text];
         if (value11==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid yearly rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Weight" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }
@@ -1911,7 +1940,7 @@ _shiftwisetxtfld.text=@"";
     }
     
 
-    if ([alertView.message isEqualToString:@"Invalid yearly rate"]) {
+    if ([alertView.message isEqualToString:@"Invalid Weight"]) {
         
         
         _yearlytxtfld.text=@"";

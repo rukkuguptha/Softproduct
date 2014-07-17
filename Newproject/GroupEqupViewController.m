@@ -250,7 +250,7 @@
         _manpwrdeslbl=(UILabel *)[cell viewWithTag:2];
         _manpwrdeslbl.text=manpwr.itemdescptn;
         _hurlyratelbl=(UILabel *)[cell viewWithTag:3];
-        _hurlyratelbl.text=manpwr.unitcost;
+        _hurlyratelbl.text=[NSString stringWithFormat:@"$%@",manpwr.unitcost];
         
     }
     

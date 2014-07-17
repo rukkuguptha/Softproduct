@@ -354,6 +354,8 @@
 -(void)InserteMaterials{
     webtype=1;
     
+    NSString*unitcost=   [_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+ 
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -376,7 +378,7 @@
                    "<UnitInMeasure>%@</UnitInMeasure>\n"
                    "</InserteMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -409,8 +411,11 @@
     
 }
 -(void)UpdateMaterials{
+    
+    
     webtype=2;
     recordResults = FALSE;
+       NSString*unitcost=   [_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString *soapMessage;
     
       Manpwr*pwrmdl=(Manpwr *)[_materialarray objectAtIndex:butnpath];
@@ -433,7 +438,7 @@
                    "<UnitInMeasure>%@</UnitInMeasure>\n"
                    "</UpdateMaterials>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],@"",[_stockinhandtxtfld.text floatValue],_unitofmesuretxtfld.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1621,7 +1626,7 @@ else
     butntype=1;
     _cancelbtnlbl.enabled=YES;
     _addmatView.hidden=NO;
-    _navItem.title=@"ADD";
+    _navItem.title=@"Create";
 }
 -(IBAction)editmaterial:(id)sender
 {
@@ -1651,7 +1656,7 @@ else
 
 
     _addmatView.hidden=NO;
-    _navItem.title=@"EDIT";
+    _navItem.title=@"Edit";
 }
 -(IBAction)closeaddview:(id)sender
 {

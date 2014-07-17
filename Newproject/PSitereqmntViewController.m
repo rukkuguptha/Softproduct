@@ -1049,8 +1049,13 @@
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
+        if ([_soapResults isEqualToString:@""]) {
+            
+        }
+        else{
         UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
+        }
         [self SiteRequirementlist2select];
         _soapResults = nil;
     }

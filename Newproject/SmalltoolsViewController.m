@@ -190,7 +190,7 @@
 }
 -(void)InsertSmallTools{
     webtype=1;
-    
+     NSString*unitcost=   [_costtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -211,7 +211,7 @@
                     "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_costtxtfld.text floatValue],[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -246,6 +246,7 @@
 -(void)UpdateSmallTools{
     webtype=2;
     recordResults = FALSE;
+     NSString*unitcost=   [_costtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     NSString *soapMessage;
     
 Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
@@ -266,7 +267,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:butnpath];
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</UpdateSmallTools>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_costtxtfld.text  floatValue],[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost  floatValue],[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -957,7 +958,7 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
-    _navtitle.title=@"ADD";
+    _navtitle.title=@"Create";
 
 
 }
@@ -1090,7 +1091,7 @@ else
     _stockinhandtxtfld.text=toolmdl.stckinhand;
 
     _addview.hidden=NO;
-    _navtitle.title=@"EDIT";
+    _navtitle.title=@"Edit";
 }
 
 #pragma mark-Textfield Delegate
