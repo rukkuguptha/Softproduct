@@ -39,7 +39,8 @@
     _requirementtable.layer.borderWidth = 2.0;
     _requirementtable.layer.borderColor = [UIColor colorWithRed:0/255.0f green:191/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
     
-    
+    _profileimg.layer.borderWidth = 2.0;
+    _profileimg.layer.borderColor = [UIColor colorWithRed:0/255.0f green:191/255.0f blue:255.0/255.0f alpha:1.0f].CGColor;
     
     [[self.cmmnttextview layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.cmmnttextview layer] setBorderWidth:2];
@@ -408,7 +409,7 @@ ssnclck++;
                 default:
                 break;
         }
-        
+        [self.popOverController dismissPopoverAnimated:YES];
         
     }
 

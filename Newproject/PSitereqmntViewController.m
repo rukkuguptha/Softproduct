@@ -205,7 +205,9 @@
       
          [self SiteRequirementlist2select];
         [_jobtble reloadData];
+        [self.popOverController dismissPopoverAnimated:YES];
     }
+    
 }
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
 
@@ -1049,7 +1051,7 @@
     if([elementName isEqualToString:@"result"])
     {
         recordResults = FALSE;
-        if ([_soapResults isEqualToString:@""]) {
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
             
         }
         else{

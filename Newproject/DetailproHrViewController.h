@@ -25,10 +25,11 @@
     NSString *urlstring;
     NSString*statusstring;
     NSInteger webtype;
- NSString*vendorstrg;
+ NSString*vendorstrg,*stateidstr;
     NSInteger check;
     NSInteger dateselctor;
     NSInteger btnindex;
+    NSInteger newwebtype;
     
 }
 
@@ -36,7 +37,7 @@
 @property (strong, nonatomic)NSMutableArray*requirmntarray;
 @property (strong, nonatomic)NSMutableDictionary*vendordict;
 @property (strong, nonatomic)NSMutableDictionary*revendordict;
-
+@property (strong, nonatomic)NSMutableDictionary *statedict;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *detailbtnlbl;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *docubtnlbl;

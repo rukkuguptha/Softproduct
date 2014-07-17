@@ -698,7 +698,14 @@
         recordResults = TRUE;
     }
     
-
+    if([elementName isEqualToString:@"result"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
 }
 
@@ -793,7 +800,16 @@
          _soapResults=nil;
     }
     
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults=FALSE;
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
 
+ _soapResults=nil;
+        
+    }
     
 
 
@@ -801,7 +817,14 @@
 }
 
 - (IBAction)savebtn:(id)sender {
+    
+    if (_badgenumbrtxtfld.text.length==0) {
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Badge number is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
     [self InsertEmployeeBadge];
+    }
 }
 
 - (IBAction)badgeclsebtn:(id)sender {

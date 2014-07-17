@@ -765,7 +765,7 @@
     }
 
 }
-#pragma Mark-AlertView
+#pragma mark-AlertView
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if ([alertView.message isEqualToString:message]) {
@@ -776,6 +776,13 @@
         
         
     }
+        
+        if ([alertView.message isEqualToString:@"Invalid Quantity"]) {
+            
+            
+            _sendtxtfld.text=@"";
+        }
+        
     }
     
     
@@ -971,5 +978,22 @@
 - (IBAction)closebtn:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
   
+}
+#pragma mark-Textfield Delegate
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_sendtxtfld) {
+        int value2=[val isNumeric:_sendtxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    return YES;
 }
 @end

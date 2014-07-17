@@ -18,7 +18,7 @@
     UIButton*button;
     NSInteger btntype;
      NSInteger btnindex;
-
+ UIDatePicker *timePick;
 }
 
 @property(strong,nonatomic)RelatedtoViewController*relatedtoVCtrl;

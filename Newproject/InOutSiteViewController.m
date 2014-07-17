@@ -1142,7 +1142,9 @@ return cell;
         }
         
     }
-    
+     if ([alertView.message isEqualToString:@"Invalid Quantity"]) {
+         _outqtysendbacktxtfld.text=@"";
+     }
     
 }
 
@@ -1150,4 +1152,24 @@ return cell;
 
 - (IBAction)deletebtn:(id)sender {
    }
+
+
+#pragma mark-Textfield Delegate
+
+
+- (BOOL)textFieldShouldEndEditing:(UITextField *)textField{
+    
+    Validation*val=[[Validation alloc]init];
+    if (textField==_outqtysendbacktxtfld) {
+        int value2=[val isNumeric:_outqtysendbacktxtfld.text];
+        if (value2==0) {
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Quantity" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert1 show];
+            
+        }
+        
+    }
+    return YES;
+}
+
 @end

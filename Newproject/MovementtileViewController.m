@@ -54,9 +54,9 @@
 }
 
 -(void)labourpage{
-    if (!_labrVCtrl) {
+  //  if (!_labrVCtrl) {
         _labrVCtrl=[[LabourViewController alloc]initWithNibName:@"LabourViewController" bundle:nil];
-    }
+    //}
     //_EquVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     // _EquVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_labrVCtrl
@@ -66,9 +66,9 @@
     
 }
 -(void)equpage{
-    if (!_EquVCtrl) {
+    //if (!_EquVCtrl) {
         _EquVCtrl=[[EqothersViewController alloc]initWithNibName:@"EqothersViewController" bundle:nil];
-    }
+   // }
     //_EquVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
    // _EquVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_EquVCtrl

@@ -62,24 +62,13 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self IssueManagementSelect];
-    [_datepicker addTarget:self action:@selector(dateChanged) forControlEvents:UIControlEventValueChanged];
+   
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-#pragma mark-picker method
--(void)dateChanged{
-    
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hh:mm:ss a"];
-    NSString *currentTime = [dateFormatter stringFromDate:self.datepicker.date];
-    NSLog(@"%@", currentTime);
-    _datetxtfld.text=[NSString stringWithFormat:@"%@ %@",_datetxtfld.text,currentTime];
-    _datepicker.hidden=YES;
 }
 #pragma mark-Tableview
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -325,6 +314,7 @@
 //  
     
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
+    NSString*datetime=[NSString stringWithFormat:@"%@ %@",_datebtnlbl.titleLabel.text,_timebtn.titleLabel.text];
     NSString *soapMessage;
     
     
@@ -345,7 +335,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementInsert>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_jobsitebtnlbl.titleLabel.text,_datetxtfld.text,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",_jobsitebtnlbl.titleLabel.text,datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -382,7 +372,7 @@
    // NSArray*array=[_jobsitebtnlbl.titleLabel.text componentsSeparatedByString:@"-"];
    // NSString*jobno=[NSString stringWithFormat:@"%@-%@",[array objectAtIndex:0],[array objectAtIndex:1]];
     
-    
+      NSString*datetime=[NSString stringWithFormat:@"%@ %@",_datebtnlbl.titleLabel.text,_timebtn.titleLabel.text];
     NSString*type=[_typedict objectForKey:_typebtnlbl.titleLabel.text];
     NSString *soapMessage;
     
@@ -405,7 +395,7 @@
                    "<IMStatus>%@</IMStatus>\n"
                    "</IssueManagementUpdate>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[ismdl.entryid integerValue],_jobsitebtnlbl.titleLabel.text,_datetxtfld.text,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
+                   "</soap:Envelope>\n",[ismdl.entryid integerValue],_jobsitebtnlbl.titleLabel.text,datetime,type,0,_cmmttxtview.text,_statusbtnlbl.titleLabel.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -871,11 +861,23 @@
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
     
     NSString *dateString = [dateFormat stringFromDate:date];
-   // [_datetxtfld setTitle:dateString forState:UIControlStateNormal];
-    _datetxtfld.text=dateString;
+[_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
+   // _datetxtfld.text=dateString;
 }
 
 
+#pragma mark-picker method
+-(void)dateChanged1{
+    
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"hh:mm a"];
+    NSString *currentTime = [dateFormatter stringFromDate:timePick.date];
+    NSLog(@"%@", currentTime);
+   
+    [_timebtn setTitle:currentTime forState:UIControlStateNormal];
+    
+}
 
 #pragma mark-Button Action
 - (IBAction)datebtn:(id)sender {
@@ -883,7 +885,24 @@
 }
 
 - (IBAction)tymbtn:(id)sender {
-     _datepicker.hidden=NO;
+    // _datepicker.hidden=NO;
+    UIViewController *viewCon = [[UIViewController alloc] init];
+    timePick = [[UIDatePicker alloc]initWithFrame:CGRectMake(5, 0, 0, 0)];
+    timePick.datePickerMode =UIDatePickerModeTime;
+    [timePick addTarget:self action:@selector(dateChanged1) forControlEvents:UIControlEventValueChanged];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm dd MMM yyyy"];
+    [viewCon.view addSubview:timePick];
+    viewCon.preferredContentSize = timePick.bounds.size ; // Set the content size
+    
+    _popOverController = [[UIPopoverController alloc] initWithContentViewController:viewCon];
+    
+    
+    [_popOverController presentPopoverFromRect:_timebtn.frame
+                                        inView:self.addview
+                      permittedArrowDirections:UIPopoverArrowDirectionUp | UIPopoverArrowDirectionDown
+                                      animated:YES];
+
 }
 
 - (IBAction)jobsitebtn:(id)sender {
@@ -907,7 +926,7 @@
 }
 
 - (IBAction)editbtn:(id)sender {
-    _navtitle.title=@"EDIT";
+    _navtitle.title=@"Edit";
 
      btntype=2;
     _addview.hidden=NO;
@@ -925,6 +944,12 @@
   
      [_statusbtnlbl setTitle:ismdl.status forState:UIControlStateNormal];
     _cmmttxtview.text=ismdl.comments;
+    
+    NSArray*arry=[ismdl.datetime componentsSeparatedByString:@" "];
+     [_datebtnlbl setTitle:[arry objectAtIndex:0] forState:UIControlStateNormal];
+  
+    [_timebtn setTitle:  [NSString stringWithFormat:@"%@ %@",[arry objectAtIndex:1],[arry objectAtIndex:2]] forState:UIControlStateNormal];
+
     _datetxtfld.text=ismdl.datetime;
     
   
@@ -932,11 +957,16 @@
 }
 
 - (IBAction)addclsebtn:(id)sender {
-       _navtitle.title=@"ADD";
+       _navtitle.title=@"Create";
      _addview.hidden=YES;
-    [_jobsitebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-    [_typebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
-    [_statusbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
+    [_typebtnlbl setTitle:@"Select Type" forState:UIControlStateNormal];
+    [_statusbtnlbl setTitle:@"Select Status" forState:UIControlStateNormal];
+    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+
+    [_timebtn setTitle:@"Select" forState:UIControlStateNormal];
+
+    
     _cmmttxtview.text=@"";
     _datetxtfld.text=@"";
    }

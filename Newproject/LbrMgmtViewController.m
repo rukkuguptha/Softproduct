@@ -31,7 +31,7 @@
     // Do any additional setup after loading the view from its nib.
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
-    _mgmttable.layer.borderWidth=2.0f;
+    _mgmttable.layer.borderWidth=3.0f;
     _mgmttable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     _checkbtn.enabled=NO;
     // Do any additional setup after loading the view from its nib.
@@ -52,6 +52,8 @@
 
 - (IBAction)Selectjobsite:(id)sender
 {
+    [_formanbtn setTitle:@"Select" forState:UIControlStateNormal ];
+
     btnindex=1;
     [self createpopover];
     [self JobsSelect];

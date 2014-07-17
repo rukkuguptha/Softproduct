@@ -20,6 +20,7 @@
     int btnclck2;
     int btnclck3;
      NSInteger dateselctor;
+       UIDatePicker *timePick;
 }
 @property(strong,nonatomic)Labourcustommdl *lbrmdl;
 @property(strong,nonatomic)Countmdl *emdl;
@@ -73,6 +74,7 @@
 - (IBAction)jobcheckbtnaction:(id)sender;
 - (IBAction)desccheckaction:(id)sender;
 - (IBAction)datecheckbtnaction:(id)sender;
+- (IBAction)cancelbtn:(id)sender;
 
 
 @end
