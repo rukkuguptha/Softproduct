@@ -158,6 +158,8 @@
 }
 -(void)InsertConsumables{
     webtype=1;
+    NSString*unitcost=[_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+
     recordResults = FALSE;
     NSString *soapMessage;
     
@@ -178,7 +180,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</InsertConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -214,6 +216,7 @@
     webtype=2;
     recordResults = FALSE;
     NSString *soapMessage;
+     NSString*unitcost=[_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
     //NSString*unitcost=[_unitcosttxtfld.text substringFromIndex:1];
     Manpwr*pwrmdl=(Manpwr *)[_cnsumblearray objectAtIndex:butnpath];
     soapMessage = [NSString stringWithFormat:
@@ -233,7 +236,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                     "</UpdateConsumables>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",pwrmdl.entryid,_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_subsearchbtnlbl.titleLabel.text],[unitcost floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -834,7 +837,7 @@
         _typelbl.text=materaialmdl.subtype;
          NSLog(@"%@", _Consublemdl.subtype);
         _costlbl=(UILabel *)[cell viewWithTag:4];
-        _costlbl.text=[NSString stringWithFormat:@"%@$",materaialmdl.unitcost];
+        _costlbl.text=[NSString stringWithFormat:@"$%@",materaialmdl.unitcost];
         
     }
     return cell;
@@ -1016,7 +1019,7 @@
      [_subsearchbtnlbl setTitle:@"Select" forState:UIControlStateNormal];
     butntype=1;
     _cancelbtn.enabled=YES;
-       _navItem.title=@"ADD";
+       _navItem.title=@"Create";
     
     
 }
@@ -1036,11 +1039,11 @@
     _subtyptxtfld.text=toolmdl.subtype;
     [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
 
-    _unitcosttxtfld.text=[NSString stringWithFormat:@"%@$",toolmdl.unitcost];
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
     _cancelbtn.enabled=NO;
     _stckinhandtxtfld.text=toolmdl.stckinhand;
     _addView.hidden=NO;
-    _navItem.title=@"EDIT";
+    _navItem.title=@"Edit";
 
 }
 

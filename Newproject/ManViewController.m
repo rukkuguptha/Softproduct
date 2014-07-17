@@ -685,7 +685,8 @@
         
     }
     
-//    NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
+ //  NSString*unitcost=    [_unitcosttxtfld.text substringFromIndex:1];
+   NSString*unitcost=   [_unitcosttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
 //    NSString*billrate=    [_billingratetextfield.text substringFromIndex:1];
 //    NSString*payrate=    [_payratetextfield.text substringFromIndex:1];
     NSString *jobdesc=@"";
@@ -715,7 +716,7 @@
                     "<EducationReq>%@</EducationReq>\n"
                     "</UpdateManpower>\n"
                     "</soap:Body>\n"
-                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,[_skilldict objectForKey:_searchbtnlbl.titleLabel.text],[_unitcosttxtfld.text floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
+                    "</soap:Envelope>\n",pwrmdl.entryid,_itemcodetxtfld.text,_itemdestxtfld.text,[_skilldict objectForKey:_searchbtnlbl.titleLabel.text],[unitcost floatValue],overhead,_craftcodetextfld.text,[_billingratetextfield.text floatValue],[_payratetextfield.text floatValue],jobdesc,_trainingtextview.text,_experiencetextview.text,_jobtasktextview.text,_eduactiontextview.text];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1298,7 +1299,7 @@
     _unitcosttxtfld.text=@"";
 
     btnidtfr=22;
-    _navitem.title=@"ADD";
+    _navitem.title=@"Create";
     _addview.hidden=NO;
     _cancelbtnlbl.enabled=YES;
     _eduactiontextview.text=@"";
@@ -1335,9 +1336,9 @@
     _itemdestxtfld.text=pwrmdl.itemdescptn;
     _subtypetxtfld.text=pwrmdl.subtype;
     [_searchbtnlbl setTitle:pwrmdl.subtype forState:UIControlStateNormal];
-    _unitcosttxtfld.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
-    _payratetextfield.text=[NSString stringWithFormat:@"%@$",pwrmdl.payrate];
-    _billingratetextfield.text=[NSString stringWithFormat:@"%@$",pwrmdl.billingrate];
+    _unitcosttxtfld.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
+    _payratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
+    _billingratetextfield.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
     _craftcodetextfld.text=[NSString stringWithFormat:@"%@",pwrmdl.craftcode];
     _eduactiontextview.text=pwrmdl.EducationReq;
     _experiencetextview.text=pwrmdl.Experiance;
@@ -1358,7 +1359,7 @@
 
     //webtype=2;
     _addview.hidden=NO;
-    _navitem.title=@"EDIT";
+    _navitem.title=@"Edit";
     
     
 }
@@ -1391,12 +1392,12 @@
     if (btnidtfr==11) {
         if([_itemdestxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
             [alert show];
             
@@ -1410,12 +1411,12 @@
     else if (btnidtfr==22){
         if([_itemdestxtfld.text isEqualToString:@""])
         {
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description Field Is Required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Classification  is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else if ([_searchbtnlbl.titleLabel.text isEqualToString:@""]||[_searchbtnlbl.titleLabel.text isEqualToString:@"Select"]){
             
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype field is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Subtype is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             
             [alert show];
             
@@ -1505,7 +1506,7 @@
     if (textField==_unitcosttxtfld) {
         int value2=[val isNumeric:_unitcosttxtfld.text];
         if (value2==0) {
-            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:@"Invalid Hourly Rate" message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+            UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Hourly Rate" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert1 show];
             
         }

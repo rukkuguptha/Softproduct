@@ -434,6 +434,17 @@ finishedSavingWithError:(NSError *)error
     recordResults = FALSE;
     //NSString*picturelocatn=@"";
      _picturelocation=@"";
+    
+    NSString*Purchase=   [_purchasetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*insured=   [_insuredtxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*shiftwise=   [_shiftwisetxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*hourly=   [_hurlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*daily=   [_dailytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*weekly=   [_weeklytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*monthly=   [_monthlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*unitcost=[_unitcsttxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+    NSString*yearly=[_yearlytxtfld.text stringByReplacingOccurrencesOfString:@"$" withString:@""];
+
     NSString *soapMessage;
     
     
@@ -466,7 +477,7 @@ finishedSavingWithError:(NSError *)error
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</InsertOther>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[_purchasetxtfld.text floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[_insuredtxtfld.text floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[_hurlytxtfld.text floatValue],[_dailytxtfld.text floatValue],[_shiftwisetxtfld.text floatValue],[_weeklytxtfld.text floatValue],[_monthlytxtfld.text floatValue],[_yearlytxtfld.text floatValue],[_stckinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],_picturelocation,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[yearly floatValue],[_stckinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1580,7 +1591,7 @@ recordResults = FALSE;
 
     btntype=1;
     _addview.hidden=NO;
-    _navItem.title=@"ADD";
+    _navItem.title=@"Create";
 }
 
 
@@ -1607,10 +1618,11 @@ recordResults = FALSE;
     _destxtfld.text=eqmdl.itemdescptn;
     _subtypetxtfld.text=eqmdl.subtype;
      [_suserachbtnlbl setTitle:eqmdl.subtype forState:UIControlStateNormal];
-        _purchasetxtfld.text=eqmdl.PurchaseValue;
+    _purchasetxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.PurchaseValue];
+
     _serialtxtfld.text=eqmdl.SerialNo;
     _manufattxtfld.text =eqmdl.ManufacturedYear;
-    _insuredtxtfld.text=eqmdl.InsuredValue;
+    _insuredtxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.InsuredValue];
     _hurstxtfld.text=eqmdl.HoursUsed;
     _fueltxtfld.text=eqmdl.FuelConsumptionPerHour;
     _condtntxtfld.text=eqmdl.Condition;
@@ -1625,7 +1637,7 @@ recordResults = FALSE;
     _cancelbtn.enabled=NO;
     [self FetchAnyImage];
     _addview.hidden=NO;
-    _navItem.title=@"EDIT";
+    _navItem.title=@"Edit";
 }
 
 
@@ -1744,7 +1756,16 @@ recordResults = FALSE;
             [alert1 show];
             
         }
-        
+        else{
+            NSInteger daily=8*[_hurlytxtfld.text integerValue];
+            _dailytxtfld.text=[NSString stringWithFormat:@"%d",daily];
+            NSInteger weekly=24*[_hurlytxtfld.text integerValue];
+            _weeklytxtfld.text=[NSString stringWithFormat:@"%d",weekly];
+            NSInteger monthly=72*[_hurlytxtfld.text integerValue];
+            _monthlytxtfld.text=[NSString stringWithFormat:@"%d",monthly];
+            
+        }
+
         
     }
     if (textField==_dailytxtfld) {

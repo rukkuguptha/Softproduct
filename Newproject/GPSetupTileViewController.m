@@ -62,9 +62,9 @@
 }
 -(void)crewpage
 {
-    if (!self.crewctrl) {
+    //if (!self.crewctrl) {
         _crewctrl=[[CrewsetupViewController alloc]initWithNibName:@"CrewsetupViewController" bundle:nil];
-    }
+   // }
     //_crewctrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
     [self presentViewController:_crewctrl
@@ -72,9 +72,9 @@
 }
 
 -(void)equipPage{
-    if (!self.equipVCtrl) {
+  //  if (!self.equipVCtrl) {
         _equipVCtrl=[[GroupEqupViewController alloc]initWithNibName:@"GroupEqupViewController" bundle:nil];
-    }
+   // }
     //_equipVCtrl.modalPresentationStyle = UIModalPresentationFullScreen;
     
     [self presentViewController:_equipVCtrl
@@ -82,9 +82,9 @@
 }
 -(void)materialsPage
 {
-    if (!self.materialVCtrl) {
+    //if (!self.materialVCtrl) {
         _materialVCtrl=[[GpMaterViewController alloc]initWithNibName:@"GpMaterViewController" bundle:nil];
-    }
+    //}
     //_materialVCtrl.modalPresentationStyle = UIModalPresentationPageSheet;
     
     [self presentViewController:_materialVCtrl
