@@ -107,6 +107,7 @@
        
                 [_namebtnlbl setTitle:[_Addarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
     }
+    [self.popOverController dismissPopoverAnimated:YES];
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{

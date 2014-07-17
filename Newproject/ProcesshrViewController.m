@@ -1014,9 +1014,9 @@ return aSection.newsectionHeaderView;
 }
 
 -(void)navigatetoVctrl:(NSString *)s{
-    if (!_DetailproVCtrl) {
+  //  if (!_DetailproVCtrl) {
         self.DetailproVCtrl=[[DetailproHrViewController alloc]initWithNibName:@"DetailproHrViewController" bundle:nil];
-    }
+  //  }
     
     _DetailproVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _DetailproVCtrl.Applicantarray=_newprocesssarray;

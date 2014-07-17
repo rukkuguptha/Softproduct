@@ -74,18 +74,18 @@
 
 }
 -(void)Resourcepage{
-    if (!_movemtVCtrl) {
+    //if (!_movemtVCtrl) {
         _movemtVCtrl=[[MovementtileViewController alloc]initWithNibName:@"MovementtileViewController" bundle:nil];
-    }
+    //}
     _movemtVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _movemtVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_movemtVCtrl
                        animated:YES completion:NULL];
 }
 -(void)Issuepage{
-    if (!_issueVCtrl) {
+    //if (!_issueVCtrl) {
         _issueVCtrl=[[IssuesViewController alloc]initWithNibName:@"IssuesViewController" bundle:nil];
-    }
+    //}
    //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _issueVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_issueVCtrl
@@ -94,9 +94,9 @@
     
 }
 -(void)Timesheetpage{
-    if (!_timesheetVCtrl) {
+    //if (!_timesheetVCtrl) {
         _timesheetVCtrl=[[TimeSheetViewController alloc]initWithNibName:@"TimeSheetViewController" bundle:nil];
-    }
+    //}
     //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _timesheetVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_timesheetVCtrl
@@ -106,9 +106,9 @@
 }
 -(void)labourPage{
     
-    if (!_lbrmgmtvctrl) {
+    //if (!_lbrmgmtvctrl) {
         _lbrmgmtvctrl=[[LbrMgmtViewController alloc]initWithNibName:@"LbrMgmtViewController" bundle:nil];
-    }
+   // }
     _lbrmgmtvctrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _lbrmgmtvctrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_lbrmgmtvctrl
@@ -118,18 +118,18 @@
 }
 
 -(void)Sitereqpage{
-    if (!_SitereqVCtrl) {
+    //if (!_SitereqVCtrl) {
         _SitereqVCtrl=[[PSitereqmntViewController alloc]initWithNibName:@"PSitereqmntViewController" bundle:nil];
-    }
+    //}
     //_issueVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _timesheetVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_SitereqVCtrl
                        animated:YES completion:NULL];
 }
 -(void)Absentpage{
-    if (!_absentVCtrl) {
+    //if (!_absentVCtrl) {
         _absentVCtrl=[[AbsentViewController alloc]initWithNibName:@"AbsentViewController" bundle:nil];
-    }
+    //}
     _absentVCtrl.modalPresentationStyle=UIModalPresentationFormSheet;
     _absentVCtrl.modalTransitionStyle=UIModalTransitionStyleCoverVertical;
     [self presentViewController:_absentVCtrl

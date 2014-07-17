@@ -183,13 +183,13 @@
              _typelbl=(UILabel *)[cell viewWithTag:3];
              _typelbl.text=pwrmdl.subtype;
              _costlbl=(UILabel *)[cell viewWithTag:4];
-             _costlbl.text=[NSString stringWithFormat:@"%@$",pwrmdl.unitcost];
+             _costlbl.text=[NSString stringWithFormat:@"$%@",pwrmdl.unitcost];
              _craftlabel=(UILabel *)[cell viewWithTag:5];
              _craftlabel.text=pwrmdl.craftcode;
              _billabel=(UILabel *)[cell viewWithTag:6];
-             _billabel.text=[NSString stringWithFormat:@"%@$",pwrmdl.billingrate];
+             _billabel.text=[NSString stringWithFormat:@"$%@",pwrmdl.billingrate];
              _paylabel=(UILabel *)[cell viewWithTag:7];
-             _paylabel.text=[NSString stringWithFormat:@"%@$",pwrmdl.payrate];
+             _paylabel.text=[NSString stringWithFormat:@"$%@",pwrmdl.payrate];
              
              
              

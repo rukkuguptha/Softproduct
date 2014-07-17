@@ -32,7 +32,7 @@
     // Do any additional setup after loading the view from its nib.
     _titleview.backgroundColor = [UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     
-    _labrtable.layer.borderWidth=2.0f;
+    _labrtable.layer.borderWidth=3.0f;
     _labrtable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     // Do any additional setup after loading the view from its nib.
 }
@@ -175,6 +175,10 @@
          dateselctor=0;
     }
 
+}
+
+- (IBAction)cancelbtn:(id)sender {
+    [self ProjectManPowerRequiredSelect];
 }
 
 
@@ -334,7 +338,7 @@ return cell;
                 break;
             case 2:
                 
-                [_descbtn setTitle:[_descarray objectAtIndex:indexPath.row] forState:UIControlStateNormal ];
+                [_descbtn setTitle:[[_descarray objectAtIndex:indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] forState:UIControlStateNormal ];
                 
                 break;
             case 3:

@@ -27,10 +27,7 @@
 {
     [super viewDidLoad];
     
-      [self Applicantrequirementselect];
-    [self Statusselect];
-    [self ReqVendorselect];
-    _w4detailview.hidden=YES;
+       _w4detailview.hidden=YES;
     _paymentdetailview.hidden=YES;
     _dcmntdetailview.hidden=YES;
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -69,7 +66,13 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 }
 
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self Applicantrequirementselect];
+    [self Statusselect];
+    [self ReqVendorselect];
 
+}
 
 #pragma mark-tableview datasource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -103,6 +106,9 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         if (poptype==4) {
             return [_vendordict count];
         }
+        if (poptype==10) {
+            return [_statedict count];
+        }
 
     }
     return YES;
@@ -134,6 +140,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     if (tableView==_popOverTableView) {
         NSArray*array=[_statusdict allKeys];
         NSArray*vendrarray=[_vendordict allKeys];
+        NSArray*statearry=[_statedict allKeys];
         if (poptype==1) {
             cell.textLabel.font = [UIFont fontWithName:@"Helvetica Neue Light" size:12];
             cell.textLabel.font = [UIFont systemFontOfSize:12.0];
@@ -155,6 +162,10 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
          if (poptype==4) {
              cell.textLabel.text=[vendrarray objectAtIndex:indexPath.row];
          }
+        if (poptype==10) {
+            cell.textLabel.text=[statearry objectAtIndex:indexPath.row];
+        }
+
            }
     }
     if(tableView==_documentlisttable){
@@ -192,6 +203,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     if(tableView==_popOverTableView){
           NSArray*array=[_statusdict allKeys];
         NSArray*vendrarray=[_vendordict allKeys];
+           NSArray*statearry=[_statedict allKeys];
          if (poptype==1) {
         
         //_maritalbtn.titleLabel.text=[_maritalarray objectAtIndex:indexPath.row];
@@ -256,8 +268,12 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
             [_vendrnamebtnlbl  setTitle:[vendrarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
             
         }
-        
+        if (poptype==10) {
+            [_statelbl  setTitle:[statearry objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+            
+        }
 
+        [self.popOverController dismissPopoverAnimated:YES];
 
     }
         
@@ -360,7 +376,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     NSString *date1 =_expbtn.titleLabel.text;
     NSLog(@"s%@",date1);
-    if ([date1 isEqualToString:@"select"]) {
+    if ([date1 isEqualToString:@"Select Date"]) {
          date1 =@"01/01/1900";
         
     }
@@ -486,6 +502,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
 }
 -(void)SelectHRDocs{
+    newwebtype=2;
     recordResults=FALSE;
     NSString *soapMessage;
     
@@ -540,6 +557,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
 }
 -(void)Applicantrequirementselect{
+    newwebtype=1;
     recordResults=FALSE;
     NSString *soapMessage;
     
@@ -776,6 +794,57 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     
 }
+-(void)Stateselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   
+                   "</Stateselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n"];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -810,9 +879,18 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 	[_xmlParser setShouldResolveExternalEntities: YES];
 	[_xmlParser parse];
     
-    [_popOverTableView reloadData];
-    [_documentlisttable reloadData];
-    [_detailstablview reloadData];
+  
+   
+    if (newwebtype==1) {
+         [_detailstablview reloadData];
+        newwebtype=0;
+    }
+    if (newwebtype==2) {
+       [_documentlisttable reloadData];
+        newwebtype=0;
+    }
+  [_popOverTableView reloadData];
+    
     
 }
 #pragma mark - XMLParser
@@ -929,7 +1007,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"vendorname"])
+    if([elementName isEqualToString:@"Column1"])
     {
         if(!_soapResults)
         {
@@ -999,6 +1077,35 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         recordResults = TRUE;
         
     }
+    if([elementName isEqualToString:@"StateselectResponse"])
+    {
+        _statedict=[[NSMutableDictionary alloc]init];
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"state_id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"state_name"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1093,7 +1200,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"vendorname"])
+    if([elementName isEqualToString:@"Column1"])
     {
         recordResults = FALSE;
         _appreqmdl.vendorname=_soapResults;
@@ -1131,6 +1238,22 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         [_vendordict setObject:vendorstrg forKey:_soapResults];
         [_revendordict setObject:_soapResults forKey:vendorstrg];
         _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"state_id"])
+    {
+       recordResults = FALSE;
+        stateidstr=_soapResults;
+        _soapResults = nil;
+
+        
+    }
+    if([elementName isEqualToString:@"state_name"])
+    {
+        recordResults = FALSE;
+        [_statedict setObject:stateidstr forKey:_soapResults];
+        _soapResults = nil;
+
         
     }
 
@@ -1282,6 +1405,17 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
             
             break;
 
+            
+        case 10:
+            [self.popOverController presentPopoverFromRect:_statelbl.frame
+                                                    inView:self.paymentdetailview
+                                  permittedArrowDirections:UIPopoverArrowDirectionUp
+                                                  animated:YES];
+            
+            
+            break;
+            
+
         default:
             break;
     }
@@ -1338,6 +1472,10 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 }
 
 - (IBAction)statebtn:(id)sender {
+    poptype=10;
+    webtype=10;
+    [self createpopover];
+    [self Stateselect];
 }
 
 - (IBAction)typesegmnt:(id)sender {
@@ -1485,7 +1623,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     int value1=[val isNumeric:_Dependentstexffld.text];
     if(value1==0)
     {
-        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Please enter a number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Dependents" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert1 show];
         _Dependentstexffld.text=@"";
         

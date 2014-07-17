@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
+#import "Validation.h"
 @protocol EqDelgate <NSObject>
 
 -(void)toreloadtable;

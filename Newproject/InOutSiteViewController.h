@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EqOthersMdl.h"
 #import "jobsitemodel.h"
-
+#import "Validation.h"
 
 @protocol sendback<NSObject>
 

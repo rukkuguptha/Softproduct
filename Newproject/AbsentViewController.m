@@ -207,6 +207,8 @@
     ;
      webtype=1;
      [self AbsentManagementselect];
+    
+    [self.popOverController dismissPopoverAnimated:YES];
 }
 #pragma mark-Web Service
 -(void)AbsentManagementselect{
