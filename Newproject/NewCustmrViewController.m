@@ -49,13 +49,13 @@
 
     _popoverArry=[[NSMutableArray alloc]initWithObjects:@"Contact Info",@"Sales Rep Info", nil];
 
-    
+    _addview.hidden=YES;
 
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    _addview.hidden=YES;
     [self Stateselect];
     [self countryselect];
 
@@ -988,6 +988,7 @@
     if([elementName isEqualToString:@"Zip"])
     {
         recordResults = FALSE;
+        _custmdl.zip=_soapResults;
         _soapResults = nil;
 
     }
@@ -1074,7 +1075,7 @@
       recordResults = FALSE;
         if (webtype==1||webtype==2) {
             msgstrg=_soapResults;
-            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil, nil];
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
 
@@ -1166,7 +1167,7 @@
 
 - (IBAction)addcustmrbtn:(id)sender {
     webtype=1;
-       _navtitle.title=@"ADD";
+       _navtitle.title=@"Create";
     _nametextfld.text=@"";
     _addresstxtview.text=@"";
     _citytxtfld.text=@"";
@@ -1270,7 +1271,7 @@
 
 - (IBAction)editbtn:(id)sender {
     webtype=2;
-    _navtitle.title=@"EDIT";
+    _navtitle.title=@"Edit";
      _addview.hidden=NO;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -1527,7 +1528,7 @@
             else
             {
                 fmt=1;
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -1543,7 +1544,7 @@
             int value1=[val isdataformat:_phonetxtfld.text];
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
                 
                 
@@ -1566,7 +1567,7 @@
                     
                     
                     fmt=1;
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
@@ -1586,7 +1587,7 @@
                     }
                     else
                     { fmt=1;
-                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                         
                         [alert show];
                     }
@@ -1624,7 +1625,7 @@
                     
                     
                     fmt=1;
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
@@ -1768,7 +1769,7 @@
             
         }
     }
-    if ([alertView.message isEqualToString:@"Invalid PhoneNumber"])
+    if ([alertView.message isEqualToString:@"Invalid Phone Number"])
     {
         if (buttonIndex==0) {
             

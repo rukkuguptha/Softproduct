@@ -498,7 +498,7 @@
 
 - (IBAction)editbtn:(id)sender {
     _addview.hidden=NO;
-    _navitem.title=@"EDIT";
+    _navitem.title=@"Edit";
     webtype=2;
     button = (UIButton *)sender;
     CGPoint center= button.center;
@@ -514,7 +514,7 @@
 - (IBAction)addbtn:(id)sender {
     webtype=1;
     _addview.hidden=NO;
-      _navitem.title=@"ADD";
+      _navitem.title=@"Create";
       _typetxtfld.text=@"";
 }
 
@@ -535,7 +535,7 @@
         }
     }
     
-    if ([alertView.message isEqualToString:@"TypeName is required"]) {
+    if ([alertView.message isEqualToString:@"Type Name is required"]) {
         
         
         

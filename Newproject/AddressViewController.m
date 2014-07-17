@@ -508,7 +508,7 @@
 
 - (IBAction)addbtn:(id)sender {
     _addview.hidden=NO;
-     _addnavitem.title=@"ADD";
+     _addnavitem.title=@"Create";
     webtype=1;
     _headrtxtfld.text=@"";
     _adrsstxtview.text=@"";
@@ -619,7 +619,7 @@
 - (IBAction)editbtn:(id)sender {
    // _.enabled=NO;
      _addview.hidden=NO;
-    _addnavitem.title=@"EDIT";
+    _addnavitem.title=@"Edit";
  webtype=2;
       button = (UIButton *)sender;
     CGPoint center= button.center;

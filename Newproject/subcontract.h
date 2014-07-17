@@ -72,4 +72,5 @@
 @property(strong,nonatomic)NSString *DeliveryRatesClause;
 
 @property(strong,nonatomic)NSString *SpecialRatesStructure;
+@property(strong,nonatomic)NSString *ExpiryDate;
 @end

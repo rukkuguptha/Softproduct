@@ -495,7 +495,7 @@
     webtype=1;
     _addview.hidden=NO;
      _typetxtfld.text=@"";
-    _navtitle.title=@"ADD";
+    _navtitle.title=@"Create";
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -551,7 +551,7 @@
     _addview.hidden=YES;
 }
 - (IBAction)editbtn:(id)sender {
-    _navtitle.title=@"EDIT";
+    _navtitle.title=@"Edit";
 
     _addview.hidden=NO;
     webtype=2;

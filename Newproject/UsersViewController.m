@@ -1080,7 +1080,7 @@
 {    optionIdentifier=1;
     _resultdisplaylabel.hidden=YES;
     _addview.hidden=NO;
-    _navitem.title=@"ADD";
+    _navitem.title=@"Create";
     _pswdtextfld.text=@"";
     _usrnametextfld.text=@"";
     _titlenamelabel.hidden=YES;
@@ -1091,7 +1091,7 @@
 {
     optionIdentifier=2;
     _addview.hidden=NO;
-    _navitem.title=@"EDIT";
+    _navitem.title=@"Edit";
      _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;

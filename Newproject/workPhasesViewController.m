@@ -218,7 +218,7 @@
 -(IBAction)addworkPhasesview:(id)sender
 {   optionIdentifier=1;
     _workphasesview.hidden=NO;
-    _navItem.title=@"ADD";
+    _navItem.title=@"Create";
     _phasetextfld.text=@"";
     [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
     [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -227,7 +227,7 @@
 -(IBAction)editWorkPhasesview:(id)sender
 {    optionIdentifier=2;
     _workphasesview.hidden=NO;
-    _navItem.title=@"EDIT";
+    _navItem.title=@"Edit";
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.phasetable];

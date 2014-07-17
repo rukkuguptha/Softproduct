@@ -672,7 +672,7 @@
      self.openviewindex=NSNotFound;
     [self SelectAllCourseVendor];
     _addreqview.hidden=NO;
-    _navItem.title=@"ADD";
+    _navItem.title=@"Create";
     inhouse=0;
     _craftview.hidden=NO;
     _seperatorview.hidden=NO;
@@ -686,7 +686,7 @@
 -(IBAction)editBasicreq:(id)sender
 {   optionidentifier=2;
     _addreqview.hidden=NO;
-    _navItem.title=@"EDIT";
+    _navItem.title=@"Edit";
      self.openviewindex=NSNotFound;
     _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;

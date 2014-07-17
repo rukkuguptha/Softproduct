@@ -71,7 +71,7 @@
 {
     _branchview.hidden=NO;
     optionidentifier=1;
-    _navbar.title=@"ADD";
+    _navbar.title=@"Create";
     _branchnametextfld.text=@"";
     _addresstextview.text=@"";
     _phonetextfield.text=@"";
@@ -102,7 +102,7 @@
 {
     _branchview.hidden=NO;
     optionidentifier=2;
-    _navbar.title=@"EDIT";
+    _navbar.title=@"Edit";
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.branchtable];
@@ -192,7 +192,7 @@
             }
         }
     
-        }
+    }
     
 }
 #pragma mark-tableview datasource
@@ -924,7 +924,7 @@
             else
             {
                 //fmt=1;
-                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                 
                 [alert show];
                 
@@ -940,7 +940,7 @@
             int value1=[val isdataformat:_phonetextfield.text];
             if(value1==0)
             {
-                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                UIAlertView *alert1=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert1 show];
                 
                 
@@ -963,7 +963,7 @@
                     
                     
                     //fmt=1;
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
@@ -984,7 +984,7 @@
                     else
                     {
                         //fmt=1;
-                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                         
                         [alert show];
                     }
@@ -1022,7 +1022,7 @@
                     
                     
                     //fmt=1;
-                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid PhoneNumber" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
+                    UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Invalid Phone Number" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil , nil];
                     
                     [alert show];
                     
@@ -1113,7 +1113,7 @@ if ([alertView.message isEqualToString:@"Invalid Email"]) {
     
     
     
-if ([alertView.message isEqualToString:@"Invalid PhoneNumber"])
+if ([alertView.message isEqualToString:@"Invalid Phone Number"])
     {
         if (buttonIndex==0) {
             

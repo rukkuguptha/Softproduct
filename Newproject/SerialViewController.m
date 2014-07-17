@@ -539,7 +539,7 @@
 - (IBAction)editbtn:(id)sender {
     _addview.hidden=NO;
     optionidentifier=2;
-    _navbar.title=@"EDIT";
+    _navbar.title=@"Edit";
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.sequencetable];
@@ -556,7 +556,7 @@
 {
     _addview.hidden=NO;
     optionidentifier=1;
-    _navbar.title=@"ADD";
+    _navbar.title=@"Create";
     _seqnotextfld.text=@"";
     _jobtasktextfld.text=@"";
     
@@ -566,6 +566,11 @@
     _jobtasktextfld.text=@"";
 _addview.hidden=YES;
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)cancel:(id)sender
+{
+    _seqnotextfld.text=@"";
+    _jobtasktextfld.text=@"";
 }
 
 - (IBAction)updatebtn:(id)sender {

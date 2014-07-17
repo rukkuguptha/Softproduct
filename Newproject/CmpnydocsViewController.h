@@ -41,6 +41,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *cmmntbtn;
 - (IBAction)cmntbtn:(id)sender;
 - (IBAction)addcmt:(id)sender;
+- (IBAction)closebtn:(id)sender;
 
 
 @property (strong, nonatomic)NSString *urlstring;
