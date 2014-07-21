@@ -48,14 +48,14 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
     [dateFormat setDateFormat:@"MM/dd/YYYY"];
     
-    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
+    _curntdatestrg= [dateFormat stringFromDate:[NSDate date]];
     
-    [_startdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
-    [_enddatebtnlbl setTitle:dateString forState:UIControlStateNormal];
-    [_datebtnlbl setTitle:dateString forState:UIControlStateNormal];
-    [_wethrfrmdatebtnlbl setTitle:dateString forState:UIControlStateNormal];
-    [_wethrendbtnlbl setTitle:dateString forState:UIControlStateNormal];
-    [_notedatebtnlbl setTitle:dateString forState:UIControlStateNormal];
+    [_startdatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_enddatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_datebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_wethrfrmdatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_wethrendbtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_notedatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
     
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.view1.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -991,8 +991,20 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         
         
     }
+    if ([alertView.message isEqualToString:@"From date should be less than or equal to end date"]) {
+        [_startdatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+        [_enddatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+        
+    }
+    if ([alertView.message isEqualToString:@"Weather from date should be less than or equal to Weather to date"]) {
+        [_wethrfrmdatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+        [_wethrendbtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
 
+        
+    }
 
+    
+  
 //    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
 //    _meetgdetailslbl.text=@"";
 //    _ratetxtfld.text=@"";
@@ -1359,14 +1371,23 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)wrkupdtebtn:(id)sender {
     _reloadtype=5;
+    if ([_startdatebtnlbl.titleLabel.text  compare:_enddatebtnlbl.titleLabel.text] == NSOrderedDescending){
+        
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"From date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
+        
+        [self SitevisitInsertworkschedule];
+          }
 
-    [self SitevisitInsertworkschedule];
+    
 }
 
 - (IBAction)wrkschdlecancel:(id)sender {
-    [_startdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    [_enddatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    
+    [_startdatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_enddatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
     _wrkdesctxtfld.text=@"";
    
 }
@@ -1382,7 +1403,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)meetgcancelbtn:(id)sender {
     
-    [_datebtnlbl setTitle:@"Select" forState:UIControlStateNormal];
+    [_datebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
     _meetgdetailslbl.text=@"";
     
 }
@@ -1413,14 +1434,22 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 
 - (IBAction)wethrupdatebtn:(id)sender {
     _reloadtype=8;
+    if ([_wethrfrmdatebtnlbl.titleLabel.text  compare:_wethrendbtnlbl.titleLabel.text] == NSOrderedDescending){
+        
+        
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Weather from date should be less than or equal to Weather to date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else{
 
     [self SitevisitInsertweatheroutlook];
+    }
 }
 
 - (IBAction)weathrcancelbtn:(id)sender {
-    [_wethrfrmdatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-    [_wethrendbtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
-
+    [_wethrfrmdatebtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    [_wethrendbtnlbl setTitle:_curntdatestrg forState:UIControlStateNormal];
+    
      _wathrcndtnlbl.text=@"";
 }
 - (IBAction)notedatebtn:(id)sender {
@@ -1435,7 +1464,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
 }
 
 - (IBAction)notescancelbtn:(id)sender {
-    [_notedatebtnlbl  setTitle:@"Select" forState:UIControlStateNormal];
+    [_notedatebtnlbl  setTitle:_curntdatestrg forState:UIControlStateNormal];
     _notestxtfld.text=@"";
    
 }
