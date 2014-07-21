@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="workPhasesViewController">
             <connections>
+                <outlet property="cancelbtn" destination="zbu-YZ-sZx" id="j3V-Kf-lz3"/>
                 <outlet property="navItem" destination="irM-BC-LkF" id="kap-Zc-1ov"/>
                 <outlet property="phasetable" destination="sq6-VC-318" id="lCW-Wu-jnB"/>
                 <outlet property="phasetextfld" destination="f5U-q5-jUx" id="sM4-5Z-VWU"/>

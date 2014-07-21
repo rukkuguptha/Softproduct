@@ -46,6 +46,7 @@
 /*cell outlets*/
 @property (strong, nonatomic) IBOutlet UILabel *servicelabel;
 @property (strong, nonatomic) IBOutlet UIButton *editbtn;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
 @property(strong,nonatomic)IBOutlet UILabel *abbrvtnlabel;
 @property(strong,nonatomic)IBOutlet UILabel *resultdispalylabel;
 

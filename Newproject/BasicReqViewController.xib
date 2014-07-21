@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="addreqview" destination="Cqm-3c-T8e" id="Nq4-O9-SyM"/>
                 <outlet property="basicreqtable" destination="3yV-UT-gaN" id="ID6-tN-vD5"/>
+                <outlet property="cancelbtn" destination="wuY-LO-dH2" id="Re4-pj-aYU"/>
                 <outlet property="codetextfield" destination="Sdy-IO-LLc" id="FxH-nW-XTy"/>
                 <outlet property="craftbtn" destination="gm0-GG-6F6" id="xhP-jt-OBt"/>
                 <outlet property="craftcheckbtn" destination="yNe-NQ-TeC" id="mg9-8q-wl0"/>

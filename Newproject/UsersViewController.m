@@ -1084,6 +1084,7 @@
     _pswdtextfld.text=@"";
     _usrnametextfld.text=@"";
     _titlenamelabel.hidden=YES;
+    _cancelbtn.enabled=YES;
     [_type1btnlbl setTitle:@"Select" forState:UIControlStateNormal];
     [_type2btnlbl setTitle:@"Select" forState:UIControlStateNormal];
 }
@@ -1092,6 +1093,7 @@
     optionIdentifier=2;
     _addview.hidden=NO;
     _navitem.title=@"Edit";
+    _cancelbtn.enabled=NO;
      _resultdisplaylabel.hidden=YES;
     button = (UIButton *)sender;
     CGPoint center= button.center;

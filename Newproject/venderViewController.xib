@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="venderViewController">
             <connections>
                 <outlet property="addresstextfld" destination="p0T-24-kgk" id="YKy-nc-jr9"/>
+                <outlet property="cancelbtn" destination="vGA-6k-5mD" id="5zJ-hC-H2T"/>
                 <outlet property="nametextfld" destination="wDv-KY-5So" id="v6I-dz-8oy"/>
                 <outlet property="navitem" destination="gv0-xR-CCy" id="hIP-Sx-hPO"/>
                 <outlet property="phonetextfld" destination="n1c-6i-Zaf" id="PMM-t2-0Ap"/>
@@ -203,7 +204,7 @@
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bXY-c4-AVX">
                                     <rect key="frame" x="207" y="282" width="84" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="Update">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -219,9 +220,9 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vGA-6k-5mD">
-                                    <rect key="frame" x="339" y="282" width="46" height="30"/>
+                                    <rect key="frame" x="339" y="282" width="57" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="Cancel">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>

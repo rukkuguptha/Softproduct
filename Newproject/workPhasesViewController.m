@@ -220,6 +220,8 @@
     _workphasesview.hidden=NO;
     _navItem.title=@"Create";
     _phasetextfld.text=@"";
+    _cancelbtn.enabled=YES;
+
     [_servicebtn setTitle:@"Select" forState:UIControlStateNormal];
     [_phasebtn setTitle:@"Select" forState:UIControlStateNormal];
     
@@ -227,6 +229,7 @@
 -(IBAction)editWorkPhasesview:(id)sender
 {    optionIdentifier=2;
     _workphasesview.hidden=NO;
+    _cancelbtn.enabled=NO;
     _navItem.title=@"Edit";
     button = (UIButton *)sender;
     CGPoint center= button.center;

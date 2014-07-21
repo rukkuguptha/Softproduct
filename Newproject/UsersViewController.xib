@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UsersViewController">
             <connections>
                 <outlet property="addview" destination="lbl-gW-TtC" id="fYD-mR-uTw"/>
+                <outlet property="cancelbtn" destination="2sN-my-AhA" id="HKO-XF-6bU"/>
                 <outlet property="navitem" destination="xnW-6t-5D1" id="Unm-jg-PZK"/>
                 <outlet property="pswdtextfld" destination="Kmu-O8-MNh" id="mou-MJ-5bX"/>
                 <outlet property="resultdisplaylabel" destination="7tz-ii-f0F" id="T8X-rO-tOq"/>
