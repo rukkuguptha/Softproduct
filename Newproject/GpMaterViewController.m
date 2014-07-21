@@ -1244,7 +1244,12 @@
             _crewnametxtfld.text=@"";
             [self MaterialCrewNameSelect];
         }
-        
+        else{
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _crewnametxtfld.text=@"";
+        }
+
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"MaterialCrewId"])
@@ -1448,7 +1453,14 @@
 
 - (void)startDraggingFromSrcAtPoint:(CGPoint)point
 {
-    
+    if ([_groupbtn.titleLabel.text isEqualToString:@"Select"]) {
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select Group Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     
     NSIndexPath* indexPath = [_materailtable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_materailtable cellForRowAtIndexPath:indexPath];
@@ -1475,7 +1487,7 @@
         draggedData = manmdl1.itemcode;
         NSLog(@"%@",manmdl1.itemdescptn);
     }
-    
+    }
     
 }
 

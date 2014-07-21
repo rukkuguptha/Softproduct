@@ -399,7 +399,7 @@
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
                    "<PictureLocation>%@</PictureLocation>\n"
                    "<InsuredValue>%f</InsuredValue>\n"
-                   "<HoursUsed>%f</HoursUsed>\n"
+                   "<Manufacturer>%@</Manufacturer>\n"
                    "<FuelConsumptionPerHour>%f</FuelConsumptionPerHour>\n"
                    "<Condition>%@</Condition>\n"
                    "<HourlyRate>%f</HourlyRate>\n"
@@ -411,7 +411,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Insertfleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",@"abc",_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],_hurstxtfld.text,[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -475,7 +475,7 @@
                    "<ManufacturedYear>%d</ManufacturedYear>\n"
                    "<PictureLocation>%@</PictureLocation>\n"
                    "<InsuredValue>%f</InsuredValue>\n"
-                   "<HoursUsed>%f</HoursUsed>\n"
+                   "<Manufacturer>%@</Manufacturer>\n"
                    "<FuelConsumptionPerHour>%f</FuelConsumptionPerHour>\n"
                    "<Condition>%@</Condition>\n"
                    "<HourlyRate>%f</HourlyRate>\n"
@@ -488,7 +488,7 @@
                    "<qtyinstock>%f</qtyinstock>\n"
                    "</Updatefleet>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],[_hurstxtfld.text floatValue],[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhandtxtfld.text floatValue]];
+                   "</soap:Envelope>\n",_codetxtfld.text,_destxtfld.text,[_skilldict objectForKey:_suserachbtnlbl.titleLabel.text],[Purchase floatValue],_serialtxtfld.text,[_manufattxtfld.text integerValue],picturelocatn,[insured floatValue],_hurstxtfld.text ,[_fueltxtfld.text floatValue],_condtntxtfld.text,[hourly floatValue],[daily floatValue],[shiftwise floatValue],[weekly floatValue],[monthly floatValue],[_yearlytxtfld.text floatValue],eqmdl.entryid,[_stockinhandtxtfld.text floatValue]];
     NSLog(@"soapmsg%@",soapMessage);
     
     
@@ -1002,7 +1002,7 @@
         recordResults = TRUE;
     }
     
-    if([elementName isEqualToString:@"HoursUsed"])
+    if([elementName isEqualToString:@"Manufacturer"])
     {
         
         if(!_soapResults)
@@ -1319,7 +1319,7 @@
         _soapResults = nil;
     }
     
-    if([elementName isEqualToString:@"HoursUsed"])
+    if([elementName isEqualToString:@"Manufacturer"])
     {
         
         recordResults = FALSE;
@@ -1574,6 +1574,7 @@ if([elementName isEqualToString:@"url"])
     _monthlytxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.MonthlyRate];
     _yearlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.YearlyRate];
     _stockinhandtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
+      [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
     [self FetchAnyImage];

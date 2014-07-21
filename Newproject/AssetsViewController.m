@@ -1635,6 +1635,7 @@ recordResults = FALSE;
     _stckinhandtxtfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
     _cancelbtn.enabled=NO;
+      [_pictureimgview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navItem.title=@"Edit";

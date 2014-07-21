@@ -1778,6 +1778,7 @@ finishedSavingWithError:(NSError *)error
    _unitcsttxtfld.text=[NSString stringWithFormat:@"$%@",eqmdl.unitcost];
     _stckinhandtxtdfld.text=eqmdl.stockinhand;
     _uplodpiclctn=eqmdl.PictureLocation;
+     // [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
     [self FetchAnyImage];
     _addview.hidden=NO;
     _navitem.title=@"Edit";

@@ -284,6 +284,7 @@
                 selectedindex=indexPath.row;
 
                  [_jobnumberbtnlbl setTitle:[_jobarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];
+                _servicebtnlbl.enabled=YES;
                 break;
             case 2:
                    [_servicebtnlbl setTitle:[_skillarray objectAtIndex:indexPath.row] forState:UIControlStateNormal];

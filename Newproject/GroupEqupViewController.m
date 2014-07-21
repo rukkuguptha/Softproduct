@@ -440,7 +440,14 @@
 - (void)startDraggingFromSrcAtPoint:(CGPoint)point
 {
     
-    
+    if ([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select Group Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     NSIndexPath* indexPath = [_equpmenttable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_equpmenttable cellForRowAtIndexPath:indexPath];
     
@@ -466,7 +473,7 @@
        draggedData = manmdl1.itemcode;
         NSLog(@"%@",manmdl1.itemdescptn);
     }
-    
+    }
     
 }
 
@@ -1471,6 +1478,12 @@
             _crewnametxtfld.text=@"";
             [self Selectcrewname];
         }
+        else{
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            _crewnametxtfld.text=@"";
+        }
+
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"SkillId"])

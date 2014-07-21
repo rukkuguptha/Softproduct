@@ -469,10 +469,16 @@
     
 }
 
-- (void)startDraggingFromSrcAtPoint:(CGPoint)point
-{
-    
-    
+- (void)startDraggingFromSrcAtPoint:(CGPoint)point{
+
+    if ([_crewbtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select Crew Name" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     NSIndexPath* indexPath = [_manpwrtable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_manpwrtable cellForRowAtIndexPath:indexPath];
     
@@ -498,12 +504,13 @@
         draggedData = manmdl1.itemcode;
         NSLog(@"%@",manmdl1.itemdescptn);
     }
-
+    }
     
 }
 
 - (void)startDraggingFromDstAtPoint:(CGPoint)point
 {
+    
     NSIndexPath* indexPath = [_crewnametable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_crewnametable cellForRowAtIndexPath:indexPath];
     if(cell != nil)
@@ -536,6 +543,7 @@
          }];
         
     }
+    
     
 }
 
@@ -1513,8 +1521,13 @@
 
         
         if ([_soapResults isEqualToString:@"Inserted Crew"]||[_soapResults isEqualToString:@"Deleted All Members"]||[_soapResults isEqualToString:@"deletedcrew"]) {
-             _crewnametxtfld.text=@"";
+            
             [self Selectcrewname];
+        }
+        else{
+            UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
         }
                _soapResults = nil;
     }

@@ -1635,6 +1635,7 @@ finishedSavingWithError:(NSError *)error
     _yearlytxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.YearlyRate];
     _stockinhndtxtfld.text=[NSString stringWithFormat:@"%@",eqmdl.stockinhand];
     _uplodpiclctn=[NSString stringWithFormat:@"%@",eqmdl.PictureLocation];
+    [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
     
     [self FetchAnyImage];
 

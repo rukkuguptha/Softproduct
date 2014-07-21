@@ -1651,7 +1651,7 @@ else
     _stockinhandtxtfld.text=pwrmdl.stckinhand;
     _uplodpiclctn=pwrmdl.picturelocation;
     _unitofmesuretxtfld.text=pwrmdl.unitofmeasure;
-    
+      [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
     [self FetchAnyImage];
 
 

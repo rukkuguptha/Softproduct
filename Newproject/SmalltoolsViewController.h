@@ -24,6 +24,8 @@
     NSInteger webtype;
     NSString *msgstrg;
     NSString*skill;
+    NSString*smallcode,*picturelocation;
+
       
 }
 @property (strong, nonatomic) IBOutlet UIImageView *picimageview;

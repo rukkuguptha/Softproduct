@@ -499,7 +499,173 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     
     
 }
+-(void)FetchAnyImage{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    //NSString *imagename=[NSString stringWithFormat:@"Photo_%@.png",_codetxtfld.text];
+    NSString *type=@"SmallTools";
+    
+    //Equpmntmdl*eqmdl=(Equpmntmdl *)[_Assetarray objectAtIndex:path];
+    //NSString*filename=eqmdl.PictureLocation;
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<FetchAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<filename>%@</filename>\n"
+                   "<type1>%@</type1>\n"
+                   "</FetchAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",picturelocation,type];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/FetchAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
+-(void)Insertanyimage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",smallcode];
+    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *type=@"SmallTools";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type,smallcode];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
+-(void)UploadAnyImage{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    NSString *imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_codetxtfld.text];
+    // NSString *imagename=[NSString stringWithFormat:@"Newimage.jpg"];
+    NSString *type=@"SmallTools";
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<UploadAnyImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<f>%@</f>\n"
+                   "<fileName>%@</fileName>\n"
+                   "<type>%@</type>\n"
+                   "<itemcode>%@</itemcode>\n"
+                   "</UploadAnyImage>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_encodedString,imagename,type,_codetxtfld.text];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/UploadAnyImage" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 #pragma mark - Connection
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -701,6 +867,25 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
     }
     
+    if([elementName isEqualToString:@"SmallCode"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    
+    if([elementName isEqualToString:@"SmallPictureLocation"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 
 }
@@ -774,29 +959,49 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
     if([elementName isEqualToString:@"subtype"])
     {
         recordResults = FALSE;
-               [_subtypearray addObject:_soapResults];
+        
         _soapResults = nil;
         
         
     }
    
-    
-    if([elementName isEqualToString:@"result"])
+    if([elementName isEqualToString:@"SmallPictureLocation"])
     {
-          recordResults = FALSE;
-        if (webtype==3) {
-            
-        }
-        else{
-        msgstrg=_soapResults;
-        
-        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-        }
-        _soapResults=nil;
-        
+        recordResults = FALSE;
+        _Toolmdl.picturelocation=_soapResults;
+           [_subtypearray addObject:_soapResults];
+    _soapResults = nil;
         
     }
+    if([elementName isEqualToString:@"result"])
+    {
+        recordResults = FALSE;
+        
+        if ([_soapResults isEqualToString:@"Inserted Successfully"]) {
+            
+            [self Insertanyimage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
+        }
+        if ([_soapResults isEqualToString:@"Updated Successfully"]) {
+            
+            [self UploadAnyImage];
+            webtype=0;
+            msgstrg=_soapResults;
+            
+        }
+        
+        else if ([_soapResults isEqualToString:@"SmallTools Picture Updated"]) {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:msgstrg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            
+            [self SelectAllSmallTools];
+        }
+        
+        _soapResults = nil;
+        
+}
     if([elementName isEqualToString:@"SkillId"])
     {
         recordResults = FALSE;
@@ -814,7 +1019,12 @@ Manpwr*pwrmdl=(Manpwr *)[_toolarray objectAtIndex:path];
         
         
     }
-    
+    if([elementName isEqualToString:@"SmallCode"])
+    {
+        recordResults =FALSE;
+        smallcode=_soapResults;
+_soapResults = nil;
+    }
 
 }
 
@@ -1085,11 +1295,11 @@ else
     _destxtfld.text=toolmdl.itemdescptn;
     _subtypetxtfld.text=toolmdl.subtype;
     [_subsearchbtnlbl setTitle:toolmdl.subtype forState:UIControlStateNormal];
-
-    _costtxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
-   
+     _costtxtfld.text=[NSString stringWithFormat:@"$%@",toolmdl.unitcost];
+     [_picimageview setImage:[UIImage imageNamed:@"ios7-camera-icon"]];
     _stockinhandtxtfld.text=toolmdl.stckinhand;
-
+   picturelocation=toolmdl.picturelocation;
+    [self FetchAnyImage];
     _addview.hidden=NO;
     _navtitle.title=@"Edit";
 }
