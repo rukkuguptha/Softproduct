@@ -65,6 +65,7 @@
 @property(strong,nonatomic)NSString *phnnofmtstring;
 @property(strong,nonatomic)NSString *mblenofmtstring;
 
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 
 //- (IBAction)editcellbtn:(id)sender;

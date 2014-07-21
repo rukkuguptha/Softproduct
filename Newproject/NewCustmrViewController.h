@@ -97,6 +97,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *editbtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *disclurebtnlbl;
 
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 /*actions*/
 

@@ -28,6 +28,7 @@
 @property(strong,nonatomic)IBOutlet UIView *tabletitleview;
 @property(strong,nonatomic)IBOutlet UIButton *matrixbutton;
 
+@property (strong, nonatomic) IBOutlet UIView *titleview;
 
 
 @property(strong,nonatomic)UITableView *popovertableview;

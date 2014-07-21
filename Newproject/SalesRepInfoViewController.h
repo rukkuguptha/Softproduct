@@ -59,6 +59,7 @@
 @property(strong,nonatomic)NSMutableString *soapResults;
 /*array*/
 @property(strong,nonatomic)NSMutableArray *salesarray;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 /*outlet in add view*/
 @property (strong, nonatomic) IBOutlet UITextField *custcodetextfield;

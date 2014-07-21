@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ContactInfoViewController">
             <connections>
                 <outlet property="addview" destination="10" id="52"/>
+                <outlet property="cancelbtnlbl" destination="32" id="oVL-Za-1h8"/>
                 <outlet property="contactinfoTable" destination="9" id="18"/>
                 <outlet property="emailtextfield" destination="50" id="HXn-I6-9lS"/>
                 <outlet property="faxtxtfld" destination="46" id="Vwg-II-usd"/>

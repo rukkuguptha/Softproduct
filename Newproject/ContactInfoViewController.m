@@ -558,6 +558,8 @@
 
 #pragma mark-Button
 - (IBAction)addbtn:(id)sender {
+      _cancelbtnlbl.enabled=YES;
+     _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _navitem.title=@"Create";
     webtype=1;
     _addview.hidden=NO;
@@ -652,6 +654,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    _cancelbtnlbl.enabled=NO;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     webtype=2;
      _navitem.title=@"Edit";
     _addview.hidden=NO;

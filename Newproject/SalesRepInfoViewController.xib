@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SalesRepInfoViewController">
             <connections>
                 <outlet property="addView" destination="193" id="196"/>
+                <outlet property="cancelbtnlbl" destination="205" id="usN-bW-dwQ"/>
                 <outlet property="custcodetextfield" destination="206" id="gUi-mn-QOH"/>
                 <outlet property="emailtextfield" destination="209" id="xzN-DG-7HR"/>
                 <outlet property="empidtextfield" destination="210" id="xkR-P7-DN5"/>
@@ -262,7 +263,7 @@
                                         <navigationItem title="Title" id="HkM-a2-gpB">
                                             <barButtonItem key="rightBarButtonItem" id="ftk-Pm-Vdu">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Z5E-zR-YMo">
-                                                    <rect key="frame" x="649" y="2" width="40" height="40"/>
+                                                    <rect key="frame" x="644" y="-3" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" image="appbar.close.png">

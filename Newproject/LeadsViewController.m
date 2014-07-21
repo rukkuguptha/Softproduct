@@ -95,6 +95,7 @@
 
 -(IBAction)addnewlead:(id)sender
 {
+       _ancelbtnlbl.enabled=YES;
     [self SelectAllCustomer];
     
      self.navbaritem.title = @"Create";
@@ -514,6 +515,8 @@ if (tableView==_leadTable) {
 
 - (IBAction)editcellbtn:(id)sender {
     butnidtfr=2;
+    _ancelbtnlbl.enabled=NO;
+    
      self.navbaritem.title = @"Edit";
     _view2.hidden=NO;
 //    _view2.frame = CGRectMake(512, 384, 0, 0);

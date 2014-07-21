@@ -920,6 +920,7 @@
 - (IBAction)addbtn:(id)sender {
     btntype=1;
     _addview.hidden=NO;
+      _cancelbtnlbl.enabled=YES;
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -927,7 +928,8 @@
 
 - (IBAction)editbtn:(id)sender {
     _navtitle.title=@"Edit";
-
+    _cancelbtnlbl.enabled=NO;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
      btntype=2;
     _addview.hidden=NO;
     button = (UIButton *)sender;
@@ -958,6 +960,8 @@
 
 - (IBAction)addclsebtn:(id)sender {
        _navtitle.title=@"Create";
+    _cancelbtnlbl.enabled=YES;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
      _addview.hidden=YES;
     [_jobsitebtnlbl setTitle:@"Select Jobsite" forState:UIControlStateNormal];
     [_typebtnlbl setTitle:@"Select Type" forState:UIControlStateNormal];
@@ -996,6 +1000,7 @@
 }
 
 - (IBAction)relatedtobtn:(id)sender {
+    
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.issuetable];

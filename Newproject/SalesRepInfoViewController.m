@@ -109,6 +109,9 @@
 }
 - (IBAction)editsalesaction:(id)sender
 {
+    _cancelbtnlbl.enabled=NO;
+   
+       _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     _addView.hidden=NO;
     _navbar.title=@"Edit";
     optionidentifier=2;
@@ -130,7 +133,8 @@
 
 }
 - (IBAction)addsalesaction:(id)sender
-{
+{_cancelbtnlbl.enabled=YES;
+   _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
     _addView.hidden=NO;
      _navbar.title=@"Create";
     optionidentifier=1;

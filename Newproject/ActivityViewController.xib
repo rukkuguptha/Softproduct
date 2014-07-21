@@ -11,6 +11,7 @@
                 <outlet property="activityTable" destination="15" id="24"/>
                 <outlet property="activityTxtFld" destination="44" id="84"/>
                 <outlet property="activityTypeBtn" destination="116" id="119"/>
+                <outlet property="cancelbtnlbl" destination="49" id="823-Xw-8iw"/>
                 <outlet property="cmtnav" destination="92" id="103"/>
                 <outlet property="cmttable" destination="95" id="104"/>
                 <outlet property="cmttxtbox" destination="98" id="105"/>
@@ -240,7 +241,7 @@
                                         <navigationItem title="Title" id="V0h-b0-cSf">
                                             <barButtonItem key="rightBarButtonItem" id="CAt-CC-KY8">
                                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="59">
-                                                    <rect key="frame" x="610" y="3" width="37" height="37"/>
+                                                    <rect key="frame" x="603.5" y="-3.5" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                                     <state key="normal" image="appbar.close.png">

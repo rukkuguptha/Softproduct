@@ -1156,8 +1156,7 @@
     }
     //[searchBar resignFirstResponder];
     
-    
-}
+    }
 
 #pragma mark-Button Actions
 
@@ -1167,6 +1166,8 @@
 
 - (IBAction)addcustmrbtn:(id)sender {
     webtype=1;
+     _cancelbtnlbl.enabled=YES;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor colorWithRed:0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
        _navtitle.title=@"Create";
     _nametextfld.text=@"";
     _addresstxtview.text=@"";
@@ -1270,6 +1271,8 @@
 }
 
 - (IBAction)editbtn:(id)sender {
+    _cancelbtnlbl.enabled=NO;
+    _cancelbtnlbl.titleLabel.textColor=[UIColor grayColor];
     webtype=2;
     _navtitle.title=@"Edit";
      _addview.hidden=NO;
