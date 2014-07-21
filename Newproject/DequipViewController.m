@@ -514,9 +514,9 @@
                    
                    "<soap:Body>\n"
                    
-                   "<EquipmentHoursSelect xmlns=\"http://ios.kontract360.com/\">\n"
-                   "<MainGeneralId>%d</MainGeneralId>\n"
-                   "</EquipmentHoursSelect>\n"
+                   "<NewEqHoursSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<maingeneralId>%d</maingeneralId>\n"
+                   "</NewEqHoursSelect>\n"
                    "</soap:Body>\n"
                    "</soap:Envelope>\n",[_generalid integerValue]];
     NSLog(@"soapmsg%@",soapMessage);
@@ -531,7 +531,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/EquipmentHoursSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://ios.kontract360.com/NewEqHoursSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -967,10 +967,10 @@
 	[_xmlParser parse];
     [_equipsourcetable reloadData];
     [_equipdesttable reloadData];
-    if (webtype==1||webtype==2) {
-        [self GeneralResourceDetailselect];
-        webtype=0;
-    }
+//    if (webtype==1||webtype==2) {
+//        [self GeneralResourceDetailselect];
+//        webtype=0;
+//    }
     
     
 }
@@ -1434,7 +1434,10 @@
         
         recordResults = FALSE;
         _result=_soapResults;
-        if (webtype==1) {
+        if (webtype==1||webtype==2) {
+            [self EquipmentHoursSelect];
+            [self GeneralResourceDetailselect];
+
             dcheck=0;
             mcheck=0;
             hcheck=0;
@@ -1446,10 +1449,11 @@
             _equipitemcodetextfield.text=@"";
             _equipitemdesctextfield.text=@"";
             _equipqtytextfield.text=@"";
+            webtype=0;
         }
          if (webtype==5)
          {
-             [self EquipmentHoursSelect];
+             
              [self GeneralResourceDetailselect];
          }
         

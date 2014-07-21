@@ -394,7 +394,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     {
        typ=1;
     }
-    if (_reloadtype==6) {
+    if (_reloadtype==11) {
         filename=@"";
         typ=1;
     }
@@ -620,7 +620,7 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     {
         typ=1;
     }
-    if(_reloadtype==9)
+    if(_reloadtype==10)
     {
         filename=@"";
         typ=1;
@@ -1377,6 +1377,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"From date should be less than or equal to end date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    else if([_wrkdesctxtfld.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     else{
         
         [self SitevisitInsertworkschedule];
@@ -1396,9 +1401,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
     [self createCalenderPopover];
 }
 - (IBAction)meetgupdatebt:(id)sender {
-    _reloadtype=6;
-
+    _reloadtype=11;
+    if ([_meetgdetailslbl.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Detail is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self SitevisitInsertmeetingnotes];
+    }
 }
 
 - (IBAction)meetgcancelbtn:(id)sender {
@@ -1440,6 +1451,11 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
         UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Weather from date should be less than or equal to Weather to date" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
+    else if([_wathrcndtnlbl.text isEqualToString:@""])
+    {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Weather Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
     else{
 
     [self SitevisitInsertweatheroutlook];
@@ -1459,8 +1475,15 @@ NSString*    dateString = [dateFormat2 stringFromDate:dates];
      [self createCalenderPopover];
 }
 - (IBAction)notesupdatebtn:(id)sender {
-     _reloadtype=9;
+     _reloadtype=10;
+    if ([_notestxtfld.text isEqualToString:@""]) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Notes is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self SitevisitInsertNotes];
+    }
 }
 
 - (IBAction)notescancelbtn:(id)sender {

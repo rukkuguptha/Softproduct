@@ -156,7 +156,7 @@
         _statelbl=(UILabel *)[cell viewWithTag:3];
         _statelbl.text=custmd.state;
         _cuntrylbl=(UILabel *)[cell viewWithTag:4];
-        _cuntrylbl.text=custmd.country;
+        _cuntrylbl.text=[_revcountrydict objectForKey:custmd.country];
         _phonelbl=(UILabel *)[cell viewWithTag:5];
         _phonelbl.text=custmd.phone;
         _emaillbl=(UILabel *)[cell viewWithTag:6];
@@ -858,6 +858,7 @@
     {
         _countryarray=[[NSMutableArray alloc]init];
         _countrydict=[[NSMutableDictionary alloc]init];
+         _revcountrydict=[[NSMutableDictionary alloc]init];
         if(!_soapResults)
         {
             _soapResults = [[NSMutableString alloc] init];
@@ -996,7 +997,7 @@
     if([elementName isEqualToString:@"Country"])
     {
         recordResults = FALSE;
-          _custmdl.country=@"USA";
+        _custmdl.country=_soapResults;
         _soapResults = nil;
 
     }
@@ -1067,6 +1068,7 @@
         recordResults = FALSE;
         [_countryarray addObject:_soapResults];
         [_countrydict setObject:cuntryid forKey:_soapResults];
+        [_revcountrydict setObject:_soapResults forKey:cuntryid];
         _soapResults = nil;
     }
     if([elementName isEqualToString:@"result"])
@@ -1287,7 +1289,7 @@
     _addresstxtview.text=custmd.custmraddress;
     _citytxtfld.text=custmd.city;
     [_statebtnlbl setTitle:[_revstatedict objectForKey:custmd.state] forState:UIControlStateNormal];
-    [_cuntrybtnlbl setTitle:custmd.country forState:UIControlStateNormal];
+    [_cuntrybtnlbl setTitle:[_revcountrydict objectForKey:custmd.country] forState:UIControlStateNormal];
     _websitetxtfld.text=custmd.website;
     _zipbtnlbl.text=custmd.zip;
     _emailtxtfld.text=custmd.email;

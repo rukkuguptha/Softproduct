@@ -50,6 +50,7 @@
 @property(strong,nonatomic)NSMutableDictionary *revstatedict;
 @property(strong,nonatomic)NSMutableArray *countryarray;
 @property(strong,nonatomic)NSMutableDictionary *countrydict;
+@property(strong,nonatomic)NSMutableDictionary *revcountrydict;
 
 
 /* xmlparser*/

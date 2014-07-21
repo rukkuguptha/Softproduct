@@ -497,6 +497,23 @@
     }
     
 
+    if([elementName isEqualToString:@"InsertPlanServiceResult"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
 
     
     
@@ -564,6 +581,28 @@
         [_serviceaddedarray addObject:servicename];
         _soapResults = nil;
     }
+    if([elementName isEqualToString:@"InsertPlanServiceResult"])
+    {
+        
+        recordResults = FALSE;
+        
+       
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"result"])
+    {
+        
+        recordResults = FALSE;
+        if([_soapResults isEqualToString:@"Already Exists"])
+        {
+            UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:_soapResults delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        
+        _soapResults = nil;
+    }
+
+
     
 
     
