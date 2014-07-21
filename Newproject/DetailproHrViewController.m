@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+  
        _w4detailview.hidden=YES;
     _paymentdetailview.hidden=YES;
     _dcmntdetailview.hidden=YES;
@@ -69,8 +69,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self Applicantrequirementselect];
-    [self Statusselect];
-    [self ReqVendorselect];
+    
 
 }
 
@@ -883,6 +882,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
    
     if (newwebtype==1) {
          [_detailstablview reloadData];
+        [self Statusselect];
+        [self ReqVendorselect];
         newwebtype=0;
     }
     if (newwebtype==2) {
@@ -1007,7 +1008,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         recordResults = TRUE;
         
     }
-    if([elementName isEqualToString:@"Column1"])
+    if([elementName isEqualToString:@"reqVendorName"])
     {
         if(!_soapResults)
         {
@@ -1200,7 +1201,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         _soapResults = nil;
         
     }
-    if([elementName isEqualToString:@"Column1"])
+    if([elementName isEqualToString:@"reqVendorName"])
     {
         recordResults = FALSE;
         _appreqmdl.vendorname=_soapResults;
