@@ -446,6 +446,11 @@
 		D4E658D217F2EF2500202B14 /* green-checkmark4-1.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */; };
 		D4E658D417F2EF5B00202B14 /* wrong.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E658D317F2EF5B00202B14 /* wrong.png */; };
 		D4E7AD09192DC91F00C07497 /* Handnotes.png in Resources */ = {isa = PBXBuildFile; fileRef = D4E7AD08192DC91F00C07497 /* Handnotes.png */; };
+		D4EBA85A1978E05100B612E1 /* Cfecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EBA8591978E05000B612E1 /* Cfecell.xib */; };
+		D4EBA85D1978ED7B00B612E1 /* deliverymdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBA85C1978ED7B00B612E1 /* deliverymdl.m */; };
+		D4EBA8601978F40800B612E1 /* eqtermsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBA85F1978F40800B612E1 /* eqtermsmdl.m */; };
+		D4EBA8641978FD6C00B612E1 /* Trecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EBA8631978FD6C00B612E1 /* Trecell.xib */; };
+		D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */; };
 		D4EC1FE11875280500A55942 /* textbox.png in Resources */ = {isa = PBXBuildFile; fileRef = D4EC1FE01875280500A55942 /* textbox.png */; };
 		D4EC7E3C192A09FD00C60BA9 /* DrawingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7E3A192A09FD00C60BA9 /* DrawingViewController.m */; };
 		D4EC7E3D192A09FD00C60BA9 /* DrawingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EC7E3B192A09FD00C60BA9 /* DrawingViewController.xib */; };
@@ -1106,6 +1111,14 @@
 		D4E658D117F2EF2500202B14 /* green-checkmark4-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "green-checkmark4-1.png"; sourceTree = "<group>"; };
 		D4E658D317F2EF5B00202B14 /* wrong.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wrong.png; sourceTree = "<group>"; };
 		D4E7AD08192DC91F00C07497 /* Handnotes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Handnotes.png; sourceTree = "<group>"; };
+		D4EBA8591978E05000B612E1 /* Cfecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cfecell.xib; sourceTree = "<group>"; };
+		D4EBA85B1978ED7B00B612E1 /* deliverymdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = deliverymdl.h; sourceTree = "<group>"; };
+		D4EBA85C1978ED7B00B612E1 /* deliverymdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = deliverymdl.m; sourceTree = "<group>"; };
+		D4EBA85E1978F40800B612E1 /* eqtermsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = eqtermsmdl.h; sourceTree = "<group>"; };
+		D4EBA85F1978F40800B612E1 /* eqtermsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eqtermsmdl.m; sourceTree = "<group>"; };
+		D4EBA8631978FD6C00B612E1 /* Trecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Trecell.xib; sourceTree = "<group>"; };
+		D4EBA8651978FE7700B612E1 /* Thrtrmsmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thrtrmsmdl.h; sourceTree = "<group>"; };
+		D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thrtrmsmdl.m; sourceTree = "<group>"; };
 		D4EC1FE01875280500A55942 /* textbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textbox.png; sourceTree = "<group>"; };
 		D4EC7E39192A09FD00C60BA9 /* DrawingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingViewController.h; sourceTree = "<group>"; };
 		D4EC7E3A192A09FD00C60BA9 /* DrawingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawingViewController.m; sourceTree = "<group>"; };
@@ -1535,6 +1548,8 @@
 				D49F8A4C18EEBAD700413CAD /* Basewagecell.xib */,
 				D49F8A5418EECD3800413CAD /* fuelcell.xib */,
 				D49FBE3418F2A4B70050B19F /* Doccontrctcell.xib */,
+				D4EBA8591978E05000B612E1 /* Cfecell.xib */,
+				D4EBA8631978FD6C00B612E1 /* Trecell.xib */,
 				D4A338D618F3EEEF00E53FAC /* MarkupViewController.h */,
 				D4A338D718F3EEEF00E53FAC /* MarkupViewController.m */,
 				D4A338D818F3EEEF00E53FAC /* MarkupViewController.xib */,
@@ -1948,6 +1963,12 @@
 				D499D299196AB39A008D248A /* Timesheetmdl.m */,
 				D4B4CB9F19738ED500696D37 /* Appreqmdl.h */,
 				D4B4CBA019738ED500696D37 /* Appreqmdl.m */,
+				D4EBA85B1978ED7B00B612E1 /* deliverymdl.h */,
+				D4EBA85C1978ED7B00B612E1 /* deliverymdl.m */,
+				D4EBA85E1978F40800B612E1 /* eqtermsmdl.h */,
+				D4EBA85F1978F40800B612E1 /* eqtermsmdl.m */,
+				D4EBA8651978FE7700B612E1 /* Thrtrmsmdl.h */,
+				D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2328,6 +2349,7 @@
 				D4E658CA17F2DDFA00202B14 /* rightdisclosure.png in Resources */,
 				64A41244194080D6003EE113 /* contract-mangement.png in Resources */,
 				D4AA4F8B1965535A00916138 /* AbsentViewController.xib in Resources */,
+				D4EBA8641978FD6C00B612E1 /* Trecell.xib in Resources */,
 				D42D8C2D18D2E126009D8085 /* customservicescell.xib in Resources */,
 				D44BEA8218E04D5100719ED5 /* cTypecell.xib in Resources */,
 				D4A16B451974EEA8002CA2A2 /* Jobsiterecord.xib in Resources */,
@@ -2358,6 +2380,7 @@
 				D4014FF418E3E05B00DB825A /* SerialViewController.xib in Resources */,
 				6426F5EB18C06062002471AC /* leads.png in Resources */,
 				D4A16B461974EEA8002CA2A2 /* Roolsrecordaddview.xib in Resources */,
+				D4EBA85A1978E05100B612E1 /* Cfecell.xib in Resources */,
 				6426F5E718C05E09002471AC /* com.png in Resources */,
 				D4E658D417F2EF5B00202B14 /* wrong.png in Resources */,
 				D42D8C1E18D2D91C009D8085 /* customvendercell.xib in Resources */,
@@ -2467,6 +2490,7 @@
 				D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */,
 				D49F876C18EEA36B00413CAD /* Matrixmark.m in Sources */,
 				D49F8A5018EEBEA400413CAD /* Wagesmdl.m in Sources */,
+				D4EBA8671978FE7700B612E1 /* Thrtrmsmdl.m in Sources */,
 				D40D1EB7176B086F00379DD5 /* main.m in Sources */,
 				D40D1EBB176B086F00379DD5 /* AppDelegate.m in Sources */,
 				D49F874F18EEA36B00413CAD /* Coursemdl.m in Sources */,
@@ -2480,6 +2504,7 @@
 				D49F875818EEA36B00413CAD /* basicreqmdl.m in Sources */,
 				D4A674AA19345F7200D5A77E /* Newsinglecell.m in Sources */,
 				D4F19DF518D03F47007617F0 /* ContractViewController.m in Sources */,
+				D4EBA8601978F40800B612E1 /* eqtermsmdl.m in Sources */,
 				D49F876718EEA36B00413CAD /* Mdladdress.m in Sources */,
 				D41499B9194576D5001E9146 /* EqothersViewController.m in Sources */,
 				D49F875318EEA36B00413CAD /* Manpwr.m in Sources */,
@@ -2492,6 +2517,7 @@
 				D400406A185B180200C38E12 /* ResViewController.m in Sources */,
 				D42E73DE1907E26300F7C99A /* Metgenmdl.m in Sources */,
 				D49F875618EEA36B00413CAD /* phasesmodel.m in Sources */,
+				D4EBA85D1978ED7B00B612E1 /* deliverymdl.m in Sources */,
 				D4A338C918F3BD1900E53FAC /* WorktypeViewController.m in Sources */,
 				D42D8C1518D2D8FF009D8085 /* BasicReqViewController.m in Sources */,
 				D4A674A819345F7200D5A77E /* DateTable.m in Sources */,

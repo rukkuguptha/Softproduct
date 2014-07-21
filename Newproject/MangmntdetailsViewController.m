@@ -65,6 +65,9 @@
     [[self.equpclause layer] setBorderColor:[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor];
     [[self.equpclause layer] setBorderWidth:3];
     [[self.equpclause layer] setCornerRadius:10];
+    self.deliverytable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
+    self.deliverytable.layer.borderWidth=2.0f;
+
     self.cfetable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     self.cfetable.layer.borderWidth=2.0f;
     self.tretable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
@@ -76,6 +79,7 @@
     self.basetable.layer.borderWidth=2.0f;
     self.basetitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.fueltitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+     self.deliverytitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
     self.fueltable.layer.borderColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f].CGColor;
     self.fueltable.layer.borderWidth=2.0f;
     self.nonfueltitle.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
@@ -674,6 +678,57 @@
     
     
 }
+-(void)DeliveryRateselect{
+    tabletype=10;
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<DeliveryRateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ContractId>%d</ContractId>\n"
+                   "</DeliveryRateselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_subcntrct.contractid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    //NSURL *url = [NSURL URLWithString:@"http://192.168.0.125/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/DeliveryRateselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
 
 
 #pragma mark - Connection
@@ -742,7 +797,10 @@
               [_docutable reloadData];
               break;
 
-            
+          case 10:
+              [_deliverytable reloadData];
+              break;
+
         default:
             break;
       }
@@ -975,6 +1033,18 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"EquipmentId"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if ([elementName isEqualToString:@"EquipmentDescription"])
     {
         
@@ -986,6 +1056,62 @@
         recordResults = TRUE;
         
     }
+    if ([elementName isEqualToString:@"HourlyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"DailyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"WeeklyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"MonthlyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"Fueld"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
     if ([elementName isEqualToString:@"EquipmenttermsThirdPartyselectResponse"])
     {
         
@@ -1036,6 +1162,118 @@
     }
 
     if ([elementName isEqualToString:@"FilePath"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+
+    if ([elementName isEqualToString:@"DeliveryRateselectResponse"])
+    {
+        _deliveryratearray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"Distance"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"Amount"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"EquipmenttermsThirdPartyselectResponse"])
+    {
+        
+        _tequparray=[[NSMutableArray alloc]init];
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ThirdPartyDescription"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ThirdHourlyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ThdailyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ThWeeklyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ThMonthlyRate"])
+    {
+        
+        
+        if(!_soapResults)
+        {
+            _soapResults=[[NSMutableString alloc]init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if ([elementName isEqualToString:@"ThFueld"])
     {
         
         
@@ -1203,36 +1441,72 @@
         _soapResults=nil;
         
     }
-    if ([elementName isEqualToString:@"EquipmentId"])
-    {
-        
-       
-        recordResults = FALSE;
-      
-        _soapResults=nil;
-        
-    }
-
-
-    if ([elementName isEqualToString:@"EquipmentDescription"])
-    {
-        
-        
-        recordResults = FALSE;
-        [_cequarray addObject:_soapResults];
-         _soapResults=nil;
-        
-    }
-
+    
     if ([elementName isEqualToString:@"ThirdPartyDescription"])
     {
         
         
         recordResults = FALSE;
-        [_tequparray addObject:_soapResults];
+        _thrtrmsmdl=[[Thrtrmsmdl alloc]init];
+        _thrtrmsmdl.eqname=_soapResults;
+               _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"ThirdHourlyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _thrtrmsmdl.hurlyrate=_soapResults;
+
         _soapResults=nil;
         
     }
+    if ([elementName isEqualToString:@"ThdailyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _thrtrmsmdl.dailyrate=_soapResults;
+
+        _soapResults=nil;
+
+        
+    }
+    if ([elementName isEqualToString:@"ThWeeklyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _thrtrmsmdl.weeklyrate=_soapResults;
+
+        _soapResults=nil;
+
+        
+    }
+    if ([elementName isEqualToString:@"ThMonthlyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _thrtrmsmdl.mnthlyrate=_soapResults;
+
+        _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"ThFueld"])
+    {
+        
+        
+        recordResults = FALSE;
+        _thrtrmsmdl.fueled=_soapResults;
+
+        [_tequparray addObject:_thrtrmsmdl];
+
+        _soapResults=nil;
+        
+    }
+
     if ([elementName isEqualToString:@"EntryId"])
     {
         recordResults = FALSE;
@@ -1274,6 +1548,100 @@
         recordResults = FALSE;
         _soapResults=nil;
         
+        
+    }
+    if ([elementName isEqualToString:@"Distance"])
+    {
+        
+        
+        recordResults = FALSE;
+        _delrymdl=[[deliverymdl alloc]init];
+        _delrymdl.distance=_soapResults;
+        //diststrg=_soapResults;
+        _soapResults=nil;
+
+        
+    }
+    if ([elementName isEqualToString:@"Amount"])
+    {
+        
+        
+        recordResults = FALSE;
+        _delrymdl.amount=_soapResults;
+        [_deliveryratearray  addObject:_delrymdl];
+     
+        _soapResults=nil;
+
+        
+    }
+    if ([elementName isEqualToString:@"EquipmentId"])
+    {
+        
+        
+        recordResults = FALSE;
+      
+        _eqmdl.eqid=_soapResults;
+        
+        _soapResults=nil;
+        
+    }
+    
+    
+    if ([elementName isEqualToString:@"EquipmentDescription"])
+    {
+        
+        
+        recordResults = FALSE;
+          _eqmdl=[[eqtermsmdl alloc]init];
+        _eqmdl.eqname=_soapResults;
+        _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"HourlyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _eqmdl.hurlyrate=_soapResults;
+        _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"DailyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _eqmdl.dailyrate=_soapResults;
+        _soapResults=nil;
+
+        
+    }
+    if ([elementName isEqualToString:@"WeeklyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _eqmdl.weeklyrate=_soapResults;
+        _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"MonthlyRate"])
+    {
+        
+        
+        recordResults = FALSE;
+        _eqmdl.mnthlyrate=_soapResults;
+        _soapResults=nil;
+        
+    }
+    if ([elementName isEqualToString:@"Fueld"])
+    {
+        
+        
+        recordResults = FALSE;
+        _eqmdl.fueled=_soapResults;
+        [_cequarray addObject:_eqmdl];
+        _soapResults=nil;
         
     }
 
@@ -1320,6 +1688,9 @@
         case 9:
             return [_documentarray count];
             break;
+        case 10:
+            return [_deliveryratearray count];
+            break;
 
 
         default:
@@ -1347,7 +1718,7 @@
             [[NSBundle mainBundle]loadNibNamed:@"Basewagecell" owner:self options:nil];
             cell=_basecell;
         }
-        if(tableView==_fueltable||tableView==_nonfueltable){
+        if(tableView==_fueltable||tableView==_nonfueltable||tableView==_deliverytable){
             [[NSBundle mainBundle]loadNibNamed:@"fuelcell" owner:self options:nil];
             cell=_fuelcell;
         }
@@ -1356,6 +1727,15 @@
             [[NSBundle mainBundle]loadNibNamed:@"Doccontrctcell" owner:self options:nil];
             cell=_documntcell;
         }
+        if(tableView==_cfetable){
+            [[NSBundle mainBundle]loadNibNamed:@"Cfecell" owner:self options:nil];
+            cell=_cfecell;
+        }
+        if(tableView==_tretable){
+            [[NSBundle mainBundle]loadNibNamed:@"Trecell" owner:self options:nil];
+            cell=_trecell;
+        }
+        
 
         
     }
@@ -1415,15 +1795,74 @@
     }
 
     if(tableView==_cfetable){
-        cell.textLabel.text=[_cequarray objectAtIndex:indexPath.row];
+       // cell.textLabel.text=[_cequarray objectAtIndex:indexPath.row];
+        eqtermsmdl*eqtrms=(eqtermsmdl*)[_cequarray objectAtIndex:indexPath.row];
+        _eqname=(UILabel *)[cell viewWithTag:1];
+        _eqname.text=eqtrms.eqname;
+        _hurlylbl=(UILabel *)[cell viewWithTag:2];
+        _hurlylbl.text=[NSString stringWithFormat:@"$%@",eqtrms.hurlyrate];
+        _dailylbl=(UILabel *)[cell viewWithTag:3];
+        _dailylbl.text=[NSString stringWithFormat:@"$%@",eqtrms.dailyrate ];
+        _weeklylbl=(UILabel *)[cell viewWithTag:4];
+        _weeklylbl.text=[NSString stringWithFormat:@"$%@",eqtrms.weeklyrate];
+        _mnthlylbl=(UILabel *)[cell viewWithTag:5];
+        _mnthlylbl.text=[NSString stringWithFormat:@"$%@",eqtrms.mnthlyrate];
+      
+        if([eqtrms.fueled isEqualToString:@"true"]){
+            [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            
+            
+        }
+        else
+        {
+            [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+           
+            
+        }
+
+
         }
     if(tableView==_tretable){
-        cell.textLabel.text=[_tequparray objectAtIndex:indexPath.row];
+           Thrtrmsmdl*thrmdl=(Thrtrmsmdl *)[_tequparray objectAtIndex:indexPath.row];
+        _teqnamelbl=(UILabel *)[cell viewWithTag:1];
+        _teqnamelbl.text=thrmdl.eqname;
+        _thurslbl=(UILabel *)[cell viewWithTag:2];
+        _thurslbl.text=[NSString stringWithFormat:@"$%@",thrmdl.hurlyrate];
+        _tdailylbl=(UILabel *)[cell viewWithTag:3];
+        _tdailylbl.text=[NSString stringWithFormat:@"$%@",thrmdl.dailyrate ];
+        _tweeklylbl=(UILabel *)[cell viewWithTag:4];
+        _tweeklylbl.text=[NSString stringWithFormat:@"$%@",thrmdl.weeklyrate];
+        _tmntlylbl=(UILabel *)[cell viewWithTag:5];
+        _tmntlylbl.text=[NSString stringWithFormat:@"$%@",thrmdl.mnthlyrate];
+      
+        if([thrmdl.fueled isEqualToString:@"true"]){
+            [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_on"] forState:UIControlStateNormal];
+            
+            
+        }
+        else
+        {
+            [_checkbtnlbl setImage:[UIImage imageNamed:@"cb_mono_off"] forState:UIControlStateNormal];
+            
+            
+        }
+
     }
     if(tableView==_docutable){
         _docunamelbl=(UILabel *)[cell viewWithTag:1];
         _docunamelbl.text=[_documentarray objectAtIndex:indexPath.row];
 
+    }
+    if (tableView==_deliverytable) {
+        
+        deliverymdl*delmdl=(deliverymdl *)[_deliveryratearray objectAtIndex:indexPath.row];
+
+        _itmcdelbl=(UILabel *)[cell viewWithTag:1];
+        _itmcdelbl.text=[NSString stringWithFormat:@"%@",delmdl.distance];
+        _itmdeslbl=(UILabel *)[cell viewWithTag:2];
+        _itmdeslbl.text=[NSString stringWithFormat:@"$%@",delmdl.amount];
+
+        
     }
     return cell;
     
@@ -1855,6 +2294,7 @@
 }
 
 - (IBAction)deliveryratebtn:(id)sender {
+    [self DeliveryRateselect];
     _paymentview.hidden=YES;
     _volumeview.hidden=YES;
     _labrview.hidden=YES;

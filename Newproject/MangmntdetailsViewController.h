@@ -12,20 +12,26 @@
 #import "Wagesmdl.h"
 #import "fuelmdl.h"
 #import "WebViewController.h"
-
+#import "deliverymdl.h"
+#import "eqtermsmdl.h"
+#import "Thrtrmsmdl.h"
 
 @interface MangmntdetailsViewController : UIViewController{
     
     BOOL recordResults;
     NSInteger tabletype;
     NSString *markup;
-    NSString *docuname;
+    NSString *docuname,*diststrg;
     UIButton *button;
+    
 }
 
 
 @property(strong,nonatomic)WebViewController *webctrl;
 @property(strong,nonatomic)fuelmdl *fumdl;
+@property(strong,nonatomic)deliverymdl*delrymdl;
+@property(strong,nonatomic)eqtermsmdl*eqmdl;
+@property(strong,nonatomic)Thrtrmsmdl *thrtrmsmdl;
 /* xmlparser*/
 @property(strong,nonatomic)NSXMLParser *xmlParser;
 @property(strong,nonatomic)NSMutableString *soapResults;
@@ -124,6 +130,29 @@
 @property (strong, nonatomic) IBOutlet UIButton *thirdequbtnlbl;
 @property (strong, nonatomic) IBOutlet UIButton *conequpbtnlbl;
 
+@property (strong, nonatomic) IBOutlet UITableViewCell *cfecell;
+@property (strong, nonatomic) IBOutlet UITableViewCell *trecell;
+
+//eqcell
+@property (strong, nonatomic) IBOutlet UILabel *eqname;
+@property (strong, nonatomic) IBOutlet UILabel *hurlylbl;
+@property (strong, nonatomic) IBOutlet UILabel *dailylbl;
+@property (strong, nonatomic) IBOutlet UILabel *weeklylbl;
+@property (strong, nonatomic) IBOutlet UILabel *mnthlylbl;
+@property (strong, nonatomic) IBOutlet UIButton *checkbtnlbl;
+//tpcell
+
+@property (strong, nonatomic) IBOutlet UILabel *teqnamelbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *thurslbl;
+
+@property (strong, nonatomic) IBOutlet UILabel *tdailylbl;
+@property (strong, nonatomic) IBOutlet UILabel *tweeklylbl;
+@property (strong, nonatomic) IBOutlet UILabel *tmntlylbl;
+@property (strong, nonatomic) IBOutlet UIButton *tcheckbtnlbl;
+
+
+
 - (IBAction)conequpbtn:(id)sender;
 - (IBAction)thirdequpbtn:(id)sender;
 
@@ -207,6 +236,10 @@
 /*delivery rate*/
 @property (strong, nonatomic) IBOutlet UIView *deliveryview;
 @property (strong, nonatomic) IBOutlet UITextView *deliveryclausetxtview;
+@property (strong, nonatomic) IBOutlet UITableView *deliverytable;
+@property (strong, nonatomic)NSMutableArray *deliveryratearray;
+@property (strong, nonatomic) IBOutlet UIView *deliverytitle;
+
 /*srs view*/
 @property (strong, nonatomic) IBOutlet UIView *srsview;
 @property (strong, nonatomic) IBOutlet UITextView *srstxtview;
