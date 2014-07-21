@@ -26,6 +26,7 @@
     
   //  id <newrecordDelgate>Delegate;
 }
+@property(strong,nonatomic)NSString*curntdatestrg;
 @property(strong,nonatomic)Validation *val;
 @property(readwrite)NSInteger tabtype;
 @property(readwrite)NSInteger reloadtype;
