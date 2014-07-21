@@ -26,6 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    searchtype=1;
     self.view.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.generalview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
     self.scaffoldview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f blue:226/255.0f alpha:1.0f];
@@ -53,15 +54,7 @@
     searchctrlr.searchResultsDataSource=(id)self;
     searchctrlr.delegate=(id)self;
     self.generaltable.tableHeaderView=_searchbar;
-    _searchbar1=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
-    _searchbar1.delegate=(id)self;
-    _searchbar1.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
-    self.scaffoldtable.tableHeaderView=_searchbar1;
-    UISearchDisplayController *searchctrlr1=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar1 contentsController:self];
-    searchctrlr1.searchResultsDelegate=(id)self;
-    searchctrlr1.searchResultsDataSource=(id)self;
-    searchctrlr1.delegate=(id)self;
-
+   
 
 }
 
@@ -84,7 +77,7 @@
         _navabar.title=[NSString stringWithFormat:@"Plan-%@",_planid];
       [self GeneralSelect];
     [self TotalManHoursSelect];
-    
+    searchtype=1;
 }
 -(void)Checknetavailabilty{
     /* for checking Connectivity*/
@@ -156,7 +149,7 @@
     NSLog(@"%@",[_sequencedict objectForKey:scaffldingplan.sequencename]);
     NSLog(@"%@",[_phaseiddict objectForKey:scaffldingplan.phasename]);
     NSLog(@"ujuy%@",scaffldingplan.subunit);
-    
+    searchtype=1;
     [_sequencebtn setTitle:[_sequencedict objectForKey:scaffldingplan.sequencename] forState:UIControlStateNormal];
    [_phasebtn setTitle:[_phaseiddict objectForKey:scaffldingplan.phasename] forState:UIControlStateNormal];
     first=scaffldingplan.internalworkfactor;
@@ -175,7 +168,7 @@
 }
 - (IBAction)generalselection:(id)sender
 {   [self GeneralSelect];
-
+    searchtype=1;
     _generalview.hidden=NO;
     _scaffoldview.hidden=YES;
     _generalbtn.tintColor=[UIColor whiteColor];
@@ -185,8 +178,16 @@
 }
 - (IBAction)Scaffoldslection:(id)sender
 {
-    
-   
+    searchtype=2;
+    _searchbar=[[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, 220, 44)];
+    _searchbar.delegate=(id)self;
+    _searchbar.tintColor=[UIColor colorWithRed:234.0/255.0f green:244.0/255.0f blue:249.0/255.0f alpha:1.0f];
+    self.scaffoldtable.tableHeaderView=_searchbar;
+    UISearchDisplayController *searchctrlr=[[UISearchDisplayController alloc]initWithSearchBar:_searchbar contentsController:self];
+    searchctrlr.searchResultsDelegate=(id)self;
+    searchctrlr.searchResultsDataSource=(id)self;
+    searchctrlr.delegate=(id)self;
+
     
     _scaffoldbtn.tintColor=[UIColor whiteColor];
      _fireproofingbtn.tintColor=[UIColor blackColor];
@@ -838,6 +839,56 @@
     }
     
 }
+-(void)ScaffoldSearch
+{
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<ScaffoldSearch xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<searchtext>%@</searchtext>\n"
+                   "</ScaffoldSearch>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",_searchstring];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://ios.kontract360.com/ScaffoldSearch" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+}
 
 //-(void)Selectcheight{
 //    recordResults = FALSE;
@@ -1183,6 +1234,15 @@
 -(void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *) namespaceURI qualifiedName:(NSString *)qName
    attributes: (NSDictionary *)attributeDict{
     if([elementName isEqualToString:@"ScaffoldingSelectplanResult"])
+    {
+        _scaffoldingplanlistarray=[[NSMutableArray alloc]init];
+        if(!_soapresults)
+        {
+            _soapresults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+    }
+    if([elementName isEqualToString:@"ScaffoldSearchResponse"])
     {
         _scaffoldingplanlistarray=[[NSMutableArray alloc]init];
         if(!_soapresults)
@@ -2501,18 +2561,40 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     _searchstring=_searchbar.text;
     //NSLog(@"search%@",searchstring);
-     [self GeneralSearch];
+    if (searchtype==1) {
+        [self GeneralSearch];
+    }
+    else if(searchtype==2)
+    {
+        [self ScaffoldSearch];
+    }
+
+    
     [searchBar resignFirstResponder];
     
 }
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
-    [self GeneralSelect];
+    if (searchtype==1) {
+        [self GeneralSelect];
+    }
+    else if(searchtype==2)
+    {
+        [self ScaffoldingSelectplan];
+    }
+
     
 }
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([_searchbar.text length]==0) {
-        
+        if (searchtype==1) {
         [self GeneralSelect];
+        }
+        else if(searchtype==2)
+        {
+            [self ScaffoldingSelectplan];
+        }
+        
+
         // [searchBar resignFirstResponder];
         
         
