@@ -10,6 +10,7 @@
                 <outlet property="addnavbar" destination="njL-yL-8zR" id="CfJ-zR-Pwl"/>
                 <outlet property="addresstxtview" destination="9x9-qJ-8n0" id="LkJ-Fh-LM5"/>
                 <outlet property="addview" destination="0PZ-50-CB0" id="Rpa-B6-5hp"/>
+                <outlet property="cancelbtnlbl" destination="6CI-iv-bbM" id="E9v-K1-hzs"/>
                 <outlet property="citytxtfld" destination="ztg-wA-uVz" id="4Z0-nj-b0B"/>
                 <outlet property="cuntrybtnlbl" destination="DXN-jt-ZVy" id="nUz-9W-xPc"/>
                 <outlet property="custmrtable" destination="aOR-rx-1qZ" id="bqe-00-0t4"/>
@@ -151,13 +152,12 @@
                                         <action selector="statebtn:" destination="-1" eventType="touchUpInside" id="oce-9F-ovF"/>
                                     </connections>
                                 </button>
-                                <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-iv-bbM">
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-iv-bbM">
                                     <rect key="frame" x="373" y="411" width="82" height="35"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
                                         <action selector="cancelbtn:" destination="-1" eventType="touchUpInside" id="pmE-d6-sXS"/>

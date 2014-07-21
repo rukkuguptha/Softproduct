@@ -72,6 +72,7 @@
 - (IBAction)tymbtn:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *datebtnlbl;
 @property (strong, nonatomic) IBOutlet UIView *addview;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtnlbl;
 
 - (IBAction)jobsitebtn:(id)sender;
 - (IBAction)typebtn:(id)sender;

@@ -512,6 +512,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 -(IBAction)addNewActivity:(id)sender
 { self.openviewindex=NSNotFound;
+    _cancelbtnlbl.enabled=YES;
     butnidtfr=1;
     [_dateBtn setTitle:@"Select" forState:UIControlStateNormal];
     [_activityTypeBtn setTitle:@"Select" forState:UIControlStateNormal];
@@ -577,6 +578,7 @@ self.navigationController.navigationBar.tintColor=[UIColor blackColor];
 
 - (IBAction)editcellbtn:(id)sender
 { self.activityNav.title = @"Edit";
+     _cancelbtnlbl.enabled=NO;
     _newviewactivity.hidden=NO;
 
 //    _newviewactivity.frame = CGRectMake(510, 346, 0, 0);

@@ -155,6 +155,7 @@
 
 - (IBAction)savecmtbtn:(id)sender;
 - (IBAction)cancelcmtbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *ancelbtnlbl;
 
 
 

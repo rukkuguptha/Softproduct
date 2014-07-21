@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IssuesViewController">
             <connections>
                 <outlet property="addview" destination="IbQ-2V-qxd" id="nfX-c9-76a"/>
+                <outlet property="cancelbtnlbl" destination="R47-1C-Nm6" id="Whf-0C-QhN"/>
                 <outlet property="cmmttxtview" destination="L6R-IO-8KH" id="8J6-Uf-Idp"/>
                 <outlet property="datebtnlbl" destination="O3T-GG-gkg" id="540-JF-w4B"/>
                 <outlet property="issuetable" destination="gwI-En-rTy" id="lV7-Vv-rP8"/>
