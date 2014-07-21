@@ -27,6 +27,7 @@
     NSInteger first;
     NSInteger sec;
     NSInteger third;
+    NSInteger searchtype;
 }
 @property(strong,nonatomic)IBOutlet UINavigationItem *navabar;
 
