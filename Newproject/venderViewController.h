@@ -71,4 +71,6 @@
 @property(strong,nonatomic)IBOutlet UITextField *phonetextfld;;
 @property(strong,nonatomic)IBOutlet UITextField *ratetextfld;
 @property(strong,nonatomic)IBOutlet UILabel *resultdispaylabel;
+
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
 @end

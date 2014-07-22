@@ -42,6 +42,7 @@
 
 
 /*IBOutlets*/
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 @property(strong,nonatomic)IBOutlet UITableViewCell *branchcell;
 @property (strong, nonatomic) IBOutlet UITableView *branchtable;
 @property (strong, nonatomic) IBOutlet UIView *tabletitleview;

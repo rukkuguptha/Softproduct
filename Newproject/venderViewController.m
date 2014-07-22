@@ -90,6 +90,7 @@
     _addresstextfld.text=@"";
     _phonetextfld.text=@"";
     _ratetextfld.text=@"";
+    _cancelbtn.enabled=YES;
 }
 -(IBAction)closeaddview:(id)sender
 {
@@ -140,6 +141,7 @@
 -(IBAction)editvender:(id)sender
 {
     optionidentifier=2;
+    _cancelbtn.enabled=NO;
     _venderaddview.hidden=NO;
     _resultdispaylabel.hidden=YES;
     _navitem.title=@"Edit";

@@ -131,6 +131,7 @@
 @property(strong,nonatomic)IBOutlet UILabel *venderlabel;
 @property(strong,nonatomic)IBOutlet UILabel *resultdisplaylabel;
 - (IBAction)addcancelbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *cancelbtn;
 
 
 

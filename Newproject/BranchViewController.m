@@ -77,7 +77,8 @@
     _phonetextfield.text=@"";
     _faxtextfield.text=@"";
     _emailtextfield.text=@"";
-
+    _cancelbtn.enabled=YES;
+    _cancelbtn.titleLabel.textColor=[UIColor colorWithRed:0.0/255.0f green:122.0/255.0f blue:255.0/255.0f alpha:1.0f];
     
 }
 -(IBAction)deletebranchAction:(id)sender
@@ -103,6 +104,8 @@
     _branchview.hidden=NO;
     optionidentifier=2;
     _navbar.title=@"Edit";
+    _cancelbtn.enabled=NO;
+    _cancelbtn.titleLabel.textColor=[UIColor grayColor];
     button = (UIButton *)sender;
     CGPoint center= button.center;
     CGPoint rootViewPoint = [button.superview convertPoint:center toView:self.branchtable];
@@ -116,7 +119,7 @@
     _phonetextfield.text=bmdl.phone;
     _faxtextfield.text=bmdl.fax;
     _emailtextfield.text=bmdl.email;
-
+    
     
 }
 

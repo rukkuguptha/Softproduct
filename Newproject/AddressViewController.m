@@ -512,6 +512,7 @@
     webtype=1;
     _headrtxtfld.text=@"";
     _adrsstxtview.text=@"";
+    _cancelbtn.enabled=YES;
 }
 
 - (IBAction)deletebtn:(id)sender {
@@ -630,6 +631,7 @@
     Mdladdress *addmdl=(Mdladdress *)[_addesslistarray objectAtIndex:path];
     _headrtxtfld.text=addmdl.header;
     _adrsstxtview.text=addmdl.address;
+    _cancelbtn.enabled=NO;
 
 }
 @end

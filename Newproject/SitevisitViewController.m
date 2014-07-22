@@ -139,6 +139,12 @@
         case 9:
            [self SitevisitSelectNotes];
             break;
+        case 10:
+            [self SitevisitSelectNotes];
+            break;
+        case 11:
+            [self SitevisitSelectMeetingNotes];
+            break;
 
         default:
             break;
@@ -4091,15 +4097,28 @@ _passingdate=dateString;
     
 }
 - (IBAction)accebilityupdate:(id)sender {
-    
+    if (_accblitytxtview.text.length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
     [self SaveSiteVisitAccessibility];
+    }
     
     
 }
 - (IBAction)equpmntupdatebtn:(id)sender {
-    
+    if (_equipmnttxtview.text.length==0) {
+        UIAlertView *alert=[[UIAlertView alloc]initWithTitle:nil message:@"Description is required" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+
     
     [self SaveSiteVisitEquipments];
+    }
     
     
 }

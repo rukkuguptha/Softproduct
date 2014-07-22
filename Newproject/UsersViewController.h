@@ -63,7 +63,7 @@
 /*outlets in view*/
 @property(strong,nonatomic)IBOutlet UITextField *usrnametextfld;
 @property(strong,nonatomic)IBOutlet UITextField *pswdtextfld;
-
+@property(strong,nonatomic)IBOutlet UIButton *cancelbtn;
 /*IBAction in view*/
 -(IBAction)insertuser:(id)sender;
 -(IBAction)cancel:(id)sender;

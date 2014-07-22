@@ -291,9 +291,11 @@
     _abbreviatintextfld.text=@"";
  self.openviewindex=NSNotFound;
      _animatedview.hidden=YES;
+    _cancelbtn.enabled=YES;
 }
 -(IBAction)editservices:(id)sender
 {   optionidentifier=2;
+    _cancelbtn.enabled=NO;
      self.navabar.title = @"Edit";
     _resultdispalylabel.hidden=YES;
     _addserview.hidden=NO;

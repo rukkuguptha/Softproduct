@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="abbreviatintextfld" destination="dly-FU-zUw" id="TlL-93-bTs"/>
                 <outlet property="addserview" destination="7Tk-Wh-cWs" id="Ze5-qb-voc"/>
+                <outlet property="cancelbtn" destination="weP-ua-uSQ" id="Z6R-BJ-7e5"/>
                 <outlet property="navabar" destination="Rus-kJ-85g" id="Rdl-Vx-yO1"/>
                 <outlet property="servicesTable" destination="LTX-1G-6o2" id="GU4-Xj-aZt"/>
                 <outlet property="servicetextfld" destination="FL8-EB-abT" id="mda-c5-aYn"/>

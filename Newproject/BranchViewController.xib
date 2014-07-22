@@ -11,6 +11,7 @@
                 <outlet property="branchnametextfld" destination="nvx-66-iwU" id="Xgf-4x-PeJ"/>
                 <outlet property="branchtable" destination="eod-Qd-ksO" id="5kR-Nu-MMa"/>
                 <outlet property="branchview" destination="nJb-fB-OAe" id="IMs-iI-wTX"/>
+                <outlet property="cancelbtn" destination="Uc7-bA-Pfg" id="dQz-P7-S10"/>
                 <outlet property="emailtextfield" destination="Ulo-hO-r1s" id="QqF-V9-oo0"/>
                 <outlet property="faxtextfield" destination="ZPt-Ae-01L" id="CPJ-Vh-3xg"/>
                 <outlet property="navbar" destination="Bns-FW-wGL" id="5xj-AC-3a4"/>
