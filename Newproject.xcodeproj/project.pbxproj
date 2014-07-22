@@ -118,6 +118,7 @@
 		D4049669192F183B00685109 /* GroupEqupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4049667192F183B00685109 /* GroupEqupViewController.xib */; };
 		D404966D192F2DEA00685109 /* GEqupcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404966C192F2DEA00685109 /* GEqupcell.xib */; };
 		D404966F192F3DCE00685109 /* ecrewcell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D404966E192F3DCE00685109 /* ecrewcell.xib */; };
+		D404F36D197E369E00458EF4 /* payementmdl.m in Sources */ = {isa = PBXBuildFile; fileRef = D404F36C197E369E00458EF4 /* payementmdl.m */; };
 		D40720871772F37D0070629A /* ContactInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8801772DFDA00CAECE7 /* ContactInfoViewController.m */; };
 		D40720881772F38A0070629A /* SalesRepInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 649AE8851772DFF200CAECE7 /* SalesRepInfoViewController.m */; };
 		D40736C018BB1E9B00C5DB30 /* right_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = D40736BC18BB1E9B00C5DB30 /* right_arrow.png */; };
@@ -660,6 +661,8 @@
 		D4049667192F183B00685109 /* GroupEqupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupEqupViewController.xib; sourceTree = "<group>"; };
 		D404966C192F2DEA00685109 /* GEqupcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GEqupcell.xib; sourceTree = "<group>"; };
 		D404966E192F3DCE00685109 /* ecrewcell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ecrewcell.xib; sourceTree = "<group>"; };
+		D404F36B197E369E00458EF4 /* payementmdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = payementmdl.h; sourceTree = "<group>"; };
+		D404F36C197E369E00458EF4 /* payementmdl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = payementmdl.m; sourceTree = "<group>"; };
 		D40736BC18BB1E9B00C5DB30 /* right_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = right_arrow.png; sourceTree = "<group>"; };
 		D40736BD18BB1E9B00C5DB30 /* right_arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "right_arrow@2x.png"; sourceTree = "<group>"; };
 		D40736BE18BB1E9B00C5DB30 /* left_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left_arrow.png; sourceTree = "<group>"; };
@@ -1969,6 +1972,8 @@
 				D4EBA85F1978F40800B612E1 /* eqtermsmdl.m */,
 				D4EBA8651978FE7700B612E1 /* Thrtrmsmdl.h */,
 				D4EBA8661978FE7700B612E1 /* Thrtrmsmdl.m */,
+				D404F36B197E369E00458EF4 /* payementmdl.h */,
+				D404F36C197E369E00458EF4 /* payementmdl.m */,
 			);
 			name = model;
 			path = Newproject;
@@ -2523,6 +2528,7 @@
 				D4A674A819345F7200D5A77E /* DateTable.m in Sources */,
 				64B08E5F19471498003C25F5 /* Labourcustommdl.m in Sources */,
 				649E1F8018617ECD0010CBD8 /* MaterialsViewController.m in Sources */,
+				D404F36D197E369E00458EF4 /* payementmdl.m in Sources */,
 				D42D8C2618D2DD79009D8085 /* ManViewController.m in Sources */,
 				D49F875B18EEA36B00413CAD /* Validation.m in Sources */,
 				D400405B185B178F00C38E12 /* DocmntViewController.m in Sources */,

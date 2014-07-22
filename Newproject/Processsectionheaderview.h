@@ -44,7 +44,7 @@
 -(void)sectionHeaderView:(Processsectionheaderview*)sectionHeaderView sectionOpened:(NSInteger)section;
 -(void)sectionHeaderView:(Processsectionheaderview*)sectionHeaderView sectionClosed:(NSInteger)section;
 +(void)showhidepopoverview:(Processsectionheaderview*)sectionHeaderView popoveropened:(NSInteger)section;
--(void)navigatetoVctrl:(NSString *)s;
+-(void)navigatetoVctrl:(NSInteger )s;
 -(void)Jobview:(NSString *)nwstrg;
 -(void)senttojob:(NSString *)nwstrg;
 

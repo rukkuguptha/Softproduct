@@ -22,5 +22,6 @@
 
 @property(strong,nonatomic)HomeViewController*hmeVCtrl;
 - (IBAction)loginbtn:(id)sender;
+@property (strong, nonatomic) IBOutlet UIScrollView *scroll;
 
 @end

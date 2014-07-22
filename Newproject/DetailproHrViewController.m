@@ -56,8 +56,9 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     _payementtypearray=[[NSMutableArray alloc]initWithObjects:@"Check",@"Direct Deposit",@"Paysource Card", nil];
      _maritalkeyarray=[[NSMutableArray alloc]initWithObjects:@"1",@"2",@"3", nil];
     _paymenttypedict=[[NSMutableDictionary alloc]initWithObjects:_payementtypearray forKeys:_maritalkeyarray];
+_revpaymnttypedict =[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray forKeys:_payementtypearray];
+    _revmaritaldict=[[NSMutableDictionary alloc]initWithObjects:_maritalkeyarray forKeys:_maritalarray];
 
-   
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -70,7 +71,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self Applicantrequirementselect];
+    [self Statusselect];
+    
     
 
 }
@@ -310,8 +312,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     recordResults=FALSE;
     NSString *soapMessage;
     
-    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
-    NSInteger martid=[[_maritaldict objectForKey:_maritalbtn.titleLabel.text]integerValue];
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
+    NSInteger martid=[[_revmaritaldict objectForKey:_maritalbtn.titleLabel.text]integerValue];
     
     
     soapMessage = [NSString stringWithFormat:
@@ -322,7 +324,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateW4 xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateW4 xmlns=\"http://test.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<dependent>%d</dependent>\n"
                    "<mart>%d</mart>\n"
@@ -332,7 +334,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -340,7 +342,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateW4" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UpdateW4" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -363,8 +365,9 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 -(void)UpdateDirectDeposit{
     
     recordResults=FALSE;
-    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
-    NSInteger paymnt=[[_paymenttypedict objectForKey:_paymenttypebtn.titleLabel.text]integerValue];
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
+    NSLog(@"%@",[_revpaymnttypedict objectForKey:_paymenttypebtn.titleLabel.text]);
+    NSInteger paymnt=[[_revpaymnttypedict objectForKey:_paymenttypebtn.titleLabel.text ]integerValue];
     NSInteger type = 0;
 
     if (_typesegmntlbl.selectedSegmentIndex==0) {
@@ -401,7 +404,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<UpdateDirectDeposit xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UpdateDirectDeposit xmlns=\"http://test.kontract360.com/\">\n"
                    "<appid>%d</appid>\n"
                    "<payment>%d</payment>\n"
                    "<fname>%@</fname>\n"
@@ -417,7 +420,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -425,7 +428,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UpdateDirectDeposit" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UpdateDirectDeposit" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -449,7 +452,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     recordResults=FALSE;
     NSString *soapMessage;
     
-    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
     
     NSString *imagename;
     imagename=[NSString stringWithFormat:@"Photo_%@.jpg",_documentnametextfld.text];
@@ -462,7 +465,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<UploadHRDocsImage xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<UploadHRDocsImage xmlns=\"http://test.kontract360.com/\">\n"
                    "<f>%@</f>\n"
                    "<fileName>%@</fileName>\n"
                    "<appid>%d</appid>\n"
@@ -473,7 +476,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -481,7 +484,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/UploadHRDocsImage" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/UploadHRDocsImage" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -507,7 +510,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     recordResults=FALSE;
     NSString *soapMessage;
     
-    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
     
     
     
@@ -519,7 +522,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<SelectHRDocs xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SelectHRDocs xmlns=\"http://test.kontract360.com/\">\n"
               
                    "<appid>%d</appid>\n"
                   "</SelectHRDocs>\n"
@@ -528,7 +531,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -536,7 +539,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SelectHRDocs" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SelectHRDocs" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -562,7 +565,8 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     recordResults=FALSE;
     NSString *soapMessage;
     
-    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+    NSLog(@"array%@",[_Applicantarray objectAtIndex:_path]);
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
     
     
     
@@ -574,7 +578,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<Applicantrequirementselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Applicantrequirementselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "<Applicant_Id>%d</Applicant_Id>\n"
                    "</Applicantrequirementselect>\n"
@@ -583,7 +587,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -591,7 +595,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Applicantrequirementselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/Applicantrequirementselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -614,6 +618,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 }
 -(void)Statusselect{
    
+    newwebtype=3;
     recordResults=FALSE;
     NSString *soapMessage;
     
@@ -629,7 +634,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<Statusselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Statusselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                 
                    "</Statusselect>\n"
@@ -638,7 +643,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -646,7 +651,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Statusselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/Statusselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -668,7 +673,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
 }
 -(void)ReqVendorselect{
-   
+    newwebtype=4;
 
     recordResults=FALSE;
     NSString *soapMessage;
@@ -685,7 +690,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<ReqVendorselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ReqVendorselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                    
                    "</ReqVendorselect>\n"
@@ -694,7 +699,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -702,7 +707,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ReqVendorselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ReqVendorselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -740,9 +745,17 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     NSString *soapMessage;
     Appreqmdl *appreqmdl=(Appreqmdl *)[_requirmntarray objectAtIndex:btnindex];
     
-     Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:0];
+     Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
     
+    NSString*vendorid;
     
+    if ([_vendrnamebtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        vendorid=@"0";
+    }
+  
+    else{
+        vendorid=[_vendordict objectForKey:_vendrnamebtnlbl.titleLabel.text];
+    }
     soapMessage = [NSString stringWithFormat:
                    
                    @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
@@ -751,7 +764,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<ApplicantReqirement2Update xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ApplicantReqirement2Update xmlns=\"http://test.kontract360.com/\">\n"
                    "<EntryId>%d</EntryId>\n"
                    "<Applicant_Id>%d</Applicant_Id>\n"
                
@@ -762,11 +775,11 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    "<verification_status>%d</verification_status>\n"
                    "</ApplicantReqirement2Update>\n"
                    "</soap:Body>\n"
-                   "</soap:Envelope>\n",[appreqmdl.entryid integerValue ],empdmdl.applicantid,appreqmdl.reqname,sqldate,[[_statusdict objectForKey:_statuslbl.titleLabel.text]integerValue ],[_vendordict objectForKey:_vendrnamebtnlbl.titleLabel.text],1];
+                   "</soap:Envelope>\n",[appreqmdl.entryid integerValue ],empdmdl.applicantid,appreqmdl.reqname,sqldate,[[_statusdict objectForKey:_statuslbl.titleLabel.text]integerValue ],vendorid,1];
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -774,7 +787,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ApplicantReqirement2Update" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ApplicantReqirement2Update" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -809,7 +822,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
                    
                    "<soap:Body>\n"
                    
-                   "<Stateselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Stateselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "</Stateselect>\n"
                    "</soap:Body>\n"
@@ -818,7 +831,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -826,7 +839,109 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/Stateselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)PaymentTypeselect{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+      Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<PaymentTypeselect xmlns=\"http://test.kontract360.com/\">\n"
+                    "<applicant_id>%d</applicant_id>\n"
+                   "</PaymentTypeselect>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",empdmdl.applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/PaymentTypeselect" forHTTPHeaderField:@"Soapaction"];
+    
+    [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
+    [theRequest setHTTPMethod:@"POST"];
+    [theRequest setHTTPBody: [soapMessage dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+    
+    if( theConnection )
+    {
+        _webData = [NSMutableData data];
+    }
+    else
+    {
+        ////NSLog(@"theConnection is NULL");
+    }
+    
+    
+}
+-(void)W4select{
+    
+    recordResults = FALSE;
+    NSString *soapMessage;
+    
+    Empdetails *empdmdl=(Empdetails *)[_Applicantarray objectAtIndex:_path];
+    soapMessage = [NSString stringWithFormat:
+                   
+                   @"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+                   "<soap:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soap=\"http://schemas.xmlsoap.org/soap/envelope/\">\n"
+                   
+                   
+                   "<soap:Body>\n"
+                   
+                   "<W4select xmlns=\"http://test.kontract360.com/\">\n"
+                   "<applicant_id>%d</applicant_id>\n"
+                   "</W4select>\n"
+                   "</soap:Body>\n"
+                   "</soap:Envelope>\n",empdmdl.applicantid];
+    NSLog(@"soapmsg%@",soapMessage);
+    
+    
+    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
+    
+    NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
+    
+    NSString *msgLength = [NSString stringWithFormat:@"%d", [soapMessage length]];
+    
+    [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    [theRequest addValue: @"http://test.kontract360.com/W4select" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -878,20 +993,29 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 	_xmlParser = [[NSXMLParser alloc] initWithData: _webData];
 	[_xmlParser setDelegate:(id)self];
 	[_xmlParser setShouldResolveExternalEntities: YES];
-	[_xmlParser parse];
     
-  
-   
-    if (newwebtype==1) {
-         [_detailstablview reloadData];
-        [self Statusselect];
+   	[_xmlParser parse];
+    
+    
+    
+        if (newwebtype==1) {
+        
+        // [self Statusselect];
         [self ReqVendorselect];
-        newwebtype=0;
+          [_detailstablview reloadData];
+        
+        //newwebtype=0;
     }
-    if (newwebtype==2) {
+    if (newwebtype==4) {
+          [_detailstablview reloadData];
+    }
+
+          if (newwebtype==2) {
        [_documentlisttable reloadData];
         newwebtype=0;
     }
+    
+     //[_detailstablview reloadData];
   [_popOverTableView reloadData];
     
     
@@ -1022,6 +1146,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 
     if([elementName isEqualToString:@"StatusselectResponse"])
     {
+        [self Applicantrequirementselect];
         _statusdict=[[NSMutableDictionary alloc]init];
         _restatusdict=[[NSMutableDictionary alloc]init];
 
@@ -1109,6 +1234,132 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
         
     }
 
+    if([elementName isEqualToString:@"PaymentTypeselectResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"applicant_Id"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"PaymentTypeId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"Fname"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"FAcNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"TypeId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"FRoutingNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"CardNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"CRoutingNumber"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"CardExpiryDate"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"W4selectResponse"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"W4Appid"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"NoOfDependents"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
+    if([elementName isEqualToString:@"MaritalStatusId"])
+    {
+        if(!_soapResults)
+        {
+            _soapResults = [[NSMutableString alloc] init];
+        }
+        recordResults = TRUE;
+        
+    }
 
 }
 -(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
@@ -1259,6 +1510,155 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
 
         
     }
+    if([elementName isEqualToString:@"applicant_Id"])
+    {
+        recordResults = FALSE;
+        _paymntmdl=[[payementmdl alloc]init];
+        _paymntmdl.applicantid=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"PaymentTypeId"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.paymnttypeid=_soapResults;
+        switch ([_soapResults integerValue]) {
+            case 1:
+                _instnname.enabled=NO;
+                _Accuntnumbr.enabled=NO;
+                _typesegmntlbl.enabled=NO;
+                _rontgnumbr.enabled=NO;
+                _citytxt.enabled=NO;
+                _statelbl.enabled=NO;
+                _cardnumbtxtfld.enabled=NO;
+                _cardroutdno.enabled=NO;
+                _expbtn.enabled=NO;
+                break;
+            case 2:
+                _instnname.enabled=YES;
+                _Accuntnumbr.enabled=YES;
+                _typesegmntlbl.enabled=YES;
+                _rontgnumbr.enabled=YES;
+                _citytxt.enabled=YES;
+                _statelbl.enabled=YES;
+                _cardnumbtxtfld.enabled=NO;
+                _cardroutdno.enabled=NO;
+                _expbtn.enabled=NO;
+                break;
+                
+            case 3:
+                _instnname.enabled=NO;
+                _Accuntnumbr.enabled=NO;
+                _typesegmntlbl.enabled=NO;
+                _rontgnumbr.enabled=NO;
+                _citytxt.enabled=NO;
+                _statelbl.enabled=NO;
+                _cardnumbtxtfld.enabled=YES;
+                _cardroutdno.enabled=YES;
+                _expbtn.enabled=YES;
+                break;
+                
+                
+            default:
+                break;
+        }
+
+        [_paymenttypebtn setTitle:[_paymenttypedict objectForKey:_paymntmdl.paymnttypeid] forState:UIControlStateNormal];
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"Fname"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.fname=_soapResults;
+        _instnname.text=_soapResults;
+        
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"FAcNumber"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.facnumber=_soapResults;
+        _Accuntnumbr.text=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"TypeId"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.ptypeid=_soapResults;
+        if ([_soapResults isEqualToString:@"1"]) {
+            _typesegmntlbl.selectedSegmentIndex=0;
+        }
+        else{
+            _typesegmntlbl.selectedSegmentIndex=1;
+        }
+        _soapResults = nil;
+    }
+    if([elementName isEqualToString:@"FRoutingNumber"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.froutingnumber=_soapResults;
+        _rontgnumbr.text=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"CardNumber"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.cardnumber=_soapResults;
+        _cardnumbtxtfld.text=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"CRoutingNumber"])
+    {
+        recordResults = FALSE;
+           _paymntmdl.croutingnumber=_soapResults;
+        _cardroutdno.text=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"CardExpiryDate"])
+    {
+        recordResults = FALSE;
+        
+        NSArray*array=[_soapResults componentsSeparatedByString:@"T"];
+        NSString*news=[array objectAtIndex:0];
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"yyyy-MM-dd"];
+        NSDate *dates = [dateFormat dateFromString:news];
+        [dateFormat setDateFormat:@"MM/dd/yyy"];
+        NSString *myFormattedDate = [dateFormat stringFromDate:dates];
+        _paymntmdl.cardexpiry=myFormattedDate;
+        [_payementarray addObject:_paymntmdl];
+        [_expbtn setTitle:myFormattedDate forState:UIControlStateNormal];
+
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"W4Appid"])
+    {
+        recordResults = FALSE;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"NoOfDependents"])
+    {
+        recordResults = FALSE;
+        _Dependentstexffld.text=_soapResults;
+        _soapResults = nil;
+        
+    }
+    if([elementName isEqualToString:@"MaritalStatusId"])
+    {
+        recordResults = FALSE;
+        [_maritalbtn setTitle:[_maritaldict objectForKey:_soapResults] forState:UIControlStateNormal];
+        _soapResults = nil;
+        
+    }
+
 
 }
 
@@ -1584,6 +1984,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     _detailsaddview.hidden=YES;
     _paymentdetailview.hidden=YES;
     _dcmntdetailview.hidden=YES;
+    [self W4select];
        
 }
 
@@ -1598,6 +1999,7 @@ _editview.backgroundColor=[UIColor colorWithRed:234.0/255.0f green:226/255.0f bl
     _w4detailview.hidden=YES;
     _detailsaddview.hidden=YES;
     _dcmntdetailview.hidden=YES;
+    [self PaymentTypeselect];
     
 }
 -(IBAction)editdetails:(id)sender

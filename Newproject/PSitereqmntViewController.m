@@ -333,7 +333,14 @@
 - (void)startDraggingFromSrcAtPoint:(CGPoint)point
 {
     
-    
+    if ([_jobsitebtnlbl.titleLabel.text isEqualToString:@"Select"]) {
+        
+        UIAlertView*alert=[[UIAlertView alloc]initWithTitle:nil message:@"Please select Jobsite" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+    else{
+
     NSIndexPath* indexPath = [_requmnttable indexPathForRowAtPoint:point];
     UITableViewCell* cell = [_requmnttable cellForRowAtIndexPath:indexPath];
     
@@ -359,7 +366,7 @@
         draggedData = req1.itemcode;
        // NSLog(@"%@",manmdl1.itemdescptn);
     }
-    
+    }
     
 }
 
@@ -498,7 +505,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<JobsSelect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<JobsSelect xmlns=\"http://test.kontract360.com/\">\n"
                    
                    
                    "</JobsSelect>\n"
@@ -507,7 +514,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -515,7 +522,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/JobsSelect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -552,7 +559,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiteRequirementlistselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SiteRequirementlistselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                    
                    "</SiteRequirementlistselect>\n"
@@ -561,7 +568,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -569,7 +576,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SiteRequirementlistselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SiteRequirementlistselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -608,7 +615,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiteRequirementlist2select xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SiteRequirementlist2select xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "<EntryId>%d</EntryId>\n"
                    "</SiteRequirementlist2select>\n"
@@ -617,7 +624,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -625,7 +632,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SiteRequirementlist2select" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SiteRequirementlist2select" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -666,7 +673,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiteRequirementlistInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SiteRequirementlistInsert xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "<JSRJobId>%d</JSRJobId>\n"
                    "<JSRRequirementId>%d</JSRRequirementId>\n"
@@ -676,7 +683,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -684,7 +691,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SiteRequirementlistInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SiteRequirementlistInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -720,7 +727,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SiterequirementlistDelete xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SiterequirementlistDelete xmlns=\"http://test.kontract360.com/\">\n"
                     "<JSRID>%d</JSRID>\n"
                    
                    "</SiterequirementlistDelete>\n"
@@ -729,7 +736,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -737,7 +744,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SiterequirementlistDelete" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SiterequirementlistDelete" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

@@ -83,7 +83,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<ListAllApplicants xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<ListAllApplicants xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "</ListAllApplicants>\n"
                    "</soap:Body>\n"
@@ -92,7 +92,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -100,7 +100,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/ListAllApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -134,7 +134,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AllSkills xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AllSkills xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "</AllSkills>\n"
                    "</soap:Body>\n"
@@ -143,7 +143,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -151,7 +151,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/AllSkills" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -185,7 +185,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<SearchApplicants xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<SearchApplicants xmlns=\"http://test.kontract360.com/\">\n"
                    "<searchtext>%@</searchtext>\n"
                    "</SearchApplicants>\n"
                    "</soap:Body>\n"
@@ -194,7 +194,7 @@
     
     
     // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -202,7 +202,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/SearchApplicants" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -1013,14 +1013,17 @@ return aSection.newsectionHeaderView;
     
 }
 
--(void)navigatetoVctrl:(NSString *)s{
+-(void)navigatetoVctrl:(NSInteger )s{
+   
+    NSLog(@"sectn%d",s);
   //  if (!_DetailproVCtrl) {
         self.DetailproVCtrl=[[DetailproHrViewController alloc]initWithNibName:@"DetailproHrViewController" bundle:nil];
   //  }
     
     _DetailproVCtrl.modalPresentationStyle=UIModalPresentationPageSheet;
     _DetailproVCtrl.Applicantarray=_newprocesssarray;
-    
+    _DetailproVCtrl.path=s;
+
     [self presentViewController:_DetailproVCtrl
                        animated:YES completion:NULL];
 }

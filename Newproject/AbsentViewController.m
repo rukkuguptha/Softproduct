@@ -237,7 +237,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentManagementselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentManagementselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                     "<datepassed>%@</datepassed>\n"
                    "</AbsentManagementselect>\n"
@@ -246,7 +246,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -254,7 +254,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentManagementselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/AbsentManagementselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -300,7 +300,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentEmployeeselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentEmployeeselect xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "<AMDate>%@</AMDate>\n"
                    "</AbsentEmployeeselect>\n"
@@ -309,7 +309,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -317,7 +317,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentEmployeeselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/AbsentEmployeeselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -369,7 +369,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentManagementInsert xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentManagementInsert xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "<AMJobSite>%@</AMJobSite>\n"
                    "<AMEmployeeId>%d</AMEmployeeId>\n"
@@ -381,7 +381,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -389,7 +389,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentManagementInsert" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/AbsentManagementInsert" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];
@@ -438,7 +438,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<AbsentManagementUpdate xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<AbsentManagementUpdate xmlns=\"http://test.kontract360.com/\">\n"
                    
                    "<AMJobSite>%@</AMJobSite>\n"
                    "<AMEmployeeId>%d</AMEmployeeId>\n"
@@ -450,7 +450,7 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+     NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -458,7 +458,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/AbsentManagementUpdate" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/AbsentManagementUpdate" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

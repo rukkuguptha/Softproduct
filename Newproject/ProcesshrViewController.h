@@ -15,6 +15,7 @@
 @interface ProcesshrViewController : UIViewController<ProcesssectionheaderviewDelegate>{
     BOOL   recordResults;
     NSInteger selectedsectn;
+    UIButton*button;
     
 }
 

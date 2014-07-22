@@ -120,8 +120,8 @@
 
 -(void)nextpage{
     
-    
-    [[self delegate]navigatetoVctrl:@"y"];
+    NSLog(@"section%d",self.section);
+    [[self delegate]navigatetoVctrl:self.section];
     
 }
 

@@ -30,8 +30,14 @@
     [self setNeedsStatusBarAppearanceUpdate];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     // self.navigationController.navigationBar.tintColor=[UIColor blackColor];
+    _scroll.frame=CGRectMake(0,0,1024, 724);
+    [_scroll setContentSize:CGSizeMake(1024,800)];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    _usernametxt.text=@"";
+    _passwrdtxt.text=@"";
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -55,7 +61,7 @@
                    
                    "<soap:Body>\n"
                    
-                   "<Loginselect xmlns=\"http://ios.kontract360.com/\">\n"
+                   "<Loginselect xmlns=\"http://test.kontract360.com/\">\n"
                    "<UserName>%@</UserName>\n"
                    "<Password>%@</Password>\n"
                    "</Loginselect>\n"
@@ -64,8 +70,8 @@
     NSLog(@"soapmsg%@",soapMessage);
     
     
-    // NSURL *url = [NSURL URLWithString:@"http://192.168.0.146/link/service.asmx"];
-    NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];;
+   // NSURL *url = [NSURL URLWithString:@"http://192.168.0.100/service.asmx"];
+    NSURL *url = [NSURL URLWithString:@"http://test.kontract360.com/service.asmx"];
     
     NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url];
     
@@ -73,7 +79,7 @@
     
     [theRequest addValue: @"text/xml; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     
-    [theRequest addValue: @"http://ios.kontract360.com/Loginselect" forHTTPHeaderField:@"Soapaction"];
+    [theRequest addValue: @"http://test.kontract360.com/Loginselect" forHTTPHeaderField:@"Soapaction"];
     
     [theRequest addValue: msgLength forHTTPHeaderField:@"Content-Length"];
     [theRequest setHTTPMethod:@"POST"];

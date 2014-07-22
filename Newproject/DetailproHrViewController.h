@@ -15,6 +15,7 @@
 #import "WebViewController.h"
 #import "Validation.h"
 #import "Appreqmdl.h"
+#import "payementmdl.h"
 
 @interface DetailproHrViewController : UIViewController<UIImagePickerControllerDelegate>
 {
@@ -32,13 +33,18 @@
     NSInteger newwebtype;
     
 }
-
+@property (readwrite)NSInteger path;
 @property (strong, nonatomic)Appreqmdl*appreqmdl;
+@property (strong, nonatomic)payementmdl*paymntmdl;
+@property (strong, nonatomic)NSMutableArray*payementarray;
 @property (strong, nonatomic)NSMutableArray*requirmntarray;
 @property (strong, nonatomic)NSMutableDictionary*vendordict;
 @property (strong, nonatomic)NSMutableDictionary*revendordict;
 @property (strong, nonatomic)NSMutableDictionary *statedict;
+@property (strong, nonatomic)NSMutableDictionary *revpaymnttypedict;
+@property (strong, nonatomic)NSMutableDictionary *revmaritaldict;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *detailbtnlbl;
+
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *docubtnlbl;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *w4btnlbl;
